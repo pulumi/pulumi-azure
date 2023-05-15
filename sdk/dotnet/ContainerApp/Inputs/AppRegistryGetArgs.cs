@@ -26,6 +26,8 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
         /// <summary>
         /// The hostname for the Container Registry.
+        /// 
+        /// The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         /// </summary>
         [Input("server", required: true)]
         public Input<string> Server { get; set; } = null!;

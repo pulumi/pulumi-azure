@@ -90,12 +90,16 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Function apps are not supported at this time.
+     * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
      * @return The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Function apps are not supported at this time.
      * 
      */
     public Output<String> appId() {
@@ -146,12 +150,16 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+     * 
      */
     @Export(name="rollbackEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rollbackEnabled;
 
     /**
      * @return Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
      * 
      */
     public Output<Optional<Boolean>> rollbackEnabled() {

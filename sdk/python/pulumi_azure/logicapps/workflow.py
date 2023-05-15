@@ -40,6 +40,8 @@ class WorkflowArgs:
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Key-Value pairs.
+               
+               > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] workflow_parameters: Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
         :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
@@ -172,6 +174,8 @@ class WorkflowArgs:
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of Key-Value pairs.
+
+        > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         """
         return pulumi.get(self, "parameters")
 
@@ -262,6 +266,8 @@ class _WorkflowState:
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Key-Value pairs.
+               
+               > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
@@ -432,6 +438,8 @@ class _WorkflowState:
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of Key-Value pairs.
+
+        > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         """
         return pulumi.get(self, "parameters")
 
@@ -576,6 +584,8 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Key-Value pairs.
+               
+               > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] workflow_parameters: Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
@@ -714,6 +724,8 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Key-Value pairs.
+               
+               > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
@@ -831,6 +843,8 @@ class Workflow(pulumi.CustomResource):
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Key-Value pairs.
+
+        > **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         """
         return pulumi.get(self, "parameters")
 

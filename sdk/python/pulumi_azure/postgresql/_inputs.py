@@ -29,6 +29,10 @@ class FlexibleServerAuthenticationArgs:
         :param pulumi.Input[bool] active_directory_auth_enabled: Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         :param pulumi.Input[bool] password_auth_enabled: Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+               
+               > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+               
+               > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
         """
         if active_directory_auth_enabled is not None:
             pulumi.set(__self__, "active_directory_auth_enabled", active_directory_auth_enabled)
@@ -66,6 +70,10 @@ class FlexibleServerAuthenticationArgs:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+
+        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+
+        > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
         """
         return pulumi.get(self, "tenant_id")
 
@@ -82,6 +90,8 @@ class FlexibleServerCustomerManagedKeyArgs:
         """
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -105,6 +115,8 @@ class FlexibleServerCustomerManagedKeyArgs:
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -120,7 +132,6 @@ class FlexibleServerHighAvailabilityArgs:
                  standby_availability_zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mode: The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
-        :param pulumi.Input[str] standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -141,9 +152,6 @@ class FlexibleServerHighAvailabilityArgs:
     @property
     @pulumi.getter(name="standbyAvailabilityZone")
     def standby_availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Availability Zone in which the standby Flexible Server should be located.
-        """
         return pulumi.get(self, "standby_availability_zone")
 
     @standby_availability_zone.setter
@@ -161,7 +169,13 @@ class FlexibleServerIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+               
+               > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+               
+               > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -188,6 +202,8 @@ class FlexibleServerIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -209,6 +225,10 @@ class FlexibleServerIdentityArgs:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+
+        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+
+        > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
         """
         return pulumi.get(self, "tenant_id")
 

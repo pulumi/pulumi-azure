@@ -60,6 +60,8 @@ namespace Pulumi.Azure.Maintenance
 
         /// <summary>
         /// An `install_patches` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
         /// </summary>
         [Output("installPatches")]
         public Output<Outputs.ConfigurationInstallPatches?> InstallPatches { get; private set; } = null!;
@@ -166,6 +168,8 @@ namespace Pulumi.Azure.Maintenance
 
         /// <summary>
         /// An `install_patches` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
         /// </summary>
         [Input("installPatches")]
         public Input<Inputs.ConfigurationInstallPatchesArgs>? InstallPatches { get; set; }
@@ -246,6 +250,8 @@ namespace Pulumi.Azure.Maintenance
 
         /// <summary>
         /// An `install_patches` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
         /// </summary>
         [Input("installPatches")]
         public Input<Inputs.ConfigurationInstallPatchesGetArgs>? InstallPatches { get; set; }

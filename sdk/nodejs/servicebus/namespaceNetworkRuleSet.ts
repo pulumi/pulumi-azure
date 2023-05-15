@@ -95,6 +95,8 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     public readonly ipRules!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
@@ -160,6 +162,8 @@ export interface NamespaceNetworkRuleSetState {
     ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
      */
     namespaceId?: pulumi.Input<string>;
     /**
@@ -190,6 +194,8 @@ export interface NamespaceNetworkRuleSetArgs {
     ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
      */
     namespaceId: pulumi.Input<string>;
     /**

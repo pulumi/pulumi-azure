@@ -98,6 +98,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         /// </summary>
         [Output("failureSuppressionEnabled")]
         public Output<bool?> FailureSuppressionEnabled { get; private set; } = null!;
@@ -116,12 +118,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        /// 
+        /// &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         [Output("protectedSettings")]
         public Output<string?> ProtectedSettings { get; private set; } = null!;
 
         /// <summary>
         /// A `protected_settings_from_key_vault` block as defined below.
+        /// 
+        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         /// </summary>
         [Output("protectedSettingsFromKeyVault")]
         public Output<Outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
@@ -140,6 +146,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A JSON String which specifies Settings for the Extension.
+        /// 
+        /// &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         [Output("settings")]
         public Output<string?> Settings { get; private set; } = null!;
@@ -152,12 +160,26 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        /// 
+        /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
         /// </summary>
         [Output("virtualMachineScaleSetId")]
         public Output<string> VirtualMachineScaleSetId { get; private set; } = null!;
@@ -226,6 +248,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
@@ -247,6 +271,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        /// 
+        /// &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -260,6 +286,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `protected_settings_from_key_vault` block as defined below.
+        /// 
+        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>? ProtectedSettingsFromKeyVault { get; set; }
@@ -284,6 +312,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A JSON String which specifies Settings for the Extension.
+        /// 
+        /// &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
@@ -296,12 +326,26 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        /// 
+        /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("typeHandlerVersion", required: true)]
         public Input<string> TypeHandlerVersion { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
         /// </summary>
         [Input("virtualMachineScaleSetId", required: true)]
         public Input<string> VirtualMachineScaleSetId { get; set; } = null!;
@@ -328,6 +372,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
@@ -349,6 +395,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        /// 
+        /// &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -362,6 +410,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `protected_settings_from_key_vault` block as defined below.
+        /// 
+        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }
@@ -386,6 +436,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A JSON String which specifies Settings for the Extension.
+        /// 
+        /// &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
@@ -398,12 +450,26 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        /// 
+        /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
 
         /// <summary>
         /// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }

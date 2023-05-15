@@ -42,7 +42,11 @@ class WorkspaceArgs:
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
@@ -53,6 +57,8 @@ class WorkspaceArgs:
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+               
+               > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
@@ -147,6 +153,8 @@ class WorkspaceArgs:
     def storage_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -159,6 +167,8 @@ class WorkspaceArgs:
     def container_registry_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         """
         return pulumi.get(self, "container_registry_id")
 
@@ -279,6 +289,8 @@ class WorkspaceArgs:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable public access when this Machine Learning Workspace is behind VNet.
+
+        > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -345,11 +357,14 @@ class _WorkspaceState:
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None):
+                 v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
@@ -363,11 +378,16 @@ class _WorkspaceState:
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+               
+               > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        :param pulumi.Input[str] workspace_id: The immutable id associated with this workspace.
         """
         if application_insights_id is not None:
             pulumi.set(__self__, "application_insights_id", application_insights_id)
@@ -412,6 +432,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "tags", tags)
         if v1_legacy_mode_enabled is not None:
             pulumi.set(__self__, "v1_legacy_mode_enabled", v1_legacy_mode_enabled)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -430,6 +452,8 @@ class _WorkspaceState:
     def container_registry_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         """
         return pulumi.get(self, "container_registry_id")
 
@@ -586,6 +610,8 @@ class _WorkspaceState:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable public access when this Machine Learning Workspace is behind VNet.
+
+        > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -622,6 +648,8 @@ class _WorkspaceState:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -652,6 +680,18 @@ class _WorkspaceState:
     @v1_legacy_mode_enabled.setter
     def v1_legacy_mode_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "v1_legacy_mode_enabled", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The immutable id associated with this workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_id", value)
 
 
 class Workspace(pulumi.CustomResource):
@@ -923,6 +963,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
@@ -935,9 +977,13 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+               
+               > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
@@ -1263,6 +1309,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v1_legacy_mode_enabled"] = v1_legacy_mode_enabled
             __props__.__dict__["discovery_url"] = None
+            __props__.__dict__["workspace_id"] = None
         super(Workspace, __self__).__init__(
             'azure:machinelearning/workspace:Workspace',
             resource_name,
@@ -1292,7 +1339,8 @@ class Workspace(pulumi.CustomResource):
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None) -> 'Workspace':
+            v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
+            workspace_id: Optional[pulumi.Input[str]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1302,6 +1350,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
@@ -1315,11 +1365,16 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+               
+               > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        :param pulumi.Input[str] workspace_id: The immutable id associated with this workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1345,6 +1400,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["v1_legacy_mode_enabled"] = v1_legacy_mode_enabled
+        __props__.__dict__["workspace_id"] = workspace_id
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1360,6 +1416,8 @@ class Workspace(pulumi.CustomResource):
     def container_registry_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         """
         return pulumi.get(self, "container_registry_id")
 
@@ -1464,6 +1522,8 @@ class Workspace(pulumi.CustomResource):
     def public_network_access_enabled(self) -> pulumi.Output[bool]:
         """
         Enable public access when this Machine Learning Workspace is behind VNet.
+
+        > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1488,6 +1548,8 @@ class Workspace(pulumi.CustomResource):
     def storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -1506,4 +1568,12 @@ class Workspace(pulumi.CustomResource):
         Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
         return pulumi.get(self, "v1_legacy_mode_enabled")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Output[str]:
+        """
+        The immutable id associated with this workspace.
+        """
+        return pulumi.get(self, "workspace_id")
 

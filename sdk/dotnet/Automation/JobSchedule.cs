@@ -65,6 +65,8 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -156,6 +158,8 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -212,6 +216,8 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         /// </summary>
         public InputMap<string> Parameters
         {

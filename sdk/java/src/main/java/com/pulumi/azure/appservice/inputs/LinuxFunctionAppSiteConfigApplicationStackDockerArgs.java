@@ -48,12 +48,16 @@ public final class LinuxFunctionAppSiteConfigApplicationStackDockerArgs extends 
     /**
      * The password for the account to use to connect to the registry.
      * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+     * 
      */
     @Import(name="registryPassword")
     private @Nullable Output<String> registryPassword;
 
     /**
      * @return The password for the account to use to connect to the registry.
+     * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
      * 
      */
     public Optional<Output<String>> registryPassword() {
@@ -78,12 +82,16 @@ public final class LinuxFunctionAppSiteConfigApplicationStackDockerArgs extends 
     /**
      * The username to use for connections to the registry.
      * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+     * 
      */
     @Import(name="registryUsername")
     private @Nullable Output<String> registryUsername;
 
     /**
      * @return The username to use for connections to the registry.
+     * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
      * 
      */
     public Optional<Output<String>> registryUsername() {
@@ -163,6 +171,8 @@ public final class LinuxFunctionAppSiteConfigApplicationStackDockerArgs extends 
         /**
          * @param registryPassword The password for the account to use to connect to the registry.
          * 
+         * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -173,6 +183,8 @@ public final class LinuxFunctionAppSiteConfigApplicationStackDockerArgs extends 
 
         /**
          * @param registryPassword The password for the account to use to connect to the registry.
+         * 
+         * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
          * 
          * @return builder
          * 
@@ -205,6 +217,8 @@ public final class LinuxFunctionAppSiteConfigApplicationStackDockerArgs extends 
         /**
          * @param registryUsername The username to use for connections to the registry.
          * 
+         * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -215,6 +229,8 @@ public final class LinuxFunctionAppSiteConfigApplicationStackDockerArgs extends 
 
         /**
          * @param registryUsername The username to use for connections to the registry.
+         * 
+         * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
          * 
          * @return builder
          * 

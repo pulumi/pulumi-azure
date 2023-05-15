@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
  * Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -55,8 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var policy = new HyperVReplicationPolicy(&#34;policy&#34;, HyperVReplicationPolicyArgs.builder()        
- *             .resourceGroupName(example.name())
- *             .recoveryVaultName(vault.name())
+ *             .recoveryVaultId(vault.id())
  *             .recoveryPointRetentionInHours(2)
  *             .applicationConsistentSnapshotFrequencyInHours(1)
  *             .replicationIntervalInSeconds(300)

@@ -20,12 +20,16 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+     * 
      */
     @Import(name="infrastructureSubnetId")
     private @Nullable Output<String> infrastructureSubnetId;
 
     /**
      * @return The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
      * 
      */
     public Optional<Output<String>> infrastructureSubnetId() {
@@ -35,12 +39,16 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * 
      */
     @Import(name="internalLoadBalancerEnabled")
     private @Nullable Output<Boolean> internalLoadBalancerEnabled;
 
     /**
      * @return Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
      * 
      */
     public Optional<Output<Boolean>> internalLoadBalancerEnabled() {
@@ -155,6 +163,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureSubnetId The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+         * 
          * @return builder
          * 
          */
@@ -166,6 +176,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureSubnetId The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+         * 
          * @return builder
          * 
          */
@@ -175,6 +187,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param internalLoadBalancerEnabled Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
          * 
          * @return builder
          * 
@@ -186,6 +200,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param internalLoadBalancerEnabled Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
          * 
          * @return builder
          * 

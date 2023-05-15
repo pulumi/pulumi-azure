@@ -40,6 +40,8 @@ class OutputServicebusTopicArgs:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+               
+               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serialization", serialization)
@@ -184,6 +186,8 @@ class OutputServicebusTopicArgs:
     def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+
+        > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         return pulumi.get(self, "system_property_columns")
 
@@ -218,6 +222,8 @@ class _OutputServicebusTopicState:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+               
+               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
         if authentication_mode is not None:
@@ -356,6 +362,8 @@ class _OutputServicebusTopicState:
     def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+
+        > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         return pulumi.get(self, "system_property_columns")
 
@@ -449,6 +457,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+               
+               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
         ...
@@ -597,6 +607,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+               
+               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -693,6 +705,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
     def system_property_columns(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+
+        > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         return pulumi.get(self, "system_property_columns")
 

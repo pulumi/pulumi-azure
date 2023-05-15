@@ -75,12 +75,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
+     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * 
      */
     @Export(name="allocationMethod", refs={String.class}, tree="[0]")
     private Output<String> allocationMethod;
 
     /**
      * @return Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     * 
+     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
      * 
      */
     public Output<String> allocationMethod() {
@@ -103,12 +107,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The ID of DDoS protection plan associated with the public IP.
      * 
+     * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
+     * 
      */
     @Export(name="ddosProtectionPlanId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ddosProtectionPlanId;
 
     /**
      * @return The ID of DDoS protection plan associated with the public IP.
+     * 
+     * &gt; **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
      * 
      */
     public Output<Optional<String>> ddosProtectionPlanId() {
@@ -187,12 +195,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * 
      */
     @Export(name="ipTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> ipTags;
 
     /**
      * @return A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      * 
      */
     public Output<Optional<Map<String,String>>> ipTags() {
@@ -201,12 +213,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * 
      */
     @Export(name="ipVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipVersion;
 
     /**
      * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
      * 
      */
     public Output<Optional<String>> ipVersion() {
@@ -285,12 +301,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
      * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
      */
     public Output<Optional<String>> sku() {
@@ -299,12 +319,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * 
      */
     @Export(name="skuTier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuTier;
 
     /**
      * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     public Output<Optional<String>> skuTier() {
@@ -327,12 +351,16 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
+     * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
      * 
      */
     public Output<Optional<List<String>>> zones() {

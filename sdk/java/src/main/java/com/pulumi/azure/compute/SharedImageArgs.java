@@ -54,12 +54,16 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+     * 
      */
     @Import(name="confidentialVmEnabled")
     private @Nullable Output<Boolean> confidentialVmEnabled;
 
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
      * 
      */
     public Optional<Output<Boolean>> confidentialVmEnabled() {
@@ -354,12 +358,16 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
+     * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+     * 
      */
     @Import(name="specialized")
     private @Nullable Output<Boolean> specialized;
 
     /**
      * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      * 
      */
     public Optional<Output<Boolean>> specialized() {
@@ -489,6 +497,8 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+         * 
          * @return builder
          * 
          */
@@ -499,6 +509,8 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
          * 
          * @return builder
          * 
@@ -919,6 +931,8 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param specialized Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
          * 
+         * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+         * 
          * @return builder
          * 
          */
@@ -929,6 +943,8 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param specialized Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+         * 
+         * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
          * 
          * @return builder
          * 

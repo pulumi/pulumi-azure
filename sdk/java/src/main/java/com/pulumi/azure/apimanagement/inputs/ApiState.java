@@ -221,12 +221,16 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
+     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
     /**
      * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+     * 
+     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -296,6 +300,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      * 
+     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
+     * 
      * @deprecated
      * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      * 
@@ -306,6 +312,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
      * 
      * @deprecated
      * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
@@ -409,12 +417,16 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Version Set which this API is associated with.
      * 
+     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+     * 
      */
     @Import(name="versionSetId")
     private @Nullable Output<String> versionSetId;
 
     /**
      * @return The ID of the Version Set which this API is associated with.
+     * 
+     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
      * 
      */
     public Optional<Output<String>> versionSetId() {
@@ -746,6 +758,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
+         * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * 
          * @return builder
          * 
          */
@@ -757,6 +771,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
+         * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * 
          * @return builder
          * 
          */
@@ -766,6 +782,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+         * 
+         * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
          * 
          * @return builder
          * 
@@ -861,6 +879,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param soapPassThrough Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
          * 
+         * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -875,6 +895,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param soapPassThrough Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
          * 
          * @return builder
          * 
@@ -1016,6 +1038,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param versionSetId The ID of the Version Set which this API is associated with.
          * 
+         * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+         * 
          * @return builder
          * 
          */
@@ -1026,6 +1050,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param versionSetId The ID of the Version Set which this API is associated with.
+         * 
+         * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
          * 
          * @return builder
          * 

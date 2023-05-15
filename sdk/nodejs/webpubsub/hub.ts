@@ -118,10 +118,14 @@ export class Hub extends pulumi.CustomResource {
     public readonly anonymousConnectionsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `eventHandler` block as defined below.
+     *
+     * > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
      */
     public readonly eventHandlers!: pulumi.Output<outputs.webpubsub.HubEventHandler[] | undefined>;
     /**
      * An `eventListener` block as defined below.
+     *
+     * > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
      */
     public readonly eventListeners!: pulumi.Output<outputs.webpubsub.HubEventListener[] | undefined>;
     /**
@@ -178,10 +182,14 @@ export interface HubState {
     anonymousConnectionsEnabled?: pulumi.Input<boolean>;
     /**
      * An `eventHandler` block as defined below.
+     *
+     * > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
      */
     eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
     /**
      * An `eventListener` block as defined below.
+     *
+     * > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
      */
     eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[]>;
     /**
@@ -205,10 +213,14 @@ export interface HubArgs {
     anonymousConnectionsEnabled?: pulumi.Input<boolean>;
     /**
      * An `eventHandler` block as defined below.
+     *
+     * > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
      */
     eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
     /**
      * An `eventListener` block as defined below.
+     *
+     * > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
      */
     eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[]>;
     /**

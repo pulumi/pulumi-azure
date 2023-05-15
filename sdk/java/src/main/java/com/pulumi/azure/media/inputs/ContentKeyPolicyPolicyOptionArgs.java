@@ -128,12 +128,16 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
     /**
      * The Widevine template.
      * 
+     * &gt; **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
+     * 
      */
     @Import(name="widevineConfigurationTemplate")
     private @Nullable Output<String> widevineConfigurationTemplate;
 
     /**
      * @return The Widevine template.
+     * 
+     * &gt; **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
      * 
      */
     public Optional<Output<String>> widevineConfigurationTemplate() {
@@ -331,6 +335,8 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
         /**
          * @param widevineConfigurationTemplate The Widevine template.
          * 
+         * &gt; **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
+         * 
          * @return builder
          * 
          */
@@ -341,6 +347,8 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
 
         /**
          * @param widevineConfigurationTemplate The Widevine template.
+         * 
+         * &gt; **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
          * 
          * @return builder
          * 

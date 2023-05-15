@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Allows you to manage an Azure SQL Elastic Pool.
+//
+// > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
+//
 // ## Example Usage
 //
 // ```go

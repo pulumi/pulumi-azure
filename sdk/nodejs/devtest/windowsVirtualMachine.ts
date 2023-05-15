@@ -105,6 +105,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly galleryImageReference!: pulumi.Output<outputs.devtest.WindowsVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
     public readonly inboundNatRules!: pulumi.Output<outputs.devtest.WindowsVirtualMachineInboundNatRule[] | undefined>;
     /**
@@ -125,6 +127,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -268,6 +272,8 @@ export interface WindowsVirtualMachineState {
     galleryImageReference?: pulumi.Input<inputs.devtest.WindowsVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
     inboundNatRules?: pulumi.Input<pulumi.Input<inputs.devtest.WindowsVirtualMachineInboundNatRule>[]>;
     /**
@@ -288,6 +294,8 @@ export interface WindowsVirtualMachineState {
     location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
     name?: pulumi.Input<string>;
     /**
@@ -342,6 +350,8 @@ export interface WindowsVirtualMachineArgs {
     galleryImageReference: pulumi.Input<inputs.devtest.WindowsVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
     inboundNatRules?: pulumi.Input<pulumi.Input<inputs.devtest.WindowsVirtualMachineInboundNatRule>[]>;
     /**
@@ -362,6 +372,8 @@ export interface WindowsVirtualMachineArgs {
     location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
     name?: pulumi.Input<string>;
     /**

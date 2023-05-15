@@ -23,6 +23,10 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string? CreateOption;
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// 
+        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
@@ -39,18 +43,22 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string? Name;
         /// <summary>
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        /// 
+        /// &gt; **NOTE:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         /// </summary>
         public readonly int? UltraSsdDiskIopsReadWrite;
         /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         /// </summary>
         public readonly int? UltraSsdDiskMbpsReadWrite;
         /// <summary>
         /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 

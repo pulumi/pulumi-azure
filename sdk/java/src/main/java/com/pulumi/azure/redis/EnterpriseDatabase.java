@@ -163,12 +163,16 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
     /**
      * A list of database resources to link with this database with a maximum of 5.
      * 
+     * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+     * 
      */
     @Export(name="linkedDatabaseIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> linkedDatabaseIds;
 
     /**
      * @return A list of database resources to link with this database with a maximum of 5.
+     * 
+     * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      * 
      */
     public Output<Optional<List<String>>> linkedDatabaseIds() {
@@ -177,12 +181,16 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+     * 
      */
     @Export(name="modules", refs={List.class,EnterpriseDatabaseModule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnterpriseDatabaseModule>> modules;
 
     /**
      * @return A `module` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
      * 
      */
     public Output<Optional<List<EnterpriseDatabaseModule>>> modules() {

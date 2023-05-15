@@ -49,6 +49,8 @@ public final class TransformOutput {
     /**
      * @return A `video_analyzer_preset` block as defined below.
      * 
+     * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
+     * 
      */
     private @Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset;
 
@@ -97,6 +99,8 @@ public final class TransformOutput {
     }
     /**
      * @return A `video_analyzer_preset` block as defined below.
+     * 
+     * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
      * 
      */
     public Optional<TransformOutputVideoAnalyzerPreset> videoAnalyzerPreset() {

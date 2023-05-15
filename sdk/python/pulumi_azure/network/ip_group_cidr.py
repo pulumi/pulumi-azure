@@ -18,8 +18,6 @@ class IPGroupCIDRArgs:
                  ip_group_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a IPGroupCIDR resource.
-        :param pulumi.Input[str] cidr: The `CIDR` that should be added to the IP Group.
-               Changing this forces a new IP Group CIDR to be created.
         :param pulumi.Input[str] ip_group_id: The ID of the destination IP Group.
                Changing this forces a new IP Group CIDR to be created.
         """
@@ -29,10 +27,6 @@ class IPGroupCIDRArgs:
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
-        """
-        The `CIDR` that should be added to the IP Group.
-        Changing this forces a new IP Group CIDR to be created.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -60,8 +54,6 @@ class _IPGroupCIDRState:
                  ip_group_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IPGroupCIDR resources.
-        :param pulumi.Input[str] cidr: The `CIDR` that should be added to the IP Group.
-               Changing this forces a new IP Group CIDR to be created.
         :param pulumi.Input[str] ip_group_id: The ID of the destination IP Group.
                Changing this forces a new IP Group CIDR to be created.
         """
@@ -73,10 +65,6 @@ class _IPGroupCIDRState:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        The `CIDR` that should be added to the IP Group.
-        Changing this forces a new IP Group CIDR to be created.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -137,8 +125,6 @@ class IPGroupCIDR(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr: The `CIDR` that should be added to the IP Group.
-               Changing this forces a new IP Group CIDR to be created.
         :param pulumi.Input[str] ip_group_id: The ID of the destination IP Group.
                Changing this forces a new IP Group CIDR to be created.
         """
@@ -229,8 +215,6 @@ class IPGroupCIDR(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr: The `CIDR` that should be added to the IP Group.
-               Changing this forces a new IP Group CIDR to be created.
         :param pulumi.Input[str] ip_group_id: The ID of the destination IP Group.
                Changing this forces a new IP Group CIDR to be created.
         """
@@ -245,10 +229,6 @@ class IPGroupCIDR(pulumi.CustomResource):
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[str]:
-        """
-        The `CIDR` that should be added to the IP Group.
-        Changing this forces a new IP Group CIDR to be created.
-        """
         return pulumi.get(self, "cidr")
 
     @property

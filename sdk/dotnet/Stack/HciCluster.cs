@@ -89,6 +89,8 @@ namespace Pulumi.Azure.Stack
 
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -177,6 +179,8 @@ namespace Pulumi.Azure.Stack
 
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -227,6 +231,8 @@ namespace Pulumi.Azure.Stack
 
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

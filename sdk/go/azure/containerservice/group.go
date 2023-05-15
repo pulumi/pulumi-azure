@@ -96,10 +96,14 @@ type Group struct {
 	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
 	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+	//
+	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
 	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy pulumi.StringPtrOutput `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
 	ExposedPorts GroupExposedPortArrayOutput `pulumi:"exposedPorts"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -112,6 +116,8 @@ type Group struct {
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	//
+	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
@@ -122,6 +128,8 @@ type Group struct {
 	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId pulumi.StringOutput `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -180,10 +188,14 @@ type groupState struct {
 	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+	//
+	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
 	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn *string `pulumi:"fqdn"`
@@ -196,6 +208,8 @@ type groupState struct {
 	// The IP address allocated to the container group.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	//
+	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -206,6 +220,8 @@ type groupState struct {
 	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -227,10 +243,14 @@ type GroupState struct {
 	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+	//
+	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel pulumi.StringPtrInput
 	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
 	ExposedPorts GroupExposedPortArrayInput
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn pulumi.StringPtrInput
@@ -243,6 +263,8 @@ type GroupState struct {
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringPtrInput
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	//
+	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType pulumi.StringPtrInput
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -253,6 +275,8 @@ type GroupState struct {
 	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -278,10 +302,14 @@ type groupArgs struct {
 	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+	//
+	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
 	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// An `identity` block as defined below.
 	Identity *GroupIdentity `pulumi:"identity"`
@@ -290,6 +318,8 @@ type groupArgs struct {
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	//
+	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -300,6 +330,8 @@ type groupArgs struct {
 	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
 	OsType string `pulumi:"osType"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -322,10 +354,14 @@ type GroupArgs struct {
 	// A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+	//
+	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel pulumi.StringPtrInput
 	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
 	ExposedPorts GroupExposedPortArrayInput
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrInput
@@ -334,6 +370,8 @@ type GroupArgs struct {
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	//
+	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType pulumi.StringPtrInput
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -344,6 +382,8 @@ type GroupArgs struct {
 	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
 	OsType pulumi.StringInput
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -460,6 +500,8 @@ func (o GroupOutput) DnsConfig() GroupDnsConfigPtrOutput {
 }
 
 // The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+//
+// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 func (o GroupOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
 }
@@ -470,6 +512,8 @@ func (o GroupOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
 }
 
 // Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
 func (o GroupOutput) ExposedPorts() GroupExposedPortArrayOutput {
 	return o.ApplyT(func(v *Group) GroupExposedPortArrayOutput { return v.ExposedPorts }).(GroupExposedPortArrayOutput)
 }
@@ -500,6 +544,8 @@ func (o GroupOutput) IpAddress() pulumi.StringOutput {
 }
 
 // Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+//
+// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 func (o GroupOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -525,6 +571,8 @@ func (o GroupOutput) NetworkProfileId() pulumi.StringOutput {
 }
 
 // The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+//
+// > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
 func (o GroupOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
 }

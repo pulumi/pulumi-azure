@@ -50,12 +50,60 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Second Storage Account connection string for AOF persistence.
      * 
+     * Example usage:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
      */
     @Import(name="aofStorageConnectionString1")
     private @Nullable Output<String> aofStorageConnectionString1;
 
     /**
      * @return Second Storage Account connection string for AOF persistence.
+     * 
+     * Example usage:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<String>> aofStorageConnectionString1() {
@@ -65,12 +113,16 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
+     * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
+     * 
      */
     @Import(name="enableAuthentication")
     private @Nullable Output<Boolean> enableAuthentication;
 
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
      * 
      */
     public Optional<Output<Boolean>> enableAuthentication() {
@@ -154,6 +206,28 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
     /**
      * Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     @Import(name="notifyKeyspaceEvents")
@@ -161,6 +235,28 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
     /**
      * @return Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<String>> notifyKeyspaceEvents() {
@@ -170,12 +266,16 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
+     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * 
      */
     @Import(name="rdbBackupEnabled")
     private @Nullable Output<Boolean> rdbBackupEnabled;
 
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
      * 
      */
     public Optional<Output<Boolean>> rdbBackupEnabled() {
@@ -215,12 +315,74 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
      * 
+     * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.Cache;
+     * import com.pulumi.azure.redis.CacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     @Import(name="rdbStorageConnectionString")
     private @Nullable Output<String> rdbStorageConnectionString;
 
     /**
      * @return The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+     * 
+     * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.Cache;
+     * import com.pulumi.azure.redis.CacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<String>> rdbStorageConnectionString() {
@@ -309,6 +471,30 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofStorageConnectionString1 Second Storage Account connection string for AOF persistence.
          * 
+         * Example usage:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -320,6 +506,30 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofStorageConnectionString1 Second Storage Account connection string for AOF persistence.
          * 
+         * Example usage:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -329,6 +539,8 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param enableAuthentication If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
          * 
          * @return builder
          * 
@@ -340,6 +552,8 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param enableAuthentication If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
          * 
          * @return builder
          * 
@@ -455,6 +669,28 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param notifyKeyspaceEvents Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -466,6 +702,28 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param notifyKeyspaceEvents Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -477,6 +735,8 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
+         * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+         * 
          * @return builder
          * 
          */
@@ -487,6 +747,8 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
          * 
          * @return builder
          * 
@@ -540,6 +802,37 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbStorageConnectionString The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
          * 
+         * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+         * 
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.azure.redis.Cache;
+         * import com.pulumi.azure.redis.CacheArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+         *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -550,6 +843,37 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param rdbStorageConnectionString The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+         * 
+         * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+         * 
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.azure.redis.Cache;
+         * import com.pulumi.azure.redis.CacheArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+         *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 

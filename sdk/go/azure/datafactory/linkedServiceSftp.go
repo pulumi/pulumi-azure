@@ -71,6 +71,8 @@ type LinkedServiceSftp struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to SFTP Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -155,6 +157,8 @@ func GetLinkedServiceSftp(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceSftp resources.
 type linkedServiceSftpState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to SFTP Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -186,6 +190,8 @@ type linkedServiceSftpState struct {
 
 type LinkedServiceSftpState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to SFTP Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -221,6 +227,8 @@ func (LinkedServiceSftpState) ElementType() reflect.Type {
 
 type linkedServiceSftpArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to SFTP Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -253,6 +261,8 @@ type linkedServiceSftpArgs struct {
 // The set of arguments for constructing a LinkedServiceSftp resource.
 type LinkedServiceSftpArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to SFTP Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -370,6 +380,8 @@ func (o LinkedServiceSftpOutput) ToLinkedServiceSftpOutputWithContext(ctx contex
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to SFTP Linked Service:
 func (o LinkedServiceSftpOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

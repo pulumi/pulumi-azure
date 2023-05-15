@@ -162,7 +162,6 @@ namespace Pulumi.Azure.Voice
 
         /// <summary>
         /// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        /// ---
         /// </summary>
         [Output("microsoftTeamsVoicemailPilotNumber")]
         public Output<string?> MicrosoftTeamsVoicemailPilotNumber { get; private set; } = null!;
@@ -299,7 +298,6 @@ namespace Pulumi.Azure.Voice
 
         /// <summary>
         /// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        /// ---
         /// </summary>
         [Input("microsoftTeamsVoicemailPilotNumber")]
         public Input<string>? MicrosoftTeamsVoicemailPilotNumber { get; set; }
@@ -416,7 +414,6 @@ namespace Pulumi.Azure.Voice
 
         /// <summary>
         /// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        /// ---
         /// </summary>
         [Input("microsoftTeamsVoicemailPilotNumber")]
         public Input<string>? MicrosoftTeamsVoicemailPilotNumber { get; set; }

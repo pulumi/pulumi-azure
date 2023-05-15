@@ -20,12 +20,16 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Web Linked Service:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Web Linked Service:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -219,6 +223,8 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
          * 
+         * The following supported arguments are specific to Web Linked Service:
+         * 
          * @return builder
          * 
          */
@@ -229,6 +235,8 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
+         * 
+         * The following supported arguments are specific to Web Linked Service:
          * 
          * @return builder
          * 

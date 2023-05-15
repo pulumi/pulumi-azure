@@ -115,6 +115,8 @@ export class KafkaCluster extends pulumi.CustomResource {
     public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.KafkaClusterComputeIsolation | undefined>;
     /**
      * One or more `diskEncryption` block as defined below.
+     *
+     * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.KafkaClusterDiskEncryption[] | undefined>;
     /**
@@ -305,6 +307,8 @@ export interface KafkaClusterState {
     computeIsolation?: pulumi.Input<inputs.hdinsight.KafkaClusterComputeIsolation>;
     /**
      * One or more `diskEncryption` block as defined below.
+     *
+     * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**
@@ -409,6 +413,8 @@ export interface KafkaClusterArgs {
     computeIsolation?: pulumi.Input<inputs.hdinsight.KafkaClusterComputeIsolation>;
     /**
      * One or more `diskEncryption` block as defined below.
+     *
+     * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**

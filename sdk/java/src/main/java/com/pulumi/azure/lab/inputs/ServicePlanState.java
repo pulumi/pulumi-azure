@@ -128,12 +128,16 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
      * 
+     * &gt; **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
+     * 
      */
     @Import(name="sharedGalleryId")
     private @Nullable Output<String> sharedGalleryId;
 
     /**
      * @return The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+     * 
+     * &gt; **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
      * 
      */
     public Optional<Output<String>> sharedGalleryId() {
@@ -363,6 +367,8 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sharedGalleryId The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
          * 
+         * &gt; **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
+         * 
          * @return builder
          * 
          */
@@ -373,6 +379,8 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sharedGalleryId The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+         * 
+         * &gt; **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
          * 
          * @return builder
          * 

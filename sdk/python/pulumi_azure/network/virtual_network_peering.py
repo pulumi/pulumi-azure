@@ -32,7 +32,10 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+               
+               > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         """
         pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -137,6 +140,9 @@ class VirtualNetworkPeeringArgs:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -148,6 +154,8 @@ class VirtualNetworkPeeringArgs:
     def use_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
         """
         Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+
+        > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         """
         return pulumi.get(self, "use_remote_gateways")
 
@@ -176,7 +184,10 @@ class _VirtualNetworkPeeringState:
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+               
+               > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing this forces a new resource to be created.
         """
         if allow_forwarded_traffic is not None:
@@ -273,6 +284,9 @@ class _VirtualNetworkPeeringState:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -284,6 +298,8 @@ class _VirtualNetworkPeeringState:
     def use_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
         """
         Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+
+        > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         """
         return pulumi.get(self, "use_remote_gateways")
 
@@ -367,7 +383,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+               
+               > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing this forces a new resource to be created.
         """
         ...
@@ -496,7 +515,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+               
+               > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -565,6 +587,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+        """
         return pulumi.get(self, "triggers")
 
     @property
@@ -572,6 +597,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     def use_remote_gateways(self) -> pulumi.Output[Optional[bool]]:
         """
         Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+
+        > **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         """
         return pulumi.get(self, "use_remote_gateways")
 

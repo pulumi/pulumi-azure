@@ -32,6 +32,8 @@ namespace Pulumi.Azure.Media.Inputs
 
         /// <summary>
         /// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

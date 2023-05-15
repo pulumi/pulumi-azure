@@ -86,12 +86,16 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure Function Linked Service:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure Function Linked Service:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {

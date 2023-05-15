@@ -313,6 +313,8 @@ type AutomationSource struct {
 	// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
 	EventSource string `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
+	//
+	// > **NOTE:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
 	RuleSets []AutomationSourceRuleSet `pulumi:"ruleSets"`
 }
 
@@ -331,6 +333,8 @@ type AutomationSourceArgs struct {
 	// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
 	EventSource pulumi.StringInput `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
+	//
+	// > **NOTE:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
 	RuleSets AutomationSourceRuleSetArrayInput `pulumi:"ruleSets"`
 }
 
@@ -391,6 +395,8 @@ func (o AutomationSourceOutput) EventSource() pulumi.StringOutput {
 }
 
 // A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
+//
+// > **NOTE:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
 func (o AutomationSourceOutput) RuleSets() AutomationSourceRuleSetArrayOutput {
 	return o.ApplyT(func(v AutomationSource) []AutomationSourceRuleSet { return v.RuleSets }).(AutomationSourceRuleSetArrayOutput)
 }
@@ -417,6 +423,8 @@ func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOu
 
 type AutomationSourceRuleSet struct {
 	// One or more `rule` blocks as defined below.
+	//
+	// > **NOTE:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
 	Rules []AutomationSourceRuleSetRule `pulumi:"rules"`
 }
 
@@ -433,6 +441,8 @@ type AutomationSourceRuleSetInput interface {
 
 type AutomationSourceRuleSetArgs struct {
 	// One or more `rule` blocks as defined below.
+	//
+	// > **NOTE:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
 	Rules AutomationSourceRuleSetRuleArrayInput `pulumi:"rules"`
 }
 
@@ -488,6 +498,8 @@ func (o AutomationSourceRuleSetOutput) ToAutomationSourceRuleSetOutputWithContex
 }
 
 // One or more `rule` blocks as defined below.
+//
+// > **NOTE:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
 func (o AutomationSourceRuleSetOutput) Rules() AutomationSourceRuleSetRuleArrayOutput {
 	return o.ApplyT(func(v AutomationSourceRuleSet) []AutomationSourceRuleSetRule { return v.Rules }).(AutomationSourceRuleSetRuleArrayOutput)
 }
@@ -520,6 +532,8 @@ type AutomationSourceRuleSetRule struct {
 	// The JPath of the entity model property that should be checked.
 	PropertyPath string `pulumi:"propertyPath"`
 	// The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+	//
+	// > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
 	PropertyType string `pulumi:"propertyType"`
 }
 
@@ -542,6 +556,8 @@ type AutomationSourceRuleSetRuleArgs struct {
 	// The JPath of the entity model property that should be checked.
 	PropertyPath pulumi.StringInput `pulumi:"propertyPath"`
 	// The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+	//
+	// > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
 	PropertyType pulumi.StringInput `pulumi:"propertyType"`
 }
 
@@ -612,6 +628,8 @@ func (o AutomationSourceRuleSetRuleOutput) PropertyPath() pulumi.StringOutput {
 }
 
 // The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+//
+// > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
 func (o AutomationSourceRuleSetRuleOutput) PropertyType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationSourceRuleSetRule) string { return v.PropertyType }).(pulumi.StringOutput)
 }

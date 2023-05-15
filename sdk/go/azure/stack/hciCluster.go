@@ -83,6 +83,8 @@ type HciCluster struct {
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -132,6 +134,8 @@ type hciClusterState struct {
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -147,6 +151,8 @@ type HciClusterState struct {
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags pulumi.StringMapInput
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -166,6 +172,8 @@ type hciClusterArgs struct {
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -182,6 +190,8 @@ type HciClusterArgs struct {
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags pulumi.StringMapInput
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -298,6 +308,8 @@ func (o HciClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+//
+// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
 func (o HciClusterOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

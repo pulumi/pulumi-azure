@@ -19,6 +19,8 @@ public final class NetworkAclPublicNetwork {
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
+     * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
      */
     private @Nullable List<String> deniedRequestTypes;
 
@@ -32,6 +34,8 @@ public final class NetworkAclPublicNetwork {
     }
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
      * 
      */
     public List<String> deniedRequestTypes() {

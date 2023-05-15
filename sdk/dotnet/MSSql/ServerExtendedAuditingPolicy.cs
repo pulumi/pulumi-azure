@@ -198,6 +198,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// 
+        /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -297,6 +299,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// 
+        /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -373,6 +377,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// 
+        /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

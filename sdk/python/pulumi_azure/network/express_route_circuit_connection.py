@@ -26,6 +26,8 @@ class ExpressRouteCircuitConnectionArgs:
         :param pulumi.Input[str] peer_peering_id: The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] peering_id: The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] address_prefix_ipv6: The IPv6 address space from which to allocate customer addresses for global reach.
+               
+               > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         :param pulumi.Input[str] authorization_key: The authorization key which is associated with the Express Route Circuit Connection.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         """
@@ -80,6 +82,8 @@ class ExpressRouteCircuitConnectionArgs:
     def address_prefix_ipv6(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 address space from which to allocate customer addresses for global reach.
+
+        > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         """
         return pulumi.get(self, "address_prefix_ipv6")
 
@@ -125,6 +129,8 @@ class _ExpressRouteCircuitConnectionState:
         Input properties used for looking up and filtering ExpressRouteCircuitConnection resources.
         :param pulumi.Input[str] address_prefix_ipv4: The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] address_prefix_ipv6: The IPv6 address space from which to allocate customer addresses for global reach.
+               
+               > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         :param pulumi.Input[str] authorization_key: The authorization key which is associated with the Express Route Circuit Connection.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] peer_peering_id: The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
@@ -160,6 +166,8 @@ class _ExpressRouteCircuitConnectionState:
     def address_prefix_ipv6(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 address space from which to allocate customer addresses for global reach.
+
+        > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         """
         return pulumi.get(self, "address_prefix_ipv6")
 
@@ -305,6 +313,8 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix_ipv4: The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] address_prefix_ipv6: The IPv6 address space from which to allocate customer addresses for global reach.
+               
+               > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         :param pulumi.Input[str] authorization_key: The authorization key which is associated with the Express Route Circuit Connection.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] peer_peering_id: The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
@@ -458,6 +468,8 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix_ipv4: The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] address_prefix_ipv6: The IPv6 address space from which to allocate customer addresses for global reach.
+               
+               > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         :param pulumi.Input[str] authorization_key: The authorization key which is associated with the Express Route Circuit Connection.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[str] peer_peering_id: The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
@@ -488,6 +500,8 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
     def address_prefix_ipv6(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 address space from which to allocate customer addresses for global reach.
+
+        > **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         """
         return pulumi.get(self, "address_prefix_ipv6")
 

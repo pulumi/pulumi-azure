@@ -260,12 +260,16 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to enable public network access? Defaults to `true`.
      * 
+     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+     * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Whether to enable public network access? Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -410,12 +414,16 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
+     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+     * 
      */
     @Import(name="tlsClientCertEnabled")
     private @Nullable Output<Boolean> tlsClientCertEnabled;
 
     /**
      * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
+     * 
+     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
      * 
      */
     public Optional<Output<Boolean>> tlsClientCertEnabled() {
@@ -823,6 +831,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Whether to enable public network access? Defaults to `true`.
          * 
+         * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+         * 
          * @return builder
          * 
          */
@@ -833,6 +843,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param publicNetworkAccessEnabled Whether to enable public network access? Defaults to `true`.
+         * 
+         * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
          * 
          * @return builder
          * 
@@ -1033,6 +1045,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
          * 
+         * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+         * 
          * @return builder
          * 
          */
@@ -1043,6 +1057,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
+         * 
+         * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
          * 
          * @return builder
          * 

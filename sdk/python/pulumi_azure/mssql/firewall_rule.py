@@ -21,6 +21,8 @@ class FirewallRuleArgs:
         """
         The set of arguments for constructing a FirewallRule resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
+               
+               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
@@ -36,6 +38,8 @@ class FirewallRuleArgs:
     def end_ip_address(self) -> pulumi.Input[str]:
         """
         The ending IP address to allow through the firewall for this rule.
+
+        > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -90,6 +94,8 @@ class _FirewallRuleState:
         """
         Input properties used for looking up and filtering FirewallRule resources.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
+               
+               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
@@ -108,6 +114,8 @@ class _FirewallRuleState:
     def end_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
         The ending IP address to allow through the firewall for this rule.
+
+        > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -195,6 +203,8 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
+               
+               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
@@ -295,6 +305,8 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
+               
+               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
@@ -314,6 +326,8 @@ class FirewallRule(pulumi.CustomResource):
     def end_ip_address(self) -> pulumi.Output[str]:
         """
         The ending IP address to allow through the firewall for this rule.
+
+        > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         """
         return pulumi.get(self, "end_ip_address")
 

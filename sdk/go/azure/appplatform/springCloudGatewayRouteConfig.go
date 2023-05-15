@@ -113,6 +113,8 @@ type SpringCloudGatewayRouteConfig struct {
 	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates pulumi.StringArrayOutput `pulumi:"predicates"`
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	//
+	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayOutput `pulumi:"routes"`
@@ -165,6 +167,8 @@ type springCloudGatewayRouteConfigState struct {
 	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates []string `pulumi:"predicates"`
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	//
+	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
 	Protocol *string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
@@ -186,6 +190,8 @@ type SpringCloudGatewayRouteConfigState struct {
 	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates pulumi.StringArrayInput
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	//
+	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
 	Protocol pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
@@ -211,6 +217,8 @@ type springCloudGatewayRouteConfigArgs struct {
 	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates []string `pulumi:"predicates"`
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	//
+	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
 	Protocol *string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
@@ -233,6 +241,8 @@ type SpringCloudGatewayRouteConfigArgs struct {
 	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates pulumi.StringArrayInput
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	//
+	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
 	Protocol pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
@@ -352,6 +362,8 @@ func (o SpringCloudGatewayRouteConfigOutput) Predicates() pulumi.StringArrayOutp
 }
 
 // Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+//
+// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
 func (o SpringCloudGatewayRouteConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }

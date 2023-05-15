@@ -94,6 +94,8 @@ export class MetricAlert extends pulumi.CustomResource {
     public readonly actions!: pulumi.Output<outputs.monitoring.MetricAlertAction[] | undefined>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     public readonly applicationInsightsWebTestLocationAvailabilityCriteria!: pulumi.Output<outputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria | undefined>;
     /**
@@ -102,6 +104,8 @@ export class MetricAlert extends pulumi.CustomResource {
     public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
     /**
      * One or more (static) `criteria` blocks as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     public readonly criterias!: pulumi.Output<outputs.monitoring.MetricAlertCriteria[] | undefined>;
     /**
@@ -110,6 +114,8 @@ export class MetricAlert extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A `dynamicCriteria` block as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     public readonly dynamicCriteria!: pulumi.Output<outputs.monitoring.MetricAlertDynamicCriteria | undefined>;
     /**
@@ -142,10 +148,14 @@ export class MetricAlert extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The location of the target resource.
+     *
+     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     public readonly targetResourceLocation!: pulumi.Output<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+     *
+     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     public readonly targetResourceType!: pulumi.Output<string>;
     /**
@@ -222,6 +232,8 @@ export interface MetricAlertState {
     actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
     /**
@@ -230,6 +242,8 @@ export interface MetricAlertState {
     autoMitigate?: pulumi.Input<boolean>;
     /**
      * One or more (static) `criteria` blocks as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
@@ -238,6 +252,8 @@ export interface MetricAlertState {
     description?: pulumi.Input<string>;
     /**
      * A `dynamicCriteria` block as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
     /**
@@ -270,10 +286,14 @@ export interface MetricAlertState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location of the target resource.
+     *
+     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceLocation?: pulumi.Input<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+     *
+     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceType?: pulumi.Input<string>;
     /**
@@ -292,6 +312,8 @@ export interface MetricAlertArgs {
     actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
     /**
@@ -300,6 +322,8 @@ export interface MetricAlertArgs {
     autoMitigate?: pulumi.Input<boolean>;
     /**
      * One or more (static) `criteria` blocks as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
@@ -308,6 +332,8 @@ export interface MetricAlertArgs {
     description?: pulumi.Input<string>;
     /**
      * A `dynamicCriteria` block as defined below.
+     *
+     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
     /**
@@ -340,10 +366,14 @@ export interface MetricAlertArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location of the target resource.
+     *
+     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceLocation?: pulumi.Input<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+     *
+     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceType?: pulumi.Input<string>;
     /**

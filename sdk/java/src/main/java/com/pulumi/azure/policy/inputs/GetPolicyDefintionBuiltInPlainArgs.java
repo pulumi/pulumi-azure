@@ -17,12 +17,16 @@ public final class GetPolicyDefintionBuiltInPlainArgs extends com.pulumi.resourc
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      * 
+     * &gt; **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
+     * 
      */
     @Import(name="displayName")
     private @Nullable String displayName;
 
     /**
      * @return Specifies the display name of the Policy Definition. Conflicts with `name`.
+     * 
+     * &gt; **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
      * 
      */
     public Optional<String> displayName() {
@@ -87,6 +91,8 @@ public final class GetPolicyDefintionBuiltInPlainArgs extends com.pulumi.resourc
 
         /**
          * @param displayName Specifies the display name of the Policy Definition. Conflicts with `name`.
+         * 
+         * &gt; **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
          * 
          * @return builder
          * 

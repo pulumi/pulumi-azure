@@ -17,14 +17,14 @@ public final class ServerAzureadAdministratorArgs extends com.pulumi.resources.R
     public static final ServerAzureadAdministratorArgs Empty = new ServerAzureadAdministratorArgs();
 
     /**
-     * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+     * Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
      * 
      */
     @Import(name="azureadAuthenticationOnly")
     private @Nullable Output<Boolean> azureadAuthenticationOnly;
 
     /**
-     * @return Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+     * @return Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
      * 
      */
     public Optional<Output<Boolean>> azureadAuthenticationOnly() {
@@ -104,7 +104,7 @@ public final class ServerAzureadAdministratorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param azureadAuthenticationOnly Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+         * @param azureadAuthenticationOnly Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ServerAzureadAdministratorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param azureadAuthenticationOnly Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+         * @param azureadAuthenticationOnly Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
          * 
          * @return builder
          * 

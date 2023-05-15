@@ -115,12 +115,16 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
     /**
      * The gateway FQDN to connect with.
      * 
+     * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * 
      */
     @Export(name="gatewayFqdn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayFqdn;
 
     /**
      * @return The gateway FQDN to connect with.
+     * 
+     * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
      * 
      */
     public Output<Optional<String>> gatewayFqdn() {

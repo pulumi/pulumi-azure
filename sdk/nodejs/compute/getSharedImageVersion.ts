@@ -49,6 +49,8 @@ export interface GetSharedImageVersionArgs {
     imageName: string;
     /**
      * The name of the Image Version.
+     *
+     * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      */
     name: string;
     /**
@@ -141,6 +143,8 @@ export interface GetSharedImageVersionOutputArgs {
     imageName: pulumi.Input<string>;
     /**
      * The name of the Image Version.
+     *
+     * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      */
     name: pulumi.Input<string>;
     /**

@@ -18,12 +18,16 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
     /**
      * The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     @Import(name="clientRdpAccess")
     private @Nullable Output<String> clientRdpAccess;
 
     /**
      * @return The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> clientRdpAccess() {
@@ -33,12 +37,16 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
     /**
      * The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     @Import(name="clientSshAccess")
     private @Nullable Output<String> clientSshAccess;
 
     /**
      * @return The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> clientSshAccess() {
@@ -48,12 +56,16 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
     /**
      * The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     @Import(name="webRdpAccess")
     private @Nullable Output<String> webRdpAccess;
 
     /**
      * @return The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> webRdpAccess() {
@@ -63,12 +75,16 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
     /**
      * The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     @Import(name="webSshAccess")
     private @Nullable Output<String> webSshAccess;
 
     /**
      * @return The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> webSshAccess() {
@@ -105,6 +121,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
         /**
          * @param clientRdpAccess The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +134,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
         /**
          * @param clientRdpAccess The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -125,6 +145,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
 
         /**
          * @param clientSshAccess The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -137,6 +159,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
         /**
          * @param clientSshAccess The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -146,6 +170,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
 
         /**
          * @param webRdpAccess The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -158,6 +184,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
         /**
          * @param webRdpAccess The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -167,6 +195,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
 
         /**
          * @param webSshAccess The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -178,6 +208,8 @@ public final class ServicePlanDefaultConnectionArgs extends com.pulumi.resources
 
         /**
          * @param webSshAccess The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
          * 
          * @return builder
          * 

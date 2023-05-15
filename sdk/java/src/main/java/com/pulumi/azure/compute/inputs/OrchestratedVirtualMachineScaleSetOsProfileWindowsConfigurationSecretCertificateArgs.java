@@ -31,12 +31,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * The Secret URL of a Key Vault Certificate.
      * 
+     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
      * @return The Secret URL of a Key Vault Certificate.
+     * 
+     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public Output<String> url() {
@@ -92,6 +96,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param url The Secret URL of a Key Vault Certificate.
          * 
+         * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
         /**
          * @param url The Secret URL of a Key Vault Certificate.
+         * 
+         * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
          * 

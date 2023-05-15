@@ -19,6 +19,8 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         public readonly string CertificateCommonName;
         /// <summary>
         /// The Issuer Thumbprint of the Certificate.
+        /// 
+        /// &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         /// </summary>
         public readonly string? CertificateIssuerThumbprint;
 

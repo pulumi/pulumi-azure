@@ -15,6 +15,8 @@ namespace Pulumi.Azure.AppService.Outputs
     {
         /// <summary>
         /// an `allowed_audiences` block as detailed below.
+        /// 
+        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>

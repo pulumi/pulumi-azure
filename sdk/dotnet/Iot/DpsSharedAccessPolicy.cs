@@ -62,12 +62,16 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+        /// 
+        /// &gt; **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         /// </summary>
         [Output("enrollmentRead")]
         public Output<bool?> EnrollmentRead { get; private set; } = null!;
 
         /// <summary>
         /// Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+        /// 
+        /// &gt; **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         /// </summary>
         [Output("enrollmentWrite")]
         public Output<bool?> EnrollmentWrite { get; private set; } = null!;
@@ -104,6 +108,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+        /// 
+        /// &gt; **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         /// </summary>
         [Output("registrationWrite")]
         public Output<bool?> RegistrationWrite { get; private set; } = null!;
@@ -128,6 +134,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+        /// 
+        /// &gt; **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         /// </summary>
         [Output("serviceConfig")]
         public Output<bool?> ServiceConfig { get; private set; } = null!;
@@ -187,12 +195,16 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+        /// 
+        /// &gt; **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         /// </summary>
         [Input("enrollmentRead")]
         public Input<bool>? EnrollmentRead { get; set; }
 
         /// <summary>
         /// Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+        /// 
+        /// &gt; **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         /// </summary>
         [Input("enrollmentWrite")]
         public Input<bool>? EnrollmentWrite { get; set; }
@@ -217,6 +229,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+        /// 
+        /// &gt; **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         /// </summary>
         [Input("registrationWrite")]
         public Input<bool>? RegistrationWrite { get; set; }
@@ -229,6 +243,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+        /// 
+        /// &gt; **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         /// </summary>
         [Input("serviceConfig")]
         public Input<bool>? ServiceConfig { get; set; }
@@ -243,12 +259,16 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+        /// 
+        /// &gt; **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         /// </summary>
         [Input("enrollmentRead")]
         public Input<bool>? EnrollmentRead { get; set; }
 
         /// <summary>
         /// Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+        /// 
+        /// &gt; **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         /// </summary>
         [Input("enrollmentWrite")]
         public Input<bool>? EnrollmentWrite { get; set; }
@@ -305,6 +325,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+        /// 
+        /// &gt; **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         /// </summary>
         [Input("registrationWrite")]
         public Input<bool>? RegistrationWrite { get; set; }
@@ -349,6 +371,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+        /// 
+        /// &gt; **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         /// </summary>
         [Input("serviceConfig")]
         public Input<bool>? ServiceConfig { get; set; }

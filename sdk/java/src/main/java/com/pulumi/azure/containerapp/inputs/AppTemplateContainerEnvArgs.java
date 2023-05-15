@@ -48,12 +48,16 @@ public final class AppTemplateContainerEnvArgs extends com.pulumi.resources.Reso
     /**
      * The value for this environment variable.
      * 
+     * &gt; **NOTE:** This value is ignored if `secret_name` is used
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return The value for this environment variable.
+     * 
+     * &gt; **NOTE:** This value is ignored if `secret_name` is used
      * 
      */
     public Optional<Output<String>> value() {
@@ -131,6 +135,8 @@ public final class AppTemplateContainerEnvArgs extends com.pulumi.resources.Reso
         /**
          * @param value The value for this environment variable.
          * 
+         * &gt; **NOTE:** This value is ignored if `secret_name` is used
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class AppTemplateContainerEnvArgs extends com.pulumi.resources.Reso
 
         /**
          * @param value The value for this environment variable.
+         * 
+         * &gt; **NOTE:** This value is ignored if `secret_name` is used
          * 
          * @return builder
          * 

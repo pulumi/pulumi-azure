@@ -109,6 +109,8 @@ type EndpointServicebusTopic struct {
 	// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EntityPath pulumi.StringPtrOutput `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
@@ -169,6 +171,8 @@ type endpointServicebusTopicState struct {
 	// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EntityPath *string `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId *string `pulumi:"iothubId"`
@@ -188,6 +192,8 @@ type EndpointServicebusTopicState struct {
 	// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EntityPath pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringPtrInput
@@ -211,6 +217,8 @@ type endpointServicebusTopicArgs struct {
 	// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EntityPath *string `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId string `pulumi:"iothubId"`
@@ -231,6 +239,8 @@ type EndpointServicebusTopicArgs struct {
 	// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EntityPath pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringInput
@@ -348,6 +358,8 @@ func (o EndpointServicebusTopicOutput) EntityPath() pulumi.StringPtrOutput {
 }
 
 // ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+//
+// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 func (o EndpointServicebusTopicOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointServicebusTopic) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }

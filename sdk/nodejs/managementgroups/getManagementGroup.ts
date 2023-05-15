@@ -37,6 +37,8 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
 export interface GetManagementGroupArgs {
     /**
      * Specifies the display name of this Management Group.
+     *
+     * > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
      */
     displayName?: string;
     /**
@@ -102,6 +104,8 @@ export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, op
 export interface GetManagementGroupOutputArgs {
     /**
      * Specifies the display name of this Management Group.
+     *
+     * > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
      */
     displayName?: pulumi.Input<string>;
     /**

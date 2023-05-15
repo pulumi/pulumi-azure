@@ -14,6 +14,8 @@ type FlexibleServerCustomerManagedKey struct {
 	// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
 	GeoBackupKeyVaultKeyId *string `pulumi:"geoBackupKeyVaultKeyId"`
 	// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+	//
+	// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -36,6 +38,8 @@ type FlexibleServerCustomerManagedKeyArgs struct {
 	// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
 	GeoBackupKeyVaultKeyId pulumi.StringPtrInput `pulumi:"geoBackupKeyVaultKeyId"`
 	// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+	//
+	// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
@@ -126,6 +130,8 @@ func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupKeyVaultKeyId() pulumi.
 }
 
 // The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+//
+// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -175,6 +181,8 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupKeyVaultKeyId() pulu
 }
 
 // The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+//
+// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -206,8 +214,12 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId
 
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+	//
+	// > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
 	Mode string `pulumi:"mode"`
 	// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -224,8 +236,12 @@ type FlexibleServerHighAvailabilityInput interface {
 
 type FlexibleServerHighAvailabilityArgs struct {
 	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+	//
+	// > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -307,11 +323,15 @@ func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPt
 }
 
 // The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+//
+// > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
 func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 // Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+//
+// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
 func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -341,6 +361,8 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Elem() FlexibleServerHighAvaila
 }
 
 // The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+//
+// > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
 func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {
@@ -351,6 +373,8 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+//
+// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
 func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {

@@ -112,6 +112,10 @@ type FrontdoorCustomDomain struct {
 	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+	//
+	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+	//
+	// ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId pulumi.StringPtrOutput `pulumi:"dnsZoneId"`
 	// The date time that the token expires.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
@@ -172,6 +176,10 @@ type frontdoorCustomDomainState struct {
 	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+	//
+	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+	//
+	// ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// The date time that the token expires.
 	ExpirationDate *string `pulumi:"expirationDate"`
@@ -189,6 +197,10 @@ type FrontdoorCustomDomainState struct {
 	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+	//
+	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+	//
+	// ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId pulumi.StringPtrInput
 	// The date time that the token expires.
 	ExpirationDate pulumi.StringPtrInput
@@ -210,6 +222,10 @@ type frontdoorCustomDomainArgs struct {
 	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+	//
+	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+	//
+	// ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
 	HostName string `pulumi:"hostName"`
@@ -224,6 +240,10 @@ type FrontdoorCustomDomainArgs struct {
 	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+	//
+	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+	//
+	// ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId pulumi.StringPtrInput
 	// The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
 	HostName pulumi.StringInput
@@ -326,6 +346,10 @@ func (o FrontdoorCustomDomainOutput) CdnFrontdoorProfileId() pulumi.StringOutput
 }
 
 // The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+//
+// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+//
+// ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 func (o FrontdoorCustomDomainOutput) DnsZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomain) pulumi.StringPtrOutput { return v.DnsZoneId }).(pulumi.StringPtrOutput)
 }

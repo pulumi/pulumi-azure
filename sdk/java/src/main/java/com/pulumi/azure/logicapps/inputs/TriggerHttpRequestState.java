@@ -63,12 +63,16 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,12 +82,16 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * Specifies the Relative Path used for this Request.
      * 
+     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * 
      */
     @Import(name="relativePath")
     private @Nullable Output<String> relativePath;
 
     /**
      * @return Specifies the Relative Path used for this Request.
+     * 
+     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
      * 
      */
     public Optional<Output<String>> relativePath() {
@@ -200,6 +208,8 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param name Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+         * 
          * @return builder
          * 
          */
@@ -211,6 +221,8 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param name Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+         * 
          * @return builder
          * 
          */
@@ -220,6 +232,8 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
 
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
+         * 
+         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
          * 
          * @return builder
          * 
@@ -231,6 +245,8 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
 
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
+         * 
+         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
          * 
          * @return builder
          * 

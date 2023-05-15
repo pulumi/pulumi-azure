@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Core.Outputs
     {
         /// <summary>
         /// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

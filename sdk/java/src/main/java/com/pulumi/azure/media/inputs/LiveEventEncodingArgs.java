@@ -63,12 +63,16 @@ public final class LiveEventEncodingArgs extends com.pulumi.resources.ResourceAr
     /**
      * Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
      * 
+     * &gt; [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+     * 
+     * &gt; [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
      * 
      */
     public Optional<Output<String>> type() {
@@ -168,6 +172,8 @@ public final class LiveEventEncodingArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param type Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
          * 
+         * &gt; [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
+         * 
          * @return builder
          * 
          */
@@ -178,6 +184,8 @@ public final class LiveEventEncodingArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param type Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+         * 
+         * &gt; [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
          * 
          * @return builder
          * 

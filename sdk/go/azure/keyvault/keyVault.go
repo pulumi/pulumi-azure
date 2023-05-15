@@ -90,8 +90,12 @@ type KeyVault struct {
 	pulumi.CustomResourceState
 
 	// A list of up to 1024 objects describing access policies, as described below.
+	//
+	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
 	// One or more `contact` block as defined below.
+	//
+	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
 	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrOutput `pulumi:"enableRbacAuthorization"`
@@ -110,12 +114,16 @@ type KeyVault struct {
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault?
+	//
+	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+	//
+	// > **Note:** This field can only be configured one time and cannot be updated.
 	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -164,8 +172,12 @@ func GetKeyVault(ctx *pulumi.Context,
 // Input properties used for looking up and filtering KeyVault resources.
 type keyVaultState struct {
 	// A list of up to 1024 objects describing access policies, as described below.
+	//
+	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// One or more `contact` block as defined below.
+	//
+	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
@@ -184,12 +196,16 @@ type keyVaultState struct {
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault?
+	//
+	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName *string `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+	//
+	// > **Note:** This field can only be configured one time and cannot be updated.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -201,8 +217,12 @@ type keyVaultState struct {
 
 type KeyVaultState struct {
 	// A list of up to 1024 objects describing access policies, as described below.
+	//
+	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// One or more `contact` block as defined below.
+	//
+	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
 	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrInput
@@ -221,12 +241,16 @@ type KeyVaultState struct {
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault?
+	//
+	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+	//
+	// > **Note:** This field can only be configured one time and cannot be updated.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -242,8 +266,12 @@ func (KeyVaultState) ElementType() reflect.Type {
 
 type keyVaultArgs struct {
 	// A list of up to 1024 objects describing access policies, as described below.
+	//
+	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// One or more `contact` block as defined below.
+	//
+	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
@@ -262,12 +290,16 @@ type keyVaultArgs struct {
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault?
+	//
+	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName string `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+	//
+	// > **Note:** This field can only be configured one time and cannot be updated.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -278,8 +310,12 @@ type keyVaultArgs struct {
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
 	// A list of up to 1024 objects describing access policies, as described below.
+	//
+	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// One or more `contact` block as defined below.
+	//
+	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
 	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrInput
@@ -298,12 +334,16 @@ type KeyVaultArgs struct {
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault?
+	//
+	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+	//
+	// > **Note:** This field can only be configured one time and cannot be updated.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -399,11 +439,15 @@ func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaul
 }
 
 // A list of up to 1024 objects describing access policies, as described below.
+//
+// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o KeyVaultOutput) AccessPolicies() KeyVaultAccessPolicyArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultAccessPolicyArrayOutput { return v.AccessPolicies }).(KeyVaultAccessPolicyArrayOutput)
 }
 
 // One or more `contact` block as defined below.
+//
+// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
 func (o KeyVaultOutput) Contacts() KeyVaultContactArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultContactArrayOutput { return v.Contacts }).(KeyVaultContactArrayOutput)
 }
@@ -449,6 +493,8 @@ func (o KeyVaultOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 }
 
 // Is Purge Protection enabled for this Key Vault?
+//
+// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 func (o KeyVaultOutput) PurgeProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.PurgeProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -464,6 +510,8 @@ func (o KeyVaultOutput) SkuName() pulumi.StringOutput {
 }
 
 // The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+//
+// > **Note:** This field can only be configured one time and cannot be updated.
 func (o KeyVaultOutput) SoftDeleteRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.IntPtrOutput { return v.SoftDeleteRetentionDays }).(pulumi.IntPtrOutput)
 }

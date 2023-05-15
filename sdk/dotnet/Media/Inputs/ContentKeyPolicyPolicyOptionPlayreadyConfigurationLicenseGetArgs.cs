@@ -32,6 +32,8 @@ namespace Pulumi.Azure.Media.Inputs
 
         /// <summary>
         /// The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+        /// 
+        /// &gt; **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn't specify `content_key_location_from_key_id` and vice versa.
         /// </summary>
         [Input("contentKeyLocationFromKeyId")]
         public Input<string>? ContentKeyLocationFromKeyId { get; set; }

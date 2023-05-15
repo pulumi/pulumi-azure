@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -32,6 +34,10 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// 
+        /// &gt; **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
+        /// 
+        /// &gt; **NOTE:** When `type` is set to `SystemAssigned`, identity the Principal ID can be retrieved after the virtual machine has been created. More details are available below. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for additional information.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

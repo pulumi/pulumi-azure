@@ -19,12 +19,16 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
     /**
      * Specifies whether KEDA Autoscaler can be used for workloads.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
+     * 
      */
     @Import(name="kedaEnabled")
     private @Nullable Output<Boolean> kedaEnabled;
 
     /**
      * @return Specifies whether KEDA Autoscaler can be used for workloads.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
      * 
      */
     public Optional<Output<Boolean>> kedaEnabled() {
@@ -49,12 +53,16 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
     /**
      * Specifies whether Vertical Pod Autoscaler should be enabled.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
+     * 
      */
     @Import(name="verticalPodAutoscalerEnabled")
     private @Nullable Output<Boolean> verticalPodAutoscalerEnabled;
 
     /**
      * @return Specifies whether Vertical Pod Autoscaler should be enabled.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
      * 
      */
     public Optional<Output<Boolean>> verticalPodAutoscalerEnabled() {
@@ -106,6 +114,8 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
         /**
          * @param kedaEnabled Specifies whether KEDA Autoscaler can be used for workloads.
          * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +126,8 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
 
         /**
          * @param kedaEnabled Specifies whether KEDA Autoscaler can be used for workloads.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
          * 
          * @return builder
          * 
@@ -148,6 +160,8 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
         /**
          * @param verticalPodAutoscalerEnabled Specifies whether Vertical Pod Autoscaler should be enabled.
          * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +172,8 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
 
         /**
          * @param verticalPodAutoscalerEnabled Specifies whether Vertical Pod Autoscaler should be enabled.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
          * 
          * @return builder
          * 

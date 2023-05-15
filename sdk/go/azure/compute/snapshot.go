@@ -72,10 +72,14 @@ type Snapshot struct {
 	pulumi.CustomResourceState
 
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	//
+	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
 	// Specifies if the Snapshot is incremental.
 	IncrementalEnabled pulumi.BoolPtrOutput `pulumi:"incrementalEnabled"`
@@ -133,10 +137,14 @@ func GetSnapshot(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	//
+	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption *string `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
 	// Specifies if the Snapshot is incremental.
 	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
@@ -160,10 +168,14 @@ type snapshotState struct {
 
 type SnapshotState struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	//
+	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption pulumi.StringPtrInput
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
 	// Specifies if the Snapshot is incremental.
 	IncrementalEnabled pulumi.BoolPtrInput
@@ -191,10 +203,14 @@ func (SnapshotState) ElementType() reflect.Type {
 
 type snapshotArgs struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	//
+	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption string `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
 	// Specifies if the Snapshot is incremental.
 	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
@@ -217,10 +233,14 @@ type snapshotArgs struct {
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	//
+	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 	CreateOption pulumi.StringInput
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
 	// Specifies if the Snapshot is incremental.
 	IncrementalEnabled pulumi.BoolPtrInput
@@ -328,6 +348,8 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 }
 
 // Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+//
+// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
 func (o SnapshotOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
 }
@@ -338,6 +360,8 @@ func (o SnapshotOutput) DiskSizeGb() pulumi.IntOutput {
 }
 
 // A `encryptionSettings` block as defined below.
+//
+// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 func (o SnapshotOutput) EncryptionSettings() SnapshotEncryptionSettingsPtrOutput {
 	return o.ApplyT(func(v *Snapshot) SnapshotEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(SnapshotEncryptionSettingsPtrOutput)
 }

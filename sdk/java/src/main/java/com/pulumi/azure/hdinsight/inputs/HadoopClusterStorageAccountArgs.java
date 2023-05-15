@@ -19,12 +19,16 @@ public final class HadoopClusterStorageAccountArgs extends com.pulumi.resources.
     /**
      * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * 
      */
     @Import(name="isDefault", required=true)
     private Output<Boolean> isDefault;
 
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
      */
     public Output<Boolean> isDefault() {
@@ -49,12 +53,16 @@ public final class HadoopClusterStorageAccountArgs extends com.pulumi.resources.
     /**
      * The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * 
      */
     @Import(name="storageContainerId", required=true)
     private Output<String> storageContainerId;
 
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     public Output<String> storageContainerId() {
@@ -106,6 +114,8 @@ public final class HadoopClusterStorageAccountArgs extends com.pulumi.resources.
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +126,8 @@ public final class HadoopClusterStorageAccountArgs extends com.pulumi.resources.
 
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
          * 
          * @return builder
          * 
@@ -148,6 +160,8 @@ public final class HadoopClusterStorageAccountArgs extends com.pulumi.resources.
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +172,8 @@ public final class HadoopClusterStorageAccountArgs extends com.pulumi.resources.
 
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 

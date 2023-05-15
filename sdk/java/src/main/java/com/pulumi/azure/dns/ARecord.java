@@ -186,12 +186,16 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -228,12 +232,16 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
+     * 
      */
     @Export(name="zoneName", refs={String.class}, tree="[0]")
     private Output<String> zoneName;
 
     /**
      * @return Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      * 
      */
     public Output<String> zoneName() {

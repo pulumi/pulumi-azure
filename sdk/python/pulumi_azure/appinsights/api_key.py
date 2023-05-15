@@ -24,6 +24,8 @@ class ApiKeyArgs:
         :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one read or write permission must be defined.
         """
         pulumi.set(__self__, "application_insights_id", application_insights_id)
         if name is not None:
@@ -74,6 +76,8 @@ class ApiKeyArgs:
     def write_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+
+        > **Note:** At least one read or write permission must be defined.
         """
         return pulumi.get(self, "write_permissions")
 
@@ -97,6 +101,8 @@ class _ApiKeyState:
         :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one read or write permission must be defined.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -162,6 +168,8 @@ class _ApiKeyState:
     def write_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+
+        > **Note:** At least one read or write permission must be defined.
         """
         return pulumi.get(self, "write_permissions")
 
@@ -240,6 +248,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one read or write permission must be defined.
         """
         ...
     @overload
@@ -365,6 +375,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one read or write permission must be defined.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,6 +426,8 @@ class ApiKey(pulumi.CustomResource):
     def write_permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+
+        > **Note:** At least one read or write permission must be defined.
         """
         return pulumi.get(self, "write_permissions")
 

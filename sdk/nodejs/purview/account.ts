@@ -87,6 +87,8 @@ export class Account extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+     *
+     * > **Note:** `managedResourceGroupName` must be a new Resource Group
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
@@ -199,6 +201,8 @@ export interface AccountState {
     location?: pulumi.Input<string>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+     *
+     * > **Note:** `managedResourceGroupName` must be a new Resource Group
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
@@ -241,6 +245,8 @@ export interface AccountArgs {
     location?: pulumi.Input<string>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+     *
+     * > **Note:** `managedResourceGroupName` must be a new Resource Group
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**

@@ -33,9 +33,6 @@ namespace Pulumi.Azure.Inputs
         [Input("managedDisk")]
         public Input<Inputs.ProviderFeaturesManagedDiskArgs>? ManagedDisk { get; set; }
 
-        [Input("network")]
-        public Input<Inputs.ProviderFeaturesNetworkArgs>? Network { get; set; }
-
         [Input("resourceGroup")]
         public Input<Inputs.ProviderFeaturesResourceGroupArgs>? ResourceGroup { get; set; }
 

@@ -170,12 +170,16 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
+     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+     * 
      */
     @Export(name="startMode", refs={String.class}, tree="[0]")
     private Output<String> startMode;
 
     /**
      * @return The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+     * 
+     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      * 
      */
     public Output<String> startMode() {

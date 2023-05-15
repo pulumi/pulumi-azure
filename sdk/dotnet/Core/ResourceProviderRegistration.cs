@@ -68,9 +68,6 @@ namespace Pulumi.Azure.Core
     [AzureResourceType("azure:core/resourceProviderRegistration:ResourceProviderRegistration")]
     public partial class ResourceProviderRegistration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of `feature` blocks as defined below.
-        /// </summary>
         [Output("features")]
         public Output<ImmutableArray<Outputs.ResourceProviderRegistrationFeature>> Features { get; private set; } = null!;
 
@@ -128,10 +125,6 @@ namespace Pulumi.Azure.Core
     {
         [Input("features")]
         private InputList<Inputs.ResourceProviderRegistrationFeatureArgs>? _features;
-
-        /// <summary>
-        /// A list of `feature` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.ResourceProviderRegistrationFeatureArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.ResourceProviderRegistrationFeatureArgs>());
@@ -154,10 +147,6 @@ namespace Pulumi.Azure.Core
     {
         [Input("features")]
         private InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs>? _features;
-
-        /// <summary>
-        /// A list of `feature` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs>());

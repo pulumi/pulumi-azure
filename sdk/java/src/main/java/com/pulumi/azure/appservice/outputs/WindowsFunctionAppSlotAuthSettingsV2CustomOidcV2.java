@@ -35,6 +35,16 @@ public final class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2 {
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     private @Nullable String clientSecretSettingName;
     /**
@@ -99,6 +109,16 @@ public final class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2 {
     }
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<String> clientSecretSettingName() {

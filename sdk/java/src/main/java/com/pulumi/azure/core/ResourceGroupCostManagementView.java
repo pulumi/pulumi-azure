@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * Manages an Azure Cost Management View for a Resource Group.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -65,7 +64,6 @@ import javax.annotation.Nullable;
  *                     .name(&#34;totalCost&#34;)
  *                     .columnName(&#34;Cost&#34;)
  *                     .build())
- *                 .totalCost(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 

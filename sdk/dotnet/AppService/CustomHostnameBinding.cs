@@ -84,6 +84,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         /// </summary>
         [Output("hostname")]
         public Output<string> Hostname { get; private set; } = null!;
@@ -102,6 +104,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         /// </summary>
         [Output("thumbprint")]
         public Output<string> Thumbprint { get; private set; } = null!;
@@ -166,6 +170,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         /// </summary>
         [Input("hostname", required: true)]
         public Input<string> Hostname { get; set; } = null!;
@@ -184,6 +190,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }
@@ -204,6 +212,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
@@ -222,6 +232,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }

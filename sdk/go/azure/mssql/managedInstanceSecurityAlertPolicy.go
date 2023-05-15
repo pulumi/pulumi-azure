@@ -294,6 +294,8 @@ type ManagedInstanceSecurityAlertPolicy struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
@@ -356,6 +358,8 @@ type managedInstanceSecurityAlertPolicyState struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
@@ -377,6 +381,8 @@ type ManagedInstanceSecurityAlertPolicyState struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
@@ -402,6 +408,8 @@ type managedInstanceSecurityAlertPolicyArgs struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
@@ -424,6 +432,8 @@ type ManagedInstanceSecurityAlertPolicyArgs struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
@@ -552,6 +562,8 @@ func (o ManagedInstanceSecurityAlertPolicyOutput) RetentionDays() pulumi.IntPtrO
 }
 
 // Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+//
+// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
 func (o ManagedInstanceSecurityAlertPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }

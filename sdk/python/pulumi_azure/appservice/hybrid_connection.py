@@ -303,6 +303,10 @@ class HybridConnection(pulumi.CustomResource):
                  send_key_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.FunctionAppHybridConnection` resources instead.
+
         ## Example Usage
 
         This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
@@ -364,6 +368,10 @@ class HybridConnection(pulumi.CustomResource):
                  args: HybridConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.FunctionAppHybridConnection` resources instead.
+
         ## Example Usage
 
         This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.

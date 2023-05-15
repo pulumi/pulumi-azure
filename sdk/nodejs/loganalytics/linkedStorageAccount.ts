@@ -71,6 +71,8 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
 
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     *
+     * > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      */
     public readonly dataSourceType!: pulumi.Output<string>;
     /**
@@ -133,6 +135,8 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
 export interface LinkedStorageAccountState {
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     *
+     * > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      */
     dataSourceType?: pulumi.Input<string>;
     /**
@@ -155,6 +159,8 @@ export interface LinkedStorageAccountState {
 export interface LinkedStorageAccountArgs {
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     *
+     * > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      */
     dataSourceType: pulumi.Input<string>;
     /**

@@ -47,6 +47,8 @@ class KafkaClusterArgs:
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
+               
+               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -190,6 +192,8 @@ class KafkaClusterArgs:
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
+
+        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -387,6 +391,8 @@ class _KafkaClusterState:
         :param pulumi.Input['KafkaClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['KafkaClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
+               
+               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['KafkaClusterGatewayArgs'] gateway: A `gateway` block as defined below.
@@ -501,6 +507,8 @@ class _KafkaClusterState:
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
+
+        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -846,6 +854,8 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+               
+               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
@@ -1063,6 +1073,8 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+               
+               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
@@ -1143,6 +1155,8 @@ class KafkaCluster(pulumi.CustomResource):
     def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.KafkaClusterDiskEncryption']]]:
         """
         One or more `disk_encryption` block as defined below.
+
+        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "disk_encryptions")
 

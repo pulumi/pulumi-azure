@@ -20,7 +20,11 @@ class CustomCertificateArgs:
         """
         The set of arguments for constructing a CustomCertificate resource.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] web_pubsub_id: The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         :param pulumi.Input[str] name: The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "custom_certificate_id", custom_certificate_id)
@@ -33,6 +37,8 @@ class CustomCertificateArgs:
     def custom_certificate_id(self) -> pulumi.Input[str]:
         """
         The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         """
         return pulumi.get(self, "custom_certificate_id")
 
@@ -45,6 +51,8 @@ class CustomCertificateArgs:
     def web_pubsub_id(self) -> pulumi.Input[str]:
         """
         The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         return pulumi.get(self, "web_pubsub_id")
 
@@ -76,8 +84,12 @@ class _CustomCertificateState:
         Input properties used for looking up and filtering CustomCertificate resources.
         :param pulumi.Input[str] certificate_version: The certificate version of the Web Pubsub Custom Certificate.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] name: The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         if certificate_version is not None:
             pulumi.set(__self__, "certificate_version", certificate_version)
@@ -105,6 +117,8 @@ class _CustomCertificateState:
     def custom_certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
         The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         """
         return pulumi.get(self, "custom_certificate_id")
 
@@ -129,6 +143,8 @@ class _CustomCertificateState:
     def web_pubsub_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         return pulumi.get(self, "web_pubsub_id")
 
@@ -160,8 +176,12 @@ class CustomCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] name: The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         ...
     @overload
@@ -238,8 +258,12 @@ class CustomCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_version: The certificate version of the Web Pubsub Custom Certificate.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] name: The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -264,6 +288,8 @@ class CustomCertificate(pulumi.CustomResource):
     def custom_certificate_id(self) -> pulumi.Output[str]:
         """
         The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         """
         return pulumi.get(self, "custom_certificate_id")
 
@@ -280,6 +306,8 @@ class CustomCertificate(pulumi.CustomResource):
     def web_pubsub_id(self) -> pulumi.Output[str]:
         """
         The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         return pulumi.get(self, "web_pubsub_id")
 

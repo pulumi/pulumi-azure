@@ -13,6 +13,8 @@ public final class IoTHubSku {
     /**
      * @return The number of provisioned IoT Hub units.
      * 
+     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+     * 
      */
     private Integer capacity;
     /**
@@ -24,6 +26,8 @@ public final class IoTHubSku {
     private IoTHubSku() {}
     /**
      * @return The number of provisioned IoT Hub units.
+     * 
+     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
      * 
      */
     public Integer capacity() {

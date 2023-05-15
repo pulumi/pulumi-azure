@@ -115,12 +115,16 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
+     * 
      */
     @Import(name="generation")
     private @Nullable Output<String> generation;
 
     /**
      * @return The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
      * 
      */
     public Optional<Output<String>> generation() {
@@ -211,12 +215,20 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     /**
      * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      * 
+     * &gt; **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
+     * 
+     * &gt; **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code=&#34;InvalidGatewaySkuSpecifiedForGatewayDeploymentType&#34;` please try another region.
+     * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
      * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * 
+     * &gt; **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
+     * 
+     * &gt; **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code=&#34;InvalidGatewaySkuSpecifiedForGatewayDeploymentType&#34;` please try another region.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -452,6 +464,8 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         /**
          * @param generation The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
+         * 
          * @return builder
          * 
          */
@@ -462,6 +476,8 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
 
         /**
          * @param generation The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
          * 
          * @return builder
          * 
@@ -597,6 +613,10 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         /**
          * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
          * 
+         * &gt; **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
+         * 
+         * &gt; **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code=&#34;InvalidGatewaySkuSpecifiedForGatewayDeploymentType&#34;` please try another region.
+         * 
          * @return builder
          * 
          */
@@ -607,6 +627,10 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
 
         /**
          * @param sku Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+         * 
+         * &gt; **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
+         * 
+         * &gt; **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code=&#34;InvalidGatewaySkuSpecifiedForGatewayDeploymentType&#34;` please try another region.
          * 
          * @return builder
          * 

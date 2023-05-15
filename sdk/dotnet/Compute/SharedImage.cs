@@ -81,6 +81,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
         /// </summary>
         [Output("confidentialVmEnabled")]
         public Output<bool?> ConfidentialVmEnabled { get; private set; } = null!;
@@ -201,6 +203,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
         [Output("specialized")]
         public Output<bool?> Specialized { get; private set; } = null!;
@@ -277,6 +281,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
         /// </summary>
         [Input("confidentialVmEnabled")]
         public Input<bool>? ConfidentialVmEnabled { get; set; }
@@ -403,6 +409,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
         [Input("specialized")]
         public Input<bool>? Specialized { get; set; }
@@ -447,6 +455,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
         /// </summary>
         [Input("confidentialVmEnabled")]
         public Input<bool>? ConfidentialVmEnabled { get; set; }
@@ -573,6 +583,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
         [Input("specialized")]
         public Input<bool>? Specialized { get; set; }

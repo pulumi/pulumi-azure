@@ -15,6 +15,8 @@ public final class LinuxWebAppAuthSettingsActiveDirectory {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -36,6 +38,8 @@ public final class LinuxWebAppAuthSettingsActiveDirectory {
     private LinuxWebAppAuthSettingsActiveDirectory() {}
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
      */
     public List<String> allowedAudiences() {

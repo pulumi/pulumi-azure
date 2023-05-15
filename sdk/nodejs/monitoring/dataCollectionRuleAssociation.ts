@@ -125,6 +125,8 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
+     *
+     * > **NOTE** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
     public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
     /**
@@ -133,6 +135,8 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+     *
+     * > **NOTE** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -184,6 +188,8 @@ export interface DataCollectionRuleAssociationState {
     dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
+     *
+     * > **NOTE** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
     dataCollectionRuleId?: pulumi.Input<string>;
     /**
@@ -192,6 +198,8 @@ export interface DataCollectionRuleAssociationState {
     description?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+     *
+     * > **NOTE** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -210,6 +218,8 @@ export interface DataCollectionRuleAssociationArgs {
     dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
+     *
+     * > **NOTE** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
     dataCollectionRuleId?: pulumi.Input<string>;
     /**
@@ -218,6 +228,8 @@ export interface DataCollectionRuleAssociationArgs {
     description?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+     *
+     * > **NOTE** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
     name?: pulumi.Input<string>;
     /**

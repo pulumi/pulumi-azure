@@ -16,10 +16,14 @@ public final class DiagnosticSettingLog {
     /**
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
+     * &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+     * 
      */
     private @Nullable String category;
     /**
      * @return The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     * &gt; **NOTE:** Not all resources have category groups available.
      * 
      */
     private @Nullable String categoryGroup;
@@ -38,12 +42,16 @@ public final class DiagnosticSettingLog {
     /**
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
+     * &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+     * 
      */
     public Optional<String> category() {
         return Optional.ofNullable(this.category);
     }
     /**
      * @return The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     * &gt; **NOTE:** Not all resources have category groups available.
      * 
      */
     public Optional<String> categoryGroup() {

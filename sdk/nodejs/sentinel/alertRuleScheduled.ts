@@ -128,10 +128,14 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     public readonly queryFrequency!: pulumi.Output<string | undefined>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+     *
+     * > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      */
     public readonly queryPeriod!: pulumi.Output<string | undefined>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
+     *
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleScheduledSentinelEntityMapping[] | undefined>;
     /**
@@ -140,6 +144,8 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     public readonly severity!: pulumi.Output<string>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     *
+     * > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      */
     public readonly suppressionDuration!: pulumi.Output<string | undefined>;
     /**
@@ -304,10 +310,14 @@ export interface AlertRuleScheduledState {
     queryFrequency?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+     *
+     * > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      */
     queryPeriod?: pulumi.Input<string>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
+     *
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
     /**
@@ -316,6 +326,8 @@ export interface AlertRuleScheduledState {
     severity?: pulumi.Input<string>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     *
+     * > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      */
     suppressionDuration?: pulumi.Input<string>;
     /**
@@ -402,10 +414,14 @@ export interface AlertRuleScheduledArgs {
     queryFrequency?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+     *
+     * > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      */
     queryPeriod?: pulumi.Input<string>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
+     *
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
     /**
@@ -414,6 +430,8 @@ export interface AlertRuleScheduledArgs {
     severity: pulumi.Input<string>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     *
+     * > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      */
     suppressionDuration?: pulumi.Input<string>;
     /**

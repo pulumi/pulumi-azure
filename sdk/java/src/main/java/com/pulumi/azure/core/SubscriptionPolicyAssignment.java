@@ -135,12 +135,16 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+     * 
      */
     @Export(name="identity", refs={SubscriptionPolicyAssignmentIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SubscriptionPolicyAssignmentIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
     public Output<Optional<SubscriptionPolicyAssignmentIdentity>> identity() {

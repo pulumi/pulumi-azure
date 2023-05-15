@@ -15,6 +15,8 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     {
         /// <summary>
         /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         /// </summary>
         public readonly string? FabricLocation;
         /// <summary>
@@ -27,6 +29,8 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         public readonly ImmutableArray<string> FailOverTypes;
         /// <summary>
         /// Instructions of manual action.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
         /// </summary>
         public readonly string? ManualActionInstruction;
         /// <summary>
@@ -35,10 +39,14 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         public readonly string Name;
         /// <summary>
         /// Id of runbook.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         /// </summary>
         public readonly string? RunbookId;
         /// <summary>
         /// Path of action script.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         /// </summary>
         public readonly string? ScriptPath;
         /// <summary>

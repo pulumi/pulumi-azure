@@ -29,8 +29,8 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "Standard",
     ///         ClassicVmwareReplicationEnabled = true,
     ///         SoftDeleteEnabled = false,

@@ -85,12 +85,16 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure File Storage Linked Service:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure File Storage Linked Service:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {

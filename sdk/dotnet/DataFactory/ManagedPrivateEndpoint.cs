@@ -72,6 +72,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Fully qualified domain names. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         /// </summary>
         [Output("fqdns")]
         public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
@@ -151,6 +153,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Fully qualified domain names. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         /// </summary>
         public InputList<string> Fqdns
         {
@@ -195,6 +199,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Fully qualified domain names. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         /// </summary>
         public InputList<string> Fqdns
         {

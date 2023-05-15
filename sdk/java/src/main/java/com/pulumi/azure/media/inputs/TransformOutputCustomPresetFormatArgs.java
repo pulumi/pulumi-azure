@@ -34,12 +34,16 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
     /**
      * A `transport_stream` block as defined below.
      * 
+     * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+     * 
      */
     @Import(name="transportStream")
     private @Nullable Output<TransformOutputCustomPresetFormatTransportStreamArgs> transportStream;
 
     /**
      * @return A `transport_stream` block as defined below.
+     * 
+     * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
      * 
      */
     public Optional<Output<TransformOutputCustomPresetFormatTransportStreamArgs>> transportStream() {
@@ -95,6 +99,8 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
         /**
          * @param transportStream A `transport_stream` block as defined below.
          * 
+         * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
 
         /**
          * @param transportStream A `transport_stream` block as defined below.
+         * 
+         * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
          * 
          * @return builder
          * 

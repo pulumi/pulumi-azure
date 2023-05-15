@@ -25,10 +25,14 @@ class ResourceGroupTemplateDeploymentArgs:
         """
         The set of arguments for constructing a ResourceGroupTemplateDeployment resource.
         :param pulumi.Input[str] deployment_mode: The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+               
+               > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] name: The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
+               
+               > An example of how to pass variables into an ARM Template can be seen in the example.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group Template Deployment.
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
@@ -53,6 +57,8 @@ class ResourceGroupTemplateDeploymentArgs:
     def deployment_mode(self) -> pulumi.Input[str]:
         """
         The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+
+        > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         """
         return pulumi.get(self, "deployment_mode")
 
@@ -101,6 +107,8 @@ class ResourceGroupTemplateDeploymentArgs:
     def parameters_content(self) -> Optional[pulumi.Input[str]]:
         """
         The contents of the ARM Template parameters file - containing a JSON list of parameters.
+
+        > An example of how to pass variables into an ARM Template can be seen in the example.
         """
         return pulumi.get(self, "parameters_content")
 
@@ -161,9 +169,13 @@ class _ResourceGroupTemplateDeploymentState:
         Input properties used for looking up and filtering ResourceGroupTemplateDeployment resources.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] deployment_mode: The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+               
+               > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         :param pulumi.Input[str] name: The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[str] output_content: The JSON Content of the Outputs of the ARM Template Deployment.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
+               
+               > An example of how to pass variables into an ARM Template can be seen in the example.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group Template Deployment.
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
@@ -205,6 +217,8 @@ class _ResourceGroupTemplateDeploymentState:
     def deployment_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+
+        > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         """
         return pulumi.get(self, "deployment_mode")
 
@@ -241,6 +255,8 @@ class _ResourceGroupTemplateDeploymentState:
     def parameters_content(self) -> Optional[pulumi.Input[str]]:
         """
         The contents of the ARM Template parameters file - containing a JSON list of parameters.
+
+        > An example of how to pass variables into an ARM Template can be seen in the example.
         """
         return pulumi.get(self, "parameters_content")
 
@@ -328,8 +344,12 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] deployment_mode: The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+               
+               > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         :param pulumi.Input[str] name: The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
+               
+               > An example of how to pass variables into an ARM Template can be seen in the example.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group Template Deployment.
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
@@ -427,9 +447,13 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] deployment_mode: The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+               
+               > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         :param pulumi.Input[str] name: The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[str] output_content: The JSON Content of the Outputs of the ARM Template Deployment.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
+               
+               > An example of how to pass variables into an ARM Template can be seen in the example.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group Template Deployment.
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
@@ -463,6 +487,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
     def deployment_mode(self) -> pulumi.Output[str]:
         """
         The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+
+        > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         """
         return pulumi.get(self, "deployment_mode")
 
@@ -487,6 +513,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
     def parameters_content(self) -> pulumi.Output[str]:
         """
         The contents of the ARM Template parameters file - containing a JSON list of parameters.
+
+        > An example of how to pass variables into an ARM Template can be seen in the example.
         """
         return pulumi.get(self, "parameters_content")
 

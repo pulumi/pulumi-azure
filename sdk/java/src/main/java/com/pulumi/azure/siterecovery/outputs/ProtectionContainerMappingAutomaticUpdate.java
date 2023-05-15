@@ -15,10 +15,14 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * 
      */
     private @Nullable String automationAccountId;
     /**
      * @return Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+     * 
+     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
      * 
      */
     private @Nullable Boolean enabled;
@@ -27,12 +31,16 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * 
      */
     public Optional<String> automationAccountId() {
         return Optional.ofNullable(this.automationAccountId);
     }
     /**
      * @return Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+     * 
+     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
      * 
      */
     public Optional<Boolean> enabled() {

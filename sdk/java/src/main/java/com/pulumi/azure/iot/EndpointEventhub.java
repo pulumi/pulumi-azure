@@ -169,12 +169,16 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
     /**
      * ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
      * 
+     * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * 
      */
     @Export(name="identityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityId;
 
     /**
      * @return ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+     * 
+     * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Output<Optional<String>> identityId() {

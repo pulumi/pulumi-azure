@@ -220,12 +220,16 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
      * 
+     * &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+     * 
      */
     @Import(name="probePath")
     private @Nullable Output<String> probePath;
 
     /**
      * @return the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * 
+     * &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
     public Optional<Output<String>> probePath() {
@@ -649,6 +653,8 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param probePath the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
          * 
+         * &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+         * 
          * @return builder
          * 
          */
@@ -659,6 +665,8 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param probePath the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+         * 
+         * &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
          * 
          * @return builder
          * 

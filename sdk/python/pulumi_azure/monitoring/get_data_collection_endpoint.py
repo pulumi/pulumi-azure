@@ -159,7 +159,7 @@ def get_data_collection_endpoint(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.monitoring.get_data_collection_endpoint(name="example-mdce",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("endpointId", example.id)
     ```
 
@@ -200,7 +200,7 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None
     import pulumi_azure as azure
 
     example = azure.monitoring.get_data_collection_endpoint(name="example-mdce",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("endpointId", example.id)
     ```
 

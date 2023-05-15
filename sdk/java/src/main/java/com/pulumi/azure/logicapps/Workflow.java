@@ -213,12 +213,16 @@ public class Workflow extends com.pulumi.resources.CustomResource {
     /**
      * A map of Key-Value pairs.
      * 
+     * &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
      * @return A map of Key-Value pairs.
+     * 
+     * &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {

@@ -60,17 +60,9 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
         return this.remoteVolumeResourceId;
     }
 
-    /**
-     * Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
-     * 
-     */
     @Import(name="replicationFrequency", required=true)
     private Output<String> replicationFrequency;
 
-    /**
-     * @return Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
-     * 
-     */
     public Output<String> replicationFrequency() {
         return this.replicationFrequency;
     }
@@ -165,23 +157,11 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
             return remoteVolumeResourceId(Output.of(remoteVolumeResourceId));
         }
 
-        /**
-         * @param replicationFrequency Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationFrequency(Output<String> replicationFrequency) {
             $.replicationFrequency = replicationFrequency;
             return this;
         }
 
-        /**
-         * @param replicationFrequency Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationFrequency(String replicationFrequency) {
             return replicationFrequency(Output.of(replicationFrequency));
         }

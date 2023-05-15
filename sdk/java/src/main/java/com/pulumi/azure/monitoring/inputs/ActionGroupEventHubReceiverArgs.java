@@ -87,12 +87,16 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
     /**
      * The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
      * 
+     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
+     * 
      */
     @Import(name="subscriptionId")
     private @Nullable Output<String> subscriptionId;
 
     /**
      * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+     * 
+     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -254,6 +258,8 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
         /**
          * @param subscriptionId The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
          * 
+         * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
+         * 
          * @return builder
          * 
          */
@@ -264,6 +270,8 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
 
         /**
          * @param subscriptionId The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+         * 
+         * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
          * 
          * @return builder
          * 

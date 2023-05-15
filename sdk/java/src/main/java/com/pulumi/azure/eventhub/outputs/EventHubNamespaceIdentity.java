@@ -15,6 +15,10 @@ public final class EventHubNamespaceIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +40,10 @@ public final class EventHubNamespaceIdentity {
     private EventHubNamespaceIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
      * 
      */
     public List<String> identityIds() {

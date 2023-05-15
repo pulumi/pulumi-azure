@@ -112,6 +112,8 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
     public readonly fileNameFormat!: pulumi.Output<string | undefined>;
     /**
      * ID of the User Managed Identity used to authenticate against the storage endpoint.
+     *
+     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
     public readonly identityId!: pulumi.Output<string | undefined>;
     /**
@@ -221,6 +223,8 @@ export interface EndpointStorageContainerState {
     fileNameFormat?: pulumi.Input<string>;
     /**
      * ID of the User Managed Identity used to authenticate against the storage endpoint.
+     *
+     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
     identityId?: pulumi.Input<string>;
     /**
@@ -275,6 +279,8 @@ export interface EndpointStorageContainerArgs {
     fileNameFormat?: pulumi.Input<string>;
     /**
      * ID of the User Managed Identity used to authenticate against the storage endpoint.
+     *
+     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
     identityId?: pulumi.Input<string>;
     /**

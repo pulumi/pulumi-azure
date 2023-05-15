@@ -100,6 +100,8 @@ export class Group extends pulumi.CustomResource {
     public readonly dnsConfig!: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
     /**
      * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+     *
+     * > **Note:** DNS label/name is not supported when deploying to virtual networks.
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
@@ -108,6 +110,8 @@ export class Group extends pulumi.CustomResource {
     public readonly dnsNameLabelReusePolicy!: pulumi.Output<string | undefined>;
     /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      */
     public readonly exposedPorts!: pulumi.Output<outputs.containerservice.GroupExposedPort[]>;
     /**
@@ -132,6 +136,8 @@ export class Group extends pulumi.CustomResource {
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+     *
+     * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -152,6 +158,8 @@ export class Group extends pulumi.CustomResource {
     public readonly networkProfileId!: pulumi.Output<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      */
     public readonly osType!: pulumi.Output<string>;
     /**
@@ -267,6 +275,8 @@ export interface GroupState {
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
      * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+     *
+     * > **Note:** DNS label/name is not supported when deploying to virtual networks.
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
@@ -275,6 +285,8 @@ export interface GroupState {
     dnsNameLabelReusePolicy?: pulumi.Input<string>;
     /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      */
     exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
     /**
@@ -299,6 +311,8 @@ export interface GroupState {
     ipAddress?: pulumi.Input<string>;
     /**
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+     *
+     * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -319,6 +333,8 @@ export interface GroupState {
     networkProfileId?: pulumi.Input<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -361,6 +377,8 @@ export interface GroupArgs {
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
      * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+     *
+     * > **Note:** DNS label/name is not supported when deploying to virtual networks.
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
@@ -369,6 +387,8 @@ export interface GroupArgs {
     dnsNameLabelReusePolicy?: pulumi.Input<string>;
     /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      */
     exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
     /**
@@ -385,6 +405,8 @@ export interface GroupArgs {
     initContainers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainer>[]>;
     /**
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+     *
+     * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -405,6 +427,8 @@ export interface GroupArgs {
     networkProfileId?: pulumi.Input<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      */
     osType: pulumi.Input<string>;
     /**

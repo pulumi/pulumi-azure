@@ -109,6 +109,8 @@ export class ApiKey extends pulumi.CustomResource {
     public readonly readPermissions!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     *
+     * > **Note:** At least one read or write permission must be defined.
      */
     public readonly writePermissions!: pulumi.Output<string[] | undefined>;
 
@@ -170,6 +172,8 @@ export interface ApiKeyState {
     readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     *
+     * > **Note:** At least one read or write permission must be defined.
      */
     writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -192,6 +196,8 @@ export interface ApiKeyArgs {
     readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     *
+     * > **Note:** At least one read or write permission must be defined.
      */
     writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
 }

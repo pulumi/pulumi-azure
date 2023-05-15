@@ -33,6 +33,8 @@ class StandardWebTestArgs:
         The set of arguments for constructing a StandardWebTest resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input['StandardWebTestRequestArgs'] request: A `request` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
@@ -85,6 +87,8 @@ class StandardWebTestArgs:
     def geo_locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+
+        > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         """
         return pulumi.get(self, "geo_locations")
 
@@ -249,6 +253,8 @@ class _StandardWebTestState:
         :param pulumi.Input[bool] enabled: Should the WebTest be enabled?
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] location: The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         :param pulumi.Input[str] name: The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input['StandardWebTestRequestArgs'] request: A `request` block as defined below.
@@ -341,6 +347,8 @@ class _StandardWebTestState:
     def geo_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+
+        > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         """
         return pulumi.get(self, "geo_locations")
 
@@ -515,6 +523,8 @@ class StandardWebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the WebTest be enabled?
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] location: The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         :param pulumi.Input[str] name: The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']] request: A `request` block as defined below.
@@ -657,6 +667,8 @@ class StandardWebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the WebTest be enabled?
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] location: The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         :param pulumi.Input[str] name: The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']] request: A `request` block as defined below.
@@ -724,6 +736,8 @@ class StandardWebTest(pulumi.CustomResource):
     def geo_locations(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+
+        > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         """
         return pulumi.get(self, "geo_locations")
 

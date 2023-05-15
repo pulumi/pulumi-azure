@@ -75,6 +75,8 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
     public readonly fqdns!: pulumi.Output<string[]>;
     /**
@@ -137,6 +139,8 @@ export interface ManagedPrivateEndpointState {
     dataFactoryId?: pulumi.Input<string>;
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
     fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -163,6 +167,8 @@ export interface ManagedPrivateEndpointArgs {
     dataFactoryId: pulumi.Input<string>;
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
     fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

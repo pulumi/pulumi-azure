@@ -144,6 +144,8 @@ namespace Pulumi.Azure.MariaDB
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// 
+        /// &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
         /// </summary>
         [Output("sslEnforcementEnabled")]
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
@@ -312,6 +314,8 @@ namespace Pulumi.Azure.MariaDB
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// 
+        /// &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
         /// </summary>
         [Input("sslEnforcementEnabled", required: true)]
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
@@ -450,6 +454,8 @@ namespace Pulumi.Azure.MariaDB
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// 
+        /// &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
         /// </summary>
         [Input("sslEnforcementEnabled")]
         public Input<bool>? SslEnforcementEnabled { get; set; }

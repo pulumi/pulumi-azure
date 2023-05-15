@@ -212,12 +212,16 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
+     * &gt; **NOTE** At least one of the severity filters need to be set.
+     * 
      */
     @Export(name="severityFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> severityFilters;
 
     /**
      * @return Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+     * 
+     * &gt; **NOTE** At least one of the severity filters need to be set.
      * 
      */
     public Output<List<String>> severityFilters() {

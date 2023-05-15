@@ -116,6 +116,8 @@ type TriggerBlobEvent struct {
 	// The pattern that blob path starts with for trigger to fire.
 	BlobPathBeginsWith pulumi.StringPtrOutput `pulumi:"blobPathBeginsWith"`
 	// The pattern that blob path ends with for trigger to fire.
+	//
+	// > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
 	BlobPathEndsWith pulumi.StringPtrOutput `pulumi:"blobPathEndsWith"`
 	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
@@ -183,6 +185,8 @@ type triggerBlobEventState struct {
 	// The pattern that blob path starts with for trigger to fire.
 	BlobPathBeginsWith *string `pulumi:"blobPathBeginsWith"`
 	// The pattern that blob path ends with for trigger to fire.
+	//
+	// > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
 	BlobPathEndsWith *string `pulumi:"blobPathEndsWith"`
 	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
@@ -210,6 +214,8 @@ type TriggerBlobEventState struct {
 	// The pattern that blob path starts with for trigger to fire.
 	BlobPathBeginsWith pulumi.StringPtrInput
 	// The pattern that blob path ends with for trigger to fire.
+	//
+	// > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
 	BlobPathEndsWith pulumi.StringPtrInput
 	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
@@ -241,6 +247,8 @@ type triggerBlobEventArgs struct {
 	// The pattern that blob path starts with for trigger to fire.
 	BlobPathBeginsWith *string `pulumi:"blobPathBeginsWith"`
 	// The pattern that blob path ends with for trigger to fire.
+	//
+	// > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
 	BlobPathEndsWith *string `pulumi:"blobPathEndsWith"`
 	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
@@ -269,6 +277,8 @@ type TriggerBlobEventArgs struct {
 	// The pattern that blob path starts with for trigger to fire.
 	BlobPathBeginsWith pulumi.StringPtrInput
 	// The pattern that blob path ends with for trigger to fire.
+	//
+	// > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
 	BlobPathEndsWith pulumi.StringPtrInput
 	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
@@ -394,6 +404,8 @@ func (o TriggerBlobEventOutput) BlobPathBeginsWith() pulumi.StringPtrOutput {
 }
 
 // The pattern that blob path ends with for trigger to fire.
+//
+// > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
 func (o TriggerBlobEventOutput) BlobPathEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerBlobEvent) pulumi.StringPtrOutput { return v.BlobPathEndsWith }).(pulumi.StringPtrOutput)
 }

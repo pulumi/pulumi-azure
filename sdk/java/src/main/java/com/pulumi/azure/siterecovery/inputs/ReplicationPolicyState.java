@@ -19,12 +19,16 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
     /**
      * Specifies the frequency(in minutes) at which to create application consistent recovery points.
      * 
+     * &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
+     * 
      */
     @Import(name="applicationConsistentSnapshotFrequencyInMinutes")
     private @Nullable Output<Integer> applicationConsistentSnapshotFrequencyInMinutes;
 
     /**
      * @return Specifies the frequency(in minutes) at which to create application consistent recovery points.
+     * 
+     * &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
      * 
      */
     public Optional<Output<Integer>> applicationConsistentSnapshotFrequencyInMinutes() {
@@ -122,6 +126,8 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         /**
          * @param applicationConsistentSnapshotFrequencyInMinutes Specifies the frequency(in minutes) at which to create application consistent recovery points.
          * 
+         * &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
+         * 
          * @return builder
          * 
          */
@@ -132,6 +138,8 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
 
         /**
          * @param applicationConsistentSnapshotFrequencyInMinutes Specifies the frequency(in minutes) at which to create application consistent recovery points.
+         * 
+         * &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
          * 
          * @return builder
          * 

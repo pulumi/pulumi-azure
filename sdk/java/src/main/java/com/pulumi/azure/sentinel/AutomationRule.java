@@ -109,12 +109,16 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
     /**
      * One or more `action_playbook` blocks as defined below.
      * 
+     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+     * 
      */
     @Export(name="actionPlaybooks", refs={List.class,AutomationRuleActionPlaybook.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AutomationRuleActionPlaybook>> actionPlaybooks;
 
     /**
      * @return One or more `action_playbook` blocks as defined below.
+     * 
+     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
      * 
      */
     public Output<Optional<List<AutomationRuleActionPlaybook>>> actionPlaybooks() {
@@ -137,6 +141,8 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
     /**
      * One or more `condition` blocks as defined below.
      * 
+     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
+     * 
      * @deprecated
      * This is deprecated in favor of `condition_json`
      * 
@@ -147,6 +153,8 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
 
     /**
      * @return One or more `condition` blocks as defined below.
+     * 
+     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
      * 
      */
     public Output<List<AutomationRuleCondition>> conditions() {

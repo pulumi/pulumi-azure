@@ -12,12 +12,18 @@ import (
 
 type LabAutoShutdown struct {
 	// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	//
+	// > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnectDelay` isn't specified.
 	DisconnectDelay *string `pulumi:"disconnectDelay"`
 	// The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
 	IdleDelay *string `pulumi:"idleDelay"`
 	// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	//
+	// > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `noConnectDelay` isn't specified.
 	NoConnectDelay *string `pulumi:"noConnectDelay"`
 	// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 	ShutdownOnIdle *string `pulumi:"shutdownOnIdle"`
 }
 
@@ -34,12 +40,18 @@ type LabAutoShutdownInput interface {
 
 type LabAutoShutdownArgs struct {
 	// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	//
+	// > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnectDelay` isn't specified.
 	DisconnectDelay pulumi.StringPtrInput `pulumi:"disconnectDelay"`
 	// The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
 	IdleDelay pulumi.StringPtrInput `pulumi:"idleDelay"`
 	// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	//
+	// > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `noConnectDelay` isn't specified.
 	NoConnectDelay pulumi.StringPtrInput `pulumi:"noConnectDelay"`
 	// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 	ShutdownOnIdle pulumi.StringPtrInput `pulumi:"shutdownOnIdle"`
 }
 
@@ -121,6 +133,8 @@ func (o LabAutoShutdownOutput) ToLabAutoShutdownPtrOutputWithContext(ctx context
 }
 
 // The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+//
+// > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnectDelay` isn't specified.
 func (o LabAutoShutdownOutput) DisconnectDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabAutoShutdown) *string { return v.DisconnectDelay }).(pulumi.StringPtrOutput)
 }
@@ -131,11 +145,15 @@ func (o LabAutoShutdownOutput) IdleDelay() pulumi.StringPtrOutput {
 }
 
 // The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+//
+// > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `noConnectDelay` isn't specified.
 func (o LabAutoShutdownOutput) NoConnectDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabAutoShutdown) *string { return v.NoConnectDelay }).(pulumi.StringPtrOutput)
 }
 
 // A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+//
+// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 func (o LabAutoShutdownOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabAutoShutdown) *string { return v.ShutdownOnIdle }).(pulumi.StringPtrOutput)
 }
@@ -165,6 +183,8 @@ func (o LabAutoShutdownPtrOutput) Elem() LabAutoShutdownOutput {
 }
 
 // The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+//
+// > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnectDelay` isn't specified.
 func (o LabAutoShutdownPtrOutput) DisconnectDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabAutoShutdown) *string {
 		if v == nil {
@@ -185,6 +205,8 @@ func (o LabAutoShutdownPtrOutput) IdleDelay() pulumi.StringPtrOutput {
 }
 
 // The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+//
+// > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `noConnectDelay` isn't specified.
 func (o LabAutoShutdownPtrOutput) NoConnectDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabAutoShutdown) *string {
 		if v == nil {
@@ -195,6 +217,8 @@ func (o LabAutoShutdownPtrOutput) NoConnectDelay() pulumi.StringPtrOutput {
 }
 
 // A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+//
+// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 func (o LabAutoShutdownPtrOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabAutoShutdown) *string {
 		if v == nil {
@@ -206,8 +230,12 @@ func (o LabAutoShutdownPtrOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
 
 type LabConnectionSetting struct {
 	// The enabled access level for Client Access over RDP. Possible value is `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientRdpAccess *string `pulumi:"clientRdpAccess"`
 	// The enabled access level for Client Access over SSH. Possible value is `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientSshAccess *string `pulumi:"clientSshAccess"`
 }
 
@@ -224,8 +252,12 @@ type LabConnectionSettingInput interface {
 
 type LabConnectionSettingArgs struct {
 	// The enabled access level for Client Access over RDP. Possible value is `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientRdpAccess pulumi.StringPtrInput `pulumi:"clientRdpAccess"`
 	// The enabled access level for Client Access over SSH. Possible value is `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientSshAccess pulumi.StringPtrInput `pulumi:"clientSshAccess"`
 }
 
@@ -307,11 +339,15 @@ func (o LabConnectionSettingOutput) ToLabConnectionSettingPtrOutputWithContext(c
 }
 
 // The enabled access level for Client Access over RDP. Possible value is `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o LabConnectionSettingOutput) ClientRdpAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabConnectionSetting) *string { return v.ClientRdpAccess }).(pulumi.StringPtrOutput)
 }
 
 // The enabled access level for Client Access over SSH. Possible value is `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o LabConnectionSettingOutput) ClientSshAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabConnectionSetting) *string { return v.ClientSshAccess }).(pulumi.StringPtrOutput)
 }
@@ -341,6 +377,8 @@ func (o LabConnectionSettingPtrOutput) Elem() LabConnectionSettingOutput {
 }
 
 // The enabled access level for Client Access over RDP. Possible value is `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o LabConnectionSettingPtrOutput) ClientRdpAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabConnectionSetting) *string {
 		if v == nil {
@@ -351,6 +389,8 @@ func (o LabConnectionSettingPtrOutput) ClientRdpAccess() pulumi.StringPtrOutput 
 }
 
 // The enabled access level for Client Access over SSH. Possible value is `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o LabConnectionSettingPtrOutput) ClientSshAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabConnectionSetting) *string {
 		if v == nil {
@@ -1701,6 +1741,8 @@ func (o LabVirtualMachineNonAdminUserPtrOutput) Username() pulumi.StringPtrOutpu
 
 type LabVirtualMachineSku struct {
 	// The capacity for the SKU. Possible values are between `0` and `400`.
+	//
+	// > **NOTE:** Once `activeDirectoryGroupId` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignoreChanges` to avoid the difference of tf plan.
 	Capacity int `pulumi:"capacity"`
 	// The name of the SKU. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -1719,6 +1761,8 @@ type LabVirtualMachineSkuInput interface {
 
 type LabVirtualMachineSkuArgs struct {
 	// The capacity for the SKU. Possible values are between `0` and `400`.
+	//
+	// > **NOTE:** Once `activeDirectoryGroupId` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignoreChanges` to avoid the difference of tf plan.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of the SKU. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1802,6 +1846,8 @@ func (o LabVirtualMachineSkuOutput) ToLabVirtualMachineSkuPtrOutputWithContext(c
 }
 
 // The capacity for the SKU. Possible values are between `0` and `400`.
+//
+// > **NOTE:** Once `activeDirectoryGroupId` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignoreChanges` to avoid the difference of tf plan.
 func (o LabVirtualMachineSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LabVirtualMachineSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -1836,6 +1882,8 @@ func (o LabVirtualMachineSkuPtrOutput) Elem() LabVirtualMachineSkuOutput {
 }
 
 // The capacity for the SKU. Possible values are between `0` and `400`.
+//
+// > **NOTE:** Once `activeDirectoryGroupId` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignoreChanges` to avoid the difference of tf plan.
 func (o LabVirtualMachineSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineSku) *int {
 		if v == nil {
@@ -2057,6 +2105,8 @@ type ServicePlanDefaultAutoShutdown struct {
 	// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
 	NoConnectDelay *string `pulumi:"noConnectDelay"`
 	// Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 	ShutdownOnIdle *string `pulumi:"shutdownOnIdle"`
 }
 
@@ -2079,6 +2129,8 @@ type ServicePlanDefaultAutoShutdownArgs struct {
 	// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
 	NoConnectDelay pulumi.StringPtrInput `pulumi:"noConnectDelay"`
 	// Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 	ShutdownOnIdle pulumi.StringPtrInput `pulumi:"shutdownOnIdle"`
 }
 
@@ -2175,6 +2227,8 @@ func (o ServicePlanDefaultAutoShutdownOutput) NoConnectDelay() pulumi.StringPtrO
 }
 
 // Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+//
+// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 func (o ServicePlanDefaultAutoShutdownOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlanDefaultAutoShutdown) *string { return v.ShutdownOnIdle }).(pulumi.StringPtrOutput)
 }
@@ -2234,6 +2288,8 @@ func (o ServicePlanDefaultAutoShutdownPtrOutput) NoConnectDelay() pulumi.StringP
 }
 
 // Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+//
+// > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
 func (o ServicePlanDefaultAutoShutdownPtrOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlanDefaultAutoShutdown) *string {
 		if v == nil {
@@ -2245,12 +2301,20 @@ func (o ServicePlanDefaultAutoShutdownPtrOutput) ShutdownOnIdle() pulumi.StringP
 
 type ServicePlanDefaultConnection struct {
 	// The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientRdpAccess *string `pulumi:"clientRdpAccess"`
 	// The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientSshAccess *string `pulumi:"clientSshAccess"`
 	// The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	WebRdpAccess *string `pulumi:"webRdpAccess"`
 	// The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	WebSshAccess *string `pulumi:"webSshAccess"`
 }
 
@@ -2267,12 +2331,20 @@ type ServicePlanDefaultConnectionInput interface {
 
 type ServicePlanDefaultConnectionArgs struct {
 	// The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientRdpAccess pulumi.StringPtrInput `pulumi:"clientRdpAccess"`
 	// The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	ClientSshAccess pulumi.StringPtrInput `pulumi:"clientSshAccess"`
 	// The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	WebRdpAccess pulumi.StringPtrInput `pulumi:"webRdpAccess"`
 	// The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+	//
+	// > **NOTE:** This property is `None` when it isn't specified.
 	WebSshAccess pulumi.StringPtrInput `pulumi:"webSshAccess"`
 }
 
@@ -2354,21 +2426,29 @@ func (o ServicePlanDefaultConnectionOutput) ToServicePlanDefaultConnectionPtrOut
 }
 
 // The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionOutput) ClientRdpAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlanDefaultConnection) *string { return v.ClientRdpAccess }).(pulumi.StringPtrOutput)
 }
 
 // The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionOutput) ClientSshAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlanDefaultConnection) *string { return v.ClientSshAccess }).(pulumi.StringPtrOutput)
 }
 
 // The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionOutput) WebRdpAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlanDefaultConnection) *string { return v.WebRdpAccess }).(pulumi.StringPtrOutput)
 }
 
 // The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionOutput) WebSshAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlanDefaultConnection) *string { return v.WebSshAccess }).(pulumi.StringPtrOutput)
 }
@@ -2398,6 +2478,8 @@ func (o ServicePlanDefaultConnectionPtrOutput) Elem() ServicePlanDefaultConnecti
 }
 
 // The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionPtrOutput) ClientRdpAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlanDefaultConnection) *string {
 		if v == nil {
@@ -2408,6 +2490,8 @@ func (o ServicePlanDefaultConnectionPtrOutput) ClientRdpAccess() pulumi.StringPt
 }
 
 // The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionPtrOutput) ClientSshAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlanDefaultConnection) *string {
 		if v == nil {
@@ -2418,6 +2502,8 @@ func (o ServicePlanDefaultConnectionPtrOutput) ClientSshAccess() pulumi.StringPt
 }
 
 // The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionPtrOutput) WebRdpAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlanDefaultConnection) *string {
 		if v == nil {
@@ -2428,6 +2514,8 @@ func (o ServicePlanDefaultConnectionPtrOutput) WebRdpAccess() pulumi.StringPtrOu
 }
 
 // The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+//
+// > **NOTE:** This property is `None` when it isn't specified.
 func (o ServicePlanDefaultConnectionPtrOutput) WebSshAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlanDefaultConnection) *string {
 		if v == nil {

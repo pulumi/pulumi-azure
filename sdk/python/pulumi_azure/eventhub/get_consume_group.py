@@ -106,10 +106,10 @@ def get_consume_group(eventhub_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    test = azure.eventhub.get_consume_group(name=azurerm_eventhub_consumer_group["test"]["name"],
-        namespace_name=azurerm_eventhub_namespace["test"]["name"],
-        eventhub_name=azurerm_eventhub["test"]["name"],
-        resource_group_name=azurerm_resource_group["test"]["name"])
+    test = azure.eventhub.get_consume_group(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        namespace_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        eventhub_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -150,10 +150,10 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    test = azure.eventhub.get_consume_group(name=azurerm_eventhub_consumer_group["test"]["name"],
-        namespace_name=azurerm_eventhub_namespace["test"]["name"],
-        eventhub_name=azurerm_eventhub["test"]["name"],
-        resource_group_name=azurerm_resource_group["test"]["name"])
+    test = azure.eventhub.get_consume_group(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        namespace_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        eventhub_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

@@ -139,12 +139,20 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The ID of the User Managed Identity used to authenticate against the endpoint.
      * 
+     * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * 
+     * &gt; **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
+     * 
      */
     @Import(name="identityId")
     private @Nullable Output<String> identityId;
 
     /**
      * @return The ID of the User Managed Identity used to authenticate against the endpoint.
+     * 
+     * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * 
+     * &gt; **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -418,6 +426,10 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param identityId The ID of the User Managed Identity used to authenticate against the endpoint.
          * 
+         * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+         * 
+         * &gt; **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
+         * 
          * @return builder
          * 
          */
@@ -428,6 +440,10 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param identityId The ID of the User Managed Identity used to authenticate against the endpoint.
+         * 
+         * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+         * 
+         * &gt; **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
          * 
          * @return builder
          * 

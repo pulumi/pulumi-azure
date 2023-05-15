@@ -34,12 +34,16 @@ public final class GetCertificatesArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+     * 
      */
     @Import(name="keyVaultId", required=true)
     private Output<String> keyVaultId;
 
     /**
      * @return Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * 
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     public Output<String> keyVaultId() {
@@ -95,6 +99,8 @@ public final class GetCertificatesArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param keyVaultId Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
          * 
+         * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GetCertificatesArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param keyVaultId Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+         * 
+         * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 

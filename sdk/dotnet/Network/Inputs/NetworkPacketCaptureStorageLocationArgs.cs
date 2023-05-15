@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The ID of the storage account to save the packet capture session
+        /// 
+        /// &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

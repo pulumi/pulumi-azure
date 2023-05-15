@@ -91,6 +91,8 @@ export class ServicePlan extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+     *
+     * > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
      */
     public readonly sharedGalleryId!: pulumi.Output<string | undefined>;
     /**
@@ -183,6 +185,8 @@ export interface ServicePlanState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+     *
+     * > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
      */
     sharedGalleryId?: pulumi.Input<string>;
     /**
@@ -229,6 +233,8 @@ export interface ServicePlanArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+     *
+     * > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
      */
     sharedGalleryId?: pulumi.Input<string>;
     /**

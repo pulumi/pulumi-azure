@@ -74,6 +74,8 @@ type LinkedServiceAzureFileStorage struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure File Storage Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -148,6 +150,8 @@ func GetLinkedServiceAzureFileStorage(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceAzureFileStorage resources.
 type linkedServiceAzureFileStorageState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure File Storage Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -177,6 +181,8 @@ type linkedServiceAzureFileStorageState struct {
 
 type LinkedServiceAzureFileStorageState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure File Storage Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -210,6 +216,8 @@ func (LinkedServiceAzureFileStorageState) ElementType() reflect.Type {
 
 type linkedServiceAzureFileStorageArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure File Storage Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -240,6 +248,8 @@ type linkedServiceAzureFileStorageArgs struct {
 // The set of arguments for constructing a LinkedServiceAzureFileStorage resource.
 type LinkedServiceAzureFileStorageArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure File Storage Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -355,6 +365,8 @@ func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutp
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to Azure File Storage Linked Service:
 func (o LinkedServiceAzureFileStorageOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

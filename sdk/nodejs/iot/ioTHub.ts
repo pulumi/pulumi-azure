@@ -192,6 +192,8 @@ export class IoTHub extends pulumi.CustomResource {
     public readonly eventHubRetentionInDays!: pulumi.Output<number>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     *
+     * > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
      */
     public readonly fallbackRoute!: pulumi.Output<outputs.iot.IoTHubFallbackRoute>;
     /**
@@ -374,6 +376,8 @@ export interface IoTHubState {
     eventHubRetentionInDays?: pulumi.Input<number>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     *
+     * > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
      */
     fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
     /**
@@ -460,6 +464,8 @@ export interface IoTHubArgs {
     eventHubRetentionInDays?: pulumi.Input<number>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     *
+     * > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
      */
     fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
     /**

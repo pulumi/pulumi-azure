@@ -529,6 +529,8 @@ class SqlServerIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+               
+               > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
@@ -543,6 +545,8 @@ class SqlServerIdentity(dict):
     def type(self) -> str:
         """
         Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+
+        > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
         """
         return pulumi.get(self, "type")
 

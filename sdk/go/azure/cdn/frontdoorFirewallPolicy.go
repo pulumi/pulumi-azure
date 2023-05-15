@@ -191,6 +191,8 @@ type FrontdoorFirewallPolicy struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -199,6 +201,8 @@ type FrontdoorFirewallPolicy struct {
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -255,6 +259,8 @@ type frontdoorFirewallPolicyState struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -263,6 +269,8 @@ type frontdoorFirewallPolicyState struct {
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -282,6 +290,8 @@ type FrontdoorFirewallPolicyState struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode pulumi.StringPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -290,6 +300,8 @@ type FrontdoorFirewallPolicyState struct {
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -311,6 +323,8 @@ type frontdoorFirewallPolicyArgs struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -319,6 +333,8 @@ type frontdoorFirewallPolicyArgs struct {
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -337,6 +353,8 @@ type FrontdoorFirewallPolicyArgs struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode pulumi.StringInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -345,6 +363,8 @@ type FrontdoorFirewallPolicyArgs struct {
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -468,6 +488,8 @@ func (o FrontdoorFirewallPolicyOutput) ManagedRules() FrontdoorFirewallPolicyMan
 }
 
 // The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+//
+// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 func (o FrontdoorFirewallPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -488,6 +510,8 @@ func (o FrontdoorFirewallPolicyOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
 func (o FrontdoorFirewallPolicyOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

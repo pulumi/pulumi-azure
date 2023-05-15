@@ -71,6 +71,8 @@ type TriggerCustom struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -114,6 +116,8 @@ type triggerCustomState struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
@@ -123,6 +127,8 @@ type TriggerCustomState struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -136,6 +142,8 @@ type triggerCustomArgs struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
@@ -146,6 +154,8 @@ type TriggerCustomArgs struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringInput
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -247,6 +257,8 @@ func (o TriggerCustomOutput) LogicAppId() pulumi.StringOutput {
 }
 
 // Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 func (o TriggerCustomOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerCustom) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

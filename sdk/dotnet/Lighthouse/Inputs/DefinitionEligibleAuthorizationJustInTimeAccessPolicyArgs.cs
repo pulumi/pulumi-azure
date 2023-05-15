@@ -32,6 +32,8 @@ namespace Pulumi.Azure.Lighthouse.Inputs
 
         /// <summary>
         /// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+        /// 
+        /// &gt; **Note:** When this property isn't set, it would be set to `None`.
         /// </summary>
         [Input("multiFactorAuthProvider")]
         public Input<string>? MultiFactorAuthProvider { get; set; }

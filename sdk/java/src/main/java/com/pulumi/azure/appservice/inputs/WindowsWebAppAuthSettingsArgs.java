@@ -148,12 +148,16 @@ public final class WindowsWebAppAuthSettingsArgs extends com.pulumi.resources.Re
     /**
      * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
      * 
+     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+     * 
      */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+     * 
+     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -469,6 +473,8 @@ public final class WindowsWebAppAuthSettingsArgs extends com.pulumi.resources.Re
         /**
          * @param issuer The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
          * 
+         * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+         * 
          * @return builder
          * 
          */
@@ -479,6 +485,8 @@ public final class WindowsWebAppAuthSettingsArgs extends com.pulumi.resources.Re
 
         /**
          * @param issuer The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+         * 
+         * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
          * 
          * @return builder
          * 

@@ -497,6 +497,8 @@ func (o ConfigurationStoreEncryptionPtrOutput) KeyVaultKeyIdentifier() pulumi.St
 
 type ConfigurationStoreIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -519,6 +521,8 @@ type ConfigurationStoreIdentityInput interface {
 
 type ConfigurationStoreIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -606,6 +610,8 @@ func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputW
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ConfigurationStoreIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -650,6 +656,8 @@ func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOu
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ConfigurationStoreIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) []string {
 		if v == nil {

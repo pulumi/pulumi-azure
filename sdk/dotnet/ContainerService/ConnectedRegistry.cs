@@ -94,6 +94,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+        /// 
+        /// &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         /// </summary>
         [Output("containerRegistryId")]
         public Output<string> ContainerRegistryId { get; private set; } = null!;
@@ -218,6 +220,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+        /// 
+        /// &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         /// </summary>
         [Input("containerRegistryId", required: true)]
         public Input<string> ContainerRegistryId { get; set; } = null!;
@@ -310,6 +314,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+        /// 
+        /// &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         /// </summary>
         [Input("containerRegistryId")]
         public Input<string>? ContainerRegistryId { get; set; }

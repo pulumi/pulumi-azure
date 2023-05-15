@@ -172,12 +172,16 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * A `user_managed_https` block as defined below.
      * 
+     * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * 
      */
     @Export(name="userManagedHttps", refs={EndpointCustomDomainUserManagedHttps.class}, tree="[0]")
     private Output</* @Nullable */ EndpointCustomDomainUserManagedHttps> userManagedHttps;
 
     /**
      * @return A `user_managed_https` block as defined below.
+     * 
+     * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
      * 
      */
     public Output<Optional<EndpointCustomDomainUserManagedHttps>> userManagedHttps() {

@@ -93,6 +93,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         /// </summary>
         [Output("creationSourceDatabaseId")]
         public Output<string> CreationSourceDatabaseId { get; private set; } = null!;
@@ -105,6 +107,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         /// </summary>
         [Output("geoBackupEnabled")]
         public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
@@ -135,12 +139,16 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
+        /// 
+        /// &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
         /// </summary>
         [Output("maintenanceConfigurationName")]
         public Output<string> MaintenanceConfigurationName { get; private set; } = null!;
 
         /// <summary>
         /// The max size of the database in gigabytes.
+        /// 
+        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
         /// </summary>
         [Output("maxSizeGb")]
         public Output<int> MaxSizeGb { get; private set; } = null!;
@@ -195,6 +203,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This setting is still required for "Serverless" SKUs
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -207,6 +217,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
+        /// 
+        /// &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -231,6 +243,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
         /// </summary>
         [Output("transparentDataEncryptionEnabled")]
         public Output<bool?> TransparentDataEncryptionEnabled { get; private set; } = null!;
@@ -307,6 +321,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         /// </summary>
         [Input("creationSourceDatabaseId")]
         public Input<string>? CreationSourceDatabaseId { get; set; }
@@ -319,6 +335,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
@@ -349,12 +367,16 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
+        /// 
+        /// &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
         /// </summary>
         [Input("maintenanceConfigurationName")]
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
         /// The max size of the database in gigabytes.
+        /// 
+        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
         /// </summary>
         [Input("maxSizeGb")]
         public Input<int>? MaxSizeGb { get; set; }
@@ -409,6 +431,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This setting is still required for "Serverless" SKUs
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -421,6 +445,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
+        /// 
+        /// &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -451,6 +477,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
         /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
@@ -489,6 +517,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         /// </summary>
         [Input("creationSourceDatabaseId")]
         public Input<string>? CreationSourceDatabaseId { get; set; }
@@ -501,6 +531,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
@@ -531,12 +563,16 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
+        /// 
+        /// &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
         /// </summary>
         [Input("maintenanceConfigurationName")]
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
         /// The max size of the database in gigabytes.
+        /// 
+        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
         /// </summary>
         [Input("maxSizeGb")]
         public Input<int>? MaxSizeGb { get; set; }
@@ -591,6 +627,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This setting is still required for "Serverless" SKUs
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
@@ -603,6 +641,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
+        /// 
+        /// &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -633,6 +673,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
         /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }

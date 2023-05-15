@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Cdn.Inputs
 
         /// <summary>
         /// The ID of the Key Vault Secret that contains the HTTPS certificate.
+        /// 
+        /// &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }

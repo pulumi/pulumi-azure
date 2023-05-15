@@ -19,12 +19,16 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
     /**
      * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -106,6 +110,8 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
         /**
          * @param identityIds A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
         /**
          * @param identityIds A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +134,8 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
 
         /**
          * @param identityIds A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 

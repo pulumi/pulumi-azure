@@ -113,6 +113,8 @@ export class CassandraCluster extends pulumi.CustomResource {
     public readonly externalSeedNodeIpAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     *
+     * > **Note:** To disable this feature, set this property to `0`.
      */
     public readonly hoursBetweenBackups!: pulumi.Output<number | undefined>;
     /**
@@ -234,6 +236,8 @@ export interface CassandraClusterState {
     externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     *
+     * > **Note:** To disable this feature, set this property to `0`.
      */
     hoursBetweenBackups?: pulumi.Input<number>;
     /**
@@ -296,6 +300,8 @@ export interface CassandraClusterArgs {
     externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     *
+     * > **Note:** To disable this feature, set this property to `0`.
      */
     hoursBetweenBackups?: pulumi.Input<number>;
     /**

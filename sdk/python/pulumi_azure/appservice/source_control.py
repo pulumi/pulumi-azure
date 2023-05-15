@@ -27,10 +27,14 @@ class SourceControlArgs:
         """
         The set of arguments for constructing a SourceControl resource.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Function apps are not supported at this time.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input['SourceControlGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         :param pulumi.Input[bool] use_local_git: Should the App use local Git configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_manual_integration: Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_mercurial: The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
@@ -56,6 +60,8 @@ class SourceControlArgs:
     def app_id(self) -> pulumi.Input[str]:
         """
         The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+
+        > **NOTE:** Function apps are not supported at this time.
         """
         return pulumi.get(self, "app_id")
 
@@ -104,6 +110,8 @@ class SourceControlArgs:
     def rollback_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         """
         return pulumi.get(self, "rollback_enabled")
 
@@ -164,10 +172,14 @@ class _SourceControlState:
         """
         Input properties used for looking up and filtering SourceControl resources.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Function apps are not supported at this time.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input['SourceControlGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         :param pulumi.Input[str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.
         :param pulumi.Input[bool] use_local_git: Should the App use local Git configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_manual_integration: Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
@@ -200,6 +212,8 @@ class _SourceControlState:
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+
+        > **NOTE:** Function apps are not supported at this time.
         """
         return pulumi.get(self, "app_id")
 
@@ -248,6 +262,8 @@ class _SourceControlState:
     def rollback_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         """
         return pulumi.get(self, "rollback_enabled")
 
@@ -367,10 +383,14 @@ class SourceControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Function apps are not supported at this time.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         :param pulumi.Input[bool] use_local_git: Should the App use local Git configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_manual_integration: Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_mercurial: The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
@@ -487,10 +507,14 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Function apps are not supported at this time.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         :param pulumi.Input[str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.
         :param pulumi.Input[bool] use_local_git: Should the App use local Git configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_manual_integration: Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
@@ -518,6 +542,8 @@ class SourceControl(pulumi.CustomResource):
     def app_id(self) -> pulumi.Output[str]:
         """
         The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+
+        > **NOTE:** Function apps are not supported at this time.
         """
         return pulumi.get(self, "app_id")
 
@@ -550,6 +576,8 @@ class SourceControl(pulumi.CustomResource):
     def rollback_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         """
         return pulumi.get(self, "rollback_enabled")
 

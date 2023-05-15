@@ -168,6 +168,8 @@ namespace Pulumi.Azure.Hsm
 
         /// <summary>
         /// A `management_network_profile` block as defined below.
+        /// 
+        /// -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Output("managementNetworkProfile")]
         public Output<Outputs.ModuleManagementNetworkProfile?> ManagementNetworkProfile { get; private set; } = null!;
@@ -268,6 +270,8 @@ namespace Pulumi.Azure.Hsm
 
         /// <summary>
         /// A `management_network_profile` block as defined below.
+        /// 
+        /// -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Input("managementNetworkProfile")]
         public Input<Inputs.ModuleManagementNetworkProfileArgs>? ManagementNetworkProfile { get; set; }
@@ -342,6 +346,8 @@ namespace Pulumi.Azure.Hsm
 
         /// <summary>
         /// A `management_network_profile` block as defined below.
+        /// 
+        /// -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Input("managementNetworkProfile")]
         public Input<Inputs.ModuleManagementNetworkProfileGetArgs>? ManagementNetworkProfile { get; set; }

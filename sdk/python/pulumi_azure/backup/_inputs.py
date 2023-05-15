@@ -38,6 +38,8 @@ class PolicyFileShareBackupArgs:
                  time: pulumi.Input[str]):
         """
         :param pulumi.Input[str] frequency: Sets the backup frequency. Currently, only `Daily` is supported
+               
+               > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         :param pulumi.Input[str] time: The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -48,6 +50,8 @@ class PolicyFileShareBackupArgs:
     def frequency(self) -> pulumi.Input[str]:
         """
         Sets the backup frequency. Currently, only `Daily` is supported
+
+        > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         """
         return pulumi.get(self, "frequency")
 
@@ -258,6 +262,8 @@ class PolicyVMBackupArgs:
         :param pulumi.Input[str] frequency: Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
         :param pulumi.Input[str] time: The time of day to perform the backup in 24hour format.
         :param pulumi.Input[int] hour_duration: Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+               
+               > **NOTE:** `hour_duration` must be multiplier of `hour_interval`
         :param pulumi.Input[int] hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
@@ -299,6 +305,8 @@ class PolicyVMBackupArgs:
     def hour_duration(self) -> Optional[pulumi.Input[int]]:
         """
         Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+
+        > **NOTE:** `hour_duration` must be multiplier of `hour_interval`
         """
         return pulumi.get(self, "hour_duration")
 
@@ -375,6 +383,8 @@ class PolicyVMRetentionDailyArgs:
                  count: pulumi.Input[int]):
         """
         :param pulumi.Input[int] count: The number of daily backups to keep. Must be between `7` and `9999`.
+               
+               > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
         """
         pulumi.set(__self__, "count", count)
 
@@ -383,6 +393,8 @@ class PolicyVMRetentionDailyArgs:
     def count(self) -> pulumi.Input[int]:
         """
         The number of daily backups to keep. Must be between `7` and `9999`.
+
+        > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
         """
         return pulumi.get(self, "count")
 

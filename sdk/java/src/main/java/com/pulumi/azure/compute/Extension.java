@@ -169,12 +169,16 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * 
      */
     @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
 
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     public Output<Optional<Boolean>> failureSuppressionEnabled() {
@@ -197,12 +201,16 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * 
      */
     @Export(name="protectedSettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
      * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Output<Optional<String>> protectedSettings() {
@@ -211,12 +219,16 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * A `protected_settings_from_key_vault` block as defined below.
      * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * 
      */
     @Export(name="protectedSettingsFromKeyVault", refs={ExtensionProtectedSettingsFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ ExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
 
     /**
      * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
      * 
      */
     public Output<Optional<ExtensionProtectedSettingsFromKeyVault>> protectedSettingsFromKeyVault() {
@@ -239,12 +251,16 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * 
      */
     @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
     /**
      * @return The settings passed to the extension, these are specified as a JSON object in a string.
+     * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Output<Optional<String>> settings() {
@@ -267,12 +283,60 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
+     * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of extension, available types for a publisher can be found using the Azure CLI.
+     * 
+     * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Output<String> type() {

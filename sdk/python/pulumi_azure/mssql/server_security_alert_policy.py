@@ -33,6 +33,8 @@ class ServerSecurityAlertPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+               
+               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -140,6 +142,8 @@ class ServerSecurityAlertPolicyArgs:
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+
+        > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -182,6 +186,8 @@ class _ServerSecurityAlertPolicyState:
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+               
+               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         if disabled_alerts is not None:
@@ -292,6 +298,8 @@ class _ServerSecurityAlertPolicyState:
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+
+        > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -381,6 +389,8 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+               
+               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         ...
@@ -517,6 +527,8 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+               
+               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -595,6 +607,8 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
     def storage_account_access_key(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+
+        > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         """
         return pulumi.get(self, "storage_account_access_key")
 

@@ -68,6 +68,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+        /// 
+        /// &gt; **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         /// </summary>
         [Output("addressCidrs")]
         public Output<ImmutableArray<string>> AddressCidrs { get; private set; } = null!;
@@ -177,6 +179,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+        /// 
+        /// &gt; **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         /// </summary>
         public InputList<string> AddressCidrs
         {
@@ -263,6 +267,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+        /// 
+        /// &gt; **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         /// </summary>
         public InputList<string> AddressCidrs
         {

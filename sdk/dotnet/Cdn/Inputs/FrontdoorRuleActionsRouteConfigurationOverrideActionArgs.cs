@@ -32,12 +32,16 @@ namespace Pulumi.Azure.Cdn.Inputs
 
         /// <summary>
         /// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+        /// 
+        /// -&gt;**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
         /// </summary>
         [Input("compressionEnabled")]
         public Input<bool>? CompressionEnabled { get; set; }
 
         /// <summary>
         /// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+        /// 
+        /// -&gt;**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
         /// </summary>
         [Input("forwardingProtocol")]
         public Input<string>? ForwardingProtocol { get; set; }
@@ -53,6 +57,8 @@ namespace Pulumi.Azure.Cdn.Inputs
 
         /// <summary>
         /// A list of query string parameter names.
+        /// 
+        /// -&gt;**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
         /// </summary>
         public InputList<string> QueryStringParameters
         {

@@ -20,6 +20,8 @@ public final class FrontdoorOriginGroupHealthProbe {
     /**
      * @return Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
      * 
+     * &gt; **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
+     * 
      */
     private @Nullable String path;
     /**
@@ -43,6 +45,8 @@ public final class FrontdoorOriginGroupHealthProbe {
     }
     /**
      * @return Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+     * 
+     * &gt; **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
      * 
      */
     public Optional<String> path() {

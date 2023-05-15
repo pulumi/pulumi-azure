@@ -23,6 +23,10 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// One or more `ssh_keys` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+        /// 
+        /// &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileLinuxConfigSshKeyGetArgs> SshKeys
         {

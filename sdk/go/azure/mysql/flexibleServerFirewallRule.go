@@ -154,6 +154,8 @@ type FlexibleServerFirewallRule struct {
 	pulumi.CustomResourceState
 
 	// Specifies the End IP Address associated with this Firewall Rule.
+	//
+	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -207,6 +209,8 @@ func GetFlexibleServerFirewallRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering FlexibleServerFirewallRule resources.
 type flexibleServerFirewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule.
+	//
+	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress *string `pulumi:"endIpAddress"`
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -220,6 +224,8 @@ type flexibleServerFirewallRuleState struct {
 
 type FlexibleServerFirewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule.
+	//
+	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress pulumi.StringPtrInput
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -237,6 +243,8 @@ func (FlexibleServerFirewallRuleState) ElementType() reflect.Type {
 
 type flexibleServerFirewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule.
+	//
+	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -251,6 +259,8 @@ type flexibleServerFirewallRuleArgs struct {
 // The set of arguments for constructing a FlexibleServerFirewallRule resource.
 type FlexibleServerFirewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule.
+	//
+	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress pulumi.StringInput
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -350,6 +360,8 @@ func (o FlexibleServerFirewallRuleOutput) ToFlexibleServerFirewallRuleOutputWith
 }
 
 // Specifies the End IP Address associated with this Firewall Rule.
+//
+// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 func (o FlexibleServerFirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerFirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
 }

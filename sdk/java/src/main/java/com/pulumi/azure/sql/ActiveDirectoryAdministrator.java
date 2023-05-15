@@ -15,6 +15,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Allows you to set a user or group as the AD administrator for an Azure SQL server.
+ * 
+ * &gt; **Note:** The `azure.sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `azure.mssql.Server` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

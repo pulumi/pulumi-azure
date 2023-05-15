@@ -108,7 +108,7 @@ type LinuxWebApp struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrOutput `pulumi:"logs"`
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
@@ -131,10 +131,11 @@ type LinuxWebApp struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -219,7 +220,7 @@ type linuxWebAppState struct {
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppLogs `pulumi:"logs"`
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The Site Credentials Username used for publishing.
 	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
@@ -242,10 +243,11 @@ type linuxWebAppState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -288,7 +290,7 @@ type LinuxWebAppState struct {
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrInput
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -311,10 +313,11 @@ type LinuxWebAppState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -353,7 +356,7 @@ type linuxWebAppArgs struct {
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppLogs `pulumi:"logs"`
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The Site Credentials Username used for publishing.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -366,10 +369,11 @@ type linuxWebAppArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -405,7 +409,7 @@ type LinuxWebAppArgs struct {
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrInput
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName pulumi.StringInput
@@ -418,10 +422,11 @@ type LinuxWebAppArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -607,7 +612,7 @@ func (o LinuxWebAppOutput) Logs() LinuxWebAppLogsPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppLogsPtrOutput { return v.Logs }).(LinuxWebAppLogsPtrOutput)
 }
 
-// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+// The Site Credentials Username used for publishing.
 func (o LinuxWebAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -667,12 +672,13 @@ func (o LinuxWebAppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o LinuxWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+//
+// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 func (o LinuxWebAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

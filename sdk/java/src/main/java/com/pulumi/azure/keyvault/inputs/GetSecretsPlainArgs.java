@@ -15,12 +15,16 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+     * 
      */
     @Import(name="keyVaultId", required=true)
     private String keyVaultId;
 
     /**
      * @return Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * 
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     public String keyVaultId() {
@@ -53,6 +57,8 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param keyVaultId Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+         * 
+         * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 

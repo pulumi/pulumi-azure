@@ -18,9 +18,6 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the Availability Zone in which the standby Flexible Server should be located.
-        /// </summary>
         [Input("standbyAvailabilityZone")]
         public Input<string>? StandbyAvailabilityZone { get; set; }
 

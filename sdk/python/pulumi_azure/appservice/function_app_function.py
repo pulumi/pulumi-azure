@@ -30,6 +30,8 @@ class FunctionAppFunctionArgs:
         :param pulumi.Input[bool] enabled: Should this function be enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+               
+               > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         :param pulumi.Input[str] name: The name of the function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_data: The test data for the function.
         """
@@ -99,6 +101,8 @@ class FunctionAppFunctionArgs:
     def language(self) -> Optional[pulumi.Input[str]]:
         """
         The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+
+        > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         """
         return pulumi.get(self, "language")
 
@@ -157,6 +161,8 @@ class _FunctionAppFunctionState:
         :param pulumi.Input[str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] invocation_url: The invocation URL.
         :param pulumi.Input[str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+               
+               > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         :param pulumi.Input[str] name: The name of the function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script_root_path_url: The Script root path URL.
         :param pulumi.Input[str] script_url: The script URL.
@@ -271,6 +277,8 @@ class _FunctionAppFunctionState:
     def language(self) -> Optional[pulumi.Input[str]]:
         """
         The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+
+        > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         """
         return pulumi.get(self, "language")
 
@@ -510,6 +518,8 @@ class FunctionAppFunction(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppFunctionFileArgs']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+               
+               > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         :param pulumi.Input[str] name: The name of the function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_data: The test data for the function.
         """
@@ -733,6 +743,8 @@ class FunctionAppFunction(pulumi.CustomResource):
         :param pulumi.Input[str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] invocation_url: The invocation URL.
         :param pulumi.Input[str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+               
+               > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         :param pulumi.Input[str] name: The name of the function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script_root_path_url: The Script root path URL.
         :param pulumi.Input[str] script_url: The script URL.
@@ -814,6 +826,8 @@ class FunctionAppFunction(pulumi.CustomResource):
     def language(self) -> pulumi.Output[Optional[str]]:
         """
         The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+
+        > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         """
         return pulumi.get(self, "language")
 

@@ -99,6 +99,8 @@ def get_certificates(include_pending: Optional[bool] = None,
 
     :param bool include_pending: Specifies whether to include certificates which are not completely provisioned. Defaults to true.
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `keyvault.KeyVault` Data Source / Resource.
+           
+           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['includePending'] = include_pending
@@ -124,5 +126,7 @@ def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[bool
 
     :param bool include_pending: Specifies whether to include certificates which are not completely provisioned. Defaults to true.
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `keyvault.KeyVault` Data Source / Resource.
+           
+           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     ...

@@ -128,6 +128,8 @@ export class Standard extends pulumi.CustomResource {
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     *
+     * > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -206,9 +208,6 @@ export class Standard extends pulumi.CustomResource {
      * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
-    /**
-     * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-     */
     public readonly storageAccountShareName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -222,9 +221,6 @@ export class Standard extends pulumi.CustomResource {
      * The runtime version associated with the Logic App Defaults to `~3`.
      */
     public readonly version!: pulumi.Output<string | undefined>;
-    /**
-     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     */
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
 
     /**
@@ -324,6 +320,8 @@ export interface StandardState {
     appServicePlanId?: pulumi.Input<string>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     *
+     * > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -402,9 +400,6 @@ export interface StandardState {
      * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
-    /**
-     * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-     */
     storageAccountShareName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -418,9 +413,6 @@ export interface StandardState {
      * The runtime version associated with the Logic App Defaults to `~3`.
      */
     version?: pulumi.Input<string>;
-    /**
-     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
 }
 
@@ -434,6 +426,8 @@ export interface StandardArgs {
     appServicePlanId: pulumi.Input<string>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     *
+     * > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -488,9 +482,6 @@ export interface StandardArgs {
      * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
-    /**
-     * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-     */
     storageAccountShareName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -504,8 +495,5 @@ export interface StandardArgs {
      * The runtime version associated with the Logic App Defaults to `~3`.
      */
     version?: pulumi.Input<string>;
-    /**
-     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
 }

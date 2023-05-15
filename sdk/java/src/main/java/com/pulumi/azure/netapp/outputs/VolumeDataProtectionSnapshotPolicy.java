@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VolumeDataProtectionSnapshotPolicy {
-    /**
-     * @return Resource ID of the snapshot policy to apply to the volume.
-     * 
-     */
     private String snapshotPolicyId;
 
     private VolumeDataProtectionSnapshotPolicy() {}
-    /**
-     * @return Resource ID of the snapshot policy to apply to the volume.
-     * 
-     */
     public String snapshotPolicyId() {
         return this.snapshotPolicyId;
     }

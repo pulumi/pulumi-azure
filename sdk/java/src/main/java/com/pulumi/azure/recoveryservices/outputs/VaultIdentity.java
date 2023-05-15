@@ -15,6 +15,8 @@ public final class VaultIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
      * 
+     * &gt; **NOTE:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class VaultIdentity {
     private VaultIdentity() {}
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+     * 
+     * &gt; **NOTE:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

@@ -21,9 +21,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? HttpsProxy;
-        /// <summary>
-        /// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-        /// </summary>
         public readonly ImmutableArray<string> NoProxies;
         /// <summary>
         /// The base64 encoded alternative CA certificate content in PEM format.

@@ -14,6 +14,8 @@ public final class ApplicationGatewaySslCertificate {
     /**
      * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
      * 
+     * &gt; **NOTE:** When specifying a file, use `data = filebase64(&#34;path/to/file&#34;)` to encode the contents of that file.
+     * 
      */
     private @Nullable String data;
     /**
@@ -23,6 +25,10 @@ public final class ApplicationGatewaySslCertificate {
     private @Nullable String id;
     /**
      * @return Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+     * 
+     * &gt; **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+     * 
+     * &gt; **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
      * 
      */
     private @Nullable String keyVaultSecretId;
@@ -46,6 +52,8 @@ public final class ApplicationGatewaySslCertificate {
     /**
      * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
      * 
+     * &gt; **NOTE:** When specifying a file, use `data = filebase64(&#34;path/to/file&#34;)` to encode the contents of that file.
+     * 
      */
     public Optional<String> data() {
         return Optional.ofNullable(this.data);
@@ -59,6 +67,10 @@ public final class ApplicationGatewaySslCertificate {
     }
     /**
      * @return Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+     * 
+     * &gt; **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+     * 
+     * &gt; **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
      * 
      */
     public Optional<String> keyVaultSecretId() {

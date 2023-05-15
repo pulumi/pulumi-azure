@@ -146,12 +146,16 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
      * A `dead_letter_identity` block as defined below.
      * 
+     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+     * 
      */
     @Export(name="deadLetterIdentity", refs={EventSubscriptionDeadLetterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionDeadLetterIdentity> deadLetterIdentity;
 
     /**
      * @return A `dead_letter_identity` block as defined below.
+     * 
+     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
      * 
      */
     public Output<Optional<EventSubscriptionDeadLetterIdentity>> deadLetterIdentity() {
@@ -384,12 +388,16 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
      * A `webhook_endpoint` block as defined below.
      * 
+     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * 
      */
     @Export(name="webhookEndpoint", refs={EventSubscriptionWebhookEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ EventSubscriptionWebhookEndpoint> webhookEndpoint;
 
     /**
      * @return A `webhook_endpoint` block as defined below.
+     * 
+     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
      * 
      */
     public Output<Optional<EventSubscriptionWebhookEndpoint>> webhookEndpoint() {

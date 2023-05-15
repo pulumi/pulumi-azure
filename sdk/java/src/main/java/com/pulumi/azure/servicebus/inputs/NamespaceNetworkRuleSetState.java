@@ -51,12 +51,16 @@ public final class NamespaceNetworkRuleSetState extends com.pulumi.resources.Res
     /**
      * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
+     * 
      */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
     /**
      * @return Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
      * 
      */
     public Optional<Output<String>> namespaceId() {
@@ -192,6 +196,8 @@ public final class NamespaceNetworkRuleSetState extends com.pulumi.resources.Res
         /**
          * @param namespaceId Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
+         * 
          * @return builder
          * 
          */
@@ -202,6 +208,8 @@ public final class NamespaceNetworkRuleSetState extends com.pulumi.resources.Res
 
         /**
          * @param namespaceId Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
          * 
          * @return builder
          * 

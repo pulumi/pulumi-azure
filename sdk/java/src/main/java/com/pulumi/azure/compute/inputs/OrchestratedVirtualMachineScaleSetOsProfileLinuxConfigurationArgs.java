@@ -82,12 +82,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
      * 
+     * &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     @Import(name="disablePasswordAuthentication")
     private @Nullable Output<Boolean> disablePasswordAuthentication;
 
     /**
      * @return When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Optional<Output<Boolean>> disablePasswordAuthentication() {
@@ -97,6 +101,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * 
      */
     @Import(name="patchAssessmentMode")
     private @Nullable Output<String> patchAssessmentMode;
@@ -104,22 +110,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * 
      */
     public Optional<Output<String>> patchAssessmentMode() {
         return Optional.ofNullable(this.patchAssessmentMode);
     }
 
-    /**
-     * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-     * 
-     */
     @Import(name="patchMode")
     private @Nullable Output<String> patchMode;
 
-    /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-     * 
-     */
     public Optional<Output<String>> patchMode() {
         return Optional.ofNullable(this.patchMode);
     }
@@ -283,6 +283,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param disablePasswordAuthentication When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
          * 
+         * &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -294,6 +296,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param disablePasswordAuthentication When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
          * 
+         * &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -303,6 +307,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * 
+         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -315,6 +321,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
+         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -322,23 +330,11 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return patchAssessmentMode(Output.of(patchAssessmentMode));
         }
 
-        /**
-         * @param patchMode Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-         * 
-         * @return builder
-         * 
-         */
         public Builder patchMode(@Nullable Output<String> patchMode) {
             $.patchMode = patchMode;
             return this;
         }
 
-        /**
-         * @param patchMode Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-         * 
-         * @return builder
-         * 
-         */
         public Builder patchMode(String patchMode) {
             return patchMode(Output.of(patchMode));
         }

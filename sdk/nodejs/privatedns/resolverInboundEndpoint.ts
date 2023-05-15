@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const test = new azure.privatedns.Resolver("test", {
+ * const exampleResolver = new azure.privatedns.Resolver("exampleResolver", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     virtualNetworkName: azurerm_virtual_network.test.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.0.0/28"],
  *     delegations: [{
  *         name: "Microsoft.Network.dnsResolvers",
@@ -39,8 +39,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleResolverInboundEndpoint = new azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint", {
- *     privateDnsResolverId: azurerm_private_dns_resolver.example.id,
- *     location: azurerm_private_dns_resolver.example.location,
+ *     privateDnsResolverId: exampleResolver.id,
+ *     location: exampleResolver.location,
  *     ipConfigurations: [{
  *         privateIpAllocationMethod: "Dynamic",
  *         subnetId: exampleSubnet.id,

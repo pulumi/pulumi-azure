@@ -84,6 +84,8 @@ export class ActionCustom extends pulumi.CustomResource {
     public readonly logicAppId!: pulumi.Output<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -134,6 +136,8 @@ export interface ActionCustomState {
     logicAppId?: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      */
     name?: pulumi.Input<string>;
 }
@@ -152,6 +156,8 @@ export interface ActionCustomArgs {
     logicAppId: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      */
     name?: pulumi.Input<string>;
 }

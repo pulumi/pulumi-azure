@@ -34,12 +34,16 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
+     * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+     * 
      */
     @Import(name="disabledProtocols")
     private @Nullable Output<List<String>> disabledProtocols;
 
     /**
      * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+     * 
+     * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
      * 
      */
     public Optional<Output<List<String>>> disabledProtocols() {
@@ -79,12 +83,16 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     /**
      * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
+     * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+     * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
      * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+     * 
+     * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -153,6 +161,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         /**
          * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
+         * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+         * 
          * @return builder
          * 
          */
@@ -164,6 +174,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         /**
          * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
+         * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+         * 
          * @return builder
          * 
          */
@@ -173,6 +185,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
 
         /**
          * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+         * 
+         * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
          * 
          * @return builder
          * 
@@ -226,6 +240,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         /**
          * @param policyType The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          * 
+         * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+         * 
          * @return builder
          * 
          */
@@ -236,6 +252,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
 
         /**
          * @param policyType The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+         * 
+         * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
          * 
          * @return builder
          * 

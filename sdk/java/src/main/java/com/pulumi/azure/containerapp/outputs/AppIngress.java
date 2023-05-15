@@ -44,6 +44,8 @@ public final class AppIngress {
     /**
      * @return A `traffic_weight` block as detailed below.
      * 
+     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+     * 
      */
     private List<AppIngressTrafficWeight> trafficWeights;
     /**
@@ -90,6 +92,8 @@ public final class AppIngress {
     }
     /**
      * @return A `traffic_weight` block as detailed below.
+     * 
+     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
      * 
      */
     public List<AppIngressTrafficWeight> trafficWeights() {

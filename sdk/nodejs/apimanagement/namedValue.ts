@@ -85,6 +85,8 @@ export class NamedValue extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+     *
+     * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      */
     public readonly secret!: pulumi.Output<boolean | undefined>;
     /**
@@ -170,6 +172,8 @@ export interface NamedValueState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+     *
+     * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      */
     secret?: pulumi.Input<boolean>;
     /**
@@ -208,6 +212,8 @@ export interface NamedValueArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+     *
+     * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      */
     secret?: pulumi.Input<boolean>;
     /**

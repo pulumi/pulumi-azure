@@ -24,6 +24,8 @@ class LinkedServiceArgs:
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+               
+               > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -73,6 +75,8 @@ class LinkedServiceArgs:
     def write_access_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+
+        > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         return pulumi.get(self, "write_access_id")
 
@@ -96,6 +100,8 @@ class _LinkedServiceState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+               
+               > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -161,6 +167,8 @@ class _LinkedServiceState:
     def write_access_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+
+        > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         return pulumi.get(self, "write_access_id")
 
@@ -221,6 +229,8 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+               
+               > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         ...
     @overload
@@ -328,6 +338,8 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+               
+               > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -377,6 +389,8 @@ class LinkedService(pulumi.CustomResource):
     def write_access_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+
+        > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
         return pulumi.get(self, "write_access_id")
 

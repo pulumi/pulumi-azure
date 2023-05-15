@@ -80,10 +80,14 @@ type DatasetParquet struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Parquet Dataset:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Parquet Dataset:
 	AzureBlobStorageLocation DatasetParquetAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec pulumi.StringPtrOutput `pulumi:"compressionCodec"`
@@ -143,10 +147,14 @@ func GetDatasetParquet(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetParquet resources.
 type datasetParquetState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Parquet Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Parquet Dataset:
 	AzureBlobStorageLocation *DatasetParquetAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
@@ -172,10 +180,14 @@ type datasetParquetState struct {
 
 type DatasetParquetState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Parquet Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Parquet Dataset:
 	AzureBlobStorageLocation DatasetParquetAzureBlobStorageLocationPtrInput
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec pulumi.StringPtrInput
@@ -205,10 +217,14 @@ func (DatasetParquetState) ElementType() reflect.Type {
 
 type datasetParquetArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Parquet Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Parquet Dataset:
 	AzureBlobStorageLocation *DatasetParquetAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
@@ -235,10 +251,14 @@ type datasetParquetArgs struct {
 // The set of arguments for constructing a DatasetParquet resource.
 type DatasetParquetArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Parquet Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Parquet Dataset:
 	AzureBlobStorageLocation DatasetParquetAzureBlobStorageLocationPtrInput
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec pulumi.StringPtrInput
@@ -350,6 +370,8 @@ func (o DatasetParquetOutput) ToDatasetParquetOutputWithContext(ctx context.Cont
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
+//
+// The following supported locations for a Parquet Dataset:
 func (o DatasetParquetOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetParquet) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }
@@ -360,6 +382,8 @@ func (o DatasetParquetOutput) Annotations() pulumi.StringArrayOutput {
 }
 
 // A `azureBlobStorageLocation` block as defined below.
+//
+// The following supported arguments are specific to Parquet Dataset:
 func (o DatasetParquetOutput) AzureBlobStorageLocation() DatasetParquetAzureBlobStorageLocationPtrOutput {
 	return o.ApplyT(func(v *DatasetParquet) DatasetParquetAzureBlobStorageLocationPtrOutput {
 		return v.AzureBlobStorageLocation

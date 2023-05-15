@@ -272,6 +272,10 @@ def get_sql_managed_instance(name: Optional[str] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlManagedInstanceResult:
     """
+    Use this data source to access information about an existing SQL Managed Instance.
+
+    > **Note:** The `sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstance` data source instead.
+
     ## Example Usage
 
     ```python
@@ -324,6 +328,10 @@ def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlManagedInstanceResult]:
     """
+    Use this data source to access information about an existing SQL Managed Instance.
+
+    > **Note:** The `sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstance` data source instead.
+
     ## Example Usage
 
     ```python

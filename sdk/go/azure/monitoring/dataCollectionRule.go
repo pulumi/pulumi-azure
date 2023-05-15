@@ -68,8 +68,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
-//				NamespaceName:     pulumi.Any(azurerm_eventhub_namespace.Example.Name),
+//				NamespaceName:     exampleEventHubNamespace.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				PartitionCount:    pulumi.Int(2),
 //				MessageRetention:  pulumi.Int(1),

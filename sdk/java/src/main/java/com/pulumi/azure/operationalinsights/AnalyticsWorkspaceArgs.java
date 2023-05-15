@@ -52,12 +52,16 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     /**
      * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      * 
+     * &gt; **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+     * 
      */
     @Import(name="dailyQuotaGb")
     private @Nullable Output<Double> dailyQuotaGb;
 
     /**
      * @return The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+     * 
+     * &gt; **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
      * 
      */
     public Optional<Output<Double>> dailyQuotaGb() {
@@ -142,12 +146,16 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     /**
      * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      * 
+     * &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+     * 
      */
     @Import(name="reservationCapacityInGbPerDay")
     private @Nullable Output<Integer> reservationCapacityInGbPerDay;
 
     /**
      * @return The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     * 
+     * &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
      * 
      */
     public Optional<Output<Integer>> reservationCapacityInGbPerDay() {
@@ -187,12 +195,20 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
      * 
+     * &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;re provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     * 
+     * &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
+     * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
      * @return Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+     * 
+     * &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;re provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     * 
+     * &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
      * 
      */
     public Optional<Output<String>> sku() {
@@ -202,12 +218,16 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -295,6 +315,8 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
         /**
          * @param dailyQuotaGb The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
          * 
+         * &gt; **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+         * 
          * @return builder
          * 
          */
@@ -305,6 +327,8 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param dailyQuotaGb The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+         * 
+         * &gt; **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
          * 
          * @return builder
          * 
@@ -421,6 +445,8 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
         /**
          * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
          * 
+         * &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+         * 
          * @return builder
          * 
          */
@@ -431,6 +457,8 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+         * 
+         * &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
          * 
          * @return builder
          * 
@@ -484,6 +512,10 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
         /**
          * @param sku Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
          * 
+         * &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;re provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+         * 
+         * &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
+         * 
          * @return builder
          * 
          */
@@ -495,6 +527,10 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
         /**
          * @param sku Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
          * 
+         * &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;re provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+         * 
+         * &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
+         * 
          * @return builder
          * 
          */
@@ -504,6 +540,8 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
          * 
          * @return builder
          * 
@@ -515,6 +553,8 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
          * 
          * @return builder
          * 

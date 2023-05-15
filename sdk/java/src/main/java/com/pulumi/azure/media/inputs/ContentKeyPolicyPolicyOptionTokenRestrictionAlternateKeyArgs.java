@@ -63,12 +63,16 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs 
     /**
      * The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
      * 
+     * &gt; **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
+     * 
      */
     @Import(name="x509TokenKeyRaw")
     private @Nullable Output<String> x509TokenKeyRaw;
 
     /**
      * @return The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+     * 
+     * &gt; **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
      * 
      */
     public Optional<Output<String>> x509TokenKeyRaw() {
@@ -168,6 +172,8 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs 
         /**
          * @param x509TokenKeyRaw The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
          * 
+         * &gt; **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
+         * 
          * @return builder
          * 
          */
@@ -178,6 +184,8 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs 
 
         /**
          * @param x509TokenKeyRaw The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+         * 
+         * &gt; **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
          * 
          * @return builder
          * 

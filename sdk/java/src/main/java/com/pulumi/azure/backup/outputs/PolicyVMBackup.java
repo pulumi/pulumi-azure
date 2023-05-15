@@ -21,6 +21,8 @@ public final class PolicyVMBackup {
     /**
      * @return Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
      * 
+     * &gt; **NOTE:** `hour_duration` must be multiplier of `hour_interval`
+     * 
      */
     private @Nullable Integer hourDuration;
     /**
@@ -49,6 +51,8 @@ public final class PolicyVMBackup {
     }
     /**
      * @return Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+     * 
+     * &gt; **NOTE:** `hour_duration` must be multiplier of `hour_interval`
      * 
      */
     public Optional<Integer> hourDuration() {

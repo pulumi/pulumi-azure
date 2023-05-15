@@ -68,6 +68,8 @@ export class DatasetMysql extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
+     *
+     * The following supported arguments are specific to MySQL Dataset:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -160,6 +162,8 @@ export class DatasetMysql extends pulumi.CustomResource {
 export interface DatasetMysqlState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
+     *
+     * The following supported arguments are specific to MySQL Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -206,6 +210,8 @@ export interface DatasetMysqlState {
 export interface DatasetMysqlArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
+     *
+     * The following supported arguments are specific to MySQL Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

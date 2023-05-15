@@ -108,12 +108,16 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * An `automatic_instance_repair` block as defined below.
      * 
+     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * 
      */
     @Export(name="automaticInstanceRepair", refs={OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
     private Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
      * @return An `automatic_instance_repair` block as defined below.
+     * 
+     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     public Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
@@ -136,12 +140,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+     * 
+     * &gt; **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
+     * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+     * 
+     * &gt; **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {
@@ -192,12 +204,16 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
      * 
+     * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * 
+     * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     public Output<Boolean> extensionOperationsEnabled() {
@@ -374,12 +390,16 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+     * 
      */
     @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> platformFaultDomainCount;
 
     /**
      * @return Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
      */
     public Output<Integer> platformFaultDomainCount() {
@@ -556,12 +576,16 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * 
      */
     @Export(name="zoneBalance", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneBalance;
 
     /**
      * @return Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
      * 
      */
     public Output<Optional<Boolean>> zoneBalance() {
@@ -570,12 +594,16 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      * 
+     * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+     * 
+     * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
      * 
      */
     public Output<Optional<List<String>>> zones() {

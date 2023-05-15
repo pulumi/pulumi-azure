@@ -31,7 +31,9 @@ class ExpressRouteCircuitPeeringArgs:
         """
         The set of arguments for constructing a ExpressRouteCircuitPeering resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+               
+               > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vlan_id: A valid VLAN ID to establish this peering on.
         :param pulumi.Input[bool] ipv4_enabled: A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
@@ -40,6 +42,8 @@ class ExpressRouteCircuitPeeringArgs:
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
         :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+               
+               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
         """
@@ -80,7 +84,9 @@ class ExpressRouteCircuitPeeringArgs:
     @pulumi.getter(name="peeringType")
     def peering_type(self) -> pulumi.Input[str]:
         """
-        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+
+        > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         """
         return pulumi.get(self, "peering_type")
 
@@ -177,6 +183,8 @@ class ExpressRouteCircuitPeeringArgs:
     def route_filter_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+
+        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         return pulumi.get(self, "route_filter_id")
 
@@ -236,11 +244,15 @@ class _ExpressRouteCircuitPeeringState:
         :param pulumi.Input['ExpressRouteCircuitPeeringIpv6Args'] ipv6: A `ipv6` block as defined below.
         :param pulumi.Input['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs'] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
-        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+               
+               > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         :param pulumi.Input[str] primary_azure_port: The Primary Port used by Azure for this Peering.
         :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+               
+               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         :param pulumi.Input[str] secondary_azure_port: The Secondary Port used by Azure for this Peering.
         :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
@@ -364,7 +376,9 @@ class _ExpressRouteCircuitPeeringState:
     @pulumi.getter(name="peeringType")
     def peering_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+
+        > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         """
         return pulumi.get(self, "peering_type")
 
@@ -413,6 +427,8 @@ class _ExpressRouteCircuitPeeringState:
     def route_filter_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+
+        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         return pulumi.get(self, "route_filter_id")
 
@@ -585,10 +601,14 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']] ipv6: A `ipv6` block as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
-        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+               
+               > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+               
+               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
         :param pulumi.Input[int] vlan_id: A valid VLAN ID to establish this peering on.
@@ -791,11 +811,15 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']] ipv6: A `ipv6` block as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
-        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+               
+               > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         :param pulumi.Input[str] primary_azure_port: The Primary Port used by Azure for this Peering.
         :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+               
+               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         :param pulumi.Input[str] secondary_azure_port: The Secondary Port used by Azure for this Peering.
         :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
@@ -880,7 +904,9 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     @pulumi.getter(name="peeringType")
     def peering_type(self) -> pulumi.Output[str]:
         """
-        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+
+        > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         """
         return pulumi.get(self, "peering_type")
 
@@ -913,6 +939,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     def route_filter_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+
+        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         return pulumi.get(self, "route_filter_id")
 

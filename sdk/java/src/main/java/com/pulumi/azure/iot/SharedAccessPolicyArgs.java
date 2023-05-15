@@ -19,12 +19,16 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      * 
+     * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+     * 
      */
     @Import(name="deviceConnect")
     private @Nullable Output<Boolean> deviceConnect;
 
     /**
      * @return Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+     * 
+     * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> deviceConnect() {
@@ -79,12 +83,16 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      * 
+     * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+     * 
      */
     @Import(name="registryWrite")
     private @Nullable Output<Boolean> registryWrite;
 
     /**
      * @return Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+     * 
+     * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
      * 
      */
     public Optional<Output<Boolean>> registryWrite() {
@@ -154,6 +162,8 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
         /**
          * @param deviceConnect Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
          * 
+         * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -164,6 +174,8 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param deviceConnect Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+         * 
+         * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
          * 
          * @return builder
          * 
@@ -238,6 +250,8 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
         /**
          * @param registryWrite Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
          * 
+         * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+         * 
          * @return builder
          * 
          */
@@ -248,6 +262,8 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param registryWrite Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+         * 
+         * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
          * 
          * @return builder
          * 

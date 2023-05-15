@@ -15,6 +15,8 @@ public final class CacheIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
@@ -28,6 +30,8 @@ public final class CacheIdentity {
     private CacheIdentity() {}
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

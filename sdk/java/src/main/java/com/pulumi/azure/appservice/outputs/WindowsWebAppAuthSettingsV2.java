@@ -46,6 +46,8 @@ public final class WindowsWebAppAuthSettingsV2 {
     /**
      * @return The path to the App Auth settings.
      * 
+     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * 
      */
     private @Nullable String configFilePath;
     /**
@@ -55,6 +57,8 @@ public final class WindowsWebAppAuthSettingsV2 {
     private @Nullable List<WindowsWebAppAuthSettingsV2CustomOidcV2> customOidcV2s;
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+     * 
+     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     private @Nullable String defaultProvider;
@@ -166,6 +170,8 @@ public final class WindowsWebAppAuthSettingsV2 {
     /**
      * @return The path to the App Auth settings.
      * 
+     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * 
      */
     public Optional<String> configFilePath() {
         return Optional.ofNullable(this.configFilePath);
@@ -179,6 +185,8 @@ public final class WindowsWebAppAuthSettingsV2 {
     }
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+     * 
+     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<String> defaultProvider() {

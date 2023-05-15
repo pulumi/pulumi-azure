@@ -139,12 +139,16 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the value of the Key Vault Secret.
      * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return Specifies the value of the Key Vault Secret.
+     * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
      * 
      */
     public Optional<Output<String>> value() {
@@ -386,6 +390,8 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value Specifies the value of the Key Vault Secret.
          * 
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * 
          * @return builder
          * 
          */
@@ -396,6 +402,8 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param value Specifies the value of the Key Vault Secret.
+         * 
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
          * 
          * @return builder
          * 

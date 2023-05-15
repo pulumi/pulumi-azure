@@ -77,6 +77,8 @@ type VpnSite struct {
 	pulumi.CustomResourceState
 
 	// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+	//
+	// > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
 	AddressCidrs pulumi.StringArrayOutput `pulumi:"addressCidrs"`
 	// The model of the VPN device.
 	DeviceModel pulumi.StringPtrOutput `pulumi:"deviceModel"`
@@ -134,6 +136,8 @@ func GetVpnSite(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VpnSite resources.
 type vpnSiteState struct {
 	// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+	//
+	// > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
 	AddressCidrs []string `pulumi:"addressCidrs"`
 	// The model of the VPN device.
 	DeviceModel *string `pulumi:"deviceModel"`
@@ -157,6 +161,8 @@ type vpnSiteState struct {
 
 type VpnSiteState struct {
 	// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+	//
+	// > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
 	AddressCidrs pulumi.StringArrayInput
 	// The model of the VPN device.
 	DeviceModel pulumi.StringPtrInput
@@ -184,6 +190,8 @@ func (VpnSiteState) ElementType() reflect.Type {
 
 type vpnSiteArgs struct {
 	// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+	//
+	// > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
 	AddressCidrs []string `pulumi:"addressCidrs"`
 	// The model of the VPN device.
 	DeviceModel *string `pulumi:"deviceModel"`
@@ -208,6 +216,8 @@ type vpnSiteArgs struct {
 // The set of arguments for constructing a VpnSite resource.
 type VpnSiteArgs struct {
 	// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+	//
+	// > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
 	AddressCidrs pulumi.StringArrayInput
 	// The model of the VPN device.
 	DeviceModel pulumi.StringPtrInput
@@ -317,6 +327,8 @@ func (o VpnSiteOutput) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOu
 }
 
 // Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
+//
+// > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
 func (o VpnSiteOutput) AddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnSite) pulumi.StringArrayOutput { return v.AddressCidrs }).(pulumi.StringArrayOutput)
 }

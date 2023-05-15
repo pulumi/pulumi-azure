@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Allows you to set a user or group as the AD administrator for an Azure SQL server.
+//
+// > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azureadAdministrator` block of the `mssql.Server` resource instead.
+//
 // ## Example Usage
 //
 // ```go

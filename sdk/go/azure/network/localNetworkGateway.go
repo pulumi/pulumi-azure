@@ -70,6 +70,8 @@ type LocalNetworkGateway struct {
 	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrOutput `pulumi:"gatewayAddress"`
 	// The gateway FQDN to connect with.
+	//
+	// > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
 	GatewayFqdn pulumi.StringPtrOutput `pulumi:"gatewayFqdn"`
 	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -120,6 +122,8 @@ type localNetworkGatewayState struct {
 	// The gateway IP address to connect with.
 	GatewayAddress *string `pulumi:"gatewayAddress"`
 	// The gateway FQDN to connect with.
+	//
+	// > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
 	GatewayFqdn *string `pulumi:"gatewayFqdn"`
 	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -139,6 +143,8 @@ type LocalNetworkGatewayState struct {
 	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrInput
 	// The gateway FQDN to connect with.
+	//
+	// > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
 	GatewayFqdn pulumi.StringPtrInput
 	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -162,6 +168,8 @@ type localNetworkGatewayArgs struct {
 	// The gateway IP address to connect with.
 	GatewayAddress *string `pulumi:"gatewayAddress"`
 	// The gateway FQDN to connect with.
+	//
+	// > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
 	GatewayFqdn *string `pulumi:"gatewayFqdn"`
 	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -182,6 +190,8 @@ type LocalNetworkGatewayArgs struct {
 	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrInput
 	// The gateway FQDN to connect with.
+	//
+	// > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
 	GatewayFqdn pulumi.StringPtrInput
 	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -296,6 +306,8 @@ func (o LocalNetworkGatewayOutput) GatewayAddress() pulumi.StringPtrOutput {
 }
 
 // The gateway FQDN to connect with.
+//
+// > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
 func (o LocalNetworkGatewayOutput) GatewayFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.GatewayFqdn }).(pulumi.StringPtrOutput)
 }

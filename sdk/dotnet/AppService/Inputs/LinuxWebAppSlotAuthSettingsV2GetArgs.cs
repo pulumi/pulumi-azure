@@ -38,6 +38,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The path to the App Auth settings.
+        /// 
+        /// * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
         /// </summary>
         [Input("configFilePath")]
         public Input<string>? ConfigFilePath { get; set; }
@@ -56,6 +58,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        /// 
+        /// &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }

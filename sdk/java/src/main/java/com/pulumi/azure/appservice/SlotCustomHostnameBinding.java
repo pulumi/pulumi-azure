@@ -110,12 +110,16 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+     * 
      */
     @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
      * @return Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
     public Output<String> hostname() {
@@ -138,12 +142,16 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+     * 
      */
     @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output<String> thumbprint;
 
     /**
      * @return The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
     public Output<String> thumbprint() {

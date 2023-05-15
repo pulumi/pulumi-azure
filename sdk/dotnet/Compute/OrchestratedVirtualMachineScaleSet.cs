@@ -66,6 +66,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// An `automatic_instance_repair` block as defined below.
+        /// 
+        /// &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// </summary>
         [Output("automaticInstanceRepair")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
@@ -78,6 +80,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+        /// 
+        /// &gt; **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
@@ -102,6 +108,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+        /// 
+        /// &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         /// </summary>
         [Output("extensionOperationsEnabled")]
         public Output<bool> ExtensionOperationsEnabled { get; private set; } = null!;
@@ -180,6 +188,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         /// </summary>
         [Output("platformFaultDomainCount")]
         public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
@@ -258,12 +268,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+        /// 
+        /// &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -326,6 +340,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// An `automatic_instance_repair` block as defined below.
+        /// 
+        /// &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
@@ -338,6 +354,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+        /// 
+        /// &gt; **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -368,6 +388,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+        /// 
+        /// &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -458,6 +480,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         /// </summary>
         [Input("platformFaultDomainCount", required: true)]
         public Input<int> PlatformFaultDomainCount { get; set; } = null!;
@@ -546,6 +570,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -555,6 +581,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+        /// 
+        /// &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         /// </summary>
         public InputList<string> Zones
         {
@@ -578,6 +606,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// An `automatic_instance_repair` block as defined below.
+        /// 
+        /// &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
@@ -590,6 +620,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+        /// 
+        /// &gt; **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -620,6 +654,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+        /// 
+        /// &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -710,6 +746,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
@@ -804,6 +842,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -813,6 +853,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+        /// 
+        /// &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         /// </summary>
         public InputList<string> Zones
         {

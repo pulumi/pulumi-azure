@@ -87,6 +87,8 @@ type Topic struct {
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
@@ -154,6 +156,8 @@ type topicState struct {
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
@@ -190,6 +194,8 @@ type TopicState struct {
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
@@ -230,6 +236,8 @@ type topicArgs struct {
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
@@ -265,6 +273,8 @@ type TopicArgs struct {
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
@@ -400,6 +410,8 @@ func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 // Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 // the topic to be partitioned across multiple message brokers. Defaults to false.
 // Changing this forces a new resource to be created.
+//
+// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
 }

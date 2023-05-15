@@ -36,7 +36,7 @@ import (
 //			}
 //			exampleNetwork, err := mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
 //				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				ResourceGroupName: exampleResourceGroup.Name,
 //				MobileCountryCode: pulumi.String("001"),
 //				MobileNetworkCode: pulumi.String("01"),
 //			})

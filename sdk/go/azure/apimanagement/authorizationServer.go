@@ -74,6 +74,8 @@ type AuthorizationServer struct {
 	// The OAUTH Authorization Endpoint.
 	AuthorizationEndpoint pulumi.StringOutput `pulumi:"authorizationEndpoint"`
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+	//
+	// > **NOTE:** `GET` must always be present.
 	AuthorizationMethods pulumi.StringArrayOutput `pulumi:"authorizationMethods"`
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods pulumi.StringArrayOutput `pulumi:"bearerTokenSendingMethods"`
@@ -98,8 +100,12 @@ type AuthorizationServer struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The password associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerPassword pulumi.StringPtrOutput `pulumi:"resourceOwnerPassword"`
 	// The username associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerUsername pulumi.StringPtrOutput `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
 	SupportState pulumi.BoolPtrOutput `pulumi:"supportState"`
@@ -178,6 +184,8 @@ type authorizationServerState struct {
 	// The OAUTH Authorization Endpoint.
 	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+	//
+	// > **NOTE:** `GET` must always be present.
 	AuthorizationMethods []string `pulumi:"authorizationMethods"`
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
@@ -202,8 +210,12 @@ type authorizationServerState struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The password associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerPassword *string `pulumi:"resourceOwnerPassword"`
 	// The username associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerUsername *string `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
 	SupportState *bool `pulumi:"supportState"`
@@ -219,6 +231,8 @@ type AuthorizationServerState struct {
 	// The OAUTH Authorization Endpoint.
 	AuthorizationEndpoint pulumi.StringPtrInput
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+	//
+	// > **NOTE:** `GET` must always be present.
 	AuthorizationMethods pulumi.StringArrayInput
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods pulumi.StringArrayInput
@@ -243,8 +257,12 @@ type AuthorizationServerState struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The password associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerPassword pulumi.StringPtrInput
 	// The username associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerUsername pulumi.StringPtrInput
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
 	SupportState pulumi.BoolPtrInput
@@ -264,6 +282,8 @@ type authorizationServerArgs struct {
 	// The OAUTH Authorization Endpoint.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+	//
+	// > **NOTE:** `GET` must always be present.
 	AuthorizationMethods []string `pulumi:"authorizationMethods"`
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
@@ -288,8 +308,12 @@ type authorizationServerArgs struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The password associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerPassword *string `pulumi:"resourceOwnerPassword"`
 	// The username associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerUsername *string `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
 	SupportState *bool `pulumi:"supportState"`
@@ -306,6 +330,8 @@ type AuthorizationServerArgs struct {
 	// The OAUTH Authorization Endpoint.
 	AuthorizationEndpoint pulumi.StringInput
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+	//
+	// > **NOTE:** `GET` must always be present.
 	AuthorizationMethods pulumi.StringArrayInput
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods pulumi.StringArrayInput
@@ -330,8 +356,12 @@ type AuthorizationServerArgs struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The password associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerPassword pulumi.StringPtrInput
 	// The username associated with the Resource Owner.
+	//
+	// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 	ResourceOwnerUsername pulumi.StringPtrInput
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
 	SupportState pulumi.BoolPtrInput
@@ -439,6 +469,8 @@ func (o AuthorizationServerOutput) AuthorizationEndpoint() pulumi.StringOutput {
 }
 
 // The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+//
+// > **NOTE:** `GET` must always be present.
 func (o AuthorizationServerOutput) AuthorizationMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringArrayOutput { return v.AuthorizationMethods }).(pulumi.StringArrayOutput)
 }
@@ -499,11 +531,15 @@ func (o AuthorizationServerOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The password associated with the Resource Owner.
+//
+// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 func (o AuthorizationServerOutput) ResourceOwnerPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.ResourceOwnerPassword }).(pulumi.StringPtrOutput)
 }
 
 // The username associated with the Resource Owner.
+//
+// > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
 func (o AuthorizationServerOutput) ResourceOwnerUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.ResourceOwnerUsername }).(pulumi.StringPtrOutput)
 }

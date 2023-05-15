@@ -186,19 +186,20 @@ class ContactProfileLinkChannelArgs:
 class ContactProfileLinkChannelEndPointArgs:
     def __init__(__self__, *,
                  end_point_name: pulumi.Input[str],
-                 ip_address: pulumi.Input[str],
                  port: pulumi.Input[str],
-                 protocol: pulumi.Input[str]):
+                 protocol: pulumi.Input[str],
+                 ip_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] end_point_name: Name of an end point.
-        :param pulumi.Input[str] ip_address: IP address of an end point.
         :param pulumi.Input[str] port: TCP port to listen on to receive data.
         :param pulumi.Input[str] protocol: Protocol of an end point. Possible values are `TCP` and `UDP`.
+        :param pulumi.Input[str] ip_address: IP address of an end point.
         """
         pulumi.set(__self__, "end_point_name", end_point_name)
-        pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
 
     @property
     @pulumi.getter(name="endPointName")
@@ -211,18 +212,6 @@ class ContactProfileLinkChannelEndPointArgs:
     @end_point_name.setter
     def end_point_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "end_point_name", value)
-
-    @property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Input[str]:
-        """
-        IP address of an end point.
-        """
-        return pulumi.get(self, "ip_address")
-
-    @ip_address.setter
-    def ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "ip_address", value)
 
     @property
     @pulumi.getter
@@ -247,6 +236,18 @@ class ContactProfileLinkChannelEndPointArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of an end point.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
 
 
 @pulumi.input_type

@@ -320,6 +320,11 @@ export type NetworkManagerConnectivityConfiguration = import("./networkManagerCo
 export const NetworkManagerConnectivityConfiguration: typeof import("./networkManagerConnectivityConfiguration").NetworkManagerConnectivityConfiguration = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerConnectivityConfiguration"], () => require("./networkManagerConnectivityConfiguration"));
 
+export { NetworkManagerDeploymentArgs, NetworkManagerDeploymentState } from "./networkManagerDeployment";
+export type NetworkManagerDeployment = import("./networkManagerDeployment").NetworkManagerDeployment;
+export const NetworkManagerDeployment: typeof import("./networkManagerDeployment").NetworkManagerDeployment = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerDeployment"], () => require("./networkManagerDeployment"));
+
 export { NetworkManagerManagementGroupConnectionArgs, NetworkManagerManagementGroupConnectionState } from "./networkManagerManagementGroupConnection";
 export type NetworkManagerManagementGroupConnection = import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection;
 export const NetworkManagerManagementGroupConnection: typeof import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection = null as any;
@@ -640,6 +645,8 @@ const _module = {
                 return new NetworkManagerAdminRuleCollection(name, <any>undefined, { urn })
             case "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration":
                 return new NetworkManagerConnectivityConfiguration(name, <any>undefined, { urn })
+            case "azure:network/networkManagerDeployment:NetworkManagerDeployment":
+                return new NetworkManagerDeployment(name, <any>undefined, { urn })
             case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
                 return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
@@ -778,6 +785,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerConnectivityConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)

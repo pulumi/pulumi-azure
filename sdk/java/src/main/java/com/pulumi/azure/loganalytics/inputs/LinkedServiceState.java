@@ -78,12 +78,16 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      * 
+     * &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+     * 
      */
     @Import(name="writeAccessId")
     private @Nullable Output<String> writeAccessId;
 
     /**
      * @return The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+     * 
+     * &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
      * 
      */
     public Optional<Output<String>> writeAccessId() {
@@ -205,6 +209,8 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param writeAccessId The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
          * 
+         * &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+         * 
          * @return builder
          * 
          */
@@ -215,6 +221,8 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param writeAccessId The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+         * 
+         * &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
          * 
          * @return builder
          * 

@@ -107,12 +107,18 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the disk access resource for using private endpoints on disks.
+        /// 
+        /// &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         /// </summary>
         [Output("diskAccessId")]
         public Output<string?> DiskAccessId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// 
+        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// 
+        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
@@ -141,9 +147,6 @@ namespace Pulumi.Azure.Compute
         [Output("diskMbpsReadWrite")]
         public Output<int> DiskMbpsReadWrite { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-        /// </summary>
         [Output("diskSizeGb")]
         public Output<int> DiskSizeGb { get; private set; } = null!;
 
@@ -155,6 +158,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
@@ -185,12 +190,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         /// </summary>
         [Output("logicalSectorSize")]
         public Output<int> LogicalSectorSize { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        /// 
+        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         /// </summary>
         [Output("maxShares")]
         public Output<int> MaxShares { get; private set; } = null!;
@@ -209,6 +218,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+        /// 
+        /// &gt; **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         /// </summary>
         [Output("onDemandBurstingEnabled")]
         public Output<bool?> OnDemandBurstingEnabled { get; private set; } = null!;
@@ -221,6 +232,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// 
+        /// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -233,12 +246,21 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Output("secureVmDiskEncryptionSetId")]
         public Output<string?> SecureVmDiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// 
+        /// 
+        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// 
+        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Output("securityType")]
         public Output<string?> SecurityType { get; private set; } = null!;
@@ -263,6 +285,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        /// 
+        /// &gt; **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         /// </summary>
         [Output("storageAccountType")]
         public Output<string> StorageAccountType { get; private set; } = null!;
@@ -273,14 +297,13 @@ namespace Pulumi.Azure.Compute
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        /// </summary>
         [Output("tier")]
         public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         /// </summary>
         [Output("trustedLaunchEnabled")]
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
@@ -293,6 +316,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -351,12 +376,18 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the disk access resource for using private endpoints on disks.
+        /// 
+        /// &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         /// </summary>
         [Input("diskAccessId")]
         public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// 
+        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// 
+        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -385,9 +416,6 @@ namespace Pulumi.Azure.Compute
         [Input("diskMbpsReadWrite")]
         public Input<int>? DiskMbpsReadWrite { get; set; }
 
-        /// <summary>
-        /// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
@@ -399,6 +427,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
@@ -429,12 +459,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         /// </summary>
         [Input("logicalSectorSize")]
         public Input<int>? LogicalSectorSize { get; set; }
 
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        /// 
+        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         /// </summary>
         [Input("maxShares")]
         public Input<int>? MaxShares { get; set; }
@@ -453,6 +487,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+        /// 
+        /// &gt; **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         /// </summary>
         [Input("onDemandBurstingEnabled")]
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
@@ -465,6 +501,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// 
+        /// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -477,12 +515,21 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
 
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// 
+        /// 
+        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// 
+        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
@@ -507,6 +554,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        /// 
+        /// &gt; **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
@@ -523,14 +572,13 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 
         /// <summary>
         /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
@@ -543,6 +591,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -563,12 +613,18 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the disk access resource for using private endpoints on disks.
+        /// 
+        /// &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         /// </summary>
         [Input("diskAccessId")]
         public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// 
+        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// 
+        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -597,9 +653,6 @@ namespace Pulumi.Azure.Compute
         [Input("diskMbpsReadWrite")]
         public Input<int>? DiskMbpsReadWrite { get; set; }
 
-        /// <summary>
-        /// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
@@ -611,6 +664,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
@@ -641,12 +696,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         /// </summary>
         [Input("logicalSectorSize")]
         public Input<int>? LogicalSectorSize { get; set; }
 
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        /// 
+        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         /// </summary>
         [Input("maxShares")]
         public Input<int>? MaxShares { get; set; }
@@ -665,6 +724,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+        /// 
+        /// &gt; **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         /// </summary>
         [Input("onDemandBurstingEnabled")]
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
@@ -677,6 +738,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// 
+        /// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -689,12 +752,21 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
 
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// 
+        /// 
+        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// 
+        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
@@ -719,6 +791,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        /// 
+        /// &gt; **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -735,14 +809,13 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 
         /// <summary>
         /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
@@ -755,6 +828,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

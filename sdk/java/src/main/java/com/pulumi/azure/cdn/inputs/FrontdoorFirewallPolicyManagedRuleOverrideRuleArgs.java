@@ -21,12 +21,16 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
     /**
      * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
      * 
+     * -&gt;**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+     * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
      * @return The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+     * 
+     * -&gt;**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
      * 
      */
     public Output<String> action() {
@@ -108,6 +112,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         /**
          * @param action The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
          * 
+         * -&gt;**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+         * 
          * @return builder
          * 
          */
@@ -118,6 +124,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
 
         /**
          * @param action The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+         * 
+         * -&gt;**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
          * 
          * @return builder
          * 

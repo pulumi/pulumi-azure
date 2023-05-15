@@ -44,6 +44,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// 
+        /// The following properties apply when using Unmanaged Disks:
         /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
@@ -68,6 +70,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// 
+        /// The following properties apply when using Managed Disks:
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

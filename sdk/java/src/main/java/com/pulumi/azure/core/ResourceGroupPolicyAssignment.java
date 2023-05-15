@@ -147,12 +147,16 @@ public class ResourceGroupPolicyAssignment extends com.pulumi.resources.CustomRe
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+     * 
      */
     @Export(name="identity", refs={ResourceGroupPolicyAssignmentIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ResourceGroupPolicyAssignmentIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
     public Output<Optional<ResourceGroupPolicyAssignmentIdentity>> identity() {

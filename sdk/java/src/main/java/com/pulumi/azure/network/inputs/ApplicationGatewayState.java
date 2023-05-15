@@ -451,12 +451,16 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     /**
      * One or more `ssl_profile` blocks as defined below.
      * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+     * 
      */
     @Import(name="sslProfiles")
     private @Nullable Output<List<ApplicationGatewaySslProfileArgs>> sslProfiles;
 
     /**
      * @return One or more `ssl_profile` blocks as defined below.
+     * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
     public Optional<Output<List<ApplicationGatewaySslProfileArgs>>> sslProfiles() {
@@ -1330,6 +1334,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param sslProfiles One or more `ssl_profile` blocks as defined below.
          * 
+         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+         * 
          * @return builder
          * 
          */
@@ -1341,6 +1347,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param sslProfiles One or more `ssl_profile` blocks as defined below.
          * 
+         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+         * 
          * @return builder
          * 
          */
@@ -1350,6 +1358,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
 
         /**
          * @param sslProfiles One or more `ssl_profile` blocks as defined below.
+         * 
+         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
          * 
          * @return builder
          * 

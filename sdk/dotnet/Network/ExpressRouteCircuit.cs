@@ -73,12 +73,18 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        /// 
+        /// &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         /// </summary>
         [Output("bandwidthInGbps")]
         public Output<double?> BandwidthInGbps { get; private set; } = null!;
 
         /// <summary>
         /// The bandwidth in Mbps of the circuit being created on the Service Provider.
+        /// 
+        /// &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+        /// 
+        /// &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         /// </summary>
         [Output("bandwidthInMbps")]
         public Output<int?> BandwidthInMbps { get; private set; } = null!;
@@ -218,12 +224,18 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        /// 
+        /// &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         /// </summary>
         [Input("bandwidthInGbps")]
         public Input<double>? BandwidthInGbps { get; set; }
 
         /// <summary>
         /// The bandwidth in Mbps of the circuit being created on the Service Provider.
+        /// 
+        /// &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+        /// 
+        /// &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         /// </summary>
         [Input("bandwidthInMbps")]
         public Input<int>? BandwidthInMbps { get; set; }
@@ -314,12 +326,18 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
+        /// 
+        /// &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         /// </summary>
         [Input("bandwidthInGbps")]
         public Input<double>? BandwidthInGbps { get; set; }
 
         /// <summary>
         /// The bandwidth in Mbps of the circuit being created on the Service Provider.
+        /// 
+        /// &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+        /// 
+        /// &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         /// </summary>
         [Input("bandwidthInMbps")]
         public Input<int>? BandwidthInMbps { get; set; }

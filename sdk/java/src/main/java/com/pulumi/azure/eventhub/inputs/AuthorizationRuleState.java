@@ -139,12 +139,16 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
      * @return The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -418,6 +422,8 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         /**
          * @param resourceGroupName The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * 
          * @return builder
          * 
          */
@@ -428,6 +434,8 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
 
         /**
          * @param resourceGroupName The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 

@@ -173,8 +173,8 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
         example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku="Standard",
             classic_vmware_replication_enabled=True,
             soft_delete_enabled=False)
@@ -216,8 +216,8 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
         example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku="Standard",
             classic_vmware_replication_enabled=True,
             soft_delete_enabled=False)

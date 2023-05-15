@@ -155,6 +155,8 @@ export class ServerMicrosoftSupportAuditingPolicy extends pulumi.CustomResource 
     public readonly blobStorageEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     *
+     * ->**NOTE:**  If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -222,6 +224,8 @@ export interface ServerMicrosoftSupportAuditingPolicyState {
     blobStorageEndpoint?: pulumi.Input<string>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     *
+     * ->**NOTE:**  If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -252,6 +256,8 @@ export interface ServerMicrosoftSupportAuditingPolicyArgs {
     blobStorageEndpoint?: pulumi.Input<string>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     *
+     * ->**NOTE:**  If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
     /**

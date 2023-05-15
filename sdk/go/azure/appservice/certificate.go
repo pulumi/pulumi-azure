@@ -97,6 +97,8 @@ type Certificate struct {
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -174,6 +176,8 @@ type certificateState struct {
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -209,6 +213,8 @@ type CertificateState struct {
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -236,6 +242,8 @@ type certificateArgs struct {
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -256,6 +264,8 @@ type CertificateArgs struct {
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -406,6 +416,8 @@ func (o CertificateOutput) Password() pulumi.StringPtrOutput {
 }
 
 // The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 func (o CertificateOutput) PfxBlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PfxBlob }).(pulumi.StringPtrOutput)
 }

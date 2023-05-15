@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Monitor Action Rule which type is suppression.
+ *
+ * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.monitoring.AlertProcessingRuleSuppression` resource instead.
+ *
  * ## Example Usage
  *
  * ```typescript

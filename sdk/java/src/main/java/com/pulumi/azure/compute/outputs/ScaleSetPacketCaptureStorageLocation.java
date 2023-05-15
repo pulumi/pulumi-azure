@@ -19,6 +19,8 @@ public final class ScaleSetPacketCaptureStorageLocation {
     /**
      * @return The ID of the storage account to save the packet capture session
      * 
+     * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+     * 
      */
     private @Nullable String storageAccountId;
     /**
@@ -37,6 +39,8 @@ public final class ScaleSetPacketCaptureStorageLocation {
     }
     /**
      * @return The ID of the storage account to save the packet capture session
+     * 
+     * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
      * 
      */
     public Optional<String> storageAccountId() {

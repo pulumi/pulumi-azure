@@ -127,7 +127,6 @@ type DatastoreDatalakeGen2 struct {
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataIdentity pulumi.StringPtrOutput `pulumi:"serviceDataIdentity"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-	// ---
 	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
 	// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -194,7 +193,6 @@ type datastoreDatalakeGen2State struct {
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataIdentity *string `pulumi:"serviceDataIdentity"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-	// ---
 	StorageContainerId *string `pulumi:"storageContainerId"`
 	// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Tags map[string]string `pulumi:"tags"`
@@ -220,7 +218,6 @@ type DatastoreDatalakeGen2State struct {
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataIdentity pulumi.StringPtrInput
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-	// ---
 	StorageContainerId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Tags pulumi.StringMapInput
@@ -248,7 +245,6 @@ type datastoreDatalakeGen2Args struct {
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataIdentity *string `pulumi:"serviceDataIdentity"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-	// ---
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Tags map[string]string `pulumi:"tags"`
@@ -273,7 +269,6 @@ type DatastoreDatalakeGen2Args struct {
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataIdentity pulumi.StringPtrInput
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-	// ---
 	StorageContainerId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Tags pulumi.StringMapInput
@@ -406,7 +401,6 @@ func (o DatastoreDatalakeGen2Output) ServiceDataIdentity() pulumi.StringPtrOutpu
 }
 
 // The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-// ---
 func (o DatastoreDatalakeGen2Output) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatastoreDatalakeGen2) pulumi.StringOutput { return v.StorageContainerId }).(pulumi.StringOutput)
 }

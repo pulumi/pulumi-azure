@@ -83,6 +83,8 @@ type StandardWebTest struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
 	// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -154,6 +156,8 @@ type standardWebTestState struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency *int `pulumi:"frequency"`
 	// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations []string `pulumi:"geoLocations"`
 	// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
 	Location *string `pulumi:"location"`
@@ -185,6 +189,8 @@ type StandardWebTestState struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrInput
 	// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations pulumi.StringArrayInput
 	// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
 	Location pulumi.StringPtrInput
@@ -220,6 +226,8 @@ type standardWebTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency *int `pulumi:"frequency"`
 	// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations []string `pulumi:"geoLocations"`
 	// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
 	Location *string `pulumi:"location"`
@@ -250,6 +258,8 @@ type StandardWebTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrInput
 	// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations pulumi.StringArrayInput
 	// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
 	Location pulumi.StringPtrInput
@@ -377,6 +387,8 @@ func (o StandardWebTestOutput) Frequency() pulumi.IntPtrOutput {
 }
 
 // Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+//
+// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 func (o StandardWebTestOutput) GeoLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StandardWebTest) pulumi.StringArrayOutput { return v.GeoLocations }).(pulumi.StringArrayOutput)
 }

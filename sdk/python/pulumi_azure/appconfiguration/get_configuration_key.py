@@ -170,7 +170,7 @@ def get_configuration_key(configuration_store_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    test = azure.appconfiguration.get_configuration_key(configuration_store_id=azurerm_app_configuration["appconf"]["id"],
+    test = azure.appconfiguration.get_configuration_key(configuration_store_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         key="appConfKey1",
         label="somelabel")
     pulumi.export("value", test.value)
@@ -218,7 +218,7 @@ def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[s
     import pulumi
     import pulumi_azure as azure
 
-    test = azure.appconfiguration.get_configuration_key(configuration_store_id=azurerm_app_configuration["appconf"]["id"],
+    test = azure.appconfiguration.get_configuration_key(configuration_store_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         key="appConfKey1",
         label="somelabel")
     pulumi.export("value", test.value)

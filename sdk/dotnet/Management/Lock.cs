@@ -104,6 +104,8 @@ namespace Pulumi.Azure.Management
     {
         /// <summary>
         /// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Output("lockLevel")]
         public Output<string> LockLevel { get; private set; } = null!;
@@ -178,6 +180,8 @@ namespace Pulumi.Azure.Management
     {
         /// <summary>
         /// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Input("lockLevel", required: true)]
         public Input<string> LockLevel { get; set; } = null!;
@@ -210,6 +214,8 @@ namespace Pulumi.Azure.Management
     {
         /// <summary>
         /// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Input("lockLevel")]
         public Input<string>? LockLevel { get; set; }

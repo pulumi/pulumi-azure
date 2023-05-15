@@ -271,7 +271,7 @@ class Snapshot(pulumi.CustomResource):
             pool_name=example_pool.name,
             volume_path="my-unique-file-path",
             service_level="Premium",
-            subnet_id=azurerm_subnet["test"]["id"],
+            subnet_id=example_subnet.id,
             storage_quota_in_gb=100)
         example_snapshot = azure.netapp.Snapshot("exampleSnapshot",
             account_name=example_account.name,
@@ -348,7 +348,7 @@ class Snapshot(pulumi.CustomResource):
             pool_name=example_pool.name,
             volume_path="my-unique-file-path",
             service_level="Premium",
-            subnet_id=azurerm_subnet["test"]["id"],
+            subnet_id=example_subnet.id,
             storage_quota_in_gb=100)
         example_snapshot = azure.netapp.Snapshot("exampleSnapshot",
             account_name=example_account.name,

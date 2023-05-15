@@ -1363,6 +1363,8 @@ type SqlServerIdentity struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
 	Type string `pulumi:"type"`
 }
 
@@ -1383,6 +1385,8 @@ type SqlServerIdentityArgs struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1474,6 +1478,8 @@ func (o SqlServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
 func (o SqlServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1523,6 +1529,8 @@ func (o SqlServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
 func (o SqlServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerIdentity) *string {
 		if v == nil {

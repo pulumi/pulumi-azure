@@ -85,6 +85,8 @@ type CassandraKeyspace struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -132,6 +134,8 @@ type cassandraKeyspaceState struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *CassandraKeyspaceAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -145,6 +149,8 @@ type CassandraKeyspaceState struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -162,6 +168,8 @@ type cassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *CassandraKeyspaceAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -176,6 +184,8 @@ type CassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -278,6 +288,8 @@ func (o CassandraKeyspaceOutput) AccountName() pulumi.StringOutput {
 }
 
 // An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+//
+// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o CassandraKeyspaceOutput) AutoscaleSettings() CassandraKeyspaceAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) CassandraKeyspaceAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
 }

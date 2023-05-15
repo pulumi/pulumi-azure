@@ -81,6 +81,8 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -133,6 +135,8 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
     public readonly folder!: pulumi.Output<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Delimited Text Dataset:
      */
     public readonly httpServerLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextHttpServerLocation | undefined>;
     /**
@@ -239,6 +243,8 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
 export interface DatasetDelimitedTextState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -291,6 +297,8 @@ export interface DatasetDelimitedTextState {
     folder?: pulumi.Input<string>;
     /**
      * A `httpServerLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Delimited Text Dataset:
      */
     httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
     /**
@@ -329,6 +337,8 @@ export interface DatasetDelimitedTextState {
 export interface DatasetDelimitedTextArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -381,6 +391,8 @@ export interface DatasetDelimitedTextArgs {
     folder?: pulumi.Input<string>;
     /**
      * A `httpServerLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Delimited Text Dataset:
      */
     httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
     /**

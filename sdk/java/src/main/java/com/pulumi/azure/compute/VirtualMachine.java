@@ -191,12 +191,16 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
+     * 
      */
     @Export(name="deleteDataDisksOnTermination", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteDataDisksOnTermination;
 
     /**
      * @return Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
      * 
      */
     public Output<Optional<Boolean>> deleteDataDisksOnTermination() {
@@ -205,12 +209,16 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
+     * 
      */
     @Export(name="deleteOsDiskOnTermination", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteOsDiskOnTermination;
 
     /**
      * @return Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
      * 
      */
     public Output<Optional<Boolean>> deleteOsDiskOnTermination() {
@@ -401,12 +409,16 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `storage_data_disk` blocks as defined below.
      * 
+     * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * 
      */
     @Export(name="storageDataDisks", refs={List.class,VirtualMachineStorageDataDisk.class}, tree="[0,1]")
     private Output<List<VirtualMachineStorageDataDisk>> storageDataDisks;
 
     /**
      * @return One or more `storage_data_disk` blocks as defined below.
+     * 
+     * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
      */
     public Output<List<VirtualMachineStorageDataDisk>> storageDataDisks() {
@@ -471,12 +483,20 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * 
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * 
      */
     @Export(name="zones", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zones;
 
     /**
      * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * 
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
      */
     public Output<Optional<String>> zones() {

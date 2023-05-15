@@ -20,6 +20,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The digest of the artifact that wants to be subscribed for the Connected Registry.
+        /// 
+        /// &gt; **NOTE:** One of either `tag` or `digest` can be specified.
         /// </summary>
         [Input("digest")]
         public Input<string>? Digest { get; set; }

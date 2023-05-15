@@ -31,6 +31,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
         public readonly string RepositoryName;
         /// <summary>
         /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// 
+        /// &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         /// </summary>
         public readonly string RootFolder;
 

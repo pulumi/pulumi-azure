@@ -20,6 +20,8 @@ public final class SparkClusterRolesWorkerNodeAutoscale {
     /**
      * @return A `recurrence` block as defined below.
      * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
      */
     private @Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
@@ -33,6 +35,8 @@ public final class SparkClusterRolesWorkerNodeAutoscale {
     }
     /**
      * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<SparkClusterRolesWorkerNodeAutoscaleRecurrence> recurrence() {

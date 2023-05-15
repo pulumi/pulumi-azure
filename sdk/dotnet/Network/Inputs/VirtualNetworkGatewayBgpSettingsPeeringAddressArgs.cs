@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+        /// 
+        /// &gt; **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
         /// </summary>
         public InputList<string> ApipaAddresses
         {

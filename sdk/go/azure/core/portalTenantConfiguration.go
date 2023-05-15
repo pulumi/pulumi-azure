@@ -60,6 +60,8 @@ type PortalTenantConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+	//
+	// > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
 	PrivateMarkdownStorageEnforced pulumi.BoolOutput `pulumi:"privateMarkdownStorageEnforced"`
 }
 
@@ -96,11 +98,15 @@ func GetPortalTenantConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PortalTenantConfiguration resources.
 type portalTenantConfigurationState struct {
 	// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+	//
+	// > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
 	PrivateMarkdownStorageEnforced *bool `pulumi:"privateMarkdownStorageEnforced"`
 }
 
 type PortalTenantConfigurationState struct {
 	// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+	//
+	// > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
 	PrivateMarkdownStorageEnforced pulumi.BoolPtrInput
 }
 
@@ -110,12 +116,16 @@ func (PortalTenantConfigurationState) ElementType() reflect.Type {
 
 type portalTenantConfigurationArgs struct {
 	// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+	//
+	// > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
 	PrivateMarkdownStorageEnforced bool `pulumi:"privateMarkdownStorageEnforced"`
 }
 
 // The set of arguments for constructing a PortalTenantConfiguration resource.
 type PortalTenantConfigurationArgs struct {
 	// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+	//
+	// > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
 	PrivateMarkdownStorageEnforced pulumi.BoolInput
 }
 
@@ -207,6 +217,8 @@ func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationOutputWithCo
 }
 
 // Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+//
+// > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
 func (o PortalTenantConfigurationOutput) PrivateMarkdownStorageEnforced() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PortalTenantConfiguration) pulumi.BoolOutput { return v.PrivateMarkdownStorageEnforced }).(pulumi.BoolOutput)
 }

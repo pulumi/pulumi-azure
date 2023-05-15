@@ -1615,8 +1615,14 @@ class ApiOperationRequestRepresentation(dict):
         :param str content_type: The Content Type of this representation, such as `application/json`.
         :param Sequence['ApiOperationRequestRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
         :param Sequence['ApiOperationRequestRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
+               
+               > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
+               
+               > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param str type_name: The Type Name defined by the Schema.
+               
+               > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         pulumi.set(__self__, "content_type", content_type)
         if examples is not None:
@@ -1649,6 +1655,8 @@ class ApiOperationRequestRepresentation(dict):
     def form_parameters(self) -> Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameter']]:
         """
         One or more `form_parameter` block as defined above.
+
+        > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         return pulumi.get(self, "form_parameters")
 
@@ -1657,6 +1665,8 @@ class ApiOperationRequestRepresentation(dict):
     def schema_id(self) -> Optional[str]:
         """
         The ID of an API Management Schema which represents this Response.
+
+        > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         return pulumi.get(self, "schema_id")
 
@@ -1665,6 +1675,8 @@ class ApiOperationRequestRepresentation(dict):
     def type_name(self) -> Optional[str]:
         """
         The Type Name defined by the Schema.
+
+        > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         return pulumi.get(self, "type_name")
 
@@ -2290,8 +2302,14 @@ class ApiOperationResponseRepresentation(dict):
         :param str content_type: The Content Type of this representation, such as `application/json`.
         :param Sequence['ApiOperationResponseRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
         :param Sequence['ApiOperationResponseRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
+               
+               > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
+               
+               > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param str type_name: The Type Name defined by the Schema.
+               
+               > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         pulumi.set(__self__, "content_type", content_type)
         if examples is not None:
@@ -2324,6 +2342,8 @@ class ApiOperationResponseRepresentation(dict):
     def form_parameters(self) -> Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameter']]:
         """
         One or more `form_parameter` block as defined above.
+
+        > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         return pulumi.get(self, "form_parameters")
 
@@ -2332,6 +2352,8 @@ class ApiOperationResponseRepresentation(dict):
     def schema_id(self) -> Optional[str]:
         """
         The ID of an API Management Schema which represents this Response.
+
+        > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         return pulumi.get(self, "schema_id")
 
@@ -2340,6 +2362,8 @@ class ApiOperationResponseRepresentation(dict):
     def type_name(self) -> Optional[str]:
         """
         The Type Name defined by the Schema.
+
+        > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
         return pulumi.get(self, "type_name")
 
@@ -3084,6 +3108,9 @@ class BackendServiceFabricCluster(dict):
         :param Sequence[str] management_endpoints: A list of cluster management endpoints.
         :param int max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
         :param str client_certificate_id: The client certificate resource id for the management endpoint.
+               
+               > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+               >
         :param str client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
@@ -3120,6 +3147,9 @@ class BackendServiceFabricCluster(dict):
     def client_certificate_id(self) -> Optional[str]:
         """
         The client certificate resource id for the management endpoint.
+
+        > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+        >
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -3294,6 +3324,8 @@ class CustomDomainDeveloperPortal(dict):
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3377,6 +3409,8 @@ class CustomDomainDeveloperPortal(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -3445,6 +3479,8 @@ class CustomDomainGateway(dict):
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3538,6 +3574,8 @@ class CustomDomainGateway(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -3602,6 +3640,11 @@ class CustomDomainManagement(dict):
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3685,6 +3728,11 @@ class CustomDomainManagement(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -3749,6 +3797,11 @@ class CustomDomainPortal(dict):
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3832,6 +3885,11 @@ class CustomDomainPortal(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -3896,6 +3954,11 @@ class CustomDomainScm(dict):
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3979,6 +4042,11 @@ class CustomDomainScm(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -4903,6 +4971,8 @@ class ServiceAdditionalLocation(dict):
         :param str gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param Sequence[str] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param str public_ip_address_id: ID of a standard SKU IPv4 Public IP.
+               
+               > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
@@ -4970,6 +5040,8 @@ class ServiceAdditionalLocation(dict):
     def public_ip_address_id(self) -> Optional[str]:
         """
         ID of a standard SKU IPv4 Public IP.
+
+        > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -5338,12 +5410,25 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+               
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+               
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+               
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5390,6 +5475,12 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password for the certificate.
+
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5422,6 +5513,11 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     def key_vault_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5438,6 +5534,8 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -5505,12 +5603,18 @@ class ServiceHostnameConfigurationManagement(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5557,6 +5661,8 @@ class ServiceHostnameConfigurationManagement(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5589,6 +5695,8 @@ class ServiceHostnameConfigurationManagement(dict):
     def key_vault_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5605,6 +5713,8 @@ class ServiceHostnameConfigurationManagement(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -5672,12 +5782,25 @@ class ServiceHostnameConfigurationPortal(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+               
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+               
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+               
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5724,6 +5847,12 @@ class ServiceHostnameConfigurationPortal(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password for the certificate.
+
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5756,6 +5885,11 @@ class ServiceHostnameConfigurationPortal(dict):
     def key_vault_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5772,6 +5906,8 @@ class ServiceHostnameConfigurationPortal(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -5842,11 +5978,15 @@ class ServiceHostnameConfigurationProxy(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param bool default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
@@ -5897,6 +6037,8 @@ class ServiceHostnameConfigurationProxy(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5937,6 +6079,8 @@ class ServiceHostnameConfigurationProxy(dict):
     def key_vault_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -6020,12 +6164,25 @@ class ServiceHostnameConfigurationScm(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+               
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+               
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+               
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -6072,6 +6229,12 @@ class ServiceHostnameConfigurationScm(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password for the certificate.
+
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -6104,6 +6267,11 @@ class ServiceHostnameConfigurationScm(dict):
     def key_vault_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -6120,6 +6288,8 @@ class ServiceHostnameConfigurationScm(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -6171,6 +6341,8 @@ class ServiceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The identifier for the tenant access information contract.
         """
@@ -6195,6 +6367,8 @@ class ServiceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -6372,22 +6546,56 @@ class ServiceSecurity(dict):
                  triple_des_ciphers_enabled: Optional[bool] = None):
         """
         :param bool enable_backend_ssl30: Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
         :param bool enable_backend_tls10: Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
         :param bool enable_backend_tls11: Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
         :param bool enable_frontend_ssl30: Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
         :param bool enable_frontend_tls10: Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
         :param bool enable_frontend_tls11: Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
         :param bool tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
         :param bool tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
         :param bool tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
         :param bool tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
         :param bool tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
         :param bool tls_rsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
         :param bool tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
         :param bool tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
         :param bool tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
         :param bool tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
-        :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+        :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+               
+               > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
         if enable_backend_ssl30 is not None:
             pulumi.set(__self__, "enable_backend_ssl30", enable_backend_ssl30)
@@ -6429,6 +6637,8 @@ class ServiceSecurity(dict):
     def enable_backend_ssl30(self) -> Optional[bool]:
         """
         Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
         """
         return pulumi.get(self, "enable_backend_ssl30")
 
@@ -6437,6 +6647,8 @@ class ServiceSecurity(dict):
     def enable_backend_tls10(self) -> Optional[bool]:
         """
         Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
         """
         return pulumi.get(self, "enable_backend_tls10")
 
@@ -6445,6 +6657,8 @@ class ServiceSecurity(dict):
     def enable_backend_tls11(self) -> Optional[bool]:
         """
         Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
         """
         return pulumi.get(self, "enable_backend_tls11")
 
@@ -6453,6 +6667,8 @@ class ServiceSecurity(dict):
     def enable_frontend_ssl30(self) -> Optional[bool]:
         """
         Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
         """
         return pulumi.get(self, "enable_frontend_ssl30")
 
@@ -6461,6 +6677,8 @@ class ServiceSecurity(dict):
     def enable_frontend_tls10(self) -> Optional[bool]:
         """
         Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
         """
         return pulumi.get(self, "enable_frontend_tls10")
 
@@ -6469,6 +6687,8 @@ class ServiceSecurity(dict):
     def enable_frontend_tls11(self) -> Optional[bool]:
         """
         Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
         """
         return pulumi.get(self, "enable_frontend_tls11")
 
@@ -6477,6 +6697,8 @@ class ServiceSecurity(dict):
     def tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
         """
         return pulumi.get(self, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled")
 
@@ -6485,6 +6707,8 @@ class ServiceSecurity(dict):
     def tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
         """
         return pulumi.get(self, "tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled")
 
@@ -6493,6 +6717,8 @@ class ServiceSecurity(dict):
     def tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
         """
         return pulumi.get(self, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled")
 
@@ -6501,6 +6727,8 @@ class ServiceSecurity(dict):
     def tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
         """
         return pulumi.get(self, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled")
 
@@ -6509,6 +6737,8 @@ class ServiceSecurity(dict):
     def tls_rsa_with_aes128_cbc_sha256_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
         """
         return pulumi.get(self, "tls_rsa_with_aes128_cbc_sha256_ciphers_enabled")
 
@@ -6517,6 +6747,8 @@ class ServiceSecurity(dict):
     def tls_rsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
         """
         return pulumi.get(self, "tls_rsa_with_aes128_cbc_sha_ciphers_enabled")
 
@@ -6525,6 +6757,8 @@ class ServiceSecurity(dict):
     def tls_rsa_with_aes128_gcm_sha256_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
         """
         return pulumi.get(self, "tls_rsa_with_aes128_gcm_sha256_ciphers_enabled")
 
@@ -6533,6 +6767,8 @@ class ServiceSecurity(dict):
     def tls_rsa_with_aes256_cbc_sha256_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
         """
         return pulumi.get(self, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled")
 
@@ -6541,6 +6777,8 @@ class ServiceSecurity(dict):
     def tls_rsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
         """
         return pulumi.get(self, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled")
 
@@ -6549,6 +6787,8 @@ class ServiceSecurity(dict):
     def tls_rsa_with_aes256_gcm_sha384_ciphers_enabled(self) -> Optional[bool]:
         """
         Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
         """
         return pulumi.get(self, "tls_rsa_with_aes256_gcm_sha384_ciphers_enabled")
 
@@ -6556,7 +6796,9 @@ class ServiceSecurity(dict):
     @pulumi.getter(name="tripleDesCiphersEnabled")
     def triple_des_ciphers_enabled(self) -> Optional[bool]:
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+
+        > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
         return pulumi.get(self, "triple_des_ciphers_enabled")
 

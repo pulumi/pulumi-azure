@@ -77,6 +77,8 @@ type DataLakeGen2Filesystem struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayOutput `pulumi:"aces"`
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+	//
+	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
 	Group pulumi.StringOutput `pulumi:"group"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -123,6 +125,8 @@ type dataLakeGen2FilesystemState struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+	//
+	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
 	Group *string `pulumi:"group"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -138,6 +142,8 @@ type DataLakeGen2FilesystemState struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayInput
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+	//
+	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
 	Group pulumi.StringPtrInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -157,6 +163,8 @@ type dataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+	//
+	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
 	Group *string `pulumi:"group"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -173,6 +181,8 @@ type DataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayInput
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+	//
+	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
 	Group pulumi.StringPtrInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -277,6 +287,8 @@ func (o DataLakeGen2FilesystemOutput) Aces() DataLakeGen2FilesystemAceArrayOutpu
 }
 
 // Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+//
+// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
 func (o DataLakeGen2FilesystemOutput) Group() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataLakeGen2Filesystem) pulumi.StringOutput { return v.Group }).(pulumi.StringOutput)
 }

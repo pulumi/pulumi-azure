@@ -191,19 +191,20 @@ class ContactProfileLinkChannelEndPoint(dict):
 
     def __init__(__self__, *,
                  end_point_name: str,
-                 ip_address: str,
                  port: str,
-                 protocol: str):
+                 protocol: str,
+                 ip_address: Optional[str] = None):
         """
         :param str end_point_name: Name of an end point.
-        :param str ip_address: IP address of an end point.
         :param str port: TCP port to listen on to receive data.
         :param str protocol: Protocol of an end point. Possible values are `TCP` and `UDP`.
+        :param str ip_address: IP address of an end point.
         """
         pulumi.set(__self__, "end_point_name", end_point_name)
-        pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
 
     @property
     @pulumi.getter(name="endPointName")
@@ -212,14 +213,6 @@ class ContactProfileLinkChannelEndPoint(dict):
         Name of an end point.
         """
         return pulumi.get(self, "end_point_name")
-
-    @property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
-        """
-        IP address of an end point.
-        """
-        return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter
@@ -236,6 +229,14 @@ class ContactProfileLinkChannelEndPoint(dict):
         Protocol of an end point. Possible values are `TCP` and `UDP`.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        IP address of an end point.
+        """
+        return pulumi.get(self, "ip_address")
 
 
 @pulumi.output_type

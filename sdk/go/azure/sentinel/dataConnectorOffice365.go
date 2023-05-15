@@ -82,8 +82,12 @@ type DataConnectorOffice365 struct {
 	// Should the SharePoint data connector be enabled? Defaults to `true`.
 	SharepointEnabled pulumi.BoolPtrOutput `pulumi:"sharepointEnabled"`
 	// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+	//
+	// > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
 	TeamsEnabled pulumi.BoolPtrOutput `pulumi:"teamsEnabled"`
 	// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -128,8 +132,12 @@ type dataConnectorOffice365State struct {
 	// Should the SharePoint data connector be enabled? Defaults to `true`.
 	SharepointEnabled *bool `pulumi:"sharepointEnabled"`
 	// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+	//
+	// > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
 	TeamsEnabled *bool `pulumi:"teamsEnabled"`
 	// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -143,8 +151,12 @@ type DataConnectorOffice365State struct {
 	// Should the SharePoint data connector be enabled? Defaults to `true`.
 	SharepointEnabled pulumi.BoolPtrInput
 	// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+	//
+	// > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
 	TeamsEnabled pulumi.BoolPtrInput
 	// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -162,8 +174,12 @@ type dataConnectorOffice365Args struct {
 	// Should the SharePoint data connector be enabled? Defaults to `true`.
 	SharepointEnabled *bool `pulumi:"sharepointEnabled"`
 	// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+	//
+	// > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
 	TeamsEnabled *bool `pulumi:"teamsEnabled"`
 	// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -178,8 +194,12 @@ type DataConnectorOffice365Args struct {
 	// Should the SharePoint data connector be enabled? Defaults to `true`.
 	SharepointEnabled pulumi.BoolPtrInput
 	// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+	//
+	// > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
 	TeamsEnabled pulumi.BoolPtrInput
 	// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -291,11 +311,15 @@ func (o DataConnectorOffice365Output) SharepointEnabled() pulumi.BoolPtrOutput {
 }
 
 // Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+//
+// > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
 func (o DataConnectorOffice365Output) TeamsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataConnectorOffice365) pulumi.BoolPtrOutput { return v.TeamsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+//
+// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorOffice365Output) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorOffice365) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

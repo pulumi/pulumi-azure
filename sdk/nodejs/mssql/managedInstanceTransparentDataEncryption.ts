@@ -7,7 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Manages the transparent data encryption configuration for a MSSQL Managed Instance
  *
- * > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `keyVaultUri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+ * !> **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+ *
+ * > **NOTE:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `keyVaultUri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
  *
  * > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  *
@@ -193,6 +195,10 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
     public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     *
+     * > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+     *
+     * > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -240,6 +246,10 @@ export interface ManagedInstanceTransparentDataEncryptionState {
     autoRotationEnabled?: pulumi.Input<boolean>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     *
+     * > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+     *
+     * > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -258,6 +268,10 @@ export interface ManagedInstanceTransparentDataEncryptionArgs {
     autoRotationEnabled?: pulumi.Input<boolean>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     *
+     * > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+     *
+     * > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**

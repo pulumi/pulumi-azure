@@ -342,6 +342,8 @@ class HBaseClusterGateway(dict):
                  username: str):
         """
         :param str password: The password used for the Ambari Portal.
+               
+               > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "password", password)
@@ -352,6 +354,8 @@ class HBaseClusterGateway(dict):
     def password(self) -> str:
         """
         The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         """
         return pulumi.get(self, "password")
 
@@ -685,6 +689,8 @@ class HBaseClusterNetwork(dict):
                  private_link_enabled: Optional[bool] = None):
         """
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To enable the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
@@ -697,6 +703,8 @@ class HBaseClusterNetwork(dict):
     def connection_direction(self) -> Optional[str]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enable the private link the `connection_direction` must be set to `Outbound`.
         """
         return pulumi.get(self, "connection_direction")
 
@@ -809,8 +817,12 @@ class HBaseClusterRolesHeadNode(dict):
         :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['HBaseClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -848,6 +860,8 @@ class HBaseClusterRolesHeadNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -864,6 +878,8 @@ class HBaseClusterRolesHeadNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -970,8 +986,12 @@ class HBaseClusterRolesWorkerNode(dict):
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param 'HBaseClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['HBaseClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -1028,6 +1048,8 @@ class HBaseClusterRolesWorkerNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -1044,6 +1066,8 @@ class HBaseClusterRolesWorkerNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -1070,6 +1094,8 @@ class HBaseClusterRolesWorkerNodeAutoscale(dict):
                  recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
         """
         :param 'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+               
+               > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
         """
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
@@ -1079,6 +1105,8 @@ class HBaseClusterRolesWorkerNodeAutoscale(dict):
     def recurrence(self) -> Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence']:
         """
         A `recurrence` block as defined below.
+
+        > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
         """
         return pulumi.get(self, "recurrence")
 
@@ -1249,8 +1277,12 @@ class HBaseClusterRolesZookeeperNode(dict):
         :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['HBaseClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -1288,6 +1320,8 @@ class HBaseClusterRolesZookeeperNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -1304,6 +1338,8 @@ class HBaseClusterRolesZookeeperNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -1511,8 +1547,12 @@ class HBaseClusterStorageAccount(dict):
                  storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
@@ -1526,6 +1566,8 @@ class HBaseClusterStorageAccount(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -1542,6 +1584,8 @@ class HBaseClusterStorageAccount(dict):
     def storage_container_id(self) -> str:
         """
         The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -1587,7 +1631,14 @@ class HBaseClusterStorageAccountGen2(dict):
         """
         :param str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+               
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
@@ -1608,6 +1659,11 @@ class HBaseClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -1616,6 +1672,8 @@ class HBaseClusterStorageAccountGen2(dict):
     def managed_identity_resource_id(self) -> str:
         """
         The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -1829,6 +1887,8 @@ class HadoopClusterGateway(dict):
                  username: str):
         """
         :param str password: The password used for the Ambari Portal.
+               
+               > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "password", password)
@@ -1839,6 +1899,8 @@ class HadoopClusterGateway(dict):
     def password(self) -> str:
         """
         The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         """
         return pulumi.get(self, "password")
 
@@ -2172,6 +2234,8 @@ class HadoopClusterNetwork(dict):
                  private_link_enabled: Optional[bool] = None):
         """
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
@@ -2184,6 +2248,8 @@ class HadoopClusterNetwork(dict):
     def connection_direction(self) -> Optional[str]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         """
         return pulumi.get(self, "connection_direction")
 
@@ -2573,8 +2639,12 @@ class HadoopClusterRolesHeadNode(dict):
         :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['HadoopClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -2612,6 +2682,8 @@ class HadoopClusterRolesHeadNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -2628,6 +2700,8 @@ class HadoopClusterRolesHeadNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -2734,8 +2808,12 @@ class HadoopClusterRolesWorkerNode(dict):
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param 'HadoopClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['HadoopClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -2792,6 +2870,8 @@ class HadoopClusterRolesWorkerNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -2808,6 +2888,8 @@ class HadoopClusterRolesWorkerNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -2836,6 +2918,8 @@ class HadoopClusterRolesWorkerNodeAutoscale(dict):
         """
         :param 'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs' capacity: A `capacity` block as defined below.
         :param 'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+               
+               > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -2855,6 +2939,8 @@ class HadoopClusterRolesWorkerNodeAutoscale(dict):
     def recurrence(self) -> Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrence']:
         """
         A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         return pulumi.get(self, "recurrence")
 
@@ -3073,8 +3159,12 @@ class HadoopClusterRolesZookeeperNode(dict):
         :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['HadoopClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -3112,6 +3202,8 @@ class HadoopClusterRolesZookeeperNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -3128,6 +3220,8 @@ class HadoopClusterRolesZookeeperNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -3335,8 +3429,12 @@ class HadoopClusterStorageAccount(dict):
                  storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
@@ -3350,6 +3448,8 @@ class HadoopClusterStorageAccount(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -3366,6 +3466,8 @@ class HadoopClusterStorageAccount(dict):
     def storage_container_id(self) -> str:
         """
         The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -3411,7 +3513,14 @@ class HadoopClusterStorageAccountGen2(dict):
         """
         :param str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+               
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
@@ -3432,6 +3541,11 @@ class HadoopClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -3440,6 +3554,8 @@ class HadoopClusterStorageAccountGen2(dict):
     def managed_identity_resource_id(self) -> str:
         """
         The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -3670,6 +3786,8 @@ class InteractiveQueryClusterGateway(dict):
                  username: str):
         """
         :param str password: The password used for the Ambari Portal.
+               
+               > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "password", password)
@@ -3680,6 +3798,8 @@ class InteractiveQueryClusterGateway(dict):
     def password(self) -> str:
         """
         The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         """
         return pulumi.get(self, "password")
 
@@ -4013,6 +4133,8 @@ class InteractiveQueryClusterNetwork(dict):
                  private_link_enabled: Optional[bool] = None):
         """
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
@@ -4025,6 +4147,8 @@ class InteractiveQueryClusterNetwork(dict):
     def connection_direction(self) -> Optional[str]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         """
         return pulumi.get(self, "connection_direction")
 
@@ -4136,9 +4260,15 @@ class InteractiveQueryClusterRolesHeadNode(dict):
         """
         :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['InteractiveQueryClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4168,6 +4298,8 @@ class InteractiveQueryClusterRolesHeadNode(dict):
     def vm_size(self) -> str:
         """
         The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+
+        > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
         """
         return pulumi.get(self, "vm_size")
 
@@ -4176,6 +4308,8 @@ class InteractiveQueryClusterRolesHeadNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -4192,6 +4326,8 @@ class InteractiveQueryClusterRolesHeadNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -4296,10 +4432,16 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
         :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4340,6 +4482,8 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
     def vm_size(self) -> str:
         """
         The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+
+        > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
         """
         return pulumi.get(self, "vm_size")
 
@@ -4356,6 +4500,8 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -4372,6 +4518,8 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -4400,6 +4548,8 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
         """
         :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs' capacity: A `capacity` block as defined below.
         :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+               
+               > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -4419,6 +4569,8 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
     def recurrence(self) -> Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence']:
         """
         A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         return pulumi.get(self, "recurrence")
 
@@ -4637,8 +4789,12 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
         :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4676,6 +4832,8 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -4692,6 +4850,8 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -4899,8 +5059,12 @@ class InteractiveQueryClusterStorageAccount(dict):
                  storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
@@ -4914,6 +5078,8 @@ class InteractiveQueryClusterStorageAccount(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -4930,6 +5096,8 @@ class InteractiveQueryClusterStorageAccount(dict):
     def storage_container_id(self) -> str:
         """
         The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -4975,7 +5143,14 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
         """
         :param str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+               
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
@@ -4996,6 +5171,11 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -5004,6 +5184,8 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
     def managed_identity_resource_id(self) -> str:
         """
         The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -5217,6 +5399,8 @@ class KafkaClusterGateway(dict):
                  username: str):
         """
         :param str password: The password used for the Ambari Portal.
+               
+               > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "password", password)
@@ -5227,6 +5411,8 @@ class KafkaClusterGateway(dict):
     def password(self) -> str:
         """
         The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         """
         return pulumi.get(self, "password")
 
@@ -5560,6 +5746,8 @@ class KafkaClusterNetwork(dict):
                  private_link_enabled: Optional[bool] = None):
         """
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
@@ -5572,6 +5760,8 @@ class KafkaClusterNetwork(dict):
     def connection_direction(self) -> Optional[str]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         """
         return pulumi.get(self, "connection_direction")
 
@@ -5611,6 +5801,8 @@ class KafkaClusterRestProxy(dict):
         """
         :param str security_group_id: The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
         :param str security_group_name: The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+               
+               > **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
         pulumi.set(__self__, "security_group_name", security_group_name)
@@ -5628,6 +5820,8 @@ class KafkaClusterRestProxy(dict):
     def security_group_name(self) -> str:
         """
         The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+
+        > **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "security_group_name")
 
@@ -5667,6 +5861,8 @@ class KafkaClusterRoles(dict):
         :param 'KafkaClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
         :param 'KafkaClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
         :param 'KafkaClusterRolesKafkaManagementNodeArgs' kafka_management_node: A `kafka_management_node` block as defined below.
+               
+               > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -5703,6 +5899,8 @@ class KafkaClusterRoles(dict):
     def kafka_management_node(self) -> Optional['outputs.KafkaClusterRolesKafkaManagementNode']:
         """
         A `kafka_management_node` block as defined below.
+
+        > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
         return pulumi.get(self, "kafka_management_node")
 
@@ -5746,8 +5944,12 @@ class KafkaClusterRolesHeadNode(dict):
         :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['KafkaClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -5785,6 +5987,8 @@ class KafkaClusterRolesHeadNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -5801,6 +6005,8 @@ class KafkaClusterRolesHeadNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -5901,8 +6107,12 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         :param str username: The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['KafkaClusterRolesKafkaManagementNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -5940,6 +6150,8 @@ class KafkaClusterRolesKafkaManagementNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -5956,6 +6168,8 @@ class KafkaClusterRolesKafkaManagementNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -6064,8 +6278,12 @@ class KafkaClusterRolesWorkerNode(dict):
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['KafkaClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -6121,6 +6339,8 @@ class KafkaClusterRolesWorkerNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -6137,6 +6357,8 @@ class KafkaClusterRolesWorkerNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -6237,8 +6459,12 @@ class KafkaClusterRolesZookeeperNode(dict):
         :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['KafkaClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -6276,6 +6502,8 @@ class KafkaClusterRolesZookeeperNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -6292,6 +6520,8 @@ class KafkaClusterRolesZookeeperNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -6499,8 +6729,12 @@ class KafkaClusterStorageAccount(dict):
                  storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
@@ -6514,6 +6748,8 @@ class KafkaClusterStorageAccount(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -6530,6 +6766,8 @@ class KafkaClusterStorageAccount(dict):
     def storage_container_id(self) -> str:
         """
         The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -6575,7 +6813,14 @@ class KafkaClusterStorageAccountGen2(dict):
         """
         :param str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+               
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
@@ -6596,6 +6841,11 @@ class KafkaClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -6604,6 +6854,8 @@ class KafkaClusterStorageAccountGen2(dict):
     def managed_identity_resource_id(self) -> str:
         """
         The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -6817,6 +7069,8 @@ class SparkClusterGateway(dict):
                  username: str):
         """
         :param str password: The password used for the Ambari Portal.
+               
+               > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "password", password)
@@ -6827,6 +7081,8 @@ class SparkClusterGateway(dict):
     def password(self) -> str:
         """
         The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         """
         return pulumi.get(self, "password")
 
@@ -7160,6 +7416,8 @@ class SparkClusterNetwork(dict):
                  private_link_enabled: Optional[bool] = None):
         """
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
@@ -7172,6 +7430,8 @@ class SparkClusterNetwork(dict):
     def connection_direction(self) -> Optional[str]:
         """
         The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         """
         return pulumi.get(self, "connection_direction")
 
@@ -7284,8 +7544,12 @@ class SparkClusterRolesHeadNode(dict):
         :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['SparkClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -7323,6 +7587,8 @@ class SparkClusterRolesHeadNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -7339,6 +7605,8 @@ class SparkClusterRolesHeadNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -7445,8 +7713,12 @@ class SparkClusterRolesWorkerNode(dict):
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param 'SparkClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['SparkClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -7503,6 +7775,8 @@ class SparkClusterRolesWorkerNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -7519,6 +7793,8 @@ class SparkClusterRolesWorkerNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -7547,6 +7823,8 @@ class SparkClusterRolesWorkerNodeAutoscale(dict):
         """
         :param 'SparkClusterRolesWorkerNodeAutoscaleCapacityArgs' capacity: A `capacity` block as defined below.
         :param 'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+               
+               > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -7566,6 +7844,8 @@ class SparkClusterRolesWorkerNodeAutoscale(dict):
     def recurrence(self) -> Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrence']:
         """
         A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         return pulumi.get(self, "recurrence")
 
@@ -7784,8 +8064,12 @@ class SparkClusterRolesZookeeperNode(dict):
         :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param Sequence['SparkClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -7823,6 +8107,8 @@ class SparkClusterRolesZookeeperNode(dict):
     def password(self) -> Optional[str]:
         """
         The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
 
@@ -7839,6 +8125,8 @@ class SparkClusterRolesZookeeperNode(dict):
     def ssh_keys(self) -> Optional[Sequence[str]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -8046,8 +8334,12 @@ class SparkClusterStorageAccount(dict):
                  storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
@@ -8061,6 +8353,8 @@ class SparkClusterStorageAccount(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -8077,6 +8371,8 @@ class SparkClusterStorageAccount(dict):
     def storage_container_id(self) -> str:
         """
         The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -8122,7 +8418,14 @@ class SparkClusterStorageAccountGen2(dict):
         """
         :param str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+               
+               
+               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
@@ -8143,6 +8446,11 @@ class SparkClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
         return pulumi.get(self, "is_default")
 
@@ -8151,6 +8459,8 @@ class SparkClusterStorageAccountGen2(dict):
     def managed_identity_resource_id(self) -> str:
         """
         The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 

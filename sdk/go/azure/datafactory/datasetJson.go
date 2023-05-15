@@ -81,10 +81,14 @@ type DatasetJson struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to JSON Dataset:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	AzureBlobStorageLocation DatasetJsonAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
@@ -142,10 +146,14 @@ func GetDatasetJson(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetJson resources.
 type datasetJsonState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to JSON Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	AzureBlobStorageLocation *DatasetJsonAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
@@ -169,10 +177,14 @@ type datasetJsonState struct {
 
 type DatasetJsonState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to JSON Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	AzureBlobStorageLocation DatasetJsonAzureBlobStorageLocationPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
@@ -200,10 +212,14 @@ func (DatasetJsonState) ElementType() reflect.Type {
 
 type datasetJsonArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to JSON Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	AzureBlobStorageLocation *DatasetJsonAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
@@ -228,10 +244,14 @@ type datasetJsonArgs struct {
 // The set of arguments for constructing a DatasetJson resource.
 type DatasetJsonArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to JSON Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
 	// A `azureBlobStorageLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	AzureBlobStorageLocation DatasetJsonAzureBlobStorageLocationPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
@@ -341,6 +361,8 @@ func (o DatasetJsonOutput) ToDatasetJsonOutputWithContext(ctx context.Context) D
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
+//
+// The following supported arguments are specific to JSON Dataset:
 func (o DatasetJsonOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetJson) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }
@@ -351,6 +373,8 @@ func (o DatasetJsonOutput) Annotations() pulumi.StringArrayOutput {
 }
 
 // A `azureBlobStorageLocation` block as defined below.
+//
+// The following supported arguments are specific to Delimited Text Dataset:
 func (o DatasetJsonOutput) AzureBlobStorageLocation() DatasetJsonAzureBlobStorageLocationPtrOutput {
 	return o.ApplyT(func(v *DatasetJson) DatasetJsonAzureBlobStorageLocationPtrOutput { return v.AzureBlobStorageLocation }).(DatasetJsonAzureBlobStorageLocationPtrOutput)
 }

@@ -78,6 +78,8 @@ type ResourcePolicyAssignment struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrOutput `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity ResourcePolicyAssignmentIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -96,6 +98,8 @@ type ResourcePolicyAssignment struct {
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+	//
+	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors ResourcePolicyAssignmentResourceSelectorArrayOutput `pulumi:"resourceSelectors"`
@@ -143,6 +147,8 @@ type resourcePolicyAssignmentState struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity *ResourcePolicyAssignmentIdentity `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location *string `pulumi:"location"`
@@ -161,6 +167,8 @@ type resourcePolicyAssignmentState struct {
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+	//
+	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId *string `pulumi:"resourceId"`
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors []ResourcePolicyAssignmentResourceSelector `pulumi:"resourceSelectors"`
@@ -174,6 +182,8 @@ type ResourcePolicyAssignmentState struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity ResourcePolicyAssignmentIdentityPtrInput
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringPtrInput
@@ -192,6 +202,8 @@ type ResourcePolicyAssignmentState struct {
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+	//
+	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId pulumi.StringPtrInput
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors ResourcePolicyAssignmentResourceSelectorArrayInput
@@ -209,6 +221,8 @@ type resourcePolicyAssignmentArgs struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity *ResourcePolicyAssignmentIdentity `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location *string `pulumi:"location"`
@@ -227,6 +241,8 @@ type resourcePolicyAssignmentArgs struct {
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+	//
+	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId string `pulumi:"resourceId"`
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors []ResourcePolicyAssignmentResourceSelector `pulumi:"resourceSelectors"`
@@ -241,6 +257,8 @@ type ResourcePolicyAssignmentArgs struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity ResourcePolicyAssignmentIdentityPtrInput
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringPtrInput
@@ -259,6 +277,8 @@ type ResourcePolicyAssignmentArgs struct {
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringInput
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+	//
+	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId pulumi.StringInput
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors ResourcePolicyAssignmentResourceSelectorArrayInput
@@ -367,6 +387,8 @@ func (o ResourcePolicyAssignmentOutput) Enforce() pulumi.BoolPtrOutput {
 }
 
 // An `identity` block as defined below.
+//
+// > **Note:** The `location` field must also be specified when `identity` is specified.
 func (o ResourcePolicyAssignmentOutput) Identity() ResourcePolicyAssignmentIdentityPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignment) ResourcePolicyAssignmentIdentityPtrOutput { return v.Identity }).(ResourcePolicyAssignmentIdentityPtrOutput)
 }
@@ -414,6 +436,8 @@ func (o ResourcePolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringOutput
 }
 
 // The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+//
+// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 func (o ResourcePolicyAssignmentOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignment) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

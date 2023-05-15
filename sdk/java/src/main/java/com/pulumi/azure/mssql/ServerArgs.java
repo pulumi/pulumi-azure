@@ -112,12 +112,16 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      * 
+     * &gt; **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it&#39;s not possible to revert to `Disabled`.
+     * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
      * @return The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+     * 
+     * &gt; **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it&#39;s not possible to revert to `Disabled`.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -215,6 +219,37 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+     * 
+     * &gt; **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+     * 
+     */
+    @Import(name="transparentDataEncryptionKeyVaultKeyId")
+    private @Nullable Output<String> transparentDataEncryptionKeyVaultKeyId;
+
+    /**
+     * @return The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+     * 
+     * &gt; **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+     * 
+     */
+    public Optional<Output<String>> transparentDataEncryptionKeyVaultKeyId() {
+        return Optional.ofNullable(this.transparentDataEncryptionKeyVaultKeyId);
+    }
+
+    /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      * 
      */
@@ -245,6 +280,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
+        this.transparentDataEncryptionKeyVaultKeyId = $.transparentDataEncryptionKeyVaultKeyId;
         this.version = $.version;
     }
 
@@ -395,6 +431,8 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param minimumTlsVersion The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
          * 
+         * &gt; **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it&#39;s not possible to revert to `Disabled`.
+         * 
          * @return builder
          * 
          */
@@ -405,6 +443,8 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minimumTlsVersion The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+         * 
+         * &gt; **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it&#39;s not possible to revert to `Disabled`.
          * 
          * @return builder
          * 
@@ -537,6 +577,43 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param transparentDataEncryptionKeyVaultKeyId The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+         * 
+         * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+         * 
+         * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+         * 
+         * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+         * 
+         * &gt; **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentDataEncryptionKeyVaultKeyId(@Nullable Output<String> transparentDataEncryptionKeyVaultKeyId) {
+            $.transparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
+            return this;
+        }
+
+        /**
+         * @param transparentDataEncryptionKeyVaultKeyId The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+         * 
+         * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+         * 
+         * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+         * 
+         * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+         * 
+         * &gt; **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentDataEncryptionKeyVaultKeyId(String transparentDataEncryptionKeyVaultKeyId) {
+            return transparentDataEncryptionKeyVaultKeyId(Output.of(transparentDataEncryptionKeyVaultKeyId));
         }
 
         /**

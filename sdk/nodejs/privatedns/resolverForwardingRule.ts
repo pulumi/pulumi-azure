@@ -46,8 +46,13 @@ import * as utilities from "../utilities";
  *         key: "value",
  *     },
  * });
+ * const exampleResolverDnsForwardingRuleset = new azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     privateDnsResolverOutboundEndpointIds: [exampleResolverOutboundEndpoint.id],
+ * });
  * const exampleResolverForwardingRule = new azure.privatedns.ResolverForwardingRule("exampleResolverForwardingRule", {
- *     dnsForwardingRulesetId: azurerm_private_dns_resolver_dns_forwarding_ruleset.example.id,
+ *     dnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.id,
  *     domainName: "onprem.local.",
  *     enabled: true,
  *     targetDnsServers: [{

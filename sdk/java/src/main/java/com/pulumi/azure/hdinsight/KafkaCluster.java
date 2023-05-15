@@ -182,12 +182,16 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     /**
      * One or more `disk_encryption` block as defined below.
      * 
+     * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+     * 
      */
     @Export(name="diskEncryptions", refs={List.class,KafkaClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;
 
     /**
      * @return One or more `disk_encryption` block as defined below.
+     * 
+     * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
     public Output<Optional<List<KafkaClusterDiskEncryption>>> diskEncryptions() {

@@ -34,12 +34,16 @@ public final class SparkClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
     /**
      * A `recurrence` block as defined below.
      * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
      */
     @Import(name="recurrence")
     private @Nullable Output<SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs> recurrence;
 
     /**
      * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<Output<SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
@@ -95,6 +99,8 @@ public final class SparkClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
+         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class SparkClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
 
         /**
          * @param recurrence A `recurrence` block as defined below.
+         * 
+         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 

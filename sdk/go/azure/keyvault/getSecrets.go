@@ -23,6 +23,8 @@ func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getSecrets.
 type GetSecretsArgs struct {
 	// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
+	//
+	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	KeyVaultId string `pulumi:"keyVaultId"`
 }
 
@@ -53,6 +55,8 @@ func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pu
 // A collection of arguments for invoking getSecrets.
 type GetSecretsOutputArgs struct {
 	// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
+	//
+	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 }
 

@@ -50,12 +50,16 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
     /**
      * The percentage of traffic which should be sent this revision.
      * 
+     * &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
+     * 
      */
     @Import(name="percentage", required=true)
     private Output<Integer> percentage;
 
     /**
      * @return The percentage of traffic which should be sent this revision.
+     * 
+     * &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
      * 
      */
     public Output<Integer> percentage() {
@@ -149,6 +153,8 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         /**
          * @param percentage The percentage of traffic which should be sent this revision.
          * 
+         * &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
+         * 
          * @return builder
          * 
          */
@@ -159,6 +165,8 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
 
         /**
          * @param percentage The percentage of traffic which should be sent this revision.
+         * 
+         * &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
          * 
          * @return builder
          * 

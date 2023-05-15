@@ -80,13 +80,12 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// 
+        /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable audit events to Azure Monitor? Defaults to `true`.
-        /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
 
@@ -172,13 +171,12 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// 
+        /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Enable audit events to Azure Monitor? Defaults to `true`.
-        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
@@ -232,13 +230,12 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// 
+        /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Enable audit events to Azure Monitor? Defaults to `true`.
-        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 

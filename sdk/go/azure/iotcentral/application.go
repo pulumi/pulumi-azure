@@ -67,6 +67,8 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+	//
+	// > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// An `identity` block as defined below.
 	Identity ApplicationIdentityPtrOutput `pulumi:"identity"`
@@ -124,6 +126,8 @@ func GetApplication(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+	//
+	// > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
 	DisplayName *string `pulumi:"displayName"`
 	// An `identity` block as defined below.
 	Identity *ApplicationIdentity `pulumi:"identity"`
@@ -147,6 +151,8 @@ type applicationState struct {
 
 type ApplicationState struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+	//
+	// > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
 	DisplayName pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ApplicationIdentityPtrInput
@@ -174,6 +180,8 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+	//
+	// > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
 	DisplayName *string `pulumi:"displayName"`
 	// An `identity` block as defined below.
 	Identity *ApplicationIdentity `pulumi:"identity"`
@@ -198,6 +206,8 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+	//
+	// > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
 	DisplayName pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ApplicationIdentityPtrInput
@@ -307,6 +317,8 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 }
 
 // A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+//
+// > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
 func (o ApplicationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }

@@ -68,6 +68,8 @@ type SmartDetectionRule struct {
 	pulumi.CustomResourceState
 
 	// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	AdditionalEmailRecipients pulumi.StringArrayOutput `pulumi:"additionalEmailRecipients"`
 	// The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
@@ -112,6 +114,8 @@ func GetSmartDetectionRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SmartDetectionRule resources.
 type smartDetectionRuleState struct {
 	// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	AdditionalEmailRecipients []string `pulumi:"additionalEmailRecipients"`
 	// The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId *string `pulumi:"applicationInsightsId"`
@@ -125,6 +129,8 @@ type smartDetectionRuleState struct {
 
 type SmartDetectionRuleState struct {
 	// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	AdditionalEmailRecipients pulumi.StringArrayInput
 	// The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringPtrInput
@@ -142,6 +148,8 @@ func (SmartDetectionRuleState) ElementType() reflect.Type {
 
 type smartDetectionRuleArgs struct {
 	// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	AdditionalEmailRecipients []string `pulumi:"additionalEmailRecipients"`
 	// The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`
@@ -156,6 +164,8 @@ type smartDetectionRuleArgs struct {
 // The set of arguments for constructing a SmartDetectionRule resource.
 type SmartDetectionRuleArgs struct {
 	// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	AdditionalEmailRecipients pulumi.StringArrayInput
 	// The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringInput
@@ -255,6 +265,8 @@ func (o SmartDetectionRuleOutput) ToSmartDetectionRuleOutputWithContext(ctx cont
 }
 
 // Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+//
+// > **Note:** At least one read or write permission must be defined.
 func (o SmartDetectionRuleOutput) AdditionalEmailRecipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SmartDetectionRule) pulumi.StringArrayOutput { return v.AdditionalEmailRecipients }).(pulumi.StringArrayOutput)
 }

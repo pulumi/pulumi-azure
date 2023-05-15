@@ -164,12 +164,16 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * 
      */
     @Export(name="inboundNatRules", refs={List.class,WindowsVirtualMachineInboundNatRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsVirtualMachineInboundNatRule>> inboundNatRules;
 
     /**
      * @return One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineInboundNatRule>>> inboundNatRules() {
@@ -234,12 +238,16 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     public Output<String> name() {

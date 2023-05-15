@@ -151,12 +151,16 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
      * 
+     * &gt; **Note:** `is_default` can only be set to `true` on update.
+     * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDefault;
 
     /**
      * @return Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+     * 
+     * &gt; **Note:** `is_default` can only be set to `true` on update.
      * 
      */
     public Output<Optional<Boolean>> isDefault() {
@@ -193,12 +197,16 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
      * 
+     * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
+     * 
      */
     @Export(name="sharedAccessSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessSignature;
 
     /**
      * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * 
+     * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
      * 
      */
     public Output<Optional<String>> sharedAccessSignature() {

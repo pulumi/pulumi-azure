@@ -16,6 +16,10 @@ type FlexibleServerAuthentication struct {
 	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 	PasswordAuthEnabled *bool `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+	//
+	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+	//
+	// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -36,6 +40,10 @@ type FlexibleServerAuthenticationArgs struct {
 	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 	PasswordAuthEnabled pulumi.BoolPtrInput `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+	//
+	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+	//
+	// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -127,6 +135,10 @@ func (o FlexibleServerAuthenticationOutput) PasswordAuthEnabled() pulumi.BoolPtr
 }
 
 // The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+//
+// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+//
+// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 func (o FlexibleServerAuthenticationOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerAuthentication) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -176,6 +188,10 @@ func (o FlexibleServerAuthenticationPtrOutput) PasswordAuthEnabled() pulumi.Bool
 }
 
 // The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+//
+// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+//
+// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 func (o FlexibleServerAuthenticationPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerAuthentication) *string {
 		if v == nil {
@@ -189,6 +205,8 @@ type FlexibleServerCustomerManagedKey struct {
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 }
 
@@ -207,6 +225,8 @@ type FlexibleServerCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
 }
 
@@ -293,6 +313,8 @@ func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtr
 }
 
 // Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -332,6 +354,8 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.String
 }
 
 // Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -343,8 +367,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId
 
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
-	Mode string `pulumi:"mode"`
-	// Specifies the Availability Zone in which the standby Flexible Server should be located.
+	Mode                    string  `pulumi:"mode"`
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -361,8 +384,7 @@ type FlexibleServerHighAvailabilityInput interface {
 
 type FlexibleServerHighAvailabilityArgs struct {
 	// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
-	Mode pulumi.StringInput `pulumi:"mode"`
-	// Specifies the Availability Zone in which the standby Flexible Server should be located.
+	Mode                    pulumi.StringInput    `pulumi:"mode"`
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -448,7 +470,6 @@ func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which the standby Flexible Server should be located.
 func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -487,7 +508,6 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Availability Zone in which the standby Flexible Server should be located.
 func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {
@@ -499,9 +519,15 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 
 type FlexibleServerIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+	//
+	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+	//
+	// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
@@ -520,9 +546,15 @@ type FlexibleServerIdentityInput interface {
 
 type FlexibleServerIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+	//
+	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+	//
+	// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
@@ -606,6 +638,8 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -615,6 +649,10 @@ func (o FlexibleServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 }
 
 // The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+//
+// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+//
+// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 func (o FlexibleServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -649,6 +687,8 @@ func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
 		if v == nil {
@@ -668,6 +708,10 @@ func (o FlexibleServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 }
 
 // The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+//
+// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+//
+// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 func (o FlexibleServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
 		if v == nil {

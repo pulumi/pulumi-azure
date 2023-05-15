@@ -56,6 +56,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+        /// 
+        /// &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
         /// </summary>
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
@@ -93,9 +95,6 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
 
-        /// <summary>
-        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-        /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 

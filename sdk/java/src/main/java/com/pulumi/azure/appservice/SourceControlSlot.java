@@ -168,12 +168,16 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Function App Slots are not supported at this time.
+     * 
      */
     @Export(name="slotId", refs={String.class}, tree="[0]")
     private Output<String> slotId;
 
     /**
      * @return The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Function App Slots are not supported at this time.
      * 
      */
     public Output<String> slotId() {

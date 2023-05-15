@@ -483,6 +483,8 @@ class ContentKeyPolicyPolicyOptionArgs:
         :param pulumi.Input[str] playready_response_custom_data: The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
         :param pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs'] token_restriction: A `token_restriction` block as defined below.
         :param pulumi.Input[str] widevine_configuration_template: The Widevine template.
+               
+               > **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
         """
         pulumi.set(__self__, "name", name)
         if clear_key_configuration_enabled is not None:
@@ -589,6 +591,8 @@ class ContentKeyPolicyPolicyOptionArgs:
     def widevine_configuration_template(self) -> Optional[pulumi.Input[str]]:
         """
         The Widevine template.
+
+        > **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
         """
         return pulumi.get(self, "widevine_configuration_template")
 
@@ -759,6 +763,8 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
         :param pulumi.Input[str] begin_date: The begin date of license.
         :param pulumi.Input[bool] content_key_location_from_header_enabled: Specifies that the content key ID is in the PlayReady header.
         :param pulumi.Input[str] content_key_location_from_key_id: The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+               
+               > **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn't specify `content_key_location_from_key_id` and vice versa.
         :param pulumi.Input[str] content_type: The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
         :param pulumi.Input[str] expiration_date: The expiration date of license.
         :param pulumi.Input[str] grace_period: The grace period of license.
@@ -834,6 +840,8 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
     def content_key_location_from_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+
+        > **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn't specify `content_key_location_from_key_id` and vice versa.
         """
         return pulumi.get(self, "content_key_location_from_key_id")
 
@@ -1215,6 +1223,8 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
         :param pulumi.Input[str] primary_x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
         :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]] required_claims: One or more `required_claim` blocks as defined above.
         :param pulumi.Input[str] token_type: The type of token. Supported values are `Jwt` or `Swt`.
+               
+               > **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
         """
         if alternate_keys is not None:
             pulumi.set(__self__, "alternate_keys", alternate_keys)
@@ -1350,6 +1360,8 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
     def token_type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of token. Supported values are `Jwt` or `Swt`.
+
+        > **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
         """
         return pulumi.get(self, "token_type")
 
@@ -1370,6 +1382,8 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
         :param pulumi.Input[str] rsa_token_key_modulus: The RSA parameter modulus.
         :param pulumi.Input[str] symmetric_token_key: The key value of the key. Specifies a symmetric key for token validation.
         :param pulumi.Input[str] x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+               
+               > **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
         """
         if rsa_token_key_exponent is not None:
             pulumi.set(__self__, "rsa_token_key_exponent", rsa_token_key_exponent)
@@ -1421,6 +1435,8 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
     def x509_token_key_raw(self) -> Optional[pulumi.Input[str]]:
         """
         The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+
+        > **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
         """
         return pulumi.get(self, "x509_token_key_raw")
 
@@ -1595,6 +1611,8 @@ class LiveEventEncodingArgs:
         :param pulumi.Input[str] preset_name: The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
         :param pulumi.Input[str] type: Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+               
+               > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
         """
         if key_frame_interval is not None:
             pulumi.set(__self__, "key_frame_interval", key_frame_interval)
@@ -1646,6 +1664,8 @@ class LiveEventEncodingArgs:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+
+        > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
         """
         return pulumi.get(self, "type")
 
@@ -2216,6 +2236,8 @@ class ServiceAccountStorageAccountArgs:
         """
         :param pulumi.Input[str] id: Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         :param pulumi.Input[bool] is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+               
+               > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
         :param pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
@@ -2241,6 +2263,8 @@ class ServiceAccountStorageAccountArgs:
     def is_primary(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+
+        > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
         """
         return pulumi.get(self, "is_primary")
 
@@ -2691,6 +2715,8 @@ class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
                  custom_keys_acquisition_url_template: pulumi.Input[str]):
         """
         :param pulumi.Input[str] custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+               
+               > **Note** Either `clear_key_encryption` or `drm` must be specified.
         """
         pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
 
@@ -2699,6 +2725,8 @@ class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
     def custom_keys_acquisition_url_template(self) -> pulumi.Input[str]:
         """
         The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+
+        > **Note** Either `clear_key_encryption` or `drm` must be specified.
         """
         return pulumi.get(self, "custom_keys_acquisition_url_template")
 
@@ -2981,6 +3009,8 @@ class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
                  custom_keys_acquisition_url_template: pulumi.Input[str]):
         """
         :param pulumi.Input[str] custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+               
+               > **Note** Either `clear_key_encryption` or `drm` must be specified.
         """
         pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
 
@@ -2989,6 +3019,8 @@ class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
     def custom_keys_acquisition_url_template(self) -> pulumi.Input[str]:
         """
         The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+
+        > **Note** Either `clear_key_encryption` or `drm` must be specified.
         """
         return pulumi.get(self, "custom_keys_acquisition_url_template")
 
@@ -3602,6 +3634,8 @@ class TransformOutputArgs:
         :param pulumi.Input[str] on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
         :param pulumi.Input[str] relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
         :param pulumi.Input['TransformOutputVideoAnalyzerPresetArgs'] video_analyzer_preset: A `video_analyzer_preset` block as defined below.
+               
+               > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
         """
         if audio_analyzer_preset is not None:
             pulumi.set(__self__, "audio_analyzer_preset", audio_analyzer_preset)
@@ -3695,6 +3729,8 @@ class TransformOutputArgs:
     def video_analyzer_preset(self) -> Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArgs']]:
         """
         A `video_analyzer_preset` block as defined below.
+
+        > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
         """
         return pulumi.get(self, "video_analyzer_preset")
 
@@ -4000,6 +4036,8 @@ class TransformOutputCustomPresetCodecArgs:
         :param pulumi.Input['TransformOutputCustomPresetCodecDdAudioArgs'] dd_audio: A `dd_audio` block as defined below.
         :param pulumi.Input['TransformOutputCustomPresetCodecH264VideoArgs'] h264_video: A `h264_video` block as defined below.
         :param pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs'] h265_video: A `h265_video` block as defined below.
+               
+               > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
         """
         if aac_audio is not None:
             pulumi.set(__self__, "aac_audio", aac_audio)
@@ -4079,6 +4117,8 @@ class TransformOutputCustomPresetCodecArgs:
     def h265_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs']]:
         """
         A `h265_video` block as defined below.
+
+        > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
         """
         return pulumi.get(self, "h265_video")
 
@@ -5348,6 +5388,8 @@ class TransformOutputCustomPresetFilterOverlayArgs:
         """
         :param pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgs'] audio: An `audio` block as defined above.
         :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs'] video: A `video` block as defined below.
+               
+               > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
         """
         if audio is not None:
             pulumi.set(__self__, "audio", audio)
@@ -5371,6 +5413,8 @@ class TransformOutputCustomPresetFilterOverlayArgs:
     def video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs']]:
         """
         A `video` block as defined below.
+
+        > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
         """
         return pulumi.get(self, "video")
 
@@ -5781,6 +5825,8 @@ class TransformOutputCustomPresetFormatArgs:
         """
         :param pulumi.Input['TransformOutputCustomPresetFormatMp4Args'] mp4: A `mp4` block as defined below.
         :param pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs'] transport_stream: A `transport_stream` block as defined below.
+               
+               > **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
         """
         if mp4 is not None:
             pulumi.set(__self__, "mp4", mp4)
@@ -5804,6 +5850,8 @@ class TransformOutputCustomPresetFormatArgs:
     def transport_stream(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs']]:
         """
         A `transport_stream` block as defined below.
+
+        > **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
         """
         return pulumi.get(self, "transport_stream")
 

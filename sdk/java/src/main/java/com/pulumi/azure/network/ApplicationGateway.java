@@ -567,12 +567,16 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
      * One or more `ssl_profile` blocks as defined below.
      * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+     * 
      */
     @Export(name="sslProfiles", refs={List.class,ApplicationGatewaySslProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewaySslProfile>> sslProfiles;
 
     /**
      * @return One or more `ssl_profile` blocks as defined below.
+     * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
     public Output<Optional<List<ApplicationGatewaySslProfile>>> sslProfiles() {

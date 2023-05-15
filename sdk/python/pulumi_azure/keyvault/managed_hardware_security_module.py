@@ -411,6 +411,10 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a Key Vault Managed Hardware Security Module.
+
+        > **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+
         ## Example Usage
 
         ```python
@@ -461,6 +465,10 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  args: ManagedHardwareSecurityModuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Key Vault Managed Hardware Security Module.
+
+        > **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+
         ## Example Usage
 
         ```python

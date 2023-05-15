@@ -36,6 +36,8 @@ class ServicePlanArgs:
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+               
+               > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         :param pulumi.Input['ServicePlanSupportArgs'] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
@@ -147,6 +149,8 @@ class ServicePlanArgs:
     def shared_gallery_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+
+        > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         """
         return pulumi.get(self, "shared_gallery_id")
 
@@ -202,6 +206,8 @@ class _ServicePlanState:
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+               
+               > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         :param pulumi.Input['ServicePlanSupportArgs'] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
@@ -315,6 +321,8 @@ class _ServicePlanState:
     def shared_gallery_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+
+        > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         """
         return pulumi.get(self, "shared_gallery_id")
 
@@ -399,6 +407,8 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+               
+               > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         :param pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
@@ -517,6 +527,8 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+               
+               > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         :param pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
@@ -597,6 +609,8 @@ class ServicePlan(pulumi.CustomResource):
     def shared_gallery_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+
+        > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
         """
         return pulumi.get(self, "shared_gallery_id")
 

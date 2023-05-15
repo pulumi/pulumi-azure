@@ -20,6 +20,8 @@ type LinkServiceNatIpConfiguration struct {
 	// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
 	PrivateIpAddressVersion *string `pulumi:"privateIpAddressVersion"`
 	// Specifies the ID of the Subnet which should be used for the Private Link Service.
+	//
+	// > **NOTE:** Verify that the Subnet's `enforcePrivateLinkServiceNetworkPolicies` attribute is set to `true`.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -44,6 +46,8 @@ type LinkServiceNatIpConfigurationArgs struct {
 	// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
 	PrivateIpAddressVersion pulumi.StringPtrInput `pulumi:"privateIpAddressVersion"`
 	// Specifies the ID of the Subnet which should be used for the Private Link Service.
+	//
+	// > **NOTE:** Verify that the Subnet's `enforcePrivateLinkServiceNetworkPolicies` attribute is set to `true`.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -119,6 +123,8 @@ func (o LinkServiceNatIpConfigurationOutput) PrivateIpAddressVersion() pulumi.St
 }
 
 // Specifies the ID of the Subnet which should be used for the Private Link Service.
+//
+// > **NOTE:** Verify that the Subnet's `enforcePrivateLinkServiceNetworkPolicies` attribute is set to `true`.
 func (o LinkServiceNatIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkServiceNatIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }

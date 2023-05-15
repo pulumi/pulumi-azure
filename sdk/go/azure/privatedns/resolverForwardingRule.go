@@ -74,7 +74,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewResolverOutboundEndpoint(ctx, "exampleResolverOutboundEndpoint", &privatedns.ResolverOutboundEndpointArgs{
+//			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "exampleResolverOutboundEndpoint", &privatedns.ResolverOutboundEndpointArgs{
 //				PrivateDnsResolverId: exampleResolver.ID(),
 //				Location:             exampleResolver.Location,
 //				SubnetId:             exampleSubnet.ID(),
@@ -85,8 +85,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleResolverDnsForwardingRuleset, err := privatedns.NewResolverDnsForwardingRuleset(ctx, "exampleResolverDnsForwardingRuleset", &privatedns.ResolverDnsForwardingRulesetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				PrivateDnsResolverOutboundEndpointIds: pulumi.StringArray{
+//					exampleResolverOutboundEndpoint.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = privatedns.NewResolverForwardingRule(ctx, "exampleResolverForwardingRule", &privatedns.ResolverForwardingRuleArgs{
-//				DnsForwardingRulesetId: pulumi.Any(azurerm_private_dns_resolver_dns_forwarding_ruleset.Example.Id),
+//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID(),
 //				DomainName:             pulumi.String("onprem.local."),
 //				Enabled:                pulumi.Bool(true),
 //				TargetDnsServers: privatedns.ResolverForwardingRuleTargetDnsServerArray{

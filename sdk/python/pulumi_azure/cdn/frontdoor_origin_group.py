@@ -29,6 +29,8 @@ class FrontdoorOriginGroupArgs:
         :param pulumi.Input['FrontdoorOriginGroupHealthProbeArgs'] health_probe: A `health_probe` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+               
+               > **NOTE:** This property is currently not used, but will be in the near future.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -95,6 +97,8 @@ class FrontdoorOriginGroupArgs:
     def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+
+        > **NOTE:** This property is currently not used, but will be in the near future.
         """
         return pulumi.get(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes")
 
@@ -131,6 +135,8 @@ class _FrontdoorOriginGroupState:
         :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+               
+               > **NOTE:** This property is currently not used, but will be in the near future.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
         if cdn_frontdoor_profile_id is not None:
@@ -199,6 +205,8 @@ class _FrontdoorOriginGroupState:
     def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+
+        > **NOTE:** This property is currently not used, but will be in the near future.
         """
         return pulumi.get(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes")
 
@@ -274,6 +282,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+               
+               > **NOTE:** This property is currently not used, but will be in the near future.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
         ...
@@ -386,6 +396,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+               
+               > **NOTE:** This property is currently not used, but will be in the near future.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -437,6 +449,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+
+        > **NOTE:** This property is currently not used, but will be in the near future.
         """
         return pulumi.get(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes")
 

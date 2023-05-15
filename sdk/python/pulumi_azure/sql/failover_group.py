@@ -31,6 +31,8 @@ class FailoverGroupArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
+               
+               > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
         :param pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs'] readonly_endpoint_failover_policy: a read-only policy as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -101,6 +103,8 @@ class FailoverGroupArgs:
     def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of database ids to add to the failover group
+
+        > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         """
         return pulumi.get(self, "databases")
 
@@ -161,6 +165,8 @@ class _FailoverGroupState:
         """
         Input properties used for looking up and filtering FailoverGroup resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
+               
+               > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of secondary servers as documented below
@@ -197,6 +203,8 @@ class _FailoverGroupState:
     def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of database ids to add to the failover group
+
+        > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         """
         return pulumi.get(self, "databases")
 
@@ -328,6 +336,10 @@ class FailoverGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Create a failover group of databases on a collection of Azure SQL servers.
+
+        > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
+
         ## Example Usage
 
         ```python
@@ -375,6 +387,8 @@ class FailoverGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
+               
+               > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
@@ -390,6 +404,10 @@ class FailoverGroup(pulumi.CustomResource):
                  args: FailoverGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Create a failover group of databases on a collection of Azure SQL servers.
+
+        > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
+
         ## Example Usage
 
         ```python
@@ -512,6 +530,8 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
+               
+               > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
@@ -543,6 +563,8 @@ class FailoverGroup(pulumi.CustomResource):
     def databases(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of database ids to add to the failover group
+
+        > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         """
         return pulumi.get(self, "databases")
 

@@ -18,6 +18,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
     /**
      * @return Specifies a single value to compare to when using a single value operator.
      * 
+     * OR
+     * 
      */
     private Boolean value;
 
@@ -31,6 +33,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
     }
     /**
      * @return Specifies a single value to compare to when using a single value operator.
+     * 
+     * OR
      * 
      */
     public Boolean value() {

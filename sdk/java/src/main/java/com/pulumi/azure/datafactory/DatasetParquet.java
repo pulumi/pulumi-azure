@@ -94,12 +94,16 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
+     * The following supported locations for a Parquet Dataset:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset.
+     * 
+     * The following supported locations for a Parquet Dataset:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {
@@ -122,12 +126,16 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
     /**
      * A `azure_blob_storage_location` block as defined below.
      * 
+     * The following supported arguments are specific to Parquet Dataset:
+     * 
      */
     @Export(name="azureBlobStorageLocation", refs={DatasetParquetAzureBlobStorageLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetParquetAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
      * @return A `azure_blob_storage_location` block as defined below.
+     * 
+     * The following supported arguments are specific to Parquet Dataset:
      * 
      */
     public Output<Optional<DatasetParquetAzureBlobStorageLocation>> azureBlobStorageLocation() {

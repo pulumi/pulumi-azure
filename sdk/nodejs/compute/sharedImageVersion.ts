@@ -76,6 +76,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
 
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     *
+     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     public readonly blobUri!: pulumi.Output<string | undefined>;
     /**
@@ -100,6 +104,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     public readonly managedImageId!: pulumi.Output<string | undefined>;
     /**
@@ -108,6 +116,8 @@ export class SharedImageVersion extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     public readonly osDiskSnapshotId!: pulumi.Output<string | undefined>;
     /**
@@ -120,6 +130,8 @@ export class SharedImageVersion extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -198,6 +210,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
 export interface SharedImageVersionState {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     *
+     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     blobUri?: pulumi.Input<string>;
     /**
@@ -222,6 +238,10 @@ export interface SharedImageVersionState {
     location?: pulumi.Input<string>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     managedImageId?: pulumi.Input<string>;
     /**
@@ -230,6 +250,8 @@ export interface SharedImageVersionState {
     name?: pulumi.Input<string>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     osDiskSnapshotId?: pulumi.Input<string>;
     /**
@@ -242,6 +264,8 @@ export interface SharedImageVersionState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     storageAccountId?: pulumi.Input<string>;
     /**
@@ -260,6 +284,10 @@ export interface SharedImageVersionState {
 export interface SharedImageVersionArgs {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
+     *
+     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     blobUri?: pulumi.Input<string>;
     /**
@@ -284,6 +312,10 @@ export interface SharedImageVersionArgs {
     location?: pulumi.Input<string>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     managedImageId?: pulumi.Input<string>;
     /**
@@ -292,6 +324,8 @@ export interface SharedImageVersionArgs {
     name?: pulumi.Input<string>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
     osDiskSnapshotId?: pulumi.Input<string>;
     /**
@@ -304,6 +338,8 @@ export interface SharedImageVersionArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     storageAccountId?: pulumi.Input<string>;
     /**

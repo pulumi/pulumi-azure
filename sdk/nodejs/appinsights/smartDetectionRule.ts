@@ -63,6 +63,8 @@ export class SmartDetectionRule extends pulumi.CustomResource {
 
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+     *
+     * > **Note:** At least one read or write permission must be defined.
      */
     public readonly additionalEmailRecipients!: pulumi.Output<string[] | undefined>;
     /**
@@ -122,6 +124,8 @@ export class SmartDetectionRule extends pulumi.CustomResource {
 export interface SmartDetectionRuleState {
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+     *
+     * > **Note:** At least one read or write permission must be defined.
      */
     additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -148,6 +152,8 @@ export interface SmartDetectionRuleState {
 export interface SmartDetectionRuleArgs {
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+     *
+     * > **Note:** At least one read or write permission must be defined.
      */
     additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
     /**

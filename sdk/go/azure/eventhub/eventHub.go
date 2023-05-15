@@ -76,12 +76,18 @@ type EventHub struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription EventHubCaptureDescriptionPtrOutput `pulumi:"captureDescription"`
 	// Specifies the number of days to retain the events for this Event Hub.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
 	MessageRetention pulumi.IntOutput `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	//
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
@@ -135,12 +141,18 @@ type eventHubState struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`
 	// Specifies the number of days to retain the events for this Event Hub.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
 	MessageRetention *int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	//
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds []string `pulumi:"partitionIds"`
@@ -154,12 +166,18 @@ type EventHubState struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription EventHubCaptureDescriptionPtrInput
 	// Specifies the number of days to retain the events for this Event Hub.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
 	MessageRetention pulumi.IntPtrInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringPtrInput
 	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	//
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntPtrInput
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayInput
@@ -177,12 +195,18 @@ type eventHubArgs struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`
 	// Specifies the number of days to retain the events for this Event Hub.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
 	MessageRetention int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName string `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	//
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount int `pulumi:"partitionCount"`
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -195,12 +219,18 @@ type EventHubArgs struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription EventHubCaptureDescriptionPtrInput
 	// Specifies the number of days to retain the events for this Event Hub.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
 	MessageRetention pulumi.IntInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringInput
 	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	//
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	//
+	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntInput
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -301,6 +331,8 @@ func (o EventHubOutput) CaptureDescription() EventHubCaptureDescriptionPtrOutput
 }
 
 // Specifies the number of days to retain the events for this Event Hub.
+//
+// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
 func (o EventHubOutput) MessageRetention() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.IntOutput { return v.MessageRetention }).(pulumi.IntOutput)
 }
@@ -316,6 +348,10 @@ func (o EventHubOutput) NamespaceName() pulumi.StringOutput {
 }
 
 // Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+//
+// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+//
+// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 func (o EventHubOutput) PartitionCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.IntOutput { return v.PartitionCount }).(pulumi.IntOutput)
 }

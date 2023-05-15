@@ -10,7 +10,6 @@ import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
-import com.pulumi.azure.inputs.ProviderFeaturesNetworkArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesVirtualMachineArgs;
@@ -75,13 +74,6 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.managedDisk);
     }
 
-    @Import(name="network")
-    private @Nullable Output<ProviderFeaturesNetworkArgs> network;
-
-    public Optional<Output<ProviderFeaturesNetworkArgs>> network() {
-        return Optional.ofNullable(this.network);
-    }
-
     @Import(name="resourceGroup")
     private @Nullable Output<ProviderFeaturesResourceGroupArgs> resourceGroup;
 
@@ -120,7 +112,6 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.keyVault = $.keyVault;
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
         this.managedDisk = $.managedDisk;
-        this.network = $.network;
         this.resourceGroup = $.resourceGroup;
         this.templateDeployment = $.templateDeployment;
         this.virtualMachine = $.virtualMachine;
@@ -206,15 +197,6 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder managedDisk(ProviderFeaturesManagedDiskArgs managedDisk) {
             return managedDisk(Output.of(managedDisk));
-        }
-
-        public Builder network(@Nullable Output<ProviderFeaturesNetworkArgs> network) {
-            $.network = network;
-            return this;
-        }
-
-        public Builder network(ProviderFeaturesNetworkArgs network) {
-            return network(Output.of(network));
         }
 
         public Builder resourceGroup(@Nullable Output<ProviderFeaturesResourceGroupArgs> resourceGroup) {

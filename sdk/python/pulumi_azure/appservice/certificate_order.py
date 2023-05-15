@@ -32,6 +32,8 @@ class CertificateOrderArgs:
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
+               
+               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -100,6 +102,8 @@ class CertificateOrderArgs:
     def distinguished_name(self) -> Optional[pulumi.Input[str]]:
         """
         The Distinguished Name for the App Service Certificate Order.
+
+        > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         """
         return pulumi.get(self, "distinguished_name")
 
@@ -209,6 +213,8 @@ class _CertificateOrderState:
         :param pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
+               
+               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[str] domain_verification_token: Domain verification token.
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
@@ -316,6 +322,8 @@ class _CertificateOrderState:
     def distinguished_name(self) -> Optional[pulumi.Input[str]]:
         """
         The Distinguished Name for the App Service Certificate Order.
+
+        > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         """
         return pulumi.get(self, "distinguished_name")
 
@@ -538,6 +546,8 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
+               
+               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -673,6 +683,8 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArgs']]]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
+               
+               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[str] domain_verification_token: Domain verification token.
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
@@ -750,6 +762,8 @@ class CertificateOrder(pulumi.CustomResource):
     def distinguished_name(self) -> pulumi.Output[str]:
         """
         The Distinguished Name for the App Service Certificate Order.
+
+        > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         """
         return pulumi.get(self, "distinguished_name")
 

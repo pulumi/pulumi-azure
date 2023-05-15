@@ -138,8 +138,8 @@ def get_spring_cloud_service(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appplatform.get_spring_cloud_service(name=azurerm_spring_cloud_service["example"]["name"],
-        resource_group_name=azurerm_spring_cloud_service["example"]["resource_group_name"])
+    example = azure.appplatform.get_spring_cloud_service(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("springCloudServiceId", example.id)
     ```
 
@@ -177,8 +177,8 @@ def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appplatform.get_spring_cloud_service(name=azurerm_spring_cloud_service["example"]["name"],
-        resource_group_name=azurerm_spring_cloud_service["example"]["resource_group_name"])
+    example = azure.appplatform.get_spring_cloud_service(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("springCloudServiceId", example.id)
     ```
 

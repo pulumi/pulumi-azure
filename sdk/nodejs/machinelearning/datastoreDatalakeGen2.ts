@@ -118,7 +118,6 @@ export class DatastoreDatalakeGen2 extends pulumi.CustomResource {
     public readonly serviceDataIdentity!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-     * ---
      */
     public readonly storageContainerId!: pulumi.Output<string>;
     /**
@@ -219,7 +218,6 @@ export interface DatastoreDatalakeGen2State {
     serviceDataIdentity?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-     * ---
      */
     storageContainerId?: pulumi.Input<string>;
     /**
@@ -266,7 +264,6 @@ export interface DatastoreDatalakeGen2Args {
     serviceDataIdentity?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-     * ---
      */
     storageContainerId: pulumi.Input<string>;
     /**

@@ -31,8 +31,14 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+               
+               > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -87,6 +93,8 @@ class NetworkInterfaceArgs:
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+
+        > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -111,6 +119,10 @@ class NetworkInterfaceArgs:
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
+
+        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+
+        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
@@ -202,8 +214,14 @@ class _NetworkInterfaceState:
         Input properties used for looking up and filtering NetworkInterface resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+               
+               > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
@@ -267,6 +285,8 @@ class _NetworkInterfaceState:
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+
+        > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -291,6 +311,10 @@ class _NetworkInterfaceState:
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
+
+        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+
+        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
@@ -498,8 +522,14 @@ class NetworkInterface(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+               
+               > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
@@ -639,8 +669,14 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+               
+               > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
+               
+               > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+               
+               > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
@@ -689,6 +725,8 @@ class NetworkInterface(pulumi.CustomResource):
     def dns_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+
+        > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -705,6 +743,10 @@ class NetworkInterface(pulumi.CustomResource):
     def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
+
+        > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+
+        > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 

@@ -25,12 +25,16 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset.
+     * 
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -220,12 +224,16 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
     /**
      * A `http_server_location` block as defined below.
      * 
+     * The following supported arguments are specific to Delimited Text Dataset:
+     * 
      */
     @Import(name="httpServerLocation")
     private @Nullable Output<DatasetDelimitedTextHttpServerLocationArgs> httpServerLocation;
 
     /**
      * @return A `http_server_location` block as defined below.
+     * 
+     * The following supported arguments are specific to Delimited Text Dataset:
      * 
      */
     public Optional<Output<DatasetDelimitedTextHttpServerLocationArgs>> httpServerLocation() {
@@ -384,6 +392,8 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
          * 
+         * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
+         * 
          * @return builder
          * 
          */
@@ -394,6 +404,8 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
+         * 
+         * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
          * 
          * @return builder
          * 
@@ -667,6 +679,8 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
         /**
          * @param httpServerLocation A `http_server_location` block as defined below.
          * 
+         * The following supported arguments are specific to Delimited Text Dataset:
+         * 
          * @return builder
          * 
          */
@@ -677,6 +691,8 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param httpServerLocation A `http_server_location` block as defined below.
+         * 
+         * The following supported arguments are specific to Delimited Text Dataset:
          * 
          * @return builder
          * 

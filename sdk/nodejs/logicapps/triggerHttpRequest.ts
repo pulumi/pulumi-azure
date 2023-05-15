@@ -82,10 +82,14 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     public readonly method!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the Relative Path used for this Request.
+     *
+     * > **NOTE:** When `relativePath` is set a `method` must also be set.
      */
     public readonly relativePath!: pulumi.Output<string | undefined>;
     /**
@@ -150,10 +154,14 @@ export interface TriggerHttpRequestState {
     method?: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
     name?: pulumi.Input<string>;
     /**
      * Specifies the Relative Path used for this Request.
+     *
+     * > **NOTE:** When `relativePath` is set a `method` must also be set.
      */
     relativePath?: pulumi.Input<string>;
     /**
@@ -176,10 +184,14 @@ export interface TriggerHttpRequestArgs {
     method?: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
     name?: pulumi.Input<string>;
     /**
      * Specifies the Relative Path used for this Request.
+     *
+     * > **NOTE:** When `relativePath` is set a `method` must also be set.
      */
     relativePath?: pulumi.Input<string>;
     /**

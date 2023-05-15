@@ -51,6 +51,8 @@ class ServiceIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -77,6 +79,8 @@ class ServiceIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 
@@ -183,7 +187,13 @@ class ServiceNetworkAclPrivateEndpointArgs:
         """
         :param pulumi.Input[str] id: The ID of the Private Endpoint which is based on the SignalR service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               
+               > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
         pulumi.set(__self__, "id", id)
         if allowed_request_types is not None:
@@ -208,6 +218,8 @@ class ServiceNetworkAclPrivateEndpointArgs:
     def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
         """
         return pulumi.get(self, "allowed_request_types")
 
@@ -220,6 +232,10 @@ class ServiceNetworkAclPrivateEndpointArgs:
     def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
         return pulumi.get(self, "denied_request_types")
 
@@ -235,7 +251,13 @@ class ServiceNetworkAclPublicNetworkArgs:
                  denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               
+               > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
         if allowed_request_types is not None:
             pulumi.set(__self__, "allowed_request_types", allowed_request_types)
@@ -247,6 +269,8 @@ class ServiceNetworkAclPublicNetworkArgs:
     def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
         """
         return pulumi.get(self, "allowed_request_types")
 
@@ -259,6 +283,10 @@ class ServiceNetworkAclPublicNetworkArgs:
     def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
         return pulumi.get(self, "denied_request_types")
 

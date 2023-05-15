@@ -39,6 +39,8 @@ class TriggerBlobEventArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
         :param pulumi.Input[str] blob_path_ends_with: The pattern that blob path ends with for trigger to fire.
+               
+               > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         :param pulumi.Input[str] description: The description for the Data Factory Blob Event Trigger.
         :param pulumi.Input[bool] ignore_empty_blobs: are blobs with zero bytes ignored?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
@@ -165,6 +167,8 @@ class TriggerBlobEventArgs:
     def blob_path_ends_with(self) -> Optional[pulumi.Input[str]]:
         """
         The pattern that blob path ends with for trigger to fire.
+
+        > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         """
         return pulumi.get(self, "blob_path_ends_with")
 
@@ -231,6 +235,8 @@ class _TriggerBlobEventState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
         :param pulumi.Input[str] blob_path_ends_with: The pattern that blob path ends with for trigger to fire.
+               
+               > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
@@ -317,6 +323,8 @@ class _TriggerBlobEventState:
     def blob_path_ends_with(self) -> Optional[pulumi.Input[str]]:
         """
         The pattern that blob path ends with for trigger to fire.
+
+        > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         """
         return pulumi.get(self, "blob_path_ends_with")
 
@@ -489,6 +497,8 @@ class TriggerBlobEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
         :param pulumi.Input[str] blob_path_ends_with: The pattern that blob path ends with for trigger to fire.
+               
+               > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
@@ -648,6 +658,8 @@ class TriggerBlobEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
         :param pulumi.Input[str] blob_path_begins_with: The pattern that blob path starts with for trigger to fire.
         :param pulumi.Input[str] blob_path_ends_with: The pattern that blob path ends with for trigger to fire.
+               
+               > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
@@ -711,6 +723,8 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def blob_path_ends_with(self) -> pulumi.Output[Optional[str]]:
         """
         The pattern that blob path ends with for trigger to fire.
+
+        > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         """
         return pulumi.get(self, "blob_path_ends_with")
 

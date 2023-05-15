@@ -30,6 +30,8 @@ namespace Pulumi.Azure.Role
     {
         /// <summary>
         /// Specifies the Name of either a built-in or custom Role Definition.
+        /// 
+        /// &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -42,6 +44,8 @@ namespace Pulumi.Azure.Role
 
         /// <summary>
         /// Specifies the Scope at which the Custom Role Definition exists.
+        /// 
+        /// &gt; **Note:** One of `name` or `role_definition_id` must be specified.
         /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.Role
     {
         /// <summary>
         /// Specifies the Name of either a built-in or custom Role Definition.
+        /// 
+        /// &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -68,6 +74,8 @@ namespace Pulumi.Azure.Role
 
         /// <summary>
         /// Specifies the Scope at which the Custom Role Definition exists.
+        /// 
+        /// &gt; **Note:** One of `name` or `role_definition_id` must be specified.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

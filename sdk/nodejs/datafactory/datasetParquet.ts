@@ -74,6 +74,8 @@ export class DatasetParquet extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported locations for a Parquet Dataset:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -82,6 +84,8 @@ export class DatasetParquet extends pulumi.CustomResource {
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Parquet Dataset:
      */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobStorageLocation | undefined>;
     /**
@@ -184,6 +188,8 @@ export class DatasetParquet extends pulumi.CustomResource {
 export interface DatasetParquetState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported locations for a Parquet Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -192,6 +198,8 @@ export interface DatasetParquetState {
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Parquet Dataset:
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetParquetAzureBlobStorageLocation>;
     /**
@@ -242,6 +250,8 @@ export interface DatasetParquetState {
 export interface DatasetParquetArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported locations for a Parquet Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -250,6 +260,8 @@ export interface DatasetParquetArgs {
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Parquet Dataset:
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetParquetAzureBlobStorageLocation>;
     /**

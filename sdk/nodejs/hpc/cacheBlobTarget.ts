@@ -120,6 +120,8 @@ export class CacheBlobTarget extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
     public readonly storageContainerId!: pulumi.Output<string>;
 
@@ -194,6 +196,8 @@ export interface CacheBlobTargetState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
     storageContainerId?: pulumi.Input<string>;
 }
@@ -224,6 +228,8 @@ export interface CacheBlobTargetArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
     storageContainerId: pulumi.Input<string>;
 }

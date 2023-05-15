@@ -27,6 +27,8 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
     /**
      * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
      * 
+     * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
+     * 
      */
     private @Nullable String secretRotationInterval;
 
@@ -47,6 +49,8 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
     }
     /**
      * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+     * 
+     * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
      * 
      */
     public Optional<String> secretRotationInterval() {

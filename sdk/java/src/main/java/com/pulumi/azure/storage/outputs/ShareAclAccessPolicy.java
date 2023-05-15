@@ -19,6 +19,8 @@ public final class ShareAclAccessPolicy {
     /**
      * @return The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
      * 
+     * &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
+     * 
      */
     private String permissions;
     /**
@@ -37,6 +39,8 @@ public final class ShareAclAccessPolicy {
     }
     /**
      * @return The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+     * 
+     * &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
      * 
      */
     public String permissions() {

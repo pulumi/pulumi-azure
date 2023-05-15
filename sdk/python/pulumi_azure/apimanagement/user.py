@@ -36,6 +36,8 @@ class UserArgs:
         :param pulumi.Input[str] note: A note about this user.
         :param pulumi.Input[str] password: The password associated with this user.
         :param pulumi.Input[str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
+               
+               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "email", email)
@@ -165,6 +167,8 @@ class UserArgs:
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
+
+        > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         return pulumi.get(self, "state")
 
@@ -197,6 +201,8 @@ class _UserState:
         :param pulumi.Input[str] password: The password associated with this user.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
+               
+               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         if api_management_name is not None:
@@ -321,6 +327,8 @@ class _UserState:
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
+
+        > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         return pulumi.get(self, "state")
 
@@ -402,6 +410,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password associated with this user.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
+               
+               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         ...
@@ -538,6 +548,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password associated with this user.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
+               
+               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -625,6 +637,8 @@ class User(pulumi.CustomResource):
     def state(self) -> pulumi.Output[str]:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
+
+        > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         return pulumi.get(self, "state")
 

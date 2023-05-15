@@ -33,12 +33,16 @@ public final class DataLakeGen2FilesystemAceArgs extends com.pulumi.resources.Re
     /**
      * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
      * 
+     * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+     * 
      */
     @Import(name="permissions", required=true)
     private Output<String> permissions;
 
     /**
      * @return Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+     * 
+     * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
      * 
      */
     public Output<String> permissions() {
@@ -126,6 +130,8 @@ public final class DataLakeGen2FilesystemAceArgs extends com.pulumi.resources.Re
         /**
          * @param permissions Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
          * 
+         * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class DataLakeGen2FilesystemAceArgs extends com.pulumi.resources.Re
 
         /**
          * @param permissions Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         * 
+         * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
          * 
          * @return builder
          * 

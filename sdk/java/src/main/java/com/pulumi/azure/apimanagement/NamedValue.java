@@ -139,12 +139,16 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
      * 
+     * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
+     * 
      */
     @Export(name="secret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> secret;
 
     /**
      * @return Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+     * 
+     * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      * 
      */
     public Output<Optional<Boolean>> secret() {

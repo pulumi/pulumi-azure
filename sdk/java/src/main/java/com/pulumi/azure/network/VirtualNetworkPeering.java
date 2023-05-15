@@ -176,14 +176,24 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     * 
+     */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
+    /**
+     * @return A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     * 
+     */
     public Output<Optional<Map<String,String>>> triggers() {
         return Codegen.optional(this.triggers);
     }
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     @Export(name="useRemoteGateways", refs={Boolean.class}, tree="[0]")
@@ -191,6 +201,8 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     public Output<Optional<Boolean>> useRemoteGateways() {

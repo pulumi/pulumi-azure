@@ -64,6 +64,8 @@ public final class LinuxWebAppSlotAuthSettings {
     /**
      * @return The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
      * 
+     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+     * 
      */
     private @Nullable String issuer;
     /**
@@ -156,6 +158,8 @@ public final class LinuxWebAppSlotAuthSettings {
     }
     /**
      * @return The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
+     * 
+     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     public Optional<String> issuer() {

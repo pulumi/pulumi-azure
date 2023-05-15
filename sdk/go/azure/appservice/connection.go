@@ -121,6 +121,8 @@ type Connection struct {
 	// The ID of the data source web app. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
 	// The authentication info. An `authentication` block as defined below.
+	//
+	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationOutput `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
@@ -175,6 +177,8 @@ type connectionState struct {
 	// The ID of the data source web app. Changing this forces a new resource to be created.
 	AppServiceId *string `pulumi:"appServiceId"`
 	// The authentication info. An `authentication` block as defined below.
+	//
+	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication *ConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
@@ -192,6 +196,8 @@ type ConnectionState struct {
 	// The ID of the data source web app. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringPtrInput
 	// The authentication info. An `authentication` block as defined below.
+	//
+	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationPtrInput
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
@@ -213,6 +219,8 @@ type connectionArgs struct {
 	// The ID of the data source web app. Changing this forces a new resource to be created.
 	AppServiceId string `pulumi:"appServiceId"`
 	// The authentication info. An `authentication` block as defined below.
+	//
+	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
@@ -231,6 +239,8 @@ type ConnectionArgs struct {
 	// The ID of the data source web app. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringInput
 	// The authentication info. An `authentication` block as defined below.
+	//
+	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationInput
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
@@ -337,6 +347,8 @@ func (o ConnectionOutput) AppServiceId() pulumi.StringOutput {
 }
 
 // The authentication info. An `authentication` block as defined below.
+//
+// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 func (o ConnectionOutput) Authentication() ConnectionAuthenticationOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthenticationOutput { return v.Authentication }).(ConnectionAuthenticationOutput)
 }

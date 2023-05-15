@@ -19,12 +19,20 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -106,6 +114,10 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +129,10 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +142,10 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
          * 
          * @return builder
          * 

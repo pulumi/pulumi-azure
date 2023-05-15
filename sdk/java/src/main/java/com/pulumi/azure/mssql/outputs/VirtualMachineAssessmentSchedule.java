@@ -20,6 +20,8 @@ public final class VirtualMachineAssessmentSchedule {
     /**
      * @return How many months between assessment runs. Valid values are between `1` and `5`.
      * 
+     * &gt; **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+     * 
      */
     private @Nullable Integer monthlyOccurrence;
     /**
@@ -43,6 +45,8 @@ public final class VirtualMachineAssessmentSchedule {
     }
     /**
      * @return How many months between assessment runs. Valid values are between `1` and `5`.
+     * 
+     * &gt; **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
      * 
      */
     public Optional<Integer> monthlyOccurrence() {

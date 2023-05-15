@@ -187,7 +187,9 @@ namespace Pulumi.Azure.Network
         public Output<int> PeerAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// 
+        /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
         [Output("peeringType")]
         public Output<string> PeeringType { get; private set; } = null!;
@@ -212,6 +214,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
+        /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         [Output("routeFilterId")]
         public Output<string?> RouteFilterId { get; private set; } = null!;
@@ -321,7 +325,9 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// 
+        /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
         [Input("peeringType", required: true)]
         public Input<string> PeeringType { get; set; } = null!;
@@ -340,6 +346,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
+        /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }
@@ -420,7 +428,9 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// 
+        /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
         [Input("peeringType")]
         public Input<string>? PeeringType { get; set; }
@@ -445,6 +455,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
+        /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }

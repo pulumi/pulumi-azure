@@ -78,12 +78,16 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
+     * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * 
      */
     @Export(name="assignableScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> assignableScopes;
 
     /**
      * @return One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+     * 
+     * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      * 
      */
     public Output<List<String>> assignableScopes() {

@@ -123,6 +123,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The pattern that blob path ends with for trigger to fire.
+        /// 
+        /// &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         /// </summary>
         [Output("blobPathEndsWith")]
         public Output<string?> BlobPathEndsWith { get; private set; } = null!;
@@ -253,6 +255,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The pattern that blob path ends with for trigger to fire.
+        /// 
+        /// &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         /// </summary>
         [Input("blobPathEndsWith")]
         public Input<string>? BlobPathEndsWith { get; set; }
@@ -357,6 +361,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The pattern that blob path ends with for trigger to fire.
+        /// 
+        /// &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         /// </summary>
         [Input("blobPathEndsWith")]
         public Input<string>? BlobPathEndsWith { get; set; }

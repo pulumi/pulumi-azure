@@ -63,12 +63,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      * 
+     * &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+     * 
      */
     @Import(name="keyVaultIdentityClientId")
     private @Nullable Output<String> keyVaultIdentityClientId;
 
     /**
      * @return The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+     * 
+     * &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
      * 
      */
     public Optional<Output<String>> keyVaultIdentityClientId() {
@@ -78,12 +82,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      * 
+     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn&#39;t specified.
+     * 
      */
     @Import(name="keyVaultSecretId")
     private @Nullable Output<String> keyVaultSecretId;
 
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -123,12 +131,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+     * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
      * @return The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -264,6 +276,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param keyVaultIdentityClientId The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
          * 
+         * &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+         * 
          * @return builder
          * 
          */
@@ -275,6 +289,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param keyVaultIdentityClientId The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
          * 
+         * &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+         * 
          * @return builder
          * 
          */
@@ -284,6 +300,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param keyVaultSecretId The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         * 
+         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -295,6 +313,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param keyVaultSecretId The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         * 
+         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -348,6 +368,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+         * 
          * @return builder
          * 
          */
@@ -358,6 +380,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resourceGroupName The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
          * 
          * @return builder
          * 

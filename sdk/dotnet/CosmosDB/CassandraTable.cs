@@ -104,6 +104,8 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         /// </summary>
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
@@ -186,6 +188,8 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -230,6 +234,8 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }

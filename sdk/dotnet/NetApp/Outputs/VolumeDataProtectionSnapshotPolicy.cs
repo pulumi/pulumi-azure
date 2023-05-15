@@ -13,9 +13,6 @@ namespace Pulumi.Azure.NetApp.Outputs
     [OutputType]
     public sealed class VolumeDataProtectionSnapshotPolicy
     {
-        /// <summary>
-        /// Resource ID of the snapshot policy to apply to the volume.
-        /// </summary>
         public readonly string SnapshotPolicyId;
 
         [OutputConstructor]

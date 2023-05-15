@@ -153,12 +153,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
      * 
+     * &gt; **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+     * 
      */
     @Export(name="allowedIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedIps;
 
     /**
      * @return Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+     * 
+     * &gt; **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
      * 
      */
     public Output<Optional<List<String>>> allowedIps() {
@@ -167,12 +171,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
      * 
+     * &gt; **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+     * 
      */
     @Export(name="authenticationFailureMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationFailureMode;
 
     /**
      * @return Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+     * 
+     * &gt; **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
      * 
      */
     public Output<Optional<String>> authenticationFailureMode() {
@@ -195,12 +203,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
      * 
+     * &gt; **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
+     * 
      */
     @Export(name="hostingMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostingMode;
 
     /**
      * @return Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * 
+     * &gt; **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
      * 
      */
     public Output<Optional<String>> hostingMode() {
@@ -265,12 +277,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      * 
+     * &gt; **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+     * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> partitionCount;
 
     /**
      * @return Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+     * 
+     * &gt; **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
      * 
      */
     public Output<Optional<Integer>> partitionCount() {
@@ -363,12 +379,20 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
+     * &gt; The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+     * 
+     * &gt; **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+     * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
      * @return The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+     * 
+     * &gt; The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+     * 
+     * &gt; **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
      * 
      */
     public Output<String> sku() {

@@ -12,6 +12,8 @@ import (
 
 type PolicyFileShareBackup struct {
 	// Sets the backup frequency. Currently, only `Daily` is supported
+	//
+	// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 	Frequency string `pulumi:"frequency"`
 	// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 	Time string `pulumi:"time"`
@@ -30,6 +32,8 @@ type PolicyFileShareBackupInput interface {
 
 type PolicyFileShareBackupArgs struct {
 	// Sets the backup frequency. Currently, only `Daily` is supported
+	//
+	// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 	Time pulumi.StringInput `pulumi:"time"`
@@ -113,6 +117,8 @@ func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutputWithContext
 }
 
 // Sets the backup frequency. Currently, only `Daily` is supported
+//
+// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 func (o PolicyFileShareBackupOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
 }
@@ -147,6 +153,8 @@ func (o PolicyFileShareBackupPtrOutput) Elem() PolicyFileShareBackupOutput {
 }
 
 // Sets the backup frequency. Currently, only `Daily` is supported
+//
+// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 func (o PolicyFileShareBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackup) *string {
 		if v == nil {
@@ -832,6 +840,8 @@ type PolicyVMBackup struct {
 	// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
 	Frequency string `pulumi:"frequency"`
 	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+	//
+	// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
 	HourDuration *int `pulumi:"hourDuration"`
 	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 	HourInterval *int `pulumi:"hourInterval"`
@@ -856,6 +866,8 @@ type PolicyVMBackupArgs struct {
 	// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+	//
+	// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
 	HourDuration pulumi.IntPtrInput `pulumi:"hourDuration"`
 	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 	HourInterval pulumi.IntPtrInput `pulumi:"hourInterval"`
@@ -948,6 +960,8 @@ func (o PolicyVMBackupOutput) Frequency() pulumi.StringOutput {
 }
 
 // Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+//
+// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
 func (o PolicyVMBackupOutput) HourDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyVMBackup) *int { return v.HourDuration }).(pulumi.IntPtrOutput)
 }
@@ -1002,6 +1016,8 @@ func (o PolicyVMBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
 }
 
 // Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+//
+// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
 func (o PolicyVMBackupPtrOutput) HourDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMBackup) *int {
 		if v == nil {
@@ -1199,6 +1215,8 @@ func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Suffix() pulumi.StringPtrO
 
 type PolicyVMRetentionDaily struct {
 	// The number of daily backups to keep. Must be between `7` and `9999`.
+	//
+	// > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
 	Count int `pulumi:"count"`
 }
 
@@ -1215,6 +1233,8 @@ type PolicyVMRetentionDailyInput interface {
 
 type PolicyVMRetentionDailyArgs struct {
 	// The number of daily backups to keep. Must be between `7` and `9999`.
+	//
+	// > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
 	Count pulumi.IntInput `pulumi:"count"`
 }
 
@@ -1296,6 +1316,8 @@ func (o PolicyVMRetentionDailyOutput) ToPolicyVMRetentionDailyPtrOutputWithConte
 }
 
 // The number of daily backups to keep. Must be between `7` and `9999`.
+//
+// > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
 func (o PolicyVMRetentionDailyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -1325,6 +1347,8 @@ func (o PolicyVMRetentionDailyPtrOutput) Elem() PolicyVMRetentionDailyOutput {
 }
 
 // The number of daily backups to keep. Must be between `7` and `9999`.
+//
+// > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
 func (o PolicyVMRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionDaily) *int {
 		if v == nil {

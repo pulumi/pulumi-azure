@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     poolName: examplePool.name,
  *     volumePath: "my-unique-file-path",
  *     serviceLevel: "Premium",
- *     subnetId: azurerm_subnet.test.id,
+ *     subnetId: exampleSubnet.id,
  *     storageQuotaInGb: 100,
  * });
  * const exampleSnapshot = new azure.netapp.Snapshot("exampleSnapshot", {

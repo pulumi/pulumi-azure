@@ -68,6 +68,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported locations for a Parquet Dataset:
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -80,6 +82,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Parquet Dataset:
         /// </summary>
         [Output("azureBlobStorageLocation")]
         public Output<Outputs.DatasetParquetAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
@@ -195,6 +199,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported locations for a Parquet Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -216,6 +222,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Parquet Dataset:
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetParquetAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
@@ -305,6 +313,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported locations for a Parquet Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -326,6 +336,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Parquet Dataset:
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetParquetAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }

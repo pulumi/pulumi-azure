@@ -32,6 +32,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** This is different from the Default value used for this field within Azure.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }

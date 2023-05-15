@@ -19,12 +19,16 @@ public final class DiagnosticSettingEnabledLogRetentionPolicyArgs extends com.pu
     /**
      * The number of days for which this Retention Policy should apply.
      * 
+     * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
+     * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
      * @return The number of days for which this Retention Policy should apply.
+     * 
+     * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -74,6 +78,8 @@ public final class DiagnosticSettingEnabledLogRetentionPolicyArgs extends com.pu
         /**
          * @param days The number of days for which this Retention Policy should apply.
          * 
+         * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class DiagnosticSettingEnabledLogRetentionPolicyArgs extends com.pu
 
         /**
          * @param days The number of days for which this Retention Policy should apply.
+         * 
+         * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
          * 
          * @return builder
          * 

@@ -24,6 +24,8 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] signalr_service_id: The id of the Signalr Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         :param pulumi.Input[str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
@@ -64,6 +66,8 @@ class SharedPrivateLinkResourceArgs:
     def target_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -113,6 +117,8 @@ class _SharedPrivateLinkResourceState:
         :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
         :param pulumi.Input[str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -192,6 +198,8 @@ class _SharedPrivateLinkResourceState:
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -263,6 +271,8 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[str] signalr_service_id: The id of the Signalr Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         ...
     @overload
@@ -385,6 +395,8 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
         :param pulumi.Input[str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,6 +455,8 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def target_resource_id(self) -> pulumi.Output[str]:
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 

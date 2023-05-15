@@ -12,9 +12,6 @@ namespace Pulumi.Azure.NetApp.Inputs
 
     public sealed class VolumeDataProtectionSnapshotPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Resource ID of the snapshot policy to apply to the volume.
-        /// </summary>
         [Input("snapshotPolicyId", required: true)]
         public Input<string> SnapshotPolicyId { get; set; } = null!;
 

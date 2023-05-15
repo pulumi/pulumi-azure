@@ -48,10 +48,18 @@ class ScheduledQueryRulesAlertV2Args:
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[bool] skip_query_validation: Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
@@ -216,6 +224,10 @@ class ScheduledQueryRulesAlertV2Args:
     def evaluation_frequency(self) -> Optional[pulumi.Input[str]]:
         """
         How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         """
         return pulumi.get(self, "evaluation_frequency")
 
@@ -240,6 +252,8 @@ class ScheduledQueryRulesAlertV2Args:
     def mute_actions_after_alert_duration(self) -> Optional[pulumi.Input[str]]:
         """
         Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+
+        > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "mute_actions_after_alert_duration")
 
@@ -264,6 +278,8 @@ class ScheduledQueryRulesAlertV2Args:
     def query_time_range_override(self) -> Optional[pulumi.Input[str]]:
         """
         Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+
+        > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         """
         return pulumi.get(self, "query_time_range_override")
 
@@ -355,12 +371,20 @@ class _ScheduledQueryRulesAlertV2State:
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         :param pulumi.Input[bool] is_a_legacy_log_analytics_rule: True if this alert rule is a legacy Log Analytic Rule.
         :param pulumi.Input[bool] is_workspace_alerts_storage_configured: The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -504,6 +528,10 @@ class _ScheduledQueryRulesAlertV2State:
     def evaluation_frequency(self) -> Optional[pulumi.Input[str]]:
         """
         How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         """
         return pulumi.get(self, "evaluation_frequency")
 
@@ -552,6 +580,8 @@ class _ScheduledQueryRulesAlertV2State:
     def mute_actions_after_alert_duration(self) -> Optional[pulumi.Input[str]]:
         """
         Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+
+        > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "mute_actions_after_alert_duration")
 
@@ -576,6 +606,8 @@ class _ScheduledQueryRulesAlertV2State:
     def query_time_range_override(self) -> Optional[pulumi.Input[str]]:
         """
         Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+
+        > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         """
         return pulumi.get(self, "query_time_range_override")
 
@@ -725,10 +757,18 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -877,12 +917,20 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         :param pulumi.Input[bool] is_a_legacy_log_analytics_rule: True if this alert rule is a legacy Log Analytic Rule.
         :param pulumi.Input[bool] is_workspace_alerts_storage_configured: The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+               
+               > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -981,6 +1029,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def evaluation_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         """
         return pulumi.get(self, "evaluation_frequency")
 
@@ -1013,6 +1065,8 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def mute_actions_after_alert_duration(self) -> pulumi.Output[Optional[str]]:
         """
         Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+
+        > **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "mute_actions_after_alert_duration")
 
@@ -1029,6 +1083,8 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def query_time_range_override(self) -> pulumi.Output[Optional[str]]:
         """
         Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+
+        > **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         """
         return pulumi.get(self, "query_time_range_override")
 

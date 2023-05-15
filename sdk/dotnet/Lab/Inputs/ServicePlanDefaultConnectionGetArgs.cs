@@ -14,24 +14,32 @@ namespace Pulumi.Azure.Lab.Inputs
     {
         /// <summary>
         /// The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified.
         /// </summary>
         [Input("clientRdpAccess")]
         public Input<string>? ClientRdpAccess { get; set; }
 
         /// <summary>
         /// The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified.
         /// </summary>
         [Input("clientSshAccess")]
         public Input<string>? ClientSshAccess { get; set; }
 
         /// <summary>
         /// The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified.
         /// </summary>
         [Input("webRdpAccess")]
         public Input<string>? WebRdpAccess { get; set; }
 
         /// <summary>
         /// The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified.
         /// </summary>
         [Input("webSshAccess")]
         public Input<string>? WebSshAccess { get; set; }

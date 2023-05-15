@@ -81,6 +81,8 @@ type LinkedServiceCosmosDb struct {
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey pulumi.StringPtrOutput `pulumi:"accountKey"`
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -148,6 +150,8 @@ type linkedServiceCosmosDbState struct {
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey *string `pulumi:"accountKey"`
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -173,6 +177,8 @@ type LinkedServiceCosmosDbState struct {
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey pulumi.StringPtrInput
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -202,6 +208,8 @@ type linkedServiceCosmosDbArgs struct {
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey *string `pulumi:"accountKey"`
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -228,6 +236,8 @@ type LinkedServiceCosmosDbArgs struct {
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey pulumi.StringPtrInput
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -345,6 +355,8 @@ func (o LinkedServiceCosmosDbOutput) AccountKey() pulumi.StringPtrOutput {
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to CosmosDB Linked Service:
 func (o LinkedServiceCosmosDbOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceCosmosDb) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

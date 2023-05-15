@@ -115,8 +115,12 @@ type ManagedPrivateEndpoint struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	SubresourceName pulumi.StringOutput `pulumi:"subresourceName"`
 	// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
 	// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -163,8 +167,12 @@ type managedPrivateEndpointState struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	SubresourceName *string `pulumi:"subresourceName"`
 	// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
 	// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -174,8 +182,12 @@ type ManagedPrivateEndpointState struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	SubresourceName pulumi.StringPtrInput
 	// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
 	SynapseWorkspaceId pulumi.StringPtrInput
 	// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringPtrInput
@@ -189,8 +201,12 @@ type managedPrivateEndpointArgs struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	SubresourceName string `pulumi:"subresourceName"`
 	// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
 	// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -201,8 +217,12 @@ type ManagedPrivateEndpointArgs struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	SubresourceName pulumi.StringInput
 	// The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
 	SynapseWorkspaceId pulumi.StringInput
 	// The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput
@@ -301,11 +321,15 @@ func (o ManagedPrivateEndpointOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 func (o ManagedPrivateEndpointOutput) SubresourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.SubresourceName }).(pulumi.StringOutput)
 }
 
 // The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+//
+// > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
 func (o ManagedPrivateEndpointOutput) SynapseWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.SynapseWorkspaceId }).(pulumi.StringOutput)
 }

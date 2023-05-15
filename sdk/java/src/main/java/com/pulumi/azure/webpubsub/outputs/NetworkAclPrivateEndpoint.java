@@ -19,6 +19,8 @@ public final class NetworkAclPrivateEndpoint {
     /**
      * @return The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
+     * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
      */
     private @Nullable List<String> deniedRequestTypes;
     /**
@@ -37,6 +39,8 @@ public final class NetworkAclPrivateEndpoint {
     }
     /**
      * @return The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
      * 
      */
     public List<String> deniedRequestTypes() {

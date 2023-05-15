@@ -81,12 +81,16 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
     /**
      * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+     * 
      */
     @Import(name="publicIpPrefixId")
     private @Nullable Output<String> publicIpPrefixId;
 
     /**
      * @return The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
      * 
      */
     public Optional<Output<String>> publicIpPrefixId() {
@@ -234,6 +238,8 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
         /**
          * @param publicIpPrefixId The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+         * 
          * @return builder
          * 
          */
@@ -244,6 +250,8 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
 
         /**
          * @param publicIpPrefixId The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
          * 
          * @return builder
          * 

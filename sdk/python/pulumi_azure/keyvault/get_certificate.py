@@ -246,6 +246,8 @@ def get_certificate(key_vault_id: Optional[str] = None,
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Certificate.
     :param str version: Specifies the version of the certificate to look up.  (Defaults to latest)
+           
+           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
@@ -298,5 +300,7 @@ def get_certificate_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Certificate.
     :param str version: Specifies the version of the certificate to look up.  (Defaults to latest)
+           
+           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     ...

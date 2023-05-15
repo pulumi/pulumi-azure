@@ -105,6 +105,8 @@ type EventHubNamespace struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+	//
+	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -193,6 +195,8 @@ type eventHubNamespaceState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+	//
+	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -238,6 +242,8 @@ type EventHubNamespaceState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+	//
+	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -275,6 +281,8 @@ type eventHubNamespaceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+	//
+	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -309,6 +317,8 @@ type EventHubNamespaceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+	//
+	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -500,6 +510,8 @@ func (o EventHubNamespaceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+//
+// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
 func (o EventHubNamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

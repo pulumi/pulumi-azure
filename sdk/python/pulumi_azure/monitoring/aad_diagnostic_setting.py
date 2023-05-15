@@ -25,11 +25,17 @@ class AadDiagnosticSettingArgs:
         """
         The set of arguments for constructing a AadDiagnosticSetting resource.
         :param pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
+               
+               > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[str] name: The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         pulumi.set(__self__, "logs", logs)
         if eventhub_authorization_rule_id is not None:
@@ -48,6 +54,8 @@ class AadDiagnosticSettingArgs:
     def logs(self) -> pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]:
         """
         One or more `log` blocks as defined below.
+
+        > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         """
         return pulumi.get(self, "logs")
 
@@ -60,6 +68,8 @@ class AadDiagnosticSettingArgs:
     def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         """
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
@@ -108,6 +118,8 @@ class AadDiagnosticSettingArgs:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -128,11 +140,17 @@ class _AadDiagnosticSettingState:
         """
         Input properties used for looking up and filtering AadDiagnosticSetting resources.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
+               
+               > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         if eventhub_authorization_rule_id is not None:
             pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
@@ -152,6 +170,8 @@ class _AadDiagnosticSettingState:
     def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         """
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
@@ -188,6 +208,8 @@ class _AadDiagnosticSettingState:
     def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]]:
         """
         One or more `log` blocks as defined below.
+
+        > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         """
         return pulumi.get(self, "logs")
 
@@ -212,6 +234,8 @@ class _AadDiagnosticSettingState:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -314,11 +338,17 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
+               
+               > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         ...
     @overload
@@ -467,11 +497,17 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
+               
+               > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -490,6 +526,8 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def eventhub_authorization_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         """
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
@@ -514,6 +552,8 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def logs(self) -> pulumi.Output[Sequence['outputs.AadDiagnosticSettingLog']]:
         """
         One or more `log` blocks as defined below.
+
+        > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
         """
         return pulumi.get(self, "logs")
 
@@ -530,6 +570,8 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 

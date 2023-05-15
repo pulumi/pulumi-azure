@@ -35,6 +35,8 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
 export interface GetKeyArgs {
     /**
      * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     *
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      */
     keyVaultId: string;
     /**
@@ -140,6 +142,8 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions
 export interface GetKeyOutputArgs {
     /**
      * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     *
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      */
     keyVaultId: pulumi.Input<string>;
     /**

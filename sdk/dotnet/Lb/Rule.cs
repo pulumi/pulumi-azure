@@ -75,6 +75,8 @@ namespace Pulumi.Azure.Lb
     {
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        /// 
+        /// &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         /// </summary>
         [Output("backendAddressPoolIds")]
         public Output<ImmutableArray<string>> BackendAddressPoolIds { get; private set; } = null!;
@@ -205,6 +207,8 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        /// 
+        /// &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         /// </summary>
         public InputList<string> BackendAddressPoolIds
         {
@@ -297,6 +301,8 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        /// 
+        /// &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         /// </summary>
         public InputList<string> BackendAddressPoolIds
         {

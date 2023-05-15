@@ -19,6 +19,8 @@ public final class FrontdoorOriginPrivateLink {
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
      * 
+     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * 
      */
     private String privateLinkTargetId;
     /**
@@ -28,6 +30,8 @@ public final class FrontdoorOriginPrivateLink {
     private @Nullable String requestMessage;
     /**
      * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * 
+     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     private @Nullable String targetType;
@@ -43,6 +47,8 @@ public final class FrontdoorOriginPrivateLink {
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
      * 
+     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * 
      */
     public String privateLinkTargetId() {
         return this.privateLinkTargetId;
@@ -56,6 +62,8 @@ public final class FrontdoorOriginPrivateLink {
     }
     /**
      * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * 
+     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     public Optional<String> targetType() {

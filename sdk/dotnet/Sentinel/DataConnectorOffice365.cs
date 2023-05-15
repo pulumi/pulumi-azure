@@ -84,12 +84,16 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         /// </summary>
         [Output("teamsEnabled")]
         public Output<bool?> TeamsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+        /// 
+        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -166,12 +170,16 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         /// </summary>
         [Input("teamsEnabled")]
         public Input<bool>? TeamsEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+        /// 
+        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -210,12 +218,16 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         /// </summary>
         [Input("teamsEnabled")]
         public Input<bool>? TeamsEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+        /// 
+        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

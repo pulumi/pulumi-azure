@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService.Inputs
     {
         /// <summary>
         /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+        /// 
+        /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
         [Input("currentStack")]
         public Input<string>? CurrentStack { get; set; }
@@ -44,6 +46,14 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        /// 
+        /// &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+        /// Portal Value | API value
+        /// :--|--:
+        /// ASP.NET V3.5 | v2.0
+        /// ASP.NET V4.8 | v4.0
+        /// .NET 6 (LTS) | v6.0
+        /// .NET 7 (STS) | v7.0
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
@@ -61,19 +71,25 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? JavaEmbeddedServerEnabled { get; set; }
 
         /// <summary>
-        /// The version of Java to use when `current_stack` is set to `java`.
+        /// The version of Java to use when `current_stack` is set to `java`. 
+        /// 
+        /// &gt; **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
         /// The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
+        /// 
+        /// &gt; **NOTE:** This property conflicts with `java_version`.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
         /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+        /// 
+        /// &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
@@ -89,6 +105,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+        /// 
+        /// &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
         /// </summary>
         [Input("tomcatVersion")]
         public Input<string>? TomcatVersion { get; set; }

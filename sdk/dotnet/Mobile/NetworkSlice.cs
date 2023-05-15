@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Mobile
     /// 
     ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("exampleNetworkSlice", new()
     ///     {
-    ///         MobileNetworkId = azurerm_mobile_network.Test.Id,
+    ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = exampleResourceGroup.Location,
     ///         Description = "an example slice",
     ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs

@@ -62,6 +62,8 @@ namespace Pulumi.Azure.Media.Inputs
 
         /// <summary>
         /// The Widevine template.
+        /// 
+        /// &gt; **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
         /// </summary>
         [Input("widevineConfigurationTemplate")]
         public Input<string>? WidevineConfigurationTemplate { get; set; }

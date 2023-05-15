@@ -31,6 +31,8 @@ class ConnectedRegistryArgs:
         """
         The set of arguments for constructing a ConnectedRegistry resource.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+               
+               > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
@@ -71,6 +73,8 @@ class ConnectedRegistryArgs:
     def container_registry_id(self) -> pulumi.Input[str]:
         """
         The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+
+        > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         """
         return pulumi.get(self, "container_registry_id")
 
@@ -231,6 +235,8 @@ class _ConnectedRegistryState:
         :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+               
+               > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
         :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
@@ -295,6 +301,8 @@ class _ConnectedRegistryState:
     def container_registry_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+
+        > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         """
         return pulumi.get(self, "container_registry_id")
 
@@ -480,6 +488,8 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+               
+               > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
         :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
@@ -626,6 +636,8 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+               
+               > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
         :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
@@ -675,6 +687,8 @@ class ConnectedRegistry(pulumi.CustomResource):
     def container_registry_id(self) -> pulumi.Output[str]:
         """
         The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+
+        > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
         """
         return pulumi.get(self, "container_registry_id")
 

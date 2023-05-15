@@ -144,12 +144,16 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
      * 
+     * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
+     * 
      */
     @Export(name="geoLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> geoLocations;
 
     /**
      * @return Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+     * 
+     * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      * 
      */
     public Output<List<String>> geoLocations() {

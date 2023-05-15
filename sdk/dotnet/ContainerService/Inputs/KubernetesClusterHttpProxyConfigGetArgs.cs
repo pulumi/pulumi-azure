@@ -26,10 +26,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("noProxies")]
         private InputList<string>? _noProxies;
-
-        /// <summary>
-        /// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-        /// </summary>
         public InputList<string> NoProxies
         {
             get => _noProxies ?? (_noProxies = new InputList<string>());

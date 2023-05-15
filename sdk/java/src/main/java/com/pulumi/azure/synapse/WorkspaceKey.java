@@ -163,12 +163,16 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if the workspace should be encrypted with this key.
      * 
+     * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
+     * 
      */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> active;
 
     /**
      * @return Specifies if the workspace should be encrypted with this key.
+     * 
+     * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      * 
      */
     public Output<Boolean> active() {

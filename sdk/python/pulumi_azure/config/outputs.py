@@ -19,7 +19,6 @@ __all__ = [
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
     'FeaturesManagedDisk',
-    'FeaturesNetwork',
     'FeaturesResourceGroup',
     'FeaturesTemplateDeployment',
     'FeaturesVirtualMachine',
@@ -36,7 +35,6 @@ class Features(dict):
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
-                 network: Optional['outputs.FeaturesNetwork'] = None,
                  resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
@@ -55,8 +53,6 @@ class Features(dict):
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
-        if network is not None:
-            pulumi.set(__self__, "network", network)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if template_deployment is not None:
@@ -100,11 +96,6 @@ class Features(dict):
     @pulumi.getter(name="managedDisk")
     def managed_disk(self) -> Optional['outputs.FeaturesManagedDisk']:
         return pulumi.get(self, "managed_disk")
-
-    @property
-    @pulumi.getter
-    def network(self) -> Optional['outputs.FeaturesNetwork']:
-        return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -296,18 +287,6 @@ class FeaturesManagedDisk(dict):
     @pulumi.getter(name="expandWithoutDowntime")
     def expand_without_downtime(self) -> Optional[bool]:
         return pulumi.get(self, "expand_without_downtime")
-
-
-@pulumi.output_type
-class FeaturesNetwork(dict):
-    def __init__(__self__, *,
-                 relaxed_locking: bool):
-        pulumi.set(__self__, "relaxed_locking", relaxed_locking)
-
-    @property
-    @pulumi.getter(name="relaxedLocking")
-    def relaxed_locking(self) -> bool:
-        return pulumi.get(self, "relaxed_locking")
 
 
 @pulumi.output_type

@@ -37,13 +37,20 @@ namespace Pulumi.Azure.Mobile
     /// 
     ///     var exampleUserAssignedIdentity = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
     ///     {
-    ///         Name = "example-identity",
+    ///         Name = "name_of_user_assigned_identity",
+    ///         ResourceGroupName = "name_of_resource_group",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     {
+    ///         Name = "example-kv",
+    ///         ResourceGroupName = "some-resource-group",
     ///     });
     /// 
     ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
     ///     {
-    ///         Name = "some-key",
-    ///         KeyVaultId = data.Azurerm_key_vault.Example.Id,
+    ///         Name = "example-key",
+    ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
     ///     });
     /// 
     ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("exampleNetworkSimGroup", new()
@@ -87,6 +94,8 @@ namespace Pulumi.Azure.Mobile
 
         /// <summary>
         /// An `identity` block as defined below.
+        /// 
+        /// &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NetworkSimGroupIdentity?> Identity { get; private set; } = null!;
@@ -169,6 +178,8 @@ namespace Pulumi.Azure.Mobile
 
         /// <summary>
         /// An `identity` block as defined below.
+        /// 
+        /// &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkSimGroupIdentityArgs>? Identity { get; set; }
@@ -219,6 +230,8 @@ namespace Pulumi.Azure.Mobile
 
         /// <summary>
         /// An `identity` block as defined below.
+        /// 
+        /// &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkSimGroupIdentityGetArgs>? Identity { get; set; }

@@ -32,6 +32,8 @@ class TrafficManagerProfileArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+               
+               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -105,6 +107,8 @@ class TrafficManagerProfileArgs:
     def max_return(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+
+        > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         """
         return pulumi.get(self, "max_return")
 
@@ -179,6 +183,8 @@ class _TrafficManagerProfileState:
         :param pulumi.Input['TrafficManagerProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+               
+               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input['TrafficManagerProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -237,6 +243,8 @@ class _TrafficManagerProfileState:
     def max_return(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+
+        > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         """
         return pulumi.get(self, "max_return")
 
@@ -392,6 +400,8 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+               
+               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -533,6 +543,8 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+               
+               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -578,6 +590,8 @@ class TrafficManagerProfile(pulumi.CustomResource):
     def max_return(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+
+        > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         """
         return pulumi.get(self, "max_return")
 

@@ -23,6 +23,8 @@ namespace Pulumi.Azure.Lighthouse.Outputs
         public readonly string? MaximumActivationDuration;
         /// <summary>
         /// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+        /// 
+        /// &gt; **Note:** When this property isn't set, it would be set to `None`.
         /// </summary>
         public readonly string? MultiFactorAuthProvider;
 

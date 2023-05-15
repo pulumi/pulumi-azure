@@ -93,6 +93,8 @@ type DataConnectorThreatIntelligenceTaxii struct {
 	// The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
 	PollingFrequency pulumi.StringPtrOutput `pulumi:"pollingFrequency"`
 	// The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// The user name for the TAXII server.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
@@ -167,6 +169,8 @@ type dataConnectorThreatIntelligenceTaxiiState struct {
 	// The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
 	PollingFrequency *string `pulumi:"pollingFrequency"`
 	// The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 	// The user name for the TAXII server.
 	UserName *string `pulumi:"userName"`
@@ -190,6 +194,8 @@ type DataConnectorThreatIntelligenceTaxiiState struct {
 	// The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
 	PollingFrequency pulumi.StringPtrInput
 	// The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 	// The user name for the TAXII server.
 	UserName pulumi.StringPtrInput
@@ -217,6 +223,8 @@ type dataConnectorThreatIntelligenceTaxiiArgs struct {
 	// The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
 	PollingFrequency *string `pulumi:"pollingFrequency"`
 	// The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 	// The user name for the TAXII server.
 	UserName *string `pulumi:"userName"`
@@ -241,6 +249,8 @@ type DataConnectorThreatIntelligenceTaxiiArgs struct {
 	// The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
 	PollingFrequency pulumi.StringPtrInput
 	// The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 	// The user name for the TAXII server.
 	UserName pulumi.StringPtrInput
@@ -374,6 +384,8 @@ func (o DataConnectorThreatIntelligenceTaxiiOutput) PollingFrequency() pulumi.St
 }
 
 // The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+//
+// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorThreatIntelligenceTaxiiOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorThreatIntelligenceTaxii) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

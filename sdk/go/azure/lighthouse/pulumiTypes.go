@@ -266,6 +266,8 @@ type DefinitionEligibleAuthorizationJustInTimeAccessPolicy struct {
 	// The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
 	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
 	// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+	//
+	// > **Note:** When this property isn't set, it would be set to `None`.
 	MultiFactorAuthProvider *string `pulumi:"multiFactorAuthProvider"`
 }
 
@@ -286,6 +288,8 @@ type DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs struct {
 	// The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
 	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
 	// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+	//
+	// > **Note:** When this property isn't set, it would be set to `None`.
 	MultiFactorAuthProvider pulumi.StringPtrInput `pulumi:"multiFactorAuthProvider"`
 }
 
@@ -381,6 +385,8 @@ func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) MaximumActi
 }
 
 // The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+//
+// > **Note:** When this property isn't set, it would be set to `None`.
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *string {
 		return v.MultiFactorAuthProvider
@@ -432,6 +438,8 @@ func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) MaximumA
 }
 
 // The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+//
+// > **Note:** When this property isn't set, it would be set to `None`.
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *string {
 		if v == nil {

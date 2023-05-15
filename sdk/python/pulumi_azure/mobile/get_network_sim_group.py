@@ -124,7 +124,7 @@ def get_network_sim_group(mobile_network_id: Optional[str] = None,
     import pulumi_azure as azure
 
     example_network = azure.mobile.get_network(name="example-mn",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     example_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
         mobile_network_id=example_network.id)
     ```
@@ -163,7 +163,7 @@ def get_network_sim_group_output(mobile_network_id: Optional[pulumi.Input[str]] 
     import pulumi_azure as azure
 
     example_network = azure.mobile.get_network(name="example-mn",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     example_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
         mobile_network_id=example_network.id)
     ```

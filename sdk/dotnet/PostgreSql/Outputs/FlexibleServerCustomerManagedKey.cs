@@ -19,6 +19,8 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         public readonly string? KeyVaultKeyId;
         /// <summary>
         /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
 

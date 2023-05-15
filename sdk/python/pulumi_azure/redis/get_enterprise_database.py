@@ -143,8 +143,8 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.redis.get_enterprise_database(name="default",
-        resource_group_name=azurerm_resource_group["example"]["name"],
-        cluster_id=azurerm_redis_enterprise_cluster["example"]["id"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        cluster_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("redisEnterpriseDatabasePrimaryKey", example.primary_access_key)
     pulumi.export("redisEnterpriseDatabaseSecondaryKey", example.secondary_access_key)
     ```
@@ -187,8 +187,8 @@ def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = Non
     import pulumi_azure as azure
 
     example = azure.redis.get_enterprise_database(name="default",
-        resource_group_name=azurerm_resource_group["example"]["name"],
-        cluster_id=azurerm_redis_enterprise_cluster["example"]["id"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        cluster_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("redisEnterpriseDatabasePrimaryKey", example.primary_access_key)
     pulumi.export("redisEnterpriseDatabaseSecondaryKey", example.secondary_access_key)
     ```

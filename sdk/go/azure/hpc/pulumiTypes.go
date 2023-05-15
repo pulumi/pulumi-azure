@@ -22,6 +22,8 @@ type CacheAccessPolicyAccessRule struct {
 	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	//
+	// > **NOTE:** Each `accessRule` should set a unique `scope`.
 	Scope string `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
@@ -52,6 +54,8 @@ type CacheAccessPolicyAccessRuleArgs struct {
 	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	//
+	// > **NOTE:** Each `accessRule` should set a unique `scope`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
@@ -136,6 +140,8 @@ func (o CacheAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOut
 }
 
 // The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+//
+// > **NOTE:** Each `accessRule` should set a unique `scope`.
 func (o CacheAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -319,6 +325,8 @@ type CacheDefaultAccessPolicyAccessRule struct {
 	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	//
+	// > **Note:** Each `accessRule` should set a unique `scope`.
 	Scope string `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
@@ -349,6 +357,8 @@ type CacheDefaultAccessPolicyAccessRuleArgs struct {
 	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	//
+	// > **Note:** Each `accessRule` should set a unique `scope`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
@@ -433,6 +443,8 @@ func (o CacheDefaultAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.Boo
 }
 
 // The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+//
+// > **Note:** Each `accessRule` should set a unique `scope`.
 func (o CacheDefaultAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
 }

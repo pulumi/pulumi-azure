@@ -14,7 +14,9 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppAuthSettingsV2Login
     {
         /// <summary>
-        /// External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        /// External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. 
+        /// 
+        /// &gt; **Note:** URLs within the current domain are always implicitly allowed.
         /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
         /// <summary>

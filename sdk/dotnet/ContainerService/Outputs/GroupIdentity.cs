@@ -15,6 +15,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     {
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// 
+        /// &gt; **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -27,6 +31,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly string? TenantId;
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// 
+        /// &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         /// </summary>
         public readonly string Type;
 

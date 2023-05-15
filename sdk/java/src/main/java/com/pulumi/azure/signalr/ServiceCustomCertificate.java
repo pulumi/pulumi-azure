@@ -147,12 +147,16 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
     /**
      * The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
+     * 
      */
     @Export(name="customCertificateId", refs={String.class}, tree="[0]")
     private Output<String> customCertificateId;
 
     /**
      * @return The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      * 
      */
     public Output<String> customCertificateId() {
@@ -175,12 +179,16 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
     /**
      * The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+     * 
      */
     @Export(name="signalrServiceId", refs={String.class}, tree="[0]")
     private Output<String> signalrServiceId;
 
     /**
      * @return The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      * 
      */
     public Output<String> signalrServiceId() {

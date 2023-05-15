@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Monitoring
     ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ShortName = "exampleactiongroup",
+    ///         ShortName = "action",
     ///     });
     /// 
     ///     var exampleAlertProcessingRuleActionGroup = new Azure.Monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup", new()

@@ -27,6 +27,8 @@ class CacheBlobNfsTargetArgs:
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob NFS Target.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
         :param pulumi.Input[str] storage_container_id: The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[str] name: The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
@@ -82,6 +84,8 @@ class CacheBlobNfsTargetArgs:
     def storage_container_id(self) -> pulumi.Input[str]:
         """
         The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+
+        > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -144,6 +148,8 @@ class _CacheBlobNfsTargetState:
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob NFS Target.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
         :param pulumi.Input[str] storage_container_id: The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
         if access_policy_name is not None:
@@ -226,6 +232,8 @@ class _CacheBlobNfsTargetState:
     def storage_container_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+
+        > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -282,6 +290,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob NFS Target.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
         :param pulumi.Input[str] storage_container_id: The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
         ...
@@ -383,6 +393,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob NFS Target.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
         :param pulumi.Input[str] storage_container_id: The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -443,6 +455,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
     def storage_container_id(self) -> pulumi.Output[str]:
         """
         The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+
+        > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
         return pulumi.get(self, "storage_container_id")
 

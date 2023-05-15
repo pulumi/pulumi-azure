@@ -31,12 +31,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * The Username for which this Public SSH Key should be configured.
      * 
+     * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
+     * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
      * @return The Username for which this Public SSH Key should be configured.
+     * 
+     * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
      * 
      */
     public Output<String> username() {
@@ -92,6 +96,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param username The Username for which this Public SSH Key should be configured.
          * 
+         * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         /**
          * @param username The Username for which this Public SSH Key should be configured.
+         * 
+         * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
          * 
          * @return builder
          * 

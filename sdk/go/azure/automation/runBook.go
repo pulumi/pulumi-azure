@@ -78,6 +78,8 @@ type RunBook struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
+	//
+	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// A description for this credential.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -151,6 +153,8 @@ type runBookState struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
+	//
+	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
 	Description *string `pulumi:"description"`
@@ -181,6 +185,8 @@ type RunBookState struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
 	// The desired content of the runbook.
+	//
+	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
 	Description pulumi.StringPtrInput
@@ -215,6 +221,8 @@ type runBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
+	//
+	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
 	Description *string `pulumi:"description"`
@@ -246,6 +254,8 @@ type RunBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringInput
 	// The desired content of the runbook.
+	//
+	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
 	Description pulumi.StringPtrInput
@@ -365,6 +375,8 @@ func (o RunBookOutput) AutomationAccountName() pulumi.StringOutput {
 }
 
 // The desired content of the runbook.
+//
+// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 func (o RunBookOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }

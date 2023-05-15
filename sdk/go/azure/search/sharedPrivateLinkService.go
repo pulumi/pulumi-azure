@@ -90,6 +90,8 @@ type SharedPrivateLinkService struct {
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringOutput `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
@@ -142,6 +144,8 @@ type sharedPrivateLinkServiceState struct {
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName *string `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 }
 
@@ -157,6 +161,8 @@ type SharedPrivateLinkServiceState struct {
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringPtrInput
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId pulumi.StringPtrInput
 }
 
@@ -174,6 +180,8 @@ type sharedPrivateLinkServiceArgs struct {
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName string `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId string `pulumi:"targetResourceId"`
 }
 
@@ -188,6 +196,8 @@ type SharedPrivateLinkServiceArgs struct {
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringInput
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId pulumi.StringInput
 }
 
@@ -304,6 +314,8 @@ func (o SharedPrivateLinkServiceOutput) SubresourceName() pulumi.StringOutput {
 }
 
 // Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
 func (o SharedPrivateLinkServiceOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkService) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

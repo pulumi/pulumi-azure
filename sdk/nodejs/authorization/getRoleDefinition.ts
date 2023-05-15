@@ -26,6 +26,8 @@ export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.In
 export interface GetRoleDefinitionArgs {
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
+     *
+     * > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      */
     name?: string;
     /**
@@ -34,6 +36,8 @@ export interface GetRoleDefinitionArgs {
     roleDefinitionId?: string;
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
+     *
+     * > **Note:** One of `name` or `roleDefinitionId` must be specified.
      */
     scope?: string;
 }
@@ -79,6 +83,8 @@ export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts
 export interface GetRoleDefinitionOutputArgs {
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
+     *
+     * > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      */
     name?: pulumi.Input<string>;
     /**
@@ -87,6 +93,8 @@ export interface GetRoleDefinitionOutputArgs {
     roleDefinitionId?: pulumi.Input<string>;
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
+     *
+     * > **Note:** One of `name` or `roleDefinitionId` must be specified.
      */
     scope?: pulumi.Input<string>;
 }

@@ -36,6 +36,8 @@ class CacheAccessPolicyAccessRuleArgs:
         """
         :param pulumi.Input[str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
         :param pulumi.Input[str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+               
+               > **NOTE:** Each `access_rule` should set a unique `scope`.
         :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
@@ -75,6 +77,8 @@ class CacheAccessPolicyAccessRuleArgs:
     def scope(self) -> pulumi.Input[str]:
         """
         The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+
+        > **NOTE:** Each `access_rule` should set a unique `scope`.
         """
         return pulumi.get(self, "scope")
 
@@ -191,6 +195,8 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
         """
         :param pulumi.Input[str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
         :param pulumi.Input[str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+               
+               > **Note:** Each `access_rule` should set a unique `scope`.
         :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
@@ -230,6 +236,8 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     def scope(self) -> pulumi.Input[str]:
         """
         The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+
+        > **Note:** Each `access_rule` should set a unique `scope`.
         """
         return pulumi.get(self, "scope")
 

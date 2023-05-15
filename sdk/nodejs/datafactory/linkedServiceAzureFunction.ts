@@ -69,6 +69,8 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Function Linked Service:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -163,6 +165,8 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
 export interface LinkedServiceAzureFunctionState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Function Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -209,6 +213,8 @@ export interface LinkedServiceAzureFunctionState {
 export interface LinkedServiceAzureFunctionArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Function Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

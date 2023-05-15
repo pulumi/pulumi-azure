@@ -70,6 +70,8 @@ type CertificateOrder struct {
 	// Last CSR that was created for this order.
 	Csr pulumi.StringOutput `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
+	//
+	// > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
 	DistinguishedName pulumi.StringOutput `pulumi:"distinguishedName"`
 	// Domain verification token.
 	DomainVerificationToken pulumi.StringOutput `pulumi:"domainVerificationToken"`
@@ -142,6 +144,8 @@ type certificateOrderState struct {
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
+	//
+	// > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
 	DistinguishedName *string `pulumi:"distinguishedName"`
 	// Domain verification token.
 	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
@@ -183,6 +187,8 @@ type CertificateOrderState struct {
 	// Last CSR that was created for this order.
 	Csr pulumi.StringPtrInput
 	// The Distinguished Name for the App Service Certificate Order.
+	//
+	// > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
 	DistinguishedName pulumi.StringPtrInput
 	// Domain verification token.
 	DomainVerificationToken pulumi.StringPtrInput
@@ -224,6 +230,8 @@ type certificateOrderArgs struct {
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
+	//
+	// > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
 	DistinguishedName *string `pulumi:"distinguishedName"`
 	// Certificate key size. Defaults to `2048`.
 	KeySize *int `pulumi:"keySize"`
@@ -248,6 +256,8 @@ type CertificateOrderArgs struct {
 	// Last CSR that was created for this order.
 	Csr pulumi.StringPtrInput
 	// The Distinguished Name for the App Service Certificate Order.
+	//
+	// > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
 	DistinguishedName pulumi.StringPtrInput
 	// Certificate key size. Defaults to `2048`.
 	KeySize pulumi.IntPtrInput
@@ -373,6 +383,8 @@ func (o CertificateOrderOutput) Csr() pulumi.StringOutput {
 }
 
 // The Distinguished Name for the App Service Certificate Order.
+//
+// > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
 func (o CertificateOrderOutput) DistinguishedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringOutput { return v.DistinguishedName }).(pulumi.StringOutput)
 }

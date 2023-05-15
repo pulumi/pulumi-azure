@@ -25,6 +25,8 @@ class DashboardArgs:
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+               
+               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -78,6 +80,8 @@ class DashboardArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+
+        > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -111,6 +115,8 @@ class _DashboardState:
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+               
+               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -154,6 +160,8 @@ class _DashboardState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+
+        > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -203,6 +211,10 @@ class Dashboard(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a shared dashboard in the Azure Portal.
+
+        !> **Note:** The `portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `portal.PortalDashboard` resource instead.
+
         ## Example Usage
 
         ```python
@@ -353,6 +365,8 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+               
+               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -363,6 +377,10 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a shared dashboard in the Azure Portal.
+
+        !> **Note:** The `portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `portal.PortalDashboard` resource instead.
+
         ## Example Usage
 
         ```python
@@ -570,6 +588,8 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+               
+               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -605,6 +625,8 @@ class Dashboard(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+
+        > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         """
         return pulumi.get(self, "name")
 

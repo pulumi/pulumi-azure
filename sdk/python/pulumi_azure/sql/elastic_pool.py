@@ -376,6 +376,10 @@ class ElasticPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Allows you to manage an Azure SQL Elastic Pool.
+
+        > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
+
         ## Example Usage
 
         ```python
@@ -430,6 +434,10 @@ class ElasticPool(pulumi.CustomResource):
                  args: ElasticPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Allows you to manage an Azure SQL Elastic Pool.
+
+        > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
+
         ## Example Usage
 
         ```python

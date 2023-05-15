@@ -39,6 +39,8 @@ class TopicArgs:
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
@@ -154,6 +156,8 @@ class TopicArgs:
         Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         the topic to be partitioned across multiple message brokers. Defaults to false.
         Changing this forces a new resource to be created.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
 
@@ -264,6 +268,8 @@ class _TopicState:
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
@@ -373,6 +379,8 @@ class _TopicState:
         Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         the topic to be partitioned across multiple message brokers. Defaults to false.
         Changing this forces a new resource to be created.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
 
@@ -547,6 +555,8 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
@@ -692,6 +702,8 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
@@ -771,6 +783,8 @@ class Topic(pulumi.CustomResource):
         Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         the topic to be partitioned across multiple message brokers. Defaults to false.
         Changing this forces a new resource to be created.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
 

@@ -117,12 +117,16 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
+     * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+     * 
      */
     @Export(name="bgpCommunity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bgpCommunity;
 
     /**
      * @return The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
+     * 
+     * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      * 
      */
     public Output<Optional<String>> bgpCommunity() {
@@ -145,12 +149,16 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * List of IP addresses of DNS servers
      * 
+     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * 
      */
     @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsServers;
 
     /**
      * @return List of IP addresses of DNS servers
+     * 
+     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<String>> dnsServers() {
@@ -243,12 +251,16 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      * 
+     * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * 
      */
     @Export(name="subnets", refs={List.class,VirtualNetworkSubnet.class}, tree="[0,1]")
     private Output<List<VirtualNetworkSubnet>> subnets;
 
     /**
      * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+     * 
+     * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<VirtualNetworkSubnet>> subnets() {

@@ -38,7 +38,11 @@ class KeyVaultArgs:
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
+               
+               > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
+               
+               > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -47,8 +51,12 @@ class KeyVaultArgs:
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+               
+               !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+               
+               > **Note:** This field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -122,6 +130,8 @@ class KeyVaultArgs:
     def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
         """
         A list of up to 1024 objects describing access policies, as described below.
+
+        > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "access_policies")
 
@@ -134,6 +144,8 @@ class KeyVaultArgs:
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         """
         One or more `contact` block as defined below.
+
+        > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         """
         return pulumi.get(self, "contacts")
 
@@ -241,7 +253,9 @@ class KeyVaultArgs:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault?
+        Is Purge Protection enabled for this Key Vault? 
+
+        !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
         return pulumi.get(self, "purge_protection_enabled")
 
@@ -254,6 +268,8 @@ class KeyVaultArgs:
     def soft_delete_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+
+        > **Note:** This field can only be configured one time and cannot be updated.
         """
         return pulumi.get(self, "soft_delete_retention_days")
 
@@ -297,7 +313,11 @@ class _KeyVaultState:
         """
         Input properties used for looking up and filtering KeyVault resources.
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
+               
+               > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
+               
+               > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -306,10 +326,14 @@ class _KeyVaultState:
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+               
+               !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+               
+               > **Note:** This field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
@@ -354,6 +378,8 @@ class _KeyVaultState:
     def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
         """
         A list of up to 1024 objects describing access policies, as described below.
+
+        > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "access_policies")
 
@@ -366,6 +392,8 @@ class _KeyVaultState:
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         """
         One or more `contact` block as defined below.
+
+        > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         """
         return pulumi.get(self, "contacts")
 
@@ -473,7 +501,9 @@ class _KeyVaultState:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault?
+        Is Purge Protection enabled for this Key Vault? 
+
+        !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
         return pulumi.get(self, "purge_protection_enabled")
 
@@ -510,6 +540,8 @@ class _KeyVaultState:
     def soft_delete_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+
+        > **Note:** This field can only be configured one time and cannot be updated.
         """
         return pulumi.get(self, "soft_delete_retention_days")
 
@@ -621,7 +653,11 @@ class KeyVault(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
+               
+               > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
+               
+               > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -630,10 +666,14 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+               
+               !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+               
+               > **Note:** This field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
@@ -783,7 +823,11 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
+               
+               > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
+               
+               > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -792,10 +836,14 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+               
+               !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+               
+               > **Note:** This field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
@@ -828,6 +876,8 @@ class KeyVault(pulumi.CustomResource):
     def access_policies(self) -> pulumi.Output[Sequence['outputs.KeyVaultAccessPolicy']]:
         """
         A list of up to 1024 objects describing access policies, as described below.
+
+        > **NOTE** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "access_policies")
 
@@ -836,6 +886,8 @@ class KeyVault(pulumi.CustomResource):
     def contacts(self) -> pulumi.Output[Optional[Sequence['outputs.KeyVaultContact']]]:
         """
         One or more `contact` block as defined below.
+
+        > **Note:** This field can only be set once user has `managecontacts` certificate permission.
         """
         return pulumi.get(self, "contacts")
 
@@ -907,7 +959,9 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault?
+        Is Purge Protection enabled for this Key Vault? 
+
+        !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
         return pulumi.get(self, "purge_protection_enabled")
 
@@ -932,6 +986,8 @@ class KeyVault(pulumi.CustomResource):
     def soft_delete_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+
+        > **Note:** This field can only be configured one time and cannot be updated.
         """
         return pulumi.get(self, "soft_delete_retention_days")
 

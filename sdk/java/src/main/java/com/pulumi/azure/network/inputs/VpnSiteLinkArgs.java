@@ -20,12 +20,16 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `bgp` block as defined above.
      * 
+     * &gt; **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn&#39;t specified.
+     * 
      */
     @Import(name="bgp")
     private @Nullable Output<VpnSiteLinkBgpArgs> bgp;
 
     /**
      * @return A `bgp` block as defined above.
+     * 
+     * &gt; **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn&#39;t specified.
      * 
      */
     public Optional<Output<VpnSiteLinkBgpArgs>> bgp() {
@@ -65,12 +69,16 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The IP address of this VPN Site Link.
      * 
+     * &gt; **NOTE:** Either `fqdn` or `ip_address` should be specified.
+     * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
      * @return The IP address of this VPN Site Link.
+     * 
+     * &gt; **NOTE:** Either `fqdn` or `ip_address` should be specified.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -155,6 +163,8 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param bgp A `bgp` block as defined above.
          * 
+         * &gt; **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -165,6 +175,8 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bgp A `bgp` block as defined above.
+         * 
+         * &gt; **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -218,6 +230,8 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipAddress The IP address of this VPN Site Link.
          * 
+         * &gt; **NOTE:** Either `fqdn` or `ip_address` should be specified.
+         * 
          * @return builder
          * 
          */
@@ -228,6 +242,8 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ipAddress The IP address of this VPN Site Link.
+         * 
+         * &gt; **NOTE:** Either `fqdn` or `ip_address` should be specified.
          * 
          * @return builder
          * 

@@ -27,6 +27,8 @@ public final class AutomationSourceRuleSetRule {
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
+     * &gt; **NOTE:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+     * 
      */
     private String propertyType;
 
@@ -54,6 +56,8 @@ public final class AutomationSourceRuleSetRule {
     }
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+     * 
+     * &gt; **NOTE:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
      * 
      */
     public String propertyType() {

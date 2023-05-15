@@ -34,12 +34,16 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
     /**
      * The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+     * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -95,6 +99,8 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
          * 
          * @return builder
          * 

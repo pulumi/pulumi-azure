@@ -142,6 +142,8 @@ def get_management_group(display_name: Optional[str] = None,
 
 
     :param str display_name: Specifies the display name of this Management Group.
+           
+           > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
     :param str name: Specifies the name or UUID of this Management Group.
     """
     pulumi.log.warn("""get_management_group is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup""")
@@ -181,6 +183,8 @@ def get_management_group_output(display_name: Optional[pulumi.Input[Optional[str
 
 
     :param str display_name: Specifies the display name of this Management Group.
+           
+           > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
     :param str name: Specifies the name or UUID of this Management Group.
     """
     pulumi.log.warn("""get_management_group is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup""")

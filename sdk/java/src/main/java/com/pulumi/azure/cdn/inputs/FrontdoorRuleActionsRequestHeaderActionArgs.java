@@ -18,12 +18,16 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
     /**
      * The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
      * 
+     * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+     * 
      */
     @Import(name="headerAction", required=true)
     private Output<String> headerAction;
 
     /**
      * @return The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+     * 
+     * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
      * 
      */
     public Output<String> headerAction() {
@@ -48,12 +52,16 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
     /**
      * The value to append or overwrite.
      * 
+     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return The value to append or overwrite.
+     * 
+     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 
      */
     public Optional<Output<String>> value() {
@@ -89,6 +97,8 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
         /**
          * @param headerAction The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
          * 
+         * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+         * 
          * @return builder
          * 
          */
@@ -99,6 +109,8 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
 
         /**
          * @param headerAction The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+         * 
+         * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
          * 
          * @return builder
          * 
@@ -131,6 +143,8 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
         /**
          * @param value The value to append or overwrite.
          * 
+         * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +155,8 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
 
         /**
          * @param value The value to append or overwrite.
+         * 
+         * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
          * 
          * @return builder
          * 

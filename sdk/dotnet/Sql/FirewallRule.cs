@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
+    /// Allows you to manage an Azure SQL Firewall Rule.
+    /// 
+    /// &gt; **Note:** The `azure.sql.FirewallRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FirewallRule` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
+        /// 
+        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
         [Output("endIpAddress")]
         public Output<string> EndIpAddress { get; private set; } = null!;
@@ -134,6 +140,8 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
+        /// 
+        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
         [Input("endIpAddress", required: true)]
         public Input<string> EndIpAddress { get; set; } = null!;
@@ -172,6 +180,8 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
+        /// 
+        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
         [Input("endIpAddress")]
         public Input<string>? EndIpAddress { get; set; }

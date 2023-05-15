@@ -75,7 +75,8 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     }
 
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -175,7 +176,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
@@ -212,22 +213,27 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     public readonly storageAccounts!: pulumi.Output<outputs.appservice.WindowsFunctionAppStorageAccount[] | undefined>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+     *
+     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     *
+     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     public readonly storageKeyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+     *
+     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     public readonly storageUsesManagedIdentity!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Windows Function App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     */
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+     *
+     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
     public readonly zipDeployFile!: pulumi.Output<string>;
 
@@ -346,7 +352,8 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
  */
 export interface WindowsFunctionAppState {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -446,7 +453,7 @@ export interface WindowsFunctionAppState {
      */
     possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
@@ -483,22 +490,27 @@ export interface WindowsFunctionAppState {
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppStorageAccount>[]>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+     *
+     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     *
+     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+     *
+     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to the Windows Function App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+     *
+     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
     zipDeployFile?: pulumi.Input<string>;
 }
@@ -508,7 +520,8 @@ export interface WindowsFunctionAppState {
  */
 export interface WindowsFunctionAppArgs {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -609,22 +622,27 @@ export interface WindowsFunctionAppArgs {
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppStorageAccount>[]>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+     *
+     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     *
+     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+     *
+     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to the Windows Function App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+     *
+     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
     zipDeployFile?: pulumi.Input<string>;
 }

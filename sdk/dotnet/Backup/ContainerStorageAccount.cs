@@ -79,6 +79,8 @@ namespace Pulumi.Azure.Backup
 
         /// <summary>
         /// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -143,6 +145,8 @@ namespace Pulumi.Azure.Backup
 
         /// <summary>
         /// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -169,6 +173,8 @@ namespace Pulumi.Azure.Backup
 
         /// <summary>
         /// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

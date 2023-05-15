@@ -32,8 +32,12 @@ class SubscriptionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
@@ -112,6 +116,8 @@ class SubscriptionArgs:
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         """
         return pulumi.get(self, "api_id")
 
@@ -136,6 +142,8 @@ class SubscriptionArgs:
     def product_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         """
         return pulumi.get(self, "product_id")
 
@@ -210,10 +218,14 @@ class _SubscriptionState:
         Input properties used for looking up and filtering Subscription resources.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
         :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -260,6 +272,8 @@ class _SubscriptionState:
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         """
         return pulumi.get(self, "api_id")
 
@@ -308,6 +322,8 @@ class _SubscriptionState:
     def product_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         """
         return pulumi.get(self, "product_id")
 
@@ -430,10 +446,14 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
         :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -563,10 +583,14 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
         :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+               
+               > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -603,6 +627,8 @@ class Subscription(pulumi.CustomResource):
     def api_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         """
         return pulumi.get(self, "api_id")
 
@@ -635,6 +661,8 @@ class Subscription(pulumi.CustomResource):
     def product_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         """
         return pulumi.get(self, "product_id")
 

@@ -20,6 +20,8 @@ class JobScheduleArgs:
         """
         The set of arguments for constructing a JobSchedule resource.
         :param pulumi.Input[str] start_mode: The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+               
+               > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         """
@@ -33,6 +35,8 @@ class JobScheduleArgs:
     def start_mode(self) -> pulumi.Input[str]:
         """
         The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+
+        > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         """
         return pulumi.get(self, "start_mode")
 
@@ -76,6 +80,8 @@ class _JobScheduleState:
         Input properties used for looking up and filtering JobSchedule resources.
         :param pulumi.Input[str] last_output_time: The time at which the Stream Analytics job last produced an output.
         :param pulumi.Input[str] start_mode: The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+               
+               > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         :param pulumi.Input[str] start_time: The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         """
@@ -105,6 +111,8 @@ class _JobScheduleState:
     def start_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+
+        > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         """
         return pulumi.get(self, "start_mode")
 
@@ -234,6 +242,8 @@ class JobSchedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] start_mode: The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+               
+               > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         :param pulumi.Input[str] start_time: The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         """
@@ -386,6 +396,8 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] last_output_time: The time at which the Stream Analytics job last produced an output.
         :param pulumi.Input[str] start_mode: The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+               
+               > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         :param pulumi.Input[str] start_time: The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         """
@@ -412,6 +424,8 @@ class JobSchedule(pulumi.CustomResource):
     def start_mode(self) -> pulumi.Output[str]:
         """
         The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+
+        > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         """
         return pulumi.get(self, "start_mode")
 

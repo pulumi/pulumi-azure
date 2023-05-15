@@ -79,10 +79,14 @@ export class KeyVault extends pulumi.CustomResource {
 
     /**
      * A list of up to 1024 objects describing access policies, as described below.
+     *
+     * > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     public readonly accessPolicies!: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
      * One or more `contact` block as defined below.
+     *
+     * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
      */
     public readonly contacts!: pulumi.Output<outputs.keyvault.KeyVaultContact[] | undefined>;
     /**
@@ -118,7 +122,9 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Is Purge Protection enabled for this Key Vault?
+     * Is Purge Protection enabled for this Key Vault? 
+     *
+     * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -131,6 +137,8 @@ export class KeyVault extends pulumi.CustomResource {
     public readonly skuName!: pulumi.Output<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+     *
+     * > **Note:** This field can only be configured one time and cannot be updated.
      */
     public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -216,10 +224,14 @@ export class KeyVault extends pulumi.CustomResource {
 export interface KeyVaultState {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
+     *
+     * > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
      * One or more `contact` block as defined below.
+     *
+     * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
@@ -255,7 +267,9 @@ export interface KeyVaultState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Is Purge Protection enabled for this Key Vault?
+     * Is Purge Protection enabled for this Key Vault? 
+     *
+     * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -268,6 +282,8 @@ export interface KeyVaultState {
     skuName?: pulumi.Input<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+     *
+     * > **Note:** This field can only be configured one time and cannot be updated.
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**
@@ -290,10 +306,14 @@ export interface KeyVaultState {
 export interface KeyVaultArgs {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
+     *
+     * > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
      * One or more `contact` block as defined below.
+     *
+     * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
@@ -329,7 +349,9 @@ export interface KeyVaultArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Is Purge Protection enabled for this Key Vault?
+     * Is Purge Protection enabled for this Key Vault? 
+     *
+     * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -342,6 +364,8 @@ export interface KeyVaultArgs {
     skuName: pulumi.Input<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+     *
+     * > **Note:** This field can only be configured one time and cannot be updated.
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**

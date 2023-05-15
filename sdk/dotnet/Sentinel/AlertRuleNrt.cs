@@ -115,6 +115,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A `event_grouping` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Output("eventGrouping")]
         public Output<Outputs.AlertRuleNrtEventGrouping> EventGrouping { get; private set; } = null!;
@@ -145,6 +147,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         /// </summary>
         [Output("sentinelEntityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleNrtSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
@@ -293,6 +297,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A `event_grouping` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("eventGrouping")]
         public Input<Inputs.AlertRuleNrtEventGroupingArgs>? EventGrouping { get; set; }
@@ -326,6 +332,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtSentinelEntityMappingArgs> SentinelEntityMappings
         {
@@ -451,6 +459,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A `event_grouping` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("eventGrouping")]
         public Input<Inputs.AlertRuleNrtEventGroupingGetArgs>? EventGrouping { get; set; }
@@ -484,6 +494,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtSentinelEntityMappingGetArgs> SentinelEntityMappings
         {

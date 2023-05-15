@@ -127,12 +127,16 @@ type ARecord struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `zoneName` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
@@ -183,12 +187,16 @@ type arecordState struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `zoneName` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
@@ -202,12 +210,16 @@ type ARecordState struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `zoneName` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
 	ZoneName pulumi.StringPtrInput
 }
 
@@ -223,12 +235,16 @@ type arecordArgs struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `zoneName` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
 	ZoneName string `pulumi:"zoneName"`
 }
 
@@ -241,12 +257,16 @@ type ARecordArgs struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `zoneName` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
 	ZoneName pulumi.StringInput
 }
 
@@ -358,6 +378,8 @@ func (o ARecordOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 func (o ARecordOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -373,6 +395,8 @@ func (o ARecordOutput) Ttl() pulumi.IntOutput {
 }
 
 // Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+//
+// > **Note:** The `zoneName` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
 func (o ARecordOutput) ZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }

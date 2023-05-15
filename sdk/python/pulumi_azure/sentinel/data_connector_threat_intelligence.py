@@ -24,6 +24,8 @@ class DataConnectorThreatIntelligenceArgs:
         :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if lookback_date is not None:
@@ -74,6 +76,8 @@ class DataConnectorThreatIntelligenceArgs:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+
+        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -95,6 +99,8 @@ class _DataConnectorThreatIntelligenceState:
         :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -146,6 +152,8 @@ class _DataConnectorThreatIntelligenceState:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+
+        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -196,6 +204,8 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -288,6 +298,8 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -328,6 +340,8 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
     def tenant_id(self) -> pulumi.Output[str]:
         """
         The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+
+        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

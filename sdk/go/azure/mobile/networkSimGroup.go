@@ -46,14 +46,22 @@ import (
 //				return err
 //			}
 //			exampleUserAssignedIdentity, err := authorization.LookupUserAssignedIdentity(ctx, &authorization.LookupUserAssignedIdentityArgs{
-//				Name: "example-identity",
+//				Name:              "name_of_user_assigned_identity",
+//				ResourceGroupName: "name_of_resource_group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              "example-kv",
+//				ResourceGroupName: "some-resource-group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleKey, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
-//				Name:       "some-key",
-//				KeyVaultId: data.Azurerm_key_vault.Example.Id,
+//				Name:       "example-key",
+//				KeyVaultId: exampleKeyVault.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -96,6 +104,8 @@ type NetworkSimGroup struct {
 	// A key to encrypt the SIM data that belongs to this SIM group.
 	EncryptionKeyUrl pulumi.StringPtrOutput `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
+	//
+	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity NetworkSimGroupIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -142,6 +152,8 @@ type networkSimGroupState struct {
 	// A key to encrypt the SIM data that belongs to this SIM group.
 	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
+	//
+	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity *NetworkSimGroupIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location *string `pulumi:"location"`
@@ -157,6 +169,8 @@ type NetworkSimGroupState struct {
 	// A key to encrypt the SIM data that belongs to this SIM group.
 	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity NetworkSimGroupIdentityPtrInput
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location pulumi.StringPtrInput
@@ -176,6 +190,8 @@ type networkSimGroupArgs struct {
 	// A key to encrypt the SIM data that belongs to this SIM group.
 	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
+	//
+	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity *NetworkSimGroupIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location *string `pulumi:"location"`
@@ -192,6 +208,8 @@ type NetworkSimGroupArgs struct {
 	// A key to encrypt the SIM data that belongs to this SIM group.
 	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity NetworkSimGroupIdentityPtrInput
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location pulumi.StringPtrInput
@@ -296,6 +314,8 @@ func (o NetworkSimGroupOutput) EncryptionKeyUrl() pulumi.StringPtrOutput {
 }
 
 // An `identity` block as defined below.
+//
+// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 func (o NetworkSimGroupOutput) Identity() NetworkSimGroupIdentityPtrOutput {
 	return o.ApplyT(func(v *NetworkSimGroup) NetworkSimGroupIdentityPtrOutput { return v.Identity }).(NetworkSimGroupIdentityPtrOutput)
 }

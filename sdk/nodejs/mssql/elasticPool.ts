@@ -80,6 +80,8 @@ export class ElasticPool extends pulumi.CustomResource {
 
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     *
+     * > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
@@ -92,6 +94,8 @@ export class ElasticPool extends pulumi.CustomResource {
     public readonly maintenanceConfigurationName!: pulumi.Output<string | undefined>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+     *
+     * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
     public readonly maxSizeBytes!: pulumi.Output<number>;
     /**
@@ -190,6 +194,8 @@ export class ElasticPool extends pulumi.CustomResource {
 export interface ElasticPoolState {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     *
+     * > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -202,6 +208,8 @@ export interface ElasticPoolState {
     maintenanceConfigurationName?: pulumi.Input<string>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+     *
+     * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
     maxSizeBytes?: pulumi.Input<number>;
     /**
@@ -244,6 +252,8 @@ export interface ElasticPoolState {
 export interface ElasticPoolArgs {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     *
+     * > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -256,6 +266,8 @@ export interface ElasticPoolArgs {
     maintenanceConfigurationName?: pulumi.Input<string>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+     *
+     * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
     maxSizeBytes?: pulumi.Input<number>;
     /**

@@ -66,6 +66,8 @@ export class LinkedServiceAzureTableStorage extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Table Storage Linked Service:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -148,6 +150,8 @@ export class LinkedServiceAzureTableStorage extends pulumi.CustomResource {
 export interface LinkedServiceAzureTableStorageState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Table Storage Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -186,6 +190,8 @@ export interface LinkedServiceAzureTableStorageState {
 export interface LinkedServiceAzureTableStorageArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Table Storage Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

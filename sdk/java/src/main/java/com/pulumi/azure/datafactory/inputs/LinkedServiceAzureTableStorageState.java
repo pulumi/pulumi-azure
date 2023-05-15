@@ -20,12 +20,16 @@ public final class LinkedServiceAzureTableStorageState extends com.pulumi.resour
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure Table Storage Linked Service:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure Table Storage Linked Service:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -171,6 +175,8 @@ public final class LinkedServiceAzureTableStorageState extends com.pulumi.resour
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
          * 
+         * The following supported arguments are specific to Azure Table Storage Linked Service:
+         * 
          * @return builder
          * 
          */
@@ -181,6 +187,8 @@ public final class LinkedServiceAzureTableStorageState extends com.pulumi.resour
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
+         * 
+         * The following supported arguments are specific to Azure Table Storage Linked Service:
          * 
          * @return builder
          * 

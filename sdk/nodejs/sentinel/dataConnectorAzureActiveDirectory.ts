@@ -69,6 +69,8 @@ export class DataConnectorAzureActiveDirectory extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -116,6 +118,8 @@ export interface DataConnectorAzureActiveDirectoryState {
     name?: pulumi.Input<string>;
     /**
      * The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -134,6 +138,8 @@ export interface DataConnectorAzureActiveDirectoryArgs {
     name?: pulumi.Input<string>;
     /**
      * The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

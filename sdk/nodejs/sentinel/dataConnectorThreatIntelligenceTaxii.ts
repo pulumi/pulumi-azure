@@ -98,6 +98,8 @@ export class DataConnectorThreatIntelligenceTaxii extends pulumi.CustomResource 
     public readonly pollingFrequency!: pulumi.Output<string | undefined>;
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
     /**
@@ -198,6 +200,8 @@ export interface DataConnectorThreatIntelligenceTaxiiState {
     pollingFrequency?: pulumi.Input<string>;
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
     /**
@@ -244,6 +248,8 @@ export interface DataConnectorThreatIntelligenceTaxiiArgs {
     pollingFrequency?: pulumi.Input<string>;
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
     /**

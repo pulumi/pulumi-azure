@@ -174,12 +174,16 @@ public final class DatasetBinaryState extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies a list of parameters to associate with the Data Factory Binary Dataset.
      * 
+     * The following supported locations for a Binary Dataset. One of these should be specified:
+     * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
      * @return Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+     * 
+     * The following supported locations for a Binary Dataset. One of these should be specified:
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -459,6 +463,8 @@ public final class DatasetBinaryState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param parameters Specifies a list of parameters to associate with the Data Factory Binary Dataset.
          * 
+         * The following supported locations for a Binary Dataset. One of these should be specified:
+         * 
          * @return builder
          * 
          */
@@ -469,6 +475,8 @@ public final class DatasetBinaryState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param parameters Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+         * 
+         * The following supported locations for a Binary Dataset. One of these should be specified:
          * 
          * @return builder
          * 

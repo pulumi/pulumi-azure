@@ -199,12 +199,16 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
     /**
      * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
+     * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+     * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+     * 
+     * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -532,6 +536,8 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         /**
          * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          * 
+         * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+         * 
          * @return builder
          * 
          */
@@ -543,6 +549,8 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         /**
          * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          * 
+         * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+         * 
          * @return builder
          * 
          */
@@ -552,6 +560,8 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
 
         /**
          * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+         * 
+         * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
          * 
          * @return builder
          * 

@@ -79,6 +79,10 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
     public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     *
+     * > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+     *
+     * > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -126,6 +130,10 @@ export interface ServerTransparentDataEncryptionState {
     autoRotationEnabled?: pulumi.Input<boolean>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     *
+     * > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+     *
+     * > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -144,6 +152,10 @@ export interface ServerTransparentDataEncryptionArgs {
     autoRotationEnabled?: pulumi.Input<boolean>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     *
+     * > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+     *
+     * > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**

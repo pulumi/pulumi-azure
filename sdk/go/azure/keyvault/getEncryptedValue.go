@@ -72,6 +72,8 @@ type GetEncryptedValueArgs struct {
 	// The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The plain-text value which should be Encrypted into `encryptedData`.
+	//
+	// > **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
 	PlainTextValue *string `pulumi:"plainTextValue"`
 }
 
@@ -107,6 +109,8 @@ type GetEncryptedValueOutputArgs struct {
 	// The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// The plain-text value which should be Encrypted into `encryptedData`.
+	//
+	// > **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
 	PlainTextValue pulumi.StringPtrInput `pulumi:"plainTextValue"`
 }
 

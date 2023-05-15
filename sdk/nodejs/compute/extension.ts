@@ -123,6 +123,8 @@ export class Extension extends pulumi.CustomResource {
     public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -131,10 +133,14 @@ export class Extension extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+     *
+     * > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
+     *
+     * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.ExtensionProtectedSettingsFromKeyVault | undefined>;
     /**
@@ -143,6 +149,8 @@ export class Extension extends pulumi.CustomResource {
     public readonly publisher!: pulumi.Output<string>;
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
+     *
+     * > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     public readonly settings!: pulumi.Output<string | undefined>;
     /**
@@ -151,6 +159,12 @@ export class Extension extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of extension, available types for a publisher can be found using the Azure CLI.
+     *
+     * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -235,6 +249,8 @@ export interface ExtensionState {
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -243,10 +259,14 @@ export interface ExtensionState {
     name?: pulumi.Input<string>;
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+     *
+     * > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     protectedSettings?: pulumi.Input<string>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
+     *
+     * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.ExtensionProtectedSettingsFromKeyVault>;
     /**
@@ -255,6 +275,8 @@ export interface ExtensionState {
     publisher?: pulumi.Input<string>;
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
+     *
+     * > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     settings?: pulumi.Input<string>;
     /**
@@ -263,6 +285,12 @@ export interface ExtensionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of extension, available types for a publisher can be found using the Azure CLI.
+     *
+     * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     type?: pulumi.Input<string>;
     /**
@@ -289,6 +317,8 @@ export interface ExtensionArgs {
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -297,10 +327,14 @@ export interface ExtensionArgs {
     name?: pulumi.Input<string>;
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+     *
+     * > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     protectedSettings?: pulumi.Input<string>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
+     *
+     * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.ExtensionProtectedSettingsFromKeyVault>;
     /**
@@ -309,6 +343,8 @@ export interface ExtensionArgs {
     publisher: pulumi.Input<string>;
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
+     *
+     * > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     settings?: pulumi.Input<string>;
     /**
@@ -317,6 +353,12 @@ export interface ExtensionArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of extension, available types for a publisher can be found using the Azure CLI.
+     *
+     * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     type: pulumi.Input<string>;
     /**

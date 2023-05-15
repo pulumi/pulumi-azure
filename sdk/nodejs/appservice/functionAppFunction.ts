@@ -194,6 +194,8 @@ export class FunctionAppFunction extends pulumi.CustomResource {
     public /*out*/ readonly invocationUrl!: pulumi.Output<string>;
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+     *
+     * > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
@@ -310,6 +312,8 @@ export interface FunctionAppFunctionState {
     invocationUrl?: pulumi.Input<string>;
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+     *
+     * > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      */
     language?: pulumi.Input<string>;
     /**
@@ -364,6 +368,8 @@ export interface FunctionAppFunctionArgs {
     functionAppId: pulumi.Input<string>;
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+     *
+     * > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      */
     language?: pulumi.Input<string>;
     /**

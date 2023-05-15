@@ -34,12 +34,16 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
     /**
      * A `recurrence` block as defined below.
      * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
      */
     @Import(name="recurrence")
     private @Nullable Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs> recurrence;
 
     /**
      * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
@@ -95,6 +99,8 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
+         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
 
         /**
          * @param recurrence A `recurrence` block as defined below.
+         * 
+         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 

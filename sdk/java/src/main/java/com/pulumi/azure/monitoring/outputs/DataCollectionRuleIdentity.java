@@ -15,6 +15,8 @@ public final class DataCollectionRuleIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class DataCollectionRuleIdentity {
     private DataCollectionRuleIdentity() {}
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public List<String> identityIds() {

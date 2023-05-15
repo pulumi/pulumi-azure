@@ -46,6 +46,8 @@ public final class VirtualMachineSqlInstance {
     /**
      * @return Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
      * 
+     * &gt; **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+     * 
      */
     private @Nullable Integer minServerMemoryMb;
 
@@ -94,6 +96,8 @@ public final class VirtualMachineSqlInstance {
     }
     /**
      * @return Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+     * 
+     * &gt; **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
      * 
      */
     public Optional<Integer> minServerMemoryMb() {

@@ -43,6 +43,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? TranslatedAddress;
         /// <summary>
         /// Specifies the translated FQDN.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         /// </summary>
         public readonly string? TranslatedFqdn;
         /// <summary>

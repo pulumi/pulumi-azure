@@ -75,12 +75,16 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     /**
      * A `dead_letter_identity` block as defined below.
      * 
+     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+     * 
      */
     @Import(name="deadLetterIdentity")
     private @Nullable Output<EventSubscriptionDeadLetterIdentityArgs> deadLetterIdentity;
 
     /**
      * @return A `dead_letter_identity` block as defined below.
+     * 
+     * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
      * 
      */
     public Optional<Output<EventSubscriptionDeadLetterIdentityArgs>> deadLetterIdentity() {
@@ -330,12 +334,16 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     /**
      * A `webhook_endpoint` block as defined below.
      * 
+     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * 
      */
     @Import(name="webhookEndpoint")
     private @Nullable Output<EventSubscriptionWebhookEndpointArgs> webhookEndpoint;
 
     /**
      * @return A `webhook_endpoint` block as defined below.
+     * 
+     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
      * 
      */
     public Optional<Output<EventSubscriptionWebhookEndpointArgs>> webhookEndpoint() {
@@ -452,6 +460,8 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         /**
          * @param deadLetterIdentity A `dead_letter_identity` block as defined below.
          * 
+         * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
+         * 
          * @return builder
          * 
          */
@@ -462,6 +472,8 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
 
         /**
          * @param deadLetterIdentity A `dead_letter_identity` block as defined below.
+         * 
+         * &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
          * 
          * @return builder
          * 
@@ -839,6 +851,8 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         /**
          * @param webhookEndpoint A `webhook_endpoint` block as defined below.
          * 
+         * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -849,6 +863,8 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
 
         /**
          * @param webhookEndpoint A `webhook_endpoint` block as defined below.
+         * 
+         * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
          * 
          * @return builder
          * 

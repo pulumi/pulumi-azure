@@ -99,6 +99,8 @@ type ConnectedRegistry struct {
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds pulumi.StringArrayOutput `pulumi:"clientTokenIds"`
 	// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+	//
+	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId pulumi.StringOutput `pulumi:"containerRegistryId"`
 	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
 	LogLevel pulumi.StringPtrOutput `pulumi:"logLevel"`
@@ -160,6 +162,8 @@ type connectedRegistryState struct {
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
 	// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+	//
+	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
 	LogLevel *string `pulumi:"logLevel"`
@@ -187,6 +191,8 @@ type ConnectedRegistryState struct {
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds pulumi.StringArrayInput
 	// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+	//
+	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId pulumi.StringPtrInput
 	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
 	LogLevel pulumi.StringPtrInput
@@ -218,6 +224,8 @@ type connectedRegistryArgs struct {
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
 	// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+	//
+	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId string `pulumi:"containerRegistryId"`
 	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
 	LogLevel *string `pulumi:"logLevel"`
@@ -246,6 +254,8 @@ type ConnectedRegistryArgs struct {
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds pulumi.StringArrayInput
 	// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+	//
+	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId pulumi.StringInput
 	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
 	LogLevel pulumi.StringPtrInput
@@ -365,6 +375,8 @@ func (o ConnectedRegistryOutput) ClientTokenIds() pulumi.StringArrayOutput {
 }
 
 // The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+//
+// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 func (o ConnectedRegistryOutput) ContainerRegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.ContainerRegistryId }).(pulumi.StringOutput)
 }

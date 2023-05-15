@@ -22,10 +22,6 @@ public final class KubernetesClusterHttpProxyConfig {
      * 
      */
     private @Nullable String httpsProxy;
-    /**
-     * @return The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-     * 
-     */
     private @Nullable List<String> noProxies;
     /**
      * @return The base64 encoded alternative CA certificate content in PEM format.
@@ -48,10 +44,6 @@ public final class KubernetesClusterHttpProxyConfig {
     public Optional<String> httpsProxy() {
         return Optional.ofNullable(this.httpsProxy);
     }
-    /**
-     * @return The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-     * 
-     */
     public List<String> noProxies() {
         return this.noProxies == null ? List.of() : this.noProxies;
     }

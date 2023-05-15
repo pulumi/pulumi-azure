@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class ResourceProviderRegistrationFeature
     {
         /// <summary>
-        /// Specifies the name of the feature to register.
+        /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

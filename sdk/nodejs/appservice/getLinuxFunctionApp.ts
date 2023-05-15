@@ -150,7 +150,7 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly possibleOutboundIpAddressLists: string[];
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses: string;
     readonly resourceGroupName: string;

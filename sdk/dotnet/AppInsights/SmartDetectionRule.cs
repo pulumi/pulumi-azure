@@ -56,6 +56,8 @@ namespace Pulumi.Azure.AppInsights
     {
         /// <summary>
         /// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+        /// 
+        /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
         [Output("additionalEmailRecipients")]
         public Output<ImmutableArray<string>> AdditionalEmailRecipients { get; private set; } = null!;
@@ -135,6 +137,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+        /// 
+        /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
         public InputList<string> AdditionalEmailRecipients
         {
@@ -179,6 +183,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+        /// 
+        /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
         public InputList<string> AdditionalEmailRecipients
         {

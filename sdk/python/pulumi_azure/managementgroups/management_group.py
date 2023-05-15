@@ -24,6 +24,8 @@ class ManagementGroupArgs:
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
+               
+               > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -75,6 +77,8 @@ class ManagementGroupArgs:
     def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
+
+        > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         return pulumi.get(self, "subscription_ids")
 
@@ -96,6 +100,8 @@ class _ManagementGroupState:
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
+               
+               > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -147,6 +153,8 @@ class _ManagementGroupState:
     def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
+
+        > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         return pulumi.get(self, "subscription_ids")
 
@@ -206,6 +214,8 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
+               
+               > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         ...
     @overload
@@ -301,6 +311,8 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
+               
+               > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -341,6 +353,8 @@ class ManagementGroup(pulumi.CustomResource):
     def subscription_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
+
+        > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         return pulumi.get(self, "subscription_ids")
 

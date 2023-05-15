@@ -78,12 +78,16 @@ public final class KubernetesClusterExtensionPlanArgs extends com.pulumi.resourc
     /**
      * Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
+     * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * 
+     * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
      */
     public Optional<Output<String>> version() {
@@ -205,6 +209,8 @@ public final class KubernetesClusterExtensionPlanArgs extends com.pulumi.resourc
         /**
          * @param version Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
          * 
+         * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+         * 
          * @return builder
          * 
          */
@@ -215,6 +221,8 @@ public final class KubernetesClusterExtensionPlanArgs extends com.pulumi.resourc
 
         /**
          * @param version Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         * 
+         * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
          * 
          * @return builder
          * 

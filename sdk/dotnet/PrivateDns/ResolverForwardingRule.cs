@@ -80,9 +80,19 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
+    ///     var exampleResolverDnsForwardingRuleset = new Azure.PrivateDns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PrivateDnsResolverOutboundEndpointIds = new[]
+    ///         {
+    ///             exampleResolverOutboundEndpoint.Id,
+    ///         },
+    ///     });
+    /// 
     ///     var exampleResolverForwardingRule = new Azure.PrivateDns.ResolverForwardingRule("exampleResolverForwardingRule", new()
     ///     {
-    ///         DnsForwardingRulesetId = azurerm_private_dns_resolver_dns_forwarding_ruleset.Example.Id,
+    ///         DnsForwardingRulesetId = exampleResolverDnsForwardingRuleset.Id,
     ///         DomainName = "onprem.local.",
     ///         Enabled = true,
     ///         TargetDnsServers = new[]

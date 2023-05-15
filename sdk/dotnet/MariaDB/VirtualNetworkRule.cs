@@ -87,6 +87,12 @@ namespace Pulumi.Azure.MariaDB
     {
         /// <summary>
         /// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+        /// 
+        /// 1. Contains only alphanumeric and hyphen characters
+        /// 2. Cannot start with a number or hyphen
+        /// 3. Cannot end with a hyphen
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -105,6 +111,8 @@ namespace Pulumi.Azure.MariaDB
 
         /// <summary>
         /// The ID of the subnet that the MariaDB server will be connected to.
+        /// 
+        /// &gt; **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -157,6 +165,12 @@ namespace Pulumi.Azure.MariaDB
     {
         /// <summary>
         /// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+        /// 
+        /// 1. Contains only alphanumeric and hyphen characters
+        /// 2. Cannot start with a number or hyphen
+        /// 3. Cannot end with a hyphen
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -175,6 +189,8 @@ namespace Pulumi.Azure.MariaDB
 
         /// <summary>
         /// The ID of the subnet that the MariaDB server will be connected to.
+        /// 
+        /// &gt; **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -189,6 +205,12 @@ namespace Pulumi.Azure.MariaDB
     {
         /// <summary>
         /// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+        /// 
+        /// 1. Contains only alphanumeric and hyphen characters
+        /// 2. Cannot start with a number or hyphen
+        /// 3. Cannot end with a hyphen
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -207,6 +229,8 @@ namespace Pulumi.Azure.MariaDB
 
         /// <summary>
         /// The ID of the subnet that the MariaDB server will be connected to.
+        /// 
+        /// &gt; **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

@@ -106,6 +106,8 @@ type Api struct {
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringOutput `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+	//
+	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -116,6 +118,8 @@ type Api struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolOutput `pulumi:"soapPassThrough"`
@@ -132,6 +136,8 @@ type Api struct {
 	// The description of the API Version of the API Management API.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
+	//
+	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId pulumi.StringOutput `pulumi:"versionSetId"`
 }
 
@@ -200,6 +206,8 @@ type apiState struct {
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+	//
+	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -210,6 +218,8 @@ type apiState struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
@@ -226,6 +236,8 @@ type apiState struct {
 	// The description of the API Version of the API Management API.
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
+	//
+	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId *string `pulumi:"versionSetId"`
 }
 
@@ -257,6 +269,8 @@ type ApiState struct {
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+	//
+	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -267,6 +281,8 @@ type ApiState struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolPtrInput
@@ -283,6 +299,8 @@ type ApiState struct {
 	// The description of the API Version of the API Management API.
 	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
+	//
+	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId pulumi.StringPtrInput
 }
 
@@ -314,6 +332,8 @@ type apiArgs struct {
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+	//
+	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -324,6 +344,8 @@ type apiArgs struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
@@ -340,6 +362,8 @@ type apiArgs struct {
 	// The description of the API Version of the API Management API.
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
+	//
+	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId *string `pulumi:"versionSetId"`
 }
 
@@ -368,6 +392,8 @@ type ApiArgs struct {
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+	//
+	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -378,6 +404,8 @@ type ApiArgs struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolPtrInput
@@ -394,6 +422,8 @@ type ApiArgs struct {
 	// The description of the API Version of the API Management API.
 	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
+	//
+	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId pulumi.StringPtrInput
 }
 
@@ -550,6 +580,8 @@ func (o ApiOutput) Path() pulumi.StringOutput {
 }
 
 // A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+//
+// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 func (o ApiOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -575,6 +607,8 @@ func (o ApiOutput) ServiceUrl() pulumi.StringOutput {
 }
 
 // Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+//
+// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 //
 // Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 func (o ApiOutput) SoapPassThrough() pulumi.BoolOutput {
@@ -612,6 +646,8 @@ func (o ApiOutput) VersionDescription() pulumi.StringPtrOutput {
 }
 
 // The ID of the Version Set which this API is associated with.
+//
+// > **NOTE:** When `version` is set, `versionSetId` must also be specified
 func (o ApiOutput) VersionSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.VersionSetId }).(pulumi.StringOutput)
 }

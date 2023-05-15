@@ -203,14 +203,20 @@ type Certificate struct {
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration pulumi.StringOutput `pulumi:"expiration"`
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	//
+	// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
 	KeyVaultIdentityClientId pulumi.StringPtrOutput `pulumi:"keyVaultIdentityClientId"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	//
+	// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
 	KeyVaultSecretId pulumi.StringPtrOutput `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The password used for this certificate.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Subject of this Certificate.
 	Subject pulumi.StringOutput `pulumi:"subject"`
@@ -271,14 +277,20 @@ type certificateState struct {
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration *string `pulumi:"expiration"`
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	//
+	// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
 	KeyVaultIdentityClientId *string `pulumi:"keyVaultIdentityClientId"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	//
+	// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The password used for this certificate.
 	Password *string `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Subject of this Certificate.
 	Subject *string `pulumi:"subject"`
@@ -294,14 +306,20 @@ type CertificateState struct {
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration pulumi.StringPtrInput
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	//
+	// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
 	KeyVaultIdentityClientId pulumi.StringPtrInput
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	//
+	// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
 	KeyVaultSecretId pulumi.StringPtrInput
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The password used for this certificate.
 	Password pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Subject of this Certificate.
 	Subject pulumi.StringPtrInput
@@ -319,14 +337,20 @@ type certificateArgs struct {
 	// The base-64 encoded certificate data, which must be a PFX file.
 	Data *string `pulumi:"data"`
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	//
+	// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
 	KeyVaultIdentityClientId *string `pulumi:"keyVaultIdentityClientId"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	//
+	// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The password used for this certificate.
 	Password *string `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -337,14 +361,20 @@ type CertificateArgs struct {
 	// The base-64 encoded certificate data, which must be a PFX file.
 	Data pulumi.StringPtrInput
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	//
+	// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
 	KeyVaultIdentityClientId pulumi.StringPtrInput
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	//
+	// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
 	KeyVaultSecretId pulumi.StringPtrInput
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The password used for this certificate.
 	Password pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -451,11 +481,15 @@ func (o CertificateOutput) Expiration() pulumi.StringOutput {
 }
 
 // The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+//
+// > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
 func (o CertificateOutput) KeyVaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+//
+// > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
 func (o CertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -471,6 +505,8 @@ func (o CertificateOutput) Password() pulumi.StringPtrOutput {
 }
 
 // The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
 func (o CertificateOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

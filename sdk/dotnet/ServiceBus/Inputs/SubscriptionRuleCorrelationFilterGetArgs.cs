@@ -41,6 +41,8 @@ namespace Pulumi.Azure.ServiceBus.Inputs
 
         /// <summary>
         /// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+        /// 
+        /// &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         /// </summary>
         public InputMap<string> Properties
         {

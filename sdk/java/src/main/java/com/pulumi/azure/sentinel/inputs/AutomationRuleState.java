@@ -39,12 +39,16 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     /**
      * One or more `action_playbook` blocks as defined below.
      * 
+     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+     * 
      */
     @Import(name="actionPlaybooks")
     private @Nullable Output<List<AutomationRuleActionPlaybookArgs>> actionPlaybooks;
 
     /**
      * @return One or more `action_playbook` blocks as defined below.
+     * 
+     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
      * 
      */
     public Optional<Output<List<AutomationRuleActionPlaybookArgs>>> actionPlaybooks() {
@@ -69,6 +73,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     /**
      * One or more `condition` blocks as defined below.
      * 
+     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
+     * 
      * @deprecated
      * This is deprecated in favor of `condition_json`
      * 
@@ -79,6 +85,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return One or more `condition` blocks as defined below.
+     * 
+     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
      * 
      * @deprecated
      * This is deprecated in favor of `condition_json`
@@ -278,6 +286,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         /**
          * @param actionPlaybooks One or more `action_playbook` blocks as defined below.
          * 
+         * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+         * 
          * @return builder
          * 
          */
@@ -289,6 +299,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         /**
          * @param actionPlaybooks One or more `action_playbook` blocks as defined below.
          * 
+         * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+         * 
          * @return builder
          * 
          */
@@ -298,6 +310,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param actionPlaybooks One or more `action_playbook` blocks as defined below.
+         * 
+         * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
          * 
          * @return builder
          * 
@@ -330,6 +344,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         /**
          * @param conditions One or more `condition` blocks as defined below.
          * 
+         * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -345,6 +361,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         /**
          * @param conditions One or more `condition` blocks as defined below.
          * 
+         * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -358,6 +376,8 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param conditions One or more `condition` blocks as defined below.
+         * 
+         * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
          * 
          * @return builder
          * 

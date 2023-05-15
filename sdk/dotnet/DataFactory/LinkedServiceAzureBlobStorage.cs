@@ -124,6 +124,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
+        /// 
+        /// The following supported arguments are specific to Azure Blob Storage Linked Service:
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -142,6 +144,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// 
+        /// &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         /// </summary>
         [Output("connectionStringInsecure")]
         public Output<string?> ConnectionStringInsecure { get; private set; } = null!;
@@ -287,6 +291,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
+        /// 
+        /// The following supported arguments are specific to Azure Blob Storage Linked Service:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -324,6 +330,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// 
+        /// &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }
@@ -451,6 +459,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
+        /// 
+        /// The following supported arguments are specific to Azure Blob Storage Linked Service:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -488,6 +498,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// 
+        /// &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }

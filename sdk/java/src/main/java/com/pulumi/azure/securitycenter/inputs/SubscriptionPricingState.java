@@ -33,12 +33,16 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
      * 
+     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+     * 
      */
     @Import(name="subplan")
     private @Nullable Output<String> subplan;
 
     /**
      * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * 
+     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     public Optional<Output<String>> subplan() {
@@ -110,6 +114,8 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
         /**
          * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
          * 
+         * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
 
         /**
          * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
+         * 
+         * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
          * 
          * @return builder
          * 

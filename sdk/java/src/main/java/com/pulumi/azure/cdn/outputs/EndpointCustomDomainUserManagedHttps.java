@@ -23,6 +23,8 @@ public final class EndpointCustomDomainUserManagedHttps {
     /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
+     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
+     * 
      */
     private @Nullable String keyVaultSecretId;
     /**
@@ -45,6 +47,8 @@ public final class EndpointCustomDomainUserManagedHttps {
     }
     /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
+     * 
+     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
      * 
      */
     public Optional<String> keyVaultSecretId() {

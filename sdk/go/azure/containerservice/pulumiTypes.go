@@ -14,6 +14,8 @@ type ConnectedRegistryNotification struct {
 	// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
 	Action string `pulumi:"action"`
 	// The digest of the artifact that wants to be subscribed for the Connected Registry.
+	//
+	// > **NOTE:** One of either `tag` or `digest` can be specified.
 	Digest *string `pulumi:"digest"`
 	// The name of the artifact that wants to be subscribed for the Connected Registry.
 	Name string `pulumi:"name"`
@@ -36,6 +38,8 @@ type ConnectedRegistryNotificationArgs struct {
 	// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
 	Action pulumi.StringInput `pulumi:"action"`
 	// The digest of the artifact that wants to be subscribed for the Connected Registry.
+	//
+	// > **NOTE:** One of either `tag` or `digest` can be specified.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
 	// The name of the artifact that wants to be subscribed for the Connected Registry.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -100,6 +104,8 @@ func (o ConnectedRegistryNotificationOutput) Action() pulumi.StringOutput {
 }
 
 // The digest of the artifact that wants to be subscribed for the Connected Registry.
+//
+// > **NOTE:** One of either `tag` or `digest` can be specified.
 func (o ConnectedRegistryNotificationOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectedRegistryNotification) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
@@ -144,6 +150,8 @@ type GroupContainer struct {
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// A `gpu` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gpu resources are currently only supported in Linux containers.
 	Gpu *GroupContainerGpu `pulumi:"gpu"`
 	// A `gpuLimit` block as defined below.
 	GpuLimit *GroupContainerGpuLimit `pulumi:"gpuLimit"`
@@ -188,6 +196,8 @@ type GroupContainerArgs struct {
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
 	// A `gpu` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gpu resources are currently only supported in Linux containers.
 	Gpu GroupContainerGpuPtrInput `pulumi:"gpu"`
 	// A `gpuLimit` block as defined below.
 	GpuLimit GroupContainerGpuLimitPtrInput `pulumi:"gpuLimit"`
@@ -283,6 +293,8 @@ func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
 }
 
 // A `gpu` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** Gpu resources are currently only supported in Linux containers.
 func (o GroupContainerOutput) Gpu() GroupContainerGpuPtrOutput {
 	return o.ApplyT(func(v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
 }
@@ -1048,6 +1060,8 @@ type GroupContainerPort struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
 	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -1066,6 +1080,8 @@ type GroupContainerPortArgs struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -1126,6 +1142,8 @@ func (o GroupContainerPortOutput) Port() pulumi.IntPtrOutput {
 }
 
 // The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+//
+// > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
 func (o GroupContainerPortOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -1537,6 +1555,12 @@ type GroupContainerVolume struct {
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
 	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
+	//
+	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	//
+	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret map[string]string `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
@@ -1569,6 +1593,12 @@ type GroupContainerVolumeArgs struct {
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
 	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
+	//
+	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	//
+	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret pulumi.StringMapInput `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
@@ -1655,6 +1685,12 @@ func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 }
 
 // A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+//
+// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
+//
+// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+//
+// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 func (o GroupContainerVolumeOutput) Secret() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupContainerVolume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
@@ -2379,6 +2415,8 @@ type GroupExposedPort struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
 	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -2397,6 +2435,8 @@ type GroupExposedPortArgs struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -2457,6 +2497,8 @@ func (o GroupExposedPortOutput) Port() pulumi.IntPtrOutput {
 }
 
 // The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+//
+// > **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
 func (o GroupExposedPortOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupExposedPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -2483,12 +2525,18 @@ func (o GroupExposedPortArrayOutput) Index(i pulumi.IntInput) GroupExposedPortOu
 
 type GroupIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	//
+	// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	//
+	// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 	Type string `pulumi:"type"`
 }
 
@@ -2505,12 +2553,18 @@ type GroupIdentityInput interface {
 
 type GroupIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	//
+	// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	//
+	// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2592,6 +2646,10 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+//
+// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2607,6 +2665,8 @@ func (o GroupIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+//
+// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2636,6 +2696,10 @@ func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+//
+// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupIdentity) []string {
 		if v == nil {
@@ -2666,6 +2730,8 @@ func (o GroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+//
+// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 func (o GroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupIdentity) *string {
 		if v == nil {
@@ -2953,6 +3019,12 @@ type GroupInitContainerVolume struct {
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
 	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
+	//
+	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	//
+	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret map[string]string `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
@@ -2985,6 +3057,12 @@ type GroupInitContainerVolumeArgs struct {
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
 	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
+	//
+	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	//
+	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret pulumi.StringMapInput `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
@@ -3071,6 +3149,12 @@ func (o GroupInitContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 }
 
 // A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+//
+// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
+//
+// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+//
+// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 func (o GroupInitContainerVolumeOutput) Secret() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
@@ -3289,6 +3373,41 @@ type KubernetesClusterAciConnectorLinux struct {
 	// A `connectorIdentity` block is exported. The exported attributes are defined below.
 	ConnectorIdentities []KubernetesClusterAciConnectorLinuxConnectorIdentity `pulumi:"connectorIdentities"`
 	// The subnet name for the virtual nodes to run.
+	//
+	// > **Note:** At this time ACI Connectors are not supported in Azure China.
+	//
+	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+	// 			Delegations: network.SubnetDelegationArray{
+	// 				&network.SubnetDelegationArgs{
+	// 					Name: pulumi.String("aciDelegation"),
+	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+	// 						Actions: pulumi.StringArray{
+	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+	// 						},
+	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	SubnetName string `pulumi:"subnetName"`
 }
 
@@ -3307,6 +3426,41 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// A `connectorIdentity` block is exported. The exported attributes are defined below.
 	ConnectorIdentities KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput `pulumi:"connectorIdentities"`
 	// The subnet name for the virtual nodes to run.
+	//
+	// > **Note:** At this time ACI Connectors are not supported in Azure China.
+	//
+	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+	// 			Delegations: network.SubnetDelegationArray{
+	// 				&network.SubnetDelegationArgs{
+	// 					Name: pulumi.String("aciDelegation"),
+	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+	// 						Actions: pulumi.StringArray{
+	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+	// 						},
+	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
 
@@ -3395,6 +3549,44 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 }
 
 // The subnet name for the virtual nodes to run.
+//
+// > **Note:** At this time ACI Connectors are not supported in Azure China.
+//
+// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("aciDelegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+//							},
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
 }
@@ -3434,6 +3626,44 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 }
 
 // The subnet name for the virtual nodes to run.
+//
+// > **Note:** At this time ACI Connectors are not supported in Azure China.
+//
+// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("aciDelegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+//							},
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
 		if v == nil {
@@ -3449,6 +3679,8 @@ type KubernetesClusterAciConnectorLinuxConnectorIdentity struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3469,6 +3701,8 @@ type KubernetesClusterAciConnectorLinuxConnectorIdentityArgs struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3534,6 +3768,8 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ObjectId() pu
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -3564,6 +3800,8 @@ type KubernetesClusterApiServerAccessProfile struct {
 	// The ID of the Subnet where the API server endpoint is delegated to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
 	VnetIntegrationEnabled *bool `pulumi:"vnetIntegrationEnabled"`
 }
 
@@ -3584,6 +3822,8 @@ type KubernetesClusterApiServerAccessProfileArgs struct {
 	// The ID of the Subnet where the API server endpoint is delegated to.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
 	VnetIntegrationEnabled pulumi.BoolPtrInput `pulumi:"vnetIntegrationEnabled"`
 }
 
@@ -3675,6 +3915,8 @@ func (o KubernetesClusterApiServerAccessProfileOutput) SubnetId() pulumi.StringP
 }
 
 // Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
 func (o KubernetesClusterApiServerAccessProfileOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *bool { return v.VnetIntegrationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3724,6 +3966,8 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) SubnetId() pulumi.Stri
 }
 
 // Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
 func (o KubernetesClusterApiServerAccessProfilePtrOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *bool {
 		if v == nil {
@@ -4568,10 +4812,18 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies whether to trust a Custom CA.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+	//
+	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+	//
+	// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
@@ -4596,6 +4848,10 @@ type KubernetesClusterDefaultNodePool struct {
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+	//
+	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+	//
+	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
@@ -4608,6 +4864,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
@@ -4622,22 +4880,34 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
+	//
+	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 	Type *string `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+	//
+	// > **Note:** Resizing the `defaultNodePool` Virtual Machine is done by cycling the system node pool of the cluster. `temporaryNameForRotation` must be specified when attempting a resize.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+	//
+	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+	//
+	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `loadBalancerSku` is set to `standard`.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -4656,10 +4926,18 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Specifies whether to trust a Custom CA.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+	//
+	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+	//
+	// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
@@ -4684,6 +4962,10 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+	//
+	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+	//
+	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
@@ -4696,6 +4978,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
@@ -4710,22 +4994,34 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
+	//
+	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 	TemporaryNameForRotation pulumi.StringPtrInput `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+	//
+	// > **Note:** Resizing the `defaultNodePool` Virtual Machine is done by cycling the system node pool of the cluster. `temporaryNameForRotation` must be specified when attempting a resize.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
 	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+	//
+	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime pulumi.StringPtrInput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+	//
+	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `loadBalancerSku` is set to `standard`.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -4812,16 +5108,24 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 }
 
 // Specifies whether to trust a Custom CA.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+//
+// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+//
+// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
 // Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
@@ -4886,6 +5190,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
 }
 
 // The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+//
+// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+//
+// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
@@ -4918,6 +5226,8 @@ func (o KubernetesClusterDefaultNodePoolOutput) OnlyCriticalAddonsEnabled() pulu
 }
 
 // Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+//
+// > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 func (o KubernetesClusterDefaultNodePoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
@@ -4953,6 +5263,8 @@ func (o KubernetesClusterDefaultNodePoolOutput) ScaleDownMode() pulumi.StringPtr
 }
 
 // A mapping of tags to assign to the Node Pool.
+//
+// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
 func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -4963,6 +5275,8 @@ func (o KubernetesClusterDefaultNodePoolOutput) TemporaryNameForRotation() pulum
 }
 
 // The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+//
+// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4980,21 +5294,29 @@ func (o KubernetesClusterDefaultNodePoolOutput) UpgradeSettings() KubernetesClus
 }
 
 // The size of the Virtual Machine, such as `Standard_DS2_v2`.
+//
+// > **Note:** Resizing the `defaultNodePool` Virtual Machine is done by cycling the system node pool of the cluster. `temporaryNameForRotation` must be specified when attempting a resize.
 func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 // The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+//
+// > **Note:** A Route Table must be configured on this Subnet.
 func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+//
+// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 func (o KubernetesClusterDefaultNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+//
+// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `loadBalancerSku` is set to `standard`.
 func (o KubernetesClusterDefaultNodePoolOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
@@ -5034,6 +5356,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 }
 
 // Specifies whether to trust a Custom CA.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -5044,6 +5368,10 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi
 }
 
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+//
+// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+//
+// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -5054,6 +5382,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.Bo
 }
 
 // Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -5174,6 +5504,10 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringPtrOutput
 }
 
 // The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+//
+// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+//
+// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -5234,6 +5568,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OnlyCriticalAddonsEnabled() p
 }
 
 // Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+//
+// > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -5304,6 +5640,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ScaleDownMode() pulumi.String
 }
 
 // A mapping of tags to assign to the Node Pool.
+//
+// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) map[string]string {
 		if v == nil {
@@ -5324,6 +5662,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) TemporaryNameForRotation() pu
 }
 
 // The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+//
+// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -5354,6 +5694,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) UpgradeSettings() KubernetesC
 }
 
 // The size of the Virtual Machine, such as `Standard_DS2_v2`.
+//
+// > **Note:** Resizing the `defaultNodePool` Virtual Machine is done by cycling the system node pool of the cluster. `temporaryNameForRotation` must be specified when attempting a resize.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -5364,6 +5706,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutp
 }
 
 // The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+//
+// > **Note:** A Route Table must be configured on this Subnet.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -5374,6 +5718,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 }
 
 // Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+//
+// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 func (o KubernetesClusterDefaultNodePoolPtrOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -5384,6 +5730,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) WorkloadRuntime() pulumi.Stri
 }
 
 // Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+//
+// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `loadBalancerSku` is set to `standard`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {
@@ -6596,6 +6944,8 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVf
 
 type KubernetesClusterDefaultNodePoolNodeNetworkProfile struct {
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -6612,6 +6962,8 @@ type KubernetesClusterDefaultNodePoolNodeNetworkProfileInput interface {
 
 type KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs struct {
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -6693,6 +7045,8 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesCl
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
 		return v.NodePublicIpTags
@@ -6724,6 +7078,8 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) Elem() Kube
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -6735,6 +7091,8 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) NodePublicI
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	//
+	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
 }
 
@@ -6751,6 +7109,8 @@ type KubernetesClusterDefaultNodePoolUpgradeSettingsInput interface {
 
 type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	//
+	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
 }
 
@@ -6832,6 +7192,8 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClust
 }
 
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+//
+// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
 }
@@ -6861,6 +7223,8 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) Elem() Kuberne
 }
 
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+//
+// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *string {
 		if v == nil {
@@ -6995,6 +7359,8 @@ type KubernetesClusterExtensionPlan struct {
 	// Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Publisher string `pulumi:"publisher"`
 	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	//
+	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	Version *string `pulumi:"version"`
 }
 
@@ -7019,6 +7385,8 @@ type KubernetesClusterExtensionPlanArgs struct {
 	// Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	//
+	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -7120,6 +7488,8 @@ func (o KubernetesClusterExtensionPlanOutput) Publisher() pulumi.StringOutput {
 }
 
 // Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+//
+// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o KubernetesClusterExtensionPlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterExtensionPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -7189,6 +7559,8 @@ func (o KubernetesClusterExtensionPlanPtrOutput) Publisher() pulumi.StringPtrOut
 }
 
 // Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+//
+// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o KubernetesClusterExtensionPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
 		if v == nil {
@@ -7202,9 +7574,8 @@ type KubernetesClusterHttpProxyConfig struct {
 	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 	HttpProxy *string `pulumi:"httpProxy"`
 	// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
-	HttpsProxy *string `pulumi:"httpsProxy"`
-	// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-	NoProxies []string `pulumi:"noProxies"`
+	HttpsProxy *string  `pulumi:"httpsProxy"`
+	NoProxies  []string `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
 	TrustedCa *string `pulumi:"trustedCa"`
 }
@@ -7224,9 +7595,8 @@ type KubernetesClusterHttpProxyConfigArgs struct {
 	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
 	// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
-	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
-	// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-	NoProxies pulumi.StringArrayInput `pulumi:"noProxies"`
+	HttpsProxy pulumi.StringPtrInput   `pulumi:"httpsProxy"`
+	NoProxies  pulumi.StringArrayInput `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
 	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
 }
@@ -7318,7 +7688,6 @@ func (o KubernetesClusterHttpProxyConfigOutput) HttpsProxy() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
 
-// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigOutput) NoProxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) []string { return v.NoProxies }).(pulumi.StringArrayOutput)
 }
@@ -7372,7 +7741,6 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) NoProxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) []string {
 		if v == nil {
@@ -7394,6 +7762,8 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrO
 
 type KubernetesClusterIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	//
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -7416,6 +7786,8 @@ type KubernetesClusterIdentityInput interface {
 
 type KubernetesClusterIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	//
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -7503,6 +7875,8 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+//
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o KubernetesClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -7547,6 +7921,8 @@ func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutp
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+//
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o KubernetesClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) []string {
 		if v == nil {
@@ -7598,6 +7974,8 @@ type KubernetesClusterIngressApplicationGateway struct {
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	//
+	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -7624,6 +8002,8 @@ type KubernetesClusterIngressApplicationGatewayArgs struct {
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	//
+	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -7732,6 +8112,8 @@ func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetCidr() pulumi.St
 }
 
 // The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+//
+// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -7811,6 +8193,8 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi
 }
 
 // The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+//
+// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIngressApplicationGateway) *string {
 		if v == nil {
@@ -7826,6 +8210,8 @@ type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7846,6 +8232,8 @@ type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7915,6 +8303,8 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -8103,6 +8493,8 @@ type KubernetesClusterKeyVaultSecretsProvider struct {
 	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled *bool `pulumi:"secretRotationEnabled"`
 	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+	//
+	// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 	SecretRotationInterval *string `pulumi:"secretRotationInterval"`
 }
 
@@ -8123,6 +8515,8 @@ type KubernetesClusterKeyVaultSecretsProviderArgs struct {
 	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled pulumi.BoolPtrInput `pulumi:"secretRotationEnabled"`
 	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+	//
+	// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 	SecretRotationInterval pulumi.StringPtrInput `pulumi:"secretRotationInterval"`
 }
 
@@ -8216,6 +8610,8 @@ func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationEnabled() 
 }
 
 // The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+//
+// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProvider) *string { return v.SecretRotationInterval }).(pulumi.StringPtrOutput)
 }
@@ -8265,6 +8661,8 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationEnabled
 }
 
 // The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+//
+// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyVaultSecretsProvider) *string {
 		if v == nil {
@@ -8280,6 +8678,8 @@ type KubernetesClusterKeyVaultSecretsProviderSecretIdentity struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8300,6 +8700,8 @@ type KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8365,6 +8767,8 @@ func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ObjectId()
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -8681,6 +9085,8 @@ type KubernetesClusterKubeletIdentity struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8701,6 +9107,8 @@ type KubernetesClusterKubeletIdentityArgs struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8792,6 +9200,8 @@ func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutpu
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -8841,6 +9251,8 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) ObjectId() pulumi.StringPtrOu
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
 		if v == nil {
@@ -9813,11 +10225,23 @@ type KubernetesClusterNetworkProfile struct {
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	//
+	// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
 	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+	//
+	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+	//
+	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 	IpVersions []string `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
@@ -9826,12 +10250,24 @@ type KubernetesClusterNetworkProfile struct {
 	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+	//
+	// > **Note:** This property can only be set when `networkPlugin` is set to `azure`.
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `networkPlugin` is set to `azure` - the `vnetSubnetId` field in the `defaultNodePool` block must be set and `podCidr` must not be set.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
 	NetworkPluginMode *string `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 	OutboundType *string `pulumi:"outboundType"`
@@ -9842,6 +10278,8 @@ type KubernetesClusterNetworkProfile struct {
 	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr *string `pulumi:"serviceCidr"`
 	// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
 	ServiceCidrs []string `pulumi:"serviceCidrs"`
 }
 
@@ -9861,11 +10299,23 @@ type KubernetesClusterNetworkProfileArgs struct {
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	//
+	// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
 	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
 	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+	//
+	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+	//
+	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
@@ -9874,12 +10324,24 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+	//
+	// > **Note:** This property can only be set when `networkPlugin` is set to `azure`.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `networkPlugin` is set to `azure` - the `vnetSubnetId` field in the `defaultNodePool` block must be set and `podCidr` must not be set.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
 	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
@@ -9890,6 +10352,8 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 	// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
 	ServiceCidrs pulumi.StringArrayInput `pulumi:"serviceCidrs"`
 }
 
@@ -9977,17 +10441,29 @@ func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOu
 
 // IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 //
+// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
 // Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 func (o KubernetesClusterNetworkProfileOutput) EbpfDataPlane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.EbpfDataPlane }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+//
+// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+//
+// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
 }
@@ -10012,21 +10488,33 @@ func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClu
 }
 
 // Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+//
+// > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+//
+// > **Note:** This property can only be set when `networkPlugin` is set to `azure`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
 // Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `networkPlugin` is set to `azure` - the `vnetSubnetId` field in the `defaultNodePool` block must be set and `podCidr` must not be set.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
 // Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
 }
 
 // Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
@@ -10052,6 +10540,8 @@ func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOut
 }
 
 // A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+//
+// > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
 func (o KubernetesClusterNetworkProfileOutput) ServiceCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.ServiceCidrs }).(pulumi.StringArrayOutput)
 }
@@ -10092,6 +10582,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPt
 
 // IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 //
+// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
 // Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
@@ -10103,6 +10595,12 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Stri
 }
 
 // Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -10113,6 +10611,10 @@ func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringP
 }
 
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+//
+// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+//
+// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -10153,6 +10655,10 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() Kubernetes
 }
 
 // Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+//
+// > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+//
+// > **Note:** This property can only be set when `networkPlugin` is set to `azure`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -10163,6 +10669,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtr
 }
 
 // Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `networkPlugin` is set to `azure` - the `vnetSubnetId` field in the `defaultNodePool` block must be set and `podCidr` must not be set.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -10173,6 +10681,10 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringP
 }
 
 // Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -10183,6 +10695,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.Str
 }
 
 // Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -10233,6 +10747,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtr
 }
 
 // A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+//
+// > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
 func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -10250,10 +10766,16 @@ type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
 	// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+	//
+	// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 	ManagedOutboundIpv6Count *int `pulumi:"managedOutboundIpv6Count"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
 	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
 	OutboundIpPrefixIds []string `pulumi:"outboundIpPrefixIds"`
 	// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
 	OutboundPortsAllocated *int `pulumi:"outboundPortsAllocated"`
@@ -10278,10 +10800,16 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
 	// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+	//
+	// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 	ManagedOutboundIpv6Count pulumi.IntPtrInput `pulumi:"managedOutboundIpv6Count"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
 	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
 	OutboundIpPrefixIds pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
 	// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
 	OutboundPortsAllocated pulumi.IntPtrInput `pulumi:"outboundPortsAllocated"`
@@ -10380,16 +10908,22 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboun
 }
 
 // The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+//
+// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpv6Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpv6Count }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
@@ -10454,6 +10988,8 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutb
 }
 
 // The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+//
+// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpv6Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
 		if v == nil {
@@ -10464,6 +11000,8 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutb
 }
 
 // The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) []string {
 		if v == nil {
@@ -10474,6 +11012,8 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpA
 }
 
 // The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) []string {
 		if v == nil {
@@ -11845,6 +12385,8 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVfsCacheP
 
 type KubernetesClusterNodePoolNodeNetworkProfile struct {
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -11861,6 +12403,8 @@ type KubernetesClusterNodePoolNodeNetworkProfileInput interface {
 
 type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -11942,6 +12486,8 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNo
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) map[string]string { return v.NodePublicIpTags }).(pulumi.StringMapOutput)
 }
@@ -11971,6 +12517,8 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesC
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -12119,6 +12667,8 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.Str
 
 type KubernetesClusterNodePoolWindowsProfile struct {
 	// Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	OutboundNatEnabled *bool `pulumi:"outboundNatEnabled"`
 }
 
@@ -12135,6 +12685,8 @@ type KubernetesClusterNodePoolWindowsProfileInput interface {
 
 type KubernetesClusterNodePoolWindowsProfileArgs struct {
 	// Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	OutboundNatEnabled pulumi.BoolPtrInput `pulumi:"outboundNatEnabled"`
 }
 
@@ -12216,6 +12768,8 @@ func (o KubernetesClusterNodePoolWindowsProfileOutput) ToKubernetesClusterNodePo
 }
 
 // Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+//
+// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 func (o KubernetesClusterNodePoolWindowsProfileOutput) OutboundNatEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolWindowsProfile) *bool { return v.OutboundNatEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12245,6 +12799,8 @@ func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) Elem() KubernetesClust
 }
 
 // Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+//
+// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) OutboundNatEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolWindowsProfile) *bool {
 		if v == nil {
@@ -12437,6 +12993,8 @@ type KubernetesClusterOmsAgentOmsAgentIdentity struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -12457,6 +13015,8 @@ type KubernetesClusterOmsAgentOmsAgentIdentityArgs struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -12522,6 +13082,8 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.Strin
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -12845,6 +13407,8 @@ type KubernetesClusterStorageProfile struct {
 	// Is the Disk CSI driver enabled? Defaults to `true`.
 	DiskDriverEnabled *bool `pulumi:"diskDriverEnabled"`
 	// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+	//
+	// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
 	DiskDriverVersion *string `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled? Defaults to `true`.
 	FileDriverEnabled *bool `pulumi:"fileDriverEnabled"`
@@ -12869,6 +13433,8 @@ type KubernetesClusterStorageProfileArgs struct {
 	// Is the Disk CSI driver enabled? Defaults to `true`.
 	DiskDriverEnabled pulumi.BoolPtrInput `pulumi:"diskDriverEnabled"`
 	// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+	//
+	// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
 	DiskDriverVersion pulumi.StringPtrInput `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled? Defaults to `true`.
 	FileDriverEnabled pulumi.BoolPtrInput `pulumi:"fileDriverEnabled"`
@@ -12964,6 +13530,8 @@ func (o KubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolPt
 }
 
 // Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+//
+// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
 func (o KubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterStorageProfile) *string { return v.DiskDriverVersion }).(pulumi.StringPtrOutput)
 }
@@ -13023,6 +13591,8 @@ func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverEnabled() pulumi.Boo
 }
 
 // Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+//
+// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
 func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *string {
 		if v == nil {
@@ -13387,6 +13957,8 @@ type KubernetesClusterWindowsProfileGmsa struct {
 	// Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
 	DnsServer string `pulumi:"dnsServer"`
 	// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+	//
+	// > **Note:** The properties `dnsServer` and `rootDomain` must both either be set or unset, i.e. empty.
 	RootDomain string `pulumi:"rootDomain"`
 }
 
@@ -13405,6 +13977,8 @@ type KubernetesClusterWindowsProfileGmsaArgs struct {
 	// Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
 	DnsServer pulumi.StringInput `pulumi:"dnsServer"`
 	// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+	//
+	// > **Note:** The properties `dnsServer` and `rootDomain` must both either be set or unset, i.e. empty.
 	RootDomain pulumi.StringInput `pulumi:"rootDomain"`
 }
 
@@ -13491,6 +14065,8 @@ func (o KubernetesClusterWindowsProfileGmsaOutput) DnsServer() pulumi.StringOutp
 }
 
 // Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+//
+// > **Note:** The properties `dnsServer` and `rootDomain` must both either be set or unset, i.e. empty.
 func (o KubernetesClusterWindowsProfileGmsaOutput) RootDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterWindowsProfileGmsa) string { return v.RootDomain }).(pulumi.StringOutput)
 }
@@ -13530,6 +14106,8 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) DnsServer() pulumi.StringP
 }
 
 // Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+//
+// > **Note:** The properties `dnsServer` and `rootDomain` must both either be set or unset, i.e. empty.
 func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWindowsProfileGmsa) *string {
 		if v == nil {
@@ -13541,10 +14119,14 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.String
 
 type KubernetesClusterWorkloadAutoscalerProfile struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	KedaEnabled *bool `pulumi:"kedaEnabled"`
 	// Which resources values should be controlled.
 	VerticalPodAutoscalerControlledValues *string `pulumi:"verticalPodAutoscalerControlledValues"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled *bool `pulumi:"verticalPodAutoscalerEnabled"`
 	// How the autoscaler applies changes to pod resources.
 	VerticalPodAutoscalerUpdateMode *string `pulumi:"verticalPodAutoscalerUpdateMode"`
@@ -13563,10 +14145,14 @@ type KubernetesClusterWorkloadAutoscalerProfileInput interface {
 
 type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
 	// Which resources values should be controlled.
 	VerticalPodAutoscalerControlledValues pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerControlledValues"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled pulumi.BoolPtrInput `pulumi:"verticalPodAutoscalerEnabled"`
 	// How the autoscaler applies changes to pod resources.
 	VerticalPodAutoscalerUpdateMode pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerUpdateMode"`
@@ -13650,6 +14236,8 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToKubernetesClusterWor
 }
 
 // Specifies whether KEDA Autoscaler can be used for workloads.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.KedaEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13662,6 +14250,8 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerC
 }
 
 // Specifies whether Vertical Pod Autoscaler should be enabled.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.VerticalPodAutoscalerEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13696,6 +14286,8 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) Elem() KubernetesCl
 }
 
 // Specifies whether KEDA Autoscaler can be used for workloads.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *bool {
 		if v == nil {
@@ -13716,6 +14308,8 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscal
 }
 
 // Specifies whether Vertical Pod Autoscaler should be enabled.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *bool {
 		if v == nil {
@@ -13902,6 +14496,8 @@ type RegistryEncryption struct {
 	// Boolean value that indicates whether encryption is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
+	//
+	// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 	IdentityClientId string `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -13922,6 +14518,8 @@ type RegistryEncryptionArgs struct {
 	// Boolean value that indicates whether encryption is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
+	//
+	// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -14010,6 +14608,8 @@ func (o RegistryEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The client ID of the managed identity associated with the encryption key.
+//
+// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 func (o RegistryEncryptionOutput) IdentityClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryEncryption) string { return v.IdentityClientId }).(pulumi.StringOutput)
 }
@@ -14054,6 +14654,8 @@ func (o RegistryEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The client ID of the managed identity associated with the encryption key.
+//
+// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 func (o RegistryEncryptionPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryEncryption) *string {
 		if v == nil {
@@ -14081,6 +14683,8 @@ type RegistryGeoreplication struct {
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+	//
+	// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -14103,6 +14707,8 @@ type RegistryGeoreplicationArgs struct {
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+	//
+	// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -14173,6 +14779,8 @@ func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+//
+// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14199,6 +14807,8 @@ func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeor
 
 type RegistryIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -14221,6 +14831,8 @@ type RegistryIdentityInput interface {
 
 type RegistryIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -14308,6 +14920,8 @@ func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx conte
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -14352,6 +14966,8 @@ func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryIdentity) []string {
 		if v == nil {
@@ -14397,6 +15013,10 @@ type RegistryNetworkRuleSet struct {
 	// One or more `ipRule` blocks as defined below.
 	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
 	// One or more `virtualNetwork` blocks as defined below.
+	//
+	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+	//
+	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	VirtualNetworks []RegistryNetworkRuleSetVirtualNetwork `pulumi:"virtualNetworks"`
 }
 
@@ -14417,6 +15037,10 @@ type RegistryNetworkRuleSetArgs struct {
 	// One or more `ipRule` blocks as defined below.
 	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 	// One or more `virtualNetwork` blocks as defined below.
+	//
+	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+	//
+	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	VirtualNetworks RegistryNetworkRuleSetVirtualNetworkArrayInput `pulumi:"virtualNetworks"`
 }
 
@@ -14508,6 +15132,10 @@ func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArra
 }
 
 // One or more `virtualNetwork` blocks as defined below.
+//
+// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+//
+// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
@@ -14557,6 +15185,10 @@ func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleA
 }
 
 // One or more `virtualNetwork` blocks as defined below.
+//
+// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+//
+// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetPtrOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork {
 		if v == nil {
@@ -16039,6 +16671,8 @@ func (o RegistryTaskFileStepPtrOutput) Values() pulumi.StringMapOutput {
 
 type RegistryTaskIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -16061,6 +16695,8 @@ type RegistryTaskIdentityInput interface {
 
 type RegistryTaskIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -16148,6 +16784,8 @@ func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutputWithContext(c
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryTaskIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -16192,6 +16830,8 @@ func (o RegistryTaskIdentityPtrOutput) Elem() RegistryTaskIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryTaskIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) []string {
 		if v == nil {

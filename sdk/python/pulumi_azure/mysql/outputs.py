@@ -57,6 +57,8 @@ class FlexibleServerCustomerManagedKey(dict):
         """
         :param str geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
         :param str geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+               
+               > **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str key_vault_key_id: The ID of the Key Vault Key.
         :param str primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
@@ -82,6 +84,8 @@ class FlexibleServerCustomerManagedKey(dict):
     def geo_backup_user_assigned_identity_id(self) -> Optional[str]:
         """
         The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+
+        > **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
@@ -126,7 +130,11 @@ class FlexibleServerHighAvailability(dict):
                  standby_availability_zone: Optional[str] = None):
         """
         :param str mode: The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+               
+               > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         :param str standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+               
+               > **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -137,6 +145,8 @@ class FlexibleServerHighAvailability(dict):
     def mode(self) -> str:
         """
         The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
+
+        > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
         return pulumi.get(self, "mode")
 
@@ -145,6 +155,8 @@ class FlexibleServerHighAvailability(dict):
     def standby_availability_zone(self) -> Optional[str]:
         """
         Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+
+        > **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
         """
         return pulumi.get(self, "standby_availability_zone")
 

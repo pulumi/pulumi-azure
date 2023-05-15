@@ -32,6 +32,8 @@ class WebTestArgs:
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
@@ -94,6 +96,8 @@ class WebTestArgs:
     def geo_locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
+
+        > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         """
         return pulumi.get(self, "geo_locations")
 
@@ -247,6 +251,8 @@ class _WebTestState:
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
@@ -349,6 +355,8 @@ class _WebTestState:
     def geo_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
+
+        > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         """
         return pulumi.get(self, "geo_locations")
 
@@ -521,6 +529,8 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
@@ -677,6 +687,8 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+               
+               > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
@@ -750,6 +762,8 @@ class WebTest(pulumi.CustomResource):
     def geo_locations(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
+
+        > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         """
         return pulumi.get(self, "geo_locations")
 

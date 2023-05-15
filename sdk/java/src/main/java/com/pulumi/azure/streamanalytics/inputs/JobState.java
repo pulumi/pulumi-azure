@@ -23,12 +23,16 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
      * 
+     * &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
+     * 
      */
     @Import(name="compatibilityLevel")
     private @Nullable Output<String> compatibilityLevel;
 
     /**
      * @return Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+     * 
+     * &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      * 
      */
     public Optional<Output<String>> compatibilityLevel() {
@@ -233,12 +237,16 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
+     * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+     * 
      */
     @Import(name="streamingUnits")
     private @Nullable Output<Integer> streamingUnits;
 
     /**
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     * 
+     * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
      * 
      */
     public Optional<Output<Integer>> streamingUnits() {
@@ -278,12 +286,16 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -334,6 +346,8 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param compatibilityLevel Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
          * 
+         * &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
+         * 
          * @return builder
          * 
          */
@@ -344,6 +358,8 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param compatibilityLevel Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+         * 
+         * &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
          * 
          * @return builder
          * 
@@ -638,6 +654,8 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
          * 
+         * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+         * 
          * @return builder
          * 
          */
@@ -648,6 +666,8 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+         * 
+         * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
          * 
          * @return builder
          * 
@@ -701,6 +721,8 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+         * 
          * @return builder
          * 
          */
@@ -711,6 +733,8 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
          * 
          * @return builder
          * 

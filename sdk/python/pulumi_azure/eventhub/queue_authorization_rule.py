@@ -22,6 +22,8 @@ class QueueAuthorizationRuleArgs:
         """
         The set of arguments for constructing a QueueAuthorizationRule resource.
         :param pulumi.Input[str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -42,6 +44,8 @@ class QueueAuthorizationRuleArgs:
     def queue_id(self) -> pulumi.Input[str]:
         """
         Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+
+        > **NOTE** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "queue_id")
 
@@ -121,6 +125,8 @@ class _QueueAuthorizationRuleState:
         :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the Authorization Rule.
         :param pulumi.Input[str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Authorization Rule.
         :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] secondary_key: The Secondary Key for the Authorization Rule.
@@ -226,6 +232,8 @@ class _QueueAuthorizationRuleState:
     def queue_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+
+        > **NOTE** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "queue_id")
 
@@ -339,6 +347,8 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
         """
         ...
@@ -462,6 +472,8 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the Authorization Rule.
         :param pulumi.Input[str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Authorization Rule.
         :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] secondary_key: The Secondary Key for the Authorization Rule.
@@ -537,6 +549,8 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     def queue_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+
+        > **NOTE** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "queue_id")
 

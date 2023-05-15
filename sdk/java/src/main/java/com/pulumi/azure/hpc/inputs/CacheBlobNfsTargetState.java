@@ -93,12 +93,16 @@ public final class CacheBlobNfsTargetState extends com.pulumi.resources.Resource
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+     * 
      */
     @Import(name="storageContainerId")
     private @Nullable Output<String> storageContainerId;
 
     /**
      * @return The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
      * 
      */
     public Optional<Output<String>> storageContainerId() {
@@ -258,6 +262,8 @@ public final class CacheBlobNfsTargetState extends com.pulumi.resources.Resource
         /**
          * @param storageContainerId The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+         * 
          * @return builder
          * 
          */
@@ -268,6 +274,8 @@ public final class CacheBlobNfsTargetState extends com.pulumi.resources.Resource
 
         /**
          * @param storageContainerId The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
          * 
          * @return builder
          * 

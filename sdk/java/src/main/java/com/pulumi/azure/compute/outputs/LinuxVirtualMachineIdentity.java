@@ -15,6 +15,8 @@ public final class LinuxVirtualMachineIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class LinuxVirtualMachineIdentity {
     private LinuxVirtualMachineIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

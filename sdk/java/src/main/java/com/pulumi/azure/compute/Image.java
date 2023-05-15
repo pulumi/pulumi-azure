@@ -184,12 +184,16 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * 
      */
     @Export(name="hyperVGeneration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
      * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      * 
      */
     public Output<Optional<String>> hyperVGeneration() {

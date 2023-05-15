@@ -113,12 +113,16 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+     * 
      */
     @Export(name="cacheSizeInGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheSizeInGb;
 
     /**
      * @return The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      * 
      */
     public Output<Integer> cacheSizeInGb() {
@@ -169,12 +173,16 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * A `directory_ldap` block as defined below.
      * 
+     * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+     * 
      */
     @Export(name="directoryLdap", refs={CacheDirectoryLdap.class}, tree="[0]")
     private Output</* @Nullable */ CacheDirectoryLdap> directoryLdap;
 
     /**
      * @return A `directory_ldap` block as defined below.
+     * 
+     * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
      * 
      */
     public Output<Optional<CacheDirectoryLdap>> directoryLdap() {
@@ -309,12 +317,16 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+     * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
      * @return The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      * 
      */
     public Output<String> skuName() {

@@ -23,6 +23,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         public readonly bool? LatestRevision;
         /// <summary>
         /// The percentage of traffic which should be sent this revision.
+        /// 
+        /// &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
         /// </summary>
         public readonly int Percentage;
         /// <summary>

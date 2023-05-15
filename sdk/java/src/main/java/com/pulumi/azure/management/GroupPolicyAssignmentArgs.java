@@ -69,12 +69,16 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+     * 
      */
     @Import(name="identity")
     private @Nullable Output<GroupPolicyAssignmentIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
     public Optional<Output<GroupPolicyAssignmentIdentityArgs>> identity() {
@@ -334,6 +338,8 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
         /**
          * @param identity An `identity` block as defined below.
          * 
+         * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+         * 
          * @return builder
          * 
          */
@@ -344,6 +350,8 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
 
         /**
          * @param identity An `identity` block as defined below.
+         * 
+         * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
          * 
          * @return builder
          * 

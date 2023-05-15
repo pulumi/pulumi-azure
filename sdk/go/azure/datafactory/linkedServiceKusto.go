@@ -108,6 +108,8 @@ type LinkedServiceKusto struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Kusto Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -130,6 +132,10 @@ type LinkedServiceKusto struct {
 	// The service principal key in which to authenticate against the Kusto Database.
 	ServicePrincipalKey pulumi.StringPtrOutput `pulumi:"servicePrincipalKey"`
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
+	//
+	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	//
+	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant pulumi.StringPtrOutput `pulumi:"tenant"`
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity pulumi.BoolPtrOutput `pulumi:"useManagedIdentity"`
@@ -181,6 +187,8 @@ func GetLinkedServiceKusto(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceKusto resources.
 type linkedServiceKustoState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Kusto Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -203,6 +211,10 @@ type linkedServiceKustoState struct {
 	// The service principal key in which to authenticate against the Kusto Database.
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
+	//
+	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	//
+	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant *string `pulumi:"tenant"`
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
@@ -210,6 +222,8 @@ type linkedServiceKustoState struct {
 
 type LinkedServiceKustoState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Kusto Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -232,6 +246,10 @@ type LinkedServiceKustoState struct {
 	// The service principal key in which to authenticate against the Kusto Database.
 	ServicePrincipalKey pulumi.StringPtrInput
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
+	//
+	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	//
+	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant pulumi.StringPtrInput
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity pulumi.BoolPtrInput
@@ -243,6 +261,8 @@ func (LinkedServiceKustoState) ElementType() reflect.Type {
 
 type linkedServiceKustoArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Kusto Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -265,6 +285,10 @@ type linkedServiceKustoArgs struct {
 	// The service principal key in which to authenticate against the Kusto Database.
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
+	//
+	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	//
+	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant *string `pulumi:"tenant"`
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
@@ -273,6 +297,8 @@ type linkedServiceKustoArgs struct {
 // The set of arguments for constructing a LinkedServiceKusto resource.
 type LinkedServiceKustoArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Kusto Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -295,6 +321,10 @@ type LinkedServiceKustoArgs struct {
 	// The service principal key in which to authenticate against the Kusto Database.
 	ServicePrincipalKey pulumi.StringPtrInput
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
+	//
+	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	//
+	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant pulumi.StringPtrInput
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity pulumi.BoolPtrInput
@@ -388,6 +418,8 @@ func (o LinkedServiceKustoOutput) ToLinkedServiceKustoOutputWithContext(ctx cont
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to Azure Kusto Linked Service:
 func (o LinkedServiceKustoOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceKusto) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }
@@ -443,6 +475,10 @@ func (o LinkedServiceKustoOutput) ServicePrincipalKey() pulumi.StringPtrOutput {
 }
 
 // The service principal tenant id or name in which to authenticate against the Kusto Database.
+//
+// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+//
+// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
 func (o LinkedServiceKustoOutput) Tenant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceKusto) pulumi.StringPtrOutput { return v.Tenant }).(pulumi.StringPtrOutput)
 }

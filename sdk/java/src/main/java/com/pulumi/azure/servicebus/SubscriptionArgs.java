@@ -51,12 +51,16 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * whether the subscription is scoped to a client id. Defaults to `False`.
      * 
+     * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * 
      */
     @Import(name="clientScopedSubscriptionEnabled")
     private @Nullable Output<Boolean> clientScopedSubscriptionEnabled;
 
     /**
      * @return whether the subscription is scoped to a client id. Defaults to `False`.
+     * 
+     * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 
      */
     public Optional<Output<Boolean>> clientScopedSubscriptionEnabled() {
@@ -326,6 +330,8 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param clientScopedSubscriptionEnabled whether the subscription is scoped to a client id. Defaults to `False`.
          * 
+         * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+         * 
          * @return builder
          * 
          */
@@ -336,6 +342,8 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clientScopedSubscriptionEnabled whether the subscription is scoped to a client id. Defaults to `False`.
+         * 
+         * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
          * 
          * @return builder
          * 

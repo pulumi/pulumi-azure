@@ -107,6 +107,8 @@ export class Certificate extends pulumi.CustomResource {
     public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
      */
     public readonly pfxBlob!: pulumi.Output<string | undefined>;
     /**
@@ -234,6 +236,8 @@ export interface CertificateState {
     password?: pulumi.Input<string>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
      */
     pfxBlob?: pulumi.Input<string>;
     /**
@@ -280,6 +284,8 @@ export interface CertificateArgs {
     password?: pulumi.Input<string>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
      */
     pfxBlob?: pulumi.Input<string>;
     /**

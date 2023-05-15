@@ -21,6 +21,10 @@ class LogAnalyticsWorkspaceOnboardingArgs:
         """
         The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
         :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+               
+               > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
@@ -44,6 +48,10 @@ class LogAnalyticsWorkspaceOnboardingArgs:
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+
+        > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -95,6 +103,10 @@ class _LogAnalyticsWorkspaceOnboardingState:
         """
         Input properties used for looking up and filtering LogAnalyticsWorkspaceOnboarding resources.
         :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+               
+               > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
@@ -118,6 +130,10 @@ class _LogAnalyticsWorkspaceOnboardingState:
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+
+        > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -200,6 +216,10 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+               
+               > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
@@ -297,6 +317,10 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+               
+               > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
@@ -315,6 +339,10 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     def customer_managed_key_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+
+        > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 

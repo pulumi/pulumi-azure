@@ -22,6 +22,10 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -42,10 +46,22 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
+     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+     * 
      */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -86,6 +102,10 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
@@ -114,12 +134,24 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
+     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+     * 
      */
     public Optional<String> clientSecretCertificateThumbprint() {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<String> clientSecretSettingName() {

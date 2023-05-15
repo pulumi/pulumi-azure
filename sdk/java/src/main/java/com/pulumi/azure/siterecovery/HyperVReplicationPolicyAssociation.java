@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
  * Manages an Azure Site Recovery replication policy for HyperV within a Recovery Vault.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -51,19 +50,18 @@ import javax.annotation.Nullable;
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
- *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
+ *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleHyperVSite = new HyperVSite(&#34;exampleHyperVSite&#34;, HyperVSiteArgs.builder()        
- *             .recoveryVaultId(azurerm_recovery_services_vault.example().id())
+ *             .recoveryVaultId(exampleVault.id())
  *             .build());
  * 
- *         var policy = new HyperVReplicationPolicy(&#34;policy&#34;, HyperVReplicationPolicyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .recoveryVaultName(vault.name())
+ *         var exampleHyperVReplicationPolicy = new HyperVReplicationPolicy(&#34;exampleHyperVReplicationPolicy&#34;, HyperVReplicationPolicyArgs.builder()        
+ *             .recoveryVaultId(exampleVault.id())
  *             .recoveryPointRetentionInHours(2)
  *             .applicationConsistentSnapshotFrequencyInHours(1)
  *             .replicationIntervalInSeconds(300)
@@ -71,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleHyperVReplicationPolicyAssociation = new HyperVReplicationPolicyAssociation(&#34;exampleHyperVReplicationPolicyAssociation&#34;, HyperVReplicationPolicyAssociationArgs.builder()        
  *             .hypervSiteId(exampleHyperVSite.id())
- *             .policyId(azurerm_site_recovery_hyperv_replication_policy.example().id())
+ *             .policyId(exampleHyperVReplicationPolicy.id())
  *             .build());
  * 
  *     }

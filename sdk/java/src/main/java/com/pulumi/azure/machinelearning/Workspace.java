@@ -433,12 +433,16 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * 
      */
     @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerRegistryId;
 
     /**
      * @return The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     public Output<Optional<String>> containerRegistryId() {
@@ -619,12 +623,16 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
      * 
+     * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Enable public access when this Machine Learning Workspace is behind VNet.
+     * 
+     * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
      * 
      */
     public Output<Boolean> publicNetworkAccessEnabled() {
@@ -661,12 +669,16 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**
      * @return The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     public Output<String> storageAccountId() {
@@ -699,6 +711,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> v1LegacyModeEnabled() {
         return Codegen.optional(this.v1LegacyModeEnabled);
+    }
+    /**
+     * The immutable id associated with this workspace.
+     * 
+     */
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    private Output<String> workspaceId;
+
+    /**
+     * @return The immutable id associated with this workspace.
+     * 
+     */
+    public Output<String> workspaceId() {
+        return this.workspaceId;
     }
 
     /**

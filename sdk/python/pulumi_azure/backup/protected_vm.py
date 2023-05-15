@@ -28,6 +28,9 @@ class ProtectedVMArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+               This allows the source vm to be deleted without having to remove the backup.
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -104,6 +107,9 @@ class ProtectedVMArgs:
     def source_vm_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+
+        > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+        This allows the source vm to be deleted without having to remove the backup.
         """
         return pulumi.get(self, "source_vm_id")
 
@@ -129,6 +135,9 @@ class _ProtectedVMState:
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+               This allows the source vm to be deleted without having to remove the backup.
         """
         if backup_policy_id is not None:
             pulumi.set(__self__, "backup_policy_id", backup_policy_id)
@@ -208,6 +217,9 @@ class _ProtectedVMState:
     def source_vm_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+
+        > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+        This allows the source vm to be deleted without having to remove the backup.
         """
         return pulumi.get(self, "source_vm_id")
 
@@ -279,6 +291,9 @@ class ProtectedVM(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+               This allows the source vm to be deleted without having to remove the backup.
         """
         ...
     @overload
@@ -400,6 +415,9 @@ class ProtectedVM(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+               This allows the source vm to be deleted without having to remove the backup.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -458,6 +476,9 @@ class ProtectedVM(pulumi.CustomResource):
     def source_vm_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+
+        > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+        This allows the source vm to be deleted without having to remove the backup.
         """
         return pulumi.get(self, "source_vm_id")
 

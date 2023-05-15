@@ -160,12 +160,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * 
+     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminPassword;
 
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * 
+     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Output<Optional<String>> adminPassword() {
@@ -174,12 +182,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * One or more `admin_ssh_key` blocks as defined below.
      * 
+     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     @Export(name="adminSshKeys", refs={List.class,LinuxVirtualMachineScaleSetAdminSshKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetAdminSshKey>> adminSshKeys;
 
     /**
      * @return One or more `admin_ssh_key` blocks as defined below.
+     * 
+     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineScaleSetAdminSshKey>>> adminSshKeys() {
@@ -202,12 +214,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
+     * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+     * 
      */
     @Export(name="automaticInstanceRepair", refs={LinuxVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
     private Output<LinuxVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
      * @return An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * 
+     * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      * 
      */
     public Output<LinuxVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
@@ -244,12 +260,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+     * 
+     * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+     * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+     * 
+     * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {
@@ -272,12 +296,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      * 
+     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * 
      */
     @Export(name="customData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customData;
 
     /**
      * @return The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
+     * 
+     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
     public Output<Optional<String>> customData() {
@@ -300,12 +328,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
+     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * 
+     * &gt; **NOTE:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * 
      */
     @Export(name="disablePasswordAuthentication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disablePasswordAuthentication;
 
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
+     * 
+     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * 
+     * &gt; **NOTE:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
     public Output<Optional<Boolean>> disablePasswordAuthentication() {
@@ -356,12 +392,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
      * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -370,12 +410,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      * 
+     * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * 
+     * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     public Output<Boolean> extensionOperationsEnabled() {
@@ -480,12 +524,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
+     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * 
      */
     @Export(name="instances", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instances;
 
     /**
      * @return The number of Virtual Machines in the Scale Set. Defaults to `0`.
+     * 
+     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      */
     public Output<Optional<Integer>> instances() {
@@ -508,12 +556,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
      * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * 
      */
     @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
      * @return The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
+     * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<Double>> maxBidPrice() {
@@ -578,12 +630,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+     * 
      */
     @Export(name="plan", refs={LinuxVirtualMachineScaleSetPlan.class}, tree="[0]")
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetPlan> plan;
 
     /**
      * @return A `plan` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetPlan>> plan() {
@@ -606,12 +662,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
+     * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+     * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priority;
 
     /**
      * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * 
+     * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
      * 
      */
     public Output<Optional<String>> priority() {
@@ -758,12 +818,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * 
      */
     @Export(name="sourceImageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
      * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Output<Optional<String>> sourceImageId() {
@@ -772,12 +836,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * A `source_image_reference` block as defined below.
      * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * 
      */
     @Export(name="sourceImageReference", refs={LinuxVirtualMachineScaleSetSourceImageReference.class}, tree="[0]")
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetSourceImageReference> sourceImageReference;
 
     /**
      * @return A `source_image_reference` block as defined below.
+     * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetSourceImageReference>> sourceImageReference() {
@@ -814,6 +882,8 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * A `terminate_notification` block as defined below.
      * 
+     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
+     * 
      * @deprecated
      * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      * 
@@ -824,6 +894,8 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
 
     /**
      * @return A `terminate_notification` block as defined below.
+     * 
+     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
      * 
      */
     public Output<LinuxVirtualMachineScaleSetTerminateNotification> terminateNotification() {
@@ -902,12 +974,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * 
      */
     @Export(name="zoneBalance", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneBalance;
 
     /**
      * @return Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
      * 
      */
     public Output<Optional<Boolean>> zoneBalance() {

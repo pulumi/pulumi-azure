@@ -83,6 +83,8 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     public readonly appServiceName!: pulumi.Output<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      */
     public readonly hostname!: pulumi.Output<string>;
     /**
@@ -95,6 +97,8 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     public readonly sslState!: pulumi.Output<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `thumbprint` must be specified when `sslState` is set.
      */
     public readonly thumbprint!: pulumi.Output<string>;
     /**
@@ -154,6 +158,8 @@ export interface CustomHostnameBindingState {
     appServiceName?: pulumi.Input<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      */
     hostname?: pulumi.Input<string>;
     /**
@@ -166,6 +172,8 @@ export interface CustomHostnameBindingState {
     sslState?: pulumi.Input<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `thumbprint` must be specified when `sslState` is set.
      */
     thumbprint?: pulumi.Input<string>;
     /**
@@ -184,6 +192,8 @@ export interface CustomHostnameBindingArgs {
     appServiceName: pulumi.Input<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      */
     hostname: pulumi.Input<string>;
     /**
@@ -196,6 +206,8 @@ export interface CustomHostnameBindingArgs {
     sslState?: pulumi.Input<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `thumbprint` must be specified when `sslState` is set.
      */
     thumbprint?: pulumi.Input<string>;
 }

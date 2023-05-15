@@ -88,6 +88,8 @@ export class RouteTable extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A list of objects representing routes. Each object accepts the arguments documented below.
+     *
+     * > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     public readonly routes!: pulumi.Output<outputs.network.RouteTableRoute[]>;
     /**
@@ -159,6 +161,8 @@ export interface RouteTableState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A list of objects representing routes. Each object accepts the arguments documented below.
+     *
+     * > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**
@@ -193,6 +197,8 @@ export interface RouteTableArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A list of objects representing routes. Each object accepts the arguments documented below.
+     *
+     * > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**

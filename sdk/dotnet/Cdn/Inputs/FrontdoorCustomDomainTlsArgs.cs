@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Cdn.Inputs
 
         /// <summary>
         /// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+        /// 
+        /// -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         /// </summary>
         [Input("certificateType")]
         public Input<string>? CertificateType { get; set; }

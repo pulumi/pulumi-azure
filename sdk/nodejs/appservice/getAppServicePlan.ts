@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+ *
+ * !> **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -99,6 +103,10 @@ export interface GetAppServicePlanResult {
     readonly zoneRedundant: boolean;
 }
 /**
+ * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+ *
+ * !> **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+ *
  * ## Example Usage
  *
  * ```typescript

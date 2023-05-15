@@ -84,6 +84,8 @@ export class SharedImage extends pulumi.CustomResource {
     public readonly architecture!: pulumi.Output<string | undefined>;
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     *
+     * > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
      */
     public readonly confidentialVmEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -164,6 +166,8 @@ export class SharedImage extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+     *
+     * !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      */
     public readonly specialized!: pulumi.Output<boolean | undefined>;
     /**
@@ -272,6 +276,8 @@ export interface SharedImageState {
     architecture?: pulumi.Input<string>;
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     *
+     * > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
      */
     confidentialVmEnabled?: pulumi.Input<boolean>;
     /**
@@ -352,6 +358,8 @@ export interface SharedImageState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+     *
+     * !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      */
     specialized?: pulumi.Input<boolean>;
     /**
@@ -378,6 +386,8 @@ export interface SharedImageArgs {
     architecture?: pulumi.Input<string>;
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     *
+     * > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
      */
     confidentialVmEnabled?: pulumi.Input<boolean>;
     /**
@@ -458,6 +468,8 @@ export interface SharedImageArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+     *
+     * !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      */
     specialized?: pulumi.Input<boolean>;
     /**

@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The Secret URL of a Key Vault Certificate.
+        /// 
+        /// &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;

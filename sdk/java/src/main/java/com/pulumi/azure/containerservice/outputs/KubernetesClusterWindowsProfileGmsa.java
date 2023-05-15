@@ -17,6 +17,8 @@ public final class KubernetesClusterWindowsProfileGmsa {
     /**
      * @return Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
      * 
+     * &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
+     * 
      */
     private String rootDomain;
 
@@ -30,6 +32,8 @@ public final class KubernetesClusterWindowsProfileGmsa {
     }
     /**
      * @return Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+     * 
+     * &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
      * 
      */
     public String rootDomain() {

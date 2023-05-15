@@ -227,6 +227,10 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance.
+
+        > **Note:** The `sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
+
         ## Example Usage
 
         ```python
@@ -281,6 +285,10 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                  args: ManagedInstanceActiveDirectoryAdministratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance.
+
+        > **Note:** The `sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
+
         ## Example Usage
 
         ```python

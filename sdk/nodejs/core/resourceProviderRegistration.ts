@@ -71,9 +71,6 @@ export class ResourceProviderRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceProviderRegistration.__pulumiType;
     }
 
-    /**
-     * A list of `feature` blocks as defined below.
-     */
     public readonly features!: pulumi.Output<outputs.core.ResourceProviderRegistrationFeature[] | undefined>;
     /**
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
@@ -109,9 +106,6 @@ export class ResourceProviderRegistration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceProviderRegistration resources.
  */
 export interface ResourceProviderRegistrationState {
-    /**
-     * A list of `feature` blocks as defined below.
-     */
     features?: pulumi.Input<pulumi.Input<inputs.core.ResourceProviderRegistrationFeature>[]>;
     /**
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
@@ -123,9 +117,6 @@ export interface ResourceProviderRegistrationState {
  * The set of arguments for constructing a ResourceProviderRegistration resource.
  */
 export interface ResourceProviderRegistrationArgs {
-    /**
-     * A list of `feature` blocks as defined below.
-     */
     features?: pulumi.Input<pulumi.Input<inputs.core.ResourceProviderRegistrationFeature>[]>;
     /**
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.

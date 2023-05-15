@@ -84,6 +84,8 @@ type DatasetCosmosDBApi struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -141,6 +143,8 @@ func GetDatasetCosmosDBApi(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetCosmosDBApi resources.
 type datasetCosmosDBApiState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -164,6 +168,8 @@ type datasetCosmosDBApiState struct {
 
 type DatasetCosmosDBApiState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -191,6 +197,8 @@ func (DatasetCosmosDBApiState) ElementType() reflect.Type {
 
 type datasetCosmosDBApiArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -215,6 +223,8 @@ type datasetCosmosDBApiArgs struct {
 // The set of arguments for constructing a DatasetCosmosDBApi resource.
 type DatasetCosmosDBApiArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -324,6 +334,8 @@ func (o DatasetCosmosDBApiOutput) ToDatasetCosmosDBApiOutputWithContext(ctx cont
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
+//
+// The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
 func (o DatasetCosmosDBApiOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetCosmosDBApi) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

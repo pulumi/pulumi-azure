@@ -52,12 +52,16 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
      * 
+     * &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
+     * 
      */
     @Import(name="enterpriseAppId")
     private @Nullable Output<String> enterpriseAppId;
 
     /**
      * @return The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+     * 
+     * &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
      * 
      */
     public Optional<Output<String>> enterpriseAppId() {
@@ -231,6 +235,8 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param enterpriseAppId The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
          * 
+         * &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
+         * 
          * @return builder
          * 
          */
@@ -241,6 +247,8 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enterpriseAppId The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+         * 
+         * &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
          * 
          * @return builder
          * 

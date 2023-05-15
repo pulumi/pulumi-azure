@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,15 +34,15 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
      * IP address of an end point.
      * 
      */
-    @Import(name="ipAddress", required=true)
-    private Output<String> ipAddress;
+    @Import(name="ipAddress")
+    private @Nullable Output<String> ipAddress;
 
     /**
      * @return IP address of an end point.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Optional<Output<String>> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
 
     /**
@@ -127,7 +129,7 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder ipAddress(Output<String> ipAddress) {
+        public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
@@ -186,7 +188,6 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
 
         public ContactProfileLinkChannelEndPointArgs build() {
             $.endPointName = Objects.requireNonNull($.endPointName, "expected parameter 'endPointName' to be non-null");
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
             $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
             $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
             return $;

@@ -20,12 +20,16 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * 
      */
     @Import(name="eventhubAuthorizationRuleId")
     private @Nullable Output<String> eventhubAuthorizationRuleId;
 
     /**
      * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
      */
     public Optional<Output<String>> eventhubAuthorizationRuleId() {
@@ -65,12 +69,16 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
     /**
      * One or more `log` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * 
      */
     @Import(name="logs")
     private @Nullable Output<List<AadDiagnosticSettingLogArgs>> logs;
 
     /**
      * @return One or more `log` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
      * 
      */
     public Optional<Output<List<AadDiagnosticSettingLogArgs>>> logs() {
@@ -95,12 +103,16 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
      * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -139,6 +151,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
         /**
          * @param eventhubAuthorizationRuleId Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+         * 
          * @return builder
          * 
          */
@@ -149,6 +163,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
 
         /**
          * @param eventhubAuthorizationRuleId Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
          * 
          * @return builder
          * 
@@ -202,6 +218,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
         /**
          * @param logs One or more `log` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -213,6 +231,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
         /**
          * @param logs One or more `log` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -222,6 +242,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
 
         /**
          * @param logs One or more `log` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
          * 
          * @return builder
          * 
@@ -254,6 +276,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
         /**
          * @param storageAccountId The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -264,6 +288,8 @@ public final class AadDiagnosticSettingState extends com.pulumi.resources.Resour
 
         /**
          * @param storageAccountId The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
          * 
          * @return builder
          * 

@@ -90,6 +90,8 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A list of objects representing security rules, as defined below.
+     *
+     * > **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     public readonly securityRules!: pulumi.Output<outputs.network.NetworkSecurityGroupSecurityRule[]>;
     /**
@@ -149,6 +151,8 @@ export interface NetworkSecurityGroupState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A list of objects representing security rules, as defined below.
+     *
+     * > **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
@@ -175,6 +179,8 @@ export interface NetworkSecurityGroupArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A list of objects representing security rules, as defined below.
+     *
+     * > **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
     /**

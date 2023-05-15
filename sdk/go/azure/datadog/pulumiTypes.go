@@ -286,6 +286,8 @@ type MonitorIdentity struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 	Type string `pulumi:"type"`
 }
 
@@ -306,6 +308,8 @@ type MonitorIdentityArgs struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -397,6 +401,8 @@ func (o MonitorIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 func (o MonitorIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -446,6 +452,8 @@ func (o MonitorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 func (o MonitorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorIdentity) *string {
 		if v == nil {
@@ -459,6 +467,8 @@ type MonitorTagRuleLog struct {
 	// Whether AAD logs should be sent for the Monitor resource?
 	AadLogEnabled *bool `pulumi:"aadLogEnabled"`
 	// A `filter` block as defined below.
+	//
+	// > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters []MonitorTagRuleLogFilter `pulumi:"filters"`
 	// Whether Azure resource logs should be sent for the Monitor resource?
 	ResourceLogEnabled *bool `pulumi:"resourceLogEnabled"`
@@ -481,6 +491,8 @@ type MonitorTagRuleLogArgs struct {
 	// Whether AAD logs should be sent for the Monitor resource?
 	AadLogEnabled pulumi.BoolPtrInput `pulumi:"aadLogEnabled"`
 	// A `filter` block as defined below.
+	//
+	// > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters MonitorTagRuleLogFilterArrayInput `pulumi:"filters"`
 	// Whether Azure resource logs should be sent for the Monitor resource?
 	ResourceLogEnabled pulumi.BoolPtrInput `pulumi:"resourceLogEnabled"`
@@ -545,6 +557,8 @@ func (o MonitorTagRuleLogOutput) AadLogEnabled() pulumi.BoolPtrOutput {
 }
 
 // A `filter` block as defined below.
+//
+// > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o MonitorTagRuleLogOutput) Filters() MonitorTagRuleLogFilterArrayOutput {
 	return o.ApplyT(func(v MonitorTagRuleLog) []MonitorTagRuleLogFilter { return v.Filters }).(MonitorTagRuleLogFilterArrayOutput)
 }
@@ -696,6 +710,8 @@ func (o MonitorTagRuleLogFilterArrayOutput) Index(i pulumi.IntInput) MonitorTagR
 
 type MonitorTagRuleMetric struct {
 	// A `filter` block as defined below.
+	//
+	// > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters []MonitorTagRuleMetricFilter `pulumi:"filters"`
 }
 
@@ -712,6 +728,8 @@ type MonitorTagRuleMetricInput interface {
 
 type MonitorTagRuleMetricArgs struct {
 	// A `filter` block as defined below.
+	//
+	// > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters MonitorTagRuleMetricFilterArrayInput `pulumi:"filters"`
 }
 
@@ -767,6 +785,8 @@ func (o MonitorTagRuleMetricOutput) ToMonitorTagRuleMetricOutputWithContext(ctx 
 }
 
 // A `filter` block as defined below.
+//
+// > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o MonitorTagRuleMetricOutput) Filters() MonitorTagRuleMetricFilterArrayOutput {
 	return o.ApplyT(func(v MonitorTagRuleMetric) []MonitorTagRuleMetricFilter { return v.Filters }).(MonitorTagRuleMetricFilterArrayOutput)
 }

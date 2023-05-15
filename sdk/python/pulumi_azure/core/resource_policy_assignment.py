@@ -34,10 +34,14 @@ class ResourcePolicyAssignmentArgs:
         The set of arguments for constructing a ResourcePolicyAssignment resource.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+               
+               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['ResourcePolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
@@ -91,6 +95,8 @@ class ResourcePolicyAssignmentArgs:
     def resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+
+        > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -139,6 +145,8 @@ class ResourcePolicyAssignmentArgs:
     def identity(self) -> Optional[pulumi.Input['ResourcePolicyAssignmentIdentityArgs']]:
         """
         An `identity` block as defined below.
+
+        > **Note:** The `location` field must also be specified when `identity` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -266,6 +274,8 @@ class _ResourcePolicyAssignmentState:
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['ResourcePolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
@@ -275,6 +285,8 @@ class _ResourcePolicyAssignmentState:
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+               
+               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         if description is not None:
@@ -347,6 +359,8 @@ class _ResourcePolicyAssignmentState:
     def identity(self) -> Optional[pulumi.Input['ResourcePolicyAssignmentIdentityArgs']]:
         """
         An `identity` block as defined below.
+
+        > **Note:** The `location` field must also be specified when `identity` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -455,6 +469,8 @@ class _ResourcePolicyAssignmentState:
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+
+        > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -542,6 +558,8 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
@@ -551,6 +569,8 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+               
+               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentResourceSelectorArgs']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         ...
@@ -691,6 +711,8 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
@@ -700,6 +722,8 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+               
+               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentResourceSelectorArgs']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -751,6 +775,8 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
     def identity(self) -> pulumi.Output[Optional['outputs.ResourcePolicyAssignmentIdentity']]:
         """
         An `identity` block as defined below.
+
+        > **Note:** The `location` field must also be specified when `identity` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -823,6 +849,8 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
     def resource_id(self) -> pulumi.Output[str]:
         """
         The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+
+        > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         """
         return pulumi.get(self, "resource_id")
 

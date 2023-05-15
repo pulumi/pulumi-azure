@@ -24,6 +24,8 @@ public final class AppRegistry {
     /**
      * @return The hostname for the Container Registry.
      * 
+     * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+     * 
      */
     private String server;
     /**
@@ -49,6 +51,8 @@ public final class AppRegistry {
     }
     /**
      * @return The hostname for the Container Registry.
+     * 
+     * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
      * 
      */
     public String server() {

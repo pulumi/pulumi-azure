@@ -51,6 +51,8 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     /**
      * @return Specifies the translated FQDN.
      * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+     * 
      */
     private @Nullable String translatedFqdn;
     /**
@@ -111,6 +113,8 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     }
     /**
      * @return Specifies the translated FQDN.
+     * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
      * 
      */
     public Optional<String> translatedFqdn() {

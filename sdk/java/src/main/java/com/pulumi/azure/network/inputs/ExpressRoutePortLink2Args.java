@@ -79,12 +79,16 @@ public final class ExpressRoutePortLink2Args extends com.pulumi.resources.Resour
     /**
      * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
      * 
+     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+     * 
      */
     @Import(name="macsecCakKeyvaultSecretId")
     private @Nullable Output<String> macsecCakKeyvaultSecretId;
 
     /**
      * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+     * 
+     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
      * 
      */
     public Optional<Output<String>> macsecCakKeyvaultSecretId() {
@@ -286,6 +290,8 @@ public final class ExpressRoutePortLink2Args extends com.pulumi.resources.Resour
         /**
          * @param macsecCakKeyvaultSecretId The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
          * 
+         * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         * 
          * @return builder
          * 
          */
@@ -296,6 +302,8 @@ public final class ExpressRoutePortLink2Args extends com.pulumi.resources.Resour
 
         /**
          * @param macsecCakKeyvaultSecretId The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+         * 
+         * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
          * 
          * @return builder
          * 

@@ -15,10 +15,14 @@ namespace Pulumi.Azure.Lab.Outputs
     {
         /// <summary>
         /// The enabled access level for Client Access over RDP. Possible value is `Public`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified.
         /// </summary>
         public readonly string? ClientRdpAccess;
         /// <summary>
         /// The enabled access level for Client Access over SSH. Possible value is `Public`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified.
         /// </summary>
         public readonly string? ClientSshAccess;
 

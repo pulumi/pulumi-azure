@@ -45,17 +45,9 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.privateIpAddress);
     }
 
-    /**
-     * The ID of the Public IP Address associated with the firewall.
-     * 
-     */
     @Import(name="publicIpAddressId", required=true)
     private Output<String> publicIpAddressId;
 
-    /**
-     * @return The ID of the Public IP Address associated with the firewall.
-     * 
-     */
     public Output<String> publicIpAddressId() {
         return this.publicIpAddressId;
     }
@@ -63,12 +55,20 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+     * 
+     * &gt; **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+     * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+     * 
+     * &gt; **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -144,29 +144,21 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
-        /**
-         * @param publicIpAddressId The ID of the Public IP Address associated with the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIpAddressId(Output<String> publicIpAddressId) {
             $.publicIpAddressId = publicIpAddressId;
             return this;
         }
 
-        /**
-         * @param publicIpAddressId The ID of the Public IP Address associated with the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIpAddressId(String publicIpAddressId) {
             return publicIpAddressId(Output.of(publicIpAddressId));
         }
 
         /**
          * @param subnetId Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+         * 
+         * &gt; **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
          * 
          * @return builder
          * 
@@ -178,6 +170,10 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param subnetId Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+         * 
+         * &gt; **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
          * 
          * @return builder
          * 

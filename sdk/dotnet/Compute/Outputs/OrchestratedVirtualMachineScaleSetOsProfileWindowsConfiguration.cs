@@ -29,16 +29,17 @@ namespace Pulumi.Azure.Compute.Outputs
         /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         /// </summary>
         public readonly bool? EnableAutomaticUpdates;
-        /// <summary>
-        /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-        /// </summary>
         public readonly bool? HotpatchingEnabled;
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         public readonly string? PatchAssessmentMode;
         /// <summary>
         /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// 
+        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
         /// </summary>
         public readonly string? PatchMode;
         /// <summary>

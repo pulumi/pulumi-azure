@@ -22,6 +22,8 @@ class NamespaceAuthorizationRuleArgs:
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
         :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
@@ -42,6 +44,8 @@ class NamespaceAuthorizationRuleArgs:
     def namespace_id(self) -> pulumi.Input[str]:
         """
         Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+
+        > **NOTE** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -118,6 +122,8 @@ class _NamespaceAuthorizationRuleState:
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
@@ -190,6 +196,8 @@ class _NamespaceAuthorizationRuleState:
     def namespace_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+
+        > **NOTE** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -331,6 +339,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
         ...
@@ -449,6 +459,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+               
+               > **NOTE** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
@@ -503,6 +515,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def namespace_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+
+        > **NOTE** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "namespace_id")
 

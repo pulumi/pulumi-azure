@@ -209,12 +209,16 @@ public class Secret extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the value of the Key Vault Secret.
      * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
      * @return Specifies the value of the Key Vault Secret.
+     * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
      * 
      */
     public Output<String> value() {

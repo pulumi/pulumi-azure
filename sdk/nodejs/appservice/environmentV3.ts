@@ -101,11 +101,12 @@ export class EnvironmentV3 extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
+     *
+     * > **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
     public readonly subnetId!: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
@@ -113,6 +114,8 @@ export class EnvironmentV3 extends pulumi.CustomResource {
     public /*out*/ readonly windowsOutboundIpAddresses!: pulumi.Output<string[]>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -241,11 +244,12 @@ export interface EnvironmentV3State {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
+     *
+     * > **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
@@ -253,6 +257,8 @@ export interface EnvironmentV3State {
     windowsOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -287,14 +293,17 @@ export interface EnvironmentV3Args {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
+     *
+     * > **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
     subnetId: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }

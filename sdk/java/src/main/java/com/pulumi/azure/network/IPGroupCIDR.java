@@ -75,19 +75,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/iPGroupCIDR:IPGroupCIDR")
 public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
-    /**
-     * The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     * 
-     */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
-    /**
-     * @return The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }

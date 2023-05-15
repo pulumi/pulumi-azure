@@ -34,12 +34,16 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      * 
+     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+     * 
      */
     @Import(name="deploymentMode")
     private @Nullable Output<String> deploymentMode;
 
     /**
      * @return The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+     * 
+     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
     public Optional<Output<String>> deploymentMode() {
@@ -79,12 +83,16 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      * 
+     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
+     * 
      */
     @Import(name="parametersContent")
     private @Nullable Output<String> parametersContent;
 
     /**
      * @return The contents of the ARM Template parameters file - containing a JSON list of parameters.
+     * 
+     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
      * 
      */
     public Optional<Output<String>> parametersContent() {
@@ -207,6 +215,8 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         /**
          * @param deploymentMode The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
          * 
+         * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+         * 
          * @return builder
          * 
          */
@@ -217,6 +227,8 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
 
         /**
          * @param deploymentMode The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+         * 
+         * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
          * 
          * @return builder
          * 
@@ -270,6 +282,8 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         /**
          * @param parametersContent The contents of the ARM Template parameters file - containing a JSON list of parameters.
          * 
+         * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
+         * 
          * @return builder
          * 
          */
@@ -280,6 +294,8 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
 
         /**
          * @param parametersContent The contents of the ARM Template parameters file - containing a JSON list of parameters.
+         * 
+         * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
          * 
          * @return builder
          * 

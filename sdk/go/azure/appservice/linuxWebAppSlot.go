@@ -117,7 +117,7 @@ type LinuxWebAppSlot struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrOutput `pulumi:"logs"`
-	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
@@ -136,10 +136,11 @@ type LinuxWebAppSlot struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -223,7 +224,7 @@ type linuxWebAppSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
@@ -242,10 +243,11 @@ type linuxWebAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -290,7 +292,7 @@ type LinuxWebAppSlotState struct {
 	Kind pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
-	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -309,10 +311,11 @@ type LinuxWebAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -351,7 +354,7 @@ type linuxWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name *string `pulumi:"name"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
@@ -360,10 +363,11 @@ type linuxWebAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -399,7 +403,7 @@ type LinuxWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
-	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId pulumi.StringPtrInput
@@ -408,10 +412,11 @@ type LinuxWebAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -602,7 +607,7 @@ func (o LinuxWebAppSlotOutput) Logs() LinuxWebAppSlotLogsPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotLogsPtrOutput { return v.Logs }).(LinuxWebAppSlotLogsPtrOutput)
 }
 
-// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+// The Site Credentials Username used for publishing.
 func (o LinuxWebAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -652,12 +657,13 @@ func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+//
+// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 func (o LinuxWebAppSlotOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

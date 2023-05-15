@@ -192,12 +192,16 @@ public class HostPool extends com.pulumi.resources.CustomResource {
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+     * 
      */
     @Export(name="personalDesktopAssignmentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> personalDesktopAssignmentType;
 
     /**
      * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      * 
      */
     public Output<Optional<String>> personalDesktopAssignmentType() {

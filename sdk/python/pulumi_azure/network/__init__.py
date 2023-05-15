@@ -68,6 +68,7 @@ from .network_manager import *
 from .network_manager_admin_rule import *
 from .network_manager_admin_rule_collection import *
 from .network_manager_connectivity_configuration import *
+from .network_manager_deployment import *
 from .network_manager_management_group_connection import *
 from .network_manager_network_group import *
 from .network_manager_scope_connection import *

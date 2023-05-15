@@ -120,6 +120,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        /// 
+        /// &gt; **NOTE** At least one of the severity filters need to be set.
         /// </summary>
         [Output("severityFilters")]
         public Output<ImmutableArray<string>> SeverityFilters { get; private set; } = null!;
@@ -241,6 +243,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        /// 
+        /// &gt; **NOTE** At least one of the severity filters need to be set.
         /// </summary>
         public InputList<string> SeverityFilters
         {
@@ -327,6 +331,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        /// 
+        /// &gt; **NOTE** At least one of the severity filters need to be set.
         /// </summary>
         public InputList<string> SeverityFilters
         {

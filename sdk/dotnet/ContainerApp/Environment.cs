@@ -69,13 +69,17 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> DockerBridgeCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        /// 
+        /// &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
         /// </summary>
         [Output("infrastructureSubnetId")]
         public Output<string?> InfrastructureSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         /// </summary>
         [Output("internalLoadBalancerEnabled")]
         public Output<bool?> InternalLoadBalancerEnabled { get; private set; } = null!;
@@ -175,13 +179,17 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        /// 
+        /// &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }
 
         /// <summary>
         /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         /// </summary>
         [Input("internalLoadBalancerEnabled")]
         public Input<bool>? InternalLoadBalancerEnabled { get; set; }
@@ -243,13 +251,17 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? DockerBridgeCidr { get; set; }
 
         /// <summary>
-        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        /// 
+        /// &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }
 
         /// <summary>
         /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         /// </summary>
         [Input("internalLoadBalancerEnabled")]
         public Input<bool>? InternalLoadBalancerEnabled { get; set; }

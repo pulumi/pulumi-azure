@@ -18,12 +18,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+     * 
      */
     @Import(name="enableBackendSsl30")
     private @Nullable Output<Boolean> enableBackendSsl30;
 
     /**
      * @return Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
      * 
      */
     public Optional<Output<Boolean>> enableBackendSsl30() {
@@ -33,12 +37,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+     * 
      */
     @Import(name="enableBackendTls10")
     private @Nullable Output<Boolean> enableBackendTls10;
 
     /**
      * @return Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
      * 
      */
     public Optional<Output<Boolean>> enableBackendTls10() {
@@ -48,12 +56,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+     * 
      */
     @Import(name="enableBackendTls11")
     private @Nullable Output<Boolean> enableBackendTls11;
 
     /**
      * @return Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
      * 
      */
     public Optional<Output<Boolean>> enableBackendTls11() {
@@ -63,12 +75,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+     * 
      */
     @Import(name="enableFrontendSsl30")
     private @Nullable Output<Boolean> enableFrontendSsl30;
 
     /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
      * 
      */
     public Optional<Output<Boolean>> enableFrontendSsl30() {
@@ -78,12 +94,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+     * 
      */
     @Import(name="enableFrontendTls10")
     private @Nullable Output<Boolean> enableFrontendTls10;
 
     /**
      * @return Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
      * 
      */
     public Optional<Output<Boolean>> enableFrontendTls10() {
@@ -93,12 +113,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+     * 
      */
     @Import(name="enableFrontendTls11")
     private @Nullable Output<Boolean> enableFrontendTls11;
 
     /**
      * @return Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
      * 
      */
     public Optional<Output<Boolean>> enableFrontendTls11() {
@@ -108,12 +132,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     @Import(name="tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
 
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
      * 
      */
     public Optional<Output<Boolean>> tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() {
@@ -123,12 +151,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
+     * 
      */
     @Import(name="tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
 
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     public Optional<Output<Boolean>> tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() {
@@ -138,12 +170,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     @Import(name="tlsEcdheRsaWithAes128CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
 
     /**
      * @return Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
      * 
      */
     public Optional<Output<Boolean>> tlsEcdheRsaWithAes128CbcShaCiphersEnabled() {
@@ -153,12 +189,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
+     * 
      */
     @Import(name="tlsEcdheRsaWithAes256CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
 
     /**
      * @return Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     public Optional<Output<Boolean>> tlsEcdheRsaWithAes256CbcShaCiphersEnabled() {
@@ -168,12 +208,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+     * 
      */
     @Import(name="tlsRsaWithAes128CbcSha256CiphersEnabled")
     private @Nullable Output<Boolean> tlsRsaWithAes128CbcSha256CiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
      * 
      */
     public Optional<Output<Boolean>> tlsRsaWithAes128CbcSha256CiphersEnabled() {
@@ -183,12 +227,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     @Import(name="tlsRsaWithAes128CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsRsaWithAes128CbcShaCiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
      * 
      */
     public Optional<Output<Boolean>> tlsRsaWithAes128CbcShaCiphersEnabled() {
@@ -198,12 +246,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+     * 
      */
     @Import(name="tlsRsaWithAes128GcmSha256CiphersEnabled")
     private @Nullable Output<Boolean> tlsRsaWithAes128GcmSha256CiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
      * 
      */
     public Optional<Output<Boolean>> tlsRsaWithAes128GcmSha256CiphersEnabled() {
@@ -213,12 +265,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
+     * 
      */
     @Import(name="tlsRsaWithAes256CbcSha256CiphersEnabled")
     private @Nullable Output<Boolean> tlsRsaWithAes256CbcSha256CiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
      * 
      */
     public Optional<Output<Boolean>> tlsRsaWithAes256CbcSha256CiphersEnabled() {
@@ -228,12 +284,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+     * 
      */
     @Import(name="tlsRsaWithAes256CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsRsaWithAes256CbcShaCiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     public Optional<Output<Boolean>> tlsRsaWithAes256CbcShaCiphersEnabled() {
@@ -243,12 +303,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+     * 
      */
     @Import(name="tlsRsaWithAes256GcmSha384CiphersEnabled")
     private @Nullable Output<Boolean> tlsRsaWithAes256GcmSha384CiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
      * 
      */
     public Optional<Output<Boolean>> tlsRsaWithAes256GcmSha384CiphersEnabled() {
@@ -258,12 +322,16 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
+     * 
      */
     @Import(name="tripleDesCiphersEnabled")
     private @Nullable Output<Boolean> tripleDesCiphersEnabled;
 
     /**
      * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
      * 
      */
     public Optional<Output<Boolean>> tripleDesCiphersEnabled() {
@@ -313,6 +381,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableBackendSsl30 Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+         * 
          * @return builder
          * 
          */
@@ -324,6 +394,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableBackendSsl30 Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+         * 
          * @return builder
          * 
          */
@@ -333,6 +405,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param enableBackendTls10 Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
          * 
          * @return builder
          * 
@@ -345,6 +419,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableBackendTls10 Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+         * 
          * @return builder
          * 
          */
@@ -354,6 +430,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param enableBackendTls11 Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
          * 
          * @return builder
          * 
@@ -366,6 +444,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableBackendTls11 Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+         * 
          * @return builder
          * 
          */
@@ -375,6 +455,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param enableFrontendSsl30 Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
          * 
          * @return builder
          * 
@@ -387,6 +469,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableFrontendSsl30 Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+         * 
          * @return builder
          * 
          */
@@ -396,6 +480,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param enableFrontendTls10 Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
          * 
          * @return builder
          * 
@@ -408,6 +494,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableFrontendTls10 Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+         * 
          * @return builder
          * 
          */
@@ -417,6 +505,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param enableFrontendTls11 Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
          * 
          * @return builder
          * 
@@ -429,6 +519,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param enableFrontendTls11 Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+         * 
          * @return builder
          * 
          */
@@ -438,6 +530,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
          * 
          * @return builder
          * 
@@ -450,6 +544,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+         * 
          * @return builder
          * 
          */
@@ -459,6 +555,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
          * 
          * @return builder
          * 
@@ -471,6 +569,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
+         * 
          * @return builder
          * 
          */
@@ -480,6 +580,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsEcdheRsaWithAes128CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
          * 
          * @return builder
          * 
@@ -492,6 +594,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsEcdheRsaWithAes128CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+         * 
          * @return builder
          * 
          */
@@ -501,6 +605,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsEcdheRsaWithAes256CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
          * 
          * @return builder
          * 
@@ -513,6 +619,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsEcdheRsaWithAes256CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
+         * 
          * @return builder
          * 
          */
@@ -522,6 +630,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsRsaWithAes128CbcSha256CiphersEnabled Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
          * 
          * @return builder
          * 
@@ -534,6 +644,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsRsaWithAes128CbcSha256CiphersEnabled Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+         * 
          * @return builder
          * 
          */
@@ -543,6 +655,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsRsaWithAes128CbcShaCiphersEnabled Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
          * 
          * @return builder
          * 
@@ -555,6 +669,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsRsaWithAes128CbcShaCiphersEnabled Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
+         * 
          * @return builder
          * 
          */
@@ -564,6 +680,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsRsaWithAes128GcmSha256CiphersEnabled Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
          * 
          * @return builder
          * 
@@ -576,6 +694,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsRsaWithAes128GcmSha256CiphersEnabled Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+         * 
          * @return builder
          * 
          */
@@ -585,6 +705,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsRsaWithAes256CbcSha256CiphersEnabled Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
          * 
          * @return builder
          * 
@@ -597,6 +719,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsRsaWithAes256CbcSha256CiphersEnabled Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
+         * 
          * @return builder
          * 
          */
@@ -606,6 +730,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsRsaWithAes256CbcShaCiphersEnabled Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
          * 
          * @return builder
          * 
@@ -618,6 +744,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsRsaWithAes256CbcShaCiphersEnabled Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+         * 
          * @return builder
          * 
          */
@@ -627,6 +755,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tlsRsaWithAes256GcmSha384CiphersEnabled Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
          * 
          * @return builder
          * 
@@ -639,6 +769,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tlsRsaWithAes256GcmSha384CiphersEnabled Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
          * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+         * 
          * @return builder
          * 
          */
@@ -648,6 +780,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tripleDesCiphersEnabled Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
          * 
          * @return builder
          * 
@@ -659,6 +793,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tripleDesCiphersEnabled Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+         * 
+         * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
          * 
          * @return builder
          * 

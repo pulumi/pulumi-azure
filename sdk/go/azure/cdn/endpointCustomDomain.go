@@ -121,6 +121,8 @@ type EndpointCustomDomain struct {
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `userManagedHttps` block as defined below.
+	//
+	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrOutput `pulumi:"userManagedHttps"`
 }
 
@@ -168,6 +170,8 @@ type endpointCustomDomainState struct {
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name *string `pulumi:"name"`
 	// A `userManagedHttps` block as defined below.
+	//
+	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps *EndpointCustomDomainUserManagedHttps `pulumi:"userManagedHttps"`
 }
 
@@ -181,6 +185,8 @@ type EndpointCustomDomainState struct {
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name pulumi.StringPtrInput
 	// A `userManagedHttps` block as defined below.
+	//
+	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrInput
 }
 
@@ -198,6 +204,8 @@ type endpointCustomDomainArgs struct {
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name *string `pulumi:"name"`
 	// A `userManagedHttps` block as defined below.
+	//
+	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps *EndpointCustomDomainUserManagedHttps `pulumi:"userManagedHttps"`
 }
 
@@ -212,6 +220,8 @@ type EndpointCustomDomainArgs struct {
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name pulumi.StringPtrInput
 	// A `userManagedHttps` block as defined below.
+	//
+	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrInput
 }
 
@@ -323,6 +333,8 @@ func (o EndpointCustomDomainOutput) Name() pulumi.StringOutput {
 }
 
 // A `userManagedHttps` block as defined below.
+//
+// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 func (o EndpointCustomDomainOutput) UserManagedHttps() EndpointCustomDomainUserManagedHttpsPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomain) EndpointCustomDomainUserManagedHttpsPtrOutput { return v.UserManagedHttps }).(EndpointCustomDomainUserManagedHttpsPtrOutput)
 }

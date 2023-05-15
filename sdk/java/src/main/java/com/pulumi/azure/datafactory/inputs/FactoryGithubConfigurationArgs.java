@@ -76,12 +76,16 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
     /**
      * Specifies the root folder within the repository. Set to `/` for the top level.
      * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+     * 
      */
     @Import(name="rootFolder", required=true)
     private Output<String> rootFolder;
 
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
+     * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
      */
     public Output<String> rootFolder() {
@@ -203,6 +207,8 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         /**
          * @param rootFolder Specifies the root folder within the repository. Set to `/` for the top level.
          * 
+         * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+         * 
          * @return builder
          * 
          */
@@ -213,6 +219,8 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
 
         /**
          * @param rootFolder Specifies the root folder within the repository. Set to `/` for the top level.
+         * 
+         * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
          * 
          * @return builder
          * 

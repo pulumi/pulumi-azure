@@ -126,17 +126,9 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-     * 
-     */
     @Export(name="parameterValues", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameterValues;
 
-    /**
-     * @return A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-     * 
-     */
     public Output<Optional<Map<String,String>>> parameterValues() {
         return Codegen.optional(this.parameterValues);
     }

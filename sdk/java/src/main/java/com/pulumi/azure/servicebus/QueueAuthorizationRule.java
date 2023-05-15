@@ -173,12 +173,16 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * 
      */
     @Export(name="queueId", refs={String.class}, tree="[0]")
     private Output<String> queueId;
 
     /**
      * @return Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> queueId() {

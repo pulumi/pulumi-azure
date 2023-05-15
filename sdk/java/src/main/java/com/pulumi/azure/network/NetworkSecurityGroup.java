@@ -130,12 +130,16 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * A list of objects representing security rules, as defined below.
      * 
+     * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * 
      */
     @Export(name="securityRules", refs={List.class,NetworkSecurityGroupSecurityRule.class}, tree="[0,1]")
     private Output<List<NetworkSecurityGroupSecurityRule>> securityRules;
 
     /**
      * @return A list of objects representing security rules, as defined below.
+     * 
+     * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<NetworkSecurityGroupSecurityRule>> securityRules() {

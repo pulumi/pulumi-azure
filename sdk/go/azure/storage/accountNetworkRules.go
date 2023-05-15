@@ -111,16 +111,26 @@ type AccountNetworkRules struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	//
+	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses pulumi.StringArrayOutput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringOutput `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	//
+	// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
+	//
+	// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+	//
+	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayOutput `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// A list of virtual network subnet ids to secure the storage account.
+	//
+	// > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
 	VirtualNetworkSubnetIds pulumi.StringArrayOutput `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -160,31 +170,51 @@ func GetAccountNetworkRules(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AccountNetworkRules resources.
 type accountNetworkRulesState struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	//
+	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	//
+	// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
+	//
+	// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+	//
+	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A list of virtual network subnet ids to secure the storage account.
+	//
+	// > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
 type AccountNetworkRulesState struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	//
+	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringPtrInput
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	//
+	// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
+	//
+	// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+	//
+	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules pulumi.StringArrayInput
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// A list of virtual network subnet ids to secure the storage account.
+	//
+	// > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
@@ -194,32 +224,52 @@ func (AccountNetworkRulesState) ElementType() reflect.Type {
 
 type accountNetworkRulesArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	//
+	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	//
+	// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
+	//
+	// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+	//
+	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A list of virtual network subnet ids to secure the storage account.
+	//
+	// > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
 // The set of arguments for constructing a AccountNetworkRules resource.
 type AccountNetworkRulesArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	//
+	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	//
+	// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
+	//
+	// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+	//
+	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules pulumi.StringArrayInput
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
 	// A list of virtual network subnet ids to secure the storage account.
+	//
+	// > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
@@ -311,6 +361,8 @@ func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx co
 }
 
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+//
+// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 func (o AccountNetworkRulesOutput) Bypasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) pulumi.StringArrayOutput { return v.Bypasses }).(pulumi.StringArrayOutput)
 }
@@ -321,6 +373,12 @@ func (o AccountNetworkRulesOutput) DefaultAction() pulumi.StringOutput {
 }
 
 // List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+//
+// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
+//
+// > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
+//
+// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 func (o AccountNetworkRulesOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) pulumi.StringArrayOutput { return v.IpRules }).(pulumi.StringArrayOutput)
 }
@@ -338,6 +396,8 @@ func (o AccountNetworkRulesOutput) StorageAccountId() pulumi.StringOutput {
 }
 
 // A list of virtual network subnet ids to secure the storage account.
+//
+// > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
 func (o AccountNetworkRulesOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) pulumi.StringArrayOutput { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }

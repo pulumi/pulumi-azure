@@ -86,7 +86,7 @@ namespace Pulumi.Azure.NetApp
     ///         PoolName = examplePool.Name,
     ///         VolumePath = "my-unique-file-path",
     ///         ServiceLevel = "Premium",
-    ///         SubnetId = azurerm_subnet.Test.Id,
+    ///         SubnetId = exampleSubnet.Id,
     ///         StorageQuotaInGb = 100,
     ///     });
     /// 

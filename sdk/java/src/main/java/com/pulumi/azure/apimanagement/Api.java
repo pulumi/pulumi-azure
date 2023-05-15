@@ -277,12 +277,16 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
+     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protocols;
 
     /**
      * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+     * 
+     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
      * 
      */
     public Output<List<String>> protocols() {
@@ -347,6 +351,8 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      * 
+     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
+     * 
      * @deprecated
      * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      * 
@@ -357,6 +363,8 @@ public class Api extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
      * 
      */
     public Output<Boolean> soapPassThrough() {
@@ -449,12 +457,16 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Version Set which this API is associated with.
      * 
+     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+     * 
      */
     @Export(name="versionSetId", refs={String.class}, tree="[0]")
     private Output<String> versionSetId;
 
     /**
      * @return The ID of the Version Set which this API is associated with.
+     * 
+     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
      * 
      */
     public Output<String> versionSetId() {

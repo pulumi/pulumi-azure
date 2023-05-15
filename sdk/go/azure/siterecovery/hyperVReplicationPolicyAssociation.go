@@ -13,6 +13,64 @@ import (
 
 // Manages an Azure Site Recovery replication policy for HyperV within a Recovery Vault.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHyperVSite, err := siterecovery.NewHyperVSite(ctx, "exampleHyperVSite", &siterecovery.HyperVSiteArgs{
+//				RecoveryVaultId: exampleVault.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHyperVReplicationPolicy, err := siterecovery.NewHyperVReplicationPolicy(ctx, "exampleHyperVReplicationPolicy", &siterecovery.HyperVReplicationPolicyArgs{
+//				RecoveryVaultId:                               exampleVault.ID(),
+//				RecoveryPointRetentionInHours:                 pulumi.Int(2),
+//				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
+//				ReplicationIntervalInSeconds:                  pulumi.Int(300),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.NewHyperVReplicationPolicyAssociation(ctx, "exampleHyperVReplicationPolicyAssociation", &siterecovery.HyperVReplicationPolicyAssociationArgs{
+//				HypervSiteId: exampleHyperVSite.ID(),
+//				PolicyId:     exampleHyperVReplicationPolicy.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Site Recovery Replication Policies can be imported using the `resource id`, e.g.

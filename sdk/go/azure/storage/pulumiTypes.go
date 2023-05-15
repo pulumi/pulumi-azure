@@ -12,6 +12,8 @@ import (
 
 type AccountAzureFilesAuthentication struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+	//
+	// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 	ActiveDirectory *AccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectory"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType string `pulumi:"directoryType"`
@@ -30,6 +32,8 @@ type AccountAzureFilesAuthenticationInput interface {
 
 type AccountAzureFilesAuthenticationArgs struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+	//
+	// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 	ActiveDirectory AccountAzureFilesAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
@@ -113,6 +117,8 @@ func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthentication
 }
 
 // A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+//
+// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 func (o AccountAzureFilesAuthenticationOutput) ActiveDirectory() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v AccountAzureFilesAuthentication) *AccountAzureFilesAuthenticationActiveDirectory {
 		return v.ActiveDirectory
@@ -149,6 +155,8 @@ func (o AccountAzureFilesAuthenticationPtrOutput) Elem() AccountAzureFilesAuthen
 }
 
 // A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+//
+// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 func (o AccountAzureFilesAuthenticationPtrOutput) ActiveDirectory() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *AccountAzureFilesAuthenticationActiveDirectory {
 		if v == nil {
@@ -1400,6 +1408,8 @@ type AccountCustomerManagedKey struct {
 	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The ID of a user assigned identity.
+	//
+	// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1418,6 +1428,8 @@ type AccountCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// The ID of a user assigned identity.
+	//
+	// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1504,6 +1516,8 @@ func (o AccountCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
 }
 
 // The ID of a user assigned identity.
+//
+// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 func (o AccountCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKey) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
@@ -1543,6 +1557,8 @@ func (o AccountCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutp
 }
 
 // The ID of a user assigned identity.
+//
+// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
 		if v == nil {
@@ -1554,6 +1570,10 @@ func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.Stri
 
 type AccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	//
+	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1576,6 +1596,10 @@ type AccountIdentityInput interface {
 
 type AccountIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	//
+	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1663,6 +1687,10 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+//
+// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1707,6 +1735,10 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+//
+// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -1929,6 +1961,14 @@ type AccountNetworkRulesType struct {
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
+	//
+	// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
+	//
+	// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+	//
+	// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
+	//
+	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 	PrivateLinkAccesses []AccountNetworkRulesPrivateLinkAccess `pulumi:"privateLinkAccesses"`
 	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
@@ -1953,6 +1993,14 @@ type AccountNetworkRulesTypeArgs struct {
 	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
+	//
+	// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
+	//
+	// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+	//
+	// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
+	//
+	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 	PrivateLinkAccesses AccountNetworkRulesPrivateLinkAccessArrayInput `pulumi:"privateLinkAccesses"`
 	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
@@ -2051,6 +2099,14 @@ func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 }
 
 // One or More `privateLinkAccess` block as defined below.
+//
+// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
+//
+// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+//
+// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
+//
+// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountNetworkRulesTypeOutput) PrivateLinkAccesses() AccountNetworkRulesPrivateLinkAccessArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []AccountNetworkRulesPrivateLinkAccess { return v.PrivateLinkAccesses }).(AccountNetworkRulesPrivateLinkAccessArrayOutput)
 }
@@ -2115,6 +2171,14 @@ func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 }
 
 // One or More `privateLinkAccess` block as defined below.
+//
+// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
+//
+// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+//
+// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
+//
+// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountNetworkRulesTypePtrOutput) PrivateLinkAccesses() AccountNetworkRulesPrivateLinkAccessArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []AccountNetworkRulesPrivateLinkAccess {
 		if v == nil {
@@ -4578,14 +4642,22 @@ func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInvento
 
 type BlobInventoryPolicyRuleFilter struct {
 	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+	//
+	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 	ExcludePrefixes []string `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
+	//
+	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
 	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+	//
+	// > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storageAccountId` has hierarchical namespaces enabled (`isHnsEnabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`.
 	IncludeDeleted *bool `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
+	//
+	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
 	// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 	PrefixMatches []string `pulumi:"prefixMatches"`
@@ -4604,14 +4676,22 @@ type BlobInventoryPolicyRuleFilterInput interface {
 
 type BlobInventoryPolicyRuleFilterArgs struct {
 	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+	//
+	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 	ExcludePrefixes pulumi.StringArrayInput `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
+	//
+	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
 	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+	//
+	// > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storageAccountId` has hierarchical namespaces enabled (`isHnsEnabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`.
 	IncludeDeleted pulumi.BoolPtrInput `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
+	//
+	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
 	// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
@@ -4695,6 +4775,8 @@ func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterPtrO
 }
 
 // A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+//
+// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 func (o BlobInventoryPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -4705,16 +4787,22 @@ func (o BlobInventoryPolicyRuleFilterOutput) ExcludePrefixes() pulumi.StringArra
 }
 
 // Includes blob versions in blob inventory or not? Defaults to `false`.
+//
+// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
 // Includes deleted blobs in blob inventory or not? Defaults to `false`.
+//
+// > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storageAccountId` has hierarchical namespaces enabled (`isHnsEnabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeDeleted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeDeleted }).(pulumi.BoolPtrOutput)
 }
 
 // Includes blob snapshots in blob inventory or not? Defaults to `false`.
+//
+// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -4749,6 +4837,8 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) Elem() BlobInventoryPolicyRuleFi
 }
 
 // A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+//
+// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) []string {
 		if v == nil {
@@ -4769,6 +4859,8 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) ExcludePrefixes() pulumi.StringA
 }
 
 // Includes blob versions in blob inventory or not? Defaults to `false`.
+//
+// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
 		if v == nil {
@@ -4779,6 +4871,8 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeBlobVersions() pulumi.Boo
 }
 
 // Includes deleted blobs in blob inventory or not? Defaults to `false`.
+//
+// > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `includeDeleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storageAccountId` has hierarchical namespaces enabled (`isHnsEnabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `includeDeleted`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeDeleted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
 		if v == nil {
@@ -4789,6 +4883,8 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeDeleted() pulumi.BoolPtrO
 }
 
 // Includes blob snapshots in blob inventory or not? Defaults to `false`.
+//
+// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
 		if v == nil {
@@ -4812,6 +4908,8 @@ type DataLakeGen2FilesystemAce struct {
 	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
 	Id *string `pulumi:"id"`
 	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+	//
+	// More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
 	Permissions string `pulumi:"permissions"`
 	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
 	Scope *string `pulumi:"scope"`
@@ -4834,6 +4932,8 @@ type DataLakeGen2FilesystemAceArgs struct {
 	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+	//
+	// More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
@@ -4898,6 +4998,8 @@ func (o DataLakeGen2FilesystemAceOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+//
+// More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
 func (o DataLakeGen2FilesystemAceOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeGen2FilesystemAce) string { return v.Permissions }).(pulumi.StringOutput)
 }
@@ -4934,9 +5036,8 @@ func (o DataLakeGen2FilesystemAceArrayOutput) Index(i pulumi.IntInput) DataLakeG
 
 type DataLakeGen2PathAce struct {
 	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
-	Id *string `pulumi:"id"`
-	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-	Permissions string `pulumi:"permissions"`
+	Id          *string `pulumi:"id"`
+	Permissions string  `pulumi:"permissions"`
 	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
 	Scope *string `pulumi:"scope"`
 	// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
@@ -4956,9 +5057,8 @@ type DataLakeGen2PathAceInput interface {
 
 type DataLakeGen2PathAceArgs struct {
 	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-	Permissions pulumi.StringInput `pulumi:"permissions"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Permissions pulumi.StringInput    `pulumi:"permissions"`
 	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 	// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
@@ -5021,7 +5121,6 @@ func (o DataLakeGen2PathAceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeGen2PathAce) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
 func (o DataLakeGen2PathAceOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeGen2PathAce) string { return v.Permissions }).(pulumi.StringOutput)
 }
@@ -5561,14 +5660,22 @@ func (o ManagementPolicyRuleActionsOutput) Version() ManagementPolicyRuleActions
 
 type ManagementPolicyRuleActionsBaseBlob struct {
 	// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+	//
+	// > **Note:** The `autoTierToHotFromCoolEnabled` must be used together with `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
 	AutoTierToHotFromCoolEnabled *bool `pulumi:"autoTierToHotFromCoolEnabled"`
 	// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+	//
+	// > **Note:** The `deleteAfterDaysSinceModificationGreaterThan`, `deleteAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
+	//
+	// > **Note:** The `lastAccessTimeEnabled` must be set to `true` in the `storage.Account` in order to use `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceLastAccessTimeGreaterThan`.
 	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceModificationGreaterThan *int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+	//
+	// > **Note:** The `tierToArchiveAfterDaysSinceModificationGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `tierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 	TierToArchiveAfterDaysSinceCreationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
@@ -5577,6 +5684,8 @@ type ManagementPolicyRuleActionsBaseBlob struct {
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
 	// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+	//
+	// > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 	TierToCoolAfterDaysSinceCreationGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
@@ -5597,14 +5706,22 @@ type ManagementPolicyRuleActionsBaseBlobInput interface {
 
 type ManagementPolicyRuleActionsBaseBlobArgs struct {
 	// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+	//
+	// > **Note:** The `autoTierToHotFromCoolEnabled` must be used together with `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
 	AutoTierToHotFromCoolEnabled pulumi.BoolPtrInput `pulumi:"autoTierToHotFromCoolEnabled"`
 	// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+	//
+	// > **Note:** The `deleteAfterDaysSinceModificationGreaterThan`, `deleteAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
+	//
+	// > **Note:** The `lastAccessTimeEnabled` must be set to `true` in the `storage.Account` in order to use `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceLastAccessTimeGreaterThan`.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+	//
+	// > **Note:** The `tierToArchiveAfterDaysSinceModificationGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `tierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 	TierToArchiveAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
@@ -5613,6 +5730,8 @@ type ManagementPolicyRuleActionsBaseBlobArgs struct {
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
 	// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+	//
+	// > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 	TierToCoolAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
@@ -5698,11 +5817,17 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 }
 
 // Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+//
+// > **Note:** The `autoTierToHotFromCoolEnabled` must be used together with `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) AutoTierToHotFromCoolEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *bool { return v.AutoTierToHotFromCoolEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+//
+// > **Note:** The `deleteAfterDaysSinceModificationGreaterThan`, `deleteAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
+//
+// > **Note:** The `lastAccessTimeEnabled` must be set to `true` in the `storage.Account` in order to use `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceLastAccessTimeGreaterThan`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
@@ -5720,6 +5845,8 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificat
 }
 
 // The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+//
+// > **Note:** The `tierToArchiveAfterDaysSinceModificationGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `tierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceCreationGreaterThan
@@ -5748,6 +5875,8 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceMo
 }
 
 // The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+//
+// > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.TierToCoolAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
@@ -5791,6 +5920,8 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 }
 
 // Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+//
+// > **Note:** The `autoTierToHotFromCoolEnabled` must be used together with `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) AutoTierToHotFromCoolEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *bool {
 		if v == nil {
@@ -5801,6 +5932,10 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) AutoTierToHotFromCoolEnabl
 }
 
 // The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+//
+// > **Note:** The `deleteAfterDaysSinceModificationGreaterThan`, `deleteAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
+//
+// > **Note:** The `lastAccessTimeEnabled` must be set to `true` in the `storage.Account` in order to use `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceLastAccessTimeGreaterThan`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5831,6 +5966,8 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModifi
 }
 
 // The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+//
+// > **Note:** The `tierToArchiveAfterDaysSinceModificationGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `tierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5871,6 +6008,8 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 }
 
 // The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+//
+// > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -6296,6 +6435,8 @@ type ManagementPolicyRuleFilters struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+	//
+	// > **NOTE:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
 	MatchBlobIndexTags []ManagementPolicyRuleFiltersMatchBlobIndexTag `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
@@ -6316,6 +6457,8 @@ type ManagementPolicyRuleFiltersArgs struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+	//
+	// > **NOTE:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
 	MatchBlobIndexTags ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
@@ -6353,6 +6496,8 @@ func (o ManagementPolicyRuleFiltersOutput) BlobTypes() pulumi.StringArrayOutput 
 }
 
 // A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+//
+// > **NOTE:** The `matchBlobIndexTag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
 func (o ManagementPolicyRuleFiltersOutput) MatchBlobIndexTags() ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleFilters) []ManagementPolicyRuleFiltersMatchBlobIndexTag {
 		return v.MatchBlobIndexTags
@@ -6719,6 +6864,8 @@ type ShareAclAccessPolicy struct {
 	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry *string `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+	//
+	// > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
 	Permissions string `pulumi:"permissions"`
 	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start *string `pulumi:"start"`
@@ -6739,6 +6886,8 @@ type ShareAclAccessPolicyArgs struct {
 	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+	//
+	// > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start pulumi.StringPtrInput `pulumi:"start"`
@@ -6801,6 +6950,8 @@ func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringPtrOutput {
 }
 
 // The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+//
+// > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
 func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
@@ -7309,6 +7460,9 @@ type GetAccountBlobContainerSASPermissions struct {
 	// Should Delete permissions be enabled for this SAS?
 	Delete bool `pulumi:"delete"`
 	// Should List permissions be enabled for this SAS?
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+	// for additional details on the fields above.
 	List bool `pulumi:"list"`
 	// Should Read permissions be enabled for this SAS?
 	Read bool `pulumi:"read"`
@@ -7335,6 +7489,9 @@ type GetAccountBlobContainerSASPermissionsArgs struct {
 	// Should Delete permissions be enabled for this SAS?
 	Delete pulumi.BoolInput `pulumi:"delete"`
 	// Should List permissions be enabled for this SAS?
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+	// for additional details on the fields above.
 	List pulumi.BoolInput `pulumi:"list"`
 	// Should Read permissions be enabled for this SAS?
 	Read pulumi.BoolInput `pulumi:"read"`
@@ -7384,6 +7541,9 @@ func (o GetAccountBlobContainerSASPermissionsOutput) Delete() pulumi.BoolOutput 
 }
 
 // Should List permissions be enabled for this SAS?
+//
+// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+// for additional details on the fields above.
 func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
@@ -7627,6 +7787,9 @@ type GetAccountSASPermissions struct {
 	// Should Delete permissions be enabled for this SAS?
 	Delete bool `pulumi:"delete"`
 	// Should Filter by Index Tags permissions be enabled for this SAS?
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+	// for additional details on the fields above.
 	Filter bool `pulumi:"filter"`
 	// Should List permissions be enabled for this SAS?
 	List bool `pulumi:"list"`
@@ -7661,6 +7824,9 @@ type GetAccountSASPermissionsArgs struct {
 	// Should Delete permissions be enabled for this SAS?
 	Delete pulumi.BoolInput `pulumi:"delete"`
 	// Should Filter by Index Tags permissions be enabled for this SAS?
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+	// for additional details on the fields above.
 	Filter pulumi.BoolInput `pulumi:"filter"`
 	// Should List permissions be enabled for this SAS?
 	List pulumi.BoolInput `pulumi:"list"`
@@ -7718,6 +7884,9 @@ func (o GetAccountSASPermissionsOutput) Delete() pulumi.BoolOutput {
 }
 
 // Should Filter by Index Tags permissions be enabled for this SAS?
+//
+// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+// for additional details on the fields above.
 func (o GetAccountSASPermissionsOutput) Filter() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Filter }).(pulumi.BoolOutput)
 }

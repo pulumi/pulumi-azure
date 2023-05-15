@@ -138,7 +138,7 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly name: string;
     /**
-     * A list of outbound IP addresses.
+     * A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
      */
     readonly outboundIpAddressLists: string[];
     /**
@@ -146,11 +146,11 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly outboundIpAddresses: string;
     /**
-     * AA list of possible outbound IP addresses, not all of which are necessarily in use.
+     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
      */
     readonly possibleOutboundIpAddressLists: string[];
     /**
-     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses: string;
     readonly resourceGroupName: string;

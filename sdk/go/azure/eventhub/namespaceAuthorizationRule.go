@@ -81,6 +81,8 @@ type NamespaceAuthorizationRule struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
@@ -146,6 +148,8 @@ type namespaceAuthorizationRuleState struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
@@ -171,6 +175,8 @@ type NamespaceAuthorizationRuleState struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	NamespaceId pulumi.StringPtrInput
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
@@ -200,6 +206,8 @@ type namespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	NamespaceId string `pulumi:"namespaceId"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
@@ -214,6 +222,8 @@ type NamespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	NamespaceId pulumi.StringInput
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
@@ -322,6 +332,8 @@ func (o NamespaceAuthorizationRuleOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+//
+// > **NOTE** At least one of the 3 permissions below needs to be set.
 func (o NamespaceAuthorizationRuleOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }

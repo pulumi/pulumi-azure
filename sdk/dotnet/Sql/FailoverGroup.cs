@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
+    /// Create a failover group of databases on a collection of Azure SQL servers.
+    /// 
+    /// &gt; **Note:** The `azure.sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FailoverGroup` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -88,6 +92,8 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// A list of database ids to add to the failover group
+        /// 
+        /// &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         /// </summary>
         [Output("databases")]
         public Output<ImmutableArray<string>> Databases { get; private set; } = null!;
@@ -197,6 +203,8 @@ namespace Pulumi.Azure.Sql
 
         /// <summary>
         /// A list of database ids to add to the failover group
+        /// 
+        /// &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         /// </summary>
         public InputList<string> Databases
         {
@@ -271,6 +279,8 @@ namespace Pulumi.Azure.Sql
 
         /// <summary>
         /// A list of database ids to add to the failover group
+        /// 
+        /// &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         /// </summary>
         public InputList<string> Databases
         {

@@ -40,6 +40,8 @@ type CacheBlobNfsTarget struct {
 	// The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
 	// The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringOutput `pulumi:"usageModel"`
@@ -100,6 +102,8 @@ type cacheBlobNfsTargetState struct {
 	// The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId *string `pulumi:"storageContainerId"`
 	// The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel *string `pulumi:"usageModel"`
@@ -117,6 +121,8 @@ type CacheBlobNfsTargetState struct {
 	// The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringPtrInput
 	// The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringPtrInput
@@ -138,6 +144,8 @@ type cacheBlobNfsTargetArgs struct {
 	// The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel string `pulumi:"usageModel"`
@@ -156,6 +164,8 @@ type CacheBlobNfsTargetArgs struct {
 	// The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringInput
 	// The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringInput
@@ -274,6 +284,8 @@ func (o CacheBlobNfsTargetOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
+//
+// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 func (o CacheBlobNfsTargetOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheBlobNfsTarget) pulumi.StringOutput { return v.StorageContainerId }).(pulumi.StringOutput)
 }

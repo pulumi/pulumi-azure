@@ -593,6 +593,10 @@ class StandardIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+               
+               > **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -617,6 +621,10 @@ class StandardIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+
+        > **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -723,15 +731,21 @@ class StandardSiteConfig(dict):
         :param str health_check_path: Path which will be checked for this Logic App health.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['StandardSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+               
+               > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param str min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param Sequence['StandardSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+               
+               > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
         :param str scm_type: The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
         :param bool use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+               
+               > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param bool websockets_enabled: Should WebSockets be enabled?
         """
@@ -845,6 +859,8 @@ class StandardSiteConfig(dict):
     def ip_restrictions(self) -> Optional[Sequence['outputs.StandardSiteConfigIpRestriction']]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -885,6 +901,8 @@ class StandardSiteConfig(dict):
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.StandardSiteConfigScmIpRestriction']]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -917,6 +935,8 @@ class StandardSiteConfig(dict):
     def use32_bit_worker_process(self) -> Optional[bool]:
         """
         Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+
+        > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         """
         return pulumi.get(self, "use32_bit_worker_process")
 
@@ -1025,6 +1045,8 @@ class StandardSiteConfigIpRestriction(dict):
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+               
+               > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1094,6 +1116,8 @@ class StandardSiteConfigIpRestriction(dict):
     def virtual_network_subnet_id(self) -> Optional[str]:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1215,6 +1239,8 @@ class StandardSiteConfigScmIpRestriction(dict):
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+               
+               > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1284,6 +1310,8 @@ class StandardSiteConfigScmIpRestriction(dict):
     def virtual_network_subnet_id(self) -> Optional[str]:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1776,6 +1804,8 @@ class WorkflowIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
@@ -1800,6 +1830,8 @@ class WorkflowIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 

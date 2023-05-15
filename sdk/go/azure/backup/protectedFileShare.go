@@ -121,6 +121,8 @@ type ProtectedFileShare struct {
 	// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
 	SourceFileShareName pulumi.StringOutput `pulumi:"sourceFileShareName"`
 	// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
 	SourceStorageAccountId pulumi.StringOutput `pulumi:"sourceStorageAccountId"`
 }
 
@@ -177,6 +179,8 @@ type protectedFileShareState struct {
 	// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
 	SourceFileShareName *string `pulumi:"sourceFileShareName"`
 	// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
 	SourceStorageAccountId *string `pulumi:"sourceStorageAccountId"`
 }
 
@@ -190,6 +194,8 @@ type ProtectedFileShareState struct {
 	// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
 	SourceFileShareName pulumi.StringPtrInput
 	// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
 	SourceStorageAccountId pulumi.StringPtrInput
 }
 
@@ -207,6 +213,8 @@ type protectedFileShareArgs struct {
 	// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
 	SourceFileShareName string `pulumi:"sourceFileShareName"`
 	// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
 	SourceStorageAccountId string `pulumi:"sourceStorageAccountId"`
 }
 
@@ -221,6 +229,8 @@ type ProtectedFileShareArgs struct {
 	// Specifies the name of the file share to backup. Changing this forces a new resource to be created.
 	SourceFileShareName pulumi.StringInput
 	// Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
 	SourceStorageAccountId pulumi.StringInput
 }
 
@@ -332,6 +342,8 @@ func (o ProtectedFileShareOutput) SourceFileShareName() pulumi.StringOutput {
 }
 
 // Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+//
+// > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
 func (o ProtectedFileShareOutput) SourceStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectedFileShare) pulumi.StringOutput { return v.SourceStorageAccountId }).(pulumi.StringOutput)
 }

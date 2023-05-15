@@ -35,6 +35,8 @@ namespace Pulumi.Azure.Hpc.Outputs
         public readonly bool? RootSquashEnabled;
         /// <summary>
         /// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+        /// 
+        /// &gt; **Note:** Each `access_rule` should set a unique `scope`.
         /// </summary>
         public readonly string Scope;
         /// <summary>

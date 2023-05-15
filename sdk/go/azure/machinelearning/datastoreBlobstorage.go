@@ -119,12 +119,16 @@ type DatastoreBlobstorage struct {
 	// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+	//
+	// > **Note:** `isDefault` can only be set to `true` on update.
 	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataAuthIdentity pulumi.StringPtrOutput `pulumi:"serviceDataAuthIdentity"`
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+	//
+	// > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature pulumi.StringPtrOutput `pulumi:"sharedAccessSignature"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
@@ -185,12 +189,16 @@ type datastoreBlobstorageState struct {
 	// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
 	Description *string `pulumi:"description"`
 	// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+	//
+	// > **Note:** `isDefault` can only be set to `true` on update.
 	IsDefault *bool `pulumi:"isDefault"`
 	// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Name *string `pulumi:"name"`
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataAuthIdentity *string `pulumi:"serviceDataAuthIdentity"`
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+	//
+	// > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature *string `pulumi:"sharedAccessSignature"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId *string `pulumi:"storageContainerId"`
@@ -206,12 +214,16 @@ type DatastoreBlobstorageState struct {
 	// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
 	Description pulumi.StringPtrInput
 	// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+	//
+	// > **Note:** `isDefault` can only be set to `true` on update.
 	IsDefault pulumi.BoolPtrInput
 	// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Name pulumi.StringPtrInput
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataAuthIdentity pulumi.StringPtrInput
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+	//
+	// > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature pulumi.StringPtrInput
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId pulumi.StringPtrInput
@@ -231,12 +243,16 @@ type datastoreBlobstorageArgs struct {
 	// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
 	Description *string `pulumi:"description"`
 	// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+	//
+	// > **Note:** `isDefault` can only be set to `true` on update.
 	IsDefault *bool `pulumi:"isDefault"`
 	// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Name *string `pulumi:"name"`
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataAuthIdentity *string `pulumi:"serviceDataAuthIdentity"`
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+	//
+	// > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature *string `pulumi:"sharedAccessSignature"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
@@ -253,12 +269,16 @@ type DatastoreBlobstorageArgs struct {
 	// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
 	Description pulumi.StringPtrInput
 	// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+	//
+	// > **Note:** `isDefault` can only be set to `true` on update.
 	IsDefault pulumi.BoolPtrInput
 	// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
 	Name pulumi.StringPtrInput
 	// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
 	ServiceDataAuthIdentity pulumi.StringPtrInput
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+	//
+	// > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature pulumi.StringPtrInput
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId pulumi.StringInput
@@ -366,6 +386,8 @@ func (o DatastoreBlobstorageOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+//
+// > **Note:** `isDefault` can only be set to `true` on update.
 func (o DatastoreBlobstorageOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatastoreBlobstorage) pulumi.BoolPtrOutput { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
@@ -381,6 +403,8 @@ func (o DatastoreBlobstorageOutput) ServiceDataAuthIdentity() pulumi.StringPtrOu
 }
 
 // The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+//
+// > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
 func (o DatastoreBlobstorageOutput) SharedAccessSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreBlobstorage) pulumi.StringPtrOutput { return v.SharedAccessSignature }).(pulumi.StringPtrOutput)
 }

@@ -23,6 +23,8 @@ namespace Pulumi.Azure.EventGrid.Outputs
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterIsNotNull> IsNotNulls;
         /// <summary>
         /// Evaluates if a value of an event is NULL or undefined.
+        /// 
+        /// Each nested block consists of a key and a value(s) element.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionAdvancedFilterIsNullOrUndefined> IsNullOrUndefineds;
         /// <summary>

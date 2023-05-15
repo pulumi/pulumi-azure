@@ -111,6 +111,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `file_step` block as defined below.
+        /// 
+        /// &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         /// </summary>
         [Output("fileStep")]
         public Output<Outputs.RegistryTaskFileStep?> FileStep { get; private set; } = null!;
@@ -141,6 +143,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `platform` block as defined below.
+        /// 
+        /// &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         /// </summary>
         [Output("platform")]
         public Output<Outputs.RegistryTaskPlatform?> Platform { get; private set; } = null!;
@@ -265,6 +269,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `file_step` block as defined below.
+        /// 
+        /// &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         /// </summary>
         [Input("fileStep")]
         public Input<Inputs.RegistryTaskFileStepArgs>? FileStep { get; set; }
@@ -295,6 +301,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `platform` block as defined below.
+        /// 
+        /// &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         /// </summary>
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformArgs>? Platform { get; set; }
@@ -399,6 +407,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `file_step` block as defined below.
+        /// 
+        /// &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         /// </summary>
         [Input("fileStep")]
         public Input<Inputs.RegistryTaskFileStepGetArgs>? FileStep { get; set; }
@@ -429,6 +439,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `platform` block as defined below.
+        /// 
+        /// &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         /// </summary>
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformGetArgs>? Platform { get; set; }

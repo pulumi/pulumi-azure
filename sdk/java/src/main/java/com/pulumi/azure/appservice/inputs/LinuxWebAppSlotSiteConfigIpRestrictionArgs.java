@@ -110,12 +110,16 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionArgs extends com.pulumi
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
+     * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * 
      */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -281,6 +285,8 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionArgs extends com.pulumi
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
+         * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -291,6 +297,8 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionArgs extends com.pulumi
 
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
+         * 
+         * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 
          * @return builder
          * 

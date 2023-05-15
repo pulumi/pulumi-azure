@@ -298,6 +298,10 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a Monitor Action Rule which type is action group.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
+
         ## Example Usage
 
         ```python
@@ -346,6 +350,10 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  args: ActionRuleActionGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Monitor Action Rule which type is action group.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
+
         ## Example Usage
 
         ```python

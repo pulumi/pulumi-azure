@@ -34,6 +34,8 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
+     * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+     * 
      */
     private @Nullable String javaServer;
     /**
@@ -44,15 +46,21 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
+     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+     * 
      */
     private @Nullable String javaVersion;
     /**
      * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
+     * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+     * 
      */
     private @Nullable String nodeVersion;
     /**
      * @return The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+     * 
+     * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
      */
     private @Nullable String phpVersion;
@@ -99,6 +107,8 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
+     * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+     * 
      */
     public Optional<String> javaServer() {
         return Optional.ofNullable(this.javaServer);
@@ -113,6 +123,8 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
+     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+     * 
      */
     public Optional<String> javaVersion() {
         return Optional.ofNullable(this.javaVersion);
@@ -120,12 +132,16 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
+     * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+     * 
      */
     public Optional<String> nodeVersion() {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
      * @return The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+     * 
+     * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
      */
     public Optional<String> phpVersion() {

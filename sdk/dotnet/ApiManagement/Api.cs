@@ -148,6 +148,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+        /// 
+        /// &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -178,6 +180,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         /// </summary>
         [Output("soapPassThrough")]
         public Output<bool> SoapPassThrough { get; private set; } = null!;
@@ -220,6 +224,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
+        /// 
+        /// &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
         /// </summary>
         [Output("versionSetId")]
         public Output<string> VersionSetId { get; private set; } = null!;
@@ -341,6 +347,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+        /// 
+        /// &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -374,6 +382,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         /// </summary>
         [Input("soapPassThrough")]
         public Input<bool>? SoapPassThrough { get; set; }
@@ -416,6 +426,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
+        /// 
+        /// &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
         /// </summary>
         [Input("versionSetId")]
         public Input<string>? VersionSetId { get; set; }
@@ -511,6 +523,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+        /// 
+        /// &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -544,6 +558,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         /// </summary>
         [Input("soapPassThrough")]
         public Input<bool>? SoapPassThrough { get; set; }
@@ -586,6 +602,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
+        /// 
+        /// &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
         /// </summary>
         [Input("versionSetId")]
         public Input<string>? VersionSetId { get; set; }

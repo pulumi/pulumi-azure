@@ -14,10 +14,16 @@ public final class ServiceNetworkAclPublicNetwork {
     /**
      * @return The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
+     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+     * 
      */
     private @Nullable List<String> allowedRequestTypes;
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
+     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
      * 
      */
     private @Nullable List<String> deniedRequestTypes;
@@ -26,12 +32,18 @@ public final class ServiceNetworkAclPublicNetwork {
     /**
      * @return The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
+     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+     * 
      */
     public List<String> allowedRequestTypes() {
         return this.allowedRequestTypes == null ? List.of() : this.allowedRequestTypes;
     }
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
+     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
      * 
      */
     public List<String> deniedRequestTypes() {

@@ -22,6 +22,8 @@ class SourceControlTokenArgs:
         :param pulumi.Input[str] token: The Access Token.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         :param pulumi.Input[str] token_secret: The Access Token Secret.
+               
+               > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         """
         pulumi.set(__self__, "token", token)
         pulumi.set(__self__, "type", type)
@@ -57,6 +59,8 @@ class SourceControlTokenArgs:
     def token_secret(self) -> Optional[pulumi.Input[str]]:
         """
         The Access Token Secret.
+
+        > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         """
         return pulumi.get(self, "token_secret")
 
@@ -75,6 +79,8 @@ class _SourceControlTokenState:
         Input properties used for looking up and filtering SourceControlToken resources.
         :param pulumi.Input[str] token: The Access Token.
         :param pulumi.Input[str] token_secret: The Access Token Secret.
+               
+               > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
         if token is not None:
@@ -101,6 +107,8 @@ class _SourceControlTokenState:
     def token_secret(self) -> Optional[pulumi.Input[str]]:
         """
         The Access Token Secret.
+
+        > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         """
         return pulumi.get(self, "token_secret")
 
@@ -154,6 +162,8 @@ class SourceControlToken(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The Access Token.
         :param pulumi.Input[str] token_secret: The Access Token Secret.
+               
+               > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
         ...
@@ -240,6 +250,8 @@ class SourceControlToken(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The Access Token.
         :param pulumi.Input[str] token_secret: The Access Token Secret.
+               
+               > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -264,6 +276,8 @@ class SourceControlToken(pulumi.CustomResource):
     def token_secret(self) -> pulumi.Output[Optional[str]]:
         """
         The Access Token Secret.
+
+        > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         """
         return pulumi.get(self, "token_secret")
 

@@ -68,6 +68,8 @@ export class MongoDatabase extends pulumi.CustomResource {
     public readonly accountName!: pulumi.Output<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoDatabaseAutoscaleSettings | undefined>;
     /**
@@ -80,6 +82,8 @@ export class MongoDatabase extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     *
+     * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
      */
     public readonly throughput!: pulumi.Output<number>;
 
@@ -130,6 +134,8 @@ export interface MongoDatabaseState {
     accountName?: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
     /**
@@ -142,6 +148,8 @@ export interface MongoDatabaseState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     *
+     * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
      */
     throughput?: pulumi.Input<number>;
 }
@@ -156,6 +164,8 @@ export interface MongoDatabaseArgs {
     accountName: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
     /**
@@ -168,6 +178,8 @@ export interface MongoDatabaseArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     *
+     * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
      */
     throughput?: pulumi.Input<number>;
 }

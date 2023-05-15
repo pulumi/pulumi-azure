@@ -127,6 +127,8 @@ export class Api extends pulumi.CustomResource {
     public readonly path!: pulumi.Output<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+     *
+     * > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
@@ -147,6 +149,8 @@ export class Api extends pulumi.CustomResource {
     public readonly serviceUrl!: pulumi.Output<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     *
+     * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
      *
      * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      */
@@ -177,6 +181,8 @@ export class Api extends pulumi.CustomResource {
     public readonly versionDescription!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Version Set which this API is associated with.
+     *
+     * > **NOTE:** When `version` is set, `versionSetId` must also be specified
      */
     public readonly versionSetId!: pulumi.Output<string>;
 
@@ -320,6 +326,8 @@ export interface ApiState {
     path?: pulumi.Input<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+     *
+     * > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -340,6 +348,8 @@ export interface ApiState {
     serviceUrl?: pulumi.Input<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     *
+     * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
      *
      * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      */
@@ -370,6 +380,8 @@ export interface ApiState {
     versionDescription?: pulumi.Input<string>;
     /**
      * The ID of the Version Set which this API is associated with.
+     *
+     * > **NOTE:** When `version` is set, `versionSetId` must also be specified
      */
     versionSetId?: pulumi.Input<string>;
 }
@@ -424,6 +436,8 @@ export interface ApiArgs {
     path?: pulumi.Input<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+     *
+     * > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -444,6 +458,8 @@ export interface ApiArgs {
     serviceUrl?: pulumi.Input<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     *
+     * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
      *
      * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      */
@@ -474,6 +490,8 @@ export interface ApiArgs {
     versionDescription?: pulumi.Input<string>;
     /**
      * The ID of the Version Set which this API is associated with.
+     *
+     * > **NOTE:** When `version` is set, `versionSetId` must also be specified
      */
     versionSetId?: pulumi.Input<string>;
 }

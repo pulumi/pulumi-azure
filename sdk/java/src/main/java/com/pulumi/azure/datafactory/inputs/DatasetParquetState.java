@@ -23,12 +23,16 @@ public final class DatasetParquetState extends com.pulumi.resources.ResourceArgs
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
+     * The following supported locations for a Parquet Dataset:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset.
+     * 
+     * The following supported locations for a Parquet Dataset:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -53,12 +57,16 @@ public final class DatasetParquetState extends com.pulumi.resources.ResourceArgs
     /**
      * A `azure_blob_storage_location` block as defined below.
      * 
+     * The following supported arguments are specific to Parquet Dataset:
+     * 
      */
     @Import(name="azureBlobStorageLocation")
     private @Nullable Output<DatasetParquetAzureBlobStorageLocationArgs> azureBlobStorageLocation;
 
     /**
      * @return A `azure_blob_storage_location` block as defined below.
+     * 
+     * The following supported arguments are specific to Parquet Dataset:
      * 
      */
     public Optional<Output<DatasetParquetAzureBlobStorageLocationArgs>> azureBlobStorageLocation() {
@@ -254,6 +262,8 @@ public final class DatasetParquetState extends com.pulumi.resources.ResourceArgs
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
          * 
+         * The following supported locations for a Parquet Dataset:
+         * 
          * @return builder
          * 
          */
@@ -264,6 +274,8 @@ public final class DatasetParquetState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
+         * 
+         * The following supported locations for a Parquet Dataset:
          * 
          * @return builder
          * 
@@ -306,6 +318,8 @@ public final class DatasetParquetState extends com.pulumi.resources.ResourceArgs
         /**
          * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
          * 
+         * The following supported arguments are specific to Parquet Dataset:
+         * 
          * @return builder
          * 
          */
@@ -316,6 +330,8 @@ public final class DatasetParquetState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * 
+         * The following supported arguments are specific to Parquet Dataset:
          * 
          * @return builder
          * 

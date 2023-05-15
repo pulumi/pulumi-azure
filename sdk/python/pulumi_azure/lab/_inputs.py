@@ -35,9 +35,15 @@ class LabAutoShutdownArgs:
                  shutdown_on_idle: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] disconnect_delay: The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+               
+               > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn't specified.
         :param pulumi.Input[str] idle_delay: The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
         :param pulumi.Input[str] no_connect_delay: The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+               
+               > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn't specified.
         :param pulumi.Input[str] shutdown_on_idle: A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+               
+               > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         """
         if disconnect_delay is not None:
             pulumi.set(__self__, "disconnect_delay", disconnect_delay)
@@ -53,6 +59,8 @@ class LabAutoShutdownArgs:
     def disconnect_delay(self) -> Optional[pulumi.Input[str]]:
         """
         The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+
+        > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn't specified.
         """
         return pulumi.get(self, "disconnect_delay")
 
@@ -77,6 +85,8 @@ class LabAutoShutdownArgs:
     def no_connect_delay(self) -> Optional[pulumi.Input[str]]:
         """
         The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+
+        > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn't specified.
         """
         return pulumi.get(self, "no_connect_delay")
 
@@ -89,6 +99,8 @@ class LabAutoShutdownArgs:
     def shutdown_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
         A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+
+        > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         """
         return pulumi.get(self, "shutdown_on_idle")
 
@@ -104,7 +116,11 @@ class LabConnectionSettingArgs:
                  client_ssh_access: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_rdp_access: The enabled access level for Client Access over RDP. Possible value is `Public`.
+               
+               > **NOTE:** This property is `None` when it isn't specified.
         :param pulumi.Input[str] client_ssh_access: The enabled access level for Client Access over SSH. Possible value is `Public`.
+               
+               > **NOTE:** This property is `None` when it isn't specified.
         """
         if client_rdp_access is not None:
             pulumi.set(__self__, "client_rdp_access", client_rdp_access)
@@ -116,6 +132,8 @@ class LabConnectionSettingArgs:
     def client_rdp_access(self) -> Optional[pulumi.Input[str]]:
         """
         The enabled access level for Client Access over RDP. Possible value is `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
         """
         return pulumi.get(self, "client_rdp_access")
 
@@ -128,6 +146,8 @@ class LabConnectionSettingArgs:
     def client_ssh_access(self) -> Optional[pulumi.Input[str]]:
         """
         The enabled access level for Client Access over SSH. Possible value is `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
         """
         return pulumi.get(self, "client_ssh_access")
 
@@ -616,6 +636,8 @@ class LabVirtualMachineSkuArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[int] capacity: The capacity for the SKU. Possible values are between `0` and `400`.
+               
+               > **NOTE:** Once `active_directory_group_id` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignore_changes` to avoid the difference of tf plan.
         :param pulumi.Input[str] name: The name of the SKU. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -626,6 +648,8 @@ class LabVirtualMachineSkuArgs:
     def capacity(self) -> pulumi.Input[int]:
         """
         The capacity for the SKU. Possible values are between `0` and `400`.
+
+        > **NOTE:** Once `active_directory_group_id` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignore_changes` to avoid the difference of tf plan.
         """
         return pulumi.get(self, "capacity")
 
@@ -727,6 +751,8 @@ class ServicePlanDefaultAutoShutdownArgs:
         :param pulumi.Input[str] idle_delay: The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
         :param pulumi.Input[str] no_connect_delay: The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
         :param pulumi.Input[str] shutdown_on_idle: Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+               
+               > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         """
         if disconnect_delay is not None:
             pulumi.set(__self__, "disconnect_delay", disconnect_delay)
@@ -778,6 +804,8 @@ class ServicePlanDefaultAutoShutdownArgs:
     def shutdown_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
         Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+
+        > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         """
         return pulumi.get(self, "shutdown_on_idle")
 
@@ -795,9 +823,17 @@ class ServicePlanDefaultConnectionArgs:
                  web_ssh_access: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_rdp_access: The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+               
+               > **NOTE:** This property is `None` when it isn't specified.
         :param pulumi.Input[str] client_ssh_access: The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+               
+               > **NOTE:** This property is `None` when it isn't specified.
         :param pulumi.Input[str] web_rdp_access: The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+               
+               > **NOTE:** This property is `None` when it isn't specified.
         :param pulumi.Input[str] web_ssh_access: The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+               
+               > **NOTE:** This property is `None` when it isn't specified.
         """
         if client_rdp_access is not None:
             pulumi.set(__self__, "client_rdp_access", client_rdp_access)
@@ -813,6 +849,8 @@ class ServicePlanDefaultConnectionArgs:
     def client_rdp_access(self) -> Optional[pulumi.Input[str]]:
         """
         The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
         """
         return pulumi.get(self, "client_rdp_access")
 
@@ -825,6 +863,8 @@ class ServicePlanDefaultConnectionArgs:
     def client_ssh_access(self) -> Optional[pulumi.Input[str]]:
         """
         The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
         """
         return pulumi.get(self, "client_ssh_access")
 
@@ -837,6 +877,8 @@ class ServicePlanDefaultConnectionArgs:
     def web_rdp_access(self) -> Optional[pulumi.Input[str]]:
         """
         The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
         """
         return pulumi.get(self, "web_rdp_access")
 
@@ -849,6 +891,8 @@ class ServicePlanDefaultConnectionArgs:
     def web_ssh_access(self) -> Optional[pulumi.Input[str]]:
         """
         The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
         """
         return pulumi.get(self, "web_ssh_access")
 

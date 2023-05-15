@@ -106,6 +106,8 @@ type CassandraTable struct {
 	pulumi.CustomResourceState
 
 	// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	AnalyticalStorageTtl pulumi.IntPtrOutput                      `pulumi:"analyticalStorageTtl"`
 	AutoscaleSettings    CassandraTableAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -155,6 +157,8 @@ func GetCassandraTable(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CassandraTable resources.
 type cassandraTableState struct {
 	// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	AnalyticalStorageTtl *int                             `pulumi:"analyticalStorageTtl"`
 	AutoscaleSettings    *CassandraTableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -170,6 +174,8 @@ type cassandraTableState struct {
 
 type CassandraTableState struct {
 	// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	AnalyticalStorageTtl pulumi.IntPtrInput
 	AutoscaleSettings    CassandraTableAutoscaleSettingsPtrInput
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -189,6 +195,8 @@ func (CassandraTableState) ElementType() reflect.Type {
 
 type cassandraTableArgs struct {
 	// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	AnalyticalStorageTtl *int                             `pulumi:"analyticalStorageTtl"`
 	AutoscaleSettings    *CassandraTableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -205,6 +213,8 @@ type cassandraTableArgs struct {
 // The set of arguments for constructing a CassandraTable resource.
 type CassandraTableArgs struct {
 	// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	AnalyticalStorageTtl pulumi.IntPtrInput
 	AutoscaleSettings    CassandraTableAutoscaleSettingsPtrInput
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -306,6 +316,8 @@ func (o CassandraTableOutput) ToCassandraTableOutputWithContext(ctx context.Cont
 }
 
 // Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+//
+// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 func (o CassandraTableOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTable) pulumi.IntPtrOutput { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }

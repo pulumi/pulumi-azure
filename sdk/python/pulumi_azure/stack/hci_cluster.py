@@ -28,6 +28,8 @@ class HciClusterArgs:
         :param pulumi.Input[str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+               
+               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -105,6 +107,8 @@ class HciClusterArgs:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -130,6 +134,8 @@ class _HciClusterState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+               
+               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -209,6 +215,8 @@ class _HciClusterState:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -265,6 +273,8 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+               
+               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         ...
     @overload
@@ -369,6 +379,8 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+               
+               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -427,6 +439,8 @@ class HciCluster(pulumi.CustomResource):
     def tenant_id(self) -> pulumi.Output[str]:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 

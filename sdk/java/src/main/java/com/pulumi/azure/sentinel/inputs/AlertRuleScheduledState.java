@@ -237,12 +237,16 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
+     * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * 
      */
     @Import(name="queryPeriod")
     private @Nullable Output<String> queryPeriod;
 
     /**
      * @return The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+     * 
+     * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     public Optional<Output<String>> queryPeriod() {
@@ -252,12 +256,16 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * 
      */
     @Import(name="sentinelEntityMappings")
     private @Nullable Output<List<AlertRuleScheduledSentinelEntityMappingArgs>> sentinelEntityMappings;
 
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
     public Optional<Output<List<AlertRuleScheduledSentinelEntityMappingArgs>>> sentinelEntityMappings() {
@@ -282,12 +290,16 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     /**
      * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
+     * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * 
      */
     @Import(name="suppressionDuration")
     private @Nullable Output<String> suppressionDuration;
 
     /**
      * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * 
+     * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     public Optional<Output<String>> suppressionDuration() {
@@ -732,6 +744,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         /**
          * @param queryPeriod The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
          * 
+         * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+         * 
          * @return builder
          * 
          */
@@ -743,6 +757,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         /**
          * @param queryPeriod The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
          * 
+         * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+         * 
          * @return builder
          * 
          */
@@ -752,6 +768,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
 
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -764,6 +782,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
          * 
+         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * 
          * @return builder
          * 
          */
@@ -773,6 +793,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
 
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -805,6 +827,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         /**
          * @param suppressionDuration If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
          * 
+         * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+         * 
          * @return builder
          * 
          */
@@ -815,6 +839,8 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
 
         /**
          * @param suppressionDuration If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+         * 
+         * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
          * 
          * @return builder
          * 

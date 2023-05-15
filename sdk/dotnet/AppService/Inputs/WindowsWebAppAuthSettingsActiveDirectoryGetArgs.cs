@@ -17,6 +17,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// 
+        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
         /// </summary>
         public InputList<string> AllowedAudiences
         {

@@ -181,7 +181,7 @@ def get_secret(key_vault_id: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.keyvault.get_secret(name="secret-sauce",
-        key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+        key_vault_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("secretValue", example.value)
     ```
 
@@ -189,6 +189,8 @@ def get_secret(key_vault_id: Optional[str] = None,
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Secret.
     :param str version: Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+           
+           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
@@ -227,7 +229,7 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.keyvault.get_secret(name="secret-sauce",
-        key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+        key_vault_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("secretValue", example.value)
     ```
 
@@ -235,5 +237,7 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Secret.
     :param str version: Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+           
+           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     ...

@@ -179,6 +179,8 @@ type NetworkPacketCapture struct {
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation NetworkPacketCaptureStorageLocationOutput `pulumi:"storageLocation"`
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently only Virtual Machines IDs are supported.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
@@ -240,6 +242,8 @@ type networkPacketCaptureState struct {
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation *NetworkPacketCaptureStorageLocation `pulumi:"storageLocation"`
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently only Virtual Machines IDs are supported.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 }
 
@@ -261,6 +265,8 @@ type NetworkPacketCaptureState struct {
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation NetworkPacketCaptureStorageLocationPtrInput
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently only Virtual Machines IDs are supported.
 	TargetResourceId pulumi.StringPtrInput
 }
 
@@ -286,6 +292,8 @@ type networkPacketCaptureArgs struct {
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation NetworkPacketCaptureStorageLocation `pulumi:"storageLocation"`
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently only Virtual Machines IDs are supported.
 	TargetResourceId string `pulumi:"targetResourceId"`
 }
 
@@ -308,6 +316,8 @@ type NetworkPacketCaptureArgs struct {
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation NetworkPacketCaptureStorageLocationInput
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently only Virtual Machines IDs are supported.
 	TargetResourceId pulumi.StringInput
 }
 
@@ -439,6 +449,8 @@ func (o NetworkPacketCaptureOutput) StorageLocation() NetworkPacketCaptureStorag
 }
 
 // The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Currently only Virtual Machines IDs are supported.
 func (o NetworkPacketCaptureOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPacketCapture) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

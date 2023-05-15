@@ -26,6 +26,8 @@ namespace Pulumi.Azure.CosmosDB.Inputs
 
         /// <summary>
         /// Is the index unique or not? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** An index with an "_id" key must be specified.
         /// </summary>
         [Input("unique")]
         public Input<bool>? Unique { get; set; }

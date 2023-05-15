@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSiteCredential {
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     private @Nullable String name;
@@ -24,7 +24,7 @@ public final class LinuxWebAppSiteCredential {
 
     private LinuxWebAppSiteCredential() {}
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Optional<String> name() {

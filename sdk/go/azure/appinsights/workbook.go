@@ -105,6 +105,8 @@ type Workbook struct {
 	// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
 	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
 	// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringPtrOutput `pulumi:"storageContainerId"`
 	// A mapping of tags which should be assigned to the Workbook.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -167,6 +169,8 @@ type workbookState struct {
 	// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
 	SourceId *string `pulumi:"sourceId"`
 	// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId *string `pulumi:"storageContainerId"`
 	// A mapping of tags which should be assigned to the Workbook.
 	Tags map[string]string `pulumi:"tags"`
@@ -192,6 +196,8 @@ type WorkbookState struct {
 	// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
 	SourceId pulumi.StringPtrInput
 	// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Workbook.
 	Tags pulumi.StringMapInput
@@ -221,6 +227,8 @@ type workbookArgs struct {
 	// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
 	SourceId *string `pulumi:"sourceId"`
 	// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId *string `pulumi:"storageContainerId"`
 	// A mapping of tags which should be assigned to the Workbook.
 	Tags map[string]string `pulumi:"tags"`
@@ -247,6 +255,8 @@ type WorkbookArgs struct {
 	// Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
 	SourceId pulumi.StringPtrInput
 	// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Workbook.
 	Tags pulumi.StringMapInput
@@ -385,6 +395,8 @@ func (o WorkbookOutput) SourceId() pulumi.StringPtrOutput {
 }
 
 // Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+//
+// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 func (o WorkbookOutput) StorageContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.StorageContainerId }).(pulumi.StringPtrOutput)
 }

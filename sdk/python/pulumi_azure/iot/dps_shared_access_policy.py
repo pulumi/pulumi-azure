@@ -27,11 +27,19 @@ class DpsSharedAccessPolicyArgs:
         :param pulumi.Input[str] iothub_dps_name: The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enrollment_read: Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+               
+               > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[bool] enrollment_write: Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+               
+               > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] registration_read: Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
         :param pulumi.Input[bool] registration_write: Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+               
+               > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+               
+               > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         pulumi.set(__self__, "iothub_dps_name", iothub_dps_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -77,6 +85,8 @@ class DpsSharedAccessPolicyArgs:
     def enrollment_read(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+
+        > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         """
         return pulumi.get(self, "enrollment_read")
 
@@ -89,6 +99,8 @@ class DpsSharedAccessPolicyArgs:
     def enrollment_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+
+        > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         """
         return pulumi.get(self, "enrollment_write")
 
@@ -125,6 +137,8 @@ class DpsSharedAccessPolicyArgs:
     def registration_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+
+        > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         """
         return pulumi.get(self, "registration_write")
 
@@ -137,6 +151,8 @@ class DpsSharedAccessPolicyArgs:
     def service_config(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+
+        > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         return pulumi.get(self, "service_config")
 
@@ -163,17 +179,25 @@ class _DpsSharedAccessPolicyState:
         """
         Input properties used for looking up and filtering DpsSharedAccessPolicy resources.
         :param pulumi.Input[bool] enrollment_read: Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+               
+               > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[bool] enrollment_write: Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+               
+               > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] iothub_dps_name: The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Shared Access Policy.
         :param pulumi.Input[str] primary_key: The primary key used to create the authentication token.
         :param pulumi.Input[bool] registration_read: Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
         :param pulumi.Input[bool] registration_write: Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+               
+               > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Shared Access Policy.
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+               
+               > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         if enrollment_read is not None:
             pulumi.set(__self__, "enrollment_read", enrollment_read)
@@ -205,6 +229,8 @@ class _DpsSharedAccessPolicyState:
     def enrollment_read(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+
+        > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         """
         return pulumi.get(self, "enrollment_read")
 
@@ -217,6 +243,8 @@ class _DpsSharedAccessPolicyState:
     def enrollment_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+
+        > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         """
         return pulumi.get(self, "enrollment_write")
 
@@ -289,6 +317,8 @@ class _DpsSharedAccessPolicyState:
     def registration_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+
+        > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         """
         return pulumi.get(self, "registration_write")
 
@@ -337,6 +367,8 @@ class _DpsSharedAccessPolicyState:
     def service_config(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+
+        > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         return pulumi.get(self, "service_config")
 
@@ -394,13 +426,21 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enrollment_read: Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+               
+               > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[bool] enrollment_write: Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+               
+               > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] iothub_dps_name: The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] registration_read: Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
         :param pulumi.Input[bool] registration_write: Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+               
+               > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+               
+               > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         ...
     @overload
@@ -520,17 +560,25 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enrollment_read: Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+               
+               > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[bool] enrollment_write: Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+               
+               > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] iothub_dps_name: The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Shared Access Policy.
         :param pulumi.Input[str] primary_key: The primary key used to create the authentication token.
         :param pulumi.Input[bool] registration_read: Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
         :param pulumi.Input[bool] registration_write: Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+               
+               > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Shared Access Policy.
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+               
+               > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -555,6 +603,8 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
     def enrollment_read(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+
+        > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         """
         return pulumi.get(self, "enrollment_read")
 
@@ -563,6 +613,8 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
     def enrollment_write(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+
+        > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         """
         return pulumi.get(self, "enrollment_write")
 
@@ -611,6 +663,8 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
     def registration_write(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+
+        > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         """
         return pulumi.get(self, "registration_write")
 
@@ -643,6 +697,8 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
     def service_config(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+
+        > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
         return pulumi.get(self, "service_config")
 

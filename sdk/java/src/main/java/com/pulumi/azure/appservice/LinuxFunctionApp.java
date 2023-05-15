@@ -102,14 +102,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/linuxFunctionApp:LinuxFunctionApp")
 public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
-     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * @return A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     public Output<Optional<Map<String,String>>> appSettings() {
@@ -452,14 +454,14 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -580,12 +582,20 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
      */
     @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageKeyVaultSecretId;
 
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Output<Optional<String>> storageKeyVaultSecretId() {
@@ -594,12 +604,16 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
+     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * 
      */
     @Export(name="storageUsesManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageUsesManagedIdentity;
 
     /**
      * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * 
+     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
     public Output<Optional<Boolean>> storageUsesManagedIdentity() {
@@ -619,22 +633,16 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+     * 
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -642,6 +650,8 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+     * 
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

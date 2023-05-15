@@ -170,6 +170,8 @@ type AccountCostManagementExportExportDataStorageLocation struct {
 	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId string `pulumi:"containerId"`
 	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 	RootFolderPath string `pulumi:"rootFolderPath"`
 }
 
@@ -188,6 +190,8 @@ type AccountCostManagementExportExportDataStorageLocationArgs struct {
 	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId pulumi.StringInput `pulumi:"containerId"`
 	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
 }
 
@@ -274,6 +278,8 @@ func (o AccountCostManagementExportExportDataStorageLocationOutput) ContainerId(
 }
 
 // The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+//
+// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 func (o AccountCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
@@ -313,6 +319,8 @@ func (o AccountCostManagementExportExportDataStorageLocationPtrOutput) Container
 }
 
 // The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+//
+// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 func (o AccountCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {

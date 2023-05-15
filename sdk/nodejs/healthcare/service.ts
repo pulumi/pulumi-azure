@@ -97,6 +97,8 @@ export class Service extends pulumi.CustomResource {
     public readonly corsConfiguration!: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+     *
+     * > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
     public readonly cosmosdbKeyVaultKeyVersionlessId!: pulumi.Output<string | undefined>;
     /**
@@ -109,6 +111,8 @@ export class Service extends pulumi.CustomResource {
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -189,6 +193,8 @@ export interface ServiceState {
     corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+     *
+     * > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
     cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
@@ -201,6 +207,8 @@ export interface ServiceState {
     kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      */
     location?: pulumi.Input<string>;
     /**
@@ -236,6 +244,8 @@ export interface ServiceArgs {
     corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+     *
+     * > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
     cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
@@ -248,6 +258,8 @@ export interface ServiceArgs {
     kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      */
     location?: pulumi.Input<string>;
     /**

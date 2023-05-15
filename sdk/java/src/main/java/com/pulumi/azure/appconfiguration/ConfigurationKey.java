@@ -319,12 +319,16 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
      * 
+     * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+     * 
      */
     @Export(name="vaultKeyReference", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vaultKeyReference;
 
     /**
      * @return The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     * 
+     * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
      * 
      */
     public Output<Optional<String>> vaultKeyReference() {

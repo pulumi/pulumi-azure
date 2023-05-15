@@ -119,6 +119,8 @@ class HubEventHandlerAuth(dict):
                  managed_identity_id: str):
         """
         :param str managed_identity_id: Specify the identity ID of the target resource.
+               
+               > **NOTE:** `managed_identity_id` is required if the auth block is defined
         """
         pulumi.set(__self__, "managed_identity_id", managed_identity_id)
 
@@ -127,6 +129,8 @@ class HubEventHandlerAuth(dict):
     def managed_identity_id(self) -> str:
         """
         Specify the identity ID of the target resource.
+
+        > **NOTE:** `managed_identity_id` is required if the auth block is defined
         """
         return pulumi.get(self, "managed_identity_id")
 
@@ -236,6 +240,8 @@ class NetworkAclPrivateEndpoint(dict):
         :param str id: The ID of the Private Endpoint which is based on the Web Pubsub service.
         :param Sequence[str] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         :param Sequence[str] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         pulumi.set(__self__, "id", id)
         if allowed_request_types is not None:
@@ -264,6 +270,8 @@ class NetworkAclPrivateEndpoint(dict):
     def denied_request_types(self) -> Optional[Sequence[str]]:
         """
         The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         return pulumi.get(self, "denied_request_types")
 
@@ -295,6 +303,8 @@ class NetworkAclPublicNetwork(dict):
         """
         :param Sequence[str] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         :param Sequence[str] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         if allowed_request_types is not None:
             pulumi.set(__self__, "allowed_request_types", allowed_request_types)
@@ -314,6 +324,8 @@ class NetworkAclPublicNetwork(dict):
     def denied_request_types(self) -> Optional[Sequence[str]]:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         return pulumi.get(self, "denied_request_types")
 
@@ -349,6 +361,8 @@ class ServiceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -373,6 +387,8 @@ class ServiceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 

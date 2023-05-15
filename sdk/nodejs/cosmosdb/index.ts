@@ -85,10 +85,25 @@ export type PostgresqlCluster = import("./postgresqlCluster").PostgresqlCluster;
 export const PostgresqlCluster: typeof import("./postgresqlCluster").PostgresqlCluster = null as any;
 utilities.lazyLoad(exports, ["PostgresqlCluster"], () => require("./postgresqlCluster"));
 
+export { PostgresqlCoordinatorConfigurationArgs, PostgresqlCoordinatorConfigurationState } from "./postgresqlCoordinatorConfiguration";
+export type PostgresqlCoordinatorConfiguration = import("./postgresqlCoordinatorConfiguration").PostgresqlCoordinatorConfiguration;
+export const PostgresqlCoordinatorConfiguration: typeof import("./postgresqlCoordinatorConfiguration").PostgresqlCoordinatorConfiguration = null as any;
+utilities.lazyLoad(exports, ["PostgresqlCoordinatorConfiguration"], () => require("./postgresqlCoordinatorConfiguration"));
+
 export { PostgresqlFirewallRuleArgs, PostgresqlFirewallRuleState } from "./postgresqlFirewallRule";
 export type PostgresqlFirewallRule = import("./postgresqlFirewallRule").PostgresqlFirewallRule;
 export const PostgresqlFirewallRule: typeof import("./postgresqlFirewallRule").PostgresqlFirewallRule = null as any;
 utilities.lazyLoad(exports, ["PostgresqlFirewallRule"], () => require("./postgresqlFirewallRule"));
+
+export { PostgresqlNodeConfigurationArgs, PostgresqlNodeConfigurationState } from "./postgresqlNodeConfiguration";
+export type PostgresqlNodeConfiguration = import("./postgresqlNodeConfiguration").PostgresqlNodeConfiguration;
+export const PostgresqlNodeConfiguration: typeof import("./postgresqlNodeConfiguration").PostgresqlNodeConfiguration = null as any;
+utilities.lazyLoad(exports, ["PostgresqlNodeConfiguration"], () => require("./postgresqlNodeConfiguration"));
+
+export { PostgresqlRoleArgs, PostgresqlRoleState } from "./postgresqlRole";
+export type PostgresqlRole = import("./postgresqlRole").PostgresqlRole;
+export const PostgresqlRole: typeof import("./postgresqlRole").PostgresqlRole = null as any;
+utilities.lazyLoad(exports, ["PostgresqlRole"], () => require("./postgresqlRole"));
 
 export { SqlContainerArgs, SqlContainerState } from "./sqlContainer";
 export type SqlContainer = import("./sqlContainer").SqlContainer;
@@ -163,8 +178,14 @@ const _module = {
                 return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure:cosmosdb/postgresqlCluster:PostgresqlCluster":
                 return new PostgresqlCluster(name, <any>undefined, { urn })
+            case "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration":
+                return new PostgresqlCoordinatorConfiguration(name, <any>undefined, { urn })
             case "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule":
                 return new PostgresqlFirewallRule(name, <any>undefined, { urn })
+            case "azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration":
+                return new PostgresqlNodeConfiguration(name, <any>undefined, { urn })
+            case "azure:cosmosdb/postgresqlRole:PostgresqlRole":
+                return new PostgresqlRole(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlContainer:SqlContainer":
                 return new SqlContainer(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlDatabase:SqlDatabase":
@@ -199,7 +220,10 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoCollection", _modu
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/notebookWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlCoordinatorConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlFirewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlNodeConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlRole", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDedicatedGateway", _module)

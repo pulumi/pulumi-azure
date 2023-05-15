@@ -31,6 +31,8 @@ namespace Pulumi.Azure.WebPubSub
 
         /// <summary>
         /// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         /// </summary>
         [Output("customCertificateId")]
         public Output<string> CustomCertificateId { get; private set; } = null!;
@@ -43,6 +45,8 @@ namespace Pulumi.Azure.WebPubSub
 
         /// <summary>
         /// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         /// </summary>
         [Output("webPubsubId")]
         public Output<string> WebPubsubId { get; private set; } = null!;
@@ -95,6 +99,8 @@ namespace Pulumi.Azure.WebPubSub
     {
         /// <summary>
         /// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         /// </summary>
         [Input("customCertificateId", required: true)]
         public Input<string> CustomCertificateId { get; set; } = null!;
@@ -107,6 +113,8 @@ namespace Pulumi.Azure.WebPubSub
 
         /// <summary>
         /// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         /// </summary>
         [Input("webPubsubId", required: true)]
         public Input<string> WebPubsubId { get; set; } = null!;
@@ -127,6 +135,8 @@ namespace Pulumi.Azure.WebPubSub
 
         /// <summary>
         /// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         /// </summary>
         [Input("customCertificateId")]
         public Input<string>? CustomCertificateId { get; set; }
@@ -139,6 +149,8 @@ namespace Pulumi.Azure.WebPubSub
 
         /// <summary>
         /// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         /// </summary>
         [Input("webPubsubId")]
         public Input<string>? WebPubsubId { get; set; }

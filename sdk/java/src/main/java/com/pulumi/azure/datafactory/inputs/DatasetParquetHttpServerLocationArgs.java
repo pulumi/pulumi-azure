@@ -63,7 +63,6 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
     /**
      * The folder path to the file on the web server.
-     * ---
      * 
      */
     @Import(name="path")
@@ -71,7 +70,6 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
     /**
      * @return The folder path to the file on the web server.
-     * ---
      * 
      */
     public Optional<Output<String>> path() {
@@ -186,7 +184,6 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
         /**
          * @param path The folder path to the file on the web server.
-         * ---
          * 
          * @return builder
          * 
@@ -198,7 +195,6 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
         /**
          * @param path The folder path to the file on the web server.
-         * ---
          * 
          * @return builder
          * 

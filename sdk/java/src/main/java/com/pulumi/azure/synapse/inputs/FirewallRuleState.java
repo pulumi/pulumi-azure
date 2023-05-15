@@ -18,12 +18,20 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ending IP address to allow through the firewall for this rule.
      * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+     * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+     * 
      */
     @Import(name="endIpAddress")
     private @Nullable Output<String> endIpAddress;
 
     /**
      * @return The ending IP address to allow through the firewall for this rule.
+     * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+     * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      * 
      */
     public Optional<Output<String>> endIpAddress() {
@@ -105,6 +113,10 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param endIpAddress The ending IP address to allow through the firewall for this rule.
          * 
+         * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+         * 
+         * &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+         * 
          * @return builder
          * 
          */
@@ -115,6 +127,10 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param endIpAddress The ending IP address to allow through the firewall for this rule.
+         * 
+         * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+         * 
+         * &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
          * 
          * @return builder
          * 

@@ -66,6 +66,10 @@ type ChannelsRegistration struct {
 	pulumi.CustomResourceState
 
 	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	//
+	// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+	//
+	// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
 	CmkKeyVaultUrl pulumi.StringPtrOutput `pulumi:"cmkKeyVaultUrl"`
 	// The description of the Bot Channels Registration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -82,6 +86,8 @@ type ChannelsRegistration struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl pulumi.StringOutput `pulumi:"iconUrl"`
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolOutput `pulumi:"isolatedNetworkEnabled"`
@@ -149,6 +155,10 @@ func GetChannelsRegistration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ChannelsRegistration resources.
 type channelsRegistrationState struct {
 	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	//
+	// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+	//
+	// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
 	CmkKeyVaultUrl *string `pulumi:"cmkKeyVaultUrl"`
 	// The description of the Bot Channels Registration.
 	Description *string `pulumi:"description"`
@@ -165,6 +175,8 @@ type channelsRegistrationState struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl *string `pulumi:"iconUrl"`
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
@@ -188,6 +200,10 @@ type channelsRegistrationState struct {
 
 type ChannelsRegistrationState struct {
 	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	//
+	// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+	//
+	// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
 	CmkKeyVaultUrl pulumi.StringPtrInput
 	// The description of the Bot Channels Registration.
 	Description pulumi.StringPtrInput
@@ -204,6 +220,8 @@ type ChannelsRegistrationState struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl pulumi.StringPtrInput
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolPtrInput
@@ -231,6 +249,10 @@ func (ChannelsRegistrationState) ElementType() reflect.Type {
 
 type channelsRegistrationArgs struct {
 	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	//
+	// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+	//
+	// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
 	CmkKeyVaultUrl *string `pulumi:"cmkKeyVaultUrl"`
 	// The description of the Bot Channels Registration.
 	Description *string `pulumi:"description"`
@@ -247,6 +269,8 @@ type channelsRegistrationArgs struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl *string `pulumi:"iconUrl"`
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
@@ -271,6 +295,10 @@ type channelsRegistrationArgs struct {
 // The set of arguments for constructing a ChannelsRegistration resource.
 type ChannelsRegistrationArgs struct {
 	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+	//
+	// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+	//
+	// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
 	CmkKeyVaultUrl pulumi.StringPtrInput
 	// The description of the Bot Channels Registration.
 	Description pulumi.StringPtrInput
@@ -287,6 +315,8 @@ type ChannelsRegistrationArgs struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl pulumi.StringPtrInput
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolPtrInput
@@ -396,6 +426,10 @@ func (o ChannelsRegistrationOutput) ToChannelsRegistrationOutputWithContext(ctx 
 }
 
 // The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+//
+// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+//
+// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
 func (o ChannelsRegistrationOutput) CmkKeyVaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringPtrOutput { return v.CmkKeyVaultUrl }).(pulumi.StringPtrOutput)
 }
@@ -436,6 +470,8 @@ func (o ChannelsRegistrationOutput) IconUrl() pulumi.StringOutput {
 }
 
 // Is the Bot Channels Registration in an isolated network?
+//
+// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 //
 // Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 func (o ChannelsRegistrationOutput) IsolatedNetworkEnabled() pulumi.BoolOutput {

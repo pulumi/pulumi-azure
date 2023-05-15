@@ -34,12 +34,16 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      * 
+     * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * 
      */
     @Import(name="manage")
     private @Nullable Output<Boolean> manage;
 
     /**
      * @return Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> manage() {
@@ -175,6 +179,8 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param manage Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
          * 
+         * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -185,6 +191,8 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param manage Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
          * 
          * @return builder
          * 

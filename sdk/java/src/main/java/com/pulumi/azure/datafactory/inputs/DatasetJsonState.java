@@ -23,12 +23,16 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
+     * The following supported arguments are specific to JSON Dataset:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset.
+     * 
+     * The following supported arguments are specific to JSON Dataset:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -53,12 +57,16 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `azure_blob_storage_location` block as defined below.
      * 
+     * The following supported arguments are specific to Delimited Text Dataset:
+     * 
      */
     @Import(name="azureBlobStorageLocation")
     private @Nullable Output<DatasetJsonAzureBlobStorageLocationArgs> azureBlobStorageLocation;
 
     /**
      * @return A `azure_blob_storage_location` block as defined below.
+     * 
+     * The following supported arguments are specific to Delimited Text Dataset:
      * 
      */
     public Optional<Output<DatasetJsonAzureBlobStorageLocationArgs>> azureBlobStorageLocation() {
@@ -238,6 +246,8 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
          * 
+         * The following supported arguments are specific to JSON Dataset:
+         * 
          * @return builder
          * 
          */
@@ -248,6 +258,8 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
+         * 
+         * The following supported arguments are specific to JSON Dataset:
          * 
          * @return builder
          * 
@@ -290,6 +302,8 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
          * 
+         * The following supported arguments are specific to Delimited Text Dataset:
+         * 
          * @return builder
          * 
          */
@@ -300,6 +314,8 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * 
+         * The following supported arguments are specific to Delimited Text Dataset:
          * 
          * @return builder
          * 

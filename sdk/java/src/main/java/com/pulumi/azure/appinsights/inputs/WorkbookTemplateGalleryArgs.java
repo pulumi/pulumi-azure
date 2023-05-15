@@ -79,12 +79,16 @@ public final class WorkbookTemplateGalleryArgs extends com.pulumi.resources.Reso
     /**
      * Type of workbook supported by the workbook template. Defaults to `workbook`.
      * 
+     * &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Type of workbook supported by the workbook template. Defaults to `workbook`.
+     * 
+     * &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -206,6 +210,8 @@ public final class WorkbookTemplateGalleryArgs extends com.pulumi.resources.Reso
         /**
          * @param type Type of workbook supported by the workbook template. Defaults to `workbook`.
          * 
+         * &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+         * 
          * @return builder
          * 
          */
@@ -216,6 +222,8 @@ public final class WorkbookTemplateGalleryArgs extends com.pulumi.resources.Reso
 
         /**
          * @param type Type of workbook supported by the workbook template. Defaults to `workbook`.
+         * 
+         * &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
          * 
          * @return builder
          * 

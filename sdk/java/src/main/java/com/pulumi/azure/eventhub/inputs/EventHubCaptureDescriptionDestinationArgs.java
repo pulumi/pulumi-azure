@@ -46,12 +46,16 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
     /**
      * The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
      * 
+     * &gt; At this time it&#39;s only possible to Capture EventHub messages to Blob Storage. There&#39;s [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+     * 
+     * &gt; At this time it&#39;s only possible to Capture EventHub messages to Blob Storage. There&#39;s [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
      * 
      */
     public Output<String> name() {
@@ -145,6 +149,8 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
         /**
          * @param name The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
          * 
+         * &gt; At this time it&#39;s only possible to Capture EventHub messages to Blob Storage. There&#39;s [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
+         * 
          * @return builder
          * 
          */
@@ -155,6 +161,8 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
 
         /**
          * @param name The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+         * 
+         * &gt; At this time it&#39;s only possible to Capture EventHub messages to Blob Storage. There&#39;s [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
          * 
          * @return builder
          * 

@@ -33,12 +33,16 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
     /**
      * The version of the Key Vault secret representing the full certificate PFX.
      * 
+     * &gt; **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
+     * 
      */
     @Import(name="azureKeyVaultCertificateSecretVersion")
     private @Nullable Output<String> azureKeyVaultCertificateSecretVersion;
 
     /**
      * @return The version of the Key Vault secret representing the full certificate PFX.
+     * 
+     * &gt; **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
      * 
      */
     public Optional<Output<String>> azureKeyVaultCertificateSecretVersion() {
@@ -63,12 +67,16 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
     /**
      * Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
      * 
+     * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+     * 
      */
     @Import(name="certificateSource")
     private @Nullable Output<String> certificateSource;
 
     /**
      * @return Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+     * 
+     * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
      * 
      */
     public Optional<Output<String>> certificateSource() {
@@ -158,6 +166,8 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
         /**
          * @param azureKeyVaultCertificateSecretVersion The version of the Key Vault secret representing the full certificate PFX.
          * 
+         * &gt; **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
+         * 
          * @return builder
          * 
          */
@@ -168,6 +178,8 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
 
         /**
          * @param azureKeyVaultCertificateSecretVersion The version of the Key Vault secret representing the full certificate PFX.
+         * 
+         * &gt; **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
          * 
          * @return builder
          * 
@@ -200,6 +212,8 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
         /**
          * @param certificateSource Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
          * 
+         * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+         * 
          * @return builder
          * 
          */
@@ -210,6 +224,8 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
 
         /**
          * @param certificateSource Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+         * 
+         * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
          * 
          * @return builder
          * 

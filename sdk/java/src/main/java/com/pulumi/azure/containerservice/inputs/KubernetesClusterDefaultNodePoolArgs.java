@@ -41,12 +41,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Specifies whether to trust a Custom CA.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
      */
     @Import(name="customCaTrustEnabled")
     private @Nullable Output<Boolean> customCaTrustEnabled;
 
     /**
      * @return Specifies whether to trust a Custom CA.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Optional<Output<Boolean>> customCaTrustEnabled() {
@@ -56,12 +60,20 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
      * 
+     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+     * 
+     * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
+     * 
      */
     @Import(name="enableAutoScaling")
     private @Nullable Output<Boolean> enableAutoScaling;
 
     /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+     * 
+     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+     * 
+     * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
      * 
      */
     public Optional<Output<Boolean>> enableAutoScaling() {
@@ -71,12 +83,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
+     * 
      */
     @Import(name="enableHostEncryption")
     private @Nullable Output<Boolean> enableHostEncryption;
 
     /**
      * @return Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
      * 
      */
     public Optional<Output<Boolean>> enableHostEncryption() {
@@ -251,12 +267,20 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
      * 
+     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * 
+     * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
+     * 
      */
     @Import(name="nodeCount")
     private @Nullable Output<Integer> nodeCount;
 
     /**
      * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+     * 
+     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * 
+     * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
      */
     public Optional<Output<Integer>> nodeCount() {
@@ -341,12 +365,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
+     * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
+     * 
      */
     @Import(name="orchestratorVersion")
     private @Nullable Output<String> orchestratorVersion;
 
     /**
      * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * 
+     * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
      * 
      */
     public Optional<Output<String>> orchestratorVersion() {
@@ -446,12 +474,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * A mapping of tags to assign to the Node Pool.
      * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the Node Pool.
+     * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -476,12 +508,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
      * 
      */
     public Optional<Output<String>> type() {
@@ -521,12 +557,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * The size of the Virtual Machine, such as `Standard_DS2_v2`.
      * 
+     * &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+     * 
      */
     @Import(name="vmSize", required=true)
     private Output<String> vmSize;
 
     /**
      * @return The size of the Virtual Machine, such as `Standard_DS2_v2`.
+     * 
+     * &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
     public Output<String> vmSize() {
@@ -536,12 +576,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** A Route Table must be configured on this Subnet.
+     * 
      */
     @Import(name="vnetSubnetId")
     private @Nullable Output<String> vnetSubnetId;
 
     /**
      * @return The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** A Route Table must be configured on this Subnet.
      * 
      */
     public Optional<Output<String>> vnetSubnetId() {
@@ -551,12 +595,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
      * 
+     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+     * 
      */
     @Import(name="workloadRuntime")
     private @Nullable Output<String> workloadRuntime;
 
     /**
      * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+     * 
+     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      * 
      */
     public Optional<Output<String>> workloadRuntime() {
@@ -566,12 +614,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
      * 
+     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
+     * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+     * 
+     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -662,6 +714,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
          * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * 
          * @return builder
          * 
          */
@@ -673,6 +727,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
          * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * 
          * @return builder
          * 
          */
@@ -682,6 +738,10 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param enableAutoScaling Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+         * 
+         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+         * 
+         * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
          * 
          * @return builder
          * 
@@ -694,6 +754,10 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param enableAutoScaling Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
          * 
+         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+         * 
+         * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
+         * 
          * @return builder
          * 
          */
@@ -703,6 +767,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
          * 
          * @return builder
          * 
@@ -714,6 +780,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
          * 
          * @return builder
          * 
@@ -956,6 +1024,10 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
          * 
+         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+         * 
+         * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
+         * 
          * @return builder
          * 
          */
@@ -966,6 +1038,10 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+         * 
+         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+         * 
+         * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
          * 
          * @return builder
          * 
@@ -1092,6 +1168,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          * 
+         * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
+         * 
          * @return builder
          * 
          */
@@ -1102,6 +1180,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+         * 
+         * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
          * 
          * @return builder
          * 
@@ -1239,6 +1319,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param tags A mapping of tags to assign to the Node Pool.
          * 
+         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
+         * 
          * @return builder
          * 
          */
@@ -1249,6 +1331,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param tags A mapping of tags to assign to the Node Pool.
+         * 
+         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
          * 
          * @return builder
          * 
@@ -1281,6 +1365,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+         * 
          * @return builder
          * 
          */
@@ -1291,6 +1377,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
          * 
          * @return builder
          * 
@@ -1344,6 +1432,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param vmSize The size of the Virtual Machine, such as `Standard_DS2_v2`.
          * 
+         * &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+         * 
          * @return builder
          * 
          */
@@ -1355,6 +1445,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param vmSize The size of the Virtual Machine, such as `Standard_DS2_v2`.
          * 
+         * &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+         * 
          * @return builder
          * 
          */
@@ -1364,6 +1456,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param vnetSubnetId The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** A Route Table must be configured on this Subnet.
          * 
          * @return builder
          * 
@@ -1376,6 +1470,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param vnetSubnetId The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** A Route Table must be configured on this Subnet.
+         * 
          * @return builder
          * 
          */
@@ -1385,6 +1481,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+         * 
+         * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
          * 
          * @return builder
          * 
@@ -1397,6 +1495,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
          * 
+         * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+         * 
          * @return builder
          * 
          */
@@ -1406,6 +1506,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+         * 
+         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
          * 
          * @return builder
          * 
@@ -1418,6 +1520,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
          * 
+         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
+         * 
          * @return builder
          * 
          */
@@ -1427,6 +1531,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+         * 
+         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
          * 
          * @return builder
          * 

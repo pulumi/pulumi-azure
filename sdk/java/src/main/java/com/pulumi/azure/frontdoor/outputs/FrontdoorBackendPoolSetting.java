@@ -20,6 +20,8 @@ public final class FrontdoorBackendPoolSetting {
     /**
      * @return Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      * 
+     * &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+     * 
      */
     private Boolean enforceBackendPoolsCertificateNameCheck;
 
@@ -33,6 +35,8 @@ public final class FrontdoorBackendPoolSetting {
     }
     /**
      * @return Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+     * 
+     * &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
      * 
      */
     public Boolean enforceBackendPoolsCertificateNameCheck() {

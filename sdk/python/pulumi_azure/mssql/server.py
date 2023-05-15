@@ -29,7 +29,8 @@ class ServerArgs:
                  outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
@@ -41,11 +42,22 @@ class ServerArgs:
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+               
+               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               
+               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               
+               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "version", version)
@@ -73,6 +85,8 @@ class ServerArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transparent_data_encryption_key_vault_key_id is not None:
+            pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -175,6 +189,8 @@ class ServerArgs:
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+
+        > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -242,6 +258,26 @@ class ServerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+
+        > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+
+        > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+
+        > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+
+        > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
+
+    @transparent_data_encryption_key_vault_key_id.setter
+    def transparent_data_encryption_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_data_encryption_key_vault_key_id", value)
+
 
 @pulumi.input_type
 class _ServerState:
@@ -261,6 +297,7 @@ class _ServerState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restorable_dropped_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
@@ -272,6 +309,8 @@ class _ServerState:
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+               
+               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
@@ -279,6 +318,15 @@ class _ServerState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restorable_dropped_database_ids: A list of dropped restorable database IDs on the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               
+               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               
+               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         if administrator_login is not None:
@@ -311,6 +359,8 @@ class _ServerState:
             pulumi.set(__self__, "restorable_dropped_database_ids", restorable_dropped_database_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transparent_data_encryption_key_vault_key_id is not None:
+            pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -403,6 +453,8 @@ class _ServerState:
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+
+        > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -495,6 +547,26 @@ class _ServerState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+
+        > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+
+        > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+
+        > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+
+        > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
+
+    @transparent_data_encryption_key_vault_key_id.setter
+    def transparent_data_encryption_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_data_encryption_key_vault_key_id", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -525,6 +597,7 @@ class Server(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -552,6 +625,78 @@ class Server(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
+        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=example_user_assigned_identity.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard",
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=current.tenant_id,
+                    object_id=current.object_id,
+                    key_permissions=[
+                        "Get",
+                        "List",
+                        "Create",
+                        "Delete",
+                        "Update",
+                        "Recover",
+                        "Purge",
+                        "GetRotationPolicy",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=example_user_assigned_identity.tenant_id,
+                    object_id=example_user_assigned_identity.principal_id,
+                    key_permissions=[
+                        "Get",
+                        "WrapKey",
+                        "UnwrapKey",
+                    ],
+                ),
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "unwrapKey",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="Example-Administrator",
+            administrator_login_password="Example_Password!",
+            minimum_tls_version="1.2",
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+                login_username=example_user_assigned_identity.name,
+                object_id=example_user_assigned_identity.principal_id,
+            ),
+            identity=azure.mssql.ServerIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            primary_user_assigned_identity_id=example_user_assigned_identity.id,
+            transparent_data_encryption_key_vault_key_id=example_key.id)
+        ```
 
         ## Import
 
@@ -570,12 +715,23 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+               
+               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               
+               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               
+               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         ...
@@ -608,6 +764,78 @@ class Server(pulumi.CustomResource):
             tags={
                 "environment": "production",
             })
+        ```
+        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=example_user_assigned_identity.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard",
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=current.tenant_id,
+                    object_id=current.object_id,
+                    key_permissions=[
+                        "Get",
+                        "List",
+                        "Create",
+                        "Delete",
+                        "Update",
+                        "Recover",
+                        "Purge",
+                        "GetRotationPolicy",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=example_user_assigned_identity.tenant_id,
+                    object_id=example_user_assigned_identity.principal_id,
+                    key_permissions=[
+                        "Get",
+                        "WrapKey",
+                        "UnwrapKey",
+                    ],
+                ),
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "unwrapKey",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="Example-Administrator",
+            administrator_login_password="Example_Password!",
+            minimum_tls_version="1.2",
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+                login_username=example_user_assigned_identity.name,
+                object_id=example_user_assigned_identity.principal_id,
+            ),
+            identity=azure.mssql.ServerIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            primary_user_assigned_identity_id=example_user_assigned_identity.id,
+            transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 
         ## Import
@@ -646,6 +874,7 @@ class Server(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -671,6 +900,7 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["transparent_data_encryption_key_vault_key_id"] = transparent_data_encryption_key_vault_key_id
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
@@ -703,6 +933,7 @@ class Server(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restorable_dropped_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
@@ -719,6 +950,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+               
+               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
@@ -726,6 +959,15 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restorable_dropped_database_ids: A list of dropped restorable database IDs on the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               
+               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               
+               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -747,6 +989,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restorable_dropped_database_ids"] = restorable_dropped_database_ids
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["transparent_data_encryption_key_vault_key_id"] = transparent_data_encryption_key_vault_key_id
         __props__.__dict__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
 
@@ -811,6 +1054,8 @@ class Server(pulumi.CustomResource):
     def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+
+        > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -869,6 +1114,22 @@ class Server(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+
+        > **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+
+        > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+
+        > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+
+        > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
     @property
     @pulumi.getter

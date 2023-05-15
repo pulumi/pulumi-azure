@@ -77,6 +77,8 @@ type Group struct {
 	// The ID of the Parent Management Group.
 	ParentManagementGroupId pulumi.StringOutput `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
+	//
+	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds pulumi.StringArrayOutput `pulumi:"subscriptionIds"`
 }
 
@@ -122,6 +124,8 @@ type groupState struct {
 	// The ID of the Parent Management Group.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
+	//
+	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
 }
 
@@ -133,6 +137,8 @@ type GroupState struct {
 	// The ID of the Parent Management Group.
 	ParentManagementGroupId pulumi.StringPtrInput
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
+	//
+	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds pulumi.StringArrayInput
 }
 
@@ -148,6 +154,8 @@ type groupArgs struct {
 	// The ID of the Parent Management Group.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
+	//
+	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
 }
 
@@ -160,6 +168,8 @@ type GroupArgs struct {
 	// The ID of the Parent Management Group.
 	ParentManagementGroupId pulumi.StringPtrInput
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
+	//
+	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds pulumi.StringArrayInput
 }
 
@@ -266,6 +276,8 @@ func (o GroupOutput) ParentManagementGroupId() pulumi.StringOutput {
 }
 
 // A list of Subscription GUIDs which should be assigned to the Management Group.
+//
+// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 func (o GroupOutput) SubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.SubscriptionIds }).(pulumi.StringArrayOutput)
 }

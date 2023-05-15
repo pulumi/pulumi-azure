@@ -156,12 +156,16 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
     /**
      * The type of token. Supported values are `Jwt` or `Swt`.
      * 
+     * &gt; **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to &lt;https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access&gt;
+     * 
      */
     @Import(name="tokenType")
     private @Nullable Output<String> tokenType;
 
     /**
      * @return The type of token. Supported values are `Jwt` or `Swt`.
+     * 
+     * &gt; **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to &lt;https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access&gt;
      * 
      */
     public Optional<Output<String>> tokenType() {
@@ -413,6 +417,8 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
         /**
          * @param tokenType The type of token. Supported values are `Jwt` or `Swt`.
          * 
+         * &gt; **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to &lt;https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access&gt;
+         * 
          * @return builder
          * 
          */
@@ -423,6 +429,8 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
 
         /**
          * @param tokenType The type of token. Supported values are `Jwt` or `Swt`.
+         * 
+         * &gt; **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to &lt;https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access&gt;
          * 
          * @return builder
          * 

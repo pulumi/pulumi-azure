@@ -17,17 +17,9 @@ public final class ResourceProviderRegistrationArgs extends com.pulumi.resources
 
     public static final ResourceProviderRegistrationArgs Empty = new ResourceProviderRegistrationArgs();
 
-    /**
-     * A list of `feature` blocks as defined below.
-     * 
-     */
     @Import(name="features")
     private @Nullable Output<List<ResourceProviderRegistrationFeatureArgs>> features;
 
-    /**
-     * @return A list of `feature` blocks as defined below.
-     * 
-     */
     public Optional<Output<List<ResourceProviderRegistrationFeatureArgs>>> features() {
         return Optional.ofNullable(this.features);
     }
@@ -72,33 +64,15 @@ public final class ResourceProviderRegistrationArgs extends com.pulumi.resources
             $ = new ResourceProviderRegistrationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param features A list of `feature` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder features(@Nullable Output<List<ResourceProviderRegistrationFeatureArgs>> features) {
             $.features = features;
             return this;
         }
 
-        /**
-         * @param features A list of `feature` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder features(List<ResourceProviderRegistrationFeatureArgs> features) {
             return features(Output.of(features));
         }
 
-        /**
-         * @param features A list of `feature` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder features(ResourceProviderRegistrationFeatureArgs... features) {
             return features(List.of(features));
         }

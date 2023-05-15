@@ -20,12 +20,16 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
     /**
      * Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+     * 
      */
     @Import(name="compressionEnabled")
     private @Nullable Output<Boolean> compressionEnabled;
 
     /**
      * @return Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
      * 
      */
     public Optional<Output<Boolean>> compressionEnabled() {
@@ -50,12 +54,16 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
     /**
      * Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
      * 
+     * &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+     * 
      */
     @Import(name="queryStringCachingBehavior")
     private @Nullable Output<String> queryStringCachingBehavior;
 
     /**
      * @return Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+     * 
+     * &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
      * 
      */
     public Optional<Output<String>> queryStringCachingBehavior() {
@@ -107,6 +115,8 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
         /**
          * @param compressionEnabled Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
          * 
+         * &gt; **NOTE:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+         * 
          * @return builder
          * 
          */
@@ -117,6 +127,8 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
 
         /**
          * @param compressionEnabled Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
          * 
          * @return builder
          * 
@@ -159,6 +171,8 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
         /**
          * @param queryStringCachingBehavior Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
          * 
+         * &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+         * 
          * @return builder
          * 
          */
@@ -169,6 +183,8 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
 
         /**
          * @param queryStringCachingBehavior Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+         * 
+         * &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
          * 
          * @return builder
          * 

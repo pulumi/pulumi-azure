@@ -65,12 +65,16 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
     /**
      * The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
      * 
+     * &gt; **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn&#39;t specify `content_key_location_from_key_id` and vice versa.
+     * 
      */
     @Import(name="contentKeyLocationFromKeyId")
     private @Nullable Output<String> contentKeyLocationFromKeyId;
 
     /**
      * @return The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+     * 
+     * &gt; **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn&#39;t specify `content_key_location_from_key_id` and vice versa.
      * 
      */
     public Optional<Output<String>> contentKeyLocationFromKeyId() {
@@ -298,6 +302,8 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
         /**
          * @param contentKeyLocationFromKeyId The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
          * 
+         * &gt; **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn&#39;t specify `content_key_location_from_key_id` and vice versa.
+         * 
          * @return builder
          * 
          */
@@ -308,6 +314,8 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
 
         /**
          * @param contentKeyLocationFromKeyId The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+         * 
+         * &gt; **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn&#39;t specify `content_key_location_from_key_id` and vice versa.
          * 
          * @return builder
          * 

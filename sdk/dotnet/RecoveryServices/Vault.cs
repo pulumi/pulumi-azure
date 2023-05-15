@@ -57,12 +57,16 @@ namespace Pulumi.Azure.RecoveryServices
 
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         /// </summary>
         [Output("crossRegionRestoreEnabled")]
         public Output<bool?> CrossRegionRestoreEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `encryption` block as defined below. Required with `identity`.
+        /// 
+        /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.VaultEncryption?> Encryption { get; private set; } = null!;
@@ -181,12 +185,16 @@ namespace Pulumi.Azure.RecoveryServices
 
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
 
         /// <summary>
         /// An `encryption` block as defined below. Required with `identity`.
+        /// 
+        /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VaultEncryptionArgs>? Encryption { get; set; }
@@ -273,12 +281,16 @@ namespace Pulumi.Azure.RecoveryServices
 
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
 
         /// <summary>
         /// An `encryption` block as defined below. Required with `identity`.
+        /// 
+        /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VaultEncryptionGetArgs>? Encryption { get; set; }

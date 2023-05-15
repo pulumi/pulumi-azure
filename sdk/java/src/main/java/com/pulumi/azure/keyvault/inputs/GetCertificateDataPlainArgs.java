@@ -47,12 +47,16 @@ public final class GetCertificateDataPlainArgs extends com.pulumi.resources.Invo
     /**
      * Specifies the version of the certificate to look up.  (Defaults to latest)
      * 
+     * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+     * 
      */
     @Import(name="version")
     private @Nullable String version;
 
     /**
      * @return Specifies the version of the certificate to look up.  (Defaults to latest)
+     * 
+     * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     public Optional<String> version() {
@@ -109,6 +113,8 @@ public final class GetCertificateDataPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param version Specifies the version of the certificate to look up.  (Defaults to latest)
+         * 
+         * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 

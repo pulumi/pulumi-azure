@@ -48,12 +48,16 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
     /**
      * Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
      * 
+     * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
+     * 
      */
     @Import(name="gitUrl")
     private @Nullable Output<String> gitUrl;
 
     /**
      * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+     * 
+     * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
      * 
      */
     public Optional<Output<String>> gitUrl() {
@@ -179,6 +183,8 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
         /**
          * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
          * 
+         * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
+         * 
          * @return builder
          * 
          */
@@ -189,6 +195,8 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
 
         /**
          * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+         * 
+         * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
          * 
          * @return builder
          * 

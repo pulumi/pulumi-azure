@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Media.Outputs
         public readonly Outputs.TransformOutputCustomPresetFilterOverlayAudio? Audio;
         /// <summary>
         /// A `video` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
         /// </summary>
         public readonly Outputs.TransformOutputCustomPresetFilterOverlayVideo? Video;
 

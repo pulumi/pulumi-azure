@@ -84,7 +84,6 @@ import (
 type ResourceProviderRegistration struct {
 	pulumi.CustomResourceState
 
-	// A list of `feature` blocks as defined below.
 	Features ResourceProviderRegistrationFeatureArrayOutput `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -119,14 +118,12 @@ func GetResourceProviderRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceProviderRegistration resources.
 type resourceProviderRegistrationState struct {
-	// A list of `feature` blocks as defined below.
 	Features []ResourceProviderRegistrationFeature `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 }
 
 type ResourceProviderRegistrationState struct {
-	// A list of `feature` blocks as defined below.
 	Features ResourceProviderRegistrationFeatureArrayInput
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -137,7 +134,6 @@ func (ResourceProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type resourceProviderRegistrationArgs struct {
-	// A list of `feature` blocks as defined below.
 	Features []ResourceProviderRegistrationFeature `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -145,7 +141,6 @@ type resourceProviderRegistrationArgs struct {
 
 // The set of arguments for constructing a ResourceProviderRegistration resource.
 type ResourceProviderRegistrationArgs struct {
-	// A list of `feature` blocks as defined below.
 	Features ResourceProviderRegistrationFeatureArrayInput
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -238,7 +233,6 @@ func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutput
 	return o
 }
 
-// A list of `feature` blocks as defined below.
 func (o ResourceProviderRegistrationOutput) Features() ResourceProviderRegistrationFeatureArrayOutput {
 	return o.ApplyT(func(v *ResourceProviderRegistration) ResourceProviderRegistrationFeatureArrayOutput {
 		return v.Features

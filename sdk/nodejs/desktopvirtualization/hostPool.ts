@@ -106,6 +106,8 @@ export class HostPool extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      */
     public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
     /**
@@ -234,6 +236,8 @@ export interface HostPoolState {
     name?: pulumi.Input<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
@@ -303,6 +307,8 @@ export interface HostPoolArgs {
     name?: pulumi.Input<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**

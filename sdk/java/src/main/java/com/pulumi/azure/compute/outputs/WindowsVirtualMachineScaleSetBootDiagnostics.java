@@ -14,12 +14,16 @@ public final class WindowsVirtualMachineScaleSetBootDiagnostics {
     /**
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
+     * &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
+     * 
      */
     private @Nullable String storageAccountUri;
 
     private WindowsVirtualMachineScaleSetBootDiagnostics() {}
     /**
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+     * 
+     * &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
      * 
      */
     public Optional<String> storageAccountUri() {

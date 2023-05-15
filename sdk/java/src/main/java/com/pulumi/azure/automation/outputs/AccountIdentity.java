@@ -15,6 +15,8 @@ public final class AccountIdentity {
     /**
      * @return The ID of the User Assigned Identity which should be assigned to this Automation Account.
      * 
+     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class AccountIdentity {
     private AccountIdentity() {}
     /**
      * @return The ID of the User Assigned Identity which should be assigned to this Automation Account.
+     * 
+     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

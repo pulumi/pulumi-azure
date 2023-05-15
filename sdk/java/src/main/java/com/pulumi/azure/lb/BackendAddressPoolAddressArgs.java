@@ -18,12 +18,16 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
     /**
      * The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
      * 
+     * &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
+     * 
      */
     @Import(name="backendAddressIpConfigurationId")
     private @Nullable Output<String> backendAddressIpConfigurationId;
 
     /**
      * @return The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     * &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      * 
      */
     public Optional<Output<String>> backendAddressIpConfigurationId() {
@@ -121,6 +125,8 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
         /**
          * @param backendAddressIpConfigurationId The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
          * 
+         * &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
+         * 
          * @return builder
          * 
          */
@@ -131,6 +137,8 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
 
         /**
          * @param backendAddressIpConfigurationId The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+         * 
+         * &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
          * 
          * @return builder
          * 

@@ -1642,10 +1642,16 @@ class AuthomationRuleActionIncidentArgs:
         """
         :param pulumi.Input[int] order: The execution order of this action.
         :param pulumi.Input[str] classification: The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+               
+               > **Note:** The `classification` is required when `status` is `Closed`.
         :param pulumi.Input[str] classification_comment: The comment why the incident is to be closed.
+               
+               > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels to add to the incident.
         :param pulumi.Input[str] owner_id: The object ID of the entity this incident is assigned to.
         :param pulumi.Input[str] severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+               
+               > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         :param pulumi.Input[str] status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -1679,6 +1685,8 @@ class AuthomationRuleActionIncidentArgs:
     def classification(self) -> Optional[pulumi.Input[str]]:
         """
         The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+
+        > **Note:** The `classification` is required when `status` is `Closed`.
         """
         return pulumi.get(self, "classification")
 
@@ -1691,6 +1699,8 @@ class AuthomationRuleActionIncidentArgs:
     def classification_comment(self) -> Optional[pulumi.Input[str]]:
         """
         The comment why the incident is to be closed.
+
+        > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
         """
         return pulumi.get(self, "classification_comment")
 
@@ -1727,6 +1737,8 @@ class AuthomationRuleActionIncidentArgs:
     def severity(self) -> Optional[pulumi.Input[str]]:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+
+        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         return pulumi.get(self, "severity")
 
@@ -1865,10 +1877,16 @@ class AutomationRuleActionIncidentArgs:
         """
         :param pulumi.Input[int] order: The execution order of this action.
         :param pulumi.Input[str] classification: The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+               
+               > **Note:** The `classification` is required when `status` is `Closed`.
         :param pulumi.Input[str] classification_comment: The comment why the incident is to be closed.
+               
+               > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels to add to the incident.
         :param pulumi.Input[str] owner_id: The object ID of the entity this incident is assigned to.
         :param pulumi.Input[str] severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+               
+               > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         :param pulumi.Input[str] status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -1902,6 +1920,8 @@ class AutomationRuleActionIncidentArgs:
     def classification(self) -> Optional[pulumi.Input[str]]:
         """
         The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+
+        > **Note:** The `classification` is required when `status` is `Closed`.
         """
         return pulumi.get(self, "classification")
 
@@ -1914,6 +1934,8 @@ class AutomationRuleActionIncidentArgs:
     def classification_comment(self) -> Optional[pulumi.Input[str]]:
         """
         The comment why the incident is to be closed.
+
+        > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
         """
         return pulumi.get(self, "classification_comment")
 
@@ -1950,6 +1972,8 @@ class AutomationRuleActionIncidentArgs:
     def severity(self) -> Optional[pulumi.Input[str]]:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+
+        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         return pulumi.get(self, "severity")
 

@@ -28,6 +28,8 @@ class ManagedStorageAccountArgs:
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         :param pulumi.Input[bool] regenerate_key_automatically: Should Storage Account access key be regenerated periodically?
+               
+               > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
@@ -96,6 +98,8 @@ class ManagedStorageAccountArgs:
     def regenerate_key_automatically(self) -> Optional[pulumi.Input[bool]]:
         """
         Should Storage Account access key be regenerated periodically?
+
+        > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         """
         return pulumi.get(self, "regenerate_key_automatically")
 
@@ -143,6 +147,8 @@ class _ManagedStorageAccountState:
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         :param pulumi.Input[bool] regenerate_key_automatically: Should Storage Account access key be regenerated periodically?
+               
+               > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
@@ -192,6 +198,8 @@ class _ManagedStorageAccountState:
     def regenerate_key_automatically(self) -> Optional[pulumi.Input[bool]]:
         """
         Should Storage Account access key be regenerated periodically?
+
+        > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         """
         return pulumi.get(self, "regenerate_key_automatically")
 
@@ -371,6 +379,8 @@ class ManagedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         :param pulumi.Input[bool] regenerate_key_automatically: Should Storage Account access key be regenerated periodically?
+               
+               > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
@@ -558,6 +568,8 @@ class ManagedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         :param pulumi.Input[bool] regenerate_key_automatically: Should Storage Account access key be regenerated periodically?
+               
+               > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
@@ -597,6 +609,8 @@ class ManagedStorageAccount(pulumi.CustomResource):
     def regenerate_key_automatically(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Storage Account access key be regenerated periodically?
+
+        > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         """
         return pulumi.get(self, "regenerate_key_automatically")
 

@@ -108,12 +108,16 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      * 
+     * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
+     * 
      */
     @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsServers;
 
     /**
      * @return A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+     * 
+     * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      * 
      */
     public Output<List<String>> dnsServers() {
@@ -136,12 +140,20 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * Should Accelerated Networking be enabled? Defaults to `false`.
      * 
+     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     * 
+     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * 
      */
     @Export(name="enableAcceleratedNetworking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAcceleratedNetworking;
 
     /**
      * @return Should Accelerated Networking be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     * 
+     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      * 
      */
     public Output<Optional<Boolean>> enableAcceleratedNetworking() {

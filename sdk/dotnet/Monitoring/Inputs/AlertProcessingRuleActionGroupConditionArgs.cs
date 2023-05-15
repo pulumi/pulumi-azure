@@ -74,6 +74,8 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
         /// <summary>
         /// A `target_resource_type` block as defined below.
+        /// 
+        /// &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
         /// </summary>
         [Input("targetResourceType")]
         public Input<Inputs.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs>? TargetResourceType { get; set; }

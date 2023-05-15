@@ -75,12 +75,16 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
     /**
      * The Access Token Secret.
      * 
+     * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * 
      */
     @Export(name="tokenSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenSecret;
 
     /**
      * @return The Access Token Secret.
+     * 
+     * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      * 
      */
     public Output<Optional<String>> tokenSecret() {

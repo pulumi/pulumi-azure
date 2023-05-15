@@ -15,6 +15,11 @@ namespace Pulumi.Azure.AppService.Outputs
     {
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// 
+        /// &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        /// 
+        /// 
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
@@ -23,10 +28,28 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string ClientId;
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>
         /// A list of Login Scopes provided by this Authentication Provider.
+        /// 
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         /// </summary>
         public readonly ImmutableArray<string> LoginScopes;
 

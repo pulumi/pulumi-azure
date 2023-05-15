@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
         public readonly int Default;
         /// <summary>
         /// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// 
+        /// &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         /// </summary>
         public readonly int Maximum;
         /// <summary>

@@ -95,12 +95,16 @@ public final class FirewallApplicationRuleCollectionRuleArgs extends com.pulumi.
     /**
      * A list of source IP Group IDs for the rule.
      * 
+     * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+     * 
      */
     @Import(name="sourceIpGroups")
     private @Nullable Output<List<String>> sourceIpGroups;
 
     /**
      * @return A list of source IP Group IDs for the rule.
+     * 
+     * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
      * 
      */
     public Optional<Output<List<String>>> sourceIpGroups() {
@@ -290,6 +294,8 @@ public final class FirewallApplicationRuleCollectionRuleArgs extends com.pulumi.
         /**
          * @param sourceIpGroups A list of source IP Group IDs for the rule.
          * 
+         * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+         * 
          * @return builder
          * 
          */
@@ -301,6 +307,8 @@ public final class FirewallApplicationRuleCollectionRuleArgs extends com.pulumi.
         /**
          * @param sourceIpGroups A list of source IP Group IDs for the rule.
          * 
+         * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+         * 
          * @return builder
          * 
          */
@@ -310,6 +318,8 @@ public final class FirewallApplicationRuleCollectionRuleArgs extends com.pulumi.
 
         /**
          * @param sourceIpGroups A list of source IP Group IDs for the rule.
+         * 
+         * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
          * 
          * @return builder
          * 

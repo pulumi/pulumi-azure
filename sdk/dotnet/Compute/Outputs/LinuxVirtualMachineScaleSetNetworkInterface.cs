@@ -39,6 +39,8 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string? NetworkSecurityGroupId;
         /// <summary>
         /// Is this the Primary IP Configuration?
+        /// 
+        /// &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         /// </summary>
         public readonly bool? Primary;
 

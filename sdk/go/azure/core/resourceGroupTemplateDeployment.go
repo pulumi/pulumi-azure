@@ -30,12 +30,16 @@ type ResourceGroupTemplateDeployment struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel pulumi.StringPtrOutput `pulumi:"debugLevel"`
 	// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+	//
+	// > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
 	DeploymentMode pulumi.StringOutput `pulumi:"deploymentMode"`
 	// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON Content of the Outputs of the ARM Template Deployment.
 	OutputContent pulumi.StringOutput `pulumi:"outputContent"`
 	// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+	//
+	// > An example of how to pass variables into an ARM Template can be seen in the example.
 	ParametersContent pulumi.StringOutput `pulumi:"parametersContent"`
 	// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -85,12 +89,16 @@ type resourceGroupTemplateDeploymentState struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel *string `pulumi:"debugLevel"`
 	// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+	//
+	// > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
 	DeploymentMode *string `pulumi:"deploymentMode"`
 	// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
 	Name *string `pulumi:"name"`
 	// The JSON Content of the Outputs of the ARM Template Deployment.
 	OutputContent *string `pulumi:"outputContent"`
 	// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+	//
+	// > An example of how to pass variables into an ARM Template can be seen in the example.
 	ParametersContent *string `pulumi:"parametersContent"`
 	// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -106,12 +114,16 @@ type ResourceGroupTemplateDeploymentState struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel pulumi.StringPtrInput
 	// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+	//
+	// > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
 	DeploymentMode pulumi.StringPtrInput
 	// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
 	Name pulumi.StringPtrInput
 	// The JSON Content of the Outputs of the ARM Template Deployment.
 	OutputContent pulumi.StringPtrInput
 	// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+	//
+	// > An example of how to pass variables into an ARM Template can be seen in the example.
 	ParametersContent pulumi.StringPtrInput
 	// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -131,10 +143,14 @@ type resourceGroupTemplateDeploymentArgs struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel *string `pulumi:"debugLevel"`
 	// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+	//
+	// > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
 	DeploymentMode string `pulumi:"deploymentMode"`
 	// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
 	Name *string `pulumi:"name"`
 	// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+	//
+	// > An example of how to pass variables into an ARM Template can be seen in the example.
 	ParametersContent *string `pulumi:"parametersContent"`
 	// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -151,10 +167,14 @@ type ResourceGroupTemplateDeploymentArgs struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel pulumi.StringPtrInput
 	// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+	//
+	// > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
 	DeploymentMode pulumi.StringInput
 	// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
 	Name pulumi.StringPtrInput
 	// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+	//
+	// > An example of how to pass variables into an ARM Template can be seen in the example.
 	ParametersContent pulumi.StringPtrInput
 	// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
 	ResourceGroupName pulumi.StringInput
@@ -259,6 +279,8 @@ func (o ResourceGroupTemplateDeploymentOutput) DebugLevel() pulumi.StringPtrOutp
 }
 
 // The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+//
+// > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
 func (o ResourceGroupTemplateDeploymentOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroupTemplateDeployment) pulumi.StringOutput { return v.DeploymentMode }).(pulumi.StringOutput)
 }
@@ -274,6 +296,8 @@ func (o ResourceGroupTemplateDeploymentOutput) OutputContent() pulumi.StringOutp
 }
 
 // The contents of the ARM Template parameters file - containing a JSON list of parameters.
+//
+// > An example of how to pass variables into an ARM Template can be seen in the example.
 func (o ResourceGroupTemplateDeploymentOutput) ParametersContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroupTemplateDeployment) pulumi.StringOutput { return v.ParametersContent }).(pulumi.StringOutput)
 }

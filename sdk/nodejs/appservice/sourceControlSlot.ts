@@ -97,6 +97,8 @@ export class SourceControlSlot extends pulumi.CustomResource {
     public /*out*/ readonly scmType!: pulumi.Output<string>;
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Function App Slots are not supported at this time.
      */
     public readonly slotId!: pulumi.Output<string>;
     /**
@@ -186,6 +188,8 @@ export interface SourceControlSlotState {
     scmType?: pulumi.Input<string>;
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Function App Slots are not supported at this time.
      */
     slotId?: pulumi.Input<string>;
     /**
@@ -228,6 +232,8 @@ export interface SourceControlSlotArgs {
     rollbackEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Function App Slots are not supported at this time.
      */
     slotId: pulumi.Input<string>;
     /**

@@ -66,12 +66,16 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -111,12 +115,16 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
+     * 
      */
     @Import(name="zoneName", required=true)
     private Output<String> zoneName;
 
     /**
      * @return Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      * 
      */
     public Output<String> zoneName() {
@@ -229,6 +237,8 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+         * 
          * @return builder
          * 
          */
@@ -239,6 +249,8 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
          * 
          * @return builder
          * 
@@ -292,6 +304,8 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zoneName Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
+         * 
          * @return builder
          * 
          */
@@ -302,6 +316,8 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zoneName Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
          * 
          * @return builder
          * 

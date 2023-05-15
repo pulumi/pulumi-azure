@@ -12,6 +12,8 @@ import (
 
 type CacheIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
@@ -32,6 +34,8 @@ type CacheIdentityInput interface {
 
 type CacheIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
@@ -117,6 +121,8 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -159,6 +165,8 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheIdentity) []string {
 		if v == nil {
@@ -202,6 +210,8 @@ type CachePatchSchedule struct {
 	// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+	//
+	// > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
 	StartHourUtc *int `pulumi:"startHourUtc"`
 }
 
@@ -222,6 +232,8 @@ type CachePatchScheduleArgs struct {
 	// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
 	// the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+	//
+	// > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
 	StartHourUtc pulumi.IntPtrInput `pulumi:"startHourUtc"`
 }
 
@@ -287,6 +299,8 @@ func (o CachePatchScheduleOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 }
 
 // the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+//
+// > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
 func (o CachePatchScheduleOutput) StartHourUtc() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CachePatchSchedule) *int { return v.StartHourUtc }).(pulumi.IntPtrOutput)
 }
@@ -317,8 +331,26 @@ type CacheRedisConfiguration struct {
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
 	// Second Storage Account connection string for AOF persistence.
+	//
+	// Example usage:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+	//
+	// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
 	EnableAuthentication *bool `pulumi:"enableAuthentication"`
 	// Returns the max number of connected clients at the same time.
 	Maxclients *int `pulumi:"maxclients"`
@@ -331,14 +363,32 @@ type CacheRedisConfiguration struct {
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
 	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+	//
+	// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 	RdbBackupEnabled *bool `pulumi:"rdbBackupEnabled"`
 	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency *int `pulumi:"rdbBackupFrequency"`
 	// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 	RdbBackupMaxSnapshotCount *int `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+	//
+	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
 }
 
@@ -359,8 +409,26 @@ type CacheRedisConfigurationArgs struct {
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
 	// Second Storage Account connection string for AOF persistence.
+	//
+	// Example usage:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+	//
+	// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
 	EnableAuthentication pulumi.BoolPtrInput `pulumi:"enableAuthentication"`
 	// Returns the max number of connected clients at the same time.
 	Maxclients pulumi.IntPtrInput `pulumi:"maxclients"`
@@ -373,14 +441,32 @@ type CacheRedisConfigurationArgs struct {
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	NotifyKeyspaceEvents pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
 	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+	//
+	// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 	RdbBackupEnabled pulumi.BoolPtrInput `pulumi:"rdbBackupEnabled"`
 	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency pulumi.IntPtrInput `pulumi:"rdbBackupFrequency"`
 	// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 	RdbBackupMaxSnapshotCount pulumi.IntPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+	//
+	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 }
 
@@ -472,11 +558,32 @@ func (o CacheRedisConfigurationOutput) AofStorageConnectionString0() pulumi.Stri
 }
 
 // Second Storage Account connection string for AOF persistence.
+//
+// Example usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
 // If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+//
+// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
 func (o CacheRedisConfigurationOutput) EnableAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.EnableAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -507,11 +614,30 @@ func (o CacheRedisConfigurationOutput) MaxmemoryReserved() pulumi.IntPtrOutput {
 }
 
 // Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
 }
 
 // Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+//
+// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 func (o CacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -527,6 +653,8 @@ func (o CacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtr
 }
 
 // The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+//
+// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -576,6 +704,25 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.S
 }
 
 // Second Storage Account connection string for AOF persistence.
+//
+// Example usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -586,6 +733,8 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.S
 }
 
 // If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+//
+// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
 func (o CacheRedisConfigurationPtrOutput) EnableAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -646,6 +795,23 @@ func (o CacheRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.IntPtrOutpu
 }
 
 // Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -656,6 +822,8 @@ func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPt
 }
 
 // Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+//
+// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -686,6 +854,8 @@ func (o CacheRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.Int
 }
 
 // The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+//
+// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {

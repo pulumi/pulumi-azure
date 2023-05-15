@@ -86,8 +86,14 @@ type KubernetesCluster struct {
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+	//
+	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	//
+	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticChannelUpgrade pulumi.StringPtrOutput `pulumi:"automaticChannelUpgrade"`
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
@@ -100,6 +106,10 @@ type KubernetesCluster struct {
 	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	//
+	// > **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
+	//
+	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
@@ -108,16 +118,22 @@ type KubernetesCluster struct {
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Should HTTP Application Routing be enabled?
+	//
+	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
 	HttpApplicationRoutingEnabled pulumi.BoolPtrOutput `pulumi:"httpApplicationRoutingEnabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName pulumi.StringOutput `pulumi:"httpApplicationRoutingZoneName"`
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrOutput `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrOutput `pulumi:"imageCleanerEnabled"`
 	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
@@ -136,10 +152,14 @@ type KubernetesCluster struct {
 	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity KubernetesClusterKubeletIdentityOutput `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrOutput `pulumi:"linuxProfile"`
 	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	//
+	// > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
 	LocalAccountDisabled pulumi.BoolPtrOutput `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -152,8 +172,12 @@ type KubernetesCluster struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringOutput `pulumi:"nodeResourceGroupId"`
@@ -170,12 +194,73 @@ type KubernetesCluster struct {
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	//
+	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+	// 			Location: pulumi.String("West Europe"),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 			Location:          exampleResourceGroup.Location,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+	// 			Scope:              exampleZone.ID(),
+	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
+	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+	// 			Location:              exampleResourceGroup.Location,
+	// 			ResourceGroupName:     exampleResourceGroup.Name,
+	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
+	// 			PrivateClusterEnabled: pulumi.Bool(true),
+	// 			PrivateDnsZoneId:      exampleZone.ID(),
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -184,10 +269,16 @@ type KubernetesCluster struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrOutput `pulumi:"runCommandEnabled"`
 	// A `serviceMeshProfile` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrOutput `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	//
+	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrOutput `pulumi:"storageProfile"`
@@ -200,6 +291,10 @@ type KubernetesCluster struct {
 	// A `workloadAutoscalerProfile` block defined below.
 	WorkloadAutoscalerProfile KubernetesClusterWorkloadAutoscalerProfilePtrOutput `pulumi:"workloadAutoscalerProfile"`
 	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	//
+	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
 	WorkloadIdentityEnabled pulumi.BoolPtrOutput `pulumi:"workloadIdentityEnabled"`
 }
 
@@ -254,8 +349,14 @@ type kubernetesClusterState struct {
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+	//
+	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	//
+	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
 	AzureActiveDirectoryRoleBasedAccessControl *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
@@ -268,6 +369,10 @@ type kubernetesClusterState struct {
 	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	//
+	// > **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
+	//
+	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -276,16 +381,22 @@ type kubernetesClusterState struct {
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
 	// Should HTTP Application Routing be enabled?
+	//
+	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
 	HttpApplicationRoutingEnabled *bool `pulumi:"httpApplicationRoutingEnabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName *string `pulumi:"httpApplicationRoutingZoneName"`
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
 	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
@@ -304,10 +415,14 @@ type kubernetesClusterState struct {
 	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
 	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	//
+	// > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -320,8 +435,12 @@ type kubernetesClusterState struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId *string `pulumi:"nodeResourceGroupId"`
@@ -338,12 +457,73 @@ type kubernetesClusterState struct {
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	//
+	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+	// 			Location: pulumi.String("West Europe"),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 			Location:          exampleResourceGroup.Location,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+	// 			Scope:              exampleZone.ID(),
+	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
+	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+	// 			Location:              exampleResourceGroup.Location,
+	// 			ResourceGroupName:     exampleResourceGroup.Name,
+	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
+	// 			PrivateClusterEnabled: pulumi.Bool(true),
+	// 			PrivateDnsZoneId:      exampleZone.ID(),
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn *string `pulumi:"privateFqdn"`
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -352,10 +532,16 @@ type kubernetesClusterState struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `serviceMeshProfile` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	//
+	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
@@ -368,6 +554,10 @@ type kubernetesClusterState struct {
 	// A `workloadAutoscalerProfile` block defined below.
 	WorkloadAutoscalerProfile *KubernetesClusterWorkloadAutoscalerProfile `pulumi:"workloadAutoscalerProfile"`
 	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	//
+	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
 	WorkloadIdentityEnabled *bool `pulumi:"workloadIdentityEnabled"`
 }
 
@@ -381,8 +571,14 @@ type KubernetesClusterState struct {
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+	//
+	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	//
+	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled pulumi.BoolPtrInput
@@ -395,6 +591,10 @@ type KubernetesClusterState struct {
 	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	//
+	// > **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
+	//
+	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -403,16 +603,22 @@ type KubernetesClusterState struct {
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
 	// Should HTTP Application Routing be enabled?
+	//
+	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
 	HttpApplicationRoutingEnabled pulumi.BoolPtrInput
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName pulumi.StringPtrInput
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
 	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
@@ -431,10 +637,14 @@ type KubernetesClusterState struct {
 	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
 	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	//
+	// > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -447,8 +657,12 @@ type KubernetesClusterState struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup pulumi.StringPtrInput
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringPtrInput
@@ -465,12 +679,73 @@ type KubernetesClusterState struct {
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrInput
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	//
+	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+	// 			Location: pulumi.String("West Europe"),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 			Location:          exampleResourceGroup.Location,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+	// 			Scope:              exampleZone.ID(),
+	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
+	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+	// 			Location:              exampleResourceGroup.Location,
+	// 			ResourceGroupName:     exampleResourceGroup.Name,
+	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
+	// 			PrivateClusterEnabled: pulumi.Bool(true),
+	// 			PrivateDnsZoneId:      exampleZone.ID(),
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringPtrInput
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -479,10 +754,16 @@ type KubernetesClusterState struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `serviceMeshProfile` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	//
+	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
@@ -495,6 +776,10 @@ type KubernetesClusterState struct {
 	// A `workloadAutoscalerProfile` block defined below.
 	WorkloadAutoscalerProfile KubernetesClusterWorkloadAutoscalerProfilePtrInput
 	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	//
+	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
 	WorkloadIdentityEnabled pulumi.BoolPtrInput
 }
 
@@ -512,8 +797,14 @@ type kubernetesClusterArgs struct {
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+	//
+	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	//
+	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
 	AzureActiveDirectoryRoleBasedAccessControl *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
@@ -526,20 +817,30 @@ type kubernetesClusterArgs struct {
 	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	//
+	// > **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
+	//
+	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Should HTTP Application Routing be enabled?
+	//
+	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
 	HttpApplicationRoutingEnabled *bool `pulumi:"httpApplicationRoutingEnabled"`
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
 	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
@@ -550,10 +851,14 @@ type kubernetesClusterArgs struct {
 	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
 	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	//
+	// > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -566,8 +871,12 @@ type kubernetesClusterArgs struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
@@ -578,10 +887,71 @@ type kubernetesClusterArgs struct {
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	//
+	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+	// 			Location: pulumi.String("West Europe"),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 			Location:          exampleResourceGroup.Location,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+	// 			Scope:              exampleZone.ID(),
+	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
+	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+	// 			Location:              exampleResourceGroup.Location,
+	// 			ResourceGroupName:     exampleResourceGroup.Name,
+	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
+	// 			PrivateClusterEnabled: pulumi.Bool(true),
+	// 			PrivateDnsZoneId:      exampleZone.ID(),
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -590,10 +960,16 @@ type kubernetesClusterArgs struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `serviceMeshProfile` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	//
+	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
@@ -606,6 +982,10 @@ type kubernetesClusterArgs struct {
 	// A `workloadAutoscalerProfile` block defined below.
 	WorkloadAutoscalerProfile *KubernetesClusterWorkloadAutoscalerProfile `pulumi:"workloadAutoscalerProfile"`
 	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	//
+	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
 	WorkloadIdentityEnabled *bool `pulumi:"workloadIdentityEnabled"`
 }
 
@@ -620,8 +1000,14 @@ type KubernetesClusterArgs struct {
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+	//
+	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	//
+	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled pulumi.BoolPtrInput
@@ -634,20 +1020,30 @@ type KubernetesClusterArgs struct {
 	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	//
+	// > **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
+	//
+	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Should HTTP Application Routing be enabled?
+	//
+	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
 	HttpApplicationRoutingEnabled pulumi.BoolPtrInput
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
 	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
@@ -658,10 +1054,14 @@ type KubernetesClusterArgs struct {
 	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	//
+	// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
 	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	//
+	// > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -674,8 +1074,12 @@ type KubernetesClusterArgs struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup pulumi.StringPtrInput
 	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled pulumi.BoolPtrInput
@@ -686,10 +1090,71 @@ type KubernetesClusterArgs struct {
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrInput
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+	//
+	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+	// 			Location: pulumi.String("West Europe"),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+	// 			ResourceGroupName: exampleResourceGroup.Name,
+	// 			Location:          exampleResourceGroup.Location,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+	// 			Scope:              exampleZone.ID(),
+	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
+	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+	// 			Location:              exampleResourceGroup.Location,
+	// 			ResourceGroupName:     exampleResourceGroup.Name,
+	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
+	// 			PrivateClusterEnabled: pulumi.Bool(true),
+	// 			PrivateDnsZoneId:      exampleZone.ID(),
+	// 		}, pulumi.DependsOn([]pulumi.Resource{
+	// 			exampleAssignment,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -698,10 +1163,16 @@ type KubernetesClusterArgs struct {
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `serviceMeshProfile` block as defined below.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
+	//
+	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	//
+	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
@@ -714,6 +1185,10 @@ type KubernetesClusterArgs struct {
 	// A `workloadAutoscalerProfile` block defined below.
 	WorkloadAutoscalerProfile KubernetesClusterWorkloadAutoscalerProfilePtrInput
 	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	//
+	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
 	WorkloadIdentityEnabled pulumi.BoolPtrInput
 }
 
@@ -827,11 +1302,17 @@ func (o KubernetesClusterOutput) AutoScalerProfile() KubernetesClusterAutoScaler
 }
 
 // The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+//
+// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+//
+// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 func (o KubernetesClusterOutput) AutomaticChannelUpgrade() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.AutomaticChannelUpgrade }).(pulumi.StringPtrOutput)
 }
 
 // A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
 func (o KubernetesClusterOutput) AzureActiveDirectoryRoleBasedAccessControl() KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput {
 		return v.AzureActiveDirectoryRoleBasedAccessControl
@@ -866,6 +1347,10 @@ func (o KubernetesClusterOutput) DnsPrefix() pulumi.StringPtrOutput {
 }
 
 // Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+//
+// > **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
+//
+// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 func (o KubernetesClusterOutput) DnsPrefixPrivateCluster() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DnsPrefixPrivateCluster }).(pulumi.StringPtrOutput)
 }
@@ -886,6 +1371,8 @@ func (o KubernetesClusterOutput) Fqdn() pulumi.StringOutput {
 }
 
 // Should HTTP Application Routing be enabled?
+//
+// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
 func (o KubernetesClusterOutput) HttpApplicationRoutingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.HttpApplicationRoutingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -901,6 +1388,8 @@ func (o KubernetesClusterOutput) HttpProxyConfig() KubernetesClusterHttpProxyCon
 }
 
 // An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
+//
+// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 func (o KubernetesClusterOutput) Identity() KubernetesClusterIdentityPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterIdentityPtrOutput { return v.Identity }).(KubernetesClusterIdentityPtrOutput)
 }
@@ -911,6 +1400,8 @@ func (o KubernetesClusterOutput) ImageCleanerEnabled() pulumi.BoolPtrOutput {
 }
 
 // Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 func (o KubernetesClusterOutput) ImageCleanerIntervalHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.IntPtrOutput { return v.ImageCleanerIntervalHours }).(pulumi.IntPtrOutput)
 }
@@ -962,6 +1453,8 @@ func (o KubernetesClusterOutput) KubeletIdentity() KubernetesClusterKubeletIdent
 }
 
 // Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+//
+// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
 func (o KubernetesClusterOutput) KubernetesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.KubernetesVersion }).(pulumi.StringOutput)
 }
@@ -972,6 +1465,8 @@ func (o KubernetesClusterOutput) LinuxProfile() KubernetesClusterLinuxProfilePtr
 }
 
 // If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+//
+// > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
 func (o KubernetesClusterOutput) LocalAccountDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.LocalAccountDisabled }).(pulumi.BoolPtrOutput)
 }
@@ -1002,11 +1497,15 @@ func (o KubernetesClusterOutput) Name() pulumi.StringOutput {
 }
 
 // A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 func (o KubernetesClusterOutput) NetworkProfile() KubernetesClusterNetworkProfileOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterNetworkProfileOutput { return v.NetworkProfile }).(KubernetesClusterNetworkProfileOutput)
 }
 
 // The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+//
+// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 func (o KubernetesClusterOutput) NodeResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroup }).(pulumi.StringOutput)
 }
@@ -1047,6 +1546,68 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 }
 
 // Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+//
+// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleZone.ID(),
+//				RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
+//				PrivateClusterEnabled: pulumi.Bool(true),
+//				PrivateDnsZoneId:      exampleZone.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o KubernetesClusterOutput) PrivateClusterPublicFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PrivateClusterPublicFqdnEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1062,6 +1623,8 @@ func (o KubernetesClusterOutput) PrivateFqdn() pulumi.StringOutput {
 }
 
 // Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 func (o KubernetesClusterOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1082,16 +1645,22 @@ func (o KubernetesClusterOutput) RunCommandEnabled() pulumi.BoolPtrOutput {
 }
 
 // A `serviceMeshProfile` block as defined below.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
 func (o KubernetesClusterOutput) ServiceMeshProfile() KubernetesClusterServiceMeshProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServiceMeshProfilePtrOutput { return v.ServiceMeshProfile }).(KubernetesClusterServiceMeshProfilePtrOutput)
 }
 
 // A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
+//
+// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 func (o KubernetesClusterOutput) ServicePrincipal() KubernetesClusterServicePrincipalPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServicePrincipalPtrOutput { return v.ServicePrincipal }).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
 // The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+//
+// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }
@@ -1124,6 +1693,10 @@ func (o KubernetesClusterOutput) WorkloadAutoscalerProfile() KubernetesClusterWo
 }
 
 // Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+//
+// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
 func (o KubernetesClusterOutput) WorkloadIdentityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.WorkloadIdentityEnabled }).(pulumi.BoolPtrOutput)
 }

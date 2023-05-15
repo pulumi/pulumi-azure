@@ -95,6 +95,8 @@ export class LinkedServiceSynapse extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Linked Service Synapse.
+     *
+     * The following supported arguments are specific to Data Factory Synapse Linked Service:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -181,6 +183,8 @@ export class LinkedServiceSynapse extends pulumi.CustomResource {
 export interface LinkedServiceSynapseState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service Synapse.
+     *
+     * The following supported arguments are specific to Data Factory Synapse Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -223,6 +227,8 @@ export interface LinkedServiceSynapseState {
 export interface LinkedServiceSynapseArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service Synapse.
+     *
+     * The following supported arguments are specific to Data Factory Synapse Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private Input<string>? _name;
 
         /// <summary>
-        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         public Input<string>? Name
         {

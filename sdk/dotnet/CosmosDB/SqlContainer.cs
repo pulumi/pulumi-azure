@@ -105,6 +105,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.SqlContainerAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
@@ -229,6 +231,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlContainerAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
@@ -321,6 +325,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlContainerAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }

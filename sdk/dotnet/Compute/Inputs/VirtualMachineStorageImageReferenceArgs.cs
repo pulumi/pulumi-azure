@@ -38,6 +38,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// 
+        /// To provision a Custom Image, the following fields are applicable:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

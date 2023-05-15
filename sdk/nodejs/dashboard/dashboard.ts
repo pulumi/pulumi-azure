@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a shared dashboard in the Azure Portal.
+ *
+ * !> **Note:** The `azure.portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.portal.PortalDashboard` resource instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -188,6 +192,8 @@ export class Dashboard extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     *
+     * > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -250,6 +256,8 @@ export interface DashboardState {
     location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     *
+     * > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
     name?: pulumi.Input<string>;
     /**
@@ -276,6 +284,8 @@ export interface DashboardArgs {
     location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     *
+     * > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
     name?: pulumi.Input<string>;
     /**

@@ -24,6 +24,8 @@ public final class WorkspaceEncryption {
     /**
      * @return The Key Vault URI to access the encryption key.
      * 
+     * &gt; **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
+     * 
      */
     private @Nullable String userAssignedIdentityId;
 
@@ -44,6 +46,8 @@ public final class WorkspaceEncryption {
     }
     /**
      * @return The Key Vault URI to access the encryption key.
+     * 
+     * &gt; **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
      * 
      */
     public Optional<String> userAssignedIdentityId() {

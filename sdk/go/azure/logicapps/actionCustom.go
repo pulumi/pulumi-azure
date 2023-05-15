@@ -71,6 +71,8 @@ type ActionCustom struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -114,6 +116,8 @@ type actionCustomState struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
@@ -123,6 +127,8 @@ type ActionCustomState struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -136,6 +142,8 @@ type actionCustomArgs struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
@@ -146,6 +154,8 @@ type ActionCustomArgs struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -247,6 +257,8 @@ func (o ActionCustomOutput) LogicAppId() pulumi.StringOutput {
 }
 
 // Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 func (o ActionCustomOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionCustom) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

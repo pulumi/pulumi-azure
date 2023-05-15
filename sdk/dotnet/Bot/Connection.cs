@@ -117,6 +117,8 @@ namespace Pulumi.Azure.Bot
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -246,6 +248,8 @@ namespace Pulumi.Azure.Bot
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.")]
         public InputMap<string> Tags
@@ -337,6 +341,8 @@ namespace Pulumi.Azure.Bot
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.")]
         public InputMap<string> Tags

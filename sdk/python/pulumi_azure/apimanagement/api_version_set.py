@@ -31,7 +31,11 @@ class ApiVersionSetArgs:
         :param pulumi.Input[str] description: The description of API Version Set.
         :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "display_name", display_name)
@@ -123,6 +127,8 @@ class ApiVersionSetArgs:
     def version_header_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Header which should be read from Inbound Requests which defines the API Version.
+
+        > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         """
         return pulumi.get(self, "version_header_name")
 
@@ -135,6 +141,8 @@ class ApiVersionSetArgs:
     def version_query_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Query String which should be read from Inbound Requests which defines the API Version.
+
+        > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         """
         return pulumi.get(self, "version_query_name")
 
@@ -162,7 +170,11 @@ class _ApiVersionSetState:
         :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         :param pulumi.Input[str] versioning_scheme: Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         """
         if api_management_name is not None:
@@ -247,6 +259,8 @@ class _ApiVersionSetState:
     def version_header_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Header which should be read from Inbound Requests which defines the API Version.
+
+        > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         """
         return pulumi.get(self, "version_header_name")
 
@@ -259,6 +273,8 @@ class _ApiVersionSetState:
     def version_query_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Query String which should be read from Inbound Requests which defines the API Version.
+
+        > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         """
         return pulumi.get(self, "version_query_name")
 
@@ -332,7 +348,11 @@ class ApiVersionSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         :param pulumi.Input[str] versioning_scheme: Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         """
         ...
@@ -451,7 +471,11 @@ class ApiVersionSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
+               
+               > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         :param pulumi.Input[str] versioning_scheme: Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -513,6 +537,8 @@ class ApiVersionSet(pulumi.CustomResource):
     def version_header_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Header which should be read from Inbound Requests which defines the API Version.
+
+        > **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
         """
         return pulumi.get(self, "version_header_name")
 
@@ -521,6 +547,8 @@ class ApiVersionSet(pulumi.CustomResource):
     def version_query_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Query String which should be read from Inbound Requests which defines the API Version.
+
+        > **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
         """
         return pulumi.get(self, "version_query_name")
 

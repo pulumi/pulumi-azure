@@ -83,6 +83,8 @@ namespace Pulumi.Azure.Lb
     {
         /// <summary>
         /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+        /// 
+        /// &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         /// </summary>
         [Output("backendAddressIpConfigurationId")]
         public Output<string?> BackendAddressIpConfigurationId { get; private set; } = null!;
@@ -165,6 +167,8 @@ namespace Pulumi.Azure.Lb
     {
         /// <summary>
         /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+        /// 
+        /// &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         /// </summary>
         [Input("backendAddressIpConfigurationId")]
         public Input<string>? BackendAddressIpConfigurationId { get; set; }
@@ -203,6 +207,8 @@ namespace Pulumi.Azure.Lb
     {
         /// <summary>
         /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+        /// 
+        /// &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         /// </summary>
         [Input("backendAddressIpConfigurationId")]
         public Input<string>? BackendAddressIpConfigurationId { get; set; }

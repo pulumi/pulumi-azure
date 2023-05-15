@@ -106,6 +106,8 @@ type Cache struct {
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
+	//
+	// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
 	ReplicasPerMaster pulumi.IntOutput `pulumi:"replicasPerMaster"`
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary pulumi.IntOutput `pulumi:"replicasPerPrimary"`
@@ -118,6 +120,8 @@ type Cache struct {
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
 	SslPort pulumi.IntOutput `pulumi:"sslPort"`
@@ -128,6 +132,8 @@ type Cache struct {
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+	//
+	// > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -212,6 +218,8 @@ type cacheState struct {
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion *string `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
+	//
+	// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
@@ -224,6 +232,8 @@ type cacheState struct {
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
 	SslPort *int `pulumi:"sslPort"`
@@ -234,6 +244,8 @@ type cacheState struct {
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+	//
+	// > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -271,6 +283,8 @@ type CacheState struct {
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion pulumi.StringPtrInput
 	// Amount of replicas to create per master for this Redis Cache.
+	//
+	// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
 	ReplicasPerMaster pulumi.IntPtrInput
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary pulumi.IntPtrInput
@@ -283,6 +297,8 @@ type CacheState struct {
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount pulumi.IntPtrInput
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The SSL Port of the Redis Instance
 	SslPort pulumi.IntPtrInput
@@ -293,6 +309,8 @@ type CacheState struct {
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+	//
+	// > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones pulumi.StringArrayInput
 }
 
@@ -326,6 +344,8 @@ type cacheArgs struct {
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion *string `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
+	//
+	// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
@@ -334,6 +354,8 @@ type cacheArgs struct {
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -342,6 +364,8 @@ type cacheArgs struct {
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+	//
+	// > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -372,6 +396,8 @@ type CacheArgs struct {
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion pulumi.StringPtrInput
 	// Amount of replicas to create per master for this Redis Cache.
+	//
+	// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
 	ReplicasPerMaster pulumi.IntPtrInput
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary pulumi.IntPtrInput
@@ -380,6 +406,8 @@ type CacheArgs struct {
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount pulumi.IntPtrInput
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	SkuName pulumi.StringInput
 	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -388,6 +416,8 @@ type CacheArgs struct {
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+	//
+	// > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones pulumi.StringArrayInput
 }
 
@@ -559,6 +589,8 @@ func (o CacheOutput) RedisVersion() pulumi.StringOutput {
 }
 
 // Amount of replicas to create per master for this Redis Cache.
+//
+// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
 func (o CacheOutput) ReplicasPerMaster() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntOutput { return v.ReplicasPerMaster }).(pulumi.IntOutput)
 }
@@ -589,6 +621,8 @@ func (o CacheOutput) ShardCount() pulumi.IntPtrOutput {
 }
 
 // The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+//
+// > **Note** Downgrading the SKU will force a new resource to be created.
 func (o CacheOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
@@ -614,6 +648,8 @@ func (o CacheOutput) TenantSettings() pulumi.StringMapOutput {
 }
 
 // Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+//
+// > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 func (o CacheOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

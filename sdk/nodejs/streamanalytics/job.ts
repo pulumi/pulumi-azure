@@ -74,6 +74,8 @@ export class Job extends pulumi.CustomResource {
 
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+     *
+     * > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
@@ -130,6 +132,8 @@ export class Job extends pulumi.CustomResource {
     public readonly streamAnalyticsClusterId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     *
+     * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
     public readonly streamingUnits!: pulumi.Output<number | undefined>;
     /**
@@ -142,6 +146,8 @@ export class Job extends pulumi.CustomResource {
     public readonly transformationQuery!: pulumi.Output<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -214,6 +220,8 @@ export class Job extends pulumi.CustomResource {
 export interface JobState {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+     *
+     * > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
@@ -270,6 +278,8 @@ export interface JobState {
     streamAnalyticsClusterId?: pulumi.Input<string>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     *
+     * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
     streamingUnits?: pulumi.Input<number>;
     /**
@@ -282,6 +292,8 @@ export interface JobState {
     transformationQuery?: pulumi.Input<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
      */
     type?: pulumi.Input<string>;
 }
@@ -292,6 +304,8 @@ export interface JobState {
 export interface JobArgs {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+     *
+     * > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
@@ -344,6 +358,8 @@ export interface JobArgs {
     streamAnalyticsClusterId?: pulumi.Input<string>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     *
+     * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
     streamingUnits?: pulumi.Input<number>;
     /**
@@ -356,6 +372,8 @@ export interface JobArgs {
     transformationQuery: pulumi.Input<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
      */
     type?: pulumi.Input<string>;
 }

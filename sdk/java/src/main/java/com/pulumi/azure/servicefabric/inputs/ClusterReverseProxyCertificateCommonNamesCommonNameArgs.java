@@ -33,12 +33,16 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonNameArgs exten
     /**
      * The Issuer Thumbprint of the Certificate.
      * 
+     * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+     * 
      */
     @Import(name="certificateIssuerThumbprint")
     private @Nullable Output<String> certificateIssuerThumbprint;
 
     /**
      * @return The Issuer Thumbprint of the Certificate.
+     * 
+     * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
      * 
      */
     public Optional<Output<String>> certificateIssuerThumbprint() {
@@ -94,6 +98,8 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonNameArgs exten
         /**
          * @param certificateIssuerThumbprint The Issuer Thumbprint of the Certificate.
          * 
+         * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonNameArgs exten
 
         /**
          * @param certificateIssuerThumbprint The Issuer Thumbprint of the Certificate.
+         * 
+         * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
          * 
          * @return builder
          * 

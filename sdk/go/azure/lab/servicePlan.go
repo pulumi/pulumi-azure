@@ -79,6 +79,8 @@ type ServicePlan struct {
 	// The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+	//
+	// > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
 	SharedGalleryId pulumi.StringPtrOutput `pulumi:"sharedGalleryId"`
 	// A `support` block as defined below.
 	Support ServicePlanSupportPtrOutput `pulumi:"support"`
@@ -136,6 +138,8 @@ type servicePlanState struct {
 	// The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+	//
+	// > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
 	SharedGalleryId *string `pulumi:"sharedGalleryId"`
 	// A `support` block as defined below.
 	Support *ServicePlanSupport `pulumi:"support"`
@@ -159,6 +163,8 @@ type ServicePlanState struct {
 	// The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+	//
+	// > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
 	SharedGalleryId pulumi.StringPtrInput
 	// A `support` block as defined below.
 	Support ServicePlanSupportPtrInput
@@ -186,6 +192,8 @@ type servicePlanArgs struct {
 	// The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+	//
+	// > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
 	SharedGalleryId *string `pulumi:"sharedGalleryId"`
 	// A `support` block as defined below.
 	Support *ServicePlanSupport `pulumi:"support"`
@@ -210,6 +218,8 @@ type ServicePlanArgs struct {
 	// The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+	//
+	// > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
 	SharedGalleryId pulumi.StringPtrInput
 	// A `support` block as defined below.
 	Support ServicePlanSupportPtrInput
@@ -340,6 +350,8 @@ func (o ServicePlanOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
+//
+// > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
 func (o ServicePlanOutput) SharedGalleryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringPtrOutput { return v.SharedGalleryId }).(pulumi.StringPtrOutput)
 }

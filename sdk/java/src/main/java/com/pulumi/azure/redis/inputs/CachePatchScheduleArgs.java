@@ -49,12 +49,16 @@ public final class CachePatchScheduleArgs extends com.pulumi.resources.ResourceA
     /**
      * the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
      * 
+     * &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+     * 
      */
     @Import(name="startHourUtc")
     private @Nullable Output<Integer> startHourUtc;
 
     /**
      * @return the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+     * 
+     * &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
      * 
      */
     public Optional<Output<Integer>> startHourUtc() {
@@ -132,6 +136,8 @@ public final class CachePatchScheduleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param startHourUtc the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
          * 
+         * &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class CachePatchScheduleArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param startHourUtc the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+         * 
+         * &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
          * 
          * @return builder
          * 

@@ -99,10 +99,14 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
     public readonly linkedDatabaseGroupNickname!: pulumi.Output<string | undefined>;
     /**
      * A list of database resources to link with this database with a maximum of 5.
+     *
+     * > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      */
     public readonly linkedDatabaseIds!: pulumi.Output<string[] | undefined>;
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Only RediSearch module is allowed with geo-replication
      */
     public readonly modules!: pulumi.Output<outputs.redis.EnterpriseDatabaseModule[] | undefined>;
     /**
@@ -204,10 +208,14 @@ export interface EnterpriseDatabaseState {
     linkedDatabaseGroupNickname?: pulumi.Input<string>;
     /**
      * A list of database resources to link with this database with a maximum of 5.
+     *
+     * > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      */
     linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Only RediSearch module is allowed with geo-replication
      */
     modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
     /**
@@ -260,10 +268,14 @@ export interface EnterpriseDatabaseArgs {
     linkedDatabaseGroupNickname?: pulumi.Input<string>;
     /**
      * A list of database resources to link with this database with a maximum of 5.
+     *
+     * > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      */
     linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Only RediSearch module is allowed with geo-replication
      */
     modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
     /**

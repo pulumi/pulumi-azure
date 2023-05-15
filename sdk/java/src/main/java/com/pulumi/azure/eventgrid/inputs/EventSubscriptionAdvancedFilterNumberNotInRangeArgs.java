@@ -33,12 +33,16 @@ public final class EventSubscriptionAdvancedFilterNumberNotInRangeArgs extends c
     /**
      * Specifies an array of values to compare to when using a multiple values operator.
      * 
+     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * 
      */
     @Import(name="values", required=true)
     private Output<List<List<Double>>> values;
 
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
+     * 
+     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     public Output<List<List<Double>>> values() {
@@ -94,6 +98,8 @@ public final class EventSubscriptionAdvancedFilterNumberNotInRangeArgs extends c
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
+         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class EventSubscriptionAdvancedFilterNumberNotInRangeArgs extends c
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
+         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * 
          * @return builder
          * 
          */
@@ -114,6 +122,8 @@ public final class EventSubscriptionAdvancedFilterNumberNotInRangeArgs extends c
 
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
+         * 
+         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 

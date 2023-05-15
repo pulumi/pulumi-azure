@@ -165,6 +165,8 @@ type WorkspaceKey struct {
 	pulumi.CustomResourceState
 
 	// Specifies if the workspace should be encrypted with this key.
+	//
+	// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
 	Active pulumi.BoolOutput `pulumi:"active"`
 	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
 	CustomerManagedKeyName pulumi.StringOutput `pulumi:"customerManagedKeyName"`
@@ -213,6 +215,8 @@ func GetWorkspaceKey(ctx *pulumi.Context,
 // Input properties used for looking up and filtering WorkspaceKey resources.
 type workspaceKeyState struct {
 	// Specifies if the workspace should be encrypted with this key.
+	//
+	// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
 	Active *bool `pulumi:"active"`
 	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
 	CustomerManagedKeyName *string `pulumi:"customerManagedKeyName"`
@@ -224,6 +228,8 @@ type workspaceKeyState struct {
 
 type WorkspaceKeyState struct {
 	// Specifies if the workspace should be encrypted with this key.
+	//
+	// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
 	Active pulumi.BoolPtrInput
 	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
 	CustomerManagedKeyName pulumi.StringPtrInput
@@ -239,6 +245,8 @@ func (WorkspaceKeyState) ElementType() reflect.Type {
 
 type workspaceKeyArgs struct {
 	// Specifies if the workspace should be encrypted with this key.
+	//
+	// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
 	Active bool `pulumi:"active"`
 	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
 	CustomerManagedKeyName string `pulumi:"customerManagedKeyName"`
@@ -251,6 +259,8 @@ type workspaceKeyArgs struct {
 // The set of arguments for constructing a WorkspaceKey resource.
 type WorkspaceKeyArgs struct {
 	// Specifies if the workspace should be encrypted with this key.
+	//
+	// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
 	Active pulumi.BoolInput
 	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
 	CustomerManagedKeyName pulumi.StringInput
@@ -348,6 +358,8 @@ func (o WorkspaceKeyOutput) ToWorkspaceKeyOutputWithContext(ctx context.Context)
 }
 
 // Specifies if the workspace should be encrypted with this key.
+//
+// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
 func (o WorkspaceKeyOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v *WorkspaceKey) pulumi.BoolOutput { return v.Active }).(pulumi.BoolOutput)
 }

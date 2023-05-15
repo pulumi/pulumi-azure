@@ -80,6 +80,8 @@ namespace Pulumi.Azure.Management
 
         /// <summary>
         /// A list of Subscription GUIDs which should be assigned to the Management Group.
+        /// 
+        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         /// </summary>
         [Output("subscriptionIds")]
         public Output<ImmutableArray<string>> SubscriptionIds { get; private set; } = null!;
@@ -157,6 +159,8 @@ namespace Pulumi.Azure.Management
 
         /// <summary>
         /// A list of Subscription GUIDs which should be assigned to the Management Group.
+        /// 
+        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         /// </summary>
         public InputList<string> SubscriptionIds
         {
@@ -195,6 +199,8 @@ namespace Pulumi.Azure.Management
 
         /// <summary>
         /// A list of Subscription GUIDs which should be assigned to the Management Group.
+        /// 
+        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         /// </summary>
         public InputList<string> SubscriptionIds
         {

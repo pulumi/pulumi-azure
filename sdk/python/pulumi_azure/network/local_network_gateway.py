@@ -31,6 +31,8 @@ class LocalNetworkGatewayArgs:
         :param pulumi.Input['LocalNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
+               
+               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -104,6 +106,8 @@ class LocalNetworkGatewayArgs:
     def gateway_fqdn(self) -> Optional[pulumi.Input[str]]:
         """
         The gateway FQDN to connect with.
+
+        > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         """
         return pulumi.get(self, "gateway_fqdn")
 
@@ -165,6 +169,8 @@ class _LocalNetworkGatewayState:
         :param pulumi.Input['LocalNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
+               
+               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
@@ -228,6 +234,8 @@ class _LocalNetworkGatewayState:
     def gateway_fqdn(self) -> Optional[pulumi.Input[str]]:
         """
         The gateway FQDN to connect with.
+
+        > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         """
         return pulumi.get(self, "gateway_fqdn")
 
@@ -329,6 +337,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
+               
+               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
@@ -436,6 +446,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
+               
+               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
@@ -484,6 +496,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
     def gateway_fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         The gateway FQDN to connect with.
+
+        > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
         """
         return pulumi.get(self, "gateway_fqdn")
 

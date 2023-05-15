@@ -579,6 +579,8 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
         """
         :param str container_id: The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
         :param str root_folder_path: The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+               
+               > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
         pulumi.set(__self__, "container_id", container_id)
         pulumi.set(__self__, "root_folder_path", root_folder_path)
@@ -596,6 +598,8 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
     def root_folder_path(self) -> str:
         """
         The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+
+        > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
         return pulumi.get(self, "root_folder_path")
 
@@ -835,6 +839,8 @@ class ResourceGroupPolicyAssignmentIdentity(dict):
         """
         :param str type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         :param Sequence[str] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`.
         :param str principal_id: The Principal ID of the Policy Assignment for this Resource Group.
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Resource Group.
         """
@@ -859,6 +865,8 @@ class ResourceGroupPolicyAssignmentIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1136,6 +1144,8 @@ class ResourcePolicyAssignmentIdentity(dict):
         """
         :param str type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         :param Sequence[str] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`.
         :param str principal_id: The Principal ID of the Policy Assignment for this Resource.
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Resource.
         """
@@ -1160,6 +1170,8 @@ class ResourcePolicyAssignmentIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1412,7 +1424,7 @@ class ResourceProviderRegistrationFeature(dict):
                  name: str,
                  registered: bool):
         """
-        :param str name: Specifies the name of the feature to register.
+        :param str name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         :param bool registered: Should this feature be Registered or Unregistered?
         """
         pulumi.set(__self__, "name", name)
@@ -1422,7 +1434,7 @@ class ResourceProviderRegistrationFeature(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the feature to register.
+        The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1508,6 +1520,8 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
         """
         :param str container_id: The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
         :param str root_folder_path: The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+               
+               > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
         pulumi.set(__self__, "container_id", container_id)
         pulumi.set(__self__, "root_folder_path", root_folder_path)
@@ -1525,6 +1539,8 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
     def root_folder_path(self) -> str:
         """
         The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+
+        > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
         return pulumi.get(self, "root_folder_path")
 
@@ -1764,6 +1780,8 @@ class SubscriptionPolicyAssignmentIdentity(dict):
         """
         :param str type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
         :param Sequence[str] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`.
         :param str principal_id: The Principal ID of the Policy Assignment for this Subscription.
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Subscription.
         """
@@ -1788,6 +1806,8 @@ class SubscriptionPolicyAssignmentIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

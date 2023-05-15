@@ -27,6 +27,8 @@ namespace Pulumi.Azure.Lab.Outputs
         public readonly string? NoConnectDelay;
         /// <summary>
         /// Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         /// </summary>
         public readonly string? ShutdownOnIdle;
 

@@ -21,6 +21,8 @@ class NetappVolumeAttachmentArgs:
         The set of arguments for constructing a NetappVolumeAttachment resource.
         :param pulumi.Input[str] netapp_volume_id: The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] vmware_cluster_id: The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+               
+               > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         """
         pulumi.set(__self__, "netapp_volume_id", netapp_volume_id)
@@ -45,6 +47,8 @@ class NetappVolumeAttachmentArgs:
     def vmware_cluster_id(self) -> pulumi.Input[str]:
         """
         The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+
+        > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
         return pulumi.get(self, "vmware_cluster_id")
 
@@ -76,6 +80,8 @@ class _NetappVolumeAttachmentState:
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] netapp_volume_id: The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] vmware_cluster_id: The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+               
+               > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -113,6 +119,8 @@ class _NetappVolumeAttachmentState:
     def vmware_cluster_id(self) -> Optional[pulumi.Input[str]]:
         """
         The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+
+        > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
         return pulumi.get(self, "vmware_cluster_id")
 
@@ -131,6 +139,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
                  vmware_cluster_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a VMware Private Cloud Netapp File Attachment.
+
         ## Import
 
         VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.
@@ -144,6 +154,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] netapp_volume_id: The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] vmware_cluster_id: The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+               
+               > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
         ...
     @overload
@@ -152,6 +164,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
                  args: NetappVolumeAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a VMware Private Cloud Netapp File Attachment.
+
         ## Import
 
         VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.
@@ -217,6 +231,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] netapp_volume_id: The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[str] vmware_cluster_id: The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+               
+               > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -248,6 +264,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
     def vmware_cluster_id(self) -> pulumi.Output[str]:
         """
         The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+
+        > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
         return pulumi.get(self, "vmware_cluster_id")
 

@@ -57,9 +57,6 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/iPGroup:IPGroup")]
     public partial class IPGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of CIDRs or IP addresses.
-        /// </summary>
         [Output("cidrs")]
         public Output<ImmutableArray<string>> Cidrs { get; private set; } = null!;
 
@@ -147,10 +144,6 @@ namespace Pulumi.Azure.Network
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
-
-        /// <summary>
-        /// A list of CIDRs or IP addresses.
-        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());
@@ -197,10 +190,6 @@ namespace Pulumi.Azure.Network
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
-
-        /// <summary>
-        /// A list of CIDRs or IP addresses.
-        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());

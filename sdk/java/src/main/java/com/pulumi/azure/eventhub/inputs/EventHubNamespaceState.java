@@ -323,12 +323,16 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     /**
      * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
      * 
+     * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+     * 
      */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
      * @return Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+     * 
+     * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundant() {
@@ -802,6 +806,8 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         /**
          * @param zoneRedundant Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
          * 
+         * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+         * 
          * @return builder
          * 
          */
@@ -812,6 +818,8 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
 
         /**
          * @param zoneRedundant Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+         * 
+         * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
          * 
          * @return builder
          * 

@@ -921,6 +921,8 @@ type WorkbookTemplateGallery struct {
 	// Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
 	ResourceType *string `pulumi:"resourceType"`
 	// Type of workbook supported by the workbook template. Defaults to `workbook`.
+	//
+	// > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
 	Type *string `pulumi:"type"`
 }
 
@@ -945,6 +947,8 @@ type WorkbookTemplateGalleryArgs struct {
 	// Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// Type of workbook supported by the workbook template. Defaults to `workbook`.
+	//
+	// > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1020,6 +1024,8 @@ func (o WorkbookTemplateGalleryOutput) ResourceType() pulumi.StringPtrOutput {
 }
 
 // Type of workbook supported by the workbook template. Defaults to `workbook`.
+//
+// > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
 func (o WorkbookTemplateGalleryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -31,6 +31,8 @@ class ImageArgs:
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` elements as defined below.
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
@@ -87,6 +89,8 @@ class ImageArgs:
     def hyper_v_generation(self) -> Optional[pulumi.Input[str]]:
         """
         The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+
+        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -184,6 +188,8 @@ class _ImageState:
         Input properties used for looking up and filtering Image resources.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` elements as defined below.
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
@@ -230,6 +236,8 @@ class _ImageState:
     def hyper_v_generation(self) -> Optional[pulumi.Input[str]]:
         """
         The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+
+        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -417,6 +425,8 @@ class Image(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` elements as defined below.
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
@@ -579,6 +589,8 @@ class Image(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` elements as defined below.
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
@@ -617,6 +629,8 @@ class Image(pulumi.CustomResource):
     def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
         The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+
+        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         """
         return pulumi.get(self, "hyper_v_generation")
 

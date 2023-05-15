@@ -145,6 +145,8 @@ type JobSchedule struct {
 	// The time at which the Stream Analytics job last produced an output.
 	LastOutputTime pulumi.StringOutput `pulumi:"lastOutputTime"`
 	// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+	//
+	// > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
 	StartMode pulumi.StringOutput `pulumi:"startMode"`
 	// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
@@ -190,6 +192,8 @@ type jobScheduleState struct {
 	// The time at which the Stream Analytics job last produced an output.
 	LastOutputTime *string `pulumi:"lastOutputTime"`
 	// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+	//
+	// > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
 	StartMode *string `pulumi:"startMode"`
 	// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
 	StartTime *string `pulumi:"startTime"`
@@ -201,6 +205,8 @@ type JobScheduleState struct {
 	// The time at which the Stream Analytics job last produced an output.
 	LastOutputTime pulumi.StringPtrInput
 	// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+	//
+	// > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
 	StartMode pulumi.StringPtrInput
 	// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
 	StartTime pulumi.StringPtrInput
@@ -214,6 +220,8 @@ func (JobScheduleState) ElementType() reflect.Type {
 
 type jobScheduleArgs struct {
 	// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+	//
+	// > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
 	StartMode string `pulumi:"startMode"`
 	// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
 	StartTime *string `pulumi:"startTime"`
@@ -224,6 +232,8 @@ type jobScheduleArgs struct {
 // The set of arguments for constructing a JobSchedule resource.
 type JobScheduleArgs struct {
 	// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+	//
+	// > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
 	StartMode pulumi.StringInput
 	// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
 	StartTime pulumi.StringPtrInput
@@ -324,6 +334,8 @@ func (o JobScheduleOutput) LastOutputTime() pulumi.StringOutput {
 }
 
 // The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+//
+// > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
 func (o JobScheduleOutput) StartMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.StartMode }).(pulumi.StringOutput)
 }

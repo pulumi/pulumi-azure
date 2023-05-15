@@ -12,6 +12,46 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages an Azure Cost Management View for a Resource Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleResourceGroupCostManagementView = new Azure.Core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView", new()
+    ///     {
+    ///         DisplayName = "Cost View per Month",
+    ///         ChartType = "StackedColumn",
+    ///         Accumulated = false,
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         ReportType = "Usage",
+    ///         Timeframe = "MonthToDate",
+    ///         Dataset = new Azure.Core.Inputs.ResourceGroupCostManagementViewDatasetArgs
+    ///         {
+    ///             Granularity = "Monthly",
+    ///             Aggregations = new[]
+    ///             {
+    ///                 new Azure.Core.Inputs.ResourceGroupCostManagementViewDatasetAggregationArgs
+    ///                 {
+    ///                     Name = "totalCost",
+    ///                     ColumnName = "Cost",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cost Management View for a Resource Groups can be imported using the `resource id`, e.g.

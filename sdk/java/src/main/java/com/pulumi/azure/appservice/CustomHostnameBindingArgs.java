@@ -33,12 +33,16 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+     * 
      */
     @Import(name="hostname", required=true)
     private Output<String> hostname;
 
     /**
      * @return Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
     public Output<String> hostname() {
@@ -78,12 +82,16 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+     * 
      */
     @Import(name="thumbprint")
     private @Nullable Output<String> thumbprint;
 
     /**
      * @return The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
     public Optional<Output<String>> thumbprint() {
@@ -142,6 +150,8 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
         /**
          * @param hostname Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+         * 
          * @return builder
          * 
          */
@@ -152,6 +162,8 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
 
         /**
          * @param hostname Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
          * 
          * @return builder
          * 
@@ -205,6 +217,8 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
         /**
          * @param thumbprint The SSL certificate thumbprint. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+         * 
          * @return builder
          * 
          */
@@ -215,6 +229,8 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
 
         /**
          * @param thumbprint The SSL certificate thumbprint. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
          * 
          * @return builder
          * 

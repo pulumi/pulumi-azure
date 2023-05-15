@@ -18,7 +18,6 @@ type Features struct {
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk            *FeaturesManagedDisk            `pulumi:"managedDisk"`
-	Network                *FeaturesNetwork                `pulumi:"network"`
 	ResourceGroup          *FeaturesResourceGroup          `pulumi:"resourceGroup"`
 	TemplateDeployment     *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
@@ -44,7 +43,6 @@ type FeaturesArgs struct {
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk            FeaturesManagedDiskPtrInput            `pulumi:"managedDisk"`
-	Network                FeaturesNetworkPtrInput                `pulumi:"network"`
 	ResourceGroup          FeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
 	TemplateDeployment     FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
@@ -103,10 +101,6 @@ func (o FeaturesOutput) LogAnalyticsWorkspace() FeaturesLogAnalyticsWorkspacePtr
 
 func (o FeaturesOutput) ManagedDisk() FeaturesManagedDiskPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesManagedDisk { return v.ManagedDisk }).(FeaturesManagedDiskPtrOutput)
-}
-
-func (o FeaturesOutput) Network() FeaturesNetworkPtrOutput {
-	return o.ApplyT(func(v Features) *FeaturesNetwork { return v.Network }).(FeaturesNetworkPtrOutput)
 }
 
 func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
@@ -1206,139 +1200,6 @@ func (o FeaturesManagedDiskPtrOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-type FeaturesNetwork struct {
-	RelaxedLocking bool `pulumi:"relaxedLocking"`
-}
-
-// FeaturesNetworkInput is an input type that accepts FeaturesNetworkArgs and FeaturesNetworkOutput values.
-// You can construct a concrete instance of `FeaturesNetworkInput` via:
-//
-//	FeaturesNetworkArgs{...}
-type FeaturesNetworkInput interface {
-	pulumi.Input
-
-	ToFeaturesNetworkOutput() FeaturesNetworkOutput
-	ToFeaturesNetworkOutputWithContext(context.Context) FeaturesNetworkOutput
-}
-
-type FeaturesNetworkArgs struct {
-	RelaxedLocking pulumi.BoolInput `pulumi:"relaxedLocking"`
-}
-
-func (FeaturesNetworkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeaturesNetwork)(nil)).Elem()
-}
-
-func (i FeaturesNetworkArgs) ToFeaturesNetworkOutput() FeaturesNetworkOutput {
-	return i.ToFeaturesNetworkOutputWithContext(context.Background())
-}
-
-func (i FeaturesNetworkArgs) ToFeaturesNetworkOutputWithContext(ctx context.Context) FeaturesNetworkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetworkOutput)
-}
-
-func (i FeaturesNetworkArgs) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
-	return i.ToFeaturesNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i FeaturesNetworkArgs) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetworkOutput).ToFeaturesNetworkPtrOutputWithContext(ctx)
-}
-
-// FeaturesNetworkPtrInput is an input type that accepts FeaturesNetworkArgs, FeaturesNetworkPtr and FeaturesNetworkPtrOutput values.
-// You can construct a concrete instance of `FeaturesNetworkPtrInput` via:
-//
-//	        FeaturesNetworkArgs{...}
-//
-//	or:
-//
-//	        nil
-type FeaturesNetworkPtrInput interface {
-	pulumi.Input
-
-	ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput
-	ToFeaturesNetworkPtrOutputWithContext(context.Context) FeaturesNetworkPtrOutput
-}
-
-type featuresNetworkPtrType FeaturesNetworkArgs
-
-func FeaturesNetworkPtr(v *FeaturesNetworkArgs) FeaturesNetworkPtrInput {
-	return (*featuresNetworkPtrType)(v)
-}
-
-func (*featuresNetworkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FeaturesNetwork)(nil)).Elem()
-}
-
-func (i *featuresNetworkPtrType) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
-	return i.ToFeaturesNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *featuresNetworkPtrType) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetworkPtrOutput)
-}
-
-type FeaturesNetworkOutput struct{ *pulumi.OutputState }
-
-func (FeaturesNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeaturesNetwork)(nil)).Elem()
-}
-
-func (o FeaturesNetworkOutput) ToFeaturesNetworkOutput() FeaturesNetworkOutput {
-	return o
-}
-
-func (o FeaturesNetworkOutput) ToFeaturesNetworkOutputWithContext(ctx context.Context) FeaturesNetworkOutput {
-	return o
-}
-
-func (o FeaturesNetworkOutput) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
-	return o.ToFeaturesNetworkPtrOutputWithContext(context.Background())
-}
-
-func (o FeaturesNetworkOutput) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesNetwork) *FeaturesNetwork {
-		return &v
-	}).(FeaturesNetworkPtrOutput)
-}
-
-func (o FeaturesNetworkOutput) RelaxedLocking() pulumi.BoolOutput {
-	return o.ApplyT(func(v FeaturesNetwork) bool { return v.RelaxedLocking }).(pulumi.BoolOutput)
-}
-
-type FeaturesNetworkPtrOutput struct{ *pulumi.OutputState }
-
-func (FeaturesNetworkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FeaturesNetwork)(nil)).Elem()
-}
-
-func (o FeaturesNetworkPtrOutput) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
-	return o
-}
-
-func (o FeaturesNetworkPtrOutput) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
-	return o
-}
-
-func (o FeaturesNetworkPtrOutput) Elem() FeaturesNetworkOutput {
-	return o.ApplyT(func(v *FeaturesNetwork) FeaturesNetwork {
-		if v != nil {
-			return *v
-		}
-		var ret FeaturesNetwork
-		return ret
-	}).(FeaturesNetworkOutput)
-}
-
-func (o FeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FeaturesNetwork) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.RelaxedLocking
-	}).(pulumi.BoolPtrOutput)
-}
-
 type FeaturesResourceGroup struct {
 	PreventDeletionIfContainsResources *bool `pulumi:"preventDeletionIfContainsResources"`
 }
@@ -1947,8 +1808,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesLogAnalyticsWorkspacePtrInput)(nil)).Elem(), FeaturesLogAnalyticsWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskPtrInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesNetworkInput)(nil)).Elem(), FeaturesNetworkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesNetworkPtrInput)(nil)).Elem(), FeaturesNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupPtrInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesTemplateDeploymentInput)(nil)).Elem(), FeaturesTemplateDeploymentArgs{})
@@ -1972,8 +1831,6 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesManagedDiskOutput{})
 	pulumi.RegisterOutputType(FeaturesManagedDiskPtrOutput{})
-	pulumi.RegisterOutputType(FeaturesNetworkOutput{})
-	pulumi.RegisterOutputType(FeaturesNetworkPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentOutput{})

@@ -17,12 +17,16 @@ public final class AutomationSourceRuleSetArgs extends com.pulumi.resources.Reso
     /**
      * One or more `rule` blocks as defined below.
      * 
+     * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
+     * 
      */
     @Import(name="rules", required=true)
     private Output<List<AutomationSourceRuleSetRuleArgs>> rules;
 
     /**
      * @return One or more `rule` blocks as defined below.
+     * 
+     * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
      * 
      */
     public Output<List<AutomationSourceRuleSetRuleArgs>> rules() {
@@ -56,6 +60,8 @@ public final class AutomationSourceRuleSetArgs extends com.pulumi.resources.Reso
         /**
          * @param rules One or more `rule` blocks as defined below.
          * 
+         * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
+         * 
          * @return builder
          * 
          */
@@ -67,6 +73,8 @@ public final class AutomationSourceRuleSetArgs extends com.pulumi.resources.Reso
         /**
          * @param rules One or more `rule` blocks as defined below.
          * 
+         * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
+         * 
          * @return builder
          * 
          */
@@ -76,6 +84,8 @@ public final class AutomationSourceRuleSetArgs extends com.pulumi.resources.Reso
 
         /**
          * @param rules One or more `rule` blocks as defined below.
+         * 
+         * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
          * 
          * @return builder
          * 

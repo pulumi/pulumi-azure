@@ -39,6 +39,8 @@ class WorkbookArgs:
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] source_id: Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         :param pulumi.Input[str] storage_container_id: Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Workbook.
         """
         pulumi.set(__self__, "data_json", data_json)
@@ -174,6 +176,8 @@ class WorkbookArgs:
     def storage_container_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+
+        > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -220,6 +224,8 @@ class _WorkbookState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] source_id: Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         :param pulumi.Input[str] storage_container_id: Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Workbook.
         """
         if category is not None:
@@ -358,6 +364,8 @@ class _WorkbookState:
     def storage_container_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+
+        > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -447,6 +455,8 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] source_id: Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         :param pulumi.Input[str] storage_container_id: Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Workbook.
         """
         ...
@@ -585,6 +595,8 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] source_id: Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
         :param pulumi.Input[str] storage_container_id: Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+               
+               > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Workbook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -681,6 +693,8 @@ class Workbook(pulumi.CustomResource):
     def storage_container_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+
+        > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
         return pulumi.get(self, "storage_container_id")
 

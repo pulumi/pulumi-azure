@@ -19,12 +19,16 @@ public final class HadoopClusterNetworkArgs extends com.pulumi.resources.Resourc
     /**
      * The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+     * 
      */
     @Import(name="connectionDirection")
     private @Nullable Output<String> connectionDirection;
 
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
      * 
      */
     public Optional<Output<String>> connectionDirection() {
@@ -74,6 +78,8 @@ public final class HadoopClusterNetworkArgs extends com.pulumi.resources.Resourc
         /**
          * @param connectionDirection The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class HadoopClusterNetworkArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param connectionDirection The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
          * 
          * @return builder
          * 

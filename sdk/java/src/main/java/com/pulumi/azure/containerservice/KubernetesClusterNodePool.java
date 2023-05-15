@@ -117,12 +117,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * Specifies whether to trust a Custom CA.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
      */
     @Export(name="customCaTrustEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customCaTrustEnabled;
 
     /**
      * @return Specifies whether to trust a Custom CA.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Output<Optional<Boolean>> customCaTrustEnabled() {
@@ -145,12 +149,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * 
      */
     @Export(name="enableHostEncryption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableHostEncryption;
 
     /**
      * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      * 
      */
     public Output<Optional<Boolean>> enableHostEncryption() {
@@ -173,12 +181,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
+     * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
      * @return The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -187,12 +199,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+     * 
      */
     @Export(name="fipsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fipsEnabled;
 
     /**
      * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      * 
      */
     public Output<Optional<Boolean>> fipsEnabled() {
@@ -243,12 +259,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+     * 
      */
     @Export(name="kubernetesClusterId", refs={String.class}, tree="[0]")
     private Output<String> kubernetesClusterId;
 
     /**
      * @return The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
      * 
      */
     public Output<String> kubernetesClusterId() {
@@ -341,12 +361,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
      * 
      */
     public Output<String> name() {
@@ -355,12 +379,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
      * 
+     * &gt; **NOTE:** If you&#39;re specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * 
      */
     @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> nodeCount;
 
     /**
      * @return The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
+     * 
+     * &gt; **NOTE:** If you&#39;re specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      */
     public Output<Integer> nodeCount() {
@@ -425,12 +453,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
+     * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
+     * 
      */
     @Export(name="orchestratorVersion", refs={String.class}, tree="[0]")
     private Output<String> orchestratorVersion;
 
     /**
      * @return Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * 
+     * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
      * 
      */
     public Output<String> orchestratorVersion() {
@@ -523,12 +555,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
+     * 
      */
     @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
      * @return The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
      * 
      */
     public Output<Optional<String>> proximityPlacementGroupId() {
@@ -565,12 +601,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The maximum price you&#39;re willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This field can only be configured when `priority` is set to `Spot`.
+     * 
      */
     @Export(name="spotMaxPrice", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> spotMaxPrice;
 
     /**
      * @return The maximum price you&#39;re willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This field can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<Double>> spotMaxPrice() {
@@ -579,12 +619,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -635,12 +679,16 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** A route table must be configured on this Subnet.
+     * 
      */
     @Export(name="vnetSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vnetSubnetId;
 
     /**
      * @return The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** A route table must be configured on this Subnet.
      * 
      */
     public Output<Optional<String>> vnetSubnetId() {
@@ -663,12 +711,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      * 
+     * &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
+     * 
+     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+     * 
      */
     @Export(name="workloadRuntime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workloadRuntime;
 
     /**
      * @return Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+     * 
+     * &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
+     * 
+     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      * 
      */
     public Output<Optional<String>> workloadRuntime() {

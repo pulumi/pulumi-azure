@@ -14,12 +14,16 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
     /**
      * @return A `recurrence` block as defined below.
      * 
+     * &gt; **NOTE:** Capacity based autoscaling isn&#39;t supported to HBase clusters.
+     * 
      */
     private @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
     private HBaseClusterRolesWorkerNodeAutoscale() {}
     /**
      * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Capacity based autoscaling isn&#39;t supported to HBase clusters.
      * 
      */
     public Optional<HBaseClusterRolesWorkerNodeAutoscaleRecurrence> recurrence() {

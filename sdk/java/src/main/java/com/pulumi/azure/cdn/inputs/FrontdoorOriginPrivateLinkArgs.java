@@ -33,12 +33,16 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     /**
      * The ID of the Azure Resource to connect to via the Private Link.
      * 
+     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * 
      */
     @Import(name="privateLinkTargetId", required=true)
     private Output<String> privateLinkTargetId;
 
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
+     * 
+     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
      * 
      */
     public Output<String> privateLinkTargetId() {
@@ -63,12 +67,16 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     /**
      * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
      * 
+     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * 
      */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
     /**
      * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * 
+     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     public Optional<Output<String>> targetType() {
@@ -126,6 +134,8 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         /**
          * @param privateLinkTargetId The ID of the Azure Resource to connect to via the Private Link.
          * 
+         * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +146,8 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
 
         /**
          * @param privateLinkTargetId The ID of the Azure Resource to connect to via the Private Link.
+         * 
+         * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
          * 
          * @return builder
          * 
@@ -168,6 +180,8 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         /**
          * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
          * 
+         * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+         * 
          * @return builder
          * 
          */
@@ -178,6 +192,8 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
 
         /**
          * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+         * 
+         * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
          * 
          * @return builder
          * 

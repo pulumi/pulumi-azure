@@ -109,14 +109,18 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * 
+     * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * @return A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * 
+     * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -280,7 +284,9 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+         * @param zones A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+         * 
+         * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
          * 
          * @return builder
          * 
@@ -291,7 +297,9 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+         * @param zones A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+         * 
+         * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
          * 
          * @return builder
          * 
@@ -301,7 +309,9 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+         * @param zones A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+         * 
+         * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
          * 
          * @return builder
          * 

@@ -294,12 +294,16 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
+     * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * 
      */
     @Export(name="queryPeriod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryPeriod;
 
     /**
      * @return The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+     * 
+     * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     public Output<Optional<String>> queryPeriod() {
@@ -308,12 +312,16 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * 
      */
     @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleScheduledSentinelEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledSentinelEntityMapping>> sentinelEntityMappings;
 
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
     public Output<Optional<List<AlertRuleScheduledSentinelEntityMapping>>> sentinelEntityMappings() {
@@ -336,12 +344,16 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
+     * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * 
      */
     @Export(name="suppressionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suppressionDuration;
 
     /**
      * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * 
+     * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     public Output<Optional<String>> suppressionDuration() {

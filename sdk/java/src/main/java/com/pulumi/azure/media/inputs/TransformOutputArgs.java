@@ -113,12 +113,16 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A `video_analyzer_preset` block as defined below.
      * 
+     * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
+     * 
      */
     @Import(name="videoAnalyzerPreset")
     private @Nullable Output<TransformOutputVideoAnalyzerPresetArgs> videoAnalyzerPreset;
 
     /**
      * @return A `video_analyzer_preset` block as defined below.
+     * 
+     * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
      * 
      */
     public Optional<Output<TransformOutputVideoAnalyzerPresetArgs>> videoAnalyzerPreset() {
@@ -284,6 +288,8 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param videoAnalyzerPreset A `video_analyzer_preset` block as defined below.
          * 
+         * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
+         * 
          * @return builder
          * 
          */
@@ -294,6 +300,8 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param videoAnalyzerPreset A `video_analyzer_preset` block as defined below.
+         * 
+         * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
          * 
          * @return builder
          * 

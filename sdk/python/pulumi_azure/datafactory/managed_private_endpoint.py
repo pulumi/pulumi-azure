@@ -24,6 +24,8 @@ class ManagedPrivateEndpointArgs:
         :param pulumi.Input[str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: Fully qualified domain names. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         """
@@ -65,6 +67,8 @@ class ManagedPrivateEndpointArgs:
     def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Fully qualified domain names. Changing this forces a new resource to be created.
+
+        > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         """
         return pulumi.get(self, "fqdns")
 
@@ -109,6 +113,8 @@ class _ManagedPrivateEndpointState:
         Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
         :param pulumi.Input[str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: Fully qualified domain names. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -141,6 +147,8 @@ class _ManagedPrivateEndpointState:
     def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Fully qualified domain names. Changing this forces a new resource to be created.
+
+        > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         """
         return pulumi.get(self, "fqdns")
 
@@ -234,6 +242,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: Fully qualified domain names. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -340,6 +350,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: Fully qualified domain names. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -368,6 +380,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def fqdns(self) -> pulumi.Output[Sequence[str]]:
         """
         Fully qualified domain names. Changing this forces a new resource to be created.
+
+        > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         """
         return pulumi.get(self, "fqdns")
 

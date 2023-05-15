@@ -21,12 +21,13 @@ namespace Pulumi.Azure.Network.Outputs
         /// The private IP address associated with the Firewall.
         /// </summary>
         public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// The ID of the Public IP Address associated with the firewall.
-        /// </summary>
         public readonly string PublicIpAddressId;
         /// <summary>
         /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+        /// 
+        /// &gt; **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         /// </summary>
         public readonly string? SubnetId;
 

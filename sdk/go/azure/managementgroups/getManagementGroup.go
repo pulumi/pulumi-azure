@@ -52,6 +52,8 @@ func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs,
 // A collection of arguments for invoking getManagementGroup.
 type LookupManagementGroupArgs struct {
 	// Specifies the display name of this Management Group.
+	//
+	// > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the name or UUID of this Management Group.
 	Name *string `pulumi:"name"`
@@ -91,6 +93,8 @@ func LookupManagementGroupOutput(ctx *pulumi.Context, args LookupManagementGroup
 // A collection of arguments for invoking getManagementGroup.
 type LookupManagementGroupOutputArgs struct {
 	// Specifies the display name of this Management Group.
+	//
+	// > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Specifies the name or UUID of this Management Group.
 	Name pulumi.StringPtrInput `pulumi:"name"`

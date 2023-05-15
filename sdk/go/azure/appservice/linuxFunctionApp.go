@@ -82,7 +82,8 @@ import (
 type LinuxFunctionApp struct {
 	pulumi.CustomResourceState
 
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App
+	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrOutput `pulumi:"authSettings"`
@@ -132,7 +133,7 @@ type LinuxFunctionApp struct {
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -151,14 +152,21 @@ type LinuxFunctionApp struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxFunctionAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrOutput `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -209,7 +217,8 @@ func GetLinuxFunctionApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinuxFunctionApp resources.
 type linuxFunctionAppState struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App
+	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -259,7 +268,7 @@ type linuxFunctionAppState struct {
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -278,19 +287,27 @@ type linuxFunctionAppState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxFunctionAppStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 type LinuxFunctionAppState struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App
+	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
@@ -340,7 +357,7 @@ type LinuxFunctionAppState struct {
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
-	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
 	// The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -359,14 +376,21 @@ type LinuxFunctionAppState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxFunctionAppStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -375,7 +399,8 @@ func (LinuxFunctionAppState) ElementType() reflect.Type {
 }
 
 type linuxFunctionAppArgs struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App
+	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -426,20 +451,28 @@ type linuxFunctionAppArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxFunctionAppStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 // The set of arguments for constructing a LinuxFunctionApp resource.
 type LinuxFunctionAppArgs struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App
+	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
@@ -490,14 +523,21 @@ type LinuxFunctionAppArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxFunctionAppStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -588,7 +628,8 @@ func (o LinuxFunctionAppOutput) ToLinuxFunctionAppOutputWithContext(ctx context.
 	return o
 }
 
-// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App
+// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 func (o LinuxFunctionAppOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
@@ -713,7 +754,7 @@ func (o LinuxFunctionAppOutput) PossibleOutboundIpAddressLists() pulumi.StringAr
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringArrayOutput { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
 
-// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 func (o LinuxFunctionAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
@@ -759,11 +800,17 @@ func (o LinuxFunctionAppOutput) StorageAccounts() LinuxFunctionAppStorageAccount
 }
 
 // The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+//
+// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+//
+// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 func (o LinuxFunctionAppOutput) StorageKeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.StorageKeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
 // Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+//
+// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 func (o LinuxFunctionAppOutput) StorageUsesManagedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.StorageUsesManagedIdentity }).(pulumi.BoolPtrOutput)
 }
@@ -773,12 +820,13 @@ func (o LinuxFunctionAppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o LinuxFunctionAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+//
+// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
 func (o LinuxFunctionAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

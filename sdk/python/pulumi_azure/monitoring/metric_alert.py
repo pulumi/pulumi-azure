@@ -38,17 +38,27 @@ class MetricAlertArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]] criterias: One or more (static) `criteria` blocks as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
         :param pulumi.Input['MetricAlertDynamicCriteriaArgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_location: The location of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -123,6 +133,8 @@ class MetricAlertArgs:
     def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]:
         """
         A `application_insights_web_test_location_availability_criteria` block as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
 
@@ -147,6 +159,8 @@ class MetricAlertArgs:
     def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]:
         """
         One or more (static) `criteria` blocks as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "criterias")
 
@@ -171,6 +185,8 @@ class MetricAlertArgs:
     def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]:
         """
         A `dynamic_criteria` block as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "dynamic_criteria")
 
@@ -243,6 +259,8 @@ class MetricAlertArgs:
     def target_resource_location(self) -> Optional[pulumi.Input[str]]:
         """
         The location of the target resource.
+
+        > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         """
         return pulumi.get(self, "target_resource_location")
 
@@ -255,6 +273,8 @@ class MetricAlertArgs:
     def target_resource_type(self) -> Optional[pulumi.Input[str]]:
         """
         The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+
+        > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -298,10 +318,16 @@ class _MetricAlertState:
         Input properties used for looking up and filtering MetricAlert resources.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]] criterias: One or more (static) `criteria` blocks as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
         :param pulumi.Input['MetricAlertDynamicCriteriaArgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
@@ -310,7 +336,11 @@ class _MetricAlertState:
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_location: The location of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
         if actions is not None:
@@ -363,6 +393,8 @@ class _MetricAlertState:
     def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]:
         """
         A `application_insights_web_test_location_availability_criteria` block as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
 
@@ -387,6 +419,8 @@ class _MetricAlertState:
     def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]:
         """
         One or more (static) `criteria` blocks as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "criterias")
 
@@ -411,6 +445,8 @@ class _MetricAlertState:
     def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]:
         """
         A `dynamic_criteria` block as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "dynamic_criteria")
 
@@ -507,6 +543,8 @@ class _MetricAlertState:
     def target_resource_location(self) -> Optional[pulumi.Input[str]]:
         """
         The location of the target resource.
+
+        > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         """
         return pulumi.get(self, "target_resource_location")
 
@@ -519,6 +557,8 @@ class _MetricAlertState:
     def target_resource_type(self) -> Optional[pulumi.Input[str]]:
         """
         The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+
+        > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -616,10 +656,16 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
         :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
@@ -628,7 +674,11 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_location: The location of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
         ...
@@ -783,10 +833,16 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
         :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
+               
+               > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
@@ -795,7 +851,11 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_location: The location of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+               
+               > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -833,6 +893,8 @@ class MetricAlert(pulumi.CustomResource):
     def application_insights_web_test_location_availability_criteria(self) -> pulumi.Output[Optional['outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria']]:
         """
         A `application_insights_web_test_location_availability_criteria` block as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
 
@@ -849,6 +911,8 @@ class MetricAlert(pulumi.CustomResource):
     def criterias(self) -> pulumi.Output[Optional[Sequence['outputs.MetricAlertCriteria']]]:
         """
         One or more (static) `criteria` blocks as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "criterias")
 
@@ -865,6 +929,8 @@ class MetricAlert(pulumi.CustomResource):
     def dynamic_criteria(self) -> pulumi.Output[Optional['outputs.MetricAlertDynamicCriteria']]:
         """
         A `dynamic_criteria` block as defined below.
+
+        > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         """
         return pulumi.get(self, "dynamic_criteria")
 
@@ -929,6 +995,8 @@ class MetricAlert(pulumi.CustomResource):
     def target_resource_location(self) -> pulumi.Output[str]:
         """
         The location of the target resource.
+
+        > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         """
         return pulumi.get(self, "target_resource_location")
 
@@ -937,6 +1005,8 @@ class MetricAlert(pulumi.CustomResource):
     def target_resource_type(self) -> pulumi.Output[str]:
         """
         The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+
+        > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         """
         return pulumi.get(self, "target_resource_type")
 

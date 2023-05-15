@@ -26,6 +26,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }

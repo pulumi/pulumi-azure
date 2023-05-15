@@ -125,12 +125,16 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
     /**
      * Specifies the translated FQDN.
      * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+     * 
      */
     @Import(name="translatedFqdn")
     private @Nullable Output<String> translatedFqdn;
 
     /**
      * @return Specifies the translated FQDN.
+     * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
      * 
      */
     public Optional<Output<String>> translatedFqdn() {
@@ -364,6 +368,8 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         /**
          * @param translatedFqdn Specifies the translated FQDN.
          * 
+         * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+         * 
          * @return builder
          * 
          */
@@ -374,6 +380,8 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
 
         /**
          * @param translatedFqdn Specifies the translated FQDN.
+         * 
+         * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
          * 
          * @return builder
          * 

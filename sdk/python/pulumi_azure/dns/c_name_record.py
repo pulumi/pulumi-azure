@@ -29,6 +29,8 @@ class CNameRecordArgs:
         :param pulumi.Input[str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -108,6 +110,8 @@ class CNameRecordArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         """
         return pulumi.get(self, "tags")
 
@@ -146,6 +150,8 @@ class _CNameRecordState:
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -220,6 +226,8 @@ class _CNameRecordState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         """
         return pulumi.get(self, "tags")
 
@@ -326,6 +334,8 @@ class CNameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -454,6 +464,8 @@ class CNameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -509,6 +521,8 @@ class CNameRecord(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **Note:** either `record` OR `target_resource_id` must be specified, but not both.
         """
         return pulumi.get(self, "tags")
 

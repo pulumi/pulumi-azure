@@ -25,7 +25,11 @@ class TriggerHttpRequestArgs:
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
+               
+               > **NOTE:** When `relative_path` is set a `method` must also be set.
         """
         pulumi.set(__self__, "logic_app_id", logic_app_id)
         pulumi.set(__self__, "schema", schema)
@@ -77,6 +81,8 @@ class TriggerHttpRequestArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+
+        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -89,6 +95,8 @@ class TriggerHttpRequestArgs:
     def relative_path(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Relative Path used for this Request.
+
+        > **NOTE:** When `relative_path` is set a `method` must also be set.
         """
         return pulumi.get(self, "relative_path")
 
@@ -112,7 +120,11 @@ class _TriggerHttpRequestState:
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
+               
+               > **NOTE:** When `relative_path` is set a `method` must also be set.
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
         if callback_url is not None:
@@ -169,6 +181,8 @@ class _TriggerHttpRequestState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+
+        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -181,6 +195,8 @@ class _TriggerHttpRequestState:
     def relative_path(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Relative Path used for this Request.
+
+        > **NOTE:** When `relative_path` is set a `method` must also be set.
         """
         return pulumi.get(self, "relative_path")
 
@@ -251,7 +267,11 @@ class TriggerHttpRequest(pulumi.CustomResource):
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
+               
+               > **NOTE:** When `relative_path` is set a `method` must also be set.
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
         ...
@@ -360,7 +380,11 @@ class TriggerHttpRequest(pulumi.CustomResource):
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
+               
+               > **NOTE:** When `relative_path` is set a `method` must also be set.
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -404,6 +428,8 @@ class TriggerHttpRequest(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+
+        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -412,6 +438,8 @@ class TriggerHttpRequest(pulumi.CustomResource):
     def relative_path(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Relative Path used for this Request.
+
+        > **NOTE:** When `relative_path` is set a `method` must also be set.
         """
         return pulumi.get(self, "relative_path")
 

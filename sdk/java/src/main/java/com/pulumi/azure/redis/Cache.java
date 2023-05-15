@@ -314,12 +314,16 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * Amount of replicas to create per master for this Redis Cache.
      * 
+     * &gt; **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
+     * 
      */
     @Export(name="replicasPerMaster", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicasPerMaster;
 
     /**
      * @return Amount of replicas to create per master for this Redis Cache.
+     * 
+     * &gt; **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      * 
      */
     public Output<Integer> replicasPerMaster() {
@@ -398,12 +402,16 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      * 
+     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
      * @return The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+     * 
+     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Output<String> skuName() {
@@ -468,12 +476,16 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
+     * &gt; **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+     * 
+     * &gt; **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      * 
      */
     public Output<Optional<List<String>>> zones() {

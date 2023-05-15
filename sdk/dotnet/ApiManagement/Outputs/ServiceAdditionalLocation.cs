@@ -35,6 +35,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
         /// ID of a standard SKU IPv4 Public IP.
+        /// 
+        /// &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         /// </summary>
         public readonly string? PublicIpAddressId;
         /// <summary>

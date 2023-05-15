@@ -66,10 +66,14 @@ export class Vault extends pulumi.CustomResource {
     public readonly classicVmwareReplicationEnabled!: pulumi.Output<boolean>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+     *
+     * > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      */
     public readonly crossRegionRestoreEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
+     *
+     * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
     public readonly encryption!: pulumi.Output<outputs.recoveryservices.VaultEncryption | undefined>;
     /**
@@ -176,10 +180,14 @@ export interface VaultState {
     classicVmwareReplicationEnabled?: pulumi.Input<boolean>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+     *
+     * > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      */
     crossRegionRestoreEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
+     *
+     * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
     encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption>;
     /**
@@ -234,10 +242,14 @@ export interface VaultArgs {
     classicVmwareReplicationEnabled?: pulumi.Input<boolean>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+     *
+     * > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      */
     crossRegionRestoreEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
+     *
+     * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
     encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption>;
     /**

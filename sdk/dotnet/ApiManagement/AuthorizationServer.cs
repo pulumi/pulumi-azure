@@ -74,6 +74,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+        /// 
+        /// &gt; **NOTE:** `GET` must always be present.
         /// </summary>
         [Output("authorizationMethods")]
         public Output<ImmutableArray<string>> AuthorizationMethods { get; private set; } = null!;
@@ -146,12 +148,16 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The password associated with the Resource Owner.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         /// </summary>
         [Output("resourceOwnerPassword")]
         public Output<string?> ResourceOwnerPassword { get; private set; } = null!;
 
         /// <summary>
         /// The username associated with the Resource Owner.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         /// </summary>
         [Output("resourceOwnerUsername")]
         public Output<string?> ResourceOwnerUsername { get; private set; } = null!;
@@ -242,6 +248,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+        /// 
+        /// &gt; **NOTE:** `GET` must always be present.
         /// </summary>
         public InputList<string> AuthorizationMethods
         {
@@ -348,6 +356,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The password associated with the Resource Owner.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         /// </summary>
         public Input<string>? ResourceOwnerPassword
         {
@@ -361,6 +371,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The username associated with the Resource Owner.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         /// </summary>
         [Input("resourceOwnerUsername")]
         public Input<string>? ResourceOwnerUsername { get; set; }
@@ -414,6 +426,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+        /// 
+        /// &gt; **NOTE:** `GET` must always be present.
         /// </summary>
         public InputList<string> AuthorizationMethods
         {
@@ -520,6 +534,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The password associated with the Resource Owner.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         /// </summary>
         public Input<string>? ResourceOwnerPassword
         {
@@ -533,6 +549,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The username associated with the Resource Owner.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         /// </summary>
         [Input("resourceOwnerUsername")]
         public Input<string>? ResourceOwnerUsername { get; set; }

@@ -41,6 +41,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// 
+        /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         /// </summary>
         public InputList<string> LoadBalancerBackendAddressPoolIds
         {
@@ -56,6 +58,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
@@ -74,6 +78,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The ID of the Subnet which this IP Configuration should be connected to.
+        /// 
+        /// &gt; **NOTE:** `subnet_id` is required if version is set to `IPv4`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

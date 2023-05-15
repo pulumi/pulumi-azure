@@ -165,12 +165,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      * 
+     * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+     * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
      * @return . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+     * 
+     * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
      * 
      */
     public Output<Optional<String>> engine() {
@@ -361,12 +365,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
      * 
+     * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+     * 
      */
     @Export(name="trustedExternalTenants", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> trustedExternalTenants;
 
     /**
      * @return Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
+     * 
+     * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
      * 
      */
     public Output<List<String>> trustedExternalTenants() {

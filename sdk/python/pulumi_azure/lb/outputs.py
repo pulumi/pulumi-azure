@@ -202,6 +202,8 @@ class LoadBalancerFrontendIpConfiguration(dict):
         :param str public_ip_prefix_id: The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
         :param str subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
         :param Sequence[str] zones: Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+               
+               > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         """
         pulumi.set(__self__, "name", name)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
@@ -330,6 +332,8 @@ class LoadBalancerFrontendIpConfiguration(dict):
     def zones(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+
+        > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         """
         return pulumi.get(self, "zones")
 

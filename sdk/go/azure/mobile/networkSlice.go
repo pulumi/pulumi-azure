@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
+//			exampleNetwork, err := mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				MobileCountryCode: pulumi.String("001"),
@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = mobile.NewNetworkSlice(ctx, "exampleNetworkSlice", &mobile.NetworkSliceArgs{
-//				MobileNetworkId: pulumi.Any(azurerm_mobile_network.Test.Id),
+//				MobileNetworkId: exampleNetwork.ID(),
 //				Location:        exampleResourceGroup.Location,
 //				Description:     pulumi.String("an example slice"),
 //				SingleNetworkSliceSelectionAssistanceInformation: &mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{

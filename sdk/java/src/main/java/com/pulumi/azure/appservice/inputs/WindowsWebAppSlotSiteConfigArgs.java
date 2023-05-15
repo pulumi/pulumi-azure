@@ -132,12 +132,16 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
     /**
      * The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
      * 
+     * &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
+     * 
      */
     @Import(name="autoSwapSlotName")
     private @Nullable Output<String> autoSwapSlotName;
 
     /**
      * @return The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+     * 
+     * &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
      * 
      */
     public Optional<Output<String>> autoSwapSlotName() {
@@ -211,17 +215,9 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
 
-    /**
-     * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-     * 
-     */
     @Import(name="ftpsState")
     private @Nullable Output<String> ftpsState;
 
-    /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-     * 
-     */
     public Optional<Output<String>> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }
@@ -717,6 +713,8 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         /**
          * @param autoSwapSlotName The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
          * 
+         * &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
+         * 
          * @return builder
          * 
          */
@@ -727,6 +725,8 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
 
         /**
          * @param autoSwapSlotName The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+         * 
+         * &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
          * 
          * @return builder
          * 
@@ -838,23 +838,11 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
             return detailedErrorLoggingEnabled(Output.of(detailedErrorLoggingEnabled));
         }
 
-        /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ftpsState(@Nullable Output<String> ftpsState) {
             $.ftpsState = ftpsState;
             return this;
         }
 
-        /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ftpsState(String ftpsState) {
             return ftpsState(Output.of(ftpsState));
         }

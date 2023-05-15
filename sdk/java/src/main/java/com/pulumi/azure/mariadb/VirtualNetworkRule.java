@@ -99,12 +99,24 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     * 
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     * 
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
      * 
      */
     public Output<String> name() {
@@ -141,12 +153,16 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the subnet that the MariaDB server will be connected to.
      * 
+     * &gt; **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn&#39;t expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
+     * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
      * @return The ID of the subnet that the MariaDB server will be connected to.
+     * 
+     * &gt; **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn&#39;t expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
      * 
      */
     public Output<String> subnetId() {

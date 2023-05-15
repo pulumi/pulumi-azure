@@ -101,10 +101,14 @@ type BastionHost struct {
 	// The FQDN for the Bastion Host.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrOutput `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration BastionHostIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled pulumi.BoolPtrOutput `pulumi:"ipConnectEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -113,14 +117,20 @@ type BastionHost struct {
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+	//
+	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits pulumi.IntPtrOutput `pulumi:"scaleUnits"`
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrOutput `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled pulumi.BoolPtrOutput `pulumi:"tunnelingEnabled"`
 }
 
@@ -161,10 +171,14 @@ type bastionHostState struct {
 	// The FQDN for the Bastion Host.
 	DnsName *string `pulumi:"dnsName"`
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled *bool `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled *bool `pulumi:"ipConnectEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
@@ -173,14 +187,20 @@ type bastionHostState struct {
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+	//
+	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled *bool `pulumi:"tunnelingEnabled"`
 }
 
@@ -190,10 +210,14 @@ type BastionHostState struct {
 	// The FQDN for the Bastion Host.
 	DnsName pulumi.StringPtrInput
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrInput
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration BastionHostIpConfigurationPtrInput
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
@@ -202,14 +226,20 @@ type BastionHostState struct {
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+	//
+	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits pulumi.IntPtrInput
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled pulumi.BoolPtrInput
 }
 
@@ -221,10 +251,14 @@ type bastionHostArgs struct {
 	// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
 	CopyPasteEnabled *bool `pulumi:"copyPasteEnabled"`
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled *bool `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled *bool `pulumi:"ipConnectEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
@@ -233,14 +267,20 @@ type bastionHostArgs struct {
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+	//
+	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled *bool `pulumi:"tunnelingEnabled"`
 }
 
@@ -249,10 +289,14 @@ type BastionHostArgs struct {
 	// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
 	CopyPasteEnabled pulumi.BoolPtrInput
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrInput
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration BastionHostIpConfigurationPtrInput
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 	IpConnectEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
@@ -261,14 +305,20 @@ type BastionHostArgs struct {
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+	//
+	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits pulumi.IntPtrInput
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 	TunnelingEnabled pulumi.BoolPtrInput
 }
 
@@ -370,6 +420,8 @@ func (o BastionHostOutput) DnsName() pulumi.StringOutput {
 }
 
 // Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+//
+// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 func (o BastionHostOutput) FileCopyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.FileCopyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -380,6 +432,8 @@ func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationPtrOutput
 }
 
 // Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+//
+// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
 func (o BastionHostOutput) IpConnectEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.IpConnectEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -400,11 +454,15 @@ func (o BastionHostOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+//
+// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 func (o BastionHostOutput) ScaleUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.IntPtrOutput { return v.ScaleUnits }).(pulumi.IntPtrOutput)
 }
 
 // Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+//
+// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 func (o BastionHostOutput) ShareableLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.ShareableLinkEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -420,6 +478,8 @@ func (o BastionHostOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+//
+// > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
 func (o BastionHostOutput) TunnelingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.TunnelingEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -25,6 +25,8 @@ class BackendAddressPoolAddressArgs:
         The set of arguments for constructing a BackendAddressPoolAddress resource.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+               
+               > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         :param pulumi.Input[str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
         :param pulumi.Input[str] name: The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
@@ -56,6 +58,8 @@ class BackendAddressPoolAddressArgs:
     def backend_address_ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+
+        > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         """
         return pulumi.get(self, "backend_address_ip_configuration_id")
 
@@ -112,6 +116,8 @@ class _BackendAddressPoolAddressState:
         """
         Input properties used for looking up and filtering BackendAddressPoolAddress resources.
         :param pulumi.Input[str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+               
+               > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
         :param pulumi.Input[str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
@@ -136,6 +142,8 @@ class _BackendAddressPoolAddressState:
     def backend_address_ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+
+        > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         """
         return pulumi.get(self, "backend_address_ip_configuration_id")
 
@@ -257,6 +265,8 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+               
+               > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
         :param pulumi.Input[str] name: The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -368,6 +378,8 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+               
+               > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolAddressInboundNatRulePortMappingArgs']]]] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
         :param pulumi.Input[str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
@@ -391,6 +403,8 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
     def backend_address_ip_configuration_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+
+        > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         """
         return pulumi.get(self, "backend_address_ip_configuration_id")
 

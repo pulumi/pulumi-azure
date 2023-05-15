@@ -31,6 +31,8 @@ namespace Pulumi.Azure.Batch.Outputs
         public readonly string? Sku;
         /// <summary>
         /// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// 
+        /// To provision a Custom Image, the following fields are applicable:
         /// </summary>
         public readonly string? Version;
 

@@ -113,6 +113,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
         {
@@ -122,18 +124,24 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+        /// 
+        /// &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
         /// IP security restrictions for scm to use main. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        /// 
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }

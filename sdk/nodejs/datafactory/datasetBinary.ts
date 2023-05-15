@@ -116,6 +116,8 @@ export class DatasetBinary extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+     *
+     * The following supported locations for a Binary Dataset. One of these should be specified:
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -220,6 +222,8 @@ export interface DatasetBinaryState {
     name?: pulumi.Input<string>;
     /**
      * Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+     *
+     * The following supported locations for a Binary Dataset. One of these should be specified:
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -274,6 +278,8 @@ export interface DatasetBinaryArgs {
     name?: pulumi.Input<string>;
     /**
      * Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+     *
+     * The following supported locations for a Binary Dataset. One of these should be specified:
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

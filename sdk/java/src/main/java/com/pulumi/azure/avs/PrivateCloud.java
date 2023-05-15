@@ -20,6 +20,56 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a VMware Private Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.avs.PrivateCloud;
+ * import com.pulumi.azure.avs.PrivateCloudArgs;
+ * import com.pulumi.azure.avs.inputs.PrivateCloudManagementClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var examplePrivateCloud = new PrivateCloud(&#34;examplePrivateCloud&#34;, PrivateCloudArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .skuName(&#34;av36&#34;)
+ *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
+ *                 .size(3)
+ *                 .build())
+ *             .networkSubnetCidr(&#34;192.168.48.0/22&#34;)
+ *             .internetConnectionEnabled(false)
+ *             .nsxtPassword(&#34;QazWsx13$Edc&#34;)
+ *             .vcenterPassword(&#34;WsxEdc23$Rfv&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * VMware Private Clouds can be imported using the `resource id`, e.g.

@@ -122,12 +122,16 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+     * 
      */
     @Export(name="confidentialVmEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> confidentialVmEnabled;
 
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
      * 
      */
     public Output<Optional<Boolean>> confidentialVmEnabled() {
@@ -402,12 +406,16 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
+     * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+     * 
      */
     @Export(name="specialized", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> specialized;
 
     /**
      * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      * 
      */
     public Output<Optional<Boolean>> specialized() {

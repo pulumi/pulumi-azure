@@ -83,6 +83,8 @@ type SharedImage struct {
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+	//
+	// > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
 	ConfidentialVmEnabled pulumi.BoolPtrOutput `pulumi:"confidentialVmEnabled"`
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported pulumi.BoolPtrOutput `pulumi:"confidentialVmSupported"`
@@ -123,6 +125,8 @@ type SharedImage struct {
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+	//
+	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized pulumi.BoolPtrOutput `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -176,6 +180,8 @@ type sharedImageState struct {
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture *string `pulumi:"architecture"`
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+	//
+	// > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
 	ConfidentialVmEnabled *bool `pulumi:"confidentialVmEnabled"`
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported *bool `pulumi:"confidentialVmSupported"`
@@ -216,6 +222,8 @@ type sharedImageState struct {
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+	//
+	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
@@ -229,6 +237,8 @@ type SharedImageState struct {
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture pulumi.StringPtrInput
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+	//
+	// > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
 	ConfidentialVmEnabled pulumi.BoolPtrInput
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported pulumi.BoolPtrInput
@@ -269,6 +279,8 @@ type SharedImageState struct {
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+	//
+	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
@@ -286,6 +298,8 @@ type sharedImageArgs struct {
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture *string `pulumi:"architecture"`
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+	//
+	// > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
 	ConfidentialVmEnabled *bool `pulumi:"confidentialVmEnabled"`
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported *bool `pulumi:"confidentialVmSupported"`
@@ -326,6 +340,8 @@ type sharedImageArgs struct {
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+	//
+	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
@@ -340,6 +356,8 @@ type SharedImageArgs struct {
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture pulumi.StringPtrInput
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+	//
+	// > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
 	ConfidentialVmEnabled pulumi.BoolPtrInput
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported pulumi.BoolPtrInput
@@ -380,6 +398,8 @@ type SharedImageArgs struct {
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+	//
+	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
@@ -485,6 +505,8 @@ func (o SharedImageOutput) Architecture() pulumi.StringPtrOutput {
 }
 
 // Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+//
+// > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
 func (o SharedImageOutput) ConfidentialVmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.ConfidentialVmEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -585,6 +607,8 @@ func (o SharedImageOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+//
+// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 func (o SharedImageOutput) Specialized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.Specialized }).(pulumi.BoolPtrOutput)
 }

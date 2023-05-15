@@ -60,12 +60,16 @@ public class PortalDashboard extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      * 
      */
     public Output<String> name() {

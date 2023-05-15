@@ -334,12 +334,16 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
     /**
      * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+     * 
      */
     @Export(name="certificatePolicy", refs={CertifiateCertificatePolicy.class}, tree="[0]")
     private Output<CertifiateCertificatePolicy> certificatePolicy;
 
     /**
      * @return A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
      */
     public Output<CertifiateCertificatePolicy> certificatePolicy() {

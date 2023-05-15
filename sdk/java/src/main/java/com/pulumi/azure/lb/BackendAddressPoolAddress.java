@@ -102,12 +102,16 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
     /**
      * The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
      * 
+     * &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
+     * 
      */
     @Export(name="backendAddressIpConfigurationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backendAddressIpConfigurationId;
 
     /**
      * @return The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     * &gt; **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      * 
      */
     public Output<Optional<String>> backendAddressIpConfigurationId() {

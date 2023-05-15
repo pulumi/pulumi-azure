@@ -218,6 +218,8 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+        /// 
+        /// &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         /// </summary>
         [Output("vaultKeyReference")]
         public Output<string?> VaultKeyReference { get; private set; } = null!;
@@ -330,6 +332,8 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+        /// 
+        /// &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         /// </summary>
         [Input("vaultKeyReference")]
         public Input<string>? VaultKeyReference { get; set; }
@@ -404,6 +408,8 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+        /// 
+        /// &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         /// </summary>
         [Input("vaultKeyReference")]
         public Input<string>? VaultKeyReference { get; set; }

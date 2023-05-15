@@ -76,6 +76,8 @@ export class Share extends pulumi.CustomResource {
 
     /**
      * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+     *
+     * ~>**NOTE:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
@@ -84,6 +86,8 @@ export class Share extends pulumi.CustomResource {
     public readonly acls!: pulumi.Output<outputs.storage.ShareAcl[] | undefined>;
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     *
+     * ~>**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
      */
     public readonly enabledProtocol!: pulumi.Output<string | undefined>;
     /**
@@ -162,6 +166,8 @@ export class Share extends pulumi.CustomResource {
 export interface ShareState {
     /**
      * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+     *
+     * ~>**NOTE:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      */
     accessTier?: pulumi.Input<string>;
     /**
@@ -170,6 +176,8 @@ export interface ShareState {
     acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     *
+     * ~>**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
      */
     enabledProtocol?: pulumi.Input<string>;
     /**
@@ -204,6 +212,8 @@ export interface ShareState {
 export interface ShareArgs {
     /**
      * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+     *
+     * ~>**NOTE:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      */
     accessTier?: pulumi.Input<string>;
     /**
@@ -212,6 +222,8 @@ export interface ShareArgs {
     acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     *
+     * ~>**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
      */
     enabledProtocol?: pulumi.Input<string>;
     /**

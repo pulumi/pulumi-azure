@@ -19,12 +19,20 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
     /**
      * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     @Import(name="allowedAudiences")
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -49,12 +57,32 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -64,12 +92,16 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
     /**
      * A list of Login Scopes provided by this Authentication Provider.
      * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -106,6 +138,10 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +153,10 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +166,10 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
 
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -158,6 +202,16 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -169,6 +223,16 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -178,6 +242,8 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
 
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -190,6 +256,8 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
          * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
          * @return builder
          * 
          */
@@ -199,6 +267,8 @@ public final class WindowsFunctionAppAuthSettingsV2GoogleV2Args extends com.pulu
 
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 

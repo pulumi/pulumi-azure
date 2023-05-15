@@ -100,6 +100,8 @@ export class DatastoreBlobstorage extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+     *
+     * > **Note:** `isDefault` can only be set to `true` on update.
      */
     public readonly isDefault!: pulumi.Output<boolean | undefined>;
     /**
@@ -112,6 +114,8 @@ export class DatastoreBlobstorage extends pulumi.CustomResource {
     public readonly serviceDataAuthIdentity!: pulumi.Output<string | undefined>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+     *
+     * > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
      */
     public readonly sharedAccessSignature!: pulumi.Output<string | undefined>;
     /**
@@ -188,6 +192,8 @@ export interface DatastoreBlobstorageState {
     description?: pulumi.Input<string>;
     /**
      * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+     *
+     * > **Note:** `isDefault` can only be set to `true` on update.
      */
     isDefault?: pulumi.Input<boolean>;
     /**
@@ -200,6 +206,8 @@ export interface DatastoreBlobstorageState {
     serviceDataAuthIdentity?: pulumi.Input<string>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+     *
+     * > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
      */
     sharedAccessSignature?: pulumi.Input<string>;
     /**
@@ -230,6 +238,8 @@ export interface DatastoreBlobstorageArgs {
     description?: pulumi.Input<string>;
     /**
      * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+     *
+     * > **Note:** `isDefault` can only be set to `true` on update.
      */
     isDefault?: pulumi.Input<boolean>;
     /**
@@ -242,6 +252,8 @@ export interface DatastoreBlobstorageArgs {
     serviceDataAuthIdentity?: pulumi.Input<string>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
+     *
+     * > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
      */
     sharedAccessSignature?: pulumi.Input<string>;
     /**

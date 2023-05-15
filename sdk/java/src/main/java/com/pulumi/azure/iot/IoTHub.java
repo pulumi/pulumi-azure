@@ -329,12 +329,16 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     /**
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
+     * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * 
      */
     @Export(name="fallbackRoute", refs={IoTHubFallbackRoute.class}, tree="[0]")
     private Output<IoTHubFallbackRoute> fallbackRoute;
 
     /**
      * @return A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * 
+     * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     public Output<IoTHubFallbackRoute> fallbackRoute() {

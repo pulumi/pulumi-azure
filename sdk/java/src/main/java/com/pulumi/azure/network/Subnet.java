@@ -95,12 +95,16 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     /**
      * The address prefixes to use for the subnet.
      * 
+     * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+     * 
      */
     @Export(name="addressPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> addressPrefixes;
 
     /**
      * @return The address prefixes to use for the subnet.
+     * 
+     * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
      */
     public Output<List<String>> addressPrefixes() {
@@ -161,12 +165,16 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
      * 
+     * &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+     * 
      */
     @Export(name="privateEndpointNetworkPoliciesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateEndpointNetworkPoliciesEnabled;
 
     /**
      * @return Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** Network policies, like network security groups (NSG), are not supported for Private Link Endpoints or Private Link Services. In order to deploy a Private Link Endpoint on a given subnet, you must set the `private_endpoint_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Endpoint, for all other resources in the subnet access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
      * 
      */
     public Output<Boolean> privateEndpointNetworkPoliciesEnabled() {
@@ -175,12 +183,16 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     /**
      * Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
      * 
+     * &gt; **NOTE:** In order to deploy a Private Link Service on a given subnet, you must set the `private_link_service_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Service, for all other resources in the subnet access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+     * 
      */
     @Export(name="privateLinkServiceNetworkPoliciesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateLinkServiceNetworkPoliciesEnabled;
 
     /**
      * @return Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** In order to deploy a Private Link Service on a given subnet, you must set the `private_link_service_network_policies_enabled` attribute to `false`. This setting is only applicable for the Private Link Service, for all other resources in the subnet access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
      * 
      */
     public Output<Boolean> privateLinkServiceNetworkPoliciesEnabled() {
@@ -217,12 +229,16 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
      * 
+     * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+     * 
      */
     @Export(name="serviceEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serviceEndpoints;
 
     /**
      * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * 
+     * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
      * 
      */
     public Output<Optional<List<String>>> serviceEndpoints() {

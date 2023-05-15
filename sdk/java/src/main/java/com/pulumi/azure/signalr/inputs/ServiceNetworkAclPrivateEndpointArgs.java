@@ -19,12 +19,16 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
     /**
      * The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
+     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+     * 
      */
     @Import(name="allowedRequestTypes")
     private @Nullable Output<List<String>> allowedRequestTypes;
 
     /**
      * @return The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
      * 
      */
     public Optional<Output<List<String>>> allowedRequestTypes() {
@@ -34,12 +38,20 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
     /**
      * The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
+     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
+     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+     * 
      */
     @Import(name="deniedRequestTypes")
     private @Nullable Output<List<String>> deniedRequestTypes;
 
     /**
      * @return The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
+     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
      * 
      */
     public Optional<Output<List<String>>> deniedRequestTypes() {
@@ -90,6 +102,8 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
         /**
          * @param allowedRequestTypes The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
+         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +115,8 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
         /**
          * @param allowedRequestTypes The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
+         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+         * 
          * @return builder
          * 
          */
@@ -111,6 +127,8 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
         /**
          * @param allowedRequestTypes The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
+         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +138,10 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
 
         /**
          * @param deniedRequestTypes The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         * 
+         * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * 
+         * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
          * 
          * @return builder
          * 
@@ -132,6 +154,10 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
         /**
          * @param deniedRequestTypes The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
+         * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * 
+         * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +167,10 @@ public final class ServiceNetworkAclPrivateEndpointArgs extends com.pulumi.resou
 
         /**
          * @param deniedRequestTypes The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         * 
+         * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * 
+         * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
          * 
          * @return builder
          * 

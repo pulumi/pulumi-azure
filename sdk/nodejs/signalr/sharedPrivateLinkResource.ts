@@ -102,6 +102,8 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     public readonly subResourceName!: pulumi.Output<string>;
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
 
@@ -173,6 +175,8 @@ export interface SharedPrivateLinkResourceState {
     subResourceName?: pulumi.Input<string>;
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
     targetResourceId?: pulumi.Input<string>;
 }
@@ -199,6 +203,8 @@ export interface SharedPrivateLinkResourceArgs {
     subResourceName: pulumi.Input<string>;
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
     targetResourceId: pulumi.Input<string>;
 }

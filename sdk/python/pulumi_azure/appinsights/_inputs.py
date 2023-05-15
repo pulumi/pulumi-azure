@@ -366,6 +366,8 @@ class WorkbookTemplateGalleryArgs:
         :param pulumi.Input[int] order: Order of the template within the gallery. Defaults to `0`.
         :param pulumi.Input[str] resource_type: Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
         :param pulumi.Input[str] type: Type of workbook supported by the workbook template. Defaults to `workbook`.
+               
+               > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "name", name)
@@ -429,6 +431,8 @@ class WorkbookTemplateGalleryArgs:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of workbook supported by the workbook template. Defaults to `workbook`.
+
+        > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         """
         return pulumi.get(self, "type")
 

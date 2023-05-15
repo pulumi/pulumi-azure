@@ -35,12 +35,16 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+     * 
      */
     @Import(name="messageRetention", required=true)
     private Output<Integer> messageRetention;
 
     /**
      * @return Specifies the number of days to retain the events for this Event Hub.
+     * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
     public Output<Integer> messageRetention() {
@@ -80,12 +84,20 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
+     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+     * 
      */
     @Import(name="partitionCount", required=true)
     private Output<Integer> partitionCount;
 
     /**
      * @return Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * 
+     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
      */
     public Output<Integer> partitionCount() {
@@ -176,6 +188,8 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param messageRetention Specifies the number of days to retain the events for this Event Hub.
          * 
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+         * 
          * @return builder
          * 
          */
@@ -186,6 +200,8 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageRetention Specifies the number of days to retain the events for this Event Hub.
+         * 
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
          * 
          * @return builder
          * 
@@ -239,6 +255,10 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param partitionCount Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
          * 
+         * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+         * 
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+         * 
          * @return builder
          * 
          */
@@ -249,6 +269,10 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param partitionCount Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+         * 
+         * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+         * 
+         * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
          * 
          * @return builder
          * 

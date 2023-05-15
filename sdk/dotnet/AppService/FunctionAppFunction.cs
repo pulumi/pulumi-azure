@@ -240,6 +240,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+        /// 
+        /// &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         /// </summary>
         [Output("language")]
         public Output<string?> Language { get; private set; } = null!;
@@ -364,6 +366,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+        /// 
+        /// &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }
@@ -432,6 +436,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+        /// 
+        /// &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }

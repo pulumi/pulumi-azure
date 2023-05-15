@@ -21,12 +21,16 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure File Storage Linked Service:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure File Storage Linked Service:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -252,6 +256,8 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
          * 
+         * The following supported arguments are specific to Azure File Storage Linked Service:
+         * 
          * @return builder
          * 
          */
@@ -262,6 +268,8 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
+         * 
+         * The following supported arguments are specific to Azure File Storage Linked Service:
          * 
          * @return builder
          * 

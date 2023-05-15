@@ -20,6 +20,9 @@ class ManagedDiskSasTokenArgs:
         """
         The set of arguments for constructing a ManagedDiskSasToken resource.
         :param pulumi.Input[str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+               
+               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+               for additional details on the fields above.
         :param pulumi.Input[int] duration_in_seconds: The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         """
@@ -32,6 +35,9 @@ class ManagedDiskSasTokenArgs:
     def access_level(self) -> pulumi.Input[str]:
         """
         The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+        for additional details on the fields above.
         """
         return pulumi.get(self, "access_level")
 
@@ -74,6 +80,9 @@ class _ManagedDiskSasTokenState:
         """
         Input properties used for looking up and filtering ManagedDiskSasToken resources.
         :param pulumi.Input[str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+               
+               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+               for additional details on the fields above.
         :param pulumi.Input[int] duration_in_seconds: The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sas_url: The computed Shared Access Signature (SAS) of the Managed Disk.
@@ -92,6 +101,9 @@ class _ManagedDiskSasTokenState:
     def access_level(self) -> Optional[pulumi.Input[str]]:
         """
         The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+        for additional details on the fields above.
         """
         return pulumi.get(self, "access_level")
 
@@ -184,6 +196,9 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+               
+               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+               for additional details on the fields above.
         :param pulumi.Input[int] duration_in_seconds: The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         """
@@ -290,6 +305,9 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+               
+               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+               for additional details on the fields above.
         :param pulumi.Input[int] duration_in_seconds: The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sas_url: The computed Shared Access Signature (SAS) of the Managed Disk.
@@ -309,6 +327,9 @@ class ManagedDiskSasToken(pulumi.CustomResource):
     def access_level(self) -> pulumi.Output[str]:
         """
         The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+        for additional details on the fields above.
         """
         return pulumi.get(self, "access_level")
 

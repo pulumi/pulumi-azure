@@ -143,6 +143,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
@@ -261,9 +263,6 @@ namespace Pulumi.Azure.LogicApps
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-        /// </summary>
         [Output("storageAccountShareName")]
         public Output<string> StorageAccountShareName { get; private set; } = null!;
 
@@ -285,9 +284,6 @@ namespace Pulumi.Azure.LogicApps
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -352,6 +348,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -453,9 +451,6 @@ namespace Pulumi.Azure.LogicApps
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-        /// </summary>
         [Input("storageAccountShareName")]
         public Input<string>? StorageAccountShareName { get; set; }
 
@@ -483,9 +478,6 @@ namespace Pulumi.Azure.LogicApps
         [Input("version")]
         public Input<string>? Version { get; set; }
 
-        /// <summary>
-        /// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -508,6 +500,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -651,9 +645,6 @@ namespace Pulumi.Azure.LogicApps
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
-        /// <summary>
-        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-        /// </summary>
         [Input("storageAccountShareName")]
         public Input<string>? StorageAccountShareName { get; set; }
 
@@ -681,9 +672,6 @@ namespace Pulumi.Azure.LogicApps
         [Input("version")]
         public Input<string>? Version { get; set; }
 
-        /// <summary>
-        /// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

@@ -73,10 +73,14 @@ export class AvailabilitySet extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      */
     public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      */
     public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
     /**
@@ -150,10 +154,14 @@ export interface AvailabilitySetState {
     name?: pulumi.Input<string>;
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      */
     platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      */
     platformUpdateDomainCount?: pulumi.Input<number>;
     /**
@@ -188,10 +196,14 @@ export interface AvailabilitySetArgs {
     name?: pulumi.Input<string>;
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      */
     platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      */
     platformUpdateDomainCount?: pulumi.Input<number>;
     /**

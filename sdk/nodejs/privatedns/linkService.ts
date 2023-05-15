@@ -147,6 +147,8 @@ export class LinkService extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+     *
+     * > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
     public readonly visibilitySubscriptionIds!: pulumi.Output<string[] | undefined>;
 
@@ -248,6 +250,8 @@ export interface LinkServiceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+     *
+     * > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
     visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -294,6 +298,8 @@ export interface LinkServiceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+     *
+     * > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
     visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

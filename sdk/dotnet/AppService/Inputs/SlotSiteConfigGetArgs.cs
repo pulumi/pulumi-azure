@@ -20,12 +20,16 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// If using User Managed Identity, the User Managed Identity Client Id
+        /// 
+        /// &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
         /// </summary>
         [Input("acrUserManagedIdentityClientId")]
         public Input<string>? AcrUserManagedIdentityClientId { get; set; }
 
         /// <summary>
         /// Should the slot be loaded at all times? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -89,6 +93,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// A list of objects representing ip restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.SlotSiteConfigIpRestrictionGetArgs> IpRestrictions
         {
@@ -116,12 +122,16 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        /// 
+        /// &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
         /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
 
         /// <summary>
         /// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+        /// 
+        /// &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
         /// </summary>
         [Input("localMysqlEnabled")]
         public Input<bool>? LocalMysqlEnabled { get; set; }
@@ -173,6 +183,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.SlotSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
         {
@@ -187,20 +199,21 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to `false`.
+        /// IP security restrictions for scm to use main. Defaults to `false`. 
+        /// 
+        /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
         /// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+        /// 
+        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
-        /// <summary>
-        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-        /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 
@@ -210,9 +223,6 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 
-        /// <summary>
-        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
-        /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }
 

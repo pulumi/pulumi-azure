@@ -148,6 +148,8 @@ class AutomationSourceArgs:
         """
         :param pulumi.Input[str] event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+               
+               > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
         pulumi.set(__self__, "event_source", event_source)
         if rule_sets is not None:
@@ -170,6 +172,8 @@ class AutomationSourceArgs:
     def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]:
         """
         A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+
+        > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
         return pulumi.get(self, "rule_sets")
 
@@ -184,6 +188,8 @@ class AutomationSourceRuleSetArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]] rules: One or more `rule` blocks as defined below.
+               
+               > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -192,6 +198,8 @@ class AutomationSourceRuleSetArgs:
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]:
         """
         One or more `rule` blocks as defined below.
+
+        > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
         return pulumi.get(self, "rules")
 
@@ -212,6 +220,8 @@ class AutomationSourceRuleSetRuleArgs:
         :param pulumi.Input[str] operator: The comparison operator to use, must be one of: `Contains`, `EndsWith`, `Equals`, `GreaterThan`, `GreaterThanOrEqualTo`, `LesserThan`, `LesserThanOrEqualTo`, `NotEquals`, `StartsWith`
         :param pulumi.Input[str] property_path: The JPath of the entity model property that should be checked.
         :param pulumi.Input[str] property_type: The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+               
+               > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         """
         pulumi.set(__self__, "expected_value", expected_value)
         pulumi.set(__self__, "operator", operator)
@@ -259,6 +269,8 @@ class AutomationSourceRuleSetRuleArgs:
     def property_type(self) -> pulumi.Input[str]:
         """
         The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+
+        > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         """
         return pulumi.get(self, "property_type")
 

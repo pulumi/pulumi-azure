@@ -23,12 +23,17 @@ import * as utilities from "../utilities";
  *     mobileNetworkCode: "01",
  * });
  * const exampleUserAssignedIdentity = azure.authorization.getUserAssignedIdentity({
- *     name: "example-identity",
+ *     name: "name_of_user_assigned_identity",
+ *     resourceGroupName: "name_of_resource_group",
  * });
- * const exampleKey = azure.keyvault.getKey({
- *     name: "some-key",
- *     keyVaultId: data.azurerm_key_vault.example.id,
+ * const exampleKeyVault = azure.keyvault.getKeyVault({
+ *     name: "example-kv",
+ *     resourceGroupName: "some-resource-group",
  * });
+ * const exampleKey = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getKey({
+ *     name: "example-key",
+ *     keyVaultId: exampleKeyVault.id,
+ * }));
  * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("exampleNetworkSimGroup", {
  *     location: exampleResourceGroup.location,
  *     mobileNetworkId: exampleNetwork.id,
@@ -85,6 +90,8 @@ export class NetworkSimGroup extends pulumi.CustomResource {
     public readonly encryptionKeyUrl!: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
     public readonly identity!: pulumi.Output<outputs.mobile.NetworkSimGroupIdentity | undefined>;
     /**
@@ -150,6 +157,8 @@ export interface NetworkSimGroupState {
     encryptionKeyUrl?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
     identity?: pulumi.Input<inputs.mobile.NetworkSimGroupIdentity>;
     /**
@@ -180,6 +189,8 @@ export interface NetworkSimGroupArgs {
     encryptionKeyUrl?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
     identity?: pulumi.Input<inputs.mobile.NetworkSimGroupIdentity>;
     /**

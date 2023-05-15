@@ -145,6 +145,8 @@ export class EventHubNamespace extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+     *
+     * > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -305,6 +307,8 @@ export interface EventHubNamespaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+     *
+     * > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -371,6 +375,8 @@ export interface EventHubNamespaceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+     *
+     * > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }

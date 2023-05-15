@@ -19,12 +19,16 @@ public final class WorkspaceKeyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if the workspace should be encrypted with this key.
      * 
+     * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
+     * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
      * @return Specifies if the workspace should be encrypted with this key.
+     * 
+     * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -106,6 +110,8 @@ public final class WorkspaceKeyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param active Specifies if the workspace should be encrypted with this key.
          * 
+         * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +122,8 @@ public final class WorkspaceKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param active Specifies if the workspace should be encrypted with this key.
+         * 
+         * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
          * 
          * @return builder
          * 

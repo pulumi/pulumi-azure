@@ -33,12 +33,16 @@ public final class ShareAclAccessPolicyArgs extends com.pulumi.resources.Resourc
     /**
      * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
      * 
+     * &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
+     * 
      */
     @Import(name="permissions", required=true)
     private Output<String> permissions;
 
     /**
      * @return The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+     * 
+     * &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
      * 
      */
     public Output<String> permissions() {
@@ -110,6 +114,8 @@ public final class ShareAclAccessPolicyArgs extends com.pulumi.resources.Resourc
         /**
          * @param permissions The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
          * 
+         * &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class ShareAclAccessPolicyArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param permissions The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+         * 
+         * &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
          * 
          * @return builder
          * 

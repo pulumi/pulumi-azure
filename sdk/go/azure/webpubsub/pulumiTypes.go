@@ -136,6 +136,8 @@ func (o HubEventHandlerArrayOutput) Index(i pulumi.IntInput) HubEventHandlerOutp
 
 type HubEventHandlerAuth struct {
 	// Specify the identity ID of the target resource.
+	//
+	// > **NOTE:** `managedIdentityId` is required if the auth block is defined
 	ManagedIdentityId string `pulumi:"managedIdentityId"`
 }
 
@@ -152,6 +154,8 @@ type HubEventHandlerAuthInput interface {
 
 type HubEventHandlerAuthArgs struct {
 	// Specify the identity ID of the target resource.
+	//
+	// > **NOTE:** `managedIdentityId` is required if the auth block is defined
 	ManagedIdentityId pulumi.StringInput `pulumi:"managedIdentityId"`
 }
 
@@ -233,6 +237,8 @@ func (o HubEventHandlerAuthOutput) ToHubEventHandlerAuthPtrOutputWithContext(ctx
 }
 
 // Specify the identity ID of the target resource.
+//
+// > **NOTE:** `managedIdentityId` is required if the auth block is defined
 func (o HubEventHandlerAuthOutput) ManagedIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubEventHandlerAuth) string { return v.ManagedIdentityId }).(pulumi.StringOutput)
 }
@@ -262,6 +268,8 @@ func (o HubEventHandlerAuthPtrOutput) Elem() HubEventHandlerAuthOutput {
 }
 
 // Specify the identity ID of the target resource.
+//
+// > **NOTE:** `managedIdentityId` is required if the auth block is defined
 func (o HubEventHandlerAuthPtrOutput) ManagedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HubEventHandlerAuth) *string {
 		if v == nil {
@@ -399,6 +407,8 @@ type NetworkAclPrivateEndpoint struct {
 	// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
 	// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	DeniedRequestTypes []string `pulumi:"deniedRequestTypes"`
 	// The ID of the Private Endpoint which is based on the Web Pubsub service.
 	Id string `pulumi:"id"`
@@ -419,6 +429,8 @@ type NetworkAclPrivateEndpointArgs struct {
 	// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	AllowedRequestTypes pulumi.StringArrayInput `pulumi:"allowedRequestTypes"`
 	// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	DeniedRequestTypes pulumi.StringArrayInput `pulumi:"deniedRequestTypes"`
 	// The ID of the Private Endpoint which is based on the Web Pubsub service.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -481,6 +493,8 @@ func (o NetworkAclPrivateEndpointOutput) AllowedRequestTypes() pulumi.StringArra
 }
 
 // The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+//
+// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 func (o NetworkAclPrivateEndpointOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkAclPrivateEndpoint) []string { return v.DeniedRequestTypes }).(pulumi.StringArrayOutput)
 }
@@ -514,6 +528,8 @@ type NetworkAclPublicNetwork struct {
 	// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
 	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	DeniedRequestTypes []string `pulumi:"deniedRequestTypes"`
 }
 
@@ -532,6 +548,8 @@ type NetworkAclPublicNetworkArgs struct {
 	// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	AllowedRequestTypes pulumi.StringArrayInput `pulumi:"allowedRequestTypes"`
 	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	DeniedRequestTypes pulumi.StringArrayInput `pulumi:"deniedRequestTypes"`
 }
 
@@ -618,6 +636,8 @@ func (o NetworkAclPublicNetworkOutput) AllowedRequestTypes() pulumi.StringArrayO
 }
 
 // The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+//
+// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 func (o NetworkAclPublicNetworkOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkAclPublicNetwork) []string { return v.DeniedRequestTypes }).(pulumi.StringArrayOutput)
 }
@@ -657,6 +677,8 @@ func (o NetworkAclPublicNetworkPtrOutput) AllowedRequestTypes() pulumi.StringArr
 }
 
 // The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+//
+// > **NOTE:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set. When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 func (o NetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkAclPublicNetwork) []string {
 		if v == nil {
@@ -668,6 +690,8 @@ func (o NetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.StringArra
 
 type ServiceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -690,6 +714,8 @@ type ServiceIdentityInput interface {
 
 type ServiceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -777,6 +803,8 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`
 func (o ServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -821,6 +849,8 @@ func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`
 func (o ServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceIdentity) []string {
 		if v == nil {

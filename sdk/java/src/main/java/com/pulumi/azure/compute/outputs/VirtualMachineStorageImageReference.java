@@ -34,6 +34,8 @@ public final class VirtualMachineStorageImageReference {
     /**
      * @return Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
      * 
+     * To provision a Custom Image, the following fields are applicable:
+     * 
      */
     private @Nullable String version;
 
@@ -68,6 +70,8 @@ public final class VirtualMachineStorageImageReference {
     }
     /**
      * @return Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
+     * 
+     * To provision a Custom Image, the following fields are applicable:
      * 
      */
     public Optional<String> version() {

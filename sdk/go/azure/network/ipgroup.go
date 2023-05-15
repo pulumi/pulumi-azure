@@ -67,7 +67,6 @@ import (
 type IPGroup struct {
 	pulumi.CustomResourceState
 
-	// A list of CIDRs or IP addresses.
 	Cidrs pulumi.StringArrayOutput `pulumi:"cidrs"`
 	// A `firewallIds` block as defined below.
 	FirewallIds pulumi.StringArrayOutput `pulumi:"firewallIds"`
@@ -115,7 +114,6 @@ func GetIPGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IPGroup resources.
 type ipgroupState struct {
-	// A list of CIDRs or IP addresses.
 	Cidrs []string `pulumi:"cidrs"`
 	// A `firewallIds` block as defined below.
 	FirewallIds []string `pulumi:"firewallIds"`
@@ -132,7 +130,6 @@ type ipgroupState struct {
 }
 
 type IPGroupState struct {
-	// A list of CIDRs or IP addresses.
 	Cidrs pulumi.StringArrayInput
 	// A `firewallIds` block as defined below.
 	FirewallIds pulumi.StringArrayInput
@@ -153,7 +150,6 @@ func (IPGroupState) ElementType() reflect.Type {
 }
 
 type ipgroupArgs struct {
-	// A list of CIDRs or IP addresses.
 	Cidrs []string `pulumi:"cidrs"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -167,7 +163,6 @@ type ipgroupArgs struct {
 
 // The set of arguments for constructing a IPGroup resource.
 type IPGroupArgs struct {
-	// A list of CIDRs or IP addresses.
 	Cidrs pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -266,7 +261,6 @@ func (o IPGroupOutput) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOu
 	return o
 }
 
-// A list of CIDRs or IP addresses.
 func (o IPGroupOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.Cidrs }).(pulumi.StringArrayOutput)
 }

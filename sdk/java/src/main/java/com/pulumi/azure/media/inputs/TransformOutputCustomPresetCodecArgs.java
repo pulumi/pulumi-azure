@@ -98,12 +98,16 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
     /**
      * A `h265_video` block as defined below.
      * 
+     * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
+     * 
      */
     @Import(name="h265Video")
     private @Nullable Output<TransformOutputCustomPresetCodecH265VideoArgs> h265Video;
 
     /**
      * @return A `h265_video` block as defined below.
+     * 
+     * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
      * 
      */
     public Optional<Output<TransformOutputCustomPresetCodecH265VideoArgs>> h265Video() {
@@ -247,6 +251,8 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
         /**
          * @param h265Video A `h265_video` block as defined below.
          * 
+         * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
+         * 
          * @return builder
          * 
          */
@@ -257,6 +263,8 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
 
         /**
          * @param h265Video A `h265_video` block as defined below.
+         * 
+         * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
          * 
          * @return builder
          * 

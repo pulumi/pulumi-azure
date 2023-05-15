@@ -26,6 +26,8 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
         /// <summary>
         /// The percentage of traffic which should be sent this revision.
+        /// 
+        /// &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
         /// </summary>
         [Input("percentage", required: true)]
         public Input<int> Percentage { get; set; } = null!;

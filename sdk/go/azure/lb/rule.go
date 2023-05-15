@@ -87,6 +87,8 @@ type Rule struct {
 	pulumi.CustomResourceState
 
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	//
+	// > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
 	BackendAddressPoolIds pulumi.StringArrayOutput `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
@@ -160,6 +162,8 @@ func GetRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	//
+	// > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
 	BackendAddressPoolIds []string `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort *int `pulumi:"backendPort"`
@@ -190,6 +194,8 @@ type ruleState struct {
 
 type RuleState struct {
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	//
+	// > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
 	BackendAddressPoolIds pulumi.StringArrayInput
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntPtrInput
@@ -224,6 +230,8 @@ func (RuleState) ElementType() reflect.Type {
 
 type ruleArgs struct {
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	//
+	// > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
 	BackendAddressPoolIds []string `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`
@@ -254,6 +262,8 @@ type ruleArgs struct {
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	//
+	// > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
 	BackendAddressPoolIds pulumi.StringArrayInput
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntInput
@@ -369,6 +379,8 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 }
 
 // A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+//
+// > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
 func (o RuleOutput) BackendAddressPoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.BackendAddressPoolIds }).(pulumi.StringArrayOutput)
 }

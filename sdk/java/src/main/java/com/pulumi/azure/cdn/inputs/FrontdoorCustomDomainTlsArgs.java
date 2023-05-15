@@ -33,12 +33,16 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     /**
      * Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
      * 
+     * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+     * 
      */
     @Import(name="certificateType")
     private @Nullable Output<String> certificateType;
 
     /**
      * @return Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+     * 
+     * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
      * 
      */
     public Optional<Output<String>> certificateType() {
@@ -110,6 +114,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         /**
          * @param certificateType Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          * 
+         * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
 
         /**
          * @param certificateType Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+         * 
+         * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
          * 
          * @return builder
          * 

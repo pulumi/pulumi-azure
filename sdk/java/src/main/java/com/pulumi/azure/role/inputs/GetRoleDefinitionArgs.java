@@ -18,12 +18,16 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
      * 
+     * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the Name of either a built-in or custom Role Definition.
+     * 
+     * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,12 +52,16 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      * 
+     * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+     * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
      * @return Specifies the Scope at which the Custom Role Definition exists.
+     * 
+     * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -89,6 +97,8 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param name Specifies the Name of either a built-in or custom Role Definition.
          * 
+         * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+         * 
          * @return builder
          * 
          */
@@ -99,6 +109,8 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param name Specifies the Name of either a built-in or custom Role Definition.
+         * 
+         * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
          * 
          * @return builder
          * 
@@ -131,6 +143,8 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param scope Specifies the Scope at which the Custom Role Definition exists.
          * 
+         * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +155,8 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param scope Specifies the Scope at which the Custom Role Definition exists.
+         * 
+         * &gt; **Note:** One of `name` or `role_definition_id` must be specified.
          * 
          * @return builder
          * 

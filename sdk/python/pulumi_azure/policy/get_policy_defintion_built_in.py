@@ -186,6 +186,8 @@ def get_policy_defintion_built_in(display_name: Optional[str] = None,
 
 
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.
+           
+           > **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
     :param str management_group_name: Only retrieve Policy Definitions from this Management Group.
     :param str name: Specifies the name of the Policy Definition. Conflicts with `display_name`.
     """
@@ -231,6 +233,8 @@ def get_policy_defintion_built_in_output(display_name: Optional[pulumi.Input[Opt
 
 
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.
+           
+           > **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
     :param str management_group_name: Only retrieve Policy Definitions from this Management Group.
     :param str name: Specifies the name of the Policy Definition. Conflicts with `display_name`.
     """

@@ -25,12 +25,16 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
      * 
+     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * 
      */
     @Import(name="accessPolicies")
     private @Nullable Output<List<KeyVaultAccessPolicyArgs>> accessPolicies;
 
     /**
      * @return A list of up to 1024 objects describing access policies, as described below.
+     * 
+     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<KeyVaultAccessPolicyArgs>>> accessPolicies() {
@@ -40,12 +44,16 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `contact` block as defined below.
      * 
+     * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
+     * 
      */
     @Import(name="contacts")
     private @Nullable Output<List<KeyVaultContactArgs>> contacts;
 
     /**
      * @return One or more `contact` block as defined below.
+     * 
+     * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
      * 
      */
     public Optional<Output<List<KeyVaultContactArgs>>> contacts() {
@@ -175,12 +183,16 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is Purge Protection enabled for this Key Vault?
      * 
+     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+     * 
      */
     @Import(name="purgeProtectionEnabled")
     private @Nullable Output<Boolean> purgeProtectionEnabled;
 
     /**
      * @return Is Purge Protection enabled for this Key Vault?
+     * 
+     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      * 
      */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
@@ -220,12 +232,16 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      * 
+     * &gt; **Note:** This field can only be configured one time and cannot be updated.
+     * 
      */
     @Import(name="softDeleteRetentionDays")
     private @Nullable Output<Integer> softDeleteRetentionDays;
 
     /**
      * @return The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+     * 
+     * &gt; **Note:** This field can only be configured one time and cannot be updated.
      * 
      */
     public Optional<Output<Integer>> softDeleteRetentionDays() {
@@ -304,6 +320,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
+         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -315,6 +333,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
+         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -325,6 +345,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
+         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -334,6 +356,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param contacts One or more `contact` block as defined below.
+         * 
+         * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
          * 
          * @return builder
          * 
@@ -346,6 +370,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param contacts One or more `contact` block as defined below.
          * 
+         * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
+         * 
          * @return builder
          * 
          */
@@ -355,6 +381,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param contacts One or more `contact` block as defined below.
+         * 
+         * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
          * 
          * @return builder
          * 
@@ -534,6 +562,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
          * 
+         * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+         * 
          * @return builder
          * 
          */
@@ -544,6 +574,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
+         * 
+         * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
          * 
          * @return builder
          * 
@@ -597,6 +629,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
          * 
+         * &gt; **Note:** This field can only be configured one time and cannot be updated.
+         * 
          * @return builder
          * 
          */
@@ -607,6 +641,8 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+         * 
+         * &gt; **Note:** This field can only be configured one time and cannot be updated.
          * 
          * @return builder
          * 

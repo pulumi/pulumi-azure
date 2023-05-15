@@ -138,6 +138,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        /// 
+        /// &gt; **Note:** To disable this feature, set this property to `0`.
         /// </summary>
         [Output("hoursBetweenBackups")]
         public Output<int?> HoursBetweenBackups { get; private set; } = null!;
@@ -300,6 +302,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        /// 
+        /// &gt; **Note:** To disable this feature, set this property to `0`.
         /// </summary>
         [Input("hoursBetweenBackups")]
         public Input<int>? HoursBetweenBackups { get; set; }
@@ -426,6 +430,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        /// 
+        /// &gt; **Note:** To disable this feature, set this property to `0`.
         /// </summary>
         [Input("hoursBetweenBackups")]
         public Input<int>? HoursBetweenBackups { get; set; }

@@ -48,12 +48,16 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
      * 
+     * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
+     * 
      */
     @Import(name="microsoftEmergingThreatFeedLookbackDate")
     private @Nullable Output<String> microsoftEmergingThreatFeedLookbackDate;
 
     /**
      * @return The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     * 
+     * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
      * 
      */
     public Optional<Output<String>> microsoftEmergingThreatFeedLookbackDate() {
@@ -78,12 +82,16 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
     /**
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
      * @return The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+     * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -163,6 +171,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
         /**
          * @param microsoftEmergingThreatFeedLookbackDate The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
          * 
+         * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -173,6 +183,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
 
         /**
          * @param microsoftEmergingThreatFeedLookbackDate The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+         * 
+         * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
          * 
          * @return builder
          * 
@@ -205,6 +217,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
         /**
          * @param tenantId The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
          * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * 
          * @return builder
          * 
          */
@@ -215,6 +229,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
 
         /**
          * @param tenantId The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+         * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

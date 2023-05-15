@@ -22,12 +22,16 @@ public final class DatasetAzureBlobArgs extends com.pulumi.resources.ResourceArg
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
+     * The following supported arguments are specific to Azure Blob Dataset:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset.
+     * 
+     * The following supported arguments are specific to Azure Blob Dataset:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -253,6 +257,8 @@ public final class DatasetAzureBlobArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
          * 
+         * The following supported arguments are specific to Azure Blob Dataset:
+         * 
          * @return builder
          * 
          */
@@ -263,6 +269,8 @@ public final class DatasetAzureBlobArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Dataset.
+         * 
+         * The following supported arguments are specific to Azure Blob Dataset:
          * 
          * @return builder
          * 

@@ -16,12 +16,16 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
     /**
      * Sets the backup frequency. Currently, only `Daily` is supported
      * 
+     * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+     * 
      */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
     /**
      * @return Sets the backup frequency. Currently, only `Daily` is supported
+     * 
+     * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
      * 
      */
     public Output<String> frequency() {
@@ -71,6 +75,8 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
         /**
          * @param frequency Sets the backup frequency. Currently, only `Daily` is supported
          * 
+         * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+         * 
          * @return builder
          * 
          */
@@ -81,6 +87,8 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
 
         /**
          * @param frequency Sets the backup frequency. Currently, only `Daily` is supported
+         * 
+         * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          * 
          * @return builder
          * 

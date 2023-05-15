@@ -48,12 +48,16 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
      */
     public Output<String> type() {
@@ -131,6 +135,8 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
          * 
          * @return builder
          * 

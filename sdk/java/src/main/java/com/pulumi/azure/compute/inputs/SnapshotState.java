@@ -22,12 +22,16 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
+     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+     * 
      */
     @Import(name="createOption")
     private @Nullable Output<String> createOption;
 
     /**
      * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * 
+     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
      * 
      */
     public Optional<Output<String>> createOption() {
@@ -52,12 +56,16 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `encryption_settings` block as defined below.
      * 
+     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * 
      */
     @Import(name="encryptionSettings")
     private @Nullable Output<SnapshotEncryptionSettingsArgs> encryptionSettings;
 
     /**
      * @return A `encryption_settings` block as defined below.
+     * 
+     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     public Optional<Output<SnapshotEncryptionSettingsArgs>> encryptionSettings() {
@@ -237,6 +245,8 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
          * 
+         * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -247,6 +257,8 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+         * 
+         * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
          * 
          * @return builder
          * 
@@ -279,6 +291,8 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionSettings A `encryption_settings` block as defined below.
          * 
+         * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -289,6 +303,8 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param encryptionSettings A `encryption_settings` block as defined below.
+         * 
+         * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
          * 
          * @return builder
          * 

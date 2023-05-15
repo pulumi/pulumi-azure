@@ -39,6 +39,8 @@ namespace Pulumi.Azure.Batch.Outputs
         public readonly string? StorageContainerUrl;
         /// <summary>
         /// An identity reference from pool's user assigned managed identity list.
+        /// 
+        /// &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         /// </summary>
         public readonly string? UserAssignedIdentityId;
 

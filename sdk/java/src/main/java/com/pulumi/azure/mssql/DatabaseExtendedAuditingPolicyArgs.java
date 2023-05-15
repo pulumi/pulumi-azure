@@ -35,6 +35,8 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
+     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
@@ -42,22 +44,16 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
+     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * 
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Enable audit events to Azure Monitor? Defaults to `true`.
-     * 
-     */
     @Import(name="logMonitoringEnabled")
     private @Nullable Output<Boolean> logMonitoringEnabled;
 
-    /**
-     * @return Enable audit events to Azure Monitor? Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> logMonitoringEnabled() {
         return Optional.ofNullable(this.logMonitoringEnabled);
     }
@@ -176,6 +172,8 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
+         * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * 
          * @return builder
          * 
          */
@@ -187,6 +185,8 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
+         * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * 
          * @return builder
          * 
          */
@@ -194,23 +194,11 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param logMonitoringEnabled Enable audit events to Azure Monitor? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logMonitoringEnabled(@Nullable Output<Boolean> logMonitoringEnabled) {
             $.logMonitoringEnabled = logMonitoringEnabled;
             return this;
         }
 
-        /**
-         * @param logMonitoringEnabled Enable audit events to Azure Monitor? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logMonitoringEnabled(Boolean logMonitoringEnabled) {
             return logMonitoringEnabled(Output.of(logMonitoringEnabled));
         }

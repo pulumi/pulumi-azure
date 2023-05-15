@@ -75,8 +75,12 @@ type Environment struct {
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr pulumi.StringOutput `pulumi:"dockerBridgeCidr"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId pulumi.StringPtrOutput `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
 	InternalLoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"internalLoadBalancerEnabled"`
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -136,8 +140,12 @@ type environmentState struct {
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
 	InternalLoadBalancerEnabled *bool `pulumi:"internalLoadBalancerEnabled"`
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -163,8 +171,12 @@ type EnvironmentState struct {
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId pulumi.StringPtrInput
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
 	InternalLoadBalancerEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -190,8 +202,12 @@ func (EnvironmentState) ElementType() reflect.Type {
 
 type environmentArgs struct {
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
 	InternalLoadBalancerEnabled *bool `pulumi:"internalLoadBalancerEnabled"`
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -208,8 +224,12 @@ type environmentArgs struct {
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId pulumi.StringPtrInput
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
 	InternalLoadBalancerEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -321,11 +341,15 @@ func (o EnvironmentOutput) DockerBridgeCidr() pulumi.StringOutput {
 }
 
 // The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The Subnet must have a `/21` or larger address space.
 func (o EnvironmentOutput) InfrastructureSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.InfrastructureSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+//
+// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
 func (o EnvironmentOutput) InternalLoadBalancerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.BoolPtrOutput { return v.InternalLoadBalancerEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -43,6 +43,8 @@ class StandardArgs:
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -53,11 +55,9 @@ class StandardArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -149,6 +149,8 @@ class StandardArgs:
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+
+        > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -279,9 +281,6 @@ class StandardArgs:
     @property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-        """
         return pulumi.get(self, "storage_account_share_name")
 
     @storage_account_share_name.setter
@@ -327,9 +326,6 @@ class StandardArgs:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -370,6 +366,8 @@ class _StandardState:
         Input properties used for looking up and filtering Standard resources.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -389,11 +387,9 @@ class _StandardState:
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         if app_service_plan_id is not None:
             pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -465,6 +461,8 @@ class _StandardState:
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+
+        > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -703,9 +701,6 @@ class _StandardState:
     @property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-        """
         return pulumi.get(self, "storage_account_share_name")
 
     @storage_account_share_name.setter
@@ -751,9 +746,6 @@ class _StandardState:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -873,6 +865,8 @@ class Standard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -886,11 +880,9 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         ...
     @overload
@@ -1105,6 +1097,8 @@ class Standard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -1124,11 +1118,9 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1175,6 +1167,8 @@ class Standard(pulumi.CustomResource):
     def app_settings(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+
+        > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1333,9 +1327,6 @@ class Standard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> pulumi.Output[str]:
-        """
-        The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-        """
         return pulumi.get(self, "storage_account_share_name")
 
     @property
@@ -1365,8 +1356,5 @@ class Standard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 

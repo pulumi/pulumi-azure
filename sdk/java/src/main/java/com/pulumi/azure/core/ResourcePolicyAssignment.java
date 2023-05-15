@@ -139,12 +139,16 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+     * 
      */
     @Export(name="identity", refs={ResourcePolicyAssignmentIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ResourcePolicyAssignmentIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
     public Output<Optional<ResourcePolicyAssignmentIdentity>> identity() {
@@ -265,12 +269,16 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
     /**
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
      * 
+     * &gt; To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
+     * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
      * @return The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+     * 
+     * &gt; To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
      * 
      */
     public Output<String> resourceId() {

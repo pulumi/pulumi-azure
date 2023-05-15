@@ -63,12 +63,16 @@ type MongoDatabase struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings MongoDatabaseAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
@@ -110,12 +114,16 @@ type mongoDatabaseState struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *MongoDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -123,12 +131,16 @@ type MongoDatabaseState struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings MongoDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
 	Throughput pulumi.IntPtrInput
 }
 
@@ -140,12 +152,16 @@ type mongoDatabaseArgs struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *MongoDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -154,12 +170,16 @@ type MongoDatabaseArgs struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings MongoDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
 	Throughput pulumi.IntPtrInput
 }
 
@@ -256,6 +276,8 @@ func (o MongoDatabaseOutput) AccountName() pulumi.StringOutput {
 }
 
 // An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+//
+// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o MongoDatabaseOutput) AutoscaleSettings() MongoDatabaseAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *MongoDatabase) MongoDatabaseAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(MongoDatabaseAutoscaleSettingsPtrOutput)
 }
@@ -271,6 +293,8 @@ func (o MongoDatabaseOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+//
+// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
 func (o MongoDatabaseOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *MongoDatabase) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

@@ -110,6 +110,8 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
     public readonly blobPathBeginsWith!: pulumi.Output<string | undefined>;
     /**
      * The pattern that blob path ends with for trigger to fire.
+     *
+     * > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      */
     public readonly blobPathEndsWith!: pulumi.Output<string | undefined>;
     /**
@@ -220,6 +222,8 @@ export interface TriggerBlobEventState {
     blobPathBeginsWith?: pulumi.Input<string>;
     /**
      * The pattern that blob path ends with for trigger to fire.
+     *
+     * > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      */
     blobPathEndsWith?: pulumi.Input<string>;
     /**
@@ -274,6 +278,8 @@ export interface TriggerBlobEventArgs {
     blobPathBeginsWith?: pulumi.Input<string>;
     /**
      * The pattern that blob path ends with for trigger to fire.
+     *
+     * > **Note:** At least one of `blobPathBeginsWith` and `blobPathEndsWith` must be set.
      */
     blobPathEndsWith?: pulumi.Input<string>;
     /**

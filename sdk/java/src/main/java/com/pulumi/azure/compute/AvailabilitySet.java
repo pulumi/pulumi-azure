@@ -114,12 +114,16 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+     * 
      */
     @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> platformFaultDomainCount;
 
     /**
      * @return Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
      */
     public Output<Optional<Integer>> platformFaultDomainCount() {
@@ -128,12 +132,16 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The number of Update Domains varies depending on which Azure Region you&#39;re using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+     * 
      */
     @Export(name="platformUpdateDomainCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> platformUpdateDomainCount;
 
     /**
      * @return Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The number of Update Domains varies depending on which Azure Region you&#39;re using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
      */
     public Output<Optional<Integer>> platformUpdateDomainCount() {

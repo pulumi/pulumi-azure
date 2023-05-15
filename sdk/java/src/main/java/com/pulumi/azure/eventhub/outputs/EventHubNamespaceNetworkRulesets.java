@@ -28,6 +28,8 @@ public final class EventHubNamespaceNetworkRulesets {
     /**
      * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
      * 
+     * &gt; **Note:** The public network access setting at the network rule sets level should be the same as it&#39;s at the namespace level.
+     * 
      */
     private @Nullable Boolean publicNetworkAccessEnabled;
     /**
@@ -58,6 +60,8 @@ public final class EventHubNamespaceNetworkRulesets {
     }
     /**
      * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     * &gt; **Note:** The public network access setting at the network rule sets level should be the same as it&#39;s at the namespace level.
      * 
      */
     public Optional<Boolean> publicNetworkAccessEnabled() {

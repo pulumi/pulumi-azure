@@ -52,6 +52,8 @@ namespace Pulumi.Azure.SecurityCenter
 
         /// <summary>
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// 
+        /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>
         [Output("subplan")]
         public Output<string?> Subplan { get; private set; } = null!;
@@ -116,6 +118,8 @@ namespace Pulumi.Azure.SecurityCenter
 
         /// <summary>
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// 
+        /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>
         [Input("subplan")]
         public Input<string>? Subplan { get; set; }
@@ -142,6 +146,8 @@ namespace Pulumi.Azure.SecurityCenter
 
         /// <summary>
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// 
+        /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>
         [Input("subplan")]
         public Input<string>? Subplan { get; set; }

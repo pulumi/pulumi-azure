@@ -15,6 +15,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreAction {
     /**
      * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+     * 
      */
     private @Nullable String fabricLocation;
     /**
@@ -30,6 +32,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreAction {
     /**
      * @return Instructions of manual action.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * 
      */
     private @Nullable String manualActionInstruction;
     /**
@@ -40,10 +44,14 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreAction {
     /**
      * @return Id of runbook.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * 
      */
     private @Nullable String runbookId;
     /**
      * @return Path of action script.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
      * 
      */
     private @Nullable String scriptPath;
@@ -56,6 +64,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreAction {
     private ReplicationRecoveryPlanRecoveryGroupPreAction() {}
     /**
      * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
      */
     public Optional<String> fabricLocation() {
@@ -78,6 +88,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreAction {
     /**
      * @return Instructions of manual action.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * 
      */
     public Optional<String> manualActionInstruction() {
         return Optional.ofNullable(this.manualActionInstruction);
@@ -92,12 +104,16 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreAction {
     /**
      * @return Id of runbook.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * 
      */
     public Optional<String> runbookId() {
         return Optional.ofNullable(this.runbookId);
     }
     /**
      * @return Path of action script.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
      * 
      */
     public Optional<String> scriptPath() {

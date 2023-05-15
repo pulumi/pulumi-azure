@@ -102,6 +102,9 @@ export class ProtectedVM extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+     * This allows the source vm to be deleted without having to remove the backup.
      */
     public readonly sourceVmId!: pulumi.Output<string>;
 
@@ -173,6 +176,9 @@ export interface ProtectedVMState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+     * This allows the source vm to be deleted without having to remove the backup.
      */
     sourceVmId?: pulumi.Input<string>;
 }
@@ -203,6 +209,9 @@ export interface ProtectedVMArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+     * This allows the source vm to be deleted without having to remove the backup.
      */
     sourceVmId?: pulumi.Input<string>;
 }

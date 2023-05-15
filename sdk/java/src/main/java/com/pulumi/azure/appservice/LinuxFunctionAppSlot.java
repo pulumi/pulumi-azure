@@ -559,12 +559,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
      */
     @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageKeyVaultSecretId;
 
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Output<Optional<String>> storageKeyVaultSecretId() {
@@ -573,12 +581,16 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      * 
+     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * 
      */
     @Export(name="storageUsesManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageUsesManagedIdentity;
 
     /**
      * @return Should the Function App Slot use its Managed Identity to access storage.
+     * 
+     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
     public Output<Optional<Boolean>> storageUsesManagedIdentity() {
@@ -598,17 +610,9 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }

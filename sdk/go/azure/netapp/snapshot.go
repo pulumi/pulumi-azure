@@ -45,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -91,7 +91,7 @@ import (
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("my-unique-file-path"),
 //				ServiceLevel:      pulumi.String("Premium"),
-//				SubnetId:          pulumi.Any(azurerm_subnet.Test.Id),
+//				SubnetId:          exampleSubnet.ID(),
 //				StorageQuotaInGb:  pulumi.Int(100),
 //			})
 //			if err != nil {

@@ -22,6 +22,10 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -42,10 +46,22 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
+     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+     * 
      */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -86,6 +102,10 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
      */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
@@ -114,12 +134,24 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
+     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+     * 
      */
     public Optional<String> clientSecretCertificateThumbprint() {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<String> clientSecretSettingName() {

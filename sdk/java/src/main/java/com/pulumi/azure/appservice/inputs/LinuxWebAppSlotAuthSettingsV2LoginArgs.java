@@ -21,12 +21,16 @@ public final class LinuxWebAppSlotAuthSettingsV2LoginArgs extends com.pulumi.res
     /**
      * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
      * 
+     * &gt; **Note:** URLs within the current domain are always implicitly allowed.
+     * 
      */
     @Import(name="allowedExternalRedirectUrls")
     private @Nullable Output<List<String>> allowedExternalRedirectUrls;
 
     /**
      * @return External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+     * 
+     * &gt; **Note:** URLs within the current domain are always implicitly allowed.
      * 
      */
     public Optional<Output<List<String>>> allowedExternalRedirectUrls() {
@@ -220,6 +224,8 @@ public final class LinuxWebAppSlotAuthSettingsV2LoginArgs extends com.pulumi.res
         /**
          * @param allowedExternalRedirectUrls External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
          * 
+         * &gt; **Note:** URLs within the current domain are always implicitly allowed.
+         * 
          * @return builder
          * 
          */
@@ -231,6 +237,8 @@ public final class LinuxWebAppSlotAuthSettingsV2LoginArgs extends com.pulumi.res
         /**
          * @param allowedExternalRedirectUrls External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
          * 
+         * &gt; **Note:** URLs within the current domain are always implicitly allowed.
+         * 
          * @return builder
          * 
          */
@@ -240,6 +248,8 @@ public final class LinuxWebAppSlotAuthSettingsV2LoginArgs extends com.pulumi.res
 
         /**
          * @param allowedExternalRedirectUrls External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         * 
+         * &gt; **Note:** URLs within the current domain are always implicitly allowed.
          * 
          * @return builder
          * 

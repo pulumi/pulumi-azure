@@ -97,12 +97,16 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      * 
+     * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
+     * 
      */
     @Import(name="geoLocations")
     private @Nullable Output<List<String>> geoLocations;
 
     /**
      * @return A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     * 
+     * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      * 
      */
     public Optional<Output<List<String>>> geoLocations() {
@@ -366,6 +370,8 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param geoLocations A list of where to physically run the tests from to give global coverage for accessibility of your application.
          * 
+         * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
+         * 
          * @return builder
          * 
          */
@@ -377,6 +383,8 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param geoLocations A list of where to physically run the tests from to give global coverage for accessibility of your application.
          * 
+         * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
+         * 
          * @return builder
          * 
          */
@@ -386,6 +394,8 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param geoLocations A list of where to physically run the tests from to give global coverage for accessibility of your application.
+         * 
+         * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
          * 
          * @return builder
          * 

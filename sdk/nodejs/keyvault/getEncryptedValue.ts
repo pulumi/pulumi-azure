@@ -58,6 +58,8 @@ export interface GetEncryptedValueArgs {
     keyVaultKeyId: string;
     /**
      * The plain-text value which should be Encrypted into `encryptedData`.
+     *
+     * > **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
      */
     plainTextValue?: string;
 }
@@ -122,6 +124,8 @@ export interface GetEncryptedValueOutputArgs {
     keyVaultKeyId: pulumi.Input<string>;
     /**
      * The plain-text value which should be Encrypted into `encryptedData`.
+     *
+     * > **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
      */
     plainTextValue?: pulumi.Input<string>;
 }

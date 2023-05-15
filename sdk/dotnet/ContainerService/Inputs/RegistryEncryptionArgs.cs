@@ -20,6 +20,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The client ID of the managed identity associated with the encryption key.
+        /// 
+        /// &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
         /// </summary>
         [Input("identityClientId", required: true)]
         public Input<string> IdentityClientId { get; set; } = null!;

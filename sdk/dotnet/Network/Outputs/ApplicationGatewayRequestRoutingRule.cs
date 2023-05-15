@@ -47,6 +47,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string Name;
         /// <summary>
         /// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        /// 
+        /// &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
         /// </summary>
         public readonly int? Priority;
         /// <summary>
@@ -63,6 +65,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? RewriteRuleSetId;
         /// <summary>
         /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+        /// 
+        /// &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         /// </summary>
         public readonly string? RewriteRuleSetName;
         /// <summary>

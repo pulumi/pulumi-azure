@@ -31,6 +31,8 @@ class CertificateArgs:
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -126,6 +128,8 @@ class CertificateArgs:
     def pfx_blob(self) -> Optional[pulumi.Input[str]]:
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         """
         return pulumi.get(self, "pfx_blob")
 
@@ -179,6 +183,8 @@ class _CertificateState:
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -354,6 +360,8 @@ class _CertificateState:
     def pfx_blob(self) -> Optional[pulumi.Input[str]]:
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         """
         return pulumi.get(self, "pfx_blob")
 
@@ -460,6 +468,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -594,6 +604,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -714,6 +726,8 @@ class Certificate(pulumi.CustomResource):
     def pfx_blob(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         """
         return pulumi.get(self, "pfx_blob")
 

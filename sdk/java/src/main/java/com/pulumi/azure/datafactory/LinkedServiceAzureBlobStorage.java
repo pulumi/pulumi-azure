@@ -166,12 +166,16 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure Blob Storage Linked Service:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure Blob Storage Linked Service:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {
@@ -208,12 +212,16 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
     /**
      * The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
      * 
+     * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+     * 
      */
     @Export(name="connectionStringInsecure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionStringInsecure;
 
     /**
      * @return The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * 
+     * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
      * 
      */
     public Output<Optional<String>> connectionStringInsecure() {

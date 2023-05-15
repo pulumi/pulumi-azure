@@ -96,6 +96,8 @@ export class CNameRecord extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -179,6 +181,8 @@ export interface CNameRecordState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -213,6 +217,8 @@ export interface CNameRecordArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

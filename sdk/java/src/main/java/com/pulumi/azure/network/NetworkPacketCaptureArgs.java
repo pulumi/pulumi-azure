@@ -142,12 +142,16 @@ public final class NetworkPacketCaptureArgs extends com.pulumi.resources.Resourc
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
+     * 
      */
     @Import(name="targetResourceId", required=true)
     private Output<String> targetResourceId;
 
     /**
      * @return The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
      * 
      */
     public Output<String> targetResourceId() {
@@ -367,6 +371,8 @@ public final class NetworkPacketCaptureArgs extends com.pulumi.resources.Resourc
         /**
          * @param targetResourceId The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
+         * 
          * @return builder
          * 
          */
@@ -377,6 +383,8 @@ public final class NetworkPacketCaptureArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param targetResourceId The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
          * 
          * @return builder
          * 

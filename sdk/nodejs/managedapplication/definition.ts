@@ -113,6 +113,8 @@ export class Definition extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -220,6 +222,8 @@ export interface DefinitionState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -274,6 +278,8 @@ export interface DefinitionArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -350,12 +350,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * ID of a standard SKU IPv4 Public IP.
      * 
+     * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+     * 
      */
     @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicIpAddressId;
 
     /**
      * @return ID of a standard SKU IPv4 Public IP.
+     * 
+     * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      * 
      */
     public Output<Optional<String>> publicIpAddressId() {
@@ -490,12 +494,20 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
+     * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     * 
+     * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+     * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
      * @return `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * 
+     * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     * 
+     * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      * 
      */
     public Output<String> skuName() {
@@ -546,12 +558,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
      * 
+     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * 
      */
     @Export(name="virtualNetworkType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkType;
 
     /**
      * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     * 
+     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     public Output<Optional<String>> virtualNetworkType() {
@@ -560,12 +576,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
      * 
+     * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+     * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * 
+     * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
      * 
      */
     public Output<Optional<List<String>>> zones() {

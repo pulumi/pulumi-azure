@@ -90,6 +90,8 @@ type WebTest struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
 	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -163,6 +165,8 @@ type webTestState struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations []string `pulumi:"geoLocations"`
 	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
@@ -193,6 +197,8 @@ type WebTestState struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations pulumi.StringArrayInput
 	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
@@ -227,6 +233,8 @@ type webTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations []string `pulumi:"geoLocations"`
 	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
@@ -257,6 +265,8 @@ type WebTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	//
+	// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 	GeoLocations pulumi.StringArrayInput
 	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
@@ -387,6 +397,8 @@ func (o WebTestOutput) Frequency() pulumi.IntPtrOutput {
 }
 
 // A list of where to physically run the tests from to give global coverage for accessibility of your application.
+//
+// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
 func (o WebTestOutput) GeoLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringArrayOutput { return v.GeoLocations }).(pulumi.StringArrayOutput)
 }

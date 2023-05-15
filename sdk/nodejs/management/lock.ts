@@ -92,6 +92,8 @@ export class Lock extends pulumi.CustomResource {
 
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
      */
     public readonly lockLevel!: pulumi.Output<string>;
     /**
@@ -150,6 +152,8 @@ export class Lock extends pulumi.CustomResource {
 export interface LockState {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
      */
     lockLevel?: pulumi.Input<string>;
     /**
@@ -172,6 +176,8 @@ export interface LockState {
 export interface LockArgs {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
      */
     lockLevel: pulumi.Input<string>;
     /**

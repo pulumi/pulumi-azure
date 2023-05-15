@@ -150,12 +150,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * A `client_certificate_common_name` block as defined below.
      * 
+     * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+     * 
      */
     @Export(name="clientCertificateCommonNames", refs={List.class,ClusterClientCertificateCommonName.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterClientCertificateCommonName>> clientCertificateCommonNames;
 
     /**
      * @return A `client_certificate_common_name` block as defined below.
+     * 
+     * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
      */
     public Output<Optional<List<ClusterClientCertificateCommonName>>> clientCertificateCommonNames() {
@@ -290,12 +294,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      * 
+     * &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
+     * 
      */
     @Export(name="reliabilityLevel", refs={String.class}, tree="[0]")
     private Output<String> reliabilityLevel;
 
     /**
      * @return Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+     * 
+     * &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
      * 
      */
     public Output<String> reliabilityLevel() {

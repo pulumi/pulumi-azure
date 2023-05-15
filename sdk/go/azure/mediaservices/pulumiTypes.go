@@ -714,6 +714,8 @@ type AccountStorageAccount struct {
 	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id string `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+	//
+	// > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
 	IsPrimary *bool `pulumi:"isPrimary"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity *AccountStorageAccountManagedIdentity `pulumi:"managedIdentity"`
@@ -734,6 +736,8 @@ type AccountStorageAccountArgs struct {
 	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+	//
+	// > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity AccountStorageAccountManagedIdentityPtrInput `pulumi:"managedIdentity"`
@@ -796,6 +800,8 @@ func (o AccountStorageAccountOutput) Id() pulumi.StringOutput {
 }
 
 // Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+//
+// > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
 func (o AccountStorageAccountOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }

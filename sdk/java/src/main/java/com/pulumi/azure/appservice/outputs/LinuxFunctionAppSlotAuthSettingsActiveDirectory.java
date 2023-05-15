@@ -15,6 +15,8 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
     /**
      * @return an `allowed_audiences` block as detailed below.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -36,6 +38,8 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
     private LinuxFunctionAppSlotAuthSettingsActiveDirectory() {}
     /**
      * @return an `allowed_audiences` block as detailed below.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
      */
     public List<String> allowedAudiences() {

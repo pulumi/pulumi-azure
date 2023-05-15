@@ -81,12 +81,16 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * A `apns_credential` block as defined below.
      * 
+     * &gt; **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * 
      */
     @Export(name="apnsCredential", refs={HubApnsCredential.class}, tree="[0]")
     private Output</* @Nullable */ HubApnsCredential> apnsCredential;
 
     /**
      * @return A `apns_credential` block as defined below.
+     * 
+     * &gt; **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Output<Optional<HubApnsCredential>> apnsCredential() {
@@ -95,12 +99,16 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * A `gcm_credential` block as defined below.
      * 
+     * &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * 
      */
     @Export(name="gcmCredential", refs={HubGcmCredential.class}, tree="[0]")
     private Output</* @Nullable */ HubGcmCredential> gcmCredential;
 
     /**
      * @return A `gcm_credential` block as defined below.
+     * 
+     * &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Output<Optional<HubGcmCredential>> gcmCredential() {

@@ -101,6 +101,8 @@ type TopicAuthorizationRule struct {
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrOutput `pulumi:"send"`
 	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	TopicId pulumi.StringOutput `pulumi:"topicId"`
 }
 
@@ -166,6 +168,8 @@ type topicAuthorizationRuleState struct {
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
 	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	TopicId *string `pulumi:"topicId"`
 }
 
@@ -191,6 +195,8 @@ type TopicAuthorizationRuleState struct {
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
 	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	TopicId pulumi.StringPtrInput
 }
 
@@ -208,6 +214,8 @@ type topicAuthorizationRuleArgs struct {
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
 	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	TopicId string `pulumi:"topicId"`
 }
 
@@ -222,6 +230,8 @@ type TopicAuthorizationRuleArgs struct {
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
 	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	TopicId pulumi.StringInput
 }
 
@@ -363,6 +373,8 @@ func (o TopicAuthorizationRuleOutput) Send() pulumi.BoolPtrOutput {
 }
 
 // Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+//
+// > **NOTE** At least one of the 3 permissions below needs to be set.
 func (o TopicAuthorizationRuleOutput) TopicId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.TopicId }).(pulumi.StringOutput)
 }

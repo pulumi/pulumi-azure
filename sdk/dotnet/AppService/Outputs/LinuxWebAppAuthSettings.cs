@@ -47,6 +47,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly Outputs.LinuxWebAppAuthSettingsGoogle? Google;
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
+        /// 
+        /// &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
         /// </summary>
         public readonly string? Issuer;
         /// <summary>

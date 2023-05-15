@@ -99,6 +99,8 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     public readonly queueId!: pulumi.Output<string>;
     /**
@@ -199,6 +201,8 @@ export interface QueueAuthorizationRuleState {
     primaryKey?: pulumi.Input<string>;
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     queueId?: pulumi.Input<string>;
     /**
@@ -237,6 +241,8 @@ export interface QueueAuthorizationRuleArgs {
     name?: pulumi.Input<string>;
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     queueId: pulumi.Input<string>;
     /**

@@ -19,12 +19,16 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -90,6 +94,8 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +107,8 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -110,6 +118,8 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

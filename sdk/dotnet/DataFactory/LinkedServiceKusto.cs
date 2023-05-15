@@ -90,6 +90,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
+        /// 
+        /// The following supported arguments are specific to Azure Kusto Linked Service:
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -156,6 +158,10 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
+        /// 
+        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        /// 
+        /// &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         /// </summary>
         [Output("tenant")]
         public Output<string?> Tenant { get; private set; } = null!;
@@ -221,6 +227,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
+        /// 
+        /// The following supported arguments are specific to Azure Kusto Linked Service:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -312,6 +320,10 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
+        /// 
+        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        /// 
+        /// &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -335,6 +347,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
+        /// 
+        /// The following supported arguments are specific to Azure Kusto Linked Service:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -426,6 +440,10 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
+        /// 
+        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        /// 
+        /// &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }

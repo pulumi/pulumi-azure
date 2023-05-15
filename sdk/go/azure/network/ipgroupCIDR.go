@@ -70,8 +70,6 @@ import (
 type IPGroupCIDR struct {
 	pulumi.CustomResourceState
 
-	// The `CIDR` that should be added to the IP Group.
-	// Changing this forces a new IP Group CIDR to be created.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// The ID of the destination IP Group.
 	// Changing this forces a new IP Group CIDR to be created.
@@ -113,8 +111,6 @@ func GetIPGroupCIDR(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IPGroupCIDR resources.
 type ipgroupCIDRState struct {
-	// The `CIDR` that should be added to the IP Group.
-	// Changing this forces a new IP Group CIDR to be created.
 	Cidr *string `pulumi:"cidr"`
 	// The ID of the destination IP Group.
 	// Changing this forces a new IP Group CIDR to be created.
@@ -122,8 +118,6 @@ type ipgroupCIDRState struct {
 }
 
 type IPGroupCIDRState struct {
-	// The `CIDR` that should be added to the IP Group.
-	// Changing this forces a new IP Group CIDR to be created.
 	Cidr pulumi.StringPtrInput
 	// The ID of the destination IP Group.
 	// Changing this forces a new IP Group CIDR to be created.
@@ -135,8 +129,6 @@ func (IPGroupCIDRState) ElementType() reflect.Type {
 }
 
 type ipgroupCIDRArgs struct {
-	// The `CIDR` that should be added to the IP Group.
-	// Changing this forces a new IP Group CIDR to be created.
 	Cidr string `pulumi:"cidr"`
 	// The ID of the destination IP Group.
 	// Changing this forces a new IP Group CIDR to be created.
@@ -145,8 +137,6 @@ type ipgroupCIDRArgs struct {
 
 // The set of arguments for constructing a IPGroupCIDR resource.
 type IPGroupCIDRArgs struct {
-	// The `CIDR` that should be added to the IP Group.
-	// Changing this forces a new IP Group CIDR to be created.
 	Cidr pulumi.StringInput
 	// The ID of the destination IP Group.
 	// Changing this forces a new IP Group CIDR to be created.
@@ -240,8 +230,6 @@ func (o IPGroupCIDROutput) ToIPGroupCIDROutputWithContext(ctx context.Context) I
 	return o
 }
 
-// The `CIDR` that should be added to the IP Group.
-// Changing this forces a new IP Group CIDR to be created.
 func (o IPGroupCIDROutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPGroupCIDR) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }

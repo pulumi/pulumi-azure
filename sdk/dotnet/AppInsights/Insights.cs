@@ -195,6 +195,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the id of a log analytics workspace resource.
+        /// 
+        /// &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         /// </summary>
         [Output("workspaceId")]
         public Output<string?> WorkspaceId { get; private set; } = null!;
@@ -342,6 +344,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the id of a log analytics workspace resource.
+        /// 
+        /// &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
@@ -484,6 +488,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the id of a log analytics workspace resource.
+        /// 
+        /// &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

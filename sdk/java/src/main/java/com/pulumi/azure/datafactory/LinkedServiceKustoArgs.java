@@ -21,12 +21,16 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure Kusto Linked Service:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure Kusto Linked Service:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -186,12 +190,20 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
+     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * 
+     * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+     * 
      */
     @Import(name="tenant")
     private @Nullable Output<String> tenant;
 
     /**
      * @return The service principal tenant id or name in which to authenticate against the Kusto Database.
+     * 
+     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * 
+     * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
      * 
      */
     public Optional<Output<String>> tenant() {
@@ -252,6 +264,8 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
          * 
+         * The following supported arguments are specific to Azure Kusto Linked Service:
+         * 
          * @return builder
          * 
          */
@@ -262,6 +276,8 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
+         * 
+         * The following supported arguments are specific to Azure Kusto Linked Service:
          * 
          * @return builder
          * 
@@ -493,6 +509,10 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tenant The service principal tenant id or name in which to authenticate against the Kusto Database.
          * 
+         * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+         * 
+         * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+         * 
          * @return builder
          * 
          */
@@ -503,6 +523,10 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tenant The service principal tenant id or name in which to authenticate against the Kusto Database.
+         * 
+         * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+         * 
+         * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
          * 
          * @return builder
          * 

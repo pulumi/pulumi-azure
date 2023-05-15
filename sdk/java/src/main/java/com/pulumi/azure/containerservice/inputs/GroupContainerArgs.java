@@ -87,12 +87,16 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * A `gpu` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
+     * 
      */
     @Import(name="gpu")
     private @Nullable Output<GroupContainerGpuArgs> gpu;
 
     /**
      * @return A `gpu` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
      * 
      */
     public Optional<Output<GroupContainerGpuArgs>> gpu() {
@@ -384,6 +388,8 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param gpu A `gpu` block as defined below. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
+         * 
          * @return builder
          * 
          */
@@ -394,6 +400,8 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param gpu A `gpu` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
          * 
          * @return builder
          * 

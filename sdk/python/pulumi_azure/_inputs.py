@@ -18,7 +18,6 @@ __all__ = [
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
     'ProviderFeaturesManagedDiskArgs',
-    'ProviderFeaturesNetworkArgs',
     'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
     'ProviderFeaturesVirtualMachineArgs',
@@ -35,7 +34,6 @@ class ProviderFeaturesArgs:
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
-                 network: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']] = None,
                  resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
@@ -54,8 +52,6 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
-        if network is not None:
-            pulumi.set(__self__, "network", network)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if template_deployment is not None:
@@ -127,15 +123,6 @@ class ProviderFeaturesArgs:
     @managed_disk.setter
     def managed_disk(self, value: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']]):
         pulumi.set(self, "managed_disk", value)
-
-    @property
-    @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['ProviderFeaturesNetworkArgs']]:
-        return pulumi.get(self, "network")
-
-    @network.setter
-    def network(self, value: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']]):
-        pulumi.set(self, "network", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -411,22 +398,6 @@ class ProviderFeaturesManagedDiskArgs:
     @expand_without_downtime.setter
     def expand_without_downtime(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "expand_without_downtime", value)
-
-
-@pulumi.input_type
-class ProviderFeaturesNetworkArgs:
-    def __init__(__self__, *,
-                 relaxed_locking: pulumi.Input[bool]):
-        pulumi.set(__self__, "relaxed_locking", relaxed_locking)
-
-    @property
-    @pulumi.getter(name="relaxedLocking")
-    def relaxed_locking(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "relaxed_locking")
-
-    @relaxed_locking.setter
-    def relaxed_locking(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "relaxed_locking", value)
 
 
 @pulumi.input_type

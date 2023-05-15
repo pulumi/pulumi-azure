@@ -35,6 +35,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> SourceAddresses;
         /// <summary>
         /// A list of source IP Group IDs for the rule.
+        /// 
+        /// &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
         /// <summary>

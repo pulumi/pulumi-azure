@@ -96,6 +96,8 @@ namespace Pulumi.Azure.Search
 
         /// <summary>
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -172,6 +174,8 @@ namespace Pulumi.Azure.Search
 
         /// <summary>
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -216,6 +220,8 @@ namespace Pulumi.Azure.Search
 
         /// <summary>
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

@@ -84,6 +84,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+        /// 
+        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         /// </summary>
         [Output("secret")]
         public Output<bool?> Secret { get; private set; } = null!;
@@ -182,6 +184,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+        /// 
+        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         /// </summary>
         [Input("secret")]
         public Input<bool>? Secret { get; set; }
@@ -254,6 +258,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+        /// 
+        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         /// </summary>
         [Input("secret")]
         public Input<bool>? Secret { get; set; }

@@ -72,12 +72,16 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
+     * 
      */
     @Import(name="dnsNameLabel")
     private @Nullable Output<String> dnsNameLabel;
 
     /**
      * @return The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
      * 
      */
     public Optional<Output<String>> dnsNameLabel() {
@@ -102,12 +106,16 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+     * 
      */
     @Import(name="exposedPorts")
     private @Nullable Output<List<GroupExposedPortArgs>> exposedPorts;
 
     /**
      * @return Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
      * 
      */
     public Optional<Output<List<GroupExposedPortArgs>>> exposedPorts() {
@@ -162,12 +170,16 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
+     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+     * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
      * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+     * 
+     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -241,12 +253,16 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+     * 
      */
     @Import(name="osType", required=true)
     private Output<String> osType;
 
     /**
      * @return The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      * 
      */
     public Output<String> osType() {
@@ -447,6 +463,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param dnsNameLabel The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
+         * 
          * @return builder
          * 
          */
@@ -457,6 +475,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dnsNameLabel The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
          * 
          * @return builder
          * 
@@ -489,6 +509,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exposedPorts Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+         * 
          * @return builder
          * 
          */
@@ -500,6 +522,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exposedPorts Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+         * 
          * @return builder
          * 
          */
@@ -509,6 +533,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param exposedPorts Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
          * 
          * @return builder
          * 
@@ -603,6 +629,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
          * 
+         * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+         * 
          * @return builder
          * 
          */
@@ -613,6 +641,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+         * 
+         * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
          * 
          * @return builder
          * 
@@ -712,6 +742,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param osType The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+         * 
          * @return builder
          * 
          */
@@ -722,6 +754,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param osType The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
          * 
          * @return builder
          * 

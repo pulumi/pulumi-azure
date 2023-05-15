@@ -86,12 +86,18 @@ public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
     /**
      * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+     * for additional details on the fields above.
+     * 
      */
     @Export(name="accessLevel", refs={String.class}, tree="[0]")
     private Output<String> accessLevel;
 
     /**
      * @return The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+     * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+     * for additional details on the fields above.
      * 
      */
     public Output<String> accessLevel() {

@@ -1566,6 +1566,10 @@ func (o StandardConnectionStringArrayOutput) Index(i pulumi.IntInput) StandardCo
 
 type StandardIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+	//
+	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+	//
+	// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1588,6 +1592,10 @@ type StandardIdentityInput interface {
 
 type StandardIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+	//
+	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+	//
+	// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1675,6 +1683,10 @@ func (o StandardIdentityOutput) ToStandardIdentityPtrOutputWithContext(ctx conte
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+//
+// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+//
+// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o StandardIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StandardIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1719,6 +1731,10 @@ func (o StandardIdentityPtrOutput) Elem() StandardIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+//
+// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+//
+// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o StandardIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StandardIdentity) []string {
 		if v == nil {
@@ -1776,6 +1792,8 @@ type StandardSiteConfig struct {
 	// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+	//
+	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions []StandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
@@ -1786,6 +1804,8 @@ type StandardSiteConfig struct {
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+	//
+	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions []StandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
@@ -1794,6 +1814,8 @@ type StandardSiteConfig struct {
 	// Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
 	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	//
+	// > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
 	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
@@ -1830,6 +1852,8 @@ type StandardSiteConfigArgs struct {
 	// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+	//
+	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions StandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
@@ -1840,6 +1864,8 @@ type StandardSiteConfigArgs struct {
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+	//
+	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions StandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
@@ -1848,6 +1874,8 @@ type StandardSiteConfigArgs struct {
 	// Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
 	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	//
+	// > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
 	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
@@ -1973,6 +2001,8 @@ func (o StandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 }
 
 // A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+//
+// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigIpRestriction { return v.IpRestrictions }).(StandardSiteConfigIpRestrictionArrayOutput)
 }
@@ -1998,6 +2028,8 @@ func (o StandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtr
 }
 
 // A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+//
+// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(StandardSiteConfigScmIpRestrictionArrayOutput)
 }
@@ -2018,6 +2050,8 @@ func (o StandardSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput
 }
 
 // Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+//
+// > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
 func (o StandardSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
@@ -2137,6 +2171,8 @@ func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 }
 
 // A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+//
+// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigPtrOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigIpRestriction {
 		if v == nil {
@@ -2187,6 +2223,8 @@ func (o StandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.Bool
 }
 
 // A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+//
+// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigScmIpRestriction {
 		if v == nil {
@@ -2227,6 +2265,8 @@ func (o StandardSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOut
 }
 
 // Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+//
+// > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
 func (o StandardSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *bool {
 		if v == nil {
@@ -2426,6 +2466,8 @@ type StandardSiteConfigIpRestriction struct {
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
+	//
+	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2454,6 +2496,8 @@ type StandardSiteConfigIpRestrictionArgs struct {
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
+	//
+	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2539,6 +2583,8 @@ func (o StandardSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutp
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
+//
+// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 func (o StandardSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2771,6 +2817,8 @@ type StandardSiteConfigScmIpRestriction struct {
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
+	//
+	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2799,6 +2847,8 @@ type StandardSiteConfigScmIpRestrictionArgs struct {
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
+	//
+	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2886,6 +2936,8 @@ func (o StandardSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrO
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
+//
+// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 func (o StandardSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -4364,6 +4416,8 @@ func (o WorkflowAccessControlWorkflowManagementPtrOutput) AllowedCallerIpAddress
 
 type WorkflowIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
 	PrincipalId *string `pulumi:"principalId"`
@@ -4386,6 +4440,8 @@ type WorkflowIdentityInput interface {
 
 type WorkflowIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -4473,6 +4529,8 @@ func (o WorkflowIdentityOutput) ToWorkflowIdentityPtrOutputWithContext(ctx conte
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`
 func (o WorkflowIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -4517,6 +4575,8 @@ func (o WorkflowIdentityPtrOutput) Elem() WorkflowIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`
 func (o WorkflowIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkflowIdentity) []string {
 		if v == nil {

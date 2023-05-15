@@ -26,9 +26,13 @@ class ARecordArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+               
+               > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         :param pulumi.Input[str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -72,6 +76,8 @@ class ARecordArgs:
     def zone_name(self) -> pulumi.Input[str]:
         """
         Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+
+        > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         """
         return pulumi.get(self, "zone_name")
 
@@ -108,6 +114,8 @@ class ARecordArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         """
         return pulumi.get(self, "tags")
 
@@ -146,9 +154,13 @@ class _ARecordState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+               
+               > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
@@ -220,6 +232,8 @@ class _ARecordState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         """
         return pulumi.get(self, "tags")
 
@@ -256,6 +270,8 @@ class _ARecordState:
     def zone_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+
+        > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         """
         return pulumi.get(self, "zone_name")
 
@@ -326,9 +342,13 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+               
+               > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         """
         ...
     @overload
@@ -454,9 +474,13 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+               
+               > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -509,6 +533,8 @@ class ARecord(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         """
         return pulumi.get(self, "tags")
 
@@ -533,6 +559,8 @@ class ARecord(pulumi.CustomResource):
     def zone_name(self) -> pulumi.Output[str]:
         """
         Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+
+        > **Note:** The `zone_name` should be the name of resource `dns.Zone` instead of `privatedns.Zone`.
         """
         return pulumi.get(self, "zone_name")
 

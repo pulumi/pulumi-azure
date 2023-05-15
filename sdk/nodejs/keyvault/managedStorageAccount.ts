@@ -157,6 +157,8 @@ export class ManagedStorageAccount extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Should Storage Account access key be regenerated periodically?
+     *
+     * > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      */
     public readonly regenerateKeyAutomatically!: pulumi.Output<boolean | undefined>;
     /**
@@ -234,6 +236,8 @@ export interface ManagedStorageAccountState {
     name?: pulumi.Input<string>;
     /**
      * Should Storage Account access key be regenerated periodically?
+     *
+     * > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      */
     regenerateKeyAutomatically?: pulumi.Input<boolean>;
     /**
@@ -268,6 +272,8 @@ export interface ManagedStorageAccountArgs {
     name?: pulumi.Input<string>;
     /**
      * Should Storage Account access key be regenerated periodically?
+     *
+     * > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      */
     regenerateKeyAutomatically?: pulumi.Input<boolean>;
     /**

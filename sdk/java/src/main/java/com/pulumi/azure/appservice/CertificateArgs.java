@@ -94,12 +94,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+     * 
      */
     @Import(name="pfxBlob")
     private @Nullable Output<String> pfxBlob;
 
     /**
      * @return The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
      * 
      */
     public Optional<Output<String>> pfxBlob() {
@@ -275,6 +279,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param pfxBlob The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+         * 
          * @return builder
          * 
          */
@@ -285,6 +291,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param pfxBlob The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
          * 
          * @return builder
          * 

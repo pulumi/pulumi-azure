@@ -127,6 +127,8 @@ func (o AccountEncryptionArrayOutput) Index(i pulumi.IntInput) AccountEncryption
 
 type AccountIdentity struct {
 	// The ID of the User Assigned Identity which should be assigned to this Automation Account.
+	//
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -149,6 +151,8 @@ type AccountIdentityInput interface {
 
 type AccountIdentityArgs struct {
 	// The ID of the User Assigned Identity which should be assigned to this Automation Account.
+	//
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -236,6 +240,8 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 }
 
 // The ID of the User Assigned Identity which should be assigned to this Automation Account.
+//
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -280,6 +286,8 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 }
 
 // The ID of the User Assigned Identity which should be assigned to this Automation Account.
+//
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {

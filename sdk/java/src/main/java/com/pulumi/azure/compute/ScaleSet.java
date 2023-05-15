@@ -397,12 +397,16 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
      * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -747,12 +751,16 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Output<Optional<List<String>>> zones() {

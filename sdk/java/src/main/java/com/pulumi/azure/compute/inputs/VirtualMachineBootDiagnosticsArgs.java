@@ -32,12 +32,16 @@ public final class VirtualMachineBootDiagnosticsArgs extends com.pulumi.resource
     /**
      * The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
      * 
+     * &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
+     * 
      */
     @Import(name="storageUri", required=true)
     private Output<String> storageUri;
 
     /**
      * @return The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
+     * 
+     * &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
      * 
      */
     public Output<String> storageUri() {
@@ -93,6 +97,8 @@ public final class VirtualMachineBootDiagnosticsArgs extends com.pulumi.resource
         /**
          * @param storageUri The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
          * 
+         * &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
+         * 
          * @return builder
          * 
          */
@@ -103,6 +109,8 @@ public final class VirtualMachineBootDiagnosticsArgs extends com.pulumi.resource
 
         /**
          * @param storageUri The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
+         * 
+         * &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
          * 
          * @return builder
          * 

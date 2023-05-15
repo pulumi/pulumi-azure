@@ -78,6 +78,8 @@ export class CertificateOrder extends pulumi.CustomResource {
     public readonly csr!: pulumi.Output<string>;
     /**
      * The Distinguished Name for the App Service Certificate Order.
+     *
+     * > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
      */
     public readonly distinguishedName!: pulumi.Output<string>;
     /**
@@ -221,6 +223,8 @@ export interface CertificateOrderState {
     csr?: pulumi.Input<string>;
     /**
      * The Distinguished Name for the App Service Certificate Order.
+     *
+     * > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
      */
     distinguishedName?: pulumi.Input<string>;
     /**
@@ -295,6 +299,8 @@ export interface CertificateOrderArgs {
     csr?: pulumi.Input<string>;
     /**
      * The Distinguished Name for the App Service Certificate Order.
+     *
+     * > **NOTE:** Either `csr` or `distinguishedName` must be set - but not both.
      */
     distinguishedName?: pulumi.Input<string>;
     /**

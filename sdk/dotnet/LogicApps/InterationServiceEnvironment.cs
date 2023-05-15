@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
+    /// Manages private and isolated Logic App instances within an Azure virtual network.
+    /// 
+    /// !&gt; **NOTE:** The `azure.logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -157,6 +161,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+        /// 
+        /// &gt; **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -257,6 +263,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+        /// 
+        /// &gt; **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -343,6 +351,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+        /// 
+        /// &gt; **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

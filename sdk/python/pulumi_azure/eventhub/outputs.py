@@ -91,6 +91,10 @@ class DomainIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -115,6 +119,10 @@ class DomainIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -375,6 +383,10 @@ class EventGridTopicIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -399,6 +411,10 @@ class EventGridTopicIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -757,6 +773,8 @@ class EventHubCaptureDescriptionDestination(dict):
         :param str archive_name_format: The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
         :param str blob_container_name: The name of the Container within the Blob Storage Account where messages should be archived.
         :param str name: The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+               
+               > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
         :param str storage_account_id: The ID of the Blob Storage Account where messages should be archived.
         """
         pulumi.set(__self__, "archive_name_format", archive_name_format)
@@ -785,6 +803,8 @@ class EventHubCaptureDescriptionDestination(dict):
     def name(self) -> str:
         """
         The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+
+        > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
         """
         return pulumi.get(self, "name")
 
@@ -828,6 +848,10 @@ class EventHubNamespaceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               
+               > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -852,6 +876,10 @@ class EventHubNamespaceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+
+        > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -909,6 +937,8 @@ class EventHubNamespaceNetworkRulesets(dict):
         :param str default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
         :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         :param bool public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+               
+               > **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
         :param bool trusted_service_access_enabled: Whether Trusted Microsoft Services are allowed to bypass firewall.
         :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
@@ -943,6 +973,8 @@ class EventHubNamespaceNetworkRulesets(dict):
     def public_network_access_enabled(self) -> Optional[bool]:
         """
         Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+
+        > **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1138,6 +1170,8 @@ class EventSubscriptionAdvancedFilter(dict):
         :param Sequence['EventSubscriptionAdvancedFilterBoolEqualArgs'] bool_equals: Compares a value of an event using a single boolean value.
         :param Sequence['EventSubscriptionAdvancedFilterIsNotNullArgs'] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
         :param Sequence['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs'] is_null_or_undefineds: Evaluates if a value of an event is NULL or undefined.
+               
+               Each nested block consists of a key and a value(s) element.
         :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs'] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
         :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanArgs'] number_greater_thans: Compares a value of an event using a single floating point number.
         :param Sequence['EventSubscriptionAdvancedFilterNumberInRangeArgs'] number_in_ranges: Compares a value of an event using multiple floating point number ranges.
@@ -1215,6 +1249,8 @@ class EventSubscriptionAdvancedFilter(dict):
     def is_null_or_undefineds(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterIsNullOrUndefined']]:
         """
         Evaluates if a value of an event is NULL or undefined.
+
+        Each nested block consists of a key and a value(s) element.
         """
         return pulumi.get(self, "is_null_or_undefineds")
 
@@ -1355,6 +1391,8 @@ class EventSubscriptionAdvancedFilterBoolEqual(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param bool value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1372,6 +1410,8 @@ class EventSubscriptionAdvancedFilterBoolEqual(dict):
     def value(self) -> bool:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -1420,6 +1460,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param float value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1437,6 +1479,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
     def value(self) -> float:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -1449,6 +1493,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param float value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1466,6 +1512,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
     def value(self) -> float:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -1478,6 +1526,8 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[float] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1495,6 +1545,8 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
     def values(self) -> Sequence[float]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1507,6 +1559,8 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[Sequence[float]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1524,6 +1578,8 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
     def values(self) -> Sequence[Sequence[float]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1536,6 +1592,8 @@ class EventSubscriptionAdvancedFilterNumberLessThan(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param float value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1553,6 +1611,8 @@ class EventSubscriptionAdvancedFilterNumberLessThan(dict):
     def value(self) -> float:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -1565,6 +1625,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param float value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1582,6 +1644,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
     def value(self) -> float:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -1594,6 +1658,8 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[float] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1611,6 +1677,8 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
     def values(self) -> Sequence[float]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1623,6 +1691,8 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[Sequence[float]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1640,6 +1710,8 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
     def values(self) -> Sequence[Sequence[float]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1652,6 +1724,8 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1669,6 +1743,8 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1681,6 +1757,8 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1698,6 +1776,8 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1710,6 +1790,8 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1727,6 +1809,8 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1739,6 +1823,8 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1756,6 +1842,8 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1768,6 +1856,8 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1785,6 +1875,8 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1797,6 +1889,8 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1814,6 +1908,8 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1826,6 +1922,8 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1843,6 +1941,8 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1855,6 +1955,8 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1872,6 +1974,8 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
     def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2535,6 +2639,8 @@ class NamespaceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
@@ -2559,6 +2665,8 @@ class NamespaceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2608,6 +2716,8 @@ class SubscriptionClientScopedSubscription(dict):
                  is_client_scoped_subscription_shareable: Optional[bool] = None):
         """
         :param str client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         :param bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
@@ -2623,6 +2733,8 @@ class SubscriptionClientScopedSubscription(dict):
     def client_id(self) -> Optional[str]:
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+
+        > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         """
         return pulumi.get(self, "client_id")
 
@@ -2688,6 +2800,8 @@ class SubscriptionRuleCorrelationFilter(dict):
         :param str label: Application specific label.
         :param str message_id: Identifier of the message.
         :param Mapping[str, str] properties: A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+               
+               > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         :param str reply_to: Address of the queue to reply to.
         :param str reply_to_session_id: Session identifier to reply to.
         :param str session_id: Session identifier.
@@ -2749,6 +2863,8 @@ class SubscriptionRuleCorrelationFilter(dict):
     def properties(self) -> Optional[Mapping[str, str]]:
         """
         A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+
+        > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         """
         return pulumi.get(self, "properties")
 

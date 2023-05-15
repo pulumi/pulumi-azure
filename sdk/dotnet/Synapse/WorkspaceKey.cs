@@ -153,6 +153,8 @@ namespace Pulumi.Azure.Synapse
     {
         /// <summary>
         /// Specifies if the workspace should be encrypted with this key.
+        /// 
+        /// &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         /// </summary>
         [Output("active")]
         public Output<bool> Active { get; private set; } = null!;
@@ -223,6 +225,8 @@ namespace Pulumi.Azure.Synapse
     {
         /// <summary>
         /// Specifies if the workspace should be encrypted with this key.
+        /// 
+        /// &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         /// </summary>
         [Input("active", required: true)]
         public Input<bool> Active { get; set; } = null!;
@@ -255,6 +259,8 @@ namespace Pulumi.Azure.Synapse
     {
         /// <summary>
         /// Specifies if the workspace should be encrypted with this key.
+        /// 
+        /// &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }

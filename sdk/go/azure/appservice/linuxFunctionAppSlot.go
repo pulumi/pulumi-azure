@@ -154,12 +154,17 @@ type LinuxFunctionAppSlot struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxFunctionAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrOutput `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -272,13 +277,18 @@ type linuxFunctionAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 }
 
 type LinuxFunctionAppSlotState struct {
@@ -347,12 +357,17 @@ type LinuxFunctionAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
@@ -408,13 +423,18 @@ type linuxFunctionAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a LinuxFunctionAppSlot resource.
@@ -466,12 +486,17 @@ type LinuxFunctionAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
@@ -725,11 +750,17 @@ func (o LinuxFunctionAppSlotOutput) StorageAccounts() LinuxFunctionAppSlotStorag
 }
 
 // The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+//
+// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+//
+// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 func (o LinuxFunctionAppSlotOutput) StorageKeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.StorageKeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
 // Should the Function App Slot use its Managed Identity to access storage.
+//
+// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 func (o LinuxFunctionAppSlotOutput) StorageUsesManagedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.StorageUsesManagedIdentity }).(pulumi.BoolPtrOutput)
 }
@@ -739,7 +770,6 @@ func (o LinuxFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o LinuxFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

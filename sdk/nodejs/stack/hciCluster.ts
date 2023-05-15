@@ -85,6 +85,8 @@ export class HciCluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -153,6 +155,8 @@ export interface HciClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -183,6 +187,8 @@ export interface HciClusterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
      */
     tenantId?: pulumi.Input<string>;
 }

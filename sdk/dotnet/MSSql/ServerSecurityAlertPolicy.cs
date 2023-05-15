@@ -119,6 +119,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+        /// 
+        /// &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
@@ -238,6 +240,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+        /// 
+        /// &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -322,6 +326,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+        /// 
+        /// &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {

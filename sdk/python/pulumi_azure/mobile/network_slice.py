@@ -247,7 +247,7 @@ class NetworkSlice(pulumi.CustomResource):
             mobile_country_code="001",
             mobile_network_code="01")
         example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=azurerm_mobile_network["test"]["id"],
+            mobile_network_id=example_network.id,
             location=example_resource_group.location,
             description="an example slice",
             single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
@@ -297,7 +297,7 @@ class NetworkSlice(pulumi.CustomResource):
             mobile_country_code="001",
             mobile_network_code="01")
         example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
-            mobile_network_id=azurerm_mobile_network["test"]["id"],
+            mobile_network_id=example_network.id,
             location=example_resource_group.location,
             description="an example slice",
             single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(

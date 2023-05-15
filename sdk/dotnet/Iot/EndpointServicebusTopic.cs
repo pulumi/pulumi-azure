@@ -111,6 +111,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+        /// 
+        /// &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Output("identityId")]
         public Output<string?> IdentityId { get; private set; } = null!;
@@ -219,6 +221,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+        /// 
+        /// &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -285,6 +289,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+        /// 
+        /// &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }

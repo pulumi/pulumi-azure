@@ -198,12 +198,16 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `file_step` block as defined below.
      * 
+     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * 
      */
     @Export(name="fileStep", refs={RegistryTaskFileStep.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskFileStep> fileStep;
 
     /**
      * @return A `file_step` block as defined below.
+     * 
+     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
      * 
      */
     public Output<Optional<RegistryTaskFileStep>> fileStep() {
@@ -268,12 +272,16 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `platform` block as defined below.
      * 
+     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * 
      */
     @Export(name="platform", refs={RegistryTaskPlatform.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskPlatform> platform;
 
     /**
      * @return A `platform` block as defined below.
+     * 
+     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
      * 
      */
     public Output<Optional<RegistryTaskPlatform>> platform() {

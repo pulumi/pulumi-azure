@@ -49,12 +49,16 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
     /**
      * The name of the Image Version.
      * 
+     * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return The name of the Image Version.
+     * 
+     * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
      */
     public Output<String> name() {
@@ -164,6 +168,8 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
         /**
          * @param name The name of the Image Version.
          * 
+         * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+         * 
          * @return builder
          * 
          */
@@ -174,6 +180,8 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param name The name of the Image Version.
+         * 
+         * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          * 
          * @return builder
          * 

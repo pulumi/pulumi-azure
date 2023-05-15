@@ -72,11 +72,15 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly dockerBridgeCidr!: pulumi.Output<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     *
+     * > **NOTE:** The Subnet must have a `/21` or larger address space.
      */
     public readonly infrastructureSubnetId!: pulumi.Output<string | undefined>;
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      */
     public readonly internalLoadBalancerEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -176,11 +180,15 @@ export interface EnvironmentState {
      */
     dockerBridgeCidr?: pulumi.Input<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     *
+     * > **NOTE:** The Subnet must have a `/21` or larger address space.
      */
     infrastructureSubnetId?: pulumi.Input<string>;
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      */
     internalLoadBalancerEnabled?: pulumi.Input<boolean>;
     /**
@@ -222,11 +230,15 @@ export interface EnvironmentState {
  */
 export interface EnvironmentArgs {
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     *
+     * > **NOTE:** The Subnet must have a `/21` or larger address space.
      */
     infrastructureSubnetId?: pulumi.Input<string>;
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      */
     internalLoadBalancerEnabled?: pulumi.Input<boolean>;
     /**

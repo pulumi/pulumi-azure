@@ -17,6 +17,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
+ * 
+ * !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.FunctionAppHybridConnection` resources instead.
+ * 
  * ## Example Usage
  * 
  * This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.

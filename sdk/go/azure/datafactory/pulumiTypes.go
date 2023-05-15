@@ -5476,7 +5476,6 @@ type DatasetParquetHttpServerLocation struct {
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
-	// ---
 	Path *string `pulumi:"path"`
 	// The base URL to the web server hosting the file.
 	RelativeUrl string `pulumi:"relativeUrl"`
@@ -5501,7 +5500,6 @@ type DatasetParquetHttpServerLocationArgs struct {
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
-	// ---
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The base URL to the web server hosting the file.
 	RelativeUrl pulumi.StringInput `pulumi:"relativeUrl"`
@@ -5600,7 +5598,6 @@ func (o DatasetParquetHttpServerLocationOutput) Filename() pulumi.StringOutput {
 }
 
 // The folder path to the file on the web server.
-// ---
 func (o DatasetParquetHttpServerLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetParquetHttpServerLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -5665,7 +5662,6 @@ func (o DatasetParquetHttpServerLocationPtrOutput) Filename() pulumi.StringPtrOu
 }
 
 // The folder path to the file on the web server.
-// ---
 func (o DatasetParquetHttpServerLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *string {
 		if v == nil {
@@ -6164,6 +6160,8 @@ type FactoryGithubConfiguration struct {
 	// Specifies the name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
+	//
+	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 	RootFolder string `pulumi:"rootFolder"`
 }
 
@@ -6188,6 +6186,8 @@ type FactoryGithubConfigurationArgs struct {
 	// Specifies the name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
+	//
+	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
 }
 
@@ -6289,6 +6289,8 @@ func (o FactoryGithubConfigurationOutput) RepositoryName() pulumi.StringOutput {
 }
 
 // Specifies the root folder within the repository. Set to `/` for the top level.
+//
+// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 func (o FactoryGithubConfigurationOutput) RootFolder() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
@@ -6358,6 +6360,8 @@ func (o FactoryGithubConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOu
 }
 
 // Specifies the root folder within the repository. Set to `/` for the top level.
+//
+// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
 		if v == nil {
@@ -6373,6 +6377,8 @@ type FactoryGlobalParameter struct {
 	// Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
 	Type string `pulumi:"type"`
 	// Specifies the global parameter value.
+	//
+	// > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
 	Value string `pulumi:"value"`
 }
 
@@ -6393,6 +6399,8 @@ type FactoryGlobalParameterArgs struct {
 	// Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the global parameter value.
+	//
+	// > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6458,6 +6466,8 @@ func (o FactoryGlobalParameterOutput) Type() pulumi.StringOutput {
 }
 
 // Specifies the global parameter value.
+//
+// > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
 func (o FactoryGlobalParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGlobalParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6484,6 +6494,8 @@ func (o FactoryGlobalParameterArrayOutput) Index(i pulumi.IntInput) FactoryGloba
 
 type FactoryIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -6506,6 +6518,8 @@ type FactoryIdentityInput interface {
 
 type FactoryIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -6593,6 +6607,8 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -6637,6 +6653,8 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FactoryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FactoryIdentity) []string {
 		if v == nil {
@@ -9940,6 +9958,10 @@ func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) VnetId() pulumi.Strin
 
 type IntegrationRuntimeSelfHostedRbacAuthorization struct {
 	// The resource identifier of the integration runtime to be shared.
+	//
+	// > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+	//
+	// For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
 	ResourceId string `pulumi:"resourceId"`
 }
 
@@ -9956,6 +9978,10 @@ type IntegrationRuntimeSelfHostedRbacAuthorizationInput interface {
 
 type IntegrationRuntimeSelfHostedRbacAuthorizationArgs struct {
 	// The resource identifier of the integration runtime to be shared.
+	//
+	// > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+	//
+	// For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
@@ -10011,6 +10037,10 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ToIntegrationRuntim
 }
 
 // The resource identifier of the integration runtime to be shared.
+//
+// > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+//
+// For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
 func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSelfHostedRbacAuthorization) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -10431,6 +10461,8 @@ type IntegrationRuntimeSsisExpressCustomSetup struct {
 	// The Environment Variables for the Azure-SSIS Integration Runtime.
 	Environment map[string]string `pulumi:"environment"`
 	// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+	//
+	// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 	PowershellVersion *string `pulumi:"powershellVersion"`
 }
 
@@ -10453,6 +10485,8 @@ type IntegrationRuntimeSsisExpressCustomSetupArgs struct {
 	// The Environment Variables for the Azure-SSIS Integration Runtime.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+	//
+	// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 	PowershellVersion pulumi.StringPtrInput `pulumi:"powershellVersion"`
 }
 
@@ -10553,6 +10587,8 @@ func (o IntegrationRuntimeSsisExpressCustomSetupOutput) Environment() pulumi.Str
 }
 
 // The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+//
+// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 func (o IntegrationRuntimeSsisExpressCustomSetupOutput) PowershellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) *string { return v.PowershellVersion }).(pulumi.StringPtrOutput)
 }
@@ -10612,6 +10648,8 @@ func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) Environment() pulumi.
 }
 
 // The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+//
+// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) PowershellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) *string {
 		if v == nil {
@@ -11686,6 +11724,8 @@ type IntegrationRuntimeSsisVnetIntegration struct {
 	// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
 	PublicIps []string `pulumi:"publicIps"`
 	// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	//
+	// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 	SubnetId *string `pulumi:"subnetId"`
 	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	SubnetName *string `pulumi:"subnetName"`
@@ -11708,6 +11748,8 @@ type IntegrationRuntimeSsisVnetIntegrationArgs struct {
 	// Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
 	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	//
+	// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
@@ -11798,6 +11840,8 @@ func (o IntegrationRuntimeSsisVnetIntegrationOutput) PublicIps() pulumi.StringAr
 }
 
 // id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+//
+// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 func (o IntegrationRuntimeSsisVnetIntegrationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -11847,6 +11891,8 @@ func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) PublicIps() pulumi.Strin
 }
 
 // id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+//
+// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) *string {
 		if v == nil {

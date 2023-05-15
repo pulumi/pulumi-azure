@@ -298,6 +298,10 @@ class ActionRuleSuppression(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a Monitor Action Rule which type is suppression.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleSuppression` resource instead.
+
         ## Example Usage
 
         ```python
@@ -355,6 +359,10 @@ class ActionRuleSuppression(pulumi.CustomResource):
                  args: ActionRuleSuppressionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Monitor Action Rule which type is suppression.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleSuppression` resource instead.
+
         ## Example Usage
 
         ```python

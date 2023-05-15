@@ -113,6 +113,8 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
+     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
@@ -120,21 +122,15 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
+     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Enable audit events to Azure Monitor? Defaults to `true`.
-     * 
-     */
     @Export(name="logMonitoringEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
-    /**
-     * @return Enable audit events to Azure Monitor? Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> logMonitoringEnabled() {
         return Codegen.optional(this.logMonitoringEnabled);
     }

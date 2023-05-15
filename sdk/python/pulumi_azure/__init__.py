@@ -2776,10 +2776,34 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cosmosdb/postgresqlCoordinatorConfiguration",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration": "PostgresqlCoordinatorConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cosmosdb/postgresqlFirewallRule",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
    "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule": "PostgresqlFirewallRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/postgresqlNodeConfiguration",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration": "PostgresqlNodeConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/postgresqlRole",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/postgresqlRole:PostgresqlRole": "PostgresqlRole"
   }
  },
  {
@@ -5456,6 +5480,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/workspace",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "msi/userAssignedIdentity",
   "fqn": "pulumi_azure.msi",
   "classes": {
@@ -6076,6 +6108,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration": "NetworkManagerConnectivityConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerDeployment",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerDeployment:NetworkManagerDeployment": "NetworkManagerDeployment"
   }
  },
  {

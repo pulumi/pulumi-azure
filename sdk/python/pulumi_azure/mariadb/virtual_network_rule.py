@@ -23,7 +23,15 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the MariaDB server will be connected to.
+               
+               > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         :param pulumi.Input[str] name: The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -60,6 +68,8 @@ class VirtualNetworkRuleArgs:
     def subnet_id(self) -> pulumi.Input[str]:
         """
         The ID of the subnet that the MariaDB server will be connected to.
+
+        > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -72,6 +82,12 @@ class VirtualNetworkRuleArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+
+        > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+
+        1. Contains only alphanumeric and hyphen characters
+        2. Cannot start with a number or hyphen
+        3. Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -90,9 +106,17 @@ class _VirtualNetworkRuleState:
         """
         Input properties used for looking up and filtering VirtualNetworkRule resources.
         :param pulumi.Input[str] name: The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the MariaDB server will be connected to.
+               
+               > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -108,6 +132,12 @@ class _VirtualNetworkRuleState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+
+        > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+
+        1. Contains only alphanumeric and hyphen characters
+        2. Cannot start with a number or hyphen
+        3. Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -144,6 +174,8 @@ class _VirtualNetworkRuleState:
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the subnet that the MariaDB server will be connected to.
+
+        > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -208,9 +240,17 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the MariaDB server will be connected to.
+               
+               > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         """
         ...
     @overload
@@ -321,9 +361,17 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the MariaDB server will be connected to.
+               
+               > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,6 +388,12 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+
+        > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+
+        1. Contains only alphanumeric and hyphen characters
+        2. Cannot start with a number or hyphen
+        3. Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -364,6 +418,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the subnet that the MariaDB server will be connected to.
+
+        > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
         """
         return pulumi.get(self, "subnet_id")
 

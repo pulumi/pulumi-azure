@@ -38,6 +38,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        /// 
+        /// &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         /// </summary>
         [Input("javaServer")]
         public Input<string>? JavaServer { get; set; }
@@ -50,18 +52,24 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The Version of Java to use. Possible values include `8`, `11`, and `17`.
+        /// 
+        /// &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
         /// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
+        /// 
+        /// &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
         /// The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+        /// 
+        /// &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }

@@ -124,8 +124,14 @@ type FlexibleServer struct {
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrOutput `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
+	//
+	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
+	//
+	// > **NOTE:** `identity` is required when `customerManagedKey` is specified.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrOutput `pulumi:"delegatedSubnetId"`
@@ -146,16 +152,22 @@ type FlexibleServer struct {
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrOutput `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrOutput `pulumi:"privateDnsZoneId"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The maximum number of replicas that a primary MySQL Flexible Server can have.
 	ReplicaCapacity pulumi.IntOutput `pulumi:"replicaCapacity"`
 	// The replication role. Possible value is `None`.
+	//
+	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
 	ReplicationRole pulumi.StringOutput `pulumi:"replicationRole"`
 	// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU Name for the MySQL Flexible Server.
+	//
+	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
@@ -215,8 +227,14 @@ type flexibleServerState struct {
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
+	//
+	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
+	//
+	// > **NOTE:** `identity` is required when `customerManagedKey` is specified.
 	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
@@ -237,16 +255,22 @@ type flexibleServerState struct {
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The maximum number of replicas that a primary MySQL Flexible Server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
 	// The replication role. Possible value is `None`.
+	//
+	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU Name for the MySQL Flexible Server.
+	//
+	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
@@ -268,8 +292,14 @@ type FlexibleServerState struct {
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
+	//
+	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
+	//
+	// > **NOTE:** `identity` is required when `customerManagedKey` is specified.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrInput
@@ -290,16 +320,22 @@ type FlexibleServerState struct {
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
 	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The maximum number of replicas that a primary MySQL Flexible Server can have.
 	ReplicaCapacity pulumi.IntPtrInput
 	// The replication role. Possible value is `None`.
+	//
+	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU Name for the MySQL Flexible Server.
+	//
+	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
@@ -325,8 +361,14 @@ type flexibleServerArgs struct {
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
+	//
+	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
+	//
+	// > **NOTE:** `identity` is required when `customerManagedKey` is specified.
 	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
@@ -345,12 +387,18 @@ type flexibleServerArgs struct {
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The replication role. Possible value is `None`.
+	//
+	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU Name for the MySQL Flexible Server.
+	//
+	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
@@ -373,8 +421,14 @@ type FlexibleServerArgs struct {
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
+	//
+	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
+	//
+	// > **NOTE:** `identity` is required when `customerManagedKey` is specified.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrInput
@@ -393,12 +447,18 @@ type FlexibleServerArgs struct {
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
 	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **NOTE:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The replication role. Possible value is `None`.
+	//
+	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU Name for the MySQL Flexible Server.
+	//
+	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
@@ -515,11 +575,17 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 }
 
 // The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+//
+// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
+//
+// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
 // A `customerManagedKey` block as defined below.
+//
+// > **NOTE:** `identity` is required when `customerManagedKey` is specified.
 func (o FlexibleServerOutput) CustomerManagedKey() FlexibleServerCustomerManagedKeyPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) FlexibleServerCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(FlexibleServerCustomerManagedKeyPtrOutput)
 }
@@ -570,6 +636,8 @@ func (o FlexibleServerOutput) PointInTimeRestoreTimeInUtc() pulumi.StringPtrOutp
 }
 
 // The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+//
+// > **NOTE:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
 func (o FlexibleServerOutput) PrivateDnsZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.PrivateDnsZoneId }).(pulumi.StringPtrOutput)
 }
@@ -585,6 +653,8 @@ func (o FlexibleServerOutput) ReplicaCapacity() pulumi.IntOutput {
 }
 
 // The replication role. Possible value is `None`.
+//
+// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
 func (o FlexibleServerOutput) ReplicationRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.ReplicationRole }).(pulumi.StringOutput)
 }
@@ -595,6 +665,8 @@ func (o FlexibleServerOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The SKU Name for the MySQL Flexible Server.
+//
+// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 func (o FlexibleServerOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

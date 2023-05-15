@@ -43,6 +43,8 @@ public final class GroupContainer {
     /**
      * @return A `gpu` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
+     * 
      */
     private @Nullable GroupContainerGpu gpu;
     /**
@@ -127,6 +129,8 @@ public final class GroupContainer {
     }
     /**
      * @return A `gpu` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Gpu resources are currently only supported in Linux containers.
      * 
      */
     public Optional<GroupContainerGpu> gpu() {

@@ -74,6 +74,8 @@ export class Product extends pulumi.CustomResource {
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
+     *
+     * > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
     public readonly approvalRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -102,6 +104,8 @@ export class Product extends pulumi.CustomResource {
     public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
+     *
+     * > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
     public readonly subscriptionsLimit!: pulumi.Output<number | undefined>;
     /**
@@ -175,6 +179,8 @@ export interface ProductState {
     apiManagementName?: pulumi.Input<string>;
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
+     *
+     * > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
     approvalRequired?: pulumi.Input<boolean>;
     /**
@@ -203,6 +209,8 @@ export interface ProductState {
     subscriptionRequired?: pulumi.Input<boolean>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
+     *
+     * > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
     subscriptionsLimit?: pulumi.Input<number>;
     /**
@@ -221,6 +229,8 @@ export interface ProductArgs {
     apiManagementName: pulumi.Input<string>;
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
+     *
+     * > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
     approvalRequired?: pulumi.Input<boolean>;
     /**
@@ -249,6 +259,8 @@ export interface ProductArgs {
     subscriptionRequired?: pulumi.Input<boolean>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
+     *
+     * > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
     subscriptionsLimit?: pulumi.Input<number>;
     /**

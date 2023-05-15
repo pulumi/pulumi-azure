@@ -14,20 +14,28 @@ public final class OutputBlobSerialization {
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * 
      */
     private @Nullable String encoding;
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
      * 
      */
     private @Nullable String fieldDelimiter;
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
+     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * 
      */
     private @Nullable String format;
     /**
      * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
+     * 
+     * &gt; **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
      * 
      */
     private String type;
@@ -36,12 +44,16 @@ public final class OutputBlobSerialization {
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * 
      */
     public Optional<String> encoding() {
         return Optional.ofNullable(this.encoding);
     }
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
      * 
      */
     public Optional<String> fieldDelimiter() {
@@ -50,12 +62,16 @@ public final class OutputBlobSerialization {
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
+     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * 
      */
     public Optional<String> format() {
         return Optional.ofNullable(this.format);
     }
     /**
      * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
+     * 
+     * &gt; **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
      * 
      */
     public String type() {

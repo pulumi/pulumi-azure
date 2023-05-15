@@ -246,6 +246,8 @@ export class Certifiate extends pulumi.CustomResource {
     public /*out*/ readonly certificateDataBase64!: pulumi.Output<string>;
     /**
      * A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
     public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertifiateCertificatePolicy>;
     /**
@@ -368,6 +370,8 @@ export interface CertifiateState {
     certificateDataBase64?: pulumi.Input<string>;
     /**
      * A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**
@@ -422,6 +426,8 @@ export interface CertifiateArgs {
     certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
     /**
      * A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**

@@ -38,6 +38,8 @@ namespace Pulumi.Azure.AppInsights.Inputs
 
         /// <summary>
         /// Type of workbook supported by the workbook template. Defaults to `workbook`.
+        /// 
+        /// &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

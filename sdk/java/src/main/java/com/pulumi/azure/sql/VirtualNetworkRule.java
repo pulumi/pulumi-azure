@@ -16,6 +16,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
+ * 
+ * &gt; **Note:** The `azure.sql.VirtualNetworkRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.VirtualNetworkRule` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -95,12 +99,16 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
      * 
+     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+     * 
      */
     @Export(name="ignoreMissingVnetServiceEndpoint", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
      * @return Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+     * 
+     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
     public Output<Optional<Boolean>> ignoreMissingVnetServiceEndpoint() {
@@ -109,12 +117,24 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
      * 
+     * &gt; **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+     * 
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+     * 
+     * &gt; **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+     * 
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
      * 
      */
     public Output<String> name() {

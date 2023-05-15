@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
+    /// Manages a Function App.
+    /// 
+    /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.LinuxFunctionApp` resources instead.
+    /// 
+    /// &gt; **Note:** To connect an Azure Function App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
+    /// For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
+    /// 
     /// ## Example Usage
     /// ### With App Service Plan)
     /// 
@@ -173,6 +180,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
@@ -263,6 +272,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
+        /// 
+        /// &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
@@ -305,6 +316,10 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
+        /// 
+        /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+        /// 
+        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string> StorageAccountAccessKey { get; private set; } = null!;
@@ -388,6 +403,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -469,6 +486,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
+        /// 
+        /// &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -496,6 +515,10 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
+        /// 
+        /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+        /// 
+        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -550,6 +573,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -649,6 +674,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
+        /// 
+        /// &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -700,6 +727,10 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
+        /// 
+        /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+        /// 
+        /// &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {

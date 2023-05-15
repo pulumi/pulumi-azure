@@ -20,12 +20,20 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
     /**
      * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
      * 
+     * &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+     * 
+     * &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
+     * 
      */
     @Import(name="cmkKeyVaultUrl")
     private @Nullable Output<String> cmkKeyVaultUrl;
 
     /**
      * @return The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     * 
+     * &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+     * 
+     * &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      * 
      */
     public Optional<Output<String>> cmkKeyVaultUrl() {
@@ -140,6 +148,8 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
     /**
      * Is the Bot Channels Registration in an isolated network?
      * 
+     * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      * @deprecated
      * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      * 
@@ -150,6 +160,8 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return Is the Bot Channels Registration in an isolated network?
+     * 
+     * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      * 
      * @deprecated
      * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
@@ -323,6 +335,10 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         /**
          * @param cmkKeyVaultUrl The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
          * 
+         * &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+         * 
+         * &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
+         * 
          * @return builder
          * 
          */
@@ -333,6 +349,10 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param cmkKeyVaultUrl The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+         * 
+         * &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+         * 
+         * &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
          * 
          * @return builder
          * 
@@ -491,6 +511,8 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         /**
          * @param isolatedNetworkEnabled Is the Bot Channels Registration in an isolated network?
          * 
+         * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -505,6 +527,8 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param isolatedNetworkEnabled Is the Bot Channels Registration in an isolated network?
+         * 
+         * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
          * 
          * @return builder
          * 

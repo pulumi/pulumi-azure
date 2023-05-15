@@ -22,6 +22,10 @@ class ManagedInstanceTransparentDataEncryptionArgs:
         :param pulumi.Input[str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         pulumi.set(__self__, "managed_instance_id", managed_instance_id)
         if auto_rotation_enabled is not None:
@@ -58,6 +62,10 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -76,6 +84,10 @@ class _ManagedInstanceTransparentDataEncryptionState:
         Input properties used for looking up and filtering ManagedInstanceTransparentDataEncryption resources.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
         if auto_rotation_enabled is not None:
@@ -102,6 +114,10 @@ class _ManagedInstanceTransparentDataEncryptionState:
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -134,7 +150,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         """
         Manages the transparent data encryption configuration for a MSSQL Managed Instance
 
-        > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+        !> **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+
+        > **NOTE:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
 
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
@@ -280,6 +298,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
         ...
@@ -291,7 +313,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         """
         Manages the transparent data encryption configuration for a MSSQL Managed Instance
 
-        > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+        !> **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+
+        > **NOTE:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
 
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
@@ -487,6 +511,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -511,6 +539,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
     def key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 

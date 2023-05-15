@@ -19,12 +19,16 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * 
      */
     @Import(name="automationAccountId")
     private @Nullable Output<String> automationAccountId;
 
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+     * 
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
      * 
      */
     public Optional<Output<String>> automationAccountId() {
@@ -34,12 +38,16 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
      * 
+     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
+     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
      * @return Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+     * 
+     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -74,6 +82,8 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
+         * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+         * 
          * @return builder
          * 
          */
@@ -85,6 +95,8 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
+         * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+         * 
          * @return builder
          * 
          */
@@ -94,6 +106,8 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
 
         /**
          * @param enabled Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+         * 
+         * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
          * 
          * @return builder
          * 
@@ -105,6 +119,8 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
 
         /**
          * @param enabled Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+         * 
+         * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
          * 
          * @return builder
          * 

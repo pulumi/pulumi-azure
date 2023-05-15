@@ -105,12 +105,18 @@ type AlertRuleScheduled struct {
 	// The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
 	QueryFrequency pulumi.StringPtrOutput `pulumi:"queryFrequency"`
 	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+	//
+	// > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
 	QueryPeriod pulumi.StringPtrOutput `pulumi:"queryPeriod"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleScheduledSentinelEntityMappingArrayOutput `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+	//
+	// > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
 	SuppressionDuration pulumi.StringPtrOutput `pulumi:"suppressionDuration"`
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrOutput `pulumi:"suppressionEnabled"`
@@ -194,12 +200,18 @@ type alertRuleScheduledState struct {
 	// The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
 	QueryFrequency *string `pulumi:"queryFrequency"`
 	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+	//
+	// > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
 	QueryPeriod *string `pulumi:"queryPeriod"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings []AlertRuleScheduledSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity *string `pulumi:"severity"`
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+	//
+	// > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
 	SuppressionDuration *string `pulumi:"suppressionDuration"`
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
@@ -243,12 +255,18 @@ type AlertRuleScheduledState struct {
 	// The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
 	QueryFrequency pulumi.StringPtrInput
 	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+	//
+	// > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
 	QueryPeriod pulumi.StringPtrInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleScheduledSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringPtrInput
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+	//
+	// > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
 	SuppressionDuration pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrInput
@@ -296,12 +314,18 @@ type alertRuleScheduledArgs struct {
 	// The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
 	QueryFrequency *string `pulumi:"queryFrequency"`
 	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+	//
+	// > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
 	QueryPeriod *string `pulumi:"queryPeriod"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings []AlertRuleScheduledSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity string `pulumi:"severity"`
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+	//
+	// > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
 	SuppressionDuration *string `pulumi:"suppressionDuration"`
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
@@ -346,12 +370,18 @@ type AlertRuleScheduledArgs struct {
 	// The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
 	QueryFrequency pulumi.StringPtrInput
 	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+	//
+	// > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
 	QueryPeriod pulumi.StringPtrInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleScheduledSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringInput
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+	//
+	// > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
 	SuppressionDuration pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrInput
@@ -527,11 +557,15 @@ func (o AlertRuleScheduledOutput) QueryFrequency() pulumi.StringPtrOutput {
 }
 
 // The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+//
+// > **NOTE** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
 func (o AlertRuleScheduledOutput) QueryPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringPtrOutput { return v.QueryPeriod }).(pulumi.StringPtrOutput)
 }
 
 // A list of `sentinelEntityMapping` blocks as defined below.
+//
+// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 func (o AlertRuleScheduledOutput) SentinelEntityMappings() AlertRuleScheduledSentinelEntityMappingArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledSentinelEntityMappingArrayOutput {
 		return v.SentinelEntityMappings
@@ -544,6 +578,8 @@ func (o AlertRuleScheduledOutput) Severity() pulumi.StringOutput {
 }
 
 // If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+//
+// > **NOTE** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
 func (o AlertRuleScheduledOutput) SuppressionDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringPtrOutput { return v.SuppressionDuration }).(pulumi.StringPtrOutput)
 }

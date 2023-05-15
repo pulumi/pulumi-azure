@@ -19,12 +19,16 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
     /**
      * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
      * 
+     * &gt; **NOTE:** Azure may add default actions depending on the service delegation name and they can&#39;t be changed.
+     * 
      */
     @Import(name="actions")
     private @Nullable Output<List<String>> actions;
 
     /**
      * @return A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+     * 
+     * &gt; **NOTE:** Azure may add default actions depending on the service delegation name and they can&#39;t be changed.
      * 
      */
     public Optional<Output<List<String>>> actions() {
@@ -74,6 +78,8 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
         /**
          * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          * 
+         * &gt; **NOTE:** Azure may add default actions depending on the service delegation name and they can&#39;t be changed.
+         * 
          * @return builder
          * 
          */
@@ -85,6 +91,8 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
         /**
          * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          * 
+         * &gt; **NOTE:** Azure may add default actions depending on the service delegation name and they can&#39;t be changed.
+         * 
          * @return builder
          * 
          */
@@ -94,6 +102,8 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
 
         /**
          * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * 
+         * &gt; **NOTE:** Azure may add default actions depending on the service delegation name and they can&#39;t be changed.
          * 
          * @return builder
          * 

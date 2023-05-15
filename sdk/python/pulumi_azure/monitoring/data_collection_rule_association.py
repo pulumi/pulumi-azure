@@ -24,8 +24,12 @@ class DataCollectionRuleAssociationArgs:
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule which will be associated to the target resource.
+               
+               > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         :param pulumi.Input[str] description: The description of the Data Collection Rule Association.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+               
+               > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         """
         pulumi.set(__self__, "target_resource_id", target_resource_id)
         if data_collection_endpoint_id is not None:
@@ -66,6 +70,8 @@ class DataCollectionRuleAssociationArgs:
     def data_collection_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Data Collection Rule which will be associated to the target resource.
+
+        > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         """
         return pulumi.get(self, "data_collection_rule_id")
 
@@ -90,6 +96,8 @@ class DataCollectionRuleAssociationArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+
+        > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         """
         return pulumi.get(self, "name")
 
@@ -110,8 +118,12 @@ class _DataCollectionRuleAssociationState:
         Input properties used for looking up and filtering DataCollectionRuleAssociation resources.
         :param pulumi.Input[str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule which will be associated to the target resource.
+               
+               > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         :param pulumi.Input[str] description: The description of the Data Collection Rule Association.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+               
+               > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         """
         if data_collection_endpoint_id is not None:
@@ -142,6 +154,8 @@ class _DataCollectionRuleAssociationState:
     def data_collection_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Data Collection Rule which will be associated to the target resource.
+
+        > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         """
         return pulumi.get(self, "data_collection_rule_id")
 
@@ -166,6 +180,8 @@ class _DataCollectionRuleAssociationState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+
+        > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         """
         return pulumi.get(self, "name")
 
@@ -280,8 +296,12 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule which will be associated to the target resource.
+               
+               > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         :param pulumi.Input[str] description: The description of the Data Collection Rule Association.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+               
+               > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         """
         ...
@@ -429,8 +449,12 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule which will be associated to the target resource.
+               
+               > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         :param pulumi.Input[str] description: The description of the Data Collection Rule Association.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+               
+               > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -457,6 +481,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
     def data_collection_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Data Collection Rule which will be associated to the target resource.
+
+        > **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         """
         return pulumi.get(self, "data_collection_rule_id")
 
@@ -473,6 +499,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+
+        > **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         """
         return pulumi.get(self, "name")
 

@@ -127,6 +127,8 @@ type AaaaRecord struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
@@ -183,6 +185,8 @@ type aaaaRecordState struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -202,6 +206,8 @@ type AaaaRecordState struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
@@ -223,6 +229,8 @@ type aaaaRecordArgs struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -241,6 +249,8 @@ type AaaaRecordArgs struct {
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
@@ -358,6 +368,8 @@ func (o AaaaRecordOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
 func (o AaaaRecordOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AaaaRecord) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

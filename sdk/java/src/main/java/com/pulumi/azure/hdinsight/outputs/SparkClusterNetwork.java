@@ -15,6 +15,8 @@ public final class SparkClusterNetwork {
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+     * 
      */
     private @Nullable String connectionDirection;
     /**
@@ -26,6 +28,8 @@ public final class SparkClusterNetwork {
     private SparkClusterNetwork() {}
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
      * 
      */
     public Optional<String> connectionDirection() {

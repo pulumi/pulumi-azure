@@ -38,17 +38,17 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
      * 
+     * &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     private @Nullable Boolean disablePasswordAuthentication;
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     */
-    private @Nullable String patchAssessmentMode;
-    /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
+    private @Nullable String patchAssessmentMode;
     private @Nullable String patchMode;
     /**
      * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -93,6 +93,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
      * 
+     * &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     public Optional<Boolean> disablePasswordAuthentication() {
         return Optional.ofNullable(this.disablePasswordAuthentication);
@@ -100,14 +102,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * 
      */
     public Optional<String> patchAssessmentMode() {
         return Optional.ofNullable(this.patchAssessmentMode);
     }
-    /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-     * 
-     */
     public Optional<String> patchMode() {
         return Optional.ofNullable(this.patchMode);
     }

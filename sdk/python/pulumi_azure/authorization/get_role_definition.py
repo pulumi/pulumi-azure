@@ -129,8 +129,12 @@ def get_role_definition(name: Optional[str] = None,
 
 
     :param str name: Specifies the Name of either a built-in or custom Role Definition.
+           
+           > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
     :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
     :param str scope: Specifies the Scope at which the Custom Role Definition exists.
+           
+           > **Note:** One of `name` or `role_definition_id` must be specified.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -160,7 +164,11 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = Non
 
 
     :param str name: Specifies the Name of either a built-in or custom Role Definition.
+           
+           > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
     :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
     :param str scope: Specifies the Scope at which the Custom Role Definition exists.
+           
+           > **Note:** One of `name` or `role_definition_id` must be specified.
     """
     ...

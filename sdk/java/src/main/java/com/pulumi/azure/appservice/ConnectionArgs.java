@@ -35,12 +35,16 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The authentication info. An `authentication` block as defined below.
      * 
+     * &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
+     * 
      */
     @Import(name="authentication", required=true)
     private Output<ConnectionAuthenticationArgs> authentication;
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
+     * 
+     * &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      * 
      */
     public Output<ConnectionAuthenticationArgs> authentication() {
@@ -176,6 +180,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
          * 
+         * &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
+         * 
          * @return builder
          * 
          */
@@ -186,6 +192,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
+         * 
+         * &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
          * 
          * @return builder
          * 

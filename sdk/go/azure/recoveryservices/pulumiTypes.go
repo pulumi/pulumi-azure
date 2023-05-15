@@ -16,6 +16,10 @@ type VaultEncryption struct {
 	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
 	KeyId string `pulumi:"keyId"`
 	// Indicate that system assigned identity should be used or not. Defaults to `true`.
+	//
+	// !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+	//
+	// !> **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
 	// Specifies the user assigned identity ID to be used.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -38,6 +42,10 @@ type VaultEncryptionArgs struct {
 	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Indicate that system assigned identity should be used or not. Defaults to `true`.
+	//
+	// !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+	//
+	// !> **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
 	// Specifies the user assigned identity ID to be used.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
@@ -131,6 +139,10 @@ func (o VaultEncryptionOutput) KeyId() pulumi.StringOutput {
 }
 
 // Indicate that system assigned identity should be used or not. Defaults to `true`.
+//
+// !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+//
+// !> **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 func (o VaultEncryptionOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultEncryption) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
 }
@@ -185,6 +197,10 @@ func (o VaultEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
 }
 
 // Indicate that system assigned identity should be used or not. Defaults to `true`.
+//
+// !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+//
+// !> **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 func (o VaultEncryptionPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultEncryption) *bool {
 		if v == nil {
@@ -206,6 +222,8 @@ func (o VaultEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutpu
 
 type VaultIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	//
+	// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -228,6 +246,8 @@ type VaultIdentityInput interface {
 
 type VaultIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+	//
+	// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -315,6 +335,8 @@ func (o VaultIdentityOutput) ToVaultIdentityPtrOutputWithContext(ctx context.Con
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+//
+// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o VaultIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VaultIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -359,6 +381,8 @@ func (o VaultIdentityPtrOutput) Elem() VaultIdentityOutput {
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+//
+// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o VaultIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VaultIdentity) []string {
 		if v == nil {

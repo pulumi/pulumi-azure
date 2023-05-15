@@ -19,12 +19,16 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
      * 
+     * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+     * 
+     * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -106,6 +110,8 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
          * 
+         * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
          * 
+         * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +134,8 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         * 
+         * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
          * 
          * @return builder
          * 

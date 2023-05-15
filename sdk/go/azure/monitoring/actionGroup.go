@@ -61,9 +61,9 @@ import (
 //				AutomationRunbookReceivers: monitoring.ActionGroupAutomationRunbookReceiverArray{
 //					&monitoring.ActionGroupAutomationRunbookReceiverArgs{
 //						Name:                 pulumi.String("action_name_1"),
-//						AutomationAccountId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001"),
+//						AutomationAccountId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001"),
 //						RunbookName:          pulumi.String("my runbook"),
-//						WebhookResourceId:    pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert"),
+//						WebhookResourceId:    pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert"),
 //						IsGlobalRunbook:      pulumi.Bool(true),
 //						ServiceUri:           pulumi.String("https://s13events.azure-automation.net/webhooks?token=randomtoken"),
 //						UseCommonAlertSchema: pulumi.Bool(true),

@@ -110,6 +110,8 @@ class NamespaceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
@@ -134,6 +136,8 @@ class NamespaceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -232,6 +236,8 @@ class SubscriptionClientScopedSubscription(dict):
                  is_client_scoped_subscription_shareable: Optional[bool] = None):
         """
         :param str client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         :param bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
@@ -247,6 +253,8 @@ class SubscriptionClientScopedSubscription(dict):
     def client_id(self) -> Optional[str]:
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+
+        > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         """
         return pulumi.get(self, "client_id")
 
@@ -312,6 +320,8 @@ class SubscriptionRuleCorrelationFilter(dict):
         :param str label: Application specific label.
         :param str message_id: Identifier of the message.
         :param Mapping[str, str] properties: A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+               
+               > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         :param str reply_to: Address of the queue to reply to.
         :param str reply_to_session_id: Session identifier to reply to.
         :param str session_id: Session identifier.
@@ -373,6 +383,8 @@ class SubscriptionRuleCorrelationFilter(dict):
     def properties(self) -> Optional[Mapping[str, str]]:
         """
         A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+
+        > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         """
         return pulumi.get(self, "properties")
 

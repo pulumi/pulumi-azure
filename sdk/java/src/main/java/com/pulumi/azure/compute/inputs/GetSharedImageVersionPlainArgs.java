@@ -48,12 +48,16 @@ public final class GetSharedImageVersionPlainArgs extends com.pulumi.resources.I
     /**
      * The name of the Image Version.
      * 
+     * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+     * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
      * @return The name of the Image Version.
+     * 
+     * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
      */
     public String name() {
@@ -142,6 +146,8 @@ public final class GetSharedImageVersionPlainArgs extends com.pulumi.resources.I
 
         /**
          * @param name The name of the Image Version.
+         * 
+         * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          * 
          * @return builder
          * 

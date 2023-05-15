@@ -16,6 +16,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
     /**
      * @return The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
      * 
+     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * 
      */
     private @Nullable String customData;
     /**
@@ -32,6 +34,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
     private OrchestratedVirtualMachineScaleSetOsProfile() {}
     /**
      * @return The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * 
+     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
     public Optional<String> customData() {

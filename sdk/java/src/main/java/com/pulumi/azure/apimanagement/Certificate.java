@@ -225,12 +225,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      * 
+     * &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+     * 
      */
     @Export(name="keyVaultIdentityClientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultIdentityClientId;
 
     /**
      * @return The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+     * 
+     * &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
      * 
      */
     public Output<Optional<String>> keyVaultIdentityClientId() {
@@ -239,12 +243,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      * 
+     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn&#39;t specified.
+     * 
      */
     @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultSecretId;
 
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn&#39;t specified.
      * 
      */
     public Output<Optional<String>> keyVaultSecretId() {
@@ -281,12 +289,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+     * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
      * @return The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
      * 
      */
     public Output<String> resourceGroupName() {

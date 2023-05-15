@@ -135,8 +135,12 @@ type Hub struct {
 	// Possible values are `true`, `false`.
 	AnonymousConnectionsEnabled pulumi.BoolPtrOutput `pulumi:"anonymousConnectionsEnabled"`
 	// An `eventHandler` block as defined below.
+	//
+	// > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
 	EventHandlers HubEventHandlerArrayOutput `pulumi:"eventHandlers"`
 	// An `eventListener` block as defined below.
+	//
+	// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
 	EventListeners HubEventListenerArrayOutput `pulumi:"eventListeners"`
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -180,8 +184,12 @@ type hubState struct {
 	// Possible values are `true`, `false`.
 	AnonymousConnectionsEnabled *bool `pulumi:"anonymousConnectionsEnabled"`
 	// An `eventHandler` block as defined below.
+	//
+	// > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
 	EventHandlers []HubEventHandler `pulumi:"eventHandlers"`
 	// An `eventListener` block as defined below.
+	//
+	// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
 	EventListeners []HubEventListener `pulumi:"eventListeners"`
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -194,8 +202,12 @@ type HubState struct {
 	// Possible values are `true`, `false`.
 	AnonymousConnectionsEnabled pulumi.BoolPtrInput
 	// An `eventHandler` block as defined below.
+	//
+	// > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
 	EventHandlers HubEventHandlerArrayInput
 	// An `eventListener` block as defined below.
+	//
+	// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
 	EventListeners HubEventListenerArrayInput
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -212,8 +224,12 @@ type hubArgs struct {
 	// Possible values are `true`, `false`.
 	AnonymousConnectionsEnabled *bool `pulumi:"anonymousConnectionsEnabled"`
 	// An `eventHandler` block as defined below.
+	//
+	// > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
 	EventHandlers []HubEventHandler `pulumi:"eventHandlers"`
 	// An `eventListener` block as defined below.
+	//
+	// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
 	EventListeners []HubEventListener `pulumi:"eventListeners"`
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -227,8 +243,12 @@ type HubArgs struct {
 	// Possible values are `true`, `false`.
 	AnonymousConnectionsEnabled pulumi.BoolPtrInput
 	// An `eventHandler` block as defined below.
+	//
+	// > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
 	EventHandlers HubEventHandlerArrayInput
 	// An `eventListener` block as defined below.
+	//
+	// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
 	EventListeners HubEventListenerArrayInput
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -330,11 +350,15 @@ func (o HubOutput) AnonymousConnectionsEnabled() pulumi.BoolPtrOutput {
 }
 
 // An `eventHandler` block as defined below.
+//
+// > **NOTE:** User can change the order of `eventHandler` to change the priority accordingly.
 func (o HubOutput) EventHandlers() HubEventHandlerArrayOutput {
 	return o.ApplyT(func(v *Hub) HubEventHandlerArrayOutput { return v.EventHandlers }).(HubEventHandlerArrayOutput)
 }
 
 // An `eventListener` block as defined below.
+//
+// > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
 func (o HubOutput) EventListeners() HubEventListenerArrayOutput {
 	return o.ApplyT(func(v *Hub) HubEventListenerArrayOutput { return v.EventListeners }).(HubEventListenerArrayOutput)
 }

@@ -147,6 +147,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        /// 
+        /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Output("probePath")]
         public Output<string> ProbePath { get; private set; } = null!;
@@ -325,6 +327,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        /// 
+        /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Input("probePath")]
         public Input<string>? ProbePath { get; set; }
@@ -477,6 +481,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        /// 
+        /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Input("probePath")]
         public Input<string>? ProbePath { get; set; }

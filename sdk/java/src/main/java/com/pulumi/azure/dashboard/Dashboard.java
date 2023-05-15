@@ -16,6 +16,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a shared dashboard in the Azure Portal.
+ * 
+ * !&gt; **Note:** The `azure.portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.portal.PortalDashboard` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -222,12 +226,16 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      * 
      */
     public Output<String> name() {

@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * Manages an Azure Cost Management View for a Subscription.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -55,7 +54,6 @@ import javax.annotation.Nullable;
  *                     .name(&#34;totalCost&#34;)
  *                     .build())
  *                 .granularity(&#34;Monthly&#34;)
- *                 .totalCost(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .displayName(&#34;Cost View per Month&#34;)
  *             .reportType(&#34;Usage&#34;)

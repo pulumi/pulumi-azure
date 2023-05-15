@@ -26,6 +26,8 @@ namespace Pulumi.Azure.Synapse.Inputs
 
         /// <summary>
         /// Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+        /// 
+        /// &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
         /// </summary>
         [Input("gitUrl")]
         public Input<string>? GitUrl { get; set; }

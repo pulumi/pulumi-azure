@@ -38,6 +38,8 @@ class JobArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+               
+               > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
@@ -50,8 +52,12 @@ class JobArgs:
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+               
+               > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "transformation_query", transformation_query)
@@ -115,6 +121,8 @@ class JobArgs:
     def compatibility_level(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+
+        > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         """
         return pulumi.get(self, "compatibility_level")
 
@@ -259,6 +267,8 @@ class JobArgs:
     def streaming_units(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+
+        > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         """
         return pulumi.get(self, "streaming_units")
 
@@ -283,6 +293,8 @@ class JobArgs:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         return pulumi.get(self, "type")
 
@@ -315,6 +327,8 @@ class _JobState:
         """
         Input properties used for looking up and filtering Job resources.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+               
+               > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
@@ -329,9 +343,13 @@ class _JobState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+               
+               > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -375,6 +393,8 @@ class _JobState:
     def compatibility_level(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+
+        > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         """
         return pulumi.get(self, "compatibility_level")
 
@@ -543,6 +563,8 @@ class _JobState:
     def streaming_units(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+
+        > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         """
         return pulumi.get(self, "streaming_units")
 
@@ -579,6 +601,8 @@ class _JobState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         return pulumi.get(self, "type")
 
@@ -650,6 +674,8 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+               
+               > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
@@ -663,9 +689,13 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+               
+               > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         ...
     @overload
@@ -809,6 +839,8 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+               
+               > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
@@ -823,9 +855,13 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+               
+               > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -856,6 +892,8 @@ class Job(pulumi.CustomResource):
     def compatibility_level(self) -> pulumi.Output[str]:
         """
         Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+
+        > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         """
         return pulumi.get(self, "compatibility_level")
 
@@ -968,6 +1006,8 @@ class Job(pulumi.CustomResource):
     def streaming_units(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+
+        > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         """
         return pulumi.get(self, "streaming_units")
 
@@ -992,6 +1032,8 @@ class Job(pulumi.CustomResource):
     def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
         return pulumi.get(self, "type")
 

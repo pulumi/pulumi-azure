@@ -256,6 +256,8 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
     public readonly retentionDays!: pulumi.Output<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+     *
+     * > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
     /**
@@ -344,6 +346,8 @@ export interface ManagedInstanceSecurityAlertPolicyState {
     retentionDays?: pulumi.Input<number>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+     *
+     * > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
@@ -386,6 +390,8 @@ export interface ManagedInstanceSecurityAlertPolicyArgs {
     retentionDays?: pulumi.Input<number>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+     *
+     * > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**

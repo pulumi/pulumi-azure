@@ -35,8 +35,14 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/WindowsEventForwarding",
  *     },
  * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     capacity: 1,
+ * });
  * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
- *     namespaceName: azurerm_eventhub_namespace.example.name,
+ *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     partitionCount: 2,
  *     messageRetention: 1,

@@ -34,12 +34,16 @@ public final class TransformOutputCustomPresetFilterOverlayArgs extends com.pulu
     /**
      * A `video` block as defined below.
      * 
+     * &gt; **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
+     * 
      */
     @Import(name="video")
     private @Nullable Output<TransformOutputCustomPresetFilterOverlayVideoArgs> video;
 
     /**
      * @return A `video` block as defined below.
+     * 
+     * &gt; **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
      * 
      */
     public Optional<Output<TransformOutputCustomPresetFilterOverlayVideoArgs>> video() {
@@ -95,6 +99,8 @@ public final class TransformOutputCustomPresetFilterOverlayArgs extends com.pulu
         /**
          * @param video A `video` block as defined below.
          * 
+         * &gt; **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class TransformOutputCustomPresetFilterOverlayArgs extends com.pulu
 
         /**
          * @param video A `video` block as defined below.
+         * 
+         * &gt; **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
          * 
          * @return builder
          * 

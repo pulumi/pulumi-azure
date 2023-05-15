@@ -29,7 +29,11 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+               
+               > **Note:** `automation_account_id` is required when `enabled` is sepcified.
         :param pulumi.Input[bool] enabled: Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+               
+               > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         """
         if automation_account_id is not None:
             pulumi.set(__self__, "automation_account_id", automation_account_id)
@@ -41,6 +45,8 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
     def automation_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+
+        > **Note:** `automation_account_id` is required when `enabled` is sepcified.
         """
         return pulumi.get(self, "automation_account_id")
 
@@ -53,6 +59,8 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+
+        > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         """
         return pulumi.get(self, "enabled")
 
@@ -79,6 +87,8 @@ class ReplicatedVMManagedDiskArgs:
         :param pulumi.Input[str] target_resource_group_id: Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param pulumi.Input[str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -167,6 +177,8 @@ class ReplicatedVMManagedDiskArgs:
     def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
+
+        > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
         return pulumi.get(self, "target_disk_encryption_set_id")
 
@@ -560,9 +572,17 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[str] manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[str] runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[str] script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -630,6 +650,8 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
     def fabric_location(self) -> Optional[pulumi.Input[str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -642,6 +664,8 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
     def manual_action_instruction(self) -> Optional[pulumi.Input[str]]:
         """
         Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -654,6 +678,8 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
     def runbook_id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -666,6 +692,8 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
     def script_path(self) -> Optional[pulumi.Input[str]]:
         """
         Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 
@@ -691,9 +719,17 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[str] manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[str] runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[str] script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -761,6 +797,8 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
     def fabric_location(self) -> Optional[pulumi.Input[str]]:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -773,6 +811,8 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
     def manual_action_instruction(self) -> Optional[pulumi.Input[str]]:
         """
         Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -785,6 +825,8 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
     def runbook_id(self) -> Optional[pulumi.Input[str]]:
         """
         Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -797,6 +839,8 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
     def script_path(self) -> Optional[pulumi.Input[str]]:
         """
         Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 

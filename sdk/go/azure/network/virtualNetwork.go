@@ -97,10 +97,14 @@ type VirtualNetwork struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
+	//
+	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity pulumi.StringPtrOutput `pulumi:"bgpCommunity"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
+	//
+	// > **NOTE** Since `dnsServers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
@@ -115,6 +119,8 @@ type VirtualNetwork struct {
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	//
+	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -158,10 +164,14 @@ type virtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
+	//
+	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity *string `pulumi:"bgpCommunity"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
+	//
+	// > **NOTE** Since `dnsServers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -176,6 +186,8 @@ type virtualNetworkState struct {
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	//
+	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -185,10 +197,14 @@ type VirtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
+	//
+	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity pulumi.StringPtrInput
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
+	//
+	// > **NOTE** Since `dnsServers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	DnsServers pulumi.StringArrayInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -203,6 +219,8 @@ type VirtualNetworkState struct {
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	//
+	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -216,10 +234,14 @@ type virtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
+	//
+	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity *string `pulumi:"bgpCommunity"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
+	//
+	// > **NOTE** Since `dnsServers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -232,6 +254,8 @@ type virtualNetworkArgs struct {
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	//
+	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -242,10 +266,14 @@ type VirtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
+	//
+	// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 	BgpCommunity pulumi.StringPtrInput
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
+	//
+	// > **NOTE** Since `dnsServers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	DnsServers pulumi.StringArrayInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -258,6 +286,8 @@ type VirtualNetworkArgs struct {
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+	//
+	// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -356,6 +386,8 @@ func (o VirtualNetworkOutput) AddressSpaces() pulumi.StringArrayOutput {
 }
 
 // The BGP community attribute in format `<as-number>:<community-value>`.
+//
+// > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
 func (o VirtualNetworkOutput) BgpCommunity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.BgpCommunity }).(pulumi.StringPtrOutput)
 }
@@ -366,6 +398,8 @@ func (o VirtualNetworkOutput) DdosProtectionPlan() VirtualNetworkDdosProtectionP
 }
 
 // List of IP addresses of DNS servers
+//
+// > **NOTE** Since `dnsServers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o VirtualNetworkOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringArrayOutput { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
@@ -401,6 +435,8 @@ func (o VirtualNetworkOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+//
+// > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o VirtualNetworkOutput) Subnets() VirtualNetworkSubnetArrayOutput {
 	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkSubnetArrayOutput { return v.Subnets }).(VirtualNetworkSubnetArrayOutput)
 }

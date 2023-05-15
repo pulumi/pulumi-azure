@@ -103,12 +103,16 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset.
+     * 
+     * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {
@@ -285,12 +289,16 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
     /**
      * A `http_server_location` block as defined below.
      * 
+     * The following supported arguments are specific to Delimited Text Dataset:
+     * 
      */
     @Export(name="httpServerLocation", refs={DatasetDelimitedTextHttpServerLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetDelimitedTextHttpServerLocation> httpServerLocation;
 
     /**
      * @return A `http_server_location` block as defined below.
+     * 
+     * The following supported arguments are specific to Delimited Text Dataset:
      * 
      */
     public Output<Optional<DatasetDelimitedTextHttpServerLocation>> httpServerLocation() {

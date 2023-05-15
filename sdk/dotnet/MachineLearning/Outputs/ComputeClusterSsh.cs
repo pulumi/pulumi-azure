@@ -23,6 +23,8 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         public readonly string AdminUsername;
         /// <summary>
         /// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// 
+        /// &gt; **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
         /// </summary>
         public readonly string? KeyValue;
 

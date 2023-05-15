@@ -19,10 +19,14 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly bool? AcrUseManagedIdentityCredentials;
         /// <summary>
         /// If using User Managed Identity, the User Managed Identity Client Id
+        /// 
+        /// &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
         /// </summary>
         public readonly string? AcrUserManagedIdentityClientId;
         /// <summary>
         /// Should the app be loaded at all times? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -59,6 +63,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly bool? Http2Enabled;
         /// <summary>
         /// A list of objects representing ip restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppServiceSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
@@ -75,10 +81,14 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? JavaVersion;
         /// <summary>
         /// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        /// 
+        /// &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
         /// </summary>
         public readonly string? LinuxFxVersion;
         /// <summary>
         /// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+        /// 
+        /// &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
         /// </summary>
         public readonly bool? LocalMysqlEnabled;
         /// <summary>
@@ -111,6 +121,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppServiceSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -118,16 +130,17 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to `false`.
+        /// IP security restrictions for scm to use main. Defaults to `false`. 
+        /// 
+        /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
         /// Should the App Service run in 32 bit mode, rather than 64 bit mode?
+        /// 
+        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
-        /// <summary>
-        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-        /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
         /// Should WebSockets be enabled?

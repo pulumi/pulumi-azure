@@ -89,6 +89,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// 
+        /// &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         /// </summary>
         [Output("geoLocations")]
         public Output<ImmutableArray<string>> GeoLocations { get; private set; } = null!;
@@ -222,6 +224,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// 
+        /// &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         /// </summary>
         public InputList<string> GeoLocations
         {
@@ -320,6 +324,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// 
+        /// &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         /// </summary>
         public InputList<string> GeoLocations
         {

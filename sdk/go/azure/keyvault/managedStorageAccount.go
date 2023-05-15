@@ -207,6 +207,8 @@ type ManagedStorageAccount struct {
 	// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Should Storage Account access key be regenerated periodically?
+	//
+	// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
 	RegenerateKeyAutomatically pulumi.BoolPtrOutput `pulumi:"regenerateKeyAutomatically"`
 	// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	RegenerationPeriod pulumi.StringPtrOutput `pulumi:"regenerationPeriod"`
@@ -261,6 +263,8 @@ type managedStorageAccountState struct {
 	// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
 	Name *string `pulumi:"name"`
 	// Should Storage Account access key be regenerated periodically?
+	//
+	// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
 	RegenerateKeyAutomatically *bool `pulumi:"regenerateKeyAutomatically"`
 	// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	RegenerationPeriod *string `pulumi:"regenerationPeriod"`
@@ -278,6 +282,8 @@ type ManagedStorageAccountState struct {
 	// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
 	Name pulumi.StringPtrInput
 	// Should Storage Account access key be regenerated periodically?
+	//
+	// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
 	RegenerateKeyAutomatically pulumi.BoolPtrInput
 	// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	RegenerationPeriod pulumi.StringPtrInput
@@ -299,6 +305,8 @@ type managedStorageAccountArgs struct {
 	// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
 	Name *string `pulumi:"name"`
 	// Should Storage Account access key be regenerated periodically?
+	//
+	// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
 	RegenerateKeyAutomatically *bool `pulumi:"regenerateKeyAutomatically"`
 	// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	RegenerationPeriod *string `pulumi:"regenerationPeriod"`
@@ -317,6 +325,8 @@ type ManagedStorageAccountArgs struct {
 	// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
 	Name pulumi.StringPtrInput
 	// Should Storage Account access key be regenerated periodically?
+	//
+	// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
 	RegenerateKeyAutomatically pulumi.BoolPtrInput
 	// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	RegenerationPeriod pulumi.StringPtrInput
@@ -426,6 +436,8 @@ func (o ManagedStorageAccountOutput) Name() pulumi.StringOutput {
 }
 
 // Should Storage Account access key be regenerated periodically?
+//
+// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
 func (o ManagedStorageAccountOutput) RegenerateKeyAutomatically() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedStorageAccount) pulumi.BoolPtrOutput { return v.RegenerateKeyAutomatically }).(pulumi.BoolPtrOutput)
 }

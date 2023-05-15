@@ -23,6 +23,8 @@ namespace Pulumi.Azure.DataBricks.Outputs
         public readonly string? NatGatewayName;
         /// <summary>
         /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
         /// </summary>
         public readonly bool? NoPublicIp;
         /// <summary>
@@ -59,6 +61,8 @@ namespace Pulumi.Azure.DataBricks.Outputs
         public readonly string? VirtualNetworkId;
         /// <summary>
         /// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
         /// </summary>
         public readonly string? VnetAddressPrefix;
 

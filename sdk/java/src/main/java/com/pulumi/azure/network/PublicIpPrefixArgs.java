@@ -66,12 +66,16 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      * 
+     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+     * 
      */
     @Import(name="prefixLength")
     private @Nullable Output<Integer> prefixLength;
 
     /**
      * @return Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
+     * 
+     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      * 
      */
     public Optional<Output<Integer>> prefixLength() {
@@ -96,12 +100,16 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+     * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
      * @return The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -126,12 +134,16 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      * 
+     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
+     * 
+     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -235,6 +247,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param prefixLength Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
          * 
+         * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+         * 
          * @return builder
          * 
          */
@@ -245,6 +259,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param prefixLength Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
+         * 
+         * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
          * 
          * @return builder
          * 
@@ -277,6 +293,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param sku The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+         * 
          * @return builder
          * 
          */
@@ -287,6 +305,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param sku The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
          * 
          * @return builder
          * 
@@ -319,6 +339,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param zones Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
          * 
+         * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * 
          * @return builder
          * 
          */
@@ -330,6 +352,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param zones Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
          * 
+         * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * 
          * @return builder
          * 
          */
@@ -339,6 +363,8 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param zones Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
+         * 
+         * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 

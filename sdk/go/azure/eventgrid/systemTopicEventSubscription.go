@@ -98,6 +98,8 @@ type SystemTopicEventSubscription struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
@@ -134,6 +136,8 @@ type SystemTopicEventSubscription struct {
 	// The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
 	SystemTopic pulumi.StringOutput `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
 }
 
@@ -179,6 +183,8 @@ type systemTopicEventSubscriptionState struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
@@ -215,6 +221,8 @@ type systemTopicEventSubscriptionState struct {
 	// The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
 	SystemTopic *string `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint *SystemTopicEventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -226,6 +234,8 @@ type SystemTopicEventSubscriptionState struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
@@ -262,6 +272,8 @@ type SystemTopicEventSubscriptionState struct {
 	// The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
 	SystemTopic pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -277,6 +289,8 @@ type systemTopicEventSubscriptionArgs struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *SystemTopicEventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
@@ -313,6 +327,8 @@ type systemTopicEventSubscriptionArgs struct {
 	// The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
 	SystemTopic string `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint *SystemTopicEventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -325,6 +341,8 @@ type SystemTopicEventSubscriptionArgs struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
@@ -361,6 +379,8 @@ type SystemTopicEventSubscriptionArgs struct {
 	// The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
 	SystemTopic pulumi.StringInput
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -471,6 +491,8 @@ func (o SystemTopicEventSubscriptionOutput) AzureFunctionEndpoint() SystemTopicE
 }
 
 // A `deadLetterIdentity` block as defined below.
+//
+// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 func (o SystemTopicEventSubscriptionOutput) DeadLetterIdentity() SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput {
 		return v.DeadLetterIdentity
@@ -575,6 +597,8 @@ func (o SystemTopicEventSubscriptionOutput) SystemTopic() pulumi.StringOutput {
 }
 
 // A `webhookEndpoint` block as defined below.
+//
+// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 func (o SystemTopicEventSubscriptionOutput) WebhookEndpoint() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 		return v.WebhookEndpoint

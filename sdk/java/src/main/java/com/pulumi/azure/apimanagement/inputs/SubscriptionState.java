@@ -34,12 +34,16 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
+     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
      * @return The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -94,12 +98,16 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
+     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+     * 
      */
     @Import(name="productId")
     private @Nullable Output<String> productId;
 
     /**
      * @return The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
      * 
      */
     public Optional<Output<String>> productId() {
@@ -239,6 +247,8 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param apiId The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
          * 
+         * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+         * 
          * @return builder
          * 
          */
@@ -249,6 +259,8 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param apiId The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
          * 
          * @return builder
          * 
@@ -323,6 +335,8 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param productId The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
          * 
+         * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+         * 
          * @return builder
          * 
          */
@@ -333,6 +347,8 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param productId The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
          * 
          * @return builder
          * 

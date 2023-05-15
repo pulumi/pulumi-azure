@@ -33,12 +33,16 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     /**
      * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Import(name="primaryUserAssignedIdentityId")
     private @Nullable Output<String> primaryUserAssignedIdentityId;
 
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<String>> primaryUserAssignedIdentityId() {
@@ -94,6 +98,8 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         /**
          * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
 
         /**
          * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

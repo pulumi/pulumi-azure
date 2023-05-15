@@ -26,12 +26,20 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
+     * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
+     * 
      */
     @Import(name="administratorLogin")
     private @Nullable Output<String> administratorLogin;
 
     /**
      * @return The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * 
+     * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
      */
     public Optional<Output<String>> administratorLogin() {
@@ -86,12 +94,16 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
+     * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+     * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
      * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -206,12 +218,16 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
+     * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -236,12 +252,16 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
+     * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+     * 
      */
     @Import(name="privateDnsZoneId")
     private @Nullable Output<String> privateDnsZoneId;
 
     /**
      * @return The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      * 
      */
     public Optional<Output<String>> privateDnsZoneId() {
@@ -251,12 +271,16 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
+     * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+     * 
      */
     @Import(name="replicationRole")
     private @Nullable Output<String> replicationRole;
 
     /**
      * @return The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     * 
+     * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
      * 
      */
     public Optional<Output<String>> replicationRole() {
@@ -341,6 +365,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
+     * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
@@ -348,22 +374,16 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
+     * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+     * 
      */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
 
-    /**
-     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-     * 
-     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
-    /**
-     * @return Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-     * 
-     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -417,6 +437,10 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
+         * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -427,6 +451,10 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * 
+         * &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 
          * @return builder
          * 
@@ -501,6 +529,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
+         * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+         * 
          * @return builder
          * 
          */
@@ -511,6 +541,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
          * 
          * @return builder
          * 
@@ -669,6 +701,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
+         * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
+         * 
          * @return builder
          * 
          */
@@ -679,6 +713,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
          * 
          * @return builder
          * 
@@ -711,6 +747,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param privateDnsZoneId The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
+         * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+         * 
          * @return builder
          * 
          */
@@ -722,6 +760,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param privateDnsZoneId The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
+         * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+         * 
          * @return builder
          * 
          */
@@ -731,6 +771,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+         * 
+         * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
          * 
          * @return builder
          * 
@@ -742,6 +784,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+         * 
+         * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
          * 
          * @return builder
          * 
@@ -858,6 +902,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
+         * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -869,6 +915,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
+         * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -876,23 +924,11 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
             return version(Output.of(version));
         }
 
-        /**
-         * @param zone Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
-        /**
-         * @param zone Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

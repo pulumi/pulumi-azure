@@ -87,10 +87,14 @@ export class ApiVersionSet extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
+     *
+     * > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
      */
     public readonly versionHeaderName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
+     *
+     * > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
      */
     public readonly versionQueryName!: pulumi.Output<string | undefined>;
     /**
@@ -173,10 +177,14 @@ export interface ApiVersionSetState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
+     *
+     * > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
      */
     versionHeaderName?: pulumi.Input<string>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
+     *
+     * > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
      */
     versionQueryName?: pulumi.Input<string>;
     /**
@@ -211,10 +219,14 @@ export interface ApiVersionSetArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
+     *
+     * > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
      */
     versionHeaderName?: pulumi.Input<string>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
+     *
+     * > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
      */
     versionQueryName?: pulumi.Input<string>;
     /**

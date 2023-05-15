@@ -20,6 +20,8 @@ public final class WindowsVirtualMachineScaleSetTerminateNotification {
     /**
      * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
+     * &gt; For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+     * 
      */
     private @Nullable String timeout;
 
@@ -33,6 +35,8 @@ public final class WindowsVirtualMachineScaleSetTerminateNotification {
     }
     /**
      * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
+     * 
+     * &gt; For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
      * 
      */
     public Optional<String> timeout() {

@@ -19,6 +19,8 @@ namespace Pulumi.Azure.EventHub.Outputs
         public readonly string Key;
         /// <summary>
         /// Specifies a single value to compare to when using a single value operator.
+        /// 
+        /// OR
         /// </summary>
         public readonly bool Value;
 

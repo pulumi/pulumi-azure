@@ -20,6 +20,8 @@ public final class GroupContainerPort {
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
+     * 
      */
     private @Nullable String protocol;
 
@@ -33,6 +35,8 @@ public final class GroupContainerPort {
     }
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
      * 
      */
     public Optional<String> protocol() {

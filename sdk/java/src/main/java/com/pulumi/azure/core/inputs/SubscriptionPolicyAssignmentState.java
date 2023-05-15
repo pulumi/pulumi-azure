@@ -69,12 +69,16 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+     * 
      */
     @Import(name="identity")
     private @Nullable Output<SubscriptionPolicyAssignmentIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
     public Optional<Output<SubscriptionPolicyAssignmentIdentityArgs>> identity() {
@@ -334,6 +338,8 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         /**
          * @param identity An `identity` block as defined below.
          * 
+         * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+         * 
          * @return builder
          * 
          */
@@ -344,6 +350,8 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
 
         /**
          * @param identity An `identity` block as defined below.
+         * 
+         * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
          * 
          * @return builder
          * 

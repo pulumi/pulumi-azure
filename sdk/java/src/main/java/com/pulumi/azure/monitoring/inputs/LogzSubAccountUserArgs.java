@@ -16,12 +16,16 @@ public final class LogzSubAccountUserArgs extends com.pulumi.resources.ResourceA
     /**
      * Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
      * 
+     * &gt; **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
+     * 
      */
     @Import(name="email", required=true)
     private Output<String> email;
 
     /**
      * @return Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+     * 
+     * &gt; **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
      * 
      */
     public Output<String> email() {
@@ -103,6 +107,8 @@ public final class LogzSubAccountUserArgs extends com.pulumi.resources.ResourceA
         /**
          * @param email Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
          * 
+         * &gt; **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
+         * 
          * @return builder
          * 
          */
@@ -113,6 +119,8 @@ public final class LogzSubAccountUserArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param email Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+         * 
+         * &gt; **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
          * 
          * @return builder
          * 

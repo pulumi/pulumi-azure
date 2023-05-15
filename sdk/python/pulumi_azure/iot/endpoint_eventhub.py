@@ -31,6 +31,8 @@ class EndpointEventhubArgs:
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+               
+               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "iothub_id", iothub_id)
@@ -125,6 +127,8 @@ class EndpointEventhubArgs:
     def identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+
+        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -163,6 +167,8 @@ class _EndpointEventhubState:
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+               
+               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -237,6 +243,8 @@ class _EndpointEventhubState:
     def identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+
+        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -354,6 +362,8 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+               
+               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -492,6 +502,8 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+               
+               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -547,6 +559,8 @@ class EndpointEventhub(pulumi.CustomResource):
     def identity_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+
+        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 

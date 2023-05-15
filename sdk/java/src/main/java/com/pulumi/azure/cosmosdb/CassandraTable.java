@@ -114,12 +114,16 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
     /**
      * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+     * 
      */
     @Export(name="analyticalStorageTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> analyticalStorageTtl;
 
     /**
      * @return Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      * 
      */
     public Output<Optional<Integer>> analyticalStorageTtl() {

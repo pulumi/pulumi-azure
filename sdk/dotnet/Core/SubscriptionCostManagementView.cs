@@ -12,6 +12,41 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages an Azure Cost Management View for a Subscription.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.SubscriptionCostManagementView("example", new()
+    ///     {
+    ///         Accumulated = false,
+    ///         ChartType = "StackedColumn",
+    ///         Dataset = new Azure.Core.Inputs.SubscriptionCostManagementViewDatasetArgs
+    ///         {
+    ///             Aggregations = new[]
+    ///             {
+    ///                 new Azure.Core.Inputs.SubscriptionCostManagementViewDatasetAggregationArgs
+    ///                 {
+    ///                     ColumnName = "Cost",
+    ///                     Name = "totalCost",
+    ///                 },
+    ///             },
+    ///             Granularity = "Monthly",
+    ///         },
+    ///         DisplayName = "Cost View per Month",
+    ///         ReportType = "Usage",
+    ///         SubscriptionId = "/subscription/00000000-0000-0000-0000-000000000000",
+    ///         Timeframe = "MonthToDate",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.

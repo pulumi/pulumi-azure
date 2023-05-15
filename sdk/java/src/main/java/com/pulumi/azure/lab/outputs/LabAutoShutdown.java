@@ -14,6 +14,8 @@ public final class LabAutoShutdown {
     /**
      * @return The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
      * 
+     * &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn&#39;t specified.
+     * 
      */
     private @Nullable String disconnectDelay;
     /**
@@ -24,10 +26,14 @@ public final class LabAutoShutdown {
     /**
      * @return The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
      * 
+     * &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn&#39;t specified.
+     * 
      */
     private @Nullable String noConnectDelay;
     /**
      * @return A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
      * 
      */
     private @Nullable String shutdownOnIdle;
@@ -35,6 +41,8 @@ public final class LabAutoShutdown {
     private LabAutoShutdown() {}
     /**
      * @return The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+     * 
+     * &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn&#39;t specified.
      * 
      */
     public Optional<String> disconnectDelay() {
@@ -50,12 +58,16 @@ public final class LabAutoShutdown {
     /**
      * @return The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
      * 
+     * &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn&#39;t specified.
+     * 
      */
     public Optional<String> noConnectDelay() {
         return Optional.ofNullable(this.noConnectDelay);
     }
     /**
      * @return A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
      * 
      */
     public Optional<String> shutdownOnIdle() {

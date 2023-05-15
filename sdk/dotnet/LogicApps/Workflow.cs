@@ -109,6 +109,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// A map of Key-Value pairs.
+        /// 
+        /// &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -248,6 +250,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// A map of Key-Value pairs.
+        /// 
+        /// &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -382,6 +386,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// A map of Key-Value pairs.
+        /// 
+        /// &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
         /// </summary>
         public InputMap<string> Parameters
         {

@@ -112,6 +112,8 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     public readonly send!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     public readonly topicId!: pulumi.Output<string>;
 
@@ -212,6 +214,8 @@ export interface TopicAuthorizationRuleState {
     send?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     topicId?: pulumi.Input<string>;
 }
@@ -238,6 +242,8 @@ export interface TopicAuthorizationRuleArgs {
     send?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     topicId: pulumi.Input<string>;
 }

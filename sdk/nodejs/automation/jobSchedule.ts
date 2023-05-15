@@ -73,6 +73,8 @@ export class JobSchedule extends pulumi.CustomResource {
     public readonly jobScheduleId!: pulumi.Output<string>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -153,6 +155,8 @@ export interface JobScheduleState {
     jobScheduleId?: pulumi.Input<string>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,6 +191,8 @@ export interface JobScheduleArgs {
     jobScheduleId?: pulumi.Input<string>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

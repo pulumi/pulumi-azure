@@ -390,6 +390,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         /// </summary>
         [Output("containerRegistryId")]
         public Output<string?> ContainerRegistryId { get; private set; } = null!;
@@ -468,6 +470,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// 
+        /// &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -486,6 +490,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -501,6 +507,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Output("v1LegacyModeEnabled")]
         public Output<bool?> V1LegacyModeEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The immutable id associated with this workspace.
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -556,6 +568,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         /// </summary>
         [Input("containerRegistryId")]
         public Input<string>? ContainerRegistryId { get; set; }
@@ -628,6 +642,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// 
+        /// &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -646,6 +662,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -684,6 +702,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         /// </summary>
         [Input("containerRegistryId")]
         public Input<string>? ContainerRegistryId { get; set; }
@@ -762,6 +782,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// 
+        /// &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -780,6 +802,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -801,6 +825,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("v1LegacyModeEnabled")]
         public Input<bool>? V1LegacyModeEnabled { get; set; }
+
+        /// <summary>
+        /// The immutable id associated with this workspace.
+        /// </summary>
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
 
         public WorkspaceState()
         {

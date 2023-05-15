@@ -144,6 +144,8 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
      * List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
      * 
+     * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+     * 
      */
     @Import(name="vpnAuthTypes")
     private @Nullable Output<List<String>> vpnAuthTypes;
@@ -151,6 +153,8 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     /**
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
+     * 
+     * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
      * 
      */
     public Optional<Output<List<String>>> vpnAuthTypes() {
@@ -415,6 +419,8 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnAuthTypes List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
          * 
+         * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+         * 
          * @return builder
          * 
          */
@@ -427,6 +433,8 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnAuthTypes List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
          * 
+         * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+         * 
          * @return builder
          * 
          */
@@ -437,6 +445,8 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         /**
          * @param vpnAuthTypes List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
+         * 
+         * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
          * 
          * @return builder
          * 

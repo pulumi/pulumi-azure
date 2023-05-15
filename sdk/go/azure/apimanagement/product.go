@@ -77,6 +77,8 @@ type Product struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// Do subscribers need to be approved prior to being able to use the Product?
+	//
+	// > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
 	ApprovalRequired pulumi.BoolPtrOutput `pulumi:"approvalRequired"`
 	// A description of this Product, which may include HTML formatting tags.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -91,6 +93,8 @@ type Product struct {
 	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
+	//
+	// > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
 	SubscriptionsLimit pulumi.IntPtrOutput `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms pulumi.StringPtrOutput `pulumi:"terms"`
@@ -143,6 +147,8 @@ type productState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// Do subscribers need to be approved prior to being able to use the Product?
+	//
+	// > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
 	ApprovalRequired *bool `pulumi:"approvalRequired"`
 	// A description of this Product, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
@@ -157,6 +163,8 @@ type productState struct {
 	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
+	//
+	// > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
 	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms *string `pulumi:"terms"`
@@ -166,6 +174,8 @@ type ProductState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// Do subscribers need to be approved prior to being able to use the Product?
+	//
+	// > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
 	ApprovalRequired pulumi.BoolPtrInput
 	// A description of this Product, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
@@ -180,6 +190,8 @@ type ProductState struct {
 	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The number of subscriptions a user can have to this Product at the same time.
+	//
+	// > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
 	SubscriptionsLimit pulumi.IntPtrInput
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms pulumi.StringPtrInput
@@ -193,6 +205,8 @@ type productArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// Do subscribers need to be approved prior to being able to use the Product?
+	//
+	// > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
 	ApprovalRequired *bool `pulumi:"approvalRequired"`
 	// A description of this Product, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
@@ -207,6 +221,8 @@ type productArgs struct {
 	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
+	//
+	// > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
 	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms *string `pulumi:"terms"`
@@ -217,6 +233,8 @@ type ProductArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
 	// Do subscribers need to be approved prior to being able to use the Product?
+	//
+	// > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
 	ApprovalRequired pulumi.BoolPtrInput
 	// A description of this Product, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
@@ -231,6 +249,8 @@ type ProductArgs struct {
 	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The number of subscriptions a user can have to this Product at the same time.
+	//
+	// > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
 	SubscriptionsLimit pulumi.IntPtrInput
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms pulumi.StringPtrInput
@@ -329,6 +349,8 @@ func (o ProductOutput) ApiManagementName() pulumi.StringOutput {
 }
 
 // Do subscribers need to be approved prior to being able to use the Product?
+//
+// > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
 func (o ProductOutput) ApprovalRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Product) pulumi.BoolPtrOutput { return v.ApprovalRequired }).(pulumi.BoolPtrOutput)
 }
@@ -364,6 +386,8 @@ func (o ProductOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 }
 
 // The number of subscriptions a user can have to this Product at the same time.
+//
+// > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
 func (o ProductOutput) SubscriptionsLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Product) pulumi.IntPtrOutput { return v.SubscriptionsLimit }).(pulumi.IntPtrOutput)
 }

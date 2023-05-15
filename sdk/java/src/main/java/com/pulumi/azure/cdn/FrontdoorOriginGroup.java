@@ -148,12 +148,16 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
      * 
+     * &gt; **NOTE:** This property is currently not used, but will be in the near future.
+     * 
      */
     @Export(name="restoreTrafficTimeToHealedOrNewEndpointInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> restoreTrafficTimeToHealedOrNewEndpointInMinutes;
 
     /**
      * @return Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+     * 
+     * &gt; **NOTE:** This property is currently not used, but will be in the near future.
      * 
      */
     public Output<Optional<Integer>> restoreTrafficTimeToHealedOrNewEndpointInMinutes() {

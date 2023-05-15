@@ -65,12 +65,16 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     /**
      * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
+     * &gt; **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+     * 
      */
     @Import(name="zoneRedundancyEnabled")
     private @Nullable Output<Boolean> zoneRedundancyEnabled;
 
     /**
      * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundancyEnabled() {
@@ -170,6 +174,8 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         /**
          * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`.
          * 
+         * &gt; **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+         * 
          * @return builder
          * 
          */
@@ -180,6 +186,8 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
 
         /**
          * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
          * 
          * @return builder
          * 

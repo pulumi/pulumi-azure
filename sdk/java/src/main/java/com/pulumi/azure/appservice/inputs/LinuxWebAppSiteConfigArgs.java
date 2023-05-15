@@ -26,12 +26,16 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
+     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * 
      */
     @Import(name="alwaysOn")
     private @Nullable Output<Boolean> alwaysOn;
 
     /**
      * @return If this Linux Web App is Always On enabled. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -195,17 +199,9 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
 
-    /**
-     * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-     * 
-     */
     @Import(name="ftpsState")
     private @Nullable Output<String> ftpsState;
 
-    /**
-     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-     * 
-     */
     public Optional<Output<String>> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }
@@ -537,6 +533,8 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `true`.
          * 
+         * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+         * 
          * @return builder
          * 
          */
@@ -547,6 +545,8 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
          * 
          * @return builder
          * 
@@ -784,23 +784,11 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
             return detailedErrorLoggingEnabled(Output.of(detailedErrorLoggingEnabled));
         }
 
-        /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ftpsState(@Nullable Output<String> ftpsState) {
             $.ftpsState = ftpsState;
             return this;
         }
 
-        /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ftpsState(String ftpsState) {
             return ftpsState(Output.of(ftpsState));
         }

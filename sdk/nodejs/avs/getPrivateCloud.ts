@@ -6,6 +6,24 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to access information about an existing VMware Private Cloud.
+ *
+ * ## Example Usage
+ *
+ * > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.avs.getPrivateCloud({
+ *     name: "existing-vmware-private-cloud",
+ *     resourceGroupName: "existing-resgroup",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,6 +118,24 @@ export interface GetPrivateCloudResult {
      */
     readonly vmotionSubnetCidr: string;
 }
+/**
+ * Use this data source to access information about an existing VMware Private Cloud.
+ *
+ * ## Example Usage
+ *
+ * > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.avs.getPrivateCloud({
+ *     name: "existing-vmware-private-cloud",
+ *     resourceGroupName: "existing-resgroup",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
     return pulumi.output(args).apply((a: any) => getPrivateCloud(a, opts))
 }

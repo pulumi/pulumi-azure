@@ -78,6 +78,8 @@ type DataConnectorOfficeAtp struct {
 	// The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -118,6 +120,8 @@ type dataConnectorOfficeAtpState struct {
 	// The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -127,6 +131,8 @@ type DataConnectorOfficeAtpState struct {
 	// The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -140,6 +146,8 @@ type dataConnectorOfficeAtpArgs struct {
 	// The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -150,6 +158,8 @@ type DataConnectorOfficeAtpArgs struct {
 	// The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -251,6 +261,8 @@ func (o DataConnectorOfficeAtpOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
+//
+// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorOfficeAtpOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorOfficeAtp) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

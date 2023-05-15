@@ -29,6 +29,13 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// 
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
         /// </summary>
         public InputList<string> AllowedAudiences
         {
@@ -68,12 +75,29 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The thumbprint of the certificate used for signing purposes.
+        /// 
+        /// &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         /// </summary>
         [Input("clientSecretCertificateThumbprint")]
         public Input<string>? ClientSecretCertificateThumbprint { get; set; }
 
         /// <summary>
         /// The app setting name that contains the `client_secret` value used for Apple Login.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

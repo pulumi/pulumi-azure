@@ -65,6 +65,8 @@ export class ReplicationPolicy extends pulumi.CustomResource {
 
     /**
      * Specifies the frequency(in minutes) at which to create application consistent recovery points.
+     *
+     * > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
      */
     public readonly applicationConsistentSnapshotFrequencyInMinutes!: pulumi.Output<number>;
     /**
@@ -133,6 +135,8 @@ export class ReplicationPolicy extends pulumi.CustomResource {
 export interface ReplicationPolicyState {
     /**
      * Specifies the frequency(in minutes) at which to create application consistent recovery points.
+     *
+     * > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
      */
     applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
     /**
@@ -159,6 +163,8 @@ export interface ReplicationPolicyState {
 export interface ReplicationPolicyArgs {
     /**
      * Specifies the frequency(in minutes) at which to create application consistent recovery points.
+     *
+     * > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
      */
     applicationConsistentSnapshotFrequencyInMinutes: pulumi.Input<number>;
     /**

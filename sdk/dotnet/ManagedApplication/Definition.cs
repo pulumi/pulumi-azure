@@ -129,6 +129,8 @@ namespace Pulumi.Azure.ManagedApplication
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -256,6 +258,8 @@ namespace Pulumi.Azure.ManagedApplication
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -348,6 +352,8 @@ namespace Pulumi.Azure.ManagedApplication
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         /// </summary>
         public InputMap<string> Tags
         {

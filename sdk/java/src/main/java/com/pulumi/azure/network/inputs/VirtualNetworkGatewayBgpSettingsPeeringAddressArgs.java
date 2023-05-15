@@ -19,12 +19,16 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
     /**
      * A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
      * 
+     * &gt; **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
+     * 
      */
     @Import(name="apipaAddresses")
     private @Nullable Output<List<String>> apipaAddresses;
 
     /**
      * @return A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+     * 
+     * &gt; **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
      * 
      */
     public Optional<Output<List<String>>> apipaAddresses() {
@@ -106,6 +110,8 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
         /**
          * @param apipaAddresses A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
          * 
+         * &gt; **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
         /**
          * @param apipaAddresses A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
          * 
+         * &gt; **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +134,8 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
 
         /**
          * @param apipaAddresses A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+         * 
+         * &gt; **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
          * 
          * @return builder
          * 

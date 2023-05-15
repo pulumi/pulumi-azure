@@ -79,6 +79,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly automaticallyRotateKeyToLatestEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
     public readonly cacheSizeInGb!: pulumi.Output<number>;
     /**
@@ -95,6 +97,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly directoryFlatFile!: pulumi.Output<outputs.hpc.CacheDirectoryFlatFile | undefined>;
     /**
      * A `directoryLdap` block as defined below.
+     *
+     * > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      */
     public readonly directoryLdap!: pulumi.Output<outputs.hpc.CacheDirectoryLdap | undefined>;
     /**
@@ -135,6 +139,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -225,6 +231,8 @@ export interface CacheState {
     automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
     cacheSizeInGb?: pulumi.Input<number>;
     /**
@@ -241,6 +249,8 @@ export interface CacheState {
     directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
     /**
      * A `directoryLdap` block as defined below.
+     *
+     * > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      */
     directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
     /**
@@ -281,6 +291,8 @@ export interface CacheState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -303,6 +315,8 @@ export interface CacheArgs {
     automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
     cacheSizeInGb: pulumi.Input<number>;
     /**
@@ -319,6 +333,8 @@ export interface CacheArgs {
     directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
     /**
      * A `directoryLdap` block as defined below.
+     *
+     * > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      */
     directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
     /**
@@ -355,6 +371,8 @@ export interface CacheArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
     skuName: pulumi.Input<string>;
     /**

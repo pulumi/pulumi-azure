@@ -44,6 +44,8 @@ namespace Pulumi.Azure.Media.Inputs
 
         /// <summary>
         /// A `h265_video` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
         /// </summary>
         [Input("h265Video")]
         public Input<Inputs.TransformOutputCustomPresetCodecH265VideoGetArgs>? H265Video { get; set; }

@@ -88,6 +88,8 @@ type Cache struct {
 	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrOutput `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyOutput `pulumi:"defaultAccessPolicy"`
@@ -96,6 +98,8 @@ type Cache struct {
 	// A `directoryFlatFile` block as defined below.
 	DirectoryFlatFile CacheDirectoryFlatFilePtrOutput `pulumi:"directoryFlatFile"`
 	// A `directoryLdap` block as defined below.
+	//
+	// > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
 	DirectoryLdap CacheDirectoryLdapPtrOutput `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrOutput `pulumi:"dns"`
@@ -116,6 +120,8 @@ type Cache struct {
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -167,6 +173,8 @@ type cacheState struct {
 	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
@@ -175,6 +183,8 @@ type cacheState struct {
 	// A `directoryFlatFile` block as defined below.
 	DirectoryFlatFile *CacheDirectoryFlatFile `pulumi:"directoryFlatFile"`
 	// A `directoryLdap` block as defined below.
+	//
+	// > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
 	DirectoryLdap *CacheDirectoryLdap `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns *CacheDns `pulumi:"dns"`
@@ -195,6 +205,8 @@ type cacheState struct {
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -206,6 +218,8 @@ type CacheState struct {
 	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrInput
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
 	CacheSizeInGb pulumi.IntPtrInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
@@ -214,6 +228,8 @@ type CacheState struct {
 	// A `directoryFlatFile` block as defined below.
 	DirectoryFlatFile CacheDirectoryFlatFilePtrInput
 	// A `directoryLdap` block as defined below.
+	//
+	// > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
 	DirectoryLdap CacheDirectoryLdapPtrInput
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrInput
@@ -234,6 +250,8 @@ type CacheState struct {
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -249,6 +267,8 @@ type cacheArgs struct {
 	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
@@ -257,6 +277,8 @@ type cacheArgs struct {
 	// A `directoryFlatFile` block as defined below.
 	DirectoryFlatFile *CacheDirectoryFlatFile `pulumi:"directoryFlatFile"`
 	// A `directoryLdap` block as defined below.
+	//
+	// > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
 	DirectoryLdap *CacheDirectoryLdap `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns *CacheDns `pulumi:"dns"`
@@ -275,6 +297,8 @@ type cacheArgs struct {
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -287,6 +311,8 @@ type CacheArgs struct {
 	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrInput
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
 	CacheSizeInGb pulumi.IntInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
@@ -295,6 +321,8 @@ type CacheArgs struct {
 	// A `directoryFlatFile` block as defined below.
 	DirectoryFlatFile CacheDirectoryFlatFilePtrInput
 	// A `directoryLdap` block as defined below.
+	//
+	// > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
 	DirectoryLdap CacheDirectoryLdapPtrInput
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrInput
@@ -313,6 +341,8 @@ type CacheArgs struct {
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
 	SkuName pulumi.StringInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
@@ -413,6 +443,8 @@ func (o CacheOutput) AutomaticallyRotateKeyToLatestEnabled() pulumi.BoolPtrOutpu
 }
 
 // The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
 func (o CacheOutput) CacheSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntOutput { return v.CacheSizeInGb }).(pulumi.IntOutput)
 }
@@ -433,6 +465,8 @@ func (o CacheOutput) DirectoryFlatFile() CacheDirectoryFlatFilePtrOutput {
 }
 
 // A `directoryLdap` block as defined below.
+//
+// > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
 func (o CacheOutput) DirectoryLdap() CacheDirectoryLdapPtrOutput {
 	return o.ApplyT(func(v *Cache) CacheDirectoryLdapPtrOutput { return v.DirectoryLdap }).(CacheDirectoryLdapPtrOutput)
 }
@@ -483,6 +517,8 @@ func (o CacheOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
 func (o CacheOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

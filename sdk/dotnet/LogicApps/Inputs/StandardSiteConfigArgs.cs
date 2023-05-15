@@ -65,6 +65,8 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
         /// <summary>
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.StandardSiteConfigIpRestrictionArgs> IpRestrictions
         {
@@ -101,6 +103,8 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
         /// <summary>
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        /// 
+        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.StandardSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
         {
@@ -128,6 +132,8 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
         /// <summary>
         /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        /// 
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }

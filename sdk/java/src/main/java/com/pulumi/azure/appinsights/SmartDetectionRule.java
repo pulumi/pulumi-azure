@@ -78,12 +78,16 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
      * 
+     * &gt; **Note:** At least one read or write permission must be defined.
+     * 
      */
     @Export(name="additionalEmailRecipients", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> additionalEmailRecipients;
 
     /**
      * @return Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+     * 
+     * &gt; **Note:** At least one read or write permission must be defined.
      * 
      */
     public Output<Optional<List<String>>> additionalEmailRecipients() {

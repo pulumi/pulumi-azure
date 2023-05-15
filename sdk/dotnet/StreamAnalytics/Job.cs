@@ -64,6 +64,8 @@ namespace Pulumi.Azure.StreamAnalytics
     {
         /// <summary>
         /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        /// 
+        /// &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         /// </summary>
         [Output("compatibilityLevel")]
         public Output<string> CompatibilityLevel { get; private set; } = null!;
@@ -148,6 +150,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        /// 
+        /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         /// </summary>
         [Output("streamingUnits")]
         public Output<int?> StreamingUnits { get; private set; } = null!;
@@ -166,6 +170,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -218,6 +224,8 @@ namespace Pulumi.Azure.StreamAnalytics
     {
         /// <summary>
         /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        /// 
+        /// &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
@@ -302,6 +310,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        /// 
+        /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
@@ -326,6 +336,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -340,6 +352,8 @@ namespace Pulumi.Azure.StreamAnalytics
     {
         /// <summary>
         /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        /// 
+        /// &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
@@ -430,6 +444,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        /// 
+        /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
@@ -454,6 +470,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

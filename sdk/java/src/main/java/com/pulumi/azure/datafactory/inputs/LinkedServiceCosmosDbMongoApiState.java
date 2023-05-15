@@ -21,12 +21,16 @@ public final class LinkedServiceCosmosDbMongoApiState extends com.pulumi.resourc
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to CosmosDB Linked Service:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to CosmosDB Linked Service:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -204,6 +208,8 @@ public final class LinkedServiceCosmosDbMongoApiState extends com.pulumi.resourc
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
          * 
+         * The following supported arguments are specific to CosmosDB Linked Service:
+         * 
          * @return builder
          * 
          */
@@ -214,6 +220,8 @@ public final class LinkedServiceCosmosDbMongoApiState extends com.pulumi.resourc
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
+         * 
+         * The following supported arguments are specific to CosmosDB Linked Service:
          * 
          * @return builder
          * 

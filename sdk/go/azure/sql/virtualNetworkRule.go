@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
+//
+// > **Note:** The `sql.VirtualNetworkRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.VirtualNetworkRule` resource instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -93,8 +97,16 @@ type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+	//
+	// > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -143,8 +155,16 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+	//
+	// > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -156,8 +176,16 @@ type virtualNetworkRuleState struct {
 
 type VirtualNetworkRuleState struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+	//
+	// > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -173,8 +201,16 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 
 type virtualNetworkRuleArgs struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+	//
+	// > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -187,8 +223,16 @@ type virtualNetworkRuleArgs struct {
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+	//
+	// > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -286,11 +330,19 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 }
 
 // Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+//
+// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.BoolPtrOutput { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+//
+// > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+//
+// 1. Contains only alphanumeric and hyphen characters
+// 2. Cannot start with a number or hyphen
+// 3. Cannot end with a hyphen
 func (o VirtualNetworkRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

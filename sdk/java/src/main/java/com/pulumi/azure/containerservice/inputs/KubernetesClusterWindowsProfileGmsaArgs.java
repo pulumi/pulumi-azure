@@ -31,12 +31,16 @@ public final class KubernetesClusterWindowsProfileGmsaArgs extends com.pulumi.re
     /**
      * Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
      * 
+     * &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
+     * 
      */
     @Import(name="rootDomain", required=true)
     private Output<String> rootDomain;
 
     /**
      * @return Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+     * 
+     * &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
      * 
      */
     public Output<String> rootDomain() {
@@ -92,6 +96,8 @@ public final class KubernetesClusterWindowsProfileGmsaArgs extends com.pulumi.re
         /**
          * @param rootDomain Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
          * 
+         * &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class KubernetesClusterWindowsProfileGmsaArgs extends com.pulumi.re
 
         /**
          * @param rootDomain Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+         * 
+         * &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
          * 
          * @return builder
          * 

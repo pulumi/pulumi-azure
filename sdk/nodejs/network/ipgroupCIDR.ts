@@ -64,10 +64,6 @@ export class IPGroupCIDR extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPGroupCIDR.__pulumiType;
     }
 
-    /**
-     * The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     */
     public readonly cidr!: pulumi.Output<string>;
     /**
      * The ID of the destination IP Group.
@@ -110,10 +106,6 @@ export class IPGroupCIDR extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IPGroupCIDR resources.
  */
 export interface IPGroupCIDRState {
-    /**
-     * The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     */
     cidr?: pulumi.Input<string>;
     /**
      * The ID of the destination IP Group.
@@ -126,10 +118,6 @@ export interface IPGroupCIDRState {
  * The set of arguments for constructing a IPGroupCIDR resource.
  */
 export interface IPGroupCIDRArgs {
-    /**
-     * The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     */
     cidr: pulumi.Input<string>;
     /**
      * The ID of the destination IP Group.

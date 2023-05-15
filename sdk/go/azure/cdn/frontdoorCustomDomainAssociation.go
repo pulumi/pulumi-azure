@@ -58,6 +58,8 @@ type FrontdoorCustomDomainAssociation struct {
 	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId pulumi.StringOutput `pulumi:"cdnFrontdoorCustomDomainId"`
 	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
+	//
+	// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
 	CdnFrontdoorRouteIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorRouteIds"`
 }
 
@@ -99,6 +101,8 @@ type frontdoorCustomDomainAssociationState struct {
 	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId *string `pulumi:"cdnFrontdoorCustomDomainId"`
 	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
+	//
+	// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
 	CdnFrontdoorRouteIds []string `pulumi:"cdnFrontdoorRouteIds"`
 }
 
@@ -106,6 +110,8 @@ type FrontdoorCustomDomainAssociationState struct {
 	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId pulumi.StringPtrInput
 	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
+	//
+	// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
 	CdnFrontdoorRouteIds pulumi.StringArrayInput
 }
 
@@ -117,6 +123,8 @@ type frontdoorCustomDomainAssociationArgs struct {
 	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId string `pulumi:"cdnFrontdoorCustomDomainId"`
 	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
+	//
+	// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
 	CdnFrontdoorRouteIds []string `pulumi:"cdnFrontdoorRouteIds"`
 }
 
@@ -125,6 +133,8 @@ type FrontdoorCustomDomainAssociationArgs struct {
 	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId pulumi.StringInput
 	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
+	//
+	// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
 	CdnFrontdoorRouteIds pulumi.StringArrayInput
 }
 
@@ -221,6 +231,8 @@ func (o FrontdoorCustomDomainAssociationOutput) CdnFrontdoorCustomDomainId() pul
 }
 
 // One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
+//
+// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
 func (o FrontdoorCustomDomainAssociationOutput) CdnFrontdoorRouteIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainAssociation) pulumi.StringArrayOutput { return v.CdnFrontdoorRouteIds }).(pulumi.StringArrayOutput)
 }

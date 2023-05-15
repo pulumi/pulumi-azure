@@ -20,7 +20,11 @@ class ServiceCustomCertificateArgs:
         """
         The set of arguments for constructing a ServiceCustomCertificate resource.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] signalr_service_id: The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         :param pulumi.Input[str] name: The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "custom_certificate_id", custom_certificate_id)
@@ -33,6 +37,8 @@ class ServiceCustomCertificateArgs:
     def custom_certificate_id(self) -> pulumi.Input[str]:
         """
         The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+
+        > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         """
         return pulumi.get(self, "custom_certificate_id")
 
@@ -45,6 +51,8 @@ class ServiceCustomCertificateArgs:
     def signalr_service_id(self) -> pulumi.Input[str]:
         """
         The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         return pulumi.get(self, "signalr_service_id")
 
@@ -76,8 +84,12 @@ class _ServiceCustomCertificateState:
         Input properties used for looking up and filtering ServiceCustomCertificate resources.
         :param pulumi.Input[str] certificate_version: The certificate version of the SignalR Custom Certificate service.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] name: The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] signalr_service_id: The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         if certificate_version is not None:
             pulumi.set(__self__, "certificate_version", certificate_version)
@@ -105,6 +117,8 @@ class _ServiceCustomCertificateState:
     def custom_certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
         The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+
+        > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         """
         return pulumi.get(self, "custom_certificate_id")
 
@@ -129,6 +143,8 @@ class _ServiceCustomCertificateState:
     def signalr_service_id(self) -> Optional[pulumi.Input[str]]:
         """
         The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         return pulumi.get(self, "signalr_service_id")
 
@@ -189,7 +205,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
-                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
+                    object_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     certificate_permissions=[
                         "Create",
                         "Get",
@@ -224,8 +240,12 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] name: The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] signalr_service_id: The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         ...
     @overload
@@ -276,7 +296,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
-                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
+                    object_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     certificate_permissions=[
                         "Create",
                         "Get",
@@ -366,8 +386,12 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_version: The certificate version of the SignalR Custom Certificate service.
         :param pulumi.Input[str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+               
+               > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         :param pulumi.Input[str] name: The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] signalr_service_id: The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+               
+               > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -392,6 +416,8 @@ class ServiceCustomCertificate(pulumi.CustomResource):
     def custom_certificate_id(self) -> pulumi.Output[str]:
         """
         The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+
+        > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         """
         return pulumi.get(self, "custom_certificate_id")
 
@@ -408,6 +434,8 @@ class ServiceCustomCertificate(pulumi.CustomResource):
     def signalr_service_id(self) -> pulumi.Output[str]:
         """
         The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+
+        > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
         return pulumi.get(self, "signalr_service_id")
 

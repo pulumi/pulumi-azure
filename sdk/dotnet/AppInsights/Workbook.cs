@@ -130,6 +130,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+        /// 
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         /// </summary>
         [Output("storageContainerId")]
         public Output<string?> StorageContainerId { get; private set; } = null!;
@@ -242,6 +244,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+        /// 
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }
@@ -322,6 +326,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+        /// 
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }

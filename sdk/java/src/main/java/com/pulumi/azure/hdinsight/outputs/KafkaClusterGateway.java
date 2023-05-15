@@ -12,6 +12,8 @@ public final class KafkaClusterGateway {
     /**
      * @return The password used for the Ambari Portal.
      * 
+     * &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+     * 
      */
     private String password;
     /**
@@ -23,6 +25,8 @@ public final class KafkaClusterGateway {
     private KafkaClusterGateway() {}
     /**
      * @return The password used for the Ambari Portal.
+     * 
+     * &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
      * 
      */
     public String password() {

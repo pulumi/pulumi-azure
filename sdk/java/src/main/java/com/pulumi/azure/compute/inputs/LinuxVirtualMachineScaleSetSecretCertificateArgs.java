@@ -16,12 +16,20 @@ public final class LinuxVirtualMachineScaleSetSecretCertificateArgs extends com.
     /**
      * The Secret URL of a Key Vault Certificate.
      * 
+     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * 
+     * &gt; **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
+     * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
      * @return The Secret URL of a Key Vault Certificate.
+     * 
+     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * 
+     * &gt; **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
      * 
      */
     public Output<String> url() {
@@ -55,6 +63,10 @@ public final class LinuxVirtualMachineScaleSetSecretCertificateArgs extends com.
         /**
          * @param url The Secret URL of a Key Vault Certificate.
          * 
+         * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * 
+         * &gt; **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
+         * 
          * @return builder
          * 
          */
@@ -65,6 +77,10 @@ public final class LinuxVirtualMachineScaleSetSecretCertificateArgs extends com.
 
         /**
          * @param url The Secret URL of a Key Vault Certificate.
+         * 
+         * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * 
+         * &gt; **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
          * 
          * @return builder
          * 

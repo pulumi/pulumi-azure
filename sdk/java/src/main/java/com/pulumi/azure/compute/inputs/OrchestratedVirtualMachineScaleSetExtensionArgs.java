@@ -51,12 +51,16 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`.
      * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * 
      */
     @Import(name="failureSuppressionEnabled")
     private @Nullable Output<Boolean> failureSuppressionEnabled;
 
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`.
+     * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     public Optional<Output<Boolean>> failureSuppressionEnabled() {
@@ -96,12 +100,16 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
+     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you&#39;re looking to use for more information.
+     * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
      * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     * 
+     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -111,12 +119,16 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     /**
      * A `protected_settings_from_key_vault` block as defined below.
      * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * 
      */
     @Import(name="protectedSettingsFromKeyVault")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
 
     /**
      * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
@@ -272,6 +284,8 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`.
          * 
+         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * 
          * @return builder
          * 
          */
@@ -282,6 +296,8 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
 
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`.
+         * 
+         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
          * 
          * @return builder
          * 
@@ -335,6 +351,8 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         /**
          * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          * 
+         * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you&#39;re looking to use for more information.
+         * 
          * @return builder
          * 
          */
@@ -346,6 +364,8 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         /**
          * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          * 
+         * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you&#39;re looking to use for more information.
+         * 
          * @return builder
          * 
          */
@@ -355,6 +375,8 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
 
         /**
          * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
          * 
          * @return builder
          * 
@@ -366,6 +388,8 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
 
         /**
          * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
          * 
          * @return builder
          * 

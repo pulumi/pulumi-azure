@@ -73,6 +73,8 @@ export class SourceControl extends pulumi.CustomResource {
 
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Function apps are not supported at this time.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
@@ -89,6 +91,8 @@ export class SourceControl extends pulumi.CustomResource {
     public readonly repoUrl!: pulumi.Output<string>;
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
     public readonly rollbackEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -162,6 +166,8 @@ export class SourceControl extends pulumi.CustomResource {
 export interface SourceControlState {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Function apps are not supported at this time.
      */
     appId?: pulumi.Input<string>;
     /**
@@ -178,6 +184,8 @@ export interface SourceControlState {
     repoUrl?: pulumi.Input<string>;
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
     rollbackEnabled?: pulumi.Input<boolean>;
     /**
@@ -208,6 +216,8 @@ export interface SourceControlState {
 export interface SourceControlArgs {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Function apps are not supported at this time.
      */
     appId: pulumi.Input<string>;
     /**
@@ -224,6 +234,8 @@ export interface SourceControlArgs {
     repoUrl?: pulumi.Input<string>;
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
     rollbackEnabled?: pulumi.Input<boolean>;
     /**

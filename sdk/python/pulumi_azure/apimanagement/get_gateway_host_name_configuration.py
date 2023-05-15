@@ -159,7 +159,7 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
     example_service = azure.apimanagement.get_service(name="example-apim",
         resource_group_name="example-resources")
     example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-        api_management_id=data["azurerm_api_management"]["main"]["id"])
+        api_management_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     example_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
         api_management_id=example_service.id,
         gateway_name=example_gateway.name)
@@ -209,7 +209,7 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
     example_service = azure.apimanagement.get_service(name="example-apim",
         resource_group_name="example-resources")
     example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-        api_management_id=data["azurerm_api_management"]["main"]["id"])
+        api_management_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     example_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
         api_management_id=example_service.id,
         gateway_name=example_gateway.name)

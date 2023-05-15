@@ -68,7 +68,8 @@ namespace Pulumi.Azure.AppService
     public partial class WindowsFunctionApp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App
+        /// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
@@ -218,7 +219,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
@@ -273,12 +274,18 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Output("storageKeyVaultSecretId")]
         public Output<string?> StorageKeyVaultSecretId { get; private set; } = null!;
 
         /// <summary>
         /// Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Output("storageUsesManagedIdentity")]
         public Output<bool?> StorageUsesManagedIdentity { get; private set; } = null!;
@@ -289,14 +296,13 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -357,7 +363,8 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App
+        /// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -533,12 +540,18 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
 
         /// <summary>
         /// Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -555,14 +568,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -579,7 +591,8 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App
+        /// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -760,7 +773,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
@@ -841,12 +854,18 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
 
         /// <summary>
         /// Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -863,14 +882,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

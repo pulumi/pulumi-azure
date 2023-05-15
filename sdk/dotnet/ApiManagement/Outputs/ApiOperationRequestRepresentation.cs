@@ -23,14 +23,20 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly ImmutableArray<Outputs.ApiOperationRequestRepresentationExample> Examples;
         /// <summary>
         /// One or more `form_parameter` block as defined above.
+        /// 
+        /// &gt; **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationRequestRepresentationFormParameter> FormParameters;
         /// <summary>
         /// The ID of an API Management Schema which represents this Response.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         public readonly string? SchemaId;
         /// <summary>
         /// The Type Name defined by the Schema.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         public readonly string? TypeName;
 

@@ -65,6 +65,8 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+        /// 
+        /// &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         /// </summary>
         public InputList<string> HostNames
         {

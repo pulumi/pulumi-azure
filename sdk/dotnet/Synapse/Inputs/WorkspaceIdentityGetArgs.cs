@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Synapse.Inputs
 
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {

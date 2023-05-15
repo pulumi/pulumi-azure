@@ -15,6 +15,8 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
     {
         /// <summary>
         /// One or more `rule` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationSourceRuleSetRule> Rules;
 

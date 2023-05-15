@@ -46,12 +46,16 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
     /**
      * Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
+     * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
      * @return Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
      * 
      */
     public Output<String> subnetId() {
@@ -129,6 +133,8 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         /**
          * @param subnetId Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
+         * 
          * @return builder
          * 
          */
@@ -139,6 +145,8 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
 
         /**
          * @param subnetId Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
          * 
          * @return builder
          * 

@@ -84,12 +84,16 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Data Lake Storage Gen2 Linked Service:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Data Lake Storage Gen2 Linked Service:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {
@@ -224,12 +228,16 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
+     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * 
      */
     @Export(name="tenant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenant;
 
     /**
      * @return The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
+     * 
+     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
      * 
      */
     public Output<Optional<String>> tenant() {
@@ -238,12 +246,16 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      * 
+     * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+     * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
      * @return The endpoint for the Azure Data Lake Storage Gen2 service.
+     * 
+     * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
      * 
      */
     public Output<String> url() {

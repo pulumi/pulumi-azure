@@ -161,6 +161,8 @@ type FrontdoorRule struct {
 	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+	//
+	// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
 	Order pulumi.IntOutput `pulumi:"order"`
 }
 
@@ -215,6 +217,8 @@ type frontdoorRuleState struct {
 	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name *string `pulumi:"name"`
 	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+	//
+	// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
 	Order *int `pulumi:"order"`
 }
 
@@ -232,6 +236,8 @@ type FrontdoorRuleState struct {
 	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name pulumi.StringPtrInput
 	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+	//
+	// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
 	Order pulumi.IntPtrInput
 }
 
@@ -251,6 +257,8 @@ type frontdoorRuleArgs struct {
 	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name *string `pulumi:"name"`
 	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+	//
+	// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
 	Order int `pulumi:"order"`
 }
 
@@ -267,6 +275,8 @@ type FrontdoorRuleArgs struct {
 	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name pulumi.StringPtrInput
 	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+	//
+	// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
 	Order pulumi.IntInput
 }
 
@@ -388,6 +398,8 @@ func (o FrontdoorRuleOutput) Name() pulumi.StringOutput {
 }
 
 // The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+//
+// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
 func (o FrontdoorRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }

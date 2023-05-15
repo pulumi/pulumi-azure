@@ -7,6 +7,12 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a SQL Azure Managed Instance.
+ *
+ * > **Note:** The `azure.sql.ManagedInstance` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` resource instead.
+ *
+ * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. Read more about sensitive data in state.
+ *
  * ## Example Usage
  *
  * ```typescript

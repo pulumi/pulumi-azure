@@ -16,10 +16,14 @@ public final class AutomationRuleActionIncident {
     /**
      * @return The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
      * 
+     * &gt; **Note:** The `classification` is required when `status` is `Closed`.
+     * 
      */
     private @Nullable String classification;
     /**
      * @return The comment why the incident is to be closed.
+     * 
+     * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
      * 
      */
     private @Nullable String classificationComment;
@@ -41,6 +45,8 @@ public final class AutomationRuleActionIncident {
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
+     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * 
      */
     private @Nullable String severity;
     /**
@@ -53,12 +59,16 @@ public final class AutomationRuleActionIncident {
     /**
      * @return The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
      * 
+     * &gt; **Note:** The `classification` is required when `status` is `Closed`.
+     * 
      */
     public Optional<String> classification() {
         return Optional.ofNullable(this.classification);
     }
     /**
      * @return The comment why the incident is to be closed.
+     * 
+     * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
      * 
      */
     public Optional<String> classificationComment() {
@@ -87,6 +97,8 @@ public final class AutomationRuleActionIncident {
     }
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+     * 
+     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
      * 
      */
     public Optional<String> severity() {

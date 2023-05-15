@@ -41,12 +41,16 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
     /**
      * The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
+     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
+     * 
      */
     @Import(name="keyVaultSecretId")
     private @Nullable Output<String> keyVaultSecretId;
 
     /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
+     * 
+     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -126,6 +130,8 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
         /**
          * @param keyVaultSecretId The ID of the Key Vault Secret that contains the HTTPS certificate.
          * 
+         * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
 
         /**
          * @param keyVaultSecretId The ID of the Key Vault Secret that contains the HTTPS certificate.
+         * 
+         * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
          * 
          * @return builder
          * 

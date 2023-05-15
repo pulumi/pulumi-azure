@@ -19,12 +19,16 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
     /**
      * Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
      * 
+     * &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+     * 
      */
     @Import(name="globalMeshEnabled")
     private @Nullable Output<Boolean> globalMeshEnabled;
 
     /**
      * @return Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+     * 
+     * &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
      * 
      */
     public Optional<Output<Boolean>> globalMeshEnabled() {
@@ -106,6 +110,8 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
         /**
          * @param globalMeshEnabled Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
          * 
+         * &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +122,8 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
 
         /**
          * @param globalMeshEnabled Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+         * 
+         * &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
          * 
          * @return builder
          * 

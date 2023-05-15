@@ -81,6 +81,8 @@ export class ManagementGroup extends pulumi.CustomResource {
     public readonly parentManagementGroupId!: pulumi.Output<string>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
+     *
+     * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
     public readonly subscriptionIds!: pulumi.Output<string[]>;
 
@@ -134,6 +136,8 @@ export interface ManagementGroupState {
     parentManagementGroupId?: pulumi.Input<string>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
+     *
+     * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
     subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -156,6 +160,8 @@ export interface ManagementGroupArgs {
     parentManagementGroupId?: pulumi.Input<string>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
+     *
+     * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
     subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

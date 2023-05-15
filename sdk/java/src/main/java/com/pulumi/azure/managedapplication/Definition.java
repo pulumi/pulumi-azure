@@ -238,12 +238,16 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

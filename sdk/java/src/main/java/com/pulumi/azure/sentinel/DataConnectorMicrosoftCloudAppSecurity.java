@@ -98,12 +98,16 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      * 
+     * &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+     * 
      */
     @Export(name="discoveryLogsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> discoveryLogsEnabled;
 
     /**
      * @return Should the Discovery Logs be enabled? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
      * 
      */
     public Output<Optional<Boolean>> discoveryLogsEnabled() {
@@ -140,12 +144,16 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
      * @return The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+     * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Output<String> tenantId() {

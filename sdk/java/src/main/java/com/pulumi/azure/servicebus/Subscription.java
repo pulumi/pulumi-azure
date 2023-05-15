@@ -117,12 +117,16 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * whether the subscription is scoped to a client id. Defaults to `False`.
      * 
+     * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * 
      */
     @Export(name="clientScopedSubscriptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> clientScopedSubscriptionEnabled;
 
     /**
      * @return whether the subscription is scoped to a client id. Defaults to `False`.
+     * 
+     * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 
      */
     public Output<Optional<Boolean>> clientScopedSubscriptionEnabled() {

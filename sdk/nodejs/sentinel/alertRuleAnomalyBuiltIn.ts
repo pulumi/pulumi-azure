@@ -7,6 +7,34 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {
+ *     workspaceId: exampleAnalyticsWorkspace.id,
+ *     customerManagedKeyEnabled: false,
+ * });
+ * const exampleAlertRuleAnomaly = azure.sentinel.getAlertRuleAnomalyOutput({
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
+ *     displayName: "Potential data staging",
+ * });
+ * const exampleAlertRuleAnomalyBuiltIn = new azure.sentinel.AlertRuleAnomalyBuiltIn("exampleAlertRuleAnomalyBuiltIn", {
+ *     displayName: "Potential data staging",
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     mode: "Production",
+ *     enabled: false,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -57,6 +85,8 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     *
+     * > **Note:** One of `name` or `displayName` block must be specified.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -194,6 +224,8 @@ export interface AlertRuleAnomalyBuiltInState {
     description?: pulumi.Input<string>;
     /**
      * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     *
+     * > **Note:** One of `name` or `displayName` block must be specified.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -256,6 +288,8 @@ export interface AlertRuleAnomalyBuiltInState {
 export interface AlertRuleAnomalyBuiltInArgs {
     /**
      * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     *
+     * > **Note:** One of `name` or `displayName` block must be specified.
      */
     displayName?: pulumi.Input<string>;
     /**

@@ -34,12 +34,32 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
     /**
      * The app setting name that contains the `client_secret` value used for Apple Login.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -49,12 +69,16 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
     /**
      * A list of Login Scopes provided by this Authentication Provider.
      * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -111,6 +135,16 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -122,6 +156,16 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -131,6 +175,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
 
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -143,6 +189,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
          * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
          * @return builder
          * 
          */
@@ -152,6 +200,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args extends com.
 
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 

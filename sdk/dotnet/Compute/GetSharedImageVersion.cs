@@ -91,6 +91,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The name of the Image Version.
+        /// 
+        /// &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -129,6 +131,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The name of the Image Version.
+        /// 
+        /// &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

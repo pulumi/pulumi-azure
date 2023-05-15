@@ -13,17 +13,9 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
 
     public static final VolumeDataProtectionSnapshotPolicyArgs Empty = new VolumeDataProtectionSnapshotPolicyArgs();
 
-    /**
-     * Resource ID of the snapshot policy to apply to the volume.
-     * 
-     */
     @Import(name="snapshotPolicyId", required=true)
     private Output<String> snapshotPolicyId;
 
-    /**
-     * @return Resource ID of the snapshot policy to apply to the volume.
-     * 
-     */
     public Output<String> snapshotPolicyId() {
         return this.snapshotPolicyId;
     }
@@ -52,23 +44,11 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
             $ = new VolumeDataProtectionSnapshotPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param snapshotPolicyId Resource ID of the snapshot policy to apply to the volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotPolicyId(Output<String> snapshotPolicyId) {
             $.snapshotPolicyId = snapshotPolicyId;
             return this;
         }
 
-        /**
-         * @param snapshotPolicyId Resource ID of the snapshot policy to apply to the volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotPolicyId(String snapshotPolicyId) {
             return snapshotPolicyId(Output.of(snapshotPolicyId));
         }

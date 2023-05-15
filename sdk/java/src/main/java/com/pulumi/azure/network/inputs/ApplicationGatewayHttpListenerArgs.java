@@ -126,12 +126,16 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     /**
      * A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
+     * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+     * 
      */
     @Import(name="hostNames")
     private @Nullable Output<List<String>> hostNames;
 
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+     * 
+     * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
      * 
      */
     public Optional<Output<List<String>>> hostNames() {
@@ -457,6 +461,8 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         /**
          * @param hostNames A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
          * 
+         * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+         * 
          * @return builder
          * 
          */
@@ -468,6 +474,8 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         /**
          * @param hostNames A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
          * 
+         * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+         * 
          * @return builder
          * 
          */
@@ -477,6 +485,8 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
 
         /**
          * @param hostNames A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+         * 
+         * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
          * 
          * @return builder
          * 

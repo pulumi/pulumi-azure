@@ -67,6 +67,10 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+        /// 
+        /// &gt; **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// 
+        /// &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         /// </summary>
         [Output("evaluationFrequency")]
         public Output<string?> EvaluationFrequency { get; private set; } = null!;
@@ -91,6 +95,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// 
+        /// &gt; **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Output("muteActionsAfterAlertDuration")]
         public Output<string?> MuteActionsAfterAlertDuration { get; private set; } = null!;
@@ -103,6 +109,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// 
+        /// &gt; **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         /// </summary>
         [Output("queryTimeRangeOverride")]
         public Output<string?> QueryTimeRangeOverride { get; private set; } = null!;
@@ -245,6 +253,10 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+        /// 
+        /// &gt; **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// 
+        /// &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         /// </summary>
         [Input("evaluationFrequency")]
         public Input<string>? EvaluationFrequency { get; set; }
@@ -257,6 +269,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// 
+        /// &gt; **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("muteActionsAfterAlertDuration")]
         public Input<string>? MuteActionsAfterAlertDuration { get; set; }
@@ -269,6 +283,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// 
+        /// &gt; **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         /// </summary>
         [Input("queryTimeRangeOverride")]
         public Input<string>? QueryTimeRangeOverride { get; set; }
@@ -391,6 +407,10 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+        /// 
+        /// &gt; **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// 
+        /// &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         /// </summary>
         [Input("evaluationFrequency")]
         public Input<string>? EvaluationFrequency { get; set; }
@@ -415,6 +435,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// 
+        /// &gt; **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("muteActionsAfterAlertDuration")]
         public Input<string>? MuteActionsAfterAlertDuration { get; set; }
@@ -427,6 +449,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// 
+        /// &gt; **Note** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
         /// </summary>
         [Input("queryTimeRangeOverride")]
         public Input<string>? QueryTimeRangeOverride { get; set; }

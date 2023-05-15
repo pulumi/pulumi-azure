@@ -1571,6 +1571,8 @@ type ApplicationGatewayHttpListener struct {
 	// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
 	HostName *string `pulumi:"hostName"`
 	// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+	//
+	// > **NOTE** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
 	HostNames []string `pulumi:"hostNames"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
@@ -1617,6 +1619,8 @@ type ApplicationGatewayHttpListenerArgs struct {
 	// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+	//
+	// > **NOTE** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
 	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1725,6 +1729,8 @@ func (o ApplicationGatewayHttpListenerOutput) HostName() pulumi.StringPtrOutput 
 }
 
 // A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+//
+// > **NOTE** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
 func (o ApplicationGatewayHttpListenerOutput) HostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) []string { return v.HostNames }).(pulumi.StringArrayOutput)
 }
@@ -2170,6 +2176,22 @@ type ApplicationGatewayPrivateLinkConfiguration struct {
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
 	// One or more `ipConfiguration` blocks as defined below.
+	//
+	// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IpConfigurations []ApplicationGatewayPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfigurations"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -2190,6 +2212,22 @@ type ApplicationGatewayPrivateLinkConfigurationArgs struct {
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// One or more `ipConfiguration` blocks as defined below.
+	//
+	// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IpConfigurations ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2252,6 +2290,25 @@ func (o ApplicationGatewayPrivateLinkConfigurationOutput) Id() pulumi.StringPtrO
 }
 
 // One or more `ipConfiguration` blocks as defined below.
+//
+// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ApplicationGatewayPrivateLinkConfigurationOutput) IpConfigurations() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfiguration) []ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfigurations
@@ -2945,6 +3002,8 @@ type ApplicationGatewayRequestRoutingRule struct {
 	// The Name of this Request Routing Rule.
 	Name string `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+	//
+	// > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
 	Priority *int `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
@@ -2953,6 +3012,8 @@ type ApplicationGatewayRequestRoutingRule struct {
 	// The ID of the associated Rewrite Rule Set.
 	RewriteRuleSetId *string `pulumi:"rewriteRuleSetId"`
 	// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+	//
+	// > **NOTE:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
 	RewriteRuleSetName *string `pulumi:"rewriteRuleSetName"`
 	// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
 	RuleType string `pulumi:"ruleType"`
@@ -2991,6 +3052,8 @@ type ApplicationGatewayRequestRoutingRuleArgs struct {
 	// The Name of this Request Routing Rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+	//
+	// > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId pulumi.StringPtrInput `pulumi:"redirectConfigurationId"`
@@ -2999,6 +3062,8 @@ type ApplicationGatewayRequestRoutingRuleArgs struct {
 	// The ID of the associated Rewrite Rule Set.
 	RewriteRuleSetId pulumi.StringPtrInput `pulumi:"rewriteRuleSetId"`
 	// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+	//
+	// > **NOTE:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
 	RewriteRuleSetName pulumi.StringPtrInput `pulumi:"rewriteRuleSetName"`
 	// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
@@ -3100,6 +3165,8 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringOutput {
 }
 
 // Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+//
+// > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
 func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
@@ -3120,6 +3187,8 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) RewriteRuleSetId() pulumi.St
 }
 
 // The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+//
+// > **NOTE:** `backendAddressPoolName`, `backendHttpSettingsName`, `redirectConfigurationName`, and `rewriteRuleSetName` are applicable only when `ruleType` is `Basic`.
 func (o ApplicationGatewayRequestRoutingRuleOutput) RewriteRuleSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *string { return v.RewriteRuleSetName }).(pulumi.StringPtrOutput)
 }
@@ -3772,6 +3841,8 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationAr
 
 type ApplicationGatewayRewriteRuleSetRewriteRuleUrl struct {
 	// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+	//
+	// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 	Components *string `pulumi:"components"`
 	// The URL path to rewrite.
 	Path *string `pulumi:"path"`
@@ -3794,6 +3865,8 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput interface {
 
 type ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs struct {
 	// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+	//
+	// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 	Components pulumi.StringPtrInput `pulumi:"components"`
 	// The URL path to rewrite.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -3881,6 +3954,8 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatew
 }
 
 // The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+//
+// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Components() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.Components }).(pulumi.StringPtrOutput)
 }
@@ -3925,6 +4000,8 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Elem() Applicat
 }
 
 // The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+//
+// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Components() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string {
 		if v == nil {
@@ -4141,10 +4218,16 @@ func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 
 type ApplicationGatewaySslCertificate struct {
 	// The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
+	//
+	// > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
 	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
 	// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+	//
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Name of the SSL certificate that is unique within this Application Gateway
 	Name string `pulumi:"name"`
@@ -4167,10 +4250,16 @@ type ApplicationGatewaySslCertificateInput interface {
 
 type ApplicationGatewaySslCertificateArgs struct {
 	// The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
+	//
+	// > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
 	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+	//
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Name of the SSL certificate that is unique within this Application Gateway
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4232,6 +4321,8 @@ func (o ApplicationGatewaySslCertificateOutput) ToApplicationGatewaySslCertifica
 }
 
 // The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
+//
+// > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
 func (o ApplicationGatewaySslCertificateOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
@@ -4242,6 +4333,10 @@ func (o ApplicationGatewaySslCertificateOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+//
+// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+//
+// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 func (o ApplicationGatewaySslCertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -4285,12 +4380,16 @@ type ApplicationGatewaySslPolicy struct {
 	// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
 	CipherSuites []string `pulumi:"cipherSuites"`
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+	//
+	// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 	DisabledProtocols []string `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+	//
+	// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 	PolicyType *string `pulumi:"policyType"`
 }
 
@@ -4309,12 +4408,16 @@ type ApplicationGatewaySslPolicyArgs struct {
 	// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
 	CipherSuites pulumi.StringArrayInput `pulumi:"cipherSuites"`
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+	//
+	// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+	//
+	// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
 
@@ -4401,6 +4504,8 @@ func (o ApplicationGatewaySslPolicyOutput) CipherSuites() pulumi.StringArrayOutp
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+//
+// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 func (o ApplicationGatewaySslPolicyOutput) DisabledProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) []string { return v.DisabledProtocols }).(pulumi.StringArrayOutput)
 }
@@ -4416,6 +4521,8 @@ func (o ApplicationGatewaySslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 }
 
 // The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+//
+// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 func (o ApplicationGatewaySslPolicyOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
@@ -4455,6 +4562,8 @@ func (o ApplicationGatewaySslPolicyPtrOutput) CipherSuites() pulumi.StringArrayO
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+//
+// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 func (o ApplicationGatewaySslPolicyPtrOutput) DisabledProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) []string {
 		if v == nil {
@@ -4485,6 +4594,8 @@ func (o ApplicationGatewaySslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutpu
 }
 
 // The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+//
+// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 func (o ApplicationGatewaySslPolicyPtrOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
 		if v == nil {
@@ -4631,12 +4742,16 @@ type ApplicationGatewaySslProfileSslPolicy struct {
 	// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
 	CipherSuites []string `pulumi:"cipherSuites"`
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+	//
+	// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 	DisabledProtocols []string `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+	//
+	// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 	PolicyType *string `pulumi:"policyType"`
 }
 
@@ -4655,12 +4770,16 @@ type ApplicationGatewaySslProfileSslPolicyArgs struct {
 	// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
 	CipherSuites pulumi.StringArrayInput `pulumi:"cipherSuites"`
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+	//
+	// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+	//
+	// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
 
@@ -4747,6 +4866,8 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) CipherSuites() pulumi.Strin
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+//
+// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 func (o ApplicationGatewaySslProfileSslPolicyOutput) DisabledProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) []string { return v.DisabledProtocols }).(pulumi.StringArrayOutput)
 }
@@ -4762,6 +4883,8 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyName() pulumi.StringP
 }
 
 // The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+//
+// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
@@ -4801,6 +4924,8 @@ func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) CipherSuites() pulumi.St
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+//
+// > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
 func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) DisabledProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) []string {
 		if v == nil {
@@ -4831,6 +4956,8 @@ func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyName() pulumi.Stri
 }
 
 // The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+//
+// > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
 func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
 		if v == nil {
@@ -4961,6 +5088,10 @@ type ApplicationGatewayTrustedRootCertificate struct {
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
 	// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+	//
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Name of the Trusted Root Certificate to use.
 	Name string `pulumi:"name"`
@@ -4983,6 +5114,10 @@ type ApplicationGatewayTrustedRootCertificateArgs struct {
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+	//
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Name of the Trusted Root Certificate to use.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5050,6 +5185,10 @@ func (o ApplicationGatewayTrustedRootCertificateOutput) Id() pulumi.StringPtrOut
 }
 
 // The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+//
+// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+//
+// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 func (o ApplicationGatewayTrustedRootCertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -5091,6 +5230,8 @@ type ApplicationGatewayUrlPathMap struct {
 	// The ID of the Default Redirect Configuration.
 	DefaultRedirectConfigurationId *string `pulumi:"defaultRedirectConfigurationId"`
 	// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
+	//
+	// > **NOTE:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
 	DefaultRedirectConfigurationName *string `pulumi:"defaultRedirectConfigurationName"`
 	DefaultRewriteRuleSetId          *string `pulumi:"defaultRewriteRuleSetId"`
 	// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
@@ -5126,6 +5267,8 @@ type ApplicationGatewayUrlPathMapArgs struct {
 	// The ID of the Default Redirect Configuration.
 	DefaultRedirectConfigurationId pulumi.StringPtrInput `pulumi:"defaultRedirectConfigurationId"`
 	// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
+	//
+	// > **NOTE:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
 	DefaultRedirectConfigurationName pulumi.StringPtrInput `pulumi:"defaultRedirectConfigurationName"`
 	DefaultRewriteRuleSetId          pulumi.StringPtrInput `pulumi:"defaultRewriteRuleSetId"`
 	// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
@@ -5215,6 +5358,8 @@ func (o ApplicationGatewayUrlPathMapOutput) DefaultRedirectConfigurationId() pul
 }
 
 // The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
+//
+// > **NOTE:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
 func (o ApplicationGatewayUrlPathMapOutput) DefaultRedirectConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayUrlPathMap) *string { return v.DefaultRedirectConfigurationName }).(pulumi.StringPtrOutput)
 }
@@ -5981,6 +6126,8 @@ type ExpressRouteCircuitPeeringIpv6 struct {
 	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	//
+	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId *string `pulumi:"routeFilterId"`
 	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
@@ -6005,6 +6152,8 @@ type ExpressRouteCircuitPeeringIpv6Args struct {
 	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix pulumi.StringInput `pulumi:"primaryPeerAddressPrefix"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	//
+	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId pulumi.StringPtrInput `pulumi:"routeFilterId"`
 	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix pulumi.StringInput `pulumi:"secondaryPeerAddressPrefix"`
@@ -6105,6 +6254,8 @@ func (o ExpressRouteCircuitPeeringIpv6Output) PrimaryPeerAddressPrefix() pulumi.
 }
 
 // The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+//
+// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 func (o ExpressRouteCircuitPeeringIpv6Output) RouteFilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) *string { return v.RouteFilterId }).(pulumi.StringPtrOutput)
 }
@@ -6169,6 +6320,8 @@ func (o ExpressRouteCircuitPeeringIpv6PtrOutput) PrimaryPeerAddressPrefix() pulu
 }
 
 // The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+//
+// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 func (o ExpressRouteCircuitPeeringIpv6PtrOutput) RouteFilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) *string {
 		if v == nil {
@@ -6578,6 +6731,8 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) RoutingRegist
 
 type ExpressRouteCircuitSku struct {
 	// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+	//
+	// > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
 	Family string `pulumi:"family"`
 	// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
 	Tier string `pulumi:"tier"`
@@ -6596,6 +6751,8 @@ type ExpressRouteCircuitSkuInput interface {
 
 type ExpressRouteCircuitSkuArgs struct {
 	// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+	//
+	// > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
 	Family pulumi.StringInput `pulumi:"family"`
 	// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
 	Tier pulumi.StringInput `pulumi:"tier"`
@@ -6679,6 +6836,8 @@ func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuPtrOutputWithConte
 }
 
 // The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+//
+// > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
 func (o ExpressRouteCircuitSkuOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitSku) string { return v.Family }).(pulumi.StringOutput)
 }
@@ -6713,6 +6872,8 @@ func (o ExpressRouteCircuitSkuPtrOutput) Elem() ExpressRouteCircuitSkuOutput {
 }
 
 // The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+//
+// > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
 func (o ExpressRouteCircuitSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitSku) *string {
 		if v == nil {
@@ -7250,6 +7411,8 @@ type ExpressRoutePortLink1 struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName *string `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher *string `pulumi:"macsecCipher"`
@@ -7284,6 +7447,8 @@ type ExpressRoutePortLink1Args struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
@@ -7395,6 +7560,8 @@ func (o ExpressRoutePortLink1Output) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink1Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -7489,6 +7656,8 @@ func (o ExpressRoutePortLink1PtrOutput) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink1PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
 		if v == nil {
@@ -7558,6 +7727,8 @@ type ExpressRoutePortLink2 struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName *string `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher *string `pulumi:"macsecCipher"`
@@ -7592,6 +7763,8 @@ type ExpressRoutePortLink2Args struct {
 	// The interface name of the Azure router associated with the Express Route Port Link.
 	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
 	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
@@ -7703,6 +7876,8 @@ func (o ExpressRoutePortLink2Output) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink2Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -7797,6 +7972,8 @@ func (o ExpressRoutePortLink2PtrOutput) InterfaceName() pulumi.StringPtrOutput {
 }
 
 // The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink2PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
 		if v == nil {
@@ -7868,6 +8045,8 @@ type FirewallApplicationRuleCollectionRule struct {
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// A list of source IP Group IDs for the rule.
+	//
+	// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 	// A list of FQDNs.
 	TargetFqdns []string `pulumi:"targetFqdns"`
@@ -7896,6 +8075,8 @@ type FirewallApplicationRuleCollectionRuleArgs struct {
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// A list of source IP Group IDs for the rule.
+	//
+	// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 	// A list of FQDNs.
 	TargetFqdns pulumi.StringArrayInput `pulumi:"targetFqdns"`
@@ -7980,6 +8161,8 @@ func (o FirewallApplicationRuleCollectionRuleOutput) SourceAddresses() pulumi.St
 }
 
 // A list of source IP Group IDs for the rule.
+//
+// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 func (o FirewallApplicationRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallApplicationRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
@@ -8119,10 +8302,13 @@ type FirewallIpConfiguration struct {
 	// Specifies the name of the IP Configuration.
 	Name string `pulumi:"name"`
 	// The private IP address associated with the Firewall.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The ID of the Public IP Address associated with the firewall.
-	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	PrivateIpAddress  *string `pulumi:"privateIpAddress"`
+	PublicIpAddressId string  `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+	//
+	// > **NOTE** At least one and only one `ipConfiguration` block may contain a `subnetId`.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -8141,10 +8327,13 @@ type FirewallIpConfigurationArgs struct {
 	// Specifies the name of the IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The private IP address associated with the Firewall.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The ID of the Public IP Address associated with the firewall.
-	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	PrivateIpAddress  pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	PublicIpAddressId pulumi.StringInput    `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+	//
+	// > **NOTE** At least one and only one `ipConfiguration` block may contain a `subnetId`.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -8209,12 +8398,15 @@ func (o FirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Public IP Address associated with the firewall.
 func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 // Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+//
+// > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+//
+// > **NOTE** At least one and only one `ipConfiguration` block may contain a `subnetId`.
 func (o FirewallIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -8245,8 +8437,12 @@ type FirewallManagementIpConfiguration struct {
 	// The private IP address associated with the Firewall.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
+	//
+	// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -8267,8 +8463,12 @@ type FirewallManagementIpConfigurationArgs struct {
 	// The private IP address associated with the Firewall.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
+	//
+	// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -8360,11 +8560,15 @@ func (o FirewallManagementIpConfigurationOutput) PrivateIpAddress() pulumi.Strin
 }
 
 // The ID of the Public IP Address associated with the firewall.
+//
+// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 func (o FirewallManagementIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallManagementIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 // Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+//
+// > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
 func (o FirewallManagementIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallManagementIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -8414,6 +8618,8 @@ func (o FirewallManagementIpConfigurationPtrOutput) PrivateIpAddress() pulumi.St
 }
 
 // The ID of the Public IP Address associated with the firewall.
+//
+// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 func (o FirewallManagementIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
 		if v == nil {
@@ -8424,6 +8630,8 @@ func (o FirewallManagementIpConfigurationPtrOutput) PublicIpAddressId() pulumi.S
 }
 
 // Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+//
+// > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
 func (o FirewallManagementIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
 		if v == nil {
@@ -8447,6 +8655,8 @@ type FirewallNatRuleCollectionRule struct {
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// A list of source IP Group IDs for the rule.
+	//
+	// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 	// The address of the service behind the Firewall.
 	TranslatedAddress string `pulumi:"translatedAddress"`
@@ -8479,6 +8689,8 @@ type FirewallNatRuleCollectionRuleArgs struct {
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// A list of source IP Group IDs for the rule.
+	//
+	// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 	// The address of the service behind the Firewall.
 	TranslatedAddress pulumi.StringInput `pulumi:"translatedAddress"`
@@ -8568,6 +8780,8 @@ func (o FirewallNatRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArra
 }
 
 // A list of source IP Group IDs for the rule.
+//
+// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 func (o FirewallNatRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNatRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
@@ -8608,6 +8822,10 @@ type FirewallNetworkRuleCollectionRule struct {
 	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// A list of destination FQDNS for the rule.
+	//
+	// > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+	//
+	// > **NOTE** At least one of `destinationAddresses`, `destinationIpGroups` and `destinationFqdns` must be specified for a rule.
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// A list of destination IP Group IDs for the rule.
 	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
@@ -8620,6 +8838,8 @@ type FirewallNetworkRuleCollectionRule struct {
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// A list of IP Group IDs for the rule.
+	//
+	// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 }
 
@@ -8640,6 +8860,10 @@ type FirewallNetworkRuleCollectionRuleArgs struct {
 	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// A list of destination FQDNS for the rule.
+	//
+	// > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+	//
+	// > **NOTE** At least one of `destinationAddresses`, `destinationIpGroups` and `destinationFqdns` must be specified for a rule.
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// A list of destination IP Group IDs for the rule.
 	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
@@ -8652,6 +8876,8 @@ type FirewallNetworkRuleCollectionRuleArgs struct {
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// A list of IP Group IDs for the rule.
+	//
+	// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 }
 
@@ -8717,6 +8943,10 @@ func (o FirewallNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.S
 }
 
 // A list of destination FQDNS for the rule.
+//
+// > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+//
+// > **NOTE** At least one of `destinationAddresses`, `destinationIpGroups` and `destinationFqdns` must be specified for a rule.
 func (o FirewallNetworkRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
 }
@@ -8747,6 +8977,8 @@ func (o FirewallNetworkRuleCollectionRuleOutput) SourceAddresses() pulumi.String
 }
 
 // A list of IP Group IDs for the rule.
+//
+// > **NOTE** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
 func (o FirewallNetworkRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
@@ -10658,6 +10890,8 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
 	// Specifies the translated address.
 	TranslatedAddress *string `pulumi:"translatedAddress"`
 	// Specifies the translated FQDN.
+	//
+	// > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
 	TranslatedFqdn *string `pulumi:"translatedFqdn"`
 	// Specifies the translated port.
 	TranslatedPort int `pulumi:"translatedPort"`
@@ -10690,6 +10924,8 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
 	// Specifies the translated address.
 	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
 	// Specifies the translated FQDN.
+	//
+	// > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
 	TranslatedFqdn pulumi.StringPtrInput `pulumi:"translatedFqdn"`
 	// Specifies the translated port.
 	TranslatedPort pulumi.IntInput `pulumi:"translatedPort"`
@@ -10782,6 +11018,8 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Translated
 }
 
 // Specifies the translated FQDN.
+//
+// > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.TranslatedFqdn }).(pulumi.StringPtrOutput)
 }
@@ -13329,12 +13567,16 @@ type NetworkInterfaceIpConfiguration struct {
 	// The Static IP Address which should be used.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+	//
+	// > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
 	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
 	// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
 	PrivateIpAddressVersion *string `pulumi:"privateIpAddressVersion"`
 	// Reference to a Public IP Address to associate with this NIC
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where this Network Interface should be located in.
+	//
+	// > **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -13359,12 +13601,16 @@ type NetworkInterfaceIpConfigurationArgs struct {
 	// The Static IP Address which should be used.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+	//
+	// > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
 	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
 	// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
 	PrivateIpAddressVersion pulumi.StringPtrInput `pulumi:"privateIpAddressVersion"`
 	// Reference to a Public IP Address to associate with this NIC
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where this Network Interface should be located in.
+	//
+	// > **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -13440,6 +13686,8 @@ func (o NetworkInterfaceIpConfigurationOutput) PrivateIpAddress() pulumi.StringP
 }
 
 // The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+//
+// > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
 func (o NetworkInterfaceIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) string { return v.PrivateIpAddressAllocation }).(pulumi.StringOutput)
 }
@@ -13455,6 +13703,8 @@ func (o NetworkInterfaceIpConfigurationOutput) PublicIpAddressId() pulumi.String
 }
 
 // The ID of the Subnet where this Network Interface should be located in.
+//
+// > **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
 func (o NetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -13693,6 +13943,8 @@ func (o NetworkManagerAdminRuleSourceArrayOutput) Index(i pulumi.IntInput) Netwo
 
 type NetworkManagerConnectivityConfigurationAppliesToGroup struct {
 	// Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
 	GlobalMeshEnabled *bool `pulumi:"globalMeshEnabled"`
 	// Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
 	GroupConnectivity string `pulumi:"groupConnectivity"`
@@ -13715,6 +13967,8 @@ type NetworkManagerConnectivityConfigurationAppliesToGroupInput interface {
 
 type NetworkManagerConnectivityConfigurationAppliesToGroupArgs struct {
 	// Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
 	GlobalMeshEnabled pulumi.BoolPtrInput `pulumi:"globalMeshEnabled"`
 	// Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
 	GroupConnectivity pulumi.StringInput `pulumi:"groupConnectivity"`
@@ -13776,6 +14030,8 @@ func (o NetworkManagerConnectivityConfigurationAppliesToGroupOutput) ToNetworkMa
 }
 
 // Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+//
+// > **NOTE:** A group can be global only if the `groupConnectivity` is `DirectlyConnected`.
 func (o NetworkManagerConnectivityConfigurationAppliesToGroupOutput) GlobalMeshEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NetworkManagerConnectivityConfigurationAppliesToGroup) *bool { return v.GlobalMeshEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14379,6 +14635,8 @@ type NetworkPacketCaptureStorageLocation struct {
 	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
 	FilePath *string `pulumi:"filePath"`
 	// The ID of the storage account to save the packet capture session
+	//
+	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The URI of the storage path to save the packet capture.
 	StoragePath *string `pulumi:"storagePath"`
@@ -14399,6 +14657,8 @@ type NetworkPacketCaptureStorageLocationArgs struct {
 	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
 	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
 	// The ID of the storage account to save the packet capture session
+	//
+	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The URI of the storage path to save the packet capture.
 	StoragePath pulumi.StringPtrInput `pulumi:"storagePath"`
@@ -14487,6 +14747,8 @@ func (o NetworkPacketCaptureStorageLocationOutput) FilePath() pulumi.StringPtrOu
 }
 
 // The ID of the storage account to save the packet capture session
+//
+// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
 func (o NetworkPacketCaptureStorageLocationOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -14531,6 +14793,8 @@ func (o NetworkPacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPt
 }
 
 // The ID of the storage account to save the packet capture session
+//
+// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
 func (o NetworkPacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
 		if v == nil {
@@ -17001,6 +17265,8 @@ func (o SubnetDelegationArrayOutput) Index(i pulumi.IntInput) SubnetDelegationOu
 
 type SubnetDelegationServiceDelegation struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+	//
+	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions []string `pulumi:"actions"`
 	// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
 	Name string `pulumi:"name"`
@@ -17019,6 +17285,8 @@ type SubnetDelegationServiceDelegationInput interface {
 
 type SubnetDelegationServiceDelegationArgs struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+	//
+	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -17051,6 +17319,8 @@ func (o SubnetDelegationServiceDelegationOutput) ToSubnetDelegationServiceDelega
 }
 
 // A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+//
+// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
@@ -18998,6 +19268,8 @@ type VirtualHubRouteTableRouteType struct {
 	// The next hop's resource ID.
 	NextHop string `pulumi:"nextHop"`
 	// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+	//
+	// > **Note:** The Routes can alternatively be created using the virtualHubRouteTableRoute resource. Using both inline and external routes is not supported and may result in unexpected configuration.
 	NextHopType *string `pulumi:"nextHopType"`
 }
 
@@ -19022,6 +19294,8 @@ type VirtualHubRouteTableRouteTypeArgs struct {
 	// The next hop's resource ID.
 	NextHop pulumi.StringInput `pulumi:"nextHop"`
 	// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+	//
+	// > **Note:** The Routes can alternatively be created using the virtualHubRouteTableRoute resource. Using both inline and external routes is not supported and may result in unexpected configuration.
 	NextHopType pulumi.StringPtrInput `pulumi:"nextHopType"`
 }
 
@@ -19097,6 +19371,8 @@ func (o VirtualHubRouteTableRouteTypeOutput) NextHop() pulumi.StringOutput {
 }
 
 // The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+//
+// > **Note:** The Routes can alternatively be created using the virtualHubRouteTableRoute resource. Using both inline and external routes is not supported and may result in unexpected configuration.
 func (o VirtualHubRouteTableRouteTypeOutput) NextHopType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualHubRouteTableRouteType) *string { return v.NextHopType }).(pulumi.StringPtrOutput)
 }
@@ -19456,6 +19732,8 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddresses() VirtualNet
 
 type VirtualNetworkGatewayBgpSettingsPeeringAddress struct {
 	// A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+	//
+	// > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
 	ApipaAddresses []string `pulumi:"apipaAddresses"`
 	// A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
 	DefaultAddresses []string `pulumi:"defaultAddresses"`
@@ -19478,6 +19756,8 @@ type VirtualNetworkGatewayBgpSettingsPeeringAddressInput interface {
 
 type VirtualNetworkGatewayBgpSettingsPeeringAddressArgs struct {
 	// A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+	//
+	// > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
 	ApipaAddresses pulumi.StringArrayInput `pulumi:"apipaAddresses"`
 	// A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
 	DefaultAddresses pulumi.StringArrayInput `pulumi:"defaultAddresses"`
@@ -19539,6 +19819,8 @@ func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) ToVirtualNetworkGa
 }
 
 // A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+//
+// > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
 func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) ApipaAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettingsPeeringAddress) []string { return v.ApipaAddresses }).(pulumi.StringArrayOutput)
 }
@@ -20661,6 +20943,8 @@ type VirtualNetworkGatewayVpnClientConfiguration struct {
 	RootCertificates []VirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
 	// List of the vpn authentication types for the virtual network gateway.
 	// The supported values are `AAD`, `Radius` and `Certificate`.
+	//
+	// > **NOTE:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
 	VpnAuthTypes []string `pulumi:"vpnAuthTypes"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -20700,6 +20984,8 @@ type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	RootCertificates VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
 	// List of the vpn authentication types for the virtual network gateway.
 	// The supported values are `AAD`, `Radius` and `Certificate`.
+	//
+	// > **NOTE:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
 	VpnAuthTypes pulumi.StringArrayInput `pulumi:"vpnAuthTypes"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -20832,6 +21118,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() Vi
 
 // List of the vpn authentication types for the virtual network gateway.
 // The supported values are `AAD`, `Radius` and `Certificate`.
+//
+// > **NOTE:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) VpnAuthTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []string { return v.VpnAuthTypes }).(pulumi.StringArrayOutput)
 }
@@ -20951,6 +21239,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates()
 
 // List of the vpn authentication types for the virtual network gateway.
 // The supported values are `AAD`, `Radius` and `Certificate`.
+//
+// > **NOTE:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnAuthTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []string {
 		if v == nil {
@@ -24295,12 +24585,16 @@ func (o VpnServerConfigurationRadiusServerRootCertificateArrayOutput) Index(i pu
 
 type VpnSiteLink struct {
 	// A `bgp` block as defined above.
+	//
+	// > **NOTE:** The `link.bgp` has to be set when the `addressCidrs` isn't specified.
 	Bgp *VpnSiteLinkBgp `pulumi:"bgp"`
 	// The FQDN of this VPN Site Link.
 	Fqdn *string `pulumi:"fqdn"`
 	// The ID of the VPN Site Link.
 	Id *string `pulumi:"id"`
 	// The IP address of this VPN Site Link.
+	//
+	// > **NOTE:** Either `fqdn` or `ipAddress` should be specified.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name which should be used for this VPN Site Link.
 	Name string `pulumi:"name"`
@@ -24323,12 +24617,16 @@ type VpnSiteLinkInput interface {
 
 type VpnSiteLinkArgs struct {
 	// A `bgp` block as defined above.
+	//
+	// > **NOTE:** The `link.bgp` has to be set when the `addressCidrs` isn't specified.
 	Bgp VpnSiteLinkBgpPtrInput `pulumi:"bgp"`
 	// The FQDN of this VPN Site Link.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// The ID of the VPN Site Link.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The IP address of this VPN Site Link.
+	//
+	// > **NOTE:** Either `fqdn` or `ipAddress` should be specified.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name which should be used for this VPN Site Link.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -24390,6 +24688,8 @@ func (o VpnSiteLinkOutput) ToVpnSiteLinkOutputWithContext(ctx context.Context) V
 }
 
 // A `bgp` block as defined above.
+//
+// > **NOTE:** The `link.bgp` has to be set when the `addressCidrs` isn't specified.
 func (o VpnSiteLinkOutput) Bgp() VpnSiteLinkBgpPtrOutput {
 	return o.ApplyT(func(v VpnSiteLink) *VpnSiteLinkBgp { return v.Bgp }).(VpnSiteLinkBgpPtrOutput)
 }
@@ -24405,6 +24705,8 @@ func (o VpnSiteLinkOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The IP address of this VPN Site Link.
+//
+// > **NOTE:** Either `fqdn` or `ipAddress` should be specified.
 func (o VpnSiteLinkOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnSiteLink) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }

@@ -196,12 +196,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      * 
+     * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+     * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
      * @return The state of this user. Possible values are `active`, `blocked` and `pending`.
+     * 
+     * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
      * 
      */
     public Output<String> state() {

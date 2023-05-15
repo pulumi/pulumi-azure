@@ -66,12 +66,16 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -229,6 +233,8 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+         * 
          * @return builder
          * 
          */
@@ -239,6 +245,8 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
          * 
          * @return builder
          * 

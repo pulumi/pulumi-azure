@@ -232,12 +232,16 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the id of a log analytics workspace resource.
      * 
+     * &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
+     * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
      * @return Specifies the id of a log analytics workspace resource.
+     * 
+     * &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -579,6 +583,8 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param workspaceId Specifies the id of a log analytics workspace resource.
          * 
+         * &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
+         * 
          * @return builder
          * 
          */
@@ -589,6 +595,8 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param workspaceId Specifies the id of a log analytics workspace resource.
+         * 
+         * &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
          * 
          * @return builder
          * 

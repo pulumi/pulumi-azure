@@ -35,12 +35,16 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
     /**
      * Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
      * 
+     * &gt; **NOTE:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
+     * 
      */
     @Import(name="createOption", required=true)
     private Output<String> createOption;
 
     /**
      * @return Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+     * 
+     * &gt; **NOTE:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
      * 
      */
     public Output<String> createOption() {
@@ -80,12 +84,16 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
     /**
      * Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
      * 
+     * The following properties apply when using Unmanaged Disks:
+     * 
      */
     @Import(name="managedDiskId")
     private @Nullable Output<String> managedDiskId;
 
     /**
      * @return Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+     * 
+     * The following properties apply when using Unmanaged Disks:
      * 
      */
     public Optional<Output<String>> managedDiskId() {
@@ -95,12 +103,16 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
     /**
      * Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
      * 
+     * &gt; **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+     * 
      */
     @Import(name="managedDiskType")
     private @Nullable Output<String> managedDiskType;
 
     /**
      * @return Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+     * 
+     * &gt; **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
      * 
      */
     public Optional<Output<String>> managedDiskType() {
@@ -140,12 +152,16 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      * 
+     * The following properties apply when using Managed Disks:
+     * 
      */
     @Import(name="writeAcceleratorEnabled")
     private @Nullable Output<Boolean> writeAcceleratorEnabled;
 
     /**
      * @return Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * 
+     * The following properties apply when using Managed Disks:
      * 
      */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
@@ -208,6 +224,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         /**
          * @param createOption Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
          * 
+         * &gt; **NOTE:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
+         * 
          * @return builder
          * 
          */
@@ -218,6 +236,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
 
         /**
          * @param createOption Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+         * 
+         * &gt; **NOTE:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
          * 
          * @return builder
          * 
@@ -271,6 +291,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         /**
          * @param managedDiskId Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
          * 
+         * The following properties apply when using Unmanaged Disks:
+         * 
          * @return builder
          * 
          */
@@ -282,6 +304,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         /**
          * @param managedDiskId Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
          * 
+         * The following properties apply when using Unmanaged Disks:
+         * 
          * @return builder
          * 
          */
@@ -291,6 +315,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
 
         /**
          * @param managedDiskType Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+         * 
+         * &gt; **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
          * 
          * @return builder
          * 
@@ -302,6 +328,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
 
         /**
          * @param managedDiskType Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+         * 
+         * &gt; **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
          * 
          * @return builder
          * 
@@ -355,6 +383,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         /**
          * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
          * 
+         * The following properties apply when using Managed Disks:
+         * 
          * @return builder
          * 
          */
@@ -365,6 +395,8 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
 
         /**
          * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+         * 
+         * The following properties apply when using Managed Disks:
          * 
          * @return builder
          * 

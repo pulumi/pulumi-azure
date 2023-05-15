@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Cdn.Outputs
     {
         /// <summary>
         /// The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        /// 
+        /// &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
         /// </summary>
         public readonly string HeaderAction;
         /// <summary>
@@ -23,6 +25,8 @@ namespace Pulumi.Azure.Cdn.Outputs
         public readonly string HeaderName;
         /// <summary>
         /// The value to append or overwrite.
+        /// 
+        /// -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         /// </summary>
         public readonly string? Value;
 

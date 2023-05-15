@@ -135,6 +135,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.WindowsVirtualMachineBootDiagnostics | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     *
+     * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -167,6 +169,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -177,9 +181,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * One or more `galleryApplication` blocks as defined below.
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineGalleryApplication[] | undefined>;
-    /**
-     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-     */
     public readonly hotpatchingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
@@ -195,6 +196,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     public readonly maxBidPrice!: pulumi.Output<number | undefined>;
     /**
@@ -211,10 +214,14 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsDisk>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     *
+     * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
     public readonly patchAssessmentMode!: pulumi.Output<string | undefined>;
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     *
+     * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
      */
     public readonly patchMode!: pulumi.Output<string | undefined>;
     /**
@@ -239,6 +246,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
     public readonly provisionVmAgent!: pulumi.Output<boolean | undefined>;
     /**
@@ -271,10 +280,14 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly size!: pulumi.Output<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     public readonly sourceImageReference!: pulumi.Output<outputs.compute.WindowsVirtualMachineSourceImageReference | undefined>;
     /**
@@ -299,6 +312,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
     /**
@@ -493,6 +508,8 @@ export interface WindowsVirtualMachineState {
     bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     *
+     * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
@@ -525,6 +542,8 @@ export interface WindowsVirtualMachineState {
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -535,9 +554,6 @@ export interface WindowsVirtualMachineState {
      * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
-    /**
-     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-     */
     hotpatchingEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
@@ -553,6 +569,8 @@ export interface WindowsVirtualMachineState {
     location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
@@ -569,10 +587,14 @@ export interface WindowsVirtualMachineState {
     osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     *
+     * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
     patchAssessmentMode?: pulumi.Input<string>;
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     *
+     * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -597,6 +619,8 @@ export interface WindowsVirtualMachineState {
     privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
@@ -629,10 +653,14 @@ export interface WindowsVirtualMachineState {
     size?: pulumi.Input<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineSourceImageReference>;
     /**
@@ -657,6 +685,8 @@ export interface WindowsVirtualMachineState {
     virtualMachineId?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
@@ -707,6 +737,8 @@ export interface WindowsVirtualMachineArgs {
     bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     *
+     * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
@@ -739,6 +771,8 @@ export interface WindowsVirtualMachineArgs {
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -749,9 +783,6 @@ export interface WindowsVirtualMachineArgs {
      * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
-    /**
-     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-     */
     hotpatchingEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
@@ -767,6 +798,8 @@ export interface WindowsVirtualMachineArgs {
     location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
@@ -783,10 +816,14 @@ export interface WindowsVirtualMachineArgs {
     osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     *
+     * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
     patchAssessmentMode?: pulumi.Input<string>;
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     *
+     * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -803,6 +840,8 @@ export interface WindowsVirtualMachineArgs {
     priority?: pulumi.Input<string>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
@@ -827,10 +866,14 @@ export interface WindowsVirtualMachineArgs {
     size: pulumi.Input<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineSourceImageReference>;
     /**
@@ -851,6 +894,8 @@ export interface WindowsVirtualMachineArgs {
     userData?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**

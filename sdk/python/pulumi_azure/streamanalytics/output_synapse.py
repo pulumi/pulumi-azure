@@ -293,6 +293,42 @@ class OutputSynapse(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            is_hns_enabled=True)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            server=example_workspace.connectivity_endpoints["sqlOnDemand"],
+            user=example_workspace.sql_administrator_login,
+            password=example_workspace.sql_administrator_login_password,
+            database="master",
+            table="ExampleTable")
+        ```
+
         ## Import
 
         A Stream Analytics Output to an Azure Synapse Analytics Workspace can be imported using the `resource id`, e.g.
@@ -320,6 +356,42 @@ class OutputSynapse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            is_hns_enabled=True)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            server=example_workspace.connectivity_endpoints["sqlOnDemand"],
+            user=example_workspace.sql_administrator_login,
+            password=example_workspace.sql_administrator_login_password,
+            database="master",
+            table="ExampleTable")
+        ```
 
         ## Import
 

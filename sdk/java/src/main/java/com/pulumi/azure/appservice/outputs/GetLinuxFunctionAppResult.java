@@ -147,7 +147,7 @@ public final class GetLinuxFunctionAppResult {
      */
     private List<String> possibleOutboundIpAddressLists;
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
@@ -380,7 +380,7 @@ public final class GetLinuxFunctionAppResult {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {

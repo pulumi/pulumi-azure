@@ -57,10 +57,6 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/iPGroupCIDR:IPGroupCIDR")]
     public partial class IPGroupCIDR : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The `CIDR` that should be added to the IP Group.
-        /// Changing this forces a new IP Group CIDR to be created.
-        /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
@@ -117,10 +113,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class IPGroupCIDRArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The `CIDR` that should be added to the IP Group.
-        /// Changing this forces a new IP Group CIDR to be created.
-        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
@@ -139,10 +131,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class IPGroupCIDRState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The `CIDR` that should be added to the IP Group.
-        /// Changing this forces a new IP Group CIDR to be created.
-        /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 

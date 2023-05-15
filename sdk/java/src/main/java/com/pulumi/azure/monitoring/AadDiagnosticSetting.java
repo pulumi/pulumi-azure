@@ -131,12 +131,16 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * 
      */
     @Export(name="eventhubAuthorizationRuleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventhubAuthorizationRuleId;
 
     /**
      * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
      */
     public Output<Optional<String>> eventhubAuthorizationRuleId() {
@@ -173,12 +177,16 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `log` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * 
      */
     @Export(name="logs", refs={List.class,AadDiagnosticSettingLog.class}, tree="[0,1]")
     private Output<List<AadDiagnosticSettingLog>> logs;
 
     /**
      * @return One or more `log` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
      * 
      */
     public Output<List<AadDiagnosticSettingLog>> logs() {
@@ -201,12 +209,16 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
      * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

@@ -69,6 +69,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported arguments are specific to JSON Dataset:
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -81,6 +83,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
         [Output("azureBlobStorageLocation")]
         public Output<Outputs.DatasetJsonAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
@@ -190,6 +194,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported arguments are specific to JSON Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -211,6 +217,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetJsonAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
@@ -294,6 +302,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported arguments are specific to JSON Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -315,6 +325,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetJsonAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }

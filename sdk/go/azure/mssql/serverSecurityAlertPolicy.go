@@ -105,6 +105,8 @@ type ServerSecurityAlertPolicy struct {
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
@@ -170,6 +172,8 @@ type serverSecurityAlertPolicyState struct {
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
@@ -191,6 +195,8 @@ type ServerSecurityAlertPolicyState struct {
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State pulumi.StringPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
@@ -216,6 +222,8 @@ type serverSecurityAlertPolicyArgs struct {
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
@@ -238,6 +246,8 @@ type ServerSecurityAlertPolicyArgs struct {
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State pulumi.StringInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+	//
+	// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storageEndpoint` for now.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
@@ -366,6 +376,8 @@ func (o ServerSecurityAlertPolicyOutput) State() pulumi.StringOutput {
 }
 
 // Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
+//
+// > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `mssql.ServerSecurityAlertPolicy` with `storageEndpoint` for now.
 func (o ServerSecurityAlertPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }

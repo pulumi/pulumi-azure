@@ -231,12 +231,16 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      * 
+     * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * 
      */
     @Export(name="systemPropertyColumns", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> systemPropertyColumns;
 
     /**
      * @return A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+     * 
+     * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      * 
      */
     public Output<Optional<Map<String,String>>> systemPropertyColumns() {

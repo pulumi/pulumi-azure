@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Allows you to manage an Azure SQL Database
+ *
+ * > **Note:** The `azure.sql.Database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` resource instead.
+ *
  * ## Example Usage
  *
  * ```typescript

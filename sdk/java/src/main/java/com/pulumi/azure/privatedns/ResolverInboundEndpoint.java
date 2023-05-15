@@ -63,15 +63,15 @@ import javax.annotation.Nullable;
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
- *         var test = new Resolver(&#34;test&#34;, ResolverArgs.builder()        
+ *         var exampleResolver = new Resolver(&#34;exampleResolver&#34;, ResolverArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .virtualNetworkName(azurerm_virtual_network.test().name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/28&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
  *                 .name(&#34;Microsoft.Network.dnsResolvers&#34;)
@@ -83,8 +83,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResolverInboundEndpoint = new ResolverInboundEndpoint(&#34;exampleResolverInboundEndpoint&#34;, ResolverInboundEndpointArgs.builder()        
- *             .privateDnsResolverId(azurerm_private_dns_resolver.example().id())
- *             .location(azurerm_private_dns_resolver.example().location())
+ *             .privateDnsResolverId(exampleResolver.id())
+ *             .location(exampleResolver.location())
  *             .ipConfigurations(ResolverInboundEndpointIpConfigurationArgs.builder()
  *                 .privateIpAllocationMethod(&#34;Dynamic&#34;)
  *                 .subnetId(exampleSubnet.id())

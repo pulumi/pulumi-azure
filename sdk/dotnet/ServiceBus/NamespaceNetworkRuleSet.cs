@@ -111,6 +111,8 @@ namespace Pulumi.Azure.ServiceBus
 
         /// <summary>
         /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
@@ -199,6 +201,8 @@ namespace Pulumi.Azure.ServiceBus
 
         /// <summary>
         /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
@@ -255,6 +259,8 @@ namespace Pulumi.Azure.ServiceBus
 
         /// <summary>
         /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }

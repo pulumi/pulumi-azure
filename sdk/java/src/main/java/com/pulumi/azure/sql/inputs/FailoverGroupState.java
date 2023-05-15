@@ -23,12 +23,16 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     /**
      * A list of database ids to add to the failover group
      * 
+     * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
+     * 
      */
     @Import(name="databases")
     private @Nullable Output<List<String>> databases;
 
     /**
      * @return A list of database ids to add to the failover group
+     * 
+     * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
      * 
      */
     public Optional<Output<List<String>>> databases() {
@@ -206,6 +210,8 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param databases A list of database ids to add to the failover group
          * 
+         * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
+         * 
          * @return builder
          * 
          */
@@ -217,6 +223,8 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param databases A list of database ids to add to the failover group
          * 
+         * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
+         * 
          * @return builder
          * 
          */
@@ -226,6 +234,8 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param databases A list of database ids to add to the failover group
+         * 
+         * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
          * 
          * @return builder
          * 

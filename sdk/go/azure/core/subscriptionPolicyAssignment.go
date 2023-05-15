@@ -73,6 +73,8 @@ type SubscriptionPolicyAssignment struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrOutput `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity SubscriptionPolicyAssignmentIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -138,6 +140,8 @@ type subscriptionPolicyAssignmentState struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity *SubscriptionPolicyAssignmentIdentity `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location *string `pulumi:"location"`
@@ -169,6 +173,8 @@ type SubscriptionPolicyAssignmentState struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity SubscriptionPolicyAssignmentIdentityPtrInput
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringPtrInput
@@ -204,6 +210,8 @@ type subscriptionPolicyAssignmentArgs struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity *SubscriptionPolicyAssignmentIdentity `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location *string `pulumi:"location"`
@@ -236,6 +244,8 @@ type SubscriptionPolicyAssignmentArgs struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity SubscriptionPolicyAssignmentIdentityPtrInput
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringPtrInput
@@ -362,6 +372,8 @@ func (o SubscriptionPolicyAssignmentOutput) Enforce() pulumi.BoolPtrOutput {
 }
 
 // An `identity` block as defined below.
+//
+// > **Note:** The `location` field must also be specified when `identity` is specified.
 func (o SubscriptionPolicyAssignmentOutput) Identity() SubscriptionPolicyAssignmentIdentityPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) SubscriptionPolicyAssignmentIdentityPtrOutput { return v.Identity }).(SubscriptionPolicyAssignmentIdentityPtrOutput)
 }

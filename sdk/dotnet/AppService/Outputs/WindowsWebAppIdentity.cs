@@ -15,6 +15,8 @@ namespace Pulumi.Azure.AppService.Outputs
     {
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

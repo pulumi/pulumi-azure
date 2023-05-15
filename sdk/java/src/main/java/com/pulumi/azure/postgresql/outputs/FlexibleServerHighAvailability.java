@@ -16,10 +16,6 @@ public final class FlexibleServerHighAvailability {
      * 
      */
     private String mode;
-    /**
-     * @return Specifies the Availability Zone in which the standby Flexible Server should be located.
-     * 
-     */
     private @Nullable String standbyAvailabilityZone;
 
     private FlexibleServerHighAvailability() {}
@@ -30,10 +26,6 @@ public final class FlexibleServerHighAvailability {
     public String mode() {
         return this.mode;
     }
-    /**
-     * @return Specifies the Availability Zone in which the standby Flexible Server should be located.
-     * 
-     */
     public Optional<String> standbyAvailabilityZone() {
         return Optional.ofNullable(this.standbyAvailabilityZone);
     }

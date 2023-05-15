@@ -144,12 +144,16 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<StandardSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<StandardSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -219,12 +223,16 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<StandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+     * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<StandardSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -279,12 +287,16 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * 
      */
     @Import(name="use32BitWorkerProcess")
     private @Nullable Output<Boolean> use32BitWorkerProcess;
 
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+     * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorkerProcess() {
@@ -535,6 +547,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param ipRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -546,6 +560,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param ipRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -555,6 +571,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param ipRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * 
+         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -650,6 +668,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -661,6 +681,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -670,6 +692,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+         * 
+         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -744,6 +768,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param use32BitWorkerProcess Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          * 
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -754,6 +780,8 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param use32BitWorkerProcess Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+         * 
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
          * 
          * @return builder
          * 

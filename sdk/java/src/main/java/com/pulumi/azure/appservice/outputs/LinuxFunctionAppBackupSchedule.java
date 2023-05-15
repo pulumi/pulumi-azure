@@ -16,6 +16,8 @@ public final class LinuxFunctionAppBackupSchedule {
     /**
      * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
      * 
+     * &gt; **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+     * 
      */
     private Integer frequencyInterval;
     /**
@@ -43,6 +45,8 @@ public final class LinuxFunctionAppBackupSchedule {
     private LinuxFunctionAppBackupSchedule() {}
     /**
      * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+     * 
+     * &gt; **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
      * 
      */
     public Integer frequencyInterval() {

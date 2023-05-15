@@ -108,12 +108,16 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
     /**
      * An identity reference from pool&#39;s user assigned managed identity list.
      * 
+     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
      * @return An identity reference from pool&#39;s user assigned managed identity list.
+     * 
+     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -279,6 +283,8 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
          * 
+         * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -289,6 +295,8 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
 
         /**
          * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
+         * 
+         * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
          * 
          * @return builder
          * 

@@ -280,7 +280,7 @@ type ContactProfileLinkChannelEndPoint struct {
 	// Name of an end point.
 	EndPointName string `pulumi:"endPointName"`
 	// IP address of an end point.
-	IpAddress string `pulumi:"ipAddress"`
+	IpAddress *string `pulumi:"ipAddress"`
 	// TCP port to listen on to receive data.
 	Port string `pulumi:"port"`
 	// Protocol of an end point. Possible values are `TCP` and `UDP`.
@@ -302,7 +302,7 @@ type ContactProfileLinkChannelEndPointArgs struct {
 	// Name of an end point.
 	EndPointName pulumi.StringInput `pulumi:"endPointName"`
 	// IP address of an end point.
-	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// TCP port to listen on to receive data.
 	Port pulumi.StringInput `pulumi:"port"`
 	// Protocol of an end point. Possible values are `TCP` and `UDP`.
@@ -366,8 +366,8 @@ func (o ContactProfileLinkChannelEndPointOutput) EndPointName() pulumi.StringOut
 }
 
 // IP address of an end point.
-func (o ContactProfileLinkChannelEndPointOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) string { return v.IpAddress }).(pulumi.StringOutput)
+func (o ContactProfileLinkChannelEndPointOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // TCP port to listen on to receive data.

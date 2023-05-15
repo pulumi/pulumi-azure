@@ -15,19 +15,9 @@ public final class IPGroupCIDRState extends com.pulumi.resources.ResourceArgs {
 
     public static final IPGroupCIDRState Empty = new IPGroupCIDRState();
 
-    /**
-     * The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     * 
-     */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
-    /**
-     * @return The `CIDR` that should be added to the IP Group.
-     * Changing this forces a new IP Group CIDR to be created.
-     * 
-     */
     public Optional<Output<String>> cidr() {
         return Optional.ofNullable(this.cidr);
     }
@@ -74,25 +64,11 @@ public final class IPGroupCIDRState extends com.pulumi.resources.ResourceArgs {
             $ = new IPGroupCIDRState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr The `CIDR` that should be added to the IP Group.
-         * Changing this forces a new IP Group CIDR to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(@Nullable Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr The `CIDR` that should be added to the IP Group.
-         * Changing this forces a new IP Group CIDR to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }

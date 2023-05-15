@@ -14,12 +14,16 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     {
         /// <summary>
         /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+        /// 
+        /// &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
         /// </summary>
         [Input("automationAccountId")]
         public Input<string>? AutomationAccountId { get; set; }
 
         /// <summary>
         /// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

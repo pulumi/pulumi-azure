@@ -92,6 +92,8 @@ type RegistryTask struct {
 	// A `encodedStep` block as defined below.
 	EncodedStep RegistryTaskEncodedStepPtrOutput `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
+	//
+	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep RegistryTaskFileStepPtrOutput `pulumi:"fileStep"`
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrOutput `pulumi:"identity"`
@@ -102,6 +104,8 @@ type RegistryTask struct {
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `platform` block as defined below.
+	//
+	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform RegistryTaskPlatformPtrOutput `pulumi:"platform"`
 	// One `registryCredential` block as defined below.
 	RegistryCredential RegistryTaskRegistryCredentialPtrOutput `pulumi:"registryCredential"`
@@ -162,6 +166,8 @@ type registryTaskState struct {
 	// A `encodedStep` block as defined below.
 	EncodedStep *RegistryTaskEncodedStep `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
+	//
+	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep *RegistryTaskFileStep `pulumi:"fileStep"`
 	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
@@ -172,6 +178,8 @@ type registryTaskState struct {
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name *string `pulumi:"name"`
 	// A `platform` block as defined below.
+	//
+	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform *RegistryTaskPlatform `pulumi:"platform"`
 	// One `registryCredential` block as defined below.
 	RegistryCredential *RegistryTaskRegistryCredential `pulumi:"registryCredential"`
@@ -201,6 +209,8 @@ type RegistryTaskState struct {
 	// A `encodedStep` block as defined below.
 	EncodedStep RegistryTaskEncodedStepPtrInput
 	// A `fileStep` block as defined below.
+	//
+	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep RegistryTaskFileStepPtrInput
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrInput
@@ -211,6 +221,8 @@ type RegistryTaskState struct {
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name pulumi.StringPtrInput
 	// A `platform` block as defined below.
+	//
+	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform RegistryTaskPlatformPtrInput
 	// One `registryCredential` block as defined below.
 	RegistryCredential RegistryTaskRegistryCredentialPtrInput
@@ -244,6 +256,8 @@ type registryTaskArgs struct {
 	// A `encodedStep` block as defined below.
 	EncodedStep *RegistryTaskEncodedStep `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
+	//
+	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep *RegistryTaskFileStep `pulumi:"fileStep"`
 	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
@@ -254,6 +268,8 @@ type registryTaskArgs struct {
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name *string `pulumi:"name"`
 	// A `platform` block as defined below.
+	//
+	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform *RegistryTaskPlatform `pulumi:"platform"`
 	// One `registryCredential` block as defined below.
 	RegistryCredential *RegistryTaskRegistryCredential `pulumi:"registryCredential"`
@@ -284,6 +300,8 @@ type RegistryTaskArgs struct {
 	// A `encodedStep` block as defined below.
 	EncodedStep RegistryTaskEncodedStepPtrInput
 	// A `fileStep` block as defined below.
+	//
+	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep RegistryTaskFileStepPtrInput
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrInput
@@ -294,6 +312,8 @@ type RegistryTaskArgs struct {
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name pulumi.StringPtrInput
 	// A `platform` block as defined below.
+	//
+	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform RegistryTaskPlatformPtrInput
 	// One `registryCredential` block as defined below.
 	RegistryCredential RegistryTaskRegistryCredentialPtrInput
@@ -430,6 +450,8 @@ func (o RegistryTaskOutput) EncodedStep() RegistryTaskEncodedStepPtrOutput {
 }
 
 // A `fileStep` block as defined below.
+//
+// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 func (o RegistryTaskOutput) FileStep() RegistryTaskFileStepPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskFileStepPtrOutput { return v.FileStep }).(RegistryTaskFileStepPtrOutput)
 }
@@ -455,6 +477,8 @@ func (o RegistryTaskOutput) Name() pulumi.StringOutput {
 }
 
 // A `platform` block as defined below.
+//
+// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 func (o RegistryTaskOutput) Platform() RegistryTaskPlatformPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskPlatformPtrOutput { return v.Platform }).(RegistryTaskPlatformPtrOutput)
 }

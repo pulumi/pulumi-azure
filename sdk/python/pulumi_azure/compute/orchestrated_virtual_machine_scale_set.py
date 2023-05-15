@@ -53,15 +53,25 @@ class OrchestratedVirtualMachineScaleSetArgs:
         """
         The set of arguments for constructing a OrchestratedVirtualMachineScaleSet resource.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
+               
+               > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+               
+               > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+               
+               > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -85,7 +95,11 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+               
+               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -159,6 +173,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     def platform_fault_domain_count(self) -> pulumi.Input[int]:
         """
         Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+
+        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -195,6 +211,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     def automatic_instance_repair(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
         An `automatic_instance_repair` block as defined below.
+
+        > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
 
@@ -219,6 +237,10 @@ class OrchestratedVirtualMachineScaleSetArgs:
     def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+
+        > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+
+        > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
@@ -267,6 +289,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     def extension_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+
+        > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         """
         return pulumi.get(self, "extension_operations_enabled")
 
@@ -543,6 +567,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         """
         return pulumi.get(self, "zone_balance")
 
@@ -555,6 +581,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+
+        > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         return pulumi.get(self, "zones")
 
@@ -605,12 +633,20 @@ class _OrchestratedVirtualMachineScaleSetState:
         Input properties used for looking up and filtering OrchestratedVirtualMachineScaleSet resources.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
+               
+               > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+               
+               > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+               
+               > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -624,6 +660,8 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs'] os_profile: An `os_profile` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs'] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -637,7 +675,11 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+               
+               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -727,6 +769,8 @@ class _OrchestratedVirtualMachineScaleSetState:
     def automatic_instance_repair(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
         An `automatic_instance_repair` block as defined below.
+
+        > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
 
@@ -751,6 +795,10 @@ class _OrchestratedVirtualMachineScaleSetState:
     def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+
+        > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+
+        > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
@@ -799,6 +847,8 @@ class _OrchestratedVirtualMachineScaleSetState:
     def extension_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+
+        > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         """
         return pulumi.get(self, "extension_operations_enabled")
 
@@ -955,6 +1005,8 @@ class _OrchestratedVirtualMachineScaleSetState:
     def platform_fault_domain_count(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+
+        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -1111,6 +1163,8 @@ class _OrchestratedVirtualMachineScaleSetState:
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         """
         return pulumi.get(self, "zone_balance")
 
@@ -1123,6 +1177,8 @@ class _OrchestratedVirtualMachineScaleSetState:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+
+        > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         return pulumi.get(self, "zones")
 
@@ -1206,12 +1262,20 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
+               
+               > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+               
+               > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+               
+               > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -1225,6 +1289,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']] os_profile: An `os_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -1237,7 +1303,11 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+               
+               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         ...
     @overload
@@ -1429,12 +1499,20 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
+               
+               > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+               
+               > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+               
+               > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -1448,6 +1526,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']] os_profile: An `os_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -1461,7 +1541,11 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+               
+               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1517,6 +1601,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def automatic_instance_repair(self) -> pulumi.Output['outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']:
         """
         An `automatic_instance_repair` block as defined below.
+
+        > **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
 
@@ -1533,6 +1619,10 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def capacity_reservation_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+
+        > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+
+        > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
@@ -1565,6 +1655,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def extension_operations_enabled(self) -> pulumi.Output[bool]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+
+        > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         """
         return pulumi.get(self, "extension_operations_enabled")
 
@@ -1669,6 +1761,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def platform_fault_domain_count(self) -> pulumi.Output[int]:
         """
         Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+
+        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -1773,6 +1867,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def zone_balance(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         """
         return pulumi.get(self, "zone_balance")
 
@@ -1781,6 +1877,8 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+
+        > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
         """
         return pulumi.get(self, "zones")
 

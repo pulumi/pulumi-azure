@@ -34,6 +34,8 @@ class DatasetAzureBlobArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported arguments are specific to Azure Blob Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -99,6 +101,8 @@ class DatasetAzureBlobArgs:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported arguments are specific to Azure Blob Dataset:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -246,6 +250,8 @@ class _DatasetAzureBlobState:
         """
         Input properties used for looking up and filtering DatasetAzureBlob resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported arguments are specific to Azure Blob Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -291,6 +297,8 @@ class _DatasetAzureBlobState:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported arguments are specific to Azure Blob Dataset:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -498,6 +506,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported arguments are specific to Azure Blob Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -635,6 +645,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported arguments are specific to Azure Blob Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -672,6 +684,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported arguments are specific to Azure Blob Dataset:
         """
         return pulumi.get(self, "additional_properties")
 

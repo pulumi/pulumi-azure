@@ -163,6 +163,8 @@ export class ConfigurationStore extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      */
     public readonly identity!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
     /**
@@ -187,10 +189,14 @@ export class ConfigurationStore extends pulumi.CustomResource {
     public /*out*/ readonly primaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryWriteKey[]>;
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
+     *
+     * > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     *
+     * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -206,11 +212,13 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      */
     public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -288,6 +296,8 @@ export interface ConfigurationStoreState {
     endpoint?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      */
     identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
     /**
@@ -312,10 +322,14 @@ export interface ConfigurationStoreState {
     primaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryWriteKey>[]>;
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
+     *
+     * > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     *
+     * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -331,11 +345,13 @@ export interface ConfigurationStoreState {
      */
     secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[]>;
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      */
     sku?: pulumi.Input<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**
@@ -354,6 +370,8 @@ export interface ConfigurationStoreArgs {
     encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      */
     identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
     /**
@@ -370,10 +388,14 @@ export interface ConfigurationStoreArgs {
     name?: pulumi.Input<string>;
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
+     *
+     * > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     *
+     * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -381,11 +403,13 @@ export interface ConfigurationStoreArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      */
     sku?: pulumi.Input<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**

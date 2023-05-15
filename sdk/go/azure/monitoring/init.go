@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ScheduledQueryRulesLog{}
 	case "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule":
 		r = &SmartDetectorAlertRule{}
+	case "azure:monitoring/workspace:Workspace":
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -200,6 +202,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/smartDetectorAlertRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/workspace",
 		&module{version},
 	)
 }

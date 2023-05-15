@@ -68,6 +68,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Should the Discovery Logs be enabled? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         /// </summary>
         [Output("discoveryLogsEnabled")]
         public Output<bool?> DiscoveryLogsEnabled { get; private set; } = null!;
@@ -86,6 +88,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+        /// 
+        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -144,6 +148,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Should the Discovery Logs be enabled? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         /// </summary>
         [Input("discoveryLogsEnabled")]
         public Input<bool>? DiscoveryLogsEnabled { get; set; }
@@ -162,6 +168,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+        /// 
+        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -182,6 +190,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// Should the Discovery Logs be enabled? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         /// </summary>
         [Input("discoveryLogsEnabled")]
         public Input<bool>? DiscoveryLogsEnabled { get; set; }
@@ -200,6 +210,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+        /// 
+        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

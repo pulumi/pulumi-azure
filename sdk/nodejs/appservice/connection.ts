@@ -105,6 +105,8 @@ export class Connection extends pulumi.CustomResource {
     public readonly appServiceId!: pulumi.Output<string>;
     /**
      * The authentication info. An `authentication` block as defined below.
+     *
+     * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
     public readonly authentication!: pulumi.Output<outputs.appservice.ConnectionAuthentication>;
     /**
@@ -182,6 +184,8 @@ export interface ConnectionState {
     appServiceId?: pulumi.Input<string>;
     /**
      * The authentication info. An `authentication` block as defined below.
+     *
+     * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
     authentication?: pulumi.Input<inputs.appservice.ConnectionAuthentication>;
     /**
@@ -216,6 +220,8 @@ export interface ConnectionArgs {
     appServiceId: pulumi.Input<string>;
     /**
      * The authentication info. An `authentication` block as defined below.
+     *
+     * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
     authentication: pulumi.Input<inputs.appservice.ConnectionAuthentication>;
     /**

@@ -94,6 +94,8 @@ namespace Pulumi.Azure.Kusto
 
         /// <summary>
         /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        /// 
+        /// &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -178,6 +180,8 @@ namespace Pulumi.Azure.Kusto
 
         /// <summary>
         /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
+        /// 
+        /// &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         /// </summary>
         [Output("trustedExternalTenants")]
         public Output<ImmutableArray<string>> TrustedExternalTenants { get; private set; } = null!;
@@ -290,6 +294,8 @@ namespace Pulumi.Azure.Kusto
 
         /// <summary>
         /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        /// 
+        /// &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -389,6 +395,8 @@ namespace Pulumi.Azure.Kusto
 
         /// <summary>
         /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
+        /// 
+        /// &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         /// </summary>
         public InputList<string> TrustedExternalTenants
         {
@@ -472,6 +480,8 @@ namespace Pulumi.Azure.Kusto
 
         /// <summary>
         /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        /// 
+        /// &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -571,6 +581,8 @@ namespace Pulumi.Azure.Kusto
 
         /// <summary>
         /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
+        /// 
+        /// &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         /// </summary>
         public InputList<string> TrustedExternalTenants
         {

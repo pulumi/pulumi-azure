@@ -135,7 +135,6 @@ type ServicesCommunicationsGateway struct {
 	// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-	// ---
 	MicrosoftTeamsVoicemailPilotNumber pulumi.StringPtrOutput `pulumi:"microsoftTeamsVoicemailPilotNumber"`
 	// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -213,7 +212,6 @@ type servicesCommunicationsGatewayState struct {
 	// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-	// ---
 	MicrosoftTeamsVoicemailPilotNumber *string `pulumi:"microsoftTeamsVoicemailPilotNumber"`
 	// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -245,7 +243,6 @@ type ServicesCommunicationsGatewayState struct {
 	// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-	// ---
 	MicrosoftTeamsVoicemailPilotNumber pulumi.StringPtrInput
 	// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -281,7 +278,6 @@ type servicesCommunicationsGatewayArgs struct {
 	// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-	// ---
 	MicrosoftTeamsVoicemailPilotNumber *string `pulumi:"microsoftTeamsVoicemailPilotNumber"`
 	// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -314,7 +310,6 @@ type ServicesCommunicationsGatewayArgs struct {
 	// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-	// ---
 	MicrosoftTeamsVoicemailPilotNumber pulumi.StringPtrInput
 	// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -455,7 +450,6 @@ func (o ServicesCommunicationsGatewayOutput) Location() pulumi.StringOutput {
 }
 
 // This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-// ---
 func (o ServicesCommunicationsGatewayOutput) MicrosoftTeamsVoicemailPilotNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicesCommunicationsGateway) pulumi.StringPtrOutput {
 		return v.MicrosoftTeamsVoicemailPilotNumber

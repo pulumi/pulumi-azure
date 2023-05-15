@@ -16,14 +16,14 @@ public final class LinuxWebAppSlotSiteCredentialArgs extends com.pulumi.resource
     public static final LinuxWebAppSlotSiteCredentialArgs Empty = new LinuxWebAppSlotSiteCredentialArgs();
 
     /**
-     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * The Site Credentials Username used for publishing.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class LinuxWebAppSlotSiteCredentialArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LinuxWebAppSlotSiteCredentialArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 

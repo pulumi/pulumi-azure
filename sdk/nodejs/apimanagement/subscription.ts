@@ -78,6 +78,8 @@ export class Subscription extends pulumi.CustomResource {
     public readonly allowTracing!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     *
+     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
     public readonly apiId!: pulumi.Output<string | undefined>;
     /**
@@ -94,6 +96,8 @@ export class Subscription extends pulumi.CustomResource {
     public readonly primaryKey!: pulumi.Output<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     *
+     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
     public readonly productId!: pulumi.Output<string | undefined>;
     /**
@@ -181,6 +185,8 @@ export interface SubscriptionState {
     allowTracing?: pulumi.Input<boolean>;
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     *
+     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -197,6 +203,8 @@ export interface SubscriptionState {
     primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     *
+     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
     productId?: pulumi.Input<string>;
     /**
@@ -231,6 +239,8 @@ export interface SubscriptionArgs {
     allowTracing?: pulumi.Input<boolean>;
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     *
+     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -247,6 +257,8 @@ export interface SubscriptionArgs {
     primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     *
+     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
     productId?: pulumi.Input<string>;
     /**

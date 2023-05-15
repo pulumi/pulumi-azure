@@ -33,6 +33,8 @@ class LogzMonitorArgs:
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+               
+               > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
@@ -118,6 +120,8 @@ class LogzMonitorArgs:
     def enterprise_app_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+
+        > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         """
         return pulumi.get(self, "enterprise_app_id")
 
@@ -181,6 +185,8 @@ class _LogzMonitorState:
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+               
+               > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
@@ -242,6 +248,8 @@ class _LogzMonitorState:
     def enterprise_app_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+
+        > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         """
         return pulumi.get(self, "enterprise_app_id")
 
@@ -400,6 +408,8 @@ class LogzMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+               
+               > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -528,6 +538,8 @@ class LogzMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+               
+               > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
@@ -575,6 +587,8 @@ class LogzMonitor(pulumi.CustomResource):
     def enterprise_app_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+
+        > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         """
         return pulumi.get(self, "enterprise_app_id")
 

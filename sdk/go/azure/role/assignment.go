@@ -244,12 +244,16 @@ type Assignment struct {
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
 	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** this field is only used in cross tenant scenario.
 	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
@@ -260,6 +264,8 @@ type Assignment struct {
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+	//
+	// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
 	SkipServicePrincipalAadCheck pulumi.BoolOutput `pulumi:"skipServicePrincipalAadCheck"`
 }
 
@@ -303,12 +309,16 @@ type assignmentState struct {
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** this field is only used in cross tenant scenario.
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId *string `pulumi:"principalId"`
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType *string `pulumi:"principalType"`
@@ -319,6 +329,8 @@ type assignmentState struct {
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope *string `pulumi:"scope"`
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+	//
+	// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
 	SkipServicePrincipalAadCheck *bool `pulumi:"skipServicePrincipalAadCheck"`
 }
 
@@ -328,12 +340,16 @@ type AssignmentState struct {
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion pulumi.StringPtrInput
 	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** this field is only used in cross tenant scenario.
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId pulumi.StringPtrInput
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType pulumi.StringPtrInput
@@ -344,6 +360,8 @@ type AssignmentState struct {
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope pulumi.StringPtrInput
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+	//
+	// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
 	SkipServicePrincipalAadCheck pulumi.BoolPtrInput
 }
 
@@ -357,12 +375,16 @@ type assignmentArgs struct {
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** this field is only used in cross tenant scenario.
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId string `pulumi:"principalId"`
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
@@ -371,6 +393,8 @@ type assignmentArgs struct {
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope string `pulumi:"scope"`
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+	//
+	// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
 	SkipServicePrincipalAadCheck *bool `pulumi:"skipServicePrincipalAadCheck"`
 }
 
@@ -381,12 +405,16 @@ type AssignmentArgs struct {
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion pulumi.StringPtrInput
 	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** this field is only used in cross tenant scenario.
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId pulumi.StringInput
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId pulumi.StringPtrInput
@@ -395,6 +423,8 @@ type AssignmentArgs struct {
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope pulumi.StringInput
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+	//
+	// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
 	SkipServicePrincipalAadCheck pulumi.BoolPtrInput
 }
 
@@ -496,6 +526,8 @@ func (o AssignmentOutput) ConditionVersion() pulumi.StringPtrOutput {
 }
 
 // The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+//
+// > **NOTE:** this field is only used in cross tenant scenario.
 func (o AssignmentOutput) DelegatedManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.DelegatedManagedIdentityResourceId }).(pulumi.StringPtrOutput)
 }
@@ -511,6 +543,8 @@ func (o AssignmentOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 func (o AssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -536,6 +570,8 @@ func (o AssignmentOutput) Scope() pulumi.StringOutput {
 }
 
 // If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+//
+// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
 func (o AssignmentOutput) SkipServicePrincipalAadCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.BoolOutput { return v.SkipServicePrincipalAadCheck }).(pulumi.BoolOutput)
 }

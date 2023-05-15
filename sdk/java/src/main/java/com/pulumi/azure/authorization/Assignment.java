@@ -262,12 +262,16 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** this field is only used in cross tenant scenario.
+     * 
      */
     @Export(name="delegatedManagedIdentityResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delegatedManagedIdentityResourceId;
 
     /**
      * @return The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** this field is only used in cross tenant scenario.
      * 
      */
     public Output<Optional<String>> delegatedManagedIdentityResourceId() {
@@ -304,12 +308,16 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+     * 
      */
     @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
      * @return The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
      * 
      */
     public Output<String> principalId() {
@@ -374,12 +382,16 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
      * 
+     * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * 
      */
     @Export(name="skipServicePrincipalAadCheck", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipServicePrincipalAadCheck;
 
     /**
      * @return If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
      */
     public Output<Boolean> skipServicePrincipalAadCheck() {

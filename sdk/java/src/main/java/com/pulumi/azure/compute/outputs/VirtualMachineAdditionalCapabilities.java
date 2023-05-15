@@ -12,12 +12,16 @@ public final class VirtualMachineAdditionalCapabilities {
     /**
      * @return Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
+     * 
      */
     private Boolean ultraSsdEnabled;
 
     private VirtualMachineAdditionalCapabilities() {}
     /**
      * @return Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
      * 
      */
     public Boolean ultraSsdEnabled() {

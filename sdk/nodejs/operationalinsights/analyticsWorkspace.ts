@@ -68,6 +68,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     public readonly cmkForQueryForced!: pulumi.Output<boolean | undefined>;
     /**
      * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+     *
+     * > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
      */
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
     /**
@@ -96,6 +98,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
     /**
      * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     *
+     * > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
     public readonly reservationCapacityInGbPerDay!: pulumi.Output<number>;
     /**
@@ -112,10 +116,16 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     public /*out*/ readonly secondarySharedKey!: pulumi.Output<string>;
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+     *
+     * > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     *
+     * > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
      */
     public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -195,6 +205,8 @@ export interface AnalyticsWorkspaceState {
     cmkForQueryForced?: pulumi.Input<boolean>;
     /**
      * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+     *
+     * > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
      */
     dailyQuotaGb?: pulumi.Input<number>;
     /**
@@ -223,6 +235,8 @@ export interface AnalyticsWorkspaceState {
     primarySharedKey?: pulumi.Input<string>;
     /**
      * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     *
+     * > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
     reservationCapacityInGbPerDay?: pulumi.Input<number>;
     /**
@@ -239,10 +253,16 @@ export interface AnalyticsWorkspaceState {
     secondarySharedKey?: pulumi.Input<string>;
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+     *
+     * > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     *
+     * > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
      */
     sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -265,6 +285,8 @@ export interface AnalyticsWorkspaceArgs {
     cmkForQueryForced?: pulumi.Input<boolean>;
     /**
      * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+     *
+     * > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
      */
     dailyQuotaGb?: pulumi.Input<number>;
     /**
@@ -289,6 +311,8 @@ export interface AnalyticsWorkspaceArgs {
     name?: pulumi.Input<string>;
     /**
      * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     *
+     * > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
     reservationCapacityInGbPerDay?: pulumi.Input<number>;
     /**
@@ -301,10 +325,16 @@ export interface AnalyticsWorkspaceArgs {
     retentionInDays?: pulumi.Input<number>;
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+     *
+     * > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     *
+     * > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
      */
     sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **NOTE:** If a `azure.operationalinsights.AnalyticsWorkspace` is connected to a `azure.loganalytics.Cluster` via a `azure.loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `azure.loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

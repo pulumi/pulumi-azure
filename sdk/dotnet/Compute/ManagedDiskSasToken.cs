@@ -65,6 +65,9 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+        /// 
+        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+        /// for additional details on the fields above.
         /// </summary>
         [Output("accessLevel")]
         public Output<string> AccessLevel { get; private set; } = null!;
@@ -139,6 +142,9 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+        /// 
+        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+        /// for additional details on the fields above.
         /// </summary>
         [Input("accessLevel", required: true)]
         public Input<string> AccessLevel { get; set; } = null!;
@@ -165,6 +171,9 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+        /// 
+        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+        /// for additional details on the fields above.
         /// </summary>
         [Input("accessLevel")]
         public Input<string>? AccessLevel { get; set; }

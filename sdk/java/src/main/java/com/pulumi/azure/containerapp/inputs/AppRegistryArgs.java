@@ -48,12 +48,16 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The hostname for the Container Registry.
      * 
+     * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+     * 
      */
     @Import(name="server", required=true)
     private Output<String> server;
 
     /**
      * @return The hostname for the Container Registry.
+     * 
+     * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
      * 
      */
     public Output<String> server() {
@@ -147,6 +151,8 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param server The hostname for the Container Registry.
          * 
+         * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+         * 
          * @return builder
          * 
          */
@@ -157,6 +163,8 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param server The hostname for the Container Registry.
+         * 
+         * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
          * 
          * @return builder
          * 

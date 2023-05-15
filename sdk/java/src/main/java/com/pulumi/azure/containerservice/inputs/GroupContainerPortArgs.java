@@ -34,12 +34,16 @@ public final class GroupContainerPortArgs extends com.pulumi.resources.ResourceA
     /**
      * The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
+     * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -95,6 +99,8 @@ public final class GroupContainerPortArgs extends com.pulumi.resources.ResourceA
         /**
          * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GroupContainerPortArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
          * 
          * @return builder
          * 

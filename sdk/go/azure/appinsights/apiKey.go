@@ -121,6 +121,8 @@ type ApiKey struct {
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions pulumi.StringArrayOutput `pulumi:"readPermissions"`
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	WritePermissions pulumi.StringArrayOutput `pulumi:"writePermissions"`
 }
 
@@ -169,6 +171,8 @@ type apiKeyState struct {
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions []string `pulumi:"readPermissions"`
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	WritePermissions []string `pulumi:"writePermissions"`
 }
 
@@ -182,6 +186,8 @@ type ApiKeyState struct {
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions pulumi.StringArrayInput
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	WritePermissions pulumi.StringArrayInput
 }
 
@@ -197,6 +203,8 @@ type apiKeyArgs struct {
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions []string `pulumi:"readPermissions"`
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	WritePermissions []string `pulumi:"writePermissions"`
 }
 
@@ -209,6 +217,8 @@ type ApiKeyArgs struct {
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions pulumi.StringArrayInput
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one read or write permission must be defined.
 	WritePermissions pulumi.StringArrayInput
 }
 
@@ -320,6 +330,8 @@ func (o ApiKeyOutput) ReadPermissions() pulumi.StringArrayOutput {
 }
 
 // Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+//
+// > **Note:** At least one read or write permission must be defined.
 func (o ApiKeyOutput) WritePermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringArrayOutput { return v.WritePermissions }).(pulumi.StringArrayOutput)
 }

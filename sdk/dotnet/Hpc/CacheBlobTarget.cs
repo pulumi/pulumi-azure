@@ -145,6 +145,8 @@ namespace Pulumi.Azure.Hpc
 
         /// <summary>
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         /// </summary>
         [Output("storageContainerId")]
         public Output<string> StorageContainerId { get; private set; } = null!;
@@ -227,6 +229,8 @@ namespace Pulumi.Azure.Hpc
 
         /// <summary>
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
@@ -271,6 +275,8 @@ namespace Pulumi.Azure.Hpc
 
         /// <summary>
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }

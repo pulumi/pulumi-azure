@@ -318,12 +318,16 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * ID of a standard SKU IPv4 Public IP.
      * 
+     * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+     * 
      */
     @Import(name="publicIpAddressId")
     private @Nullable Output<String> publicIpAddressId;
 
     /**
      * @return ID of a standard SKU IPv4 Public IP.
+     * 
+     * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      * 
      */
     public Optional<Output<String>> publicIpAddressId() {
@@ -468,12 +472,20 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
+     * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     * 
+     * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+     * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
      * @return `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * 
+     * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     * 
+     * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -528,12 +540,16 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
      * 
+     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * 
      */
     @Import(name="virtualNetworkType")
     private @Nullable Output<String> virtualNetworkType;
 
     /**
      * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     * 
+     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     public Optional<Output<String>> virtualNetworkType() {
@@ -543,12 +559,16 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
      * 
+     * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+     * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * 
+     * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -1045,6 +1065,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicIpAddressId ID of a standard SKU IPv4 Public IP.
          * 
+         * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+         * 
          * @return builder
          * 
          */
@@ -1055,6 +1077,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param publicIpAddressId ID of a standard SKU IPv4 Public IP.
+         * 
+         * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
          * 
          * @return builder
          * 
@@ -1265,6 +1289,10 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuName `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
          * 
+         * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+         * 
+         * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+         * 
          * @return builder
          * 
          */
@@ -1275,6 +1303,10 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param skuName `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+         * 
+         * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+         * 
+         * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
          * 
          * @return builder
          * 
@@ -1349,6 +1381,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
          * 
+         * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+         * 
          * @return builder
          * 
          */
@@ -1360,6 +1394,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
          * 
+         * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+         * 
          * @return builder
          * 
          */
@@ -1369,6 +1405,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zones Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+         * 
+         * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
          * 
          * @return builder
          * 
@@ -1381,6 +1419,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
          * 
+         * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+         * 
          * @return builder
          * 
          */
@@ -1390,6 +1430,8 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zones Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+         * 
+         * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
          * 
          * @return builder
          * 

@@ -160,6 +160,11 @@ export type SmartDetectorAlertRule = import("./smartDetectorAlertRule").SmartDet
 export const SmartDetectorAlertRule: typeof import("./smartDetectorAlertRule").SmartDetectorAlertRule = null as any;
 utilities.lazyLoad(exports, ["SmartDetectorAlertRule"], () => require("./smartDetectorAlertRule"));
 
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -213,6 +218,8 @@ const _module = {
                 return new ScheduledQueryRulesLog(name, <any>undefined, { urn })
             case "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule":
                 return new SmartDetectorAlertRule(name, <any>undefined, { urn })
+            case "azure:monitoring/workspace:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -242,3 +249,4 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesAl
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesAlertV2", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesLog", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/smartDetectorAlertRule", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/workspace", _module)

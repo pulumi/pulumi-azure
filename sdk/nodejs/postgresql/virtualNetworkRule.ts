@@ -88,6 +88,12 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     public readonly ignoreMissingVnetServiceEndpoint!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     *
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -153,6 +159,12 @@ export interface VirtualNetworkRuleState {
     ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     *
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
      */
     name?: pulumi.Input<string>;
     /**
@@ -179,6 +191,12 @@ export interface VirtualNetworkRuleArgs {
     ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     *
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
      */
     name?: pulumi.Input<string>;
     /**

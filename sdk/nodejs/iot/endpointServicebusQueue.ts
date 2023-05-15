@@ -103,6 +103,8 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
     public readonly entityPath!: pulumi.Output<string | undefined>;
     /**
      * ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+     *
+     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
     public readonly identityId!: pulumi.Output<string | undefined>;
     /**
@@ -185,6 +187,8 @@ export interface EndpointServicebusQueueState {
     entityPath?: pulumi.Input<string>;
     /**
      * ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+     *
+     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
     identityId?: pulumi.Input<string>;
     /**
@@ -223,6 +227,8 @@ export interface EndpointServicebusQueueArgs {
     entityPath?: pulumi.Input<string>;
     /**
      * ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+     *
+     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
     identityId?: pulumi.Input<string>;
     /**

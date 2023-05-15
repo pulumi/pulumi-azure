@@ -19,6 +19,61 @@ import javax.annotation.Nullable;
 /**
  * Manages a Mobile Network Site.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.databoxedge.Device;
+ * import com.pulumi.azure.databoxedge.DeviceArgs;
+ * import com.pulumi.azure.mobile.Network;
+ * import com.pulumi.azure.mobile.NetworkArgs;
+ * import com.pulumi.azure.mobile.NetworkSite;
+ * import com.pulumi.azure.mobile.NetworkSiteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .skuName(&#34;EdgeP_Base-Standard&#34;)
+ *             .build());
+ * 
+ *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .mobileCountryCode(&#34;001&#34;)
+ *             .mobileNetworkCode(&#34;01&#34;)
+ *             .build());
+ * 
+ *         var exampleNetworkSite = new NetworkSite(&#34;exampleNetworkSite&#34;, NetworkSiteArgs.builder()        
+ *             .mobileNetworkId(exampleNetwork.id())
+ *             .location(exampleResourceGroup.location())
+ *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Mobile Network Site can be imported using the `resource id`, e.g.

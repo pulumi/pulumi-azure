@@ -108,7 +108,6 @@ public final class DatastoreDatalakeGen2Args extends com.pulumi.resources.Resour
 
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-     * ---
      * 
      */
     @Import(name="storageContainerId", required=true)
@@ -116,7 +115,6 @@ public final class DatastoreDatalakeGen2Args extends com.pulumi.resources.Resour
 
     /**
      * @return The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-     * ---
      * 
      */
     public Output<String> storageContainerId() {
@@ -329,7 +327,6 @@ public final class DatastoreDatalakeGen2Args extends com.pulumi.resources.Resour
 
         /**
          * @param storageContainerId The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-         * ---
          * 
          * @return builder
          * 
@@ -341,7 +338,6 @@ public final class DatastoreDatalakeGen2Args extends com.pulumi.resources.Resour
 
         /**
          * @param storageContainerId The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-         * ---
          * 
          * @return builder
          * 

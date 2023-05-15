@@ -13,6 +13,8 @@ public final class GetSharedImageVersionTargetRegion {
     /**
      * @return The name of the Image Version.
      * 
+     * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+     * 
      */
     private String name;
     /**
@@ -29,6 +31,8 @@ public final class GetSharedImageVersionTargetRegion {
     private GetSharedImageVersionTargetRegion() {}
     /**
      * @return The name of the Image Version.
+     * 
+     * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
      */
     public String name() {

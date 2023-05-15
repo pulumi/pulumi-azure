@@ -68,6 +68,8 @@ export class GremlinDatabase extends pulumi.CustomResource {
     public readonly accountName!: pulumi.Output<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinDatabaseAutoscaleSettings | undefined>;
     /**
@@ -80,6 +82,8 @@ export class GremlinDatabase extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     *
+     * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
     public readonly throughput!: pulumi.Output<number>;
 
@@ -130,6 +134,8 @@ export interface GremlinDatabaseState {
     accountName?: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinDatabaseAutoscaleSettings>;
     /**
@@ -142,6 +148,8 @@ export interface GremlinDatabaseState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     *
+     * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
     throughput?: pulumi.Input<number>;
 }
@@ -156,6 +164,8 @@ export interface GremlinDatabaseArgs {
     accountName: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinDatabaseAutoscaleSettings>;
     /**
@@ -168,6 +178,8 @@ export interface GremlinDatabaseArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     *
+     * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
     throughput?: pulumi.Input<number>;
 }

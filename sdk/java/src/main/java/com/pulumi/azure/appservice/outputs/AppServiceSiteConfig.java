@@ -25,10 +25,14 @@ public final class AppServiceSiteConfig {
     /**
      * @return If using User Managed Identity, the User Managed Identity Client Id
      * 
+     * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+     * 
      */
     private @Nullable String acrUserManagedIdentityClientId;
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -75,6 +79,8 @@ public final class AppServiceSiteConfig {
     /**
      * @return A list of objects representing ip restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     private @Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions;
     /**
@@ -95,10 +101,14 @@ public final class AppServiceSiteConfig {
     /**
      * @return Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
+     * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+     * 
      */
     private @Nullable String linuxFxVersion;
     /**
      * @return Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+     * 
+     * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
      * 
      */
     private @Nullable Boolean localMysqlEnabled;
@@ -140,6 +150,8 @@ public final class AppServiceSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     private @Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
@@ -150,17 +162,17 @@ public final class AppServiceSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
+     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     */
-    private @Nullable Boolean use32BitWorkerProcess;
-    /**
-     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
+    private @Nullable Boolean use32BitWorkerProcess;
     private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should WebSockets be enabled?
@@ -184,12 +196,16 @@ public final class AppServiceSiteConfig {
     /**
      * @return If using User Managed Identity, the User Managed Identity Client Id
      * 
+     * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+     * 
      */
     public Optional<String> acrUserManagedIdentityClientId() {
         return Optional.ofNullable(this.acrUserManagedIdentityClientId);
     }
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
      * 
      */
     public Optional<Boolean> alwaysOn() {
@@ -254,6 +270,8 @@ public final class AppServiceSiteConfig {
     /**
      * @return A list of objects representing ip restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     public List<AppServiceSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
@@ -282,12 +300,16 @@ public final class AppServiceSiteConfig {
     /**
      * @return Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
+     * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+     * 
      */
     public Optional<String> linuxFxVersion() {
         return Optional.ofNullable(this.linuxFxVersion);
     }
     /**
      * @return Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+     * 
+     * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
      * 
      */
     public Optional<Boolean> localMysqlEnabled() {
@@ -345,6 +367,8 @@ public final class AppServiceSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     public List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions() {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
@@ -359,6 +383,8 @@ public final class AppServiceSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
+     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
@@ -366,14 +392,12 @@ public final class AppServiceSiteConfig {
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
+     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * 
      */
     public Optional<Boolean> use32BitWorkerProcess() {
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
-    /**
-     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }

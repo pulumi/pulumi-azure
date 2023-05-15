@@ -61,12 +61,18 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
     /**
      * Should List permissions be enabled for this SAS?
      * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+     * for additional details on the fields above.
+     * 
      */
     @Import(name="list", required=true)
     private Output<Boolean> list;
 
     /**
      * @return Should List permissions be enabled for this SAS?
+     * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+     * for additional details on the fields above.
      * 
      */
     public Output<Boolean> list() {
@@ -198,6 +204,9 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         /**
          * @param list Should List permissions be enabled for this SAS?
          * 
+         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+         * for additional details on the fields above.
+         * 
          * @return builder
          * 
          */
@@ -208,6 +217,9 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
 
         /**
          * @param list Should List permissions be enabled for this SAS?
+         * 
+         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+         * for additional details on the fields above.
          * 
          * @return builder
          * 

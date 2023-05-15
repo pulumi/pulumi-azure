@@ -269,12 +269,16 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      * 
+     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * 
      */
     @Export(name="parameterValues", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameterValues;
 
     /**
      * @return a JSON string to supply Blueprint Assignment parameter values.
+     * 
+     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     public Output<Optional<String>> parameterValues() {
@@ -283,12 +287,16 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      * 
+     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * 
      */
     @Export(name="resourceGroups", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceGroups;
 
     /**
      * @return a JSON string to supply the Blueprint Resource Group information.
+     * 
+     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     public Output<Optional<String>> resourceGroups() {

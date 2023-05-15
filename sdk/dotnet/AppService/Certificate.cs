@@ -125,6 +125,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         /// </summary>
         [Output("pfxBlob")]
         public Output<string?> PfxBlob { get; private set; } = null!;
@@ -249,6 +251,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         /// </summary>
         public Input<string>? PfxBlob
         {
@@ -373,6 +377,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         /// </summary>
         public Input<string>? PfxBlob
         {

@@ -28,6 +28,8 @@ class ApplicationPlanArgs:
         :param pulumi.Input[str] publisher: Specifies the publisher of the plan.
         :param pulumi.Input[str] version: Specifies the version of the plan from the marketplace.
         :param pulumi.Input[str] promotion_code: Specifies the promotion code to use with the plan.
+               
+               > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -89,6 +91,8 @@ class ApplicationPlanArgs:
     def promotion_code(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the promotion code to use with the plan.
+
+        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         return pulumi.get(self, "promotion_code")
 

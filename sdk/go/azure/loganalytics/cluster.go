@@ -75,6 +75,8 @@ type Cluster struct {
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+	//
+	// > **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
 	SizeGb pulumi.IntPtrOutput `pulumi:"sizeGb"`
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -126,6 +128,8 @@ type clusterState struct {
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+	//
+	// > **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
 	SizeGb *int `pulumi:"sizeGb"`
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -143,6 +147,8 @@ type ClusterState struct {
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+	//
+	// > **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
 	SizeGb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags pulumi.StringMapInput
@@ -162,6 +168,8 @@ type clusterArgs struct {
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+	//
+	// > **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
 	SizeGb *int `pulumi:"sizeGb"`
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -178,6 +186,8 @@ type ClusterArgs struct {
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringInput
 	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+	//
+	// > **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
 	SizeGb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags pulumi.StringMapInput
@@ -296,6 +306,8 @@ func (o ClusterOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+//
+// > **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
 func (o ClusterOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.SizeGb }).(pulumi.IntPtrOutput)
 }

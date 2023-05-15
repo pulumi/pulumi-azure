@@ -15,6 +15,8 @@ public final class ServiceIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * 
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
@@ -28,6 +30,8 @@ public final class ServiceIdentity {
     private ServiceIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
      * 
      */
     public List<String> identityIds() {

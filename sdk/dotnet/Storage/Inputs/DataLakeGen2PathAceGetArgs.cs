@@ -18,9 +18,6 @@ namespace Pulumi.Azure.Storage.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-        /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 

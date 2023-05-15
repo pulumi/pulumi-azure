@@ -77,6 +77,8 @@ export class AuthorizationRule extends pulumi.CustomResource {
     public readonly listen!: pulumi.Output<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+     *
+     * > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
     public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
@@ -166,6 +168,8 @@ export interface AuthorizationRuleState {
     listen?: pulumi.Input<boolean>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+     *
+     * > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
     manage?: pulumi.Input<boolean>;
     /**
@@ -208,6 +212,8 @@ export interface AuthorizationRuleArgs {
     listen?: pulumi.Input<boolean>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+     *
+     * > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
     manage?: pulumi.Input<boolean>;
     /**

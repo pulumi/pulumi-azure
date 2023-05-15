@@ -23,6 +23,8 @@ public final class WindowsWebAppSiteConfig {
     /**
      * @return If this Windows Web App is Always On enabled. Defaults to `true`.
      * 
+     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * 
      */
     private @Nullable Boolean alwaysOn;
     /**
@@ -76,10 +78,6 @@ public final class WindowsWebAppSiteConfig {
      */
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
-    /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-     * 
-     */
     private @Nullable String ftpsState;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -179,6 +177,8 @@ public final class WindowsWebAppSiteConfig {
     /**
      * @return If this Windows Web App is Always On enabled. Defaults to `true`.
      * 
+     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * 
      */
     public Optional<Boolean> alwaysOn() {
         return Optional.ofNullable(this.alwaysOn);
@@ -256,10 +256,6 @@ public final class WindowsWebAppSiteConfig {
     public Optional<Boolean> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
-    /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-     * 
-     */
     public Optional<String> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }

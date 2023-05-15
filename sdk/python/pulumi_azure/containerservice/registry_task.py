@@ -44,11 +44,15 @@ class RegistryTaskArgs:
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input['RegistryTaskEncodedStepArgs'] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input['RegistryTaskFileStepArgs'] file_step: A `file_step` block as defined below.
+               
+               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskPlatformArgs'] platform: A `platform` block as defined below.
+               
+               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input['RegistryTaskRegistryCredentialArgs'] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
@@ -180,6 +184,8 @@ class RegistryTaskArgs:
     def file_step(self) -> Optional[pulumi.Input['RegistryTaskFileStepArgs']]:
         """
         A `file_step` block as defined below.
+
+        > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         """
         return pulumi.get(self, "file_step")
 
@@ -240,6 +246,8 @@ class RegistryTaskArgs:
     def platform(self) -> Optional[pulumi.Input['RegistryTaskPlatformArgs']]:
         """
         A `platform` block as defined below.
+
+        > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         """
         return pulumi.get(self, "platform")
 
@@ -339,11 +347,15 @@ class _RegistryTaskState:
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input['RegistryTaskEncodedStepArgs'] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input['RegistryTaskFileStepArgs'] file_step: A `file_step` block as defined below.
+               
+               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskPlatformArgs'] platform: A `platform` block as defined below.
+               
+               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input['RegistryTaskRegistryCredentialArgs'] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
@@ -476,6 +488,8 @@ class _RegistryTaskState:
     def file_step(self) -> Optional[pulumi.Input['RegistryTaskFileStepArgs']]:
         """
         A `file_step` block as defined below.
+
+        > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         """
         return pulumi.get(self, "file_step")
 
@@ -536,6 +550,8 @@ class _RegistryTaskState:
     def platform(self) -> Optional[pulumi.Input['RegistryTaskPlatformArgs']]:
         """
         A `platform` block as defined below.
+
+        > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         """
         return pulumi.get(self, "platform")
 
@@ -673,11 +689,15 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']] file_step: A `file_step` block as defined below.
+               
+               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']] platform: A `platform` block as defined below.
+               
+               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
@@ -830,11 +850,15 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']] file_step: A `file_step` block as defined below.
+               
+               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']] platform: A `platform` block as defined below.
+               
+               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
@@ -926,6 +950,8 @@ class RegistryTask(pulumi.CustomResource):
     def file_step(self) -> pulumi.Output[Optional['outputs.RegistryTaskFileStep']]:
         """
         A `file_step` block as defined below.
+
+        > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         """
         return pulumi.get(self, "file_step")
 
@@ -966,6 +992,8 @@ class RegistryTask(pulumi.CustomResource):
     def platform(self) -> pulumi.Output[Optional['outputs.RegistryTaskPlatform']]:
         """
         A `platform` block as defined below.
+
+        > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         """
         return pulumi.get(self, "platform")
 

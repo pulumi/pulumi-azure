@@ -15,6 +15,8 @@ namespace Pulumi.Azure.HDInsight.Outputs
     {
         /// <summary>
         /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
         /// </summary>
         public readonly string? Password;
         /// <summary>
@@ -23,6 +25,8 @@ namespace Pulumi.Azure.HDInsight.Outputs
         public readonly ImmutableArray<Outputs.InteractiveQueryClusterRolesZookeeperNodeScriptAction> ScriptActions;
         /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         /// </summary>
         public readonly ImmutableArray<string> SshKeys;
         /// <summary>

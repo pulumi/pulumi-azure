@@ -78,6 +78,8 @@ class AccountIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -106,6 +108,8 @@ class AccountIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -223,6 +227,8 @@ class PoolCertificateArgs:
         """
         :param pulumi.Input[str] id: The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
         :param pulumi.Input[str] store_location: The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+               
+               > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         :param pulumi.Input[str] store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] visibilities: Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
         """
@@ -250,6 +256,8 @@ class PoolCertificateArgs:
     def store_location(self) -> pulumi.Input[str]:
         """
         The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+
+        > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         """
         return pulumi.get(self, "store_location")
 
@@ -1602,6 +1610,8 @@ class PoolStartTaskContainerRegistryArgs:
         :param pulumi.Input[str] registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to log into the registry server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: An identity reference from pool's user assigned managed identity list.
+               
+               > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         :param pulumi.Input[str] user_name: The username to be used by the Batch pool start task.
         """
         pulumi.set(__self__, "registry_server", registry_server)
@@ -1641,6 +1651,8 @@ class PoolStartTaskContainerRegistryArgs:
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         An identity reference from pool's user assigned managed identity list.
+
+        > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -1679,6 +1691,8 @@ class PoolStartTaskResourceFileArgs:
         :param pulumi.Input[str] http_url: The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
         :param pulumi.Input[str] storage_container_url: The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
         :param pulumi.Input[str] user_assigned_identity_id: An identity reference from pool's user assigned managed identity list.
+               
+               > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
         if auto_storage_container_name is not None:
             pulumi.set(__self__, "auto_storage_container_name", auto_storage_container_name)
@@ -1772,6 +1786,8 @@ class PoolStartTaskResourceFileArgs:
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         An identity reference from pool's user assigned managed identity list.
+
+        > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -1787,6 +1803,8 @@ class PoolStartTaskUserIdentityArgs:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs'] auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
+               
+               > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         :param pulumi.Input[str] user_name: The username to be used by the Batch pool start task.
         """
         if auto_user is not None:
@@ -1799,6 +1817,8 @@ class PoolStartTaskUserIdentityArgs:
     def auto_user(self) -> Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']]:
         """
         A `auto_user` block that describes the user identity under which the start task runs as defined below.
+
+        > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         """
         return pulumi.get(self, "auto_user")
 
@@ -1872,6 +1892,8 @@ class PoolStorageImageReferenceArgs:
         :param pulumi.Input[str] publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+               
+               To provision a Custom Image, the following fields are applicable:
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1937,6 +1959,8 @@ class PoolStorageImageReferenceArgs:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+
+        To provision a Custom Image, the following fields are applicable:
         """
         return pulumi.get(self, "version")
 

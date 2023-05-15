@@ -27,6 +27,8 @@ class ConnectionArgs:
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
+               
+               > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
@@ -62,6 +64,8 @@ class ConnectionArgs:
     def authentication(self) -> pulumi.Input['ConnectionAuthenticationArgs']:
         """
         The authentication info. An `authentication` block as defined below.
+
+        > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         """
         return pulumi.get(self, "authentication")
 
@@ -144,6 +148,8 @@ class _ConnectionState:
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
+               
+               > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input['ConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
@@ -182,6 +188,8 @@ class _ConnectionState:
     def authentication(self) -> Optional[pulumi.Input['ConnectionAuthenticationArgs']]:
         """
         The authentication info. An `authentication` block as defined below.
+
+        > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         """
         return pulumi.get(self, "authentication")
 
@@ -326,6 +334,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+               
+               > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
@@ -467,6 +477,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+               
+               > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
@@ -499,6 +511,8 @@ class Connection(pulumi.CustomResource):
     def authentication(self) -> pulumi.Output['outputs.ConnectionAuthentication']:
         """
         The authentication info. An `authentication` block as defined below.
+
+        > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         """
         return pulumi.get(self, "authentication")
 

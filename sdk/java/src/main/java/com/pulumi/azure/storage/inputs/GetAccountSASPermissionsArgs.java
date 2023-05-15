@@ -61,12 +61,18 @@ public final class GetAccountSASPermissionsArgs extends com.pulumi.resources.Res
     /**
      * Should Filter by Index Tags permissions be enabled for this SAS?
      * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+     * for additional details on the fields above.
+     * 
      */
     @Import(name="filter", required=true)
     private Output<Boolean> filter;
 
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
+     * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+     * for additional details on the fields above.
      * 
      */
     public Output<Boolean> filter() {
@@ -262,6 +268,9 @@ public final class GetAccountSASPermissionsArgs extends com.pulumi.resources.Res
         /**
          * @param filter Should Filter by Index Tags permissions be enabled for this SAS?
          * 
+         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+         * for additional details on the fields above.
+         * 
          * @return builder
          * 
          */
@@ -272,6 +281,9 @@ public final class GetAccountSASPermissionsArgs extends com.pulumi.resources.Res
 
         /**
          * @param filter Should Filter by Index Tags permissions be enabled for this SAS?
+         * 
+         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+         * for additional details on the fields above.
          * 
          * @return builder
          * 

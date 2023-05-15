@@ -82,6 +82,8 @@ export class Provider extends pulumi.CustomResource {
     public readonly policies!: pulumi.Output<outputs.attestation.ProviderPolicy[] | undefined>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
     public readonly policySigningCertificateData!: pulumi.Output<string | undefined>;
     /**
@@ -98,6 +100,8 @@ export class Provider extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     *
+     * > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
     public readonly tpmPolicyBase64!: pulumi.Output<string | undefined>;
     /**
@@ -177,6 +181,8 @@ export interface ProviderState {
     policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
     policySigningCertificateData?: pulumi.Input<string>;
     /**
@@ -193,6 +199,8 @@ export interface ProviderState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     *
+     * > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
     tpmPolicyBase64?: pulumi.Input<string>;
     /**
@@ -223,6 +231,8 @@ export interface ProviderArgs {
     policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
     policySigningCertificateData?: pulumi.Input<string>;
     /**
@@ -239,6 +249,8 @@ export interface ProviderArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     *
+     * > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
     tpmPolicyBase64?: pulumi.Input<string>;
 }
