@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'VaultEncryption',
     'VaultIdentity',
+    'VaultMonitoring',
 ]
 
 @pulumi.output_type
@@ -175,5 +176,55 @@ class VaultIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class VaultMonitoring(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertsForAllJobFailuresEnabled":
+            suggest = "alerts_for_all_job_failures_enabled"
+        elif key == "alertsForCriticalOperationFailuresEnabled":
+            suggest = "alerts_for_critical_operation_failures_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultMonitoring. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultMonitoring.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultMonitoring.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts_for_all_job_failures_enabled: Optional[bool] = None,
+                 alerts_for_critical_operation_failures_enabled: Optional[bool] = None):
+        """
+        :param bool alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        :param bool alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        """
+        if alerts_for_all_job_failures_enabled is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
+        if alerts_for_critical_operation_failures_enabled is not None:
+            pulumi.set(__self__, "alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
+
+    @property
+    @pulumi.getter(name="alertsForAllJobFailuresEnabled")
+    def alerts_for_all_job_failures_enabled(self) -> Optional[bool]:
+        """
+        Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        """
+        return pulumi.get(self, "alerts_for_all_job_failures_enabled")
+
+    @property
+    @pulumi.getter(name="alertsForCriticalOperationFailuresEnabled")
+    def alerts_for_critical_operation_failures_enabled(self) -> Optional[bool]:
+        """
+        Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        """
+        return pulumi.get(self, "alerts_for_critical_operation_failures_enabled")
 
 

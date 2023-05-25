@@ -105,7 +105,7 @@ import (
 //				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("UbuntuServer"),
-//					Sku:       pulumi.String("16.04-LTS"),
+//					Sku:       pulumi.String("20.04-LTS"),
 //					Version:   pulumi.String("latest"),
 //				},
 //			})

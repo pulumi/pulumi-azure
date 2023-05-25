@@ -8,6 +8,7 @@ import com.pulumi.azure.recoveryservices.VaultArgs;
 import com.pulumi.azure.recoveryservices.inputs.VaultState;
 import com.pulumi.azure.recoveryservices.outputs.VaultEncryption;
 import com.pulumi.azure.recoveryservices.outputs.VaultIdentity;
+import com.pulumi.azure.recoveryservices.outputs.VaultMonitoring;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -162,6 +163,20 @@ public class Vault extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * A `monitoring` block as defined below.
+     * 
+     */
+    @Export(name="monitoring", refs={VaultMonitoring.class}, tree="[0]")
+    private Output</* @Nullable */ VaultMonitoring> monitoring;
+
+    /**
+     * @return A `monitoring` block as defined below.
+     * 
+     */
+    public Output<Optional<VaultMonitoring>> monitoring() {
+        return Codegen.optional(this.monitoring);
     }
     /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.

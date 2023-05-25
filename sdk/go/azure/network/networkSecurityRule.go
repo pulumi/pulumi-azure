@@ -82,7 +82,7 @@ type NetworkSecurityRule struct {
 	Access pulumi.StringOutput `pulumi:"access"`
 	// A description for this rule. Restricted to 140 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix pulumi.StringPtrOutput `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayOutput `pulumi:"destinationAddressPrefixes"`
@@ -104,7 +104,7 @@ type NetworkSecurityRule struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix pulumi.StringPtrOutput `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayOutput `pulumi:"sourceAddressPrefixes"`
@@ -167,7 +167,7 @@ type networkSecurityRuleState struct {
 	Access *string `pulumi:"access"`
 	// A description for this rule. Restricted to 140 characters.
 	Description *string `pulumi:"description"`
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
@@ -189,7 +189,7 @@ type networkSecurityRuleState struct {
 	Protocol *string `pulumi:"protocol"`
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
@@ -206,7 +206,7 @@ type NetworkSecurityRuleState struct {
 	Access pulumi.StringPtrInput
 	// A description for this rule. Restricted to 140 characters.
 	Description pulumi.StringPtrInput
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix pulumi.StringPtrInput
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayInput
@@ -228,7 +228,7 @@ type NetworkSecurityRuleState struct {
 	Protocol pulumi.StringPtrInput
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix pulumi.StringPtrInput
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayInput
@@ -249,7 +249,7 @@ type networkSecurityRuleArgs struct {
 	Access string `pulumi:"access"`
 	// A description for this rule. Restricted to 140 characters.
 	Description *string `pulumi:"description"`
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
@@ -271,7 +271,7 @@ type networkSecurityRuleArgs struct {
 	Protocol string `pulumi:"protocol"`
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
@@ -289,7 +289,7 @@ type NetworkSecurityRuleArgs struct {
 	Access pulumi.StringInput
 	// A description for this rule. Restricted to 140 characters.
 	Description pulumi.StringPtrInput
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix pulumi.StringPtrInput
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayInput
@@ -311,7 +311,7 @@ type NetworkSecurityRuleArgs struct {
 	Protocol pulumi.StringInput
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix pulumi.StringPtrInput
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayInput
@@ -420,7 +420,7 @@ func (o NetworkSecurityRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
+// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destinationAddressPrefixes` is not specified.
 func (o NetworkSecurityRuleOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringPtrOutput { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
 }
@@ -475,7 +475,7 @@ func (o NetworkSecurityRuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 func (o NetworkSecurityRuleOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringPtrOutput { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
 }

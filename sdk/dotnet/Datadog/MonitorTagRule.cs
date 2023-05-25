@@ -27,9 +27,30 @@ namespace Pulumi.Azure.Datadog
     ///         Location = "West US 2",
     ///     });
     /// 
+    ///     var exampleMonitor = new Azure.Datadog.Monitor("exampleMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatadogOrganization = new Azure.Datadog.Inputs.MonitorDatadogOrganizationArgs
+    ///         {
+    ///             ApiKey = "XXXX",
+    ///             ApplicationKey = "XXXX",
+    ///         },
+    ///         User = new Azure.Datadog.Inputs.MonitorUserArgs
+    ///         {
+    ///             Name = "Example",
+    ///             Email = "abc@xyz.com",
+    ///         },
+    ///         SkuName = "Linked",
+    ///         Identity = new Azure.Datadog.Inputs.MonitorIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
     ///     var exampleMonitorTagRule = new Azure.Datadog.MonitorTagRule("exampleMonitorTagRule", new()
     ///     {
-    ///         DatadogMonitorId = azurerm_datadog_monitor.Example.Id,
+    ///         DatadogMonitorId = exampleMonitor.Id,
     ///         Logs = new[]
     ///         {
     ///             new Azure.Datadog.Inputs.MonitorTagRuleLogArgs

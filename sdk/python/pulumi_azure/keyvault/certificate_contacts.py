@@ -127,7 +127,7 @@ class CertificateContacts(pulumi.CustomResource):
             key_permissions=["Create"],
             secret_permissions=["Set"])
         example_certificate_contacts = azure.keyvault.CertificateContacts("exampleCertificateContacts",
-            key_vault_id=azurerm_key_vault["test"]["id"],
+            key_vault_id=example_key_vault.id,
             contacts=[
                 azure.keyvault.CertificateContactsContactArgs(
                     email="example@example.com",
@@ -188,7 +188,7 @@ class CertificateContacts(pulumi.CustomResource):
             key_permissions=["Create"],
             secret_permissions=["Set"])
         example_certificate_contacts = azure.keyvault.CertificateContacts("exampleCertificateContacts",
-            key_vault_id=azurerm_key_vault["test"]["id"],
+            key_vault_id=example_key_vault.id,
             contacts=[
                 azure.keyvault.CertificateContactsContactArgs(
                     email="example@example.com",

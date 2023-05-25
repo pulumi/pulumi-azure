@@ -66,17 +66,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        
- *             .containerRegistryName(azurerm_container_registry.acr().name())
- *             .resourceGroupName(azurerm_resource_group.rg().name())
+ *             .containerRegistryName(exampleRegistry.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .actions(            
  *                 &#34;repositories/repo1/content/read&#34;,
  *                 &#34;repositories/repo1/content/write&#34;)
  *             .build());
  * 
  *         var exampleRegistryToken = new RegistryToken(&#34;exampleRegistryToken&#34;, RegistryTokenArgs.builder()        
- *             .containerRegistryName(azurerm_container_registry.acr().name())
- *             .resourceGroupName(azurerm_resource_group.rg().name())
- *             .scopeMapId(azurerm_container_registry_scope_map.map().id())
+ *             .containerRegistryName(exampleRegistry.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .scopeMapId(exampleRegistryScopeMap.id())
  *             .build());
  * 
  *         var exampleTokenPassword = new TokenPassword(&#34;exampleTokenPassword&#34;, TokenPasswordArgs.builder()        

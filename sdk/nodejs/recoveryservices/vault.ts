@@ -89,6 +89,10 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `monitoring` block as defined below.
+     */
+    public readonly monitoring!: pulumi.Output<outputs.recoveryservices.VaultMonitoring | undefined>;
+    /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["immutability"] = state ? state.immutability : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["monitoring"] = state ? state.monitoring : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -157,6 +162,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["immutability"] = args ? args.immutability : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["monitoring"] = args ? args.monitoring : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -202,6 +208,10 @@ export interface VaultState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * A `monitoring` block as defined below.
+     */
+    monitoring?: pulumi.Input<inputs.recoveryservices.VaultMonitoring>;
     /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
@@ -264,6 +274,10 @@ export interface VaultArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * A `monitoring` block as defined below.
+     */
+    monitoring?: pulumi.Input<inputs.recoveryservices.VaultMonitoring>;
     /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */

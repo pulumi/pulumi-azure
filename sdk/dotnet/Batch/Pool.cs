@@ -47,6 +47,7 @@ namespace Pulumi.Azure.Batch
     ///         Location = exampleResourceGroup.Location,
     ///         PoolAllocationMode = "BatchService",
     ///         StorageAccountId = exampleAccount.Id,
+    ///         StorageAccountAuthenticationMode = "StorageKeys",
     ///         Tags = 
     ///         {
     ///             { "env", "test" },

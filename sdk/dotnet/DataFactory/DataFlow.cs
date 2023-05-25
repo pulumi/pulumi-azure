@@ -79,7 +79,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var example1FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example1FlowletDataFlow", new()
     ///     {
-    ///         DataFactoryId = azurerm_data_factory.Test.Id,
+    ///         DataFactoryId = exampleFactory.Id,
     ///         Sources = new[]
     ///         {
     ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.DataFactory
     ///                 Name = "source1",
     ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
     ///                 {
-    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
     ///             },
     ///         },
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.DataFactory
     ///                 Name = "sink1",
     ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
     ///                 {
-    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
     ///             },
     ///         },
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var example2FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example2FlowletDataFlow", new()
     ///     {
-    ///         DataFactoryId = azurerm_data_factory.Test.Id,
+    ///         DataFactoryId = exampleFactory.Id,
     ///         Sources = new[]
     ///         {
     ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.DataFactory
     ///                 Name = "source1",
     ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
     ///                 {
-    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
     ///             },
     ///         },
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.DataFactory
     ///                 Name = "sink1",
     ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
     ///                 {
-    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
     ///             },
     ///         },

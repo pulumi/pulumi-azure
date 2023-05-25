@@ -7101,7 +7101,7 @@ export namespace appservice {
          */
         nameClaimType?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         * Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          */
         openidConfigurationEndpoint: pulumi.Input<string>;
         /**
@@ -15380,7 +15380,7 @@ export namespace backup {
 export namespace batch {
     export interface AccountEncryption {
         /**
-         * The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+         * The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
          */
         keyVaultKeyId: pulumi.Input<string>;
     }
@@ -15418,10 +15418,16 @@ export namespace batch {
     }
 
     export interface GetAccountEncryption {
+        /**
+         * The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+         */
         keyVaultKeyId: string;
     }
 
     export interface GetAccountEncryptionArgs {
+        /**
+         * The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+         */
         keyVaultKeyId: pulumi.Input<string>;
     }
 
@@ -30323,9 +30329,6 @@ export namespace hdinsight {
     }
 
     export interface HBaseClusterRolesWorkerNode {
-        /**
-         * A `autoscale` block as defined below.
-         */
         autoscale?: pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscale>;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -30366,37 +30369,20 @@ export namespace hdinsight {
     }
 
     export interface HBaseClusterRolesWorkerNodeAutoscale {
-        /**
-         * A `recurrence` block as defined below.
-         *
-         * > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
-         */
         recurrence?: pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscaleRecurrence>;
     }
 
     export interface HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
-        /**
-         * A list of `schedule` blocks as defined below.
-         */
         schedules: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule>[]>;
-        /**
-         * The time zone for the autoscale schedule times.
-         */
         timezone: pulumi.Input<string>;
     }
 
     export interface HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
-        /**
-         * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-         */
         days: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The number of worker nodes to autoscale at the specified time.
+         * The number of instances which should be run for the Worker Nodes.
          */
         targetInstanceCount: pulumi.Input<number>;
-        /**
-         * The time of day to perform the autoscale in 24hour format.
-         */
         time: pulumi.Input<string>;
     }
 
@@ -36579,10 +36565,18 @@ export namespace media {
         h264Video?: pulumi.Input<inputs.media.TransformOutputCustomPresetCodecH264Video>;
         /**
          * A `h265Video` block as defined below.
-         *
-         * > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
          */
         h265Video?: pulumi.Input<inputs.media.TransformOutputCustomPresetCodecH265Video>;
+        /**
+         * A `jpgImage` block as defined below.
+         */
+        jpgImage?: pulumi.Input<inputs.media.TransformOutputCustomPresetCodecJpgImage>;
+        /**
+         * A `pngImage` block as defined below.
+         *
+         * > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video`, `h265Video`, `jpgImage` or `pngImage`. If you need to apply different codec you must create one codec for each one.
+         */
+        pngImage?: pulumi.Input<inputs.media.TransformOutputCustomPresetCodecPngImage>;
     }
 
     export interface TransformOutputCustomPresetCodecAacAudio {
@@ -36829,6 +36823,114 @@ export namespace media {
         width?: pulumi.Input<string>;
     }
 
+    export interface TransformOutputCustomPresetCodecJpgImage {
+        /**
+         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         */
+        keyFrameInterval?: pulumi.Input<string>;
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * One or more `layer` blocks as defined below.
+         */
+        layers?: pulumi.Input<pulumi.Input<inputs.media.TransformOutputCustomPresetCodecJpgImageLayer>[]>;
+        /**
+         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+         */
+        range?: pulumi.Input<string>;
+        /**
+         * Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+         */
+        spriteColumn?: pulumi.Input<number>;
+        /**
+         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+         */
+        start: pulumi.Input<string>;
+        /**
+         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+         */
+        step?: pulumi.Input<string>;
+        /**
+         * The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         */
+        stretchMode?: pulumi.Input<string>;
+        /**
+         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         */
+        syncMode?: pulumi.Input<string>;
+    }
+
+    export interface TransformOutputCustomPresetCodecJpgImageLayer {
+        /**
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         */
+        height?: pulumi.Input<string>;
+        /**
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+         */
+        quality?: pulumi.Input<number>;
+        /**
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface TransformOutputCustomPresetCodecPngImage {
+        /**
+         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         */
+        keyFrameInterval?: pulumi.Input<string>;
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * One or more `layer` blocks as defined below.
+         */
+        layers?: pulumi.Input<pulumi.Input<inputs.media.TransformOutputCustomPresetCodecPngImageLayer>[]>;
+        /**
+         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+         */
+        range?: pulumi.Input<string>;
+        /**
+         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+         */
+        start: pulumi.Input<string>;
+        /**
+         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+         */
+        step?: pulumi.Input<string>;
+        /**
+         * The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         */
+        stretchMode?: pulumi.Input<string>;
+        /**
+         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         */
+        syncMode?: pulumi.Input<string>;
+    }
+
+    export interface TransformOutputCustomPresetCodecPngImageLayer {
+        /**
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         */
+        height?: pulumi.Input<string>;
+        /**
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         */
+        width?: pulumi.Input<string>;
+    }
+
     export interface TransformOutputCustomPresetFilter {
         /**
          * A `cropRectangle` block as defined above.
@@ -37035,15 +37137,30 @@ export namespace media {
 
     export interface TransformOutputCustomPresetFormat {
         /**
+         * A `jpg` block as defined below.
+         */
+        jpg?: pulumi.Input<inputs.media.TransformOutputCustomPresetFormatJpg>;
+        /**
          * A `mp4` block as defined below.
          */
         mp4?: pulumi.Input<inputs.media.TransformOutputCustomPresetFormatMp4>;
         /**
+         * A `png` block as defined below.
+         */
+        png?: pulumi.Input<inputs.media.TransformOutputCustomPresetFormatPng>;
+        /**
          * A `transportStream` block as defined below.
          *
-         * > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
+         * > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transportStream`. If you need to apply different type you must create one format for each one.
          */
         transportStream?: pulumi.Input<inputs.media.TransformOutputCustomPresetFormatTransportStream>;
+    }
+
+    export interface TransformOutputCustomPresetFormatJpg {
+        /**
+         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+         */
+        filenamePattern: pulumi.Input<string>;
     }
 
     export interface TransformOutputCustomPresetFormatMp4 {
@@ -37062,6 +37179,13 @@ export namespace media {
          * The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
          */
         labels: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TransformOutputCustomPresetFormatPng {
+        /**
+         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+         */
+        filenamePattern: pulumi.Input<string>;
     }
 
     export interface TransformOutputCustomPresetFormatTransportStream {
@@ -41015,7 +41139,7 @@ export namespace network {
 
     export interface ApplicationGatewayProbe {
         /**
-         * The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+         * The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
          */
         host?: pulumi.Input<string>;
         /**
@@ -42733,7 +42857,7 @@ export namespace network {
          */
         description?: pulumi.Input<string>;
         /**
-         * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+         * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
          */
         destinationAddressPrefix?: pulumi.Input<string>;
         /**
@@ -42769,7 +42893,7 @@ export namespace network {
          */
         protocol: pulumi.Input<string>;
         /**
-         * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+         * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
          */
         sourceAddressPrefix?: pulumi.Input<string>;
         /**
@@ -44715,6 +44839,17 @@ export namespace recoveryservices {
          * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface VaultMonitoring {
+        /**
+         * Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+         */
+        alertsForAllJobFailuresEnabled?: pulumi.Input<boolean>;
+        /**
+         * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+         */
+        alertsForCriticalOperationFailuresEnabled?: pulumi.Input<boolean>;
     }
 }
 

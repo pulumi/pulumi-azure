@@ -16,9 +16,17 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountArgs Empty = new GetAccountArgs();
 
+    /**
+     * The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     * 
+     */
     @Import(name="encryption")
     private @Nullable Output<GetAccountEncryptionArgs> encryption;
 
+    /**
+     * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     * 
+     */
     public Optional<Output<GetAccountEncryptionArgs>> encryption() {
         return Optional.ofNullable(this.encryption);
     }
@@ -79,11 +87,23 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccountArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encryption The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryption(@Nullable Output<GetAccountEncryptionArgs> encryption) {
             $.encryption = encryption;
             return this;
         }
 
+        /**
+         * @param encryption The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryption(GetAccountEncryptionArgs encryption) {
             return encryption(Output.of(encryption));
         }

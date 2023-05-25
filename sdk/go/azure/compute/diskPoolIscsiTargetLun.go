@@ -15,6 +15,141 @@ import (
 //
 // !> **Note:** Azure are officially [halting](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts?tabs=azure-cli) the preview of Azure Disk Pools, and it **will not** be made generally available. New customers will not be able to register the Microsoft.StoragePool resource provider on their subscription and deploy new Disk Pools. Existing subscriptions registered with Microsoft.StoragePool may continue to deploy and manage disk pools for the time being.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("diskspool"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/read"),
+//							},
+//							Name: pulumi.String("Microsoft.StoragePool/diskPools"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDiskPool, err := compute.NewDiskPool(ctx, "exampleDiskPool", &compute.DiskPoolArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SubnetId:          exampleSubnet.ID(),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//				SkuName: pulumi.String("Basic_B1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Location:           exampleResourceGroup.Location,
+//				CreateOption:       pulumi.String("Empty"),
+//				StorageAccountType: pulumi.String("Premium_LRS"),
+//				DiskSizeGb:         pulumi.Int(4),
+//				MaxShares:          pulumi.Int(2),
+//				Zone:               pulumi.String("1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//				DisplayName: pulumi.StringRef("StoragePool Resource Provider"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			roles := []string{
+//				"Disk Pool Operator",
+//				"Virtual Machine Contributor",
+//			}
+//			var exampleAssignment []*authorization.Assignment
+//			for index := 0; index < len(roles); index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := authorization.NewAssignment(ctx, fmt.Sprintf("exampleAssignment-%v", key0), &authorization.AssignmentArgs{
+//					PrincipalId:        *pulumi.String(exampleServicePrincipal.Id),
+//					RoleDefinitionName: roles[val0],
+//					Scope:              exampleManagedDisk.ID(),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				exampleAssignment = append(exampleAssignment, __res)
+//			}
+//			exampleDiskPoolManagedDiskAttachment, err := compute.NewDiskPoolManagedDiskAttachment(ctx, "exampleDiskPoolManagedDiskAttachment", &compute.DiskPoolManagedDiskAttachmentArgs{
+//				DiskPoolId:    exampleDiskPool.ID(),
+//				ManagedDiskId: exampleManagedDisk.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleDiskPoolIscsiTarget, err := compute.NewDiskPoolIscsiTarget(ctx, "exampleDiskPoolIscsiTarget", &compute.DiskPoolIscsiTargetArgs{
+//				AclMode:     pulumi.String("Dynamic"),
+//				DisksPoolId: exampleDiskPool.ID(),
+//				TargetIqn:   pulumi.String("iqn.2021-11.com.microsoft:test"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleDiskPoolManagedDiskAttachment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewDiskPoolIscsiTargetLun(ctx, "exampleDiskPoolIscsiTargetLun", &compute.DiskPoolIscsiTargetLunArgs{
+//				IscsiTargetId:                   exampleDiskPoolIscsiTarget.ID(),
+//				DiskPoolManagedDiskAttachmentId: exampleDiskPoolManagedDiskAttachment.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // iSCSI Target Luns can be imported using the `resource id`, e.g.

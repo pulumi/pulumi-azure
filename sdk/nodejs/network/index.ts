@@ -210,6 +210,11 @@ export const getVirtualHub: typeof import("./getVirtualHub").getVirtualHub = nul
 export const getVirtualHubOutput: typeof import("./getVirtualHub").getVirtualHubOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualHub","getVirtualHubOutput"], () => require("./getVirtualHub"));
 
+export { GetVirtualHubConnectionArgs, GetVirtualHubConnectionResult, GetVirtualHubConnectionOutputArgs } from "./getVirtualHubConnection";
+export const getVirtualHubConnection: typeof import("./getVirtualHubConnection").getVirtualHubConnection = null as any;
+export const getVirtualHubConnectionOutput: typeof import("./getVirtualHubConnection").getVirtualHubConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualHubConnection","getVirtualHubConnectionOutput"], () => require("./getVirtualHubConnection"));
+
 export { GetVirtualHubRouteTableArgs, GetVirtualHubRouteTableResult, GetVirtualHubRouteTableOutputArgs } from "./getVirtualHubRouteTable";
 export const getVirtualHubRouteTable: typeof import("./getVirtualHubRouteTable").getVirtualHubRouteTable = null as any;
 export const getVirtualHubRouteTableOutput: typeof import("./getVirtualHubRouteTable").getVirtualHubRouteTableOutput = null as any;

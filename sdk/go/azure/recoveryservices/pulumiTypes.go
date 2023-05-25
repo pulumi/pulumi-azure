@@ -422,13 +422,173 @@ func (o VaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VaultMonitoring struct {
+	// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+	AlertsForAllJobFailuresEnabled *bool `pulumi:"alertsForAllJobFailuresEnabled"`
+	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+	AlertsForCriticalOperationFailuresEnabled *bool `pulumi:"alertsForCriticalOperationFailuresEnabled"`
+}
+
+// VaultMonitoringInput is an input type that accepts VaultMonitoringArgs and VaultMonitoringOutput values.
+// You can construct a concrete instance of `VaultMonitoringInput` via:
+//
+//	VaultMonitoringArgs{...}
+type VaultMonitoringInput interface {
+	pulumi.Input
+
+	ToVaultMonitoringOutput() VaultMonitoringOutput
+	ToVaultMonitoringOutputWithContext(context.Context) VaultMonitoringOutput
+}
+
+type VaultMonitoringArgs struct {
+	// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+	AlertsForAllJobFailuresEnabled pulumi.BoolPtrInput `pulumi:"alertsForAllJobFailuresEnabled"`
+	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+	AlertsForCriticalOperationFailuresEnabled pulumi.BoolPtrInput `pulumi:"alertsForCriticalOperationFailuresEnabled"`
+}
+
+func (VaultMonitoringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultMonitoring)(nil)).Elem()
+}
+
+func (i VaultMonitoringArgs) ToVaultMonitoringOutput() VaultMonitoringOutput {
+	return i.ToVaultMonitoringOutputWithContext(context.Background())
+}
+
+func (i VaultMonitoringArgs) ToVaultMonitoringOutputWithContext(ctx context.Context) VaultMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultMonitoringOutput)
+}
+
+func (i VaultMonitoringArgs) ToVaultMonitoringPtrOutput() VaultMonitoringPtrOutput {
+	return i.ToVaultMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i VaultMonitoringArgs) ToVaultMonitoringPtrOutputWithContext(ctx context.Context) VaultMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultMonitoringOutput).ToVaultMonitoringPtrOutputWithContext(ctx)
+}
+
+// VaultMonitoringPtrInput is an input type that accepts VaultMonitoringArgs, VaultMonitoringPtr and VaultMonitoringPtrOutput values.
+// You can construct a concrete instance of `VaultMonitoringPtrInput` via:
+//
+//	        VaultMonitoringArgs{...}
+//
+//	or:
+//
+//	        nil
+type VaultMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToVaultMonitoringPtrOutput() VaultMonitoringPtrOutput
+	ToVaultMonitoringPtrOutputWithContext(context.Context) VaultMonitoringPtrOutput
+}
+
+type vaultMonitoringPtrType VaultMonitoringArgs
+
+func VaultMonitoringPtr(v *VaultMonitoringArgs) VaultMonitoringPtrInput {
+	return (*vaultMonitoringPtrType)(v)
+}
+
+func (*vaultMonitoringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultMonitoring)(nil)).Elem()
+}
+
+func (i *vaultMonitoringPtrType) ToVaultMonitoringPtrOutput() VaultMonitoringPtrOutput {
+	return i.ToVaultMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultMonitoringPtrType) ToVaultMonitoringPtrOutputWithContext(ctx context.Context) VaultMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultMonitoringPtrOutput)
+}
+
+type VaultMonitoringOutput struct{ *pulumi.OutputState }
+
+func (VaultMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultMonitoring)(nil)).Elem()
+}
+
+func (o VaultMonitoringOutput) ToVaultMonitoringOutput() VaultMonitoringOutput {
+	return o
+}
+
+func (o VaultMonitoringOutput) ToVaultMonitoringOutputWithContext(ctx context.Context) VaultMonitoringOutput {
+	return o
+}
+
+func (o VaultMonitoringOutput) ToVaultMonitoringPtrOutput() VaultMonitoringPtrOutput {
+	return o.ToVaultMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o VaultMonitoringOutput) ToVaultMonitoringPtrOutputWithContext(ctx context.Context) VaultMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultMonitoring) *VaultMonitoring {
+		return &v
+	}).(VaultMonitoringPtrOutput)
+}
+
+// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+func (o VaultMonitoringOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForAllJobFailuresEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+func (o VaultMonitoringOutput) AlertsForCriticalOperationFailuresEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForCriticalOperationFailuresEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type VaultMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultMonitoring)(nil)).Elem()
+}
+
+func (o VaultMonitoringPtrOutput) ToVaultMonitoringPtrOutput() VaultMonitoringPtrOutput {
+	return o
+}
+
+func (o VaultMonitoringPtrOutput) ToVaultMonitoringPtrOutputWithContext(ctx context.Context) VaultMonitoringPtrOutput {
+	return o
+}
+
+func (o VaultMonitoringPtrOutput) Elem() VaultMonitoringOutput {
+	return o.ApplyT(func(v *VaultMonitoring) VaultMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret VaultMonitoring
+		return ret
+	}).(VaultMonitoringOutput)
+}
+
+// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+func (o VaultMonitoringPtrOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllJobFailuresEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+func (o VaultMonitoringPtrOutput) AlertsForCriticalOperationFailuresEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForCriticalOperationFailuresEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultEncryptionInput)(nil)).Elem(), VaultEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultEncryptionPtrInput)(nil)).Elem(), VaultEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityInput)(nil)).Elem(), VaultIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityPtrInput)(nil)).Elem(), VaultIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultMonitoringInput)(nil)).Elem(), VaultMonitoringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultMonitoringPtrInput)(nil)).Elem(), VaultMonitoringArgs{})
 	pulumi.RegisterOutputType(VaultEncryptionOutput{})
 	pulumi.RegisterOutputType(VaultEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(VaultIdentityOutput{})
 	pulumi.RegisterOutputType(VaultIdentityPtrOutput{})
+	pulumi.RegisterOutputType(VaultMonitoringOutput{})
+	pulumi.RegisterOutputType(VaultMonitoringPtrOutput{})
 }

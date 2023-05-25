@@ -3,7 +3,9 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormatJpg;
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormatMp4;
+import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormatPng;
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormatTransportStream;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -13,19 +15,36 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputCustomPresetFormat {
     /**
+     * @return A `jpg` block as defined below.
+     * 
+     */
+    private @Nullable TransformOutputCustomPresetFormatJpg jpg;
+    /**
      * @return A `mp4` block as defined below.
      * 
      */
     private @Nullable TransformOutputCustomPresetFormatMp4 mp4;
     /**
+     * @return A `png` block as defined below.
+     * 
+     */
+    private @Nullable TransformOutputCustomPresetFormatPng png;
+    /**
      * @return A `transport_stream` block as defined below.
      * 
-     * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+     * &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
      * 
      */
     private @Nullable TransformOutputCustomPresetFormatTransportStream transportStream;
 
     private TransformOutputCustomPresetFormat() {}
+    /**
+     * @return A `jpg` block as defined below.
+     * 
+     */
+    public Optional<TransformOutputCustomPresetFormatJpg> jpg() {
+        return Optional.ofNullable(this.jpg);
+    }
     /**
      * @return A `mp4` block as defined below.
      * 
@@ -34,9 +53,16 @@ public final class TransformOutputCustomPresetFormat {
         return Optional.ofNullable(this.mp4);
     }
     /**
+     * @return A `png` block as defined below.
+     * 
+     */
+    public Optional<TransformOutputCustomPresetFormatPng> png() {
+        return Optional.ofNullable(this.png);
+    }
+    /**
      * @return A `transport_stream` block as defined below.
      * 
-     * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+     * &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
      * 
      */
     public Optional<TransformOutputCustomPresetFormatTransportStream> transportStream() {
@@ -52,18 +78,32 @@ public final class TransformOutputCustomPresetFormat {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable TransformOutputCustomPresetFormatJpg jpg;
         private @Nullable TransformOutputCustomPresetFormatMp4 mp4;
+        private @Nullable TransformOutputCustomPresetFormatPng png;
         private @Nullable TransformOutputCustomPresetFormatTransportStream transportStream;
         public Builder() {}
         public Builder(TransformOutputCustomPresetFormat defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.jpg = defaults.jpg;
     	      this.mp4 = defaults.mp4;
+    	      this.png = defaults.png;
     	      this.transportStream = defaults.transportStream;
         }
 
         @CustomType.Setter
+        public Builder jpg(@Nullable TransformOutputCustomPresetFormatJpg jpg) {
+            this.jpg = jpg;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mp4(@Nullable TransformOutputCustomPresetFormatMp4 mp4) {
             this.mp4 = mp4;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder png(@Nullable TransformOutputCustomPresetFormatPng png) {
+            this.png = png;
             return this;
         }
         @CustomType.Setter
@@ -73,7 +113,9 @@ public final class TransformOutputCustomPresetFormat {
         }
         public TransformOutputCustomPresetFormat build() {
             final var o = new TransformOutputCustomPresetFormat();
+            o.jpg = jpg;
             o.mp4 = mp4;
+            o.png = png;
             o.transportStream = transportStream;
             return o;
         }

@@ -399,8 +399,43 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
+                            azure.media.TransformOutputCustomPresetCodecArgs(
+                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArgs(
+                                    stretch_mode="AutoSize",
+                                    sync_mode="Auto",
+                                    start="10",
+                                    range="100%%",
+                                    sprite_column=1,
+                                    step="10",
+                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArgs(
+                                        quality=70,
+                                        height="180",
+                                        label="test",
+                                        width="120",
+                                    )],
+                                ),
+                            ),
+                            azure.media.TransformOutputCustomPresetCodecArgs(
+                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArgs(
+                                    stretch_mode="AutoSize",
+                                    sync_mode="Auto",
+                                    start="{Best}",
+                                    range="80",
+                                    step="10",
+                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArgs(
+                                        height="180",
+                                        label="test",
+                                        width="120",
+                                    )],
+                                ),
+                            ),
                         ],
                         formats=[
+                            azure.media.TransformOutputCustomPresetFormatArgs(
+                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArgs(
+                                    filename_pattern="test{Basename}",
+                                ),
+                            ),
                             azure.media.TransformOutputCustomPresetFormatArgs(
                                 mp4=azure.media.TransformOutputCustomPresetFormatMp4Args(
                                     filename_pattern="test{Bitrate}",
@@ -410,6 +445,11 @@ class Transform(pulumi.CustomResource):
                                             "ppe",
                                         ],
                                     )],
+                                ),
+                            ),
+                            azure.media.TransformOutputCustomPresetFormatArgs(
+                                png=azure.media.TransformOutputCustomPresetFormatPngArgs(
+                                    filename_pattern="test{Basename}",
                                 ),
                             ),
                             azure.media.TransformOutputCustomPresetFormatArgs(
@@ -707,8 +747,43 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
+                            azure.media.TransformOutputCustomPresetCodecArgs(
+                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArgs(
+                                    stretch_mode="AutoSize",
+                                    sync_mode="Auto",
+                                    start="10",
+                                    range="100%%",
+                                    sprite_column=1,
+                                    step="10",
+                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArgs(
+                                        quality=70,
+                                        height="180",
+                                        label="test",
+                                        width="120",
+                                    )],
+                                ),
+                            ),
+                            azure.media.TransformOutputCustomPresetCodecArgs(
+                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArgs(
+                                    stretch_mode="AutoSize",
+                                    sync_mode="Auto",
+                                    start="{Best}",
+                                    range="80",
+                                    step="10",
+                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArgs(
+                                        height="180",
+                                        label="test",
+                                        width="120",
+                                    )],
+                                ),
+                            ),
                         ],
                         formats=[
+                            azure.media.TransformOutputCustomPresetFormatArgs(
+                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArgs(
+                                    filename_pattern="test{Basename}",
+                                ),
+                            ),
                             azure.media.TransformOutputCustomPresetFormatArgs(
                                 mp4=azure.media.TransformOutputCustomPresetFormatMp4Args(
                                     filename_pattern="test{Bitrate}",
@@ -718,6 +793,11 @@ class Transform(pulumi.CustomResource):
                                             "ppe",
                                         ],
                                     )],
+                                ),
+                            ),
+                            azure.media.TransformOutputCustomPresetFormatArgs(
+                                png=azure.media.TransformOutputCustomPresetFormatPngArgs(
+                                    filename_pattern="test{Basename}",
                                 ),
                             ),
                             azure.media.TransformOutputCustomPresetFormatArgs(

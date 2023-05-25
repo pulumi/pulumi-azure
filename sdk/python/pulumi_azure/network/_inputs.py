@@ -1545,7 +1545,7 @@ class ApplicationGatewayProbeArgs:
         :param pulumi.Input[str] protocol: The Protocol used for this Probe. Possible values are `Http` and `Https`.
         :param pulumi.Input[int] timeout: The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
         :param pulumi.Input[int] unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
-        :param pulumi.Input[str] host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        :param pulumi.Input[str] host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input['ApplicationGatewayProbeMatchArgs'] match: A `match` block as defined above.
         :param pulumi.Input[int] minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
@@ -1647,7 +1647,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         """
         return pulumi.get(self, "host")
 
@@ -7798,12 +7798,12 @@ class NetworkSecurityGroupSecurityRuleArgs:
         :param pulumi.Input[int] priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
-        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_application_security_group_ids: A List of destination Application Security Group IDs
         :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_application_security_group_ids: A List of source Application Security Group IDs
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
@@ -7913,7 +7913,7 @@ class NetworkSecurityGroupSecurityRuleArgs:
     @pulumi.getter(name="destinationAddressPrefix")
     def destination_address_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
         """
         return pulumi.get(self, "destination_address_prefix")
 
@@ -7973,7 +7973,7 @@ class NetworkSecurityGroupSecurityRuleArgs:
     @pulumi.getter(name="sourceAddressPrefix")
     def source_address_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         """
         return pulumi.get(self, "source_address_prefix")
 

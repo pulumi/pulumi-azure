@@ -289,9 +289,58 @@ namespace Pulumi.Azure.Media
     ///                                 },
     ///                             },
     ///                         },
+    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         {
+    ///                             JpgImage = new Azure.Media.Inputs.TransformOutputCustomPresetCodecJpgImageArgs
+    ///                             {
+    ///                                 StretchMode = "AutoSize",
+    ///                                 SyncMode = "Auto",
+    ///                                 Start = "10",
+    ///                                 Range = "100%%",
+    ///                                 SpriteColumn = 1,
+    ///                                 Step = "10",
+    ///                                 Layers = new[]
+    ///                                 {
+    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecJpgImageLayerArgs
+    ///                                     {
+    ///                                         Quality = 70,
+    ///                                         Height = "180",
+    ///                                         Label = "test",
+    ///                                         Width = "120",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         {
+    ///                             PngImage = new Azure.Media.Inputs.TransformOutputCustomPresetCodecPngImageArgs
+    ///                             {
+    ///                                 StretchMode = "AutoSize",
+    ///                                 SyncMode = "Auto",
+    ///                                 Start = "{Best}",
+    ///                                 Range = "80",
+    ///                                 Step = "10",
+    ///                                 Layers = new[]
+    ///                                 {
+    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecPngImageLayerArgs
+    ///                                     {
+    ///                                         Height = "180",
+    ///                                         Label = "test",
+    ///                                         Width = "120",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
     ///                     },
     ///                     Formats = new[]
     ///                     {
+    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
+    ///                         {
+    ///                             Jpg = new Azure.Media.Inputs.TransformOutputCustomPresetFormatJpgArgs
+    ///                             {
+    ///                                 FilenamePattern = "test{Basename}",
+    ///                             },
+    ///                         },
     ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
     ///                         {
     ///                             Mp4 = new Azure.Media.Inputs.TransformOutputCustomPresetFormatMp4Args
@@ -308,6 +357,13 @@ namespace Pulumi.Azure.Media
     ///                                         },
     ///                                     },
     ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
+    ///                         {
+    ///                             Png = new Azure.Media.Inputs.TransformOutputCustomPresetFormatPngArgs
+    ///                             {
+    ///                                 FilenamePattern = "test{Basename}",
     ///                             },
     ///                         },
     ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs

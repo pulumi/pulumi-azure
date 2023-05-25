@@ -13,15 +13,27 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class TransformOutputCustomPresetFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `jpg` block as defined below.
+        /// </summary>
+        [Input("jpg")]
+        public Input<Inputs.TransformOutputCustomPresetFormatJpgArgs>? Jpg { get; set; }
+
+        /// <summary>
         /// A `mp4` block as defined below.
         /// </summary>
         [Input("mp4")]
         public Input<Inputs.TransformOutputCustomPresetFormatMp4Args>? Mp4 { get; set; }
 
         /// <summary>
+        /// A `png` block as defined below.
+        /// </summary>
+        [Input("png")]
+        public Input<Inputs.TransformOutputCustomPresetFormatPngArgs>? Png { get; set; }
+
+        /// <summary>
         /// A `transport_stream` block as defined below.
         /// 
-        /// &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+        /// &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
         /// </summary>
         [Input("transportStream")]
         public Input<Inputs.TransformOutputCustomPresetFormatTransportStreamArgs>? TransportStream { get; set; }

@@ -28,14 +28,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 //				Location: pulumi.String("West US 2"),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			exampleMonitor, err := datadog.NewMonitor(ctx, "exampleMonitor", &datadog.MonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
+//					ApiKey:         pulumi.String("XXXX"),
+//					ApplicationKey: pulumi.String("XXXX"),
+//				},
+//				User: &datadog.MonitorUserArgs{
+//					Name:  pulumi.String("Example"),
+//					Email: pulumi.String("abc@xyz.com"),
+//				},
+//				SkuName: pulumi.String("Linked"),
+//				Identity: &datadog.MonitorIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = datadog.NewMonitorTagRule(ctx, "exampleMonitorTagRule", &datadog.MonitorTagRuleArgs{
-//				DatadogMonitorId: pulumi.Any(azurerm_datadog_monitor.Example.Id),
+//				DatadogMonitorId: exampleMonitor.ID(),
 //				Logs: datadog.MonitorTagRuleLogArray{
 //					&datadog.MonitorTagRuleLogArgs{
 //						SubscriptionLogEnabled: pulumi.Bool(true),

@@ -90,12 +90,12 @@ import (
 //				return err
 //			}
 //			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1FlowletDataFlow", &datafactory.FlowletDataFlowArgs{
-//				DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
+//				DataFactoryId: exampleFactory.ID(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
 //						Name: pulumi.String("source1"),
 //						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//							Name: exampleLinkedCustomService.Name,
 //						},
 //					},
 //				},
@@ -103,7 +103,7 @@ import (
 //					&datafactory.FlowletDataFlowSinkArgs{
 //						Name: pulumi.String("sink1"),
 //						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
-//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//							Name: exampleLinkedCustomService.Name,
 //						},
 //					},
 //				},
@@ -113,12 +113,12 @@ import (
 //				return err
 //			}
 //			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2FlowletDataFlow", &datafactory.FlowletDataFlowArgs{
-//				DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
+//				DataFactoryId: exampleFactory.ID(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
 //						Name: pulumi.String("source1"),
 //						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//							Name: exampleLinkedCustomService.Name,
 //						},
 //					},
 //				},
@@ -126,7 +126,7 @@ import (
 //					&datafactory.FlowletDataFlowSinkArgs{
 //						Name: pulumi.String("sink1"),
 //						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
-//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//							Name: exampleLinkedCustomService.Name,
 //						},
 //					},
 //				},
@@ -144,7 +144,7 @@ import (
 //							Name: example1FlowletDataFlow.Name,
 //						},
 //						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//							Name: exampleLinkedCustomService.Name,
 //						},
 //					},
 //				},
@@ -155,7 +155,7 @@ import (
 //							Name: example2FlowletDataFlow.Name,
 //						},
 //						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
-//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//							Name: exampleLinkedCustomService.Name,
 //						},
 //					},
 //				},

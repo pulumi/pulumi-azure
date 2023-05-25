@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     poolAllocationMode: "BatchService",
  *     storageAccountId: exampleAccount.id,
+ *     storageAccountAuthenticationMode: "StorageKeys",
  * });
  * const exampleApplication = new azure.batch.Application("exampleApplication", {
  *     resourceGroupName: exampleResourceGroup.name,

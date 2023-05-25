@@ -56,10 +56,11 @@ import (
 //				return err
 //			}
 //			_, err = batch.NewAccount(ctx, "exampleBatch/accountAccount", &batch.AccountArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				Location:           exampleResourceGroup.Location,
-//				PoolAllocationMode: pulumi.String("BatchService"),
-//				StorageAccountId:   exampleAccount.ID(),
+//				ResourceGroupName:                exampleResourceGroup.Name,
+//				Location:                         exampleResourceGroup.Location,
+//				PoolAllocationMode:               pulumi.String("BatchService"),
+//				StorageAccountId:                 exampleAccount.ID(),
+//				StorageAccountAuthenticationMode: pulumi.String("StorageKeys"),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("test"),
 //				},

@@ -75,14 +75,14 @@ namespace Pulumi.Azure.KeyVault
     ///     {
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///         TenantId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 TenantId = data.Azurerm_client_config.Current.Tenant_id,
-    ///                 ObjectId = data.Azurerm_client_config.Current.Object_id,
+    ///                 TenantId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///                 SecretPermissions = new[]
     ///                 {
     ///                     "Get",
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var test = new Azure.KeyVault.ManagedStorageAccount("test", new()
+    ///     var exampleManagedStorageAccount = new Azure.KeyVault.ManagedStorageAccount("exampleManagedStorageAccount", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.KeyVault
     ///     var exampleManagedStorageAccountSasTokenDefinition = new Azure.KeyVault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", new()
     ///     {
     ///         ValidityPeriod = "P1D",
-    ///         ManagedStorageAccountId = azurerm_key_vault_managed_storage_account.Example.Id,
+    ///         ManagedStorageAccountId = exampleManagedStorageAccount.Id,
     ///         SasTemplateUri = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
     ///         SasType = "account",
     ///     });

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NameClaimType;
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        /// Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         /// </summary>
         public readonly string OpenidConfigurationEndpoint;
         /// <summary>

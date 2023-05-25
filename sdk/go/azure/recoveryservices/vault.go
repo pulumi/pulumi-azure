@@ -77,6 +77,8 @@ type Vault struct {
 	Immutability pulumi.StringOutput `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `monitoring` block as defined below.
+	Monitoring VaultMonitoringPtrOutput `pulumi:"monitoring"`
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is it enabled to access the vault from public networks. Defaults to `true`.
@@ -144,6 +146,8 @@ type vaultState struct {
 	Immutability *string `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `monitoring` block as defined below.
+	Monitoring *VaultMonitoring `pulumi:"monitoring"`
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Is it enabled to access the vault from public networks. Defaults to `true`.
@@ -177,6 +181,8 @@ type VaultState struct {
 	Immutability pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `monitoring` block as defined below.
+	Monitoring VaultMonitoringPtrInput
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Is it enabled to access the vault from public networks. Defaults to `true`.
@@ -214,6 +220,8 @@ type vaultArgs struct {
 	Immutability *string `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `monitoring` block as defined below.
+	Monitoring *VaultMonitoring `pulumi:"monitoring"`
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Is it enabled to access the vault from public networks. Defaults to `true`.
@@ -248,6 +256,8 @@ type VaultArgs struct {
 	Immutability pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `monitoring` block as defined below.
+	Monitoring VaultMonitoringPtrInput
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Is it enabled to access the vault from public networks. Defaults to `true`.
@@ -383,6 +393,11 @@ func (o VaultOutput) Immutability() pulumi.StringOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o VaultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// A `monitoring` block as defined below.
+func (o VaultOutput) Monitoring() VaultMonitoringPtrOutput {
+	return o.ApplyT(func(v *Vault) VaultMonitoringPtrOutput { return v.Monitoring }).(VaultMonitoringPtrOutput)
 }
 
 // Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.

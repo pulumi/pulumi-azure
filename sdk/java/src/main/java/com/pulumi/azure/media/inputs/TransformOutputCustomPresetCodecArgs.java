@@ -9,6 +9,8 @@ import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecCopyVideoAr
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecDdAudioArgs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecH264VideoArgs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecH265VideoArgs;
+import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecJpgImageArgs;
+import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecPngImageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -98,8 +100,6 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
     /**
      * A `h265_video` block as defined below.
      * 
-     * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
-     * 
      */
     @Import(name="h265Video")
     private @Nullable Output<TransformOutputCustomPresetCodecH265VideoArgs> h265Video;
@@ -107,11 +107,43 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
     /**
      * @return A `h265_video` block as defined below.
      * 
-     * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
-     * 
      */
     public Optional<Output<TransformOutputCustomPresetCodecH265VideoArgs>> h265Video() {
         return Optional.ofNullable(this.h265Video);
+    }
+
+    /**
+     * A `jpg_image` block as defined below.
+     * 
+     */
+    @Import(name="jpgImage")
+    private @Nullable Output<TransformOutputCustomPresetCodecJpgImageArgs> jpgImage;
+
+    /**
+     * @return A `jpg_image` block as defined below.
+     * 
+     */
+    public Optional<Output<TransformOutputCustomPresetCodecJpgImageArgs>> jpgImage() {
+        return Optional.ofNullable(this.jpgImage);
+    }
+
+    /**
+     * A `png_image` block as defined below.
+     * 
+     * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+     * 
+     */
+    @Import(name="pngImage")
+    private @Nullable Output<TransformOutputCustomPresetCodecPngImageArgs> pngImage;
+
+    /**
+     * @return A `png_image` block as defined below.
+     * 
+     * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+     * 
+     */
+    public Optional<Output<TransformOutputCustomPresetCodecPngImageArgs>> pngImage() {
+        return Optional.ofNullable(this.pngImage);
     }
 
     private TransformOutputCustomPresetCodecArgs() {}
@@ -123,6 +155,8 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
         this.ddAudio = $.ddAudio;
         this.h264Video = $.h264Video;
         this.h265Video = $.h265Video;
+        this.jpgImage = $.jpgImage;
+        this.pngImage = $.pngImage;
     }
 
     public static Builder builder() {
@@ -251,8 +285,6 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
         /**
          * @param h265Video A `h265_video` block as defined below.
          * 
-         * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
-         * 
          * @return builder
          * 
          */
@@ -264,13 +296,57 @@ public final class TransformOutputCustomPresetCodecArgs extends com.pulumi.resou
         /**
          * @param h265Video A `h265_video` block as defined below.
          * 
-         * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
-         * 
          * @return builder
          * 
          */
         public Builder h265Video(TransformOutputCustomPresetCodecH265VideoArgs h265Video) {
             return h265Video(Output.of(h265Video));
+        }
+
+        /**
+         * @param jpgImage A `jpg_image` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jpgImage(@Nullable Output<TransformOutputCustomPresetCodecJpgImageArgs> jpgImage) {
+            $.jpgImage = jpgImage;
+            return this;
+        }
+
+        /**
+         * @param jpgImage A `jpg_image` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jpgImage(TransformOutputCustomPresetCodecJpgImageArgs jpgImage) {
+            return jpgImage(Output.of(jpgImage));
+        }
+
+        /**
+         * @param pngImage A `png_image` block as defined below.
+         * 
+         * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pngImage(@Nullable Output<TransformOutputCustomPresetCodecPngImageArgs> pngImage) {
+            $.pngImage = pngImage;
+            return this;
+        }
+
+        /**
+         * @param pngImage A `png_image` block as defined below.
+         * 
+         * &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pngImage(TransformOutputCustomPresetCodecPngImageArgs pngImage) {
+            return pngImage(Output.of(pngImage));
         }
 
         public TransformOutputCustomPresetCodecArgs build() {

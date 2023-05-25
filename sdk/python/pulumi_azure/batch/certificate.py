@@ -311,6 +311,7 @@ class Certificate(pulumi.CustomResource):
             location=example_resource_group.location,
             pool_allocation_mode="BatchService",
             storage_account_id=example_account.id,
+            storage_account_authentication_mode="StorageKeys",
             tags={
                 "env": "test",
             })
@@ -369,6 +370,7 @@ class Certificate(pulumi.CustomResource):
             location=example_resource_group.location,
             pool_allocation_mode="BatchService",
             storage_account_id=example_account.id,
+            storage_account_authentication_mode="StorageKeys",
             tags={
                 "env": "test",
             })

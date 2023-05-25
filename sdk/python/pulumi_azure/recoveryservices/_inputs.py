@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'VaultEncryptionArgs',
     'VaultIdentityArgs',
+    'VaultMonitoringArgs',
 ]
 
 @pulumi.input_type
@@ -163,5 +164,44 @@ class VaultIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class VaultMonitoringArgs:
+    def __init__(__self__, *,
+                 alerts_for_all_job_failures_enabled: Optional[pulumi.Input[bool]] = None,
+                 alerts_for_critical_operation_failures_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        :param pulumi.Input[bool] alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        """
+        if alerts_for_all_job_failures_enabled is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
+        if alerts_for_critical_operation_failures_enabled is not None:
+            pulumi.set(__self__, "alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
+
+    @property
+    @pulumi.getter(name="alertsForAllJobFailuresEnabled")
+    def alerts_for_all_job_failures_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        """
+        return pulumi.get(self, "alerts_for_all_job_failures_enabled")
+
+    @alerts_for_all_job_failures_enabled.setter
+    def alerts_for_all_job_failures_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "alerts_for_all_job_failures_enabled", value)
+
+    @property
+    @pulumi.getter(name="alertsForCriticalOperationFailuresEnabled")
+    def alerts_for_critical_operation_failures_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        """
+        return pulumi.get(self, "alerts_for_critical_operation_failures_enabled")
+
+    @alerts_for_critical_operation_failures_enabled.setter
+    def alerts_for_critical_operation_failures_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "alerts_for_critical_operation_failures_enabled", value)
 
 

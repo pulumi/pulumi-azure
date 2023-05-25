@@ -273,8 +273,47 @@ import (
 //										},
 //									},
 //								},
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									JpgImage: &media.TransformOutputCustomPresetCodecJpgImageArgs{
+//										StretchMode:  pulumi.String("AutoSize"),
+//										SyncMode:     pulumi.String("Auto"),
+//										Start:        pulumi.String("10"),
+//										Range:        pulumi.String("100%%"),
+//										SpriteColumn: pulumi.Int(1),
+//										Step:         pulumi.String("10"),
+//										Layers: media.TransformOutputCustomPresetCodecJpgImageLayerArray{
+//											&media.TransformOutputCustomPresetCodecJpgImageLayerArgs{
+//												Quality: pulumi.Int(70),
+//												Height:  pulumi.String("180"),
+//												Label:   pulumi.String("test"),
+//												Width:   pulumi.String("120"),
+//											},
+//										},
+//									},
+//								},
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									PngImage: &media.TransformOutputCustomPresetCodecPngImageArgs{
+//										StretchMode: pulumi.String("AutoSize"),
+//										SyncMode:    pulumi.String("Auto"),
+//										Start:       pulumi.String("{Best}"),
+//										Range:       pulumi.String("80"),
+//										Step:        pulumi.String("10"),
+//										Layers: media.TransformOutputCustomPresetCodecPngImageLayerArray{
+//											&media.TransformOutputCustomPresetCodecPngImageLayerArgs{
+//												Height: pulumi.String("180"),
+//												Label:  pulumi.String("test"),
+//												Width:  pulumi.String("120"),
+//											},
+//										},
+//									},
+//								},
 //							},
 //							Formats: media.TransformOutputCustomPresetFormatArray{
+//								&media.TransformOutputCustomPresetFormatArgs{
+//									Jpg: &media.TransformOutputCustomPresetFormatJpgArgs{
+//										FilenamePattern: pulumi.String("test{Basename}"),
+//									},
+//								},
 //								&media.TransformOutputCustomPresetFormatArgs{
 //									Mp4: &media.TransformOutputCustomPresetFormatMp4Args{
 //										FilenamePattern: pulumi.String("test{Bitrate}"),
@@ -286,6 +325,11 @@ import (
 //												},
 //											},
 //										},
+//									},
+//								},
+//								&media.TransformOutputCustomPresetFormatArgs{
+//									Png: &media.TransformOutputCustomPresetFormatPngArgs{
+//										FilenamePattern: pulumi.String("test{Basename}"),
 //									},
 //								},
 //								&media.TransformOutputCustomPresetFormatArgs{

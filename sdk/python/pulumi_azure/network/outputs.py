@@ -194,6 +194,9 @@ __all__ = [
     'GetTrafficManagerProfileDnsConfigResult',
     'GetTrafficManagerProfileMonitorConfigResult',
     'GetTrafficManagerProfileMonitorConfigCustomHeaderResult',
+    'GetVirtualHubConnectionRoutingResult',
+    'GetVirtualHubConnectionRoutingPropagatedRouteTableResult',
+    'GetVirtualHubConnectionRoutingStaticVnetRouteResult',
     'GetVirtualHubRouteTableRouteResult',
     'GetVirtualNetworkGatewayBgpSettingResult',
     'GetVirtualNetworkGatewayCustomRouteResult',
@@ -1571,7 +1574,7 @@ class ApplicationGatewayProbe(dict):
         :param str protocol: The Protocol used for this Probe. Possible values are `Http` and `Https`.
         :param int timeout: The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
         :param int unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
-        :param str host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        :param str host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
         :param 'ApplicationGatewayProbeMatchArgs' match: A `match` block as defined above.
         :param int minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
@@ -1649,7 +1652,7 @@ class ApplicationGatewayProbe(dict):
     @pulumi.getter
     def host(self) -> Optional[str]:
         """
-        The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         """
         return pulumi.get(self, "host")
 
@@ -7815,12 +7818,12 @@ class NetworkSecurityGroupSecurityRule(dict):
         :param int priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         :param str description: A description for this rule. Restricted to 140 characters.
-        :param str destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        :param str destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
         :param Sequence[str] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group IDs
         :param str destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         :param Sequence[str] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        :param str source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        :param str source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         :param Sequence[str] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group IDs
         :param str source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
@@ -7906,7 +7909,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter(name="destinationAddressPrefix")
     def destination_address_prefix(self) -> Optional[str]:
         """
-        CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
         """
         return pulumi.get(self, "destination_address_prefix")
 
@@ -7946,7 +7949,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter(name="sourceAddressPrefix")
     def source_address_prefix(self) -> Optional[str]:
         """
-        CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         """
         return pulumi.get(self, "source_address_prefix")
 
@@ -13431,6 +13434,115 @@ class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
         The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVirtualHubConnectionRoutingResult(dict):
+    def __init__(__self__, *,
+                 associated_route_table_id: str,
+                 propagated_route_tables: Sequence['outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult'],
+                 static_vnet_routes: Sequence['outputs.GetVirtualHubConnectionRoutingStaticVnetRouteResult']):
+        """
+        :param str associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
+        :param Sequence['GetVirtualHubConnectionRoutingPropagatedRouteTableArgs'] propagated_route_tables: A `propagated_route_table` block as defined below.
+        :param Sequence['GetVirtualHubConnectionRoutingStaticVnetRouteArgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
+        """
+        pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        pulumi.set(__self__, "static_vnet_routes", static_vnet_routes)
+
+    @property
+    @pulumi.getter(name="associatedRouteTableId")
+    def associated_route_table_id(self) -> str:
+        """
+        The ID of the route table associated with this Virtual Hub connection.
+        """
+        return pulumi.get(self, "associated_route_table_id")
+
+    @property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Sequence['outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult']:
+        """
+        A `propagated_route_table` block as defined below.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @property
+    @pulumi.getter(name="staticVnetRoutes")
+    def static_vnet_routes(self) -> Sequence['outputs.GetVirtualHubConnectionRoutingStaticVnetRouteResult']:
+        """
+        A `static_vnet_route` block as defined below.
+        """
+        return pulumi.get(self, "static_vnet_routes")
+
+
+@pulumi.output_type
+class GetVirtualHubConnectionRoutingPropagatedRouteTableResult(dict):
+    def __init__(__self__, *,
+                 labels: Sequence[str],
+                 route_table_ids: Sequence[str]):
+        """
+        :param Sequence[str] labels: The list of labels assigned to this route table.
+        :param Sequence[str] route_table_ids: A list of Route Table IDs associated with this Virtual Hub Connection.
+        """
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "route_table_ids", route_table_ids)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Sequence[str]:
+        """
+        The list of labels assigned to this route table.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Sequence[str]:
+        """
+        A list of Route Table IDs associated with this Virtual Hub Connection.
+        """
+        return pulumi.get(self, "route_table_ids")
+
+
+@pulumi.output_type
+class GetVirtualHubConnectionRoutingStaticVnetRouteResult(dict):
+    def __init__(__self__, *,
+                 address_prefixes: Sequence[str],
+                 name: str,
+                 next_hop_ip_address: str):
+        """
+        :param Sequence[str] address_prefixes: A list of CIDR Ranges which is used as Address Prefixes.
+        :param str name: The name of the Connection which should be retrieved.
+        :param str next_hop_ip_address: The IP Address which is used for the Next Hop.
+        """
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Sequence[str]:
+        """
+        A list of CIDR Ranges which is used as Address Prefixes.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Connection which should be retrieved.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> str:
+        """
+        The IP Address which is used for the Next Hop.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
 
 
 @pulumi.output_type

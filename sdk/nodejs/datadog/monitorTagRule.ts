@@ -16,8 +16,24 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleMonitor = new azure.datadog.Monitor("exampleMonitor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     datadogOrganization: {
+ *         apiKey: "XXXX",
+ *         applicationKey: "XXXX",
+ *     },
+ *     user: {
+ *         name: "Example",
+ *         email: "abc@xyz.com",
+ *     },
+ *     skuName: "Linked",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
  * const exampleMonitorTagRule = new azure.datadog.MonitorTagRule("exampleMonitorTagRule", {
- *     datadogMonitorId: azurerm_datadog_monitor.example.id,
+ *     datadogMonitorId: exampleMonitor.id,
  *     logs: [{
  *         subscriptionLogEnabled: true,
  *     }],

@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
  *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .sku(&#34;20.04-LTS&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()

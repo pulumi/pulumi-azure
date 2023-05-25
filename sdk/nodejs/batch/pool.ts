@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     poolAllocationMode: "BatchService",
  *     storageAccountId: exampleAccount.id,
+ *     storageAccountAuthenticationMode: "StorageKeys",
  *     tags: {
  *         env: "test",
  *     },

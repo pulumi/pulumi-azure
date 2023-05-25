@@ -5,6 +5,7 @@ package com.pulumi.azure.recoveryservices.inputs;
 
 import com.pulumi.azure.recoveryservices.inputs.VaultEncryptionArgs;
 import com.pulumi.azure.recoveryservices.inputs.VaultIdentityArgs;
+import com.pulumi.azure.recoveryservices.inputs.VaultMonitoringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -115,6 +116,21 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * A `monitoring` block as defined below.
+     * 
+     */
+    @Import(name="monitoring")
+    private @Nullable Output<VaultMonitoringArgs> monitoring;
+
+    /**
+     * @return A `monitoring` block as defined below.
+     * 
+     */
+    public Optional<Output<VaultMonitoringArgs>> monitoring() {
+        return Optional.ofNullable(this.monitoring);
     }
 
     /**
@@ -231,6 +247,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.immutability = $.immutability;
         this.location = $.location;
+        this.monitoring = $.monitoring;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
@@ -390,6 +407,27 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param monitoring A `monitoring` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoring(@Nullable Output<VaultMonitoringArgs> monitoring) {
+            $.monitoring = monitoring;
+            return this;
+        }
+
+        /**
+         * @param monitoring A `monitoring` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoring(VaultMonitoringArgs monitoring) {
+            return monitoring(Output.of(monitoring));
         }
 
         /**

@@ -1812,7 +1812,7 @@ public final class ComputeFunctions {
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;16.04-LTS&#34;)
+     *             .sku(&#34;20.04-LTS&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
@@ -1853,7 +1853,7 @@ public final class ComputeFunctions {
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;16.04-LTS&#34;)
+     *             .sku(&#34;20.04-LTS&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
@@ -1894,7 +1894,7 @@ public final class ComputeFunctions {
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;16.04-LTS&#34;)
+     *             .sku(&#34;20.04-LTS&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
@@ -1935,7 +1935,7 @@ public final class ComputeFunctions {
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;16.04-LTS&#34;)
+     *             .sku(&#34;20.04-LTS&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));

@@ -12,11 +12,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
     public sealed class HBaseClusterRolesWorkerNodeAutoscaleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `recurrence` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
-        /// </summary>
         [Input("recurrence")]
         public Input<Inputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceGetArgs>? Recurrence { get; set; }
 

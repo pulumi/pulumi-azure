@@ -2053,7 +2053,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
-                sku="16.04-LTS",
+                sku="20.04-LTS",
                 version="latest",
             ),
             os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
@@ -2217,7 +2217,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
-                sku="16.04-LTS",
+                sku="20.04-LTS",
                 version="latest",
             ),
             os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(

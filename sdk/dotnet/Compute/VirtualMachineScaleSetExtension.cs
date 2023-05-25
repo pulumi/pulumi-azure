@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Compute
     ///         Sku = "Standard_F2",
     ///         AdminUsername = "adminuser",
     ///         Instances = 1,
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "20.04-LTS",
+    ///             Version = "latest",
+    ///         },
     ///         NetworkInterfaces = new[]
     ///         {
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs

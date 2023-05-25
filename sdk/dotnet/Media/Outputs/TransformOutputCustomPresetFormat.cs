@@ -14,23 +14,37 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class TransformOutputCustomPresetFormat
     {
         /// <summary>
+        /// A `jpg` block as defined below.
+        /// </summary>
+        public readonly Outputs.TransformOutputCustomPresetFormatJpg? Jpg;
+        /// <summary>
         /// A `mp4` block as defined below.
         /// </summary>
         public readonly Outputs.TransformOutputCustomPresetFormatMp4? Mp4;
         /// <summary>
+        /// A `png` block as defined below.
+        /// </summary>
+        public readonly Outputs.TransformOutputCustomPresetFormatPng? Png;
+        /// <summary>
         /// A `transport_stream` block as defined below.
         /// 
-        /// &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+        /// &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
         /// </summary>
         public readonly Outputs.TransformOutputCustomPresetFormatTransportStream? TransportStream;
 
         [OutputConstructor]
         private TransformOutputCustomPresetFormat(
+            Outputs.TransformOutputCustomPresetFormatJpg? jpg,
+
             Outputs.TransformOutputCustomPresetFormatMp4? mp4,
+
+            Outputs.TransformOutputCustomPresetFormatPng? png,
 
             Outputs.TransformOutputCustomPresetFormatTransportStream? transportStream)
         {
+            Jpg = jpg;
             Mp4 = mp4;
+            Png = png;
             TransportStream = transportStream;
         }
     }

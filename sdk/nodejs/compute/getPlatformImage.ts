@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     publisher: "Canonical",
  *     offer: "UbuntuServer",
- *     sku: "16.04-LTS",
+ *     sku: "20.04-LTS",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -87,7 +87,7 @@ export interface GetPlatformImageResult {
  *     location: "West Europe",
  *     publisher: "Canonical",
  *     offer: "UbuntuServer",
- *     sku: "16.04-LTS",
+ *     sku: "20.04-LTS",
  * });
  * export const id = example.then(example => example.id);
  * ```

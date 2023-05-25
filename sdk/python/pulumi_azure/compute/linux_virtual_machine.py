@@ -1727,7 +1727,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
-                sku="16.04-LTS",
+                sku="20.04-LTS",
                 version="latest",
             ))
         ```
@@ -1877,7 +1877,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
-                sku="16.04-LTS",
+                sku="20.04-LTS",
                 version="latest",
             ))
         ```

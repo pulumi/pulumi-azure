@@ -30,7 +30,7 @@ import (
 //				Location:  "West Europe",
 //				Publisher: "Canonical",
 //				Offer:     "UbuntuServer",
-//				Sku:       "16.04-LTS",
+//				Sku:       "20.04-LTS",
 //			}, nil)
 //			if err != nil {
 //				return err

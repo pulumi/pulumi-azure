@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     secretPermissions: ["Set"],
  * });
  * const exampleCertificateContacts = new azure.keyvault.CertificateContacts("exampleCertificateContacts", {
- *     keyVaultId: azurerm_key_vault.test.id,
+ *     keyVaultId: exampleKeyVault.id,
  *     contacts: [
  *         {
  *             email: "example@example.com",

@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccountEncryption {
+    /**
+     * @return The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+     * 
+     */
     private String keyVaultKeyId;
 
     private GetAccountEncryption() {}
+    /**
+     * @return The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+     * 
+     */
     public String keyVaultKeyId() {
         return this.keyVaultKeyId;
     }

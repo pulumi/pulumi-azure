@@ -49,6 +49,8 @@ import com.pulumi.azure.network.inputs.GetTrafficManagerPlainArgs;
 import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
 import com.pulumi.azure.network.inputs.GetTrafficManagerProfilePlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
+import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
+import com.pulumi.azure.network.inputs.GetVirtualHubConnectionPlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualHubPlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
 import com.pulumi.azure.network.inputs.GetVirtualHubRouteTablePlainArgs;
@@ -82,6 +84,7 @@ import com.pulumi.azure.network.outputs.GetServiceTagsResult;
 import com.pulumi.azure.network.outputs.GetSubnetResult;
 import com.pulumi.azure.network.outputs.GetTrafficManagerProfileResult;
 import com.pulumi.azure.network.outputs.GetTrafficManagerResult;
+import com.pulumi.azure.network.outputs.GetVirtualHubConnectionResult;
 import com.pulumi.azure.network.outputs.GetVirtualHubResult;
 import com.pulumi.azure.network.outputs.GetVirtualHubRouteTableResult;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayResult;
@@ -3918,6 +3921,166 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetVirtualHubResult> getVirtualHubPlain(GetVirtualHubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getVirtualHub:getVirtualHub", TypeShape.of(GetVirtualHubResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Connection.
+     * 
+     * ## Virtual Hub Connection Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
+     *             .name(&#34;example-connection&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args) {
+        return getVirtualHubConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Connection.
+     * 
+     * ## Virtual Hub Connection Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
+     *             .name(&#34;example-connection&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualHubConnectionResult> getVirtualHubConnectionPlain(GetVirtualHubConnectionPlainArgs args) {
+        return getVirtualHubConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Connection.
+     * 
+     * ## Virtual Hub Connection Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
+     *             .name(&#34;example-connection&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getVirtualHubConnection:getVirtualHubConnection", TypeShape.of(GetVirtualHubConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Connection.
+     * 
+     * ## Virtual Hub Connection Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubConnection(GetVirtualHubConnectionArgs.builder()
+     *             .name(&#34;example-connection&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubConnectionId&#34;, example.applyValue(getVirtualHubConnectionResult -&gt; getVirtualHubConnectionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualHubConnectionResult> getVirtualHubConnectionPlain(GetVirtualHubConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getVirtualHubConnection:getVirtualHubConnection", TypeShape.of(GetVirtualHubConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an existing Virtual Hub Route Table.

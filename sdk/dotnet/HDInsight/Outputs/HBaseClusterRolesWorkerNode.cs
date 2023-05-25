@@ -13,9 +13,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class HBaseClusterRolesWorkerNode
     {
-        /// <summary>
-        /// A `autoscale` block as defined below.
-        /// </summary>
         public readonly Outputs.HBaseClusterRolesWorkerNodeAutoscale? Autoscale;
         /// <summary>
         /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.

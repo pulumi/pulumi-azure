@@ -44,6 +44,12 @@ import (
 //				Sku:               pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				Instances:         pulumi.Int(1),
+//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("20.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
 //				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
 //					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
 //						Name: pulumi.String("example"),

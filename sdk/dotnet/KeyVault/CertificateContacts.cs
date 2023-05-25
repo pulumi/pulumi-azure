@@ -62,7 +62,7 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///     var exampleCertificateContacts = new Azure.KeyVault.CertificateContacts("exampleCertificateContacts", new()
     ///     {
-    ///         KeyVaultId = azurerm_key_vault.Test.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///         Contacts = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.CertificateContactsContactArgs

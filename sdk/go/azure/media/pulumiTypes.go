@@ -10031,9 +10031,13 @@ type TransformOutputCustomPresetCodec struct {
 	// A `h264Video` block as defined below.
 	H264Video *TransformOutputCustomPresetCodecH264Video `pulumi:"h264Video"`
 	// A `h265Video` block as defined below.
-	//
-	// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
 	H265Video *TransformOutputCustomPresetCodecH265Video `pulumi:"h265Video"`
+	// A `jpgImage` block as defined below.
+	JpgImage *TransformOutputCustomPresetCodecJpgImage `pulumi:"jpgImage"`
+	// A `pngImage` block as defined below.
+	//
+	// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video`, `h265Video`, `jpgImage` or `pngImage`. If you need to apply different codec you must create one codec for each one.
+	PngImage *TransformOutputCustomPresetCodecPngImage `pulumi:"pngImage"`
 }
 
 // TransformOutputCustomPresetCodecInput is an input type that accepts TransformOutputCustomPresetCodecArgs and TransformOutputCustomPresetCodecOutput values.
@@ -10059,9 +10063,13 @@ type TransformOutputCustomPresetCodecArgs struct {
 	// A `h264Video` block as defined below.
 	H264Video TransformOutputCustomPresetCodecH264VideoPtrInput `pulumi:"h264Video"`
 	// A `h265Video` block as defined below.
-	//
-	// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
 	H265Video TransformOutputCustomPresetCodecH265VideoPtrInput `pulumi:"h265Video"`
+	// A `jpgImage` block as defined below.
+	JpgImage TransformOutputCustomPresetCodecJpgImagePtrInput `pulumi:"jpgImage"`
+	// A `pngImage` block as defined below.
+	//
+	// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video`, `h265Video`, `jpgImage` or `pngImage`. If you need to apply different codec you must create one codec for each one.
+	PngImage TransformOutputCustomPresetCodecPngImagePtrInput `pulumi:"pngImage"`
 }
 
 func (TransformOutputCustomPresetCodecArgs) ElementType() reflect.Type {
@@ -10147,12 +10155,22 @@ func (o TransformOutputCustomPresetCodecOutput) H264Video() TransformOutputCusto
 }
 
 // A `h265Video` block as defined below.
-//
-// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
 func (o TransformOutputCustomPresetCodecOutput) H265Video() TransformOutputCustomPresetCodecH265VideoPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecH265Video {
 		return v.H265Video
 	}).(TransformOutputCustomPresetCodecH265VideoPtrOutput)
+}
+
+// A `jpgImage` block as defined below.
+func (o TransformOutputCustomPresetCodecOutput) JpgImage() TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecJpgImage { return v.JpgImage }).(TransformOutputCustomPresetCodecJpgImagePtrOutput)
+}
+
+// A `pngImage` block as defined below.
+//
+// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video`, `h265Video`, `jpgImage` or `pngImage`. If you need to apply different codec you must create one codec for each one.
+func (o TransformOutputCustomPresetCodecOutput) PngImage() TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecPngImage { return v.PngImage }).(TransformOutputCustomPresetCodecPngImagePtrOutput)
 }
 
 type TransformOutputCustomPresetCodecArrayOutput struct{ *pulumi.OutputState }
@@ -11816,6 +11834,808 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecH265VideoLayer {
 		return vs[0].([]TransformOutputCustomPresetCodecH265VideoLayer)[vs[1].(int)]
 	}).(TransformOutputCustomPresetCodecH265VideoLayerOutput)
+}
+
+type TransformOutputCustomPresetCodecJpgImage struct {
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers []TransformOutputCustomPresetCodecJpgImageLayer `pulumi:"layers"`
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+	Range *string `pulumi:"range"`
+	// Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+	SpriteColumn *int `pulumi:"spriteColumn"`
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	Start string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	Step *string `pulumi:"step"`
+	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode *string `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode *string `pulumi:"syncMode"`
+}
+
+// TransformOutputCustomPresetCodecJpgImageInput is an input type that accepts TransformOutputCustomPresetCodecJpgImageArgs and TransformOutputCustomPresetCodecJpgImageOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecJpgImageInput` via:
+//
+//	TransformOutputCustomPresetCodecJpgImageArgs{...}
+type TransformOutputCustomPresetCodecJpgImageInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecJpgImageOutput() TransformOutputCustomPresetCodecJpgImageOutput
+	ToTransformOutputCustomPresetCodecJpgImageOutputWithContext(context.Context) TransformOutputCustomPresetCodecJpgImageOutput
+}
+
+type TransformOutputCustomPresetCodecJpgImageArgs struct {
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers TransformOutputCustomPresetCodecJpgImageLayerArrayInput `pulumi:"layers"`
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+	SpriteColumn pulumi.IntPtrInput `pulumi:"spriteColumn"`
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	Start pulumi.StringInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode pulumi.StringPtrInput `pulumi:"syncMode"`
+}
+
+func (TransformOutputCustomPresetCodecJpgImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImage)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPresetCodecJpgImageOutput() TransformOutputCustomPresetCodecJpgImageOutput {
+	return i.ToTransformOutputCustomPresetCodecJpgImageOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPresetCodecJpgImageOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageOutput)
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPresetCodecJpgImagePtrOutput() TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return i.ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageOutput).ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecJpgImagePtrInput is an input type that accepts TransformOutputCustomPresetCodecJpgImageArgs, TransformOutputCustomPresetCodecJpgImagePtr and TransformOutputCustomPresetCodecJpgImagePtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecJpgImagePtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecJpgImageArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecJpgImagePtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecJpgImagePtrOutput() TransformOutputCustomPresetCodecJpgImagePtrOutput
+	ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecJpgImagePtrOutput
+}
+
+type transformOutputCustomPresetCodecJpgImagePtrType TransformOutputCustomPresetCodecJpgImageArgs
+
+func TransformOutputCustomPresetCodecJpgImagePtr(v *TransformOutputCustomPresetCodecJpgImageArgs) TransformOutputCustomPresetCodecJpgImagePtrInput {
+	return (*transformOutputCustomPresetCodecJpgImagePtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecJpgImagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecJpgImage)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecJpgImagePtrType) ToTransformOutputCustomPresetCodecJpgImagePtrOutput() TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return i.ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecJpgImagePtrType) ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImagePtrOutput)
+}
+
+type TransformOutputCustomPresetCodecJpgImageOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecJpgImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImage)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageOutput) ToTransformOutputCustomPresetCodecJpgImageOutput() TransformOutputCustomPresetCodecJpgImageOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageOutput) ToTransformOutputCustomPresetCodecJpgImageOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageOutput) ToTransformOutputCustomPresetCodecJpgImagePtrOutput() TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return o.ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageOutput) ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecJpgImage) *TransformOutputCustomPresetCodecJpgImage {
+		return &v
+	}).(TransformOutputCustomPresetCodecJpgImagePtrOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) Layers() TransformOutputCustomPresetCodecJpgImageLayerArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) []TransformOutputCustomPresetCodecJpgImageLayer {
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput)
+}
+
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) SpriteColumn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *int { return v.SpriteColumn }).(pulumi.IntPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) string { return v.Start }).(pulumi.StringOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecJpgImageOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.SyncMode }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecJpgImagePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecJpgImagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecJpgImage)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) ToTransformOutputCustomPresetCodecJpgImagePtrOutput() TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImagePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Elem() TransformOutputCustomPresetCodecJpgImageOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) TransformOutputCustomPresetCodecJpgImage {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecJpgImage
+		return ret
+	}).(TransformOutputCustomPresetCodecJpgImageOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Layers() TransformOutputCustomPresetCodecJpgImageLayerArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) []TransformOutputCustomPresetCodecJpgImageLayer {
+		if v == nil {
+			return nil
+		}
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput)
+}
+
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) SpriteColumn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpriteColumn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Step
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecJpgImageLayer struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+	Quality *int `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetCodecJpgImageLayerInput is an input type that accepts TransformOutputCustomPresetCodecJpgImageLayerArgs and TransformOutputCustomPresetCodecJpgImageLayerOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecJpgImageLayerInput` via:
+//
+//	TransformOutputCustomPresetCodecJpgImageLayerArgs{...}
+type TransformOutputCustomPresetCodecJpgImageLayerInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecJpgImageLayerOutput() TransformOutputCustomPresetCodecJpgImageLayerOutput
+	ToTransformOutputCustomPresetCodecJpgImageLayerOutputWithContext(context.Context) TransformOutputCustomPresetCodecJpgImageLayerOutput
+}
+
+type TransformOutputCustomPresetCodecJpgImageLayerArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+	Quality pulumi.IntPtrInput `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetCodecJpgImageLayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImageLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageLayerArgs) ToTransformOutputCustomPresetCodecJpgImageLayerOutput() TransformOutputCustomPresetCodecJpgImageLayerOutput {
+	return i.ToTransformOutputCustomPresetCodecJpgImageLayerOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageLayerArgs) ToTransformOutputCustomPresetCodecJpgImageLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageLayerOutput)
+}
+
+// TransformOutputCustomPresetCodecJpgImageLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecJpgImageLayerArray and TransformOutputCustomPresetCodecJpgImageLayerArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecJpgImageLayerArrayInput` via:
+//
+//	TransformOutputCustomPresetCodecJpgImageLayerArray{ TransformOutputCustomPresetCodecJpgImageLayerArgs{...} }
+type TransformOutputCustomPresetCodecJpgImageLayerArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutput() TransformOutputCustomPresetCodecJpgImageLayerArrayOutput
+	ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutputWithContext(context.Context) TransformOutputCustomPresetCodecJpgImageLayerArrayOutput
+}
+
+type TransformOutputCustomPresetCodecJpgImageLayerArray []TransformOutputCustomPresetCodecJpgImageLayerInput
+
+func (TransformOutputCustomPresetCodecJpgImageLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecJpgImageLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageLayerArray) ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutput() TransformOutputCustomPresetCodecJpgImageLayerArrayOutput {
+	return i.ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecJpgImageLayerArray) ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput)
+}
+
+type TransformOutputCustomPresetCodecJpgImageLayerOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecJpgImageLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImageLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) ToTransformOutputCustomPresetCodecJpgImageLayerOutput() TransformOutputCustomPresetCodecJpgImageLayerOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) ToTransformOutputCustomPresetCodecJpgImageLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageLayerOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Quality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *int { return v.Quality }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecJpgImageLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecJpgImageLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutput() TransformOutputCustomPresetCodecJpgImageLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecJpgImageLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecJpgImageLayer {
+		return vs[0].([]TransformOutputCustomPresetCodecJpgImageLayer)[vs[1].(int)]
+	}).(TransformOutputCustomPresetCodecJpgImageLayerOutput)
+}
+
+type TransformOutputCustomPresetCodecPngImage struct {
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers []TransformOutputCustomPresetCodecPngImageLayer `pulumi:"layers"`
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	Start string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	Step *string `pulumi:"step"`
+	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode *string `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode *string `pulumi:"syncMode"`
+}
+
+// TransformOutputCustomPresetCodecPngImageInput is an input type that accepts TransformOutputCustomPresetCodecPngImageArgs and TransformOutputCustomPresetCodecPngImageOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecPngImageInput` via:
+//
+//	TransformOutputCustomPresetCodecPngImageArgs{...}
+type TransformOutputCustomPresetCodecPngImageInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecPngImageOutput() TransformOutputCustomPresetCodecPngImageOutput
+	ToTransformOutputCustomPresetCodecPngImageOutputWithContext(context.Context) TransformOutputCustomPresetCodecPngImageOutput
+}
+
+type TransformOutputCustomPresetCodecPngImageArgs struct {
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers TransformOutputCustomPresetCodecPngImageLayerArrayInput `pulumi:"layers"`
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	Start pulumi.StringInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode pulumi.StringPtrInput `pulumi:"syncMode"`
+}
+
+func (TransformOutputCustomPresetCodecPngImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecPngImage)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPresetCodecPngImageOutput() TransformOutputCustomPresetCodecPngImageOutput {
+	return i.ToTransformOutputCustomPresetCodecPngImageOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPresetCodecPngImageOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageOutput)
+}
+
+func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPresetCodecPngImagePtrOutput() TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return i.ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageOutput).ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecPngImagePtrInput is an input type that accepts TransformOutputCustomPresetCodecPngImageArgs, TransformOutputCustomPresetCodecPngImagePtr and TransformOutputCustomPresetCodecPngImagePtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecPngImagePtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecPngImageArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecPngImagePtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecPngImagePtrOutput() TransformOutputCustomPresetCodecPngImagePtrOutput
+	ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecPngImagePtrOutput
+}
+
+type transformOutputCustomPresetCodecPngImagePtrType TransformOutputCustomPresetCodecPngImageArgs
+
+func TransformOutputCustomPresetCodecPngImagePtr(v *TransformOutputCustomPresetCodecPngImageArgs) TransformOutputCustomPresetCodecPngImagePtrInput {
+	return (*transformOutputCustomPresetCodecPngImagePtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecPngImagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecPngImage)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecPngImagePtrType) ToTransformOutputCustomPresetCodecPngImagePtrOutput() TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return i.ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecPngImagePtrType) ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImagePtrOutput)
+}
+
+type TransformOutputCustomPresetCodecPngImageOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecPngImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecPngImage)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecPngImageOutput) ToTransformOutputCustomPresetCodecPngImageOutput() TransformOutputCustomPresetCodecPngImageOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImageOutput) ToTransformOutputCustomPresetCodecPngImageOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImageOutput) ToTransformOutputCustomPresetCodecPngImagePtrOutput() TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return o.ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecPngImageOutput) ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecPngImage) *TransformOutputCustomPresetCodecPngImage {
+		return &v
+	}).(TransformOutputCustomPresetCodecPngImagePtrOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecPngImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecPngImageOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecPngImageOutput) Layers() TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) []TransformOutputCustomPresetCodecPngImageLayer {
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecPngImageLayerArrayOutput)
+}
+
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+func (o TransformOutputCustomPresetCodecPngImageOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+func (o TransformOutputCustomPresetCodecPngImageOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) string { return v.Start }).(pulumi.StringOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+func (o TransformOutputCustomPresetCodecPngImageOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecPngImageOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecPngImageOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.SyncMode }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecPngImagePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecPngImagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecPngImage)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) ToTransformOutputCustomPresetCodecPngImagePtrOutput() TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImagePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Elem() TransformOutputCustomPresetCodecPngImageOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) TransformOutputCustomPresetCodecPngImage {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecPngImage
+		return ret
+	}).(TransformOutputCustomPresetCodecPngImageOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Layers() TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) []TransformOutputCustomPresetCodecPngImageLayer {
+		if v == nil {
+			return nil
+		}
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecPngImageLayerArrayOutput)
+}
+
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Step
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecPngImagePtrOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecPngImageLayer struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetCodecPngImageLayerInput is an input type that accepts TransformOutputCustomPresetCodecPngImageLayerArgs and TransformOutputCustomPresetCodecPngImageLayerOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecPngImageLayerInput` via:
+//
+//	TransformOutputCustomPresetCodecPngImageLayerArgs{...}
+type TransformOutputCustomPresetCodecPngImageLayerInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecPngImageLayerOutput() TransformOutputCustomPresetCodecPngImageLayerOutput
+	ToTransformOutputCustomPresetCodecPngImageLayerOutputWithContext(context.Context) TransformOutputCustomPresetCodecPngImageLayerOutput
+}
+
+type TransformOutputCustomPresetCodecPngImageLayerArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetCodecPngImageLayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecPngImageLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecPngImageLayerArgs) ToTransformOutputCustomPresetCodecPngImageLayerOutput() TransformOutputCustomPresetCodecPngImageLayerOutput {
+	return i.ToTransformOutputCustomPresetCodecPngImageLayerOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecPngImageLayerArgs) ToTransformOutputCustomPresetCodecPngImageLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageLayerOutput)
+}
+
+// TransformOutputCustomPresetCodecPngImageLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecPngImageLayerArray and TransformOutputCustomPresetCodecPngImageLayerArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecPngImageLayerArrayInput` via:
+//
+//	TransformOutputCustomPresetCodecPngImageLayerArray{ TransformOutputCustomPresetCodecPngImageLayerArgs{...} }
+type TransformOutputCustomPresetCodecPngImageLayerArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecPngImageLayerArrayOutput() TransformOutputCustomPresetCodecPngImageLayerArrayOutput
+	ToTransformOutputCustomPresetCodecPngImageLayerArrayOutputWithContext(context.Context) TransformOutputCustomPresetCodecPngImageLayerArrayOutput
+}
+
+type TransformOutputCustomPresetCodecPngImageLayerArray []TransformOutputCustomPresetCodecPngImageLayerInput
+
+func (TransformOutputCustomPresetCodecPngImageLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecPngImageLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecPngImageLayerArray) ToTransformOutputCustomPresetCodecPngImageLayerArrayOutput() TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
+	return i.ToTransformOutputCustomPresetCodecPngImageLayerArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecPngImageLayerArray) ToTransformOutputCustomPresetCodecPngImageLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageLayerArrayOutput)
+}
+
+type TransformOutputCustomPresetCodecPngImageLayerOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecPngImageLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecPngImageLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecPngImageLayerOutput) ToTransformOutputCustomPresetCodecPngImageLayerOutput() TransformOutputCustomPresetCodecPngImageLayerOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImageLayerOutput) ToTransformOutputCustomPresetCodecPngImageLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageLayerOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecPngImageLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecPngImageLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecPngImageLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) ToTransformOutputCustomPresetCodecPngImageLayerArrayOutput() TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) ToTransformOutputCustomPresetCodecPngImageLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecPngImageLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecPngImageLayer {
+		return vs[0].([]TransformOutputCustomPresetCodecPngImageLayer)[vs[1].(int)]
+	}).(TransformOutputCustomPresetCodecPngImageLayerOutput)
 }
 
 type TransformOutputCustomPresetFilter struct {
@@ -13786,11 +14606,15 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Width() 
 }
 
 type TransformOutputCustomPresetFormat struct {
+	// A `jpg` block as defined below.
+	Jpg *TransformOutputCustomPresetFormatJpg `pulumi:"jpg"`
 	// A `mp4` block as defined below.
 	Mp4 *TransformOutputCustomPresetFormatMp4 `pulumi:"mp4"`
+	// A `png` block as defined below.
+	Png *TransformOutputCustomPresetFormatPng `pulumi:"png"`
 	// A `transportStream` block as defined below.
 	//
-	// > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
+	// > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transportStream`. If you need to apply different type you must create one format for each one.
 	TransportStream *TransformOutputCustomPresetFormatTransportStream `pulumi:"transportStream"`
 }
 
@@ -13806,11 +14630,15 @@ type TransformOutputCustomPresetFormatInput interface {
 }
 
 type TransformOutputCustomPresetFormatArgs struct {
+	// A `jpg` block as defined below.
+	Jpg TransformOutputCustomPresetFormatJpgPtrInput `pulumi:"jpg"`
 	// A `mp4` block as defined below.
 	Mp4 TransformOutputCustomPresetFormatMp4PtrInput `pulumi:"mp4"`
+	// A `png` block as defined below.
+	Png TransformOutputCustomPresetFormatPngPtrInput `pulumi:"png"`
 	// A `transportStream` block as defined below.
 	//
-	// > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
+	// > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transportStream`. If you need to apply different type you must create one format for each one.
 	TransportStream TransformOutputCustomPresetFormatTransportStreamPtrInput `pulumi:"transportStream"`
 }
 
@@ -13865,14 +14693,24 @@ func (o TransformOutputCustomPresetFormatOutput) ToTransformOutputCustomPresetFo
 	return o
 }
 
+// A `jpg` block as defined below.
+func (o TransformOutputCustomPresetFormatOutput) Jpg() TransformOutputCustomPresetFormatJpgPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatJpg { return v.Jpg }).(TransformOutputCustomPresetFormatJpgPtrOutput)
+}
+
 // A `mp4` block as defined below.
 func (o TransformOutputCustomPresetFormatOutput) Mp4() TransformOutputCustomPresetFormatMp4PtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatMp4 { return v.Mp4 }).(TransformOutputCustomPresetFormatMp4PtrOutput)
 }
 
+// A `png` block as defined below.
+func (o TransformOutputCustomPresetFormatOutput) Png() TransformOutputCustomPresetFormatPngPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatPng { return v.Png }).(TransformOutputCustomPresetFormatPngPtrOutput)
+}
+
 // A `transportStream` block as defined below.
 //
-// > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
+// > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transportStream`. If you need to apply different type you must create one format for each one.
 func (o TransformOutputCustomPresetFormatOutput) TransportStream() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatTransportStream {
 		return v.TransportStream
@@ -13897,6 +14735,143 @@ func (o TransformOutputCustomPresetFormatArrayOutput) Index(i pulumi.IntInput) T
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFormat {
 		return vs[0].([]TransformOutputCustomPresetFormat)[vs[1].(int)]
 	}).(TransformOutputCustomPresetFormatOutput)
+}
+
+type TransformOutputCustomPresetFormatJpg struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+}
+
+// TransformOutputCustomPresetFormatJpgInput is an input type that accepts TransformOutputCustomPresetFormatJpgArgs and TransformOutputCustomPresetFormatJpgOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatJpgInput` via:
+//
+//	TransformOutputCustomPresetFormatJpgArgs{...}
+type TransformOutputCustomPresetFormatJpgInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatJpgOutput() TransformOutputCustomPresetFormatJpgOutput
+	ToTransformOutputCustomPresetFormatJpgOutputWithContext(context.Context) TransformOutputCustomPresetFormatJpgOutput
+}
+
+type TransformOutputCustomPresetFormatJpgArgs struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+}
+
+func (TransformOutputCustomPresetFormatJpgArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatJpg)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetFormatJpgOutput() TransformOutputCustomPresetFormatJpgOutput {
+	return i.ToTransformOutputCustomPresetFormatJpgOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetFormatJpgOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatJpgOutput)
+}
+
+func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetFormatJpgPtrOutput() TransformOutputCustomPresetFormatJpgPtrOutput {
+	return i.ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatJpgOutput).ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFormatJpgPtrInput is an input type that accepts TransformOutputCustomPresetFormatJpgArgs, TransformOutputCustomPresetFormatJpgPtr and TransformOutputCustomPresetFormatJpgPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatJpgPtrInput` via:
+//
+//	        TransformOutputCustomPresetFormatJpgArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFormatJpgPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatJpgPtrOutput() TransformOutputCustomPresetFormatJpgPtrOutput
+	ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(context.Context) TransformOutputCustomPresetFormatJpgPtrOutput
+}
+
+type transformOutputCustomPresetFormatJpgPtrType TransformOutputCustomPresetFormatJpgArgs
+
+func TransformOutputCustomPresetFormatJpgPtr(v *TransformOutputCustomPresetFormatJpgArgs) TransformOutputCustomPresetFormatJpgPtrInput {
+	return (*transformOutputCustomPresetFormatJpgPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFormatJpgPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatJpg)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFormatJpgPtrType) ToTransformOutputCustomPresetFormatJpgPtrOutput() TransformOutputCustomPresetFormatJpgPtrOutput {
+	return i.ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFormatJpgPtrType) ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatJpgPtrOutput)
+}
+
+type TransformOutputCustomPresetFormatJpgOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatJpgOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatJpg)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatJpgOutput) ToTransformOutputCustomPresetFormatJpgOutput() TransformOutputCustomPresetFormatJpgOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatJpgOutput) ToTransformOutputCustomPresetFormatJpgOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatJpgOutput) ToTransformOutputCustomPresetFormatJpgPtrOutput() TransformOutputCustomPresetFormatJpgPtrOutput {
+	return o.ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFormatJpgOutput) ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFormatJpg) *TransformOutputCustomPresetFormatJpg {
+		return &v
+	}).(TransformOutputCustomPresetFormatJpgPtrOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatJpgOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatJpg) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+type TransformOutputCustomPresetFormatJpgPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatJpgPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatJpg)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatJpgPtrOutput) ToTransformOutputCustomPresetFormatJpgPtrOutput() TransformOutputCustomPresetFormatJpgPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatJpgPtrOutput) ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatJpgPtrOutput) Elem() TransformOutputCustomPresetFormatJpgOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatJpg) TransformOutputCustomPresetFormatJpg {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFormatJpg
+		return ret
+	}).(TransformOutputCustomPresetFormatJpgOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatJpgPtrOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatJpg) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilenamePattern
+	}).(pulumi.StringPtrOutput)
 }
 
 type TransformOutputCustomPresetFormatMp4 struct {
@@ -14152,6 +15127,143 @@ func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFormatMp4OutputFile {
 		return vs[0].([]TransformOutputCustomPresetFormatMp4OutputFile)[vs[1].(int)]
 	}).(TransformOutputCustomPresetFormatMp4OutputFileOutput)
+}
+
+type TransformOutputCustomPresetFormatPng struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+}
+
+// TransformOutputCustomPresetFormatPngInput is an input type that accepts TransformOutputCustomPresetFormatPngArgs and TransformOutputCustomPresetFormatPngOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatPngInput` via:
+//
+//	TransformOutputCustomPresetFormatPngArgs{...}
+type TransformOutputCustomPresetFormatPngInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatPngOutput() TransformOutputCustomPresetFormatPngOutput
+	ToTransformOutputCustomPresetFormatPngOutputWithContext(context.Context) TransformOutputCustomPresetFormatPngOutput
+}
+
+type TransformOutputCustomPresetFormatPngArgs struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+}
+
+func (TransformOutputCustomPresetFormatPngArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatPng)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetFormatPngOutput() TransformOutputCustomPresetFormatPngOutput {
+	return i.ToTransformOutputCustomPresetFormatPngOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetFormatPngOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatPngOutput)
+}
+
+func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetFormatPngPtrOutput() TransformOutputCustomPresetFormatPngPtrOutput {
+	return i.ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatPngOutput).ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFormatPngPtrInput is an input type that accepts TransformOutputCustomPresetFormatPngArgs, TransformOutputCustomPresetFormatPngPtr and TransformOutputCustomPresetFormatPngPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatPngPtrInput` via:
+//
+//	        TransformOutputCustomPresetFormatPngArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFormatPngPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatPngPtrOutput() TransformOutputCustomPresetFormatPngPtrOutput
+	ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(context.Context) TransformOutputCustomPresetFormatPngPtrOutput
+}
+
+type transformOutputCustomPresetFormatPngPtrType TransformOutputCustomPresetFormatPngArgs
+
+func TransformOutputCustomPresetFormatPngPtr(v *TransformOutputCustomPresetFormatPngArgs) TransformOutputCustomPresetFormatPngPtrInput {
+	return (*transformOutputCustomPresetFormatPngPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFormatPngPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatPng)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFormatPngPtrType) ToTransformOutputCustomPresetFormatPngPtrOutput() TransformOutputCustomPresetFormatPngPtrOutput {
+	return i.ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFormatPngPtrType) ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatPngPtrOutput)
+}
+
+type TransformOutputCustomPresetFormatPngOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatPngOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatPng)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatPngOutput) ToTransformOutputCustomPresetFormatPngOutput() TransformOutputCustomPresetFormatPngOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatPngOutput) ToTransformOutputCustomPresetFormatPngOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatPngOutput) ToTransformOutputCustomPresetFormatPngPtrOutput() TransformOutputCustomPresetFormatPngPtrOutput {
+	return o.ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFormatPngOutput) ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFormatPng) *TransformOutputCustomPresetFormatPng {
+		return &v
+	}).(TransformOutputCustomPresetFormatPngPtrOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatPngOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatPng) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+type TransformOutputCustomPresetFormatPngPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatPngPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatPng)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatPngPtrOutput) ToTransformOutputCustomPresetFormatPngPtrOutput() TransformOutputCustomPresetFormatPngPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatPngPtrOutput) ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatPngPtrOutput) Elem() TransformOutputCustomPresetFormatPngOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatPng) TransformOutputCustomPresetFormatPng {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFormatPng
+		return ret
+	}).(TransformOutputCustomPresetFormatPngOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatPngPtrOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatPng) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilenamePattern
+	}).(pulumi.StringPtrOutput)
 }
 
 type TransformOutputCustomPresetFormatTransportStream struct {
@@ -14938,6 +16050,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoLayerInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoLayerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoLayerArrayInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImageInput)(nil)).Elem(), TransformOutputCustomPresetCodecJpgImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImagePtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecJpgImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImageLayerInput)(nil)).Elem(), TransformOutputCustomPresetCodecJpgImageLayerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecJpgImageLayerArrayInput)(nil)).Elem(), TransformOutputCustomPresetCodecJpgImageLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecPngImageInput)(nil)).Elem(), TransformOutputCustomPresetCodecPngImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecPngImagePtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecPngImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecPngImageLayerInput)(nil)).Elem(), TransformOutputCustomPresetCodecPngImageLayerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecPngImageLayerArrayInput)(nil)).Elem(), TransformOutputCustomPresetCodecPngImageLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterInput)(nil)).Elem(), TransformOutputCustomPresetFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterCropRectangleInput)(nil)).Elem(), TransformOutputCustomPresetFilterCropRectangleArgs{})
@@ -14960,10 +16080,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatInput)(nil)).Elem(), TransformOutputCustomPresetFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatArrayInput)(nil)).Elem(), TransformOutputCustomPresetFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatJpgInput)(nil)).Elem(), TransformOutputCustomPresetFormatJpgArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatJpgPtrInput)(nil)).Elem(), TransformOutputCustomPresetFormatJpgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4Input)(nil)).Elem(), TransformOutputCustomPresetFormatMp4Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4PtrInput)(nil)).Elem(), TransformOutputCustomPresetFormatMp4Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4OutputFileInput)(nil)).Elem(), TransformOutputCustomPresetFormatMp4OutputFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4OutputFileArrayInput)(nil)).Elem(), TransformOutputCustomPresetFormatMp4OutputFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatPngInput)(nil)).Elem(), TransformOutputCustomPresetFormatPngArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatPngPtrInput)(nil)).Elem(), TransformOutputCustomPresetFormatPngArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamPtrInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamOutputFileInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamOutputFileArgs{})
@@ -15112,6 +16236,14 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoLayerOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecJpgImageOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecJpgImagePtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecJpgImageLayerOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecPngImageOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecPngImagePtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecPngImageLayerOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecPngImageLayerArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterCropRectangleOutput{})
@@ -15134,10 +16266,14 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatJpgOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatJpgPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4Output{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4PtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4OutputFileOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4OutputFileArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatPngOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatPngPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamOutputFileOutput{})

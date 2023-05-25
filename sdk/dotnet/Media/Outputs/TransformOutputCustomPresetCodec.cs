@@ -35,10 +35,18 @@ namespace Pulumi.Azure.Media.Outputs
         public readonly Outputs.TransformOutputCustomPresetCodecH264Video? H264Video;
         /// <summary>
         /// A `h265_video` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
         /// </summary>
         public readonly Outputs.TransformOutputCustomPresetCodecH265Video? H265Video;
+        /// <summary>
+        /// A `jpg_image` block as defined below.
+        /// </summary>
+        public readonly Outputs.TransformOutputCustomPresetCodecJpgImage? JpgImage;
+        /// <summary>
+        /// A `png_image` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+        /// </summary>
+        public readonly Outputs.TransformOutputCustomPresetCodecPngImage? PngImage;
 
         [OutputConstructor]
         private TransformOutputCustomPresetCodec(
@@ -52,7 +60,11 @@ namespace Pulumi.Azure.Media.Outputs
 
             Outputs.TransformOutputCustomPresetCodecH264Video? h264Video,
 
-            Outputs.TransformOutputCustomPresetCodecH265Video? h265Video)
+            Outputs.TransformOutputCustomPresetCodecH265Video? h265Video,
+
+            Outputs.TransformOutputCustomPresetCodecJpgImage? jpgImage,
+
+            Outputs.TransformOutputCustomPresetCodecPngImage? pngImage)
         {
             AacAudio = aacAudio;
             CopyAudio = copyAudio;
@@ -60,6 +72,8 @@ namespace Pulumi.Azure.Media.Outputs
             DdAudio = ddAudio;
             H264Video = h264Video;
             H265Video = h265Video;
+            JpgImage = jpgImage;
+            PngImage = pngImage;
         }
     }
 }

@@ -13,13 +13,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class HBaseClusterRolesWorkerNodeAutoscaleRecurrence
     {
-        /// <summary>
-        /// A list of `schedule` blocks as defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> Schedules;
-        /// <summary>
-        /// The time zone for the autoscale schedule times.
-        /// </summary>
         public readonly string Timezone;
 
         [OutputConstructor]

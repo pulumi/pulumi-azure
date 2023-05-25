@@ -77,6 +77,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+        /// 
+        /// &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         /// </summary>
         [Output("coordinatorStorageQuotaInMb")]
         public Output<int> CoordinatorStorageQuotaInMb { get; private set; } = null!;
@@ -281,6 +283,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+        /// 
+        /// &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         /// </summary>
         [Input("coordinatorStorageQuotaInMb", required: true)]
         public Input<int> CoordinatorStorageQuotaInMb { get; set; } = null!;
@@ -443,6 +447,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+        /// 
+        /// &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         /// </summary>
         [Input("coordinatorStorageQuotaInMb")]
         public Input<int>? CoordinatorStorageQuotaInMb { get; set; }

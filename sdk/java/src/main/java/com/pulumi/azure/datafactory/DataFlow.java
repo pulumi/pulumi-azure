@@ -115,17 +115,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example1FlowletDataFlow = new FlowletDataFlow(&#34;example1FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
- *             .dataFactoryId(azurerm_data_factory.test().id())
+ *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
  *                 .name(&#34;source1&#34;)
  *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
- *                     .name(azurerm_data_factory_linked_custom_service.test().name())
+ *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
  *             .sinks(FlowletDataFlowSinkArgs.builder()
  *                 .name(&#34;sink1&#34;)
  *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
- *                     .name(azurerm_data_factory_linked_custom_service.test().name())
+ *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
  *             .script(&#34;&#34;&#34;
@@ -144,17 +144,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example2FlowletDataFlow = new FlowletDataFlow(&#34;example2FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
- *             .dataFactoryId(azurerm_data_factory.test().id())
+ *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
  *                 .name(&#34;source1&#34;)
  *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
- *                     .name(azurerm_data_factory_linked_custom_service.test().name())
+ *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
  *             .sinks(FlowletDataFlowSinkArgs.builder()
  *                 .name(&#34;sink1&#34;)
  *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
- *                     .name(azurerm_data_factory_linked_custom_service.test().name())
+ *                     .name(exampleLinkedCustomService.name())
  *                     .build())
  *                 .build())
  *             .script(&#34;&#34;&#34;

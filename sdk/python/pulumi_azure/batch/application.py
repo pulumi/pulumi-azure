@@ -248,7 +248,8 @@ class Application(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id)
+            storage_account_id=example_account.id,
+            storage_account_authentication_mode="StorageKeys")
         example_application = azure.batch.Application("exampleApplication",
             resource_group_name=example_resource_group.name,
             account_name=example_batch / account_account["name"])
@@ -296,7 +297,8 @@ class Application(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id)
+            storage_account_id=example_account.id,
+            storage_account_authentication_mode="StorageKeys")
         example_application = azure.batch.Application("exampleApplication",
             resource_group_name=example_resource_group.name,
             account_name=example_batch / account_account["name"])

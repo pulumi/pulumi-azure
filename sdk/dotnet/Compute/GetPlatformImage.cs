@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Compute
         ///         Location = "West Europe",
         ///         Publisher = "Canonical",
         ///         Offer = "UbuntuServer",
-        ///         Sku = "16.04-LTS",
+        ///         Sku = "20.04-LTS",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Compute
         ///         Location = "West Europe",
         ///         Publisher = "Canonical",
         ///         Offer = "UbuntuServer",
-        ///         Sku = "16.04-LTS",
+        ///         Sku = "20.04-LTS",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

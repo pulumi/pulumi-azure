@@ -55,17 +55,17 @@ import * as utilities from "../utilities";
  *     encoding: "UTF-8",
  * });
  * const example1FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example1FlowletDataFlow", {
- *     dataFactoryId: azurerm_data_factory.test.id,
+ *     dataFactoryId: exampleFactory.id,
  *     sources: [{
  *         name: "source1",
  *         linkedService: {
- *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *             name: exampleLinkedCustomService.name,
  *         },
  *     }],
  *     sinks: [{
  *         name: "sink1",
  *         linkedService: {
- *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *             name: exampleLinkedCustomService.name,
  *         },
  *     }],
  *     script: `source(
@@ -82,17 +82,17 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const example2FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example2FlowletDataFlow", {
- *     dataFactoryId: azurerm_data_factory.test.id,
+ *     dataFactoryId: exampleFactory.id,
  *     sources: [{
  *         name: "source1",
  *         linkedService: {
- *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *             name: exampleLinkedCustomService.name,
  *         },
  *     }],
  *     sinks: [{
  *         name: "sink1",
  *         linkedService: {
- *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *             name: exampleLinkedCustomService.name,
  *         },
  *     }],
  *     script: `source(

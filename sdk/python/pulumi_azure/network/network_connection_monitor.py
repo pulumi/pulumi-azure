@@ -367,7 +367,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
-                sku="16.04-LTS",
+                sku="20.04-LTS",
                 version="latest",
             ),
             storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
@@ -498,7 +498,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
-                sku="16.04-LTS",
+                sku="20.04-LTS",
                 version="latest",
             ),
             storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(

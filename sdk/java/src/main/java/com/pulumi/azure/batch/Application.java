@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .poolAllocationMode(&#34;BatchService&#34;)
  *             .storageAccountId(exampleAccount.id())
+ *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
  *             .build());
  * 
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        

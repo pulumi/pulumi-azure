@@ -44,11 +44,23 @@ namespace Pulumi.Azure.Media.Inputs
 
         /// <summary>
         /// A `h265_video` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
         /// </summary>
         [Input("h265Video")]
         public Input<Inputs.TransformOutputCustomPresetCodecH265VideoArgs>? H265Video { get; set; }
+
+        /// <summary>
+        /// A `jpg_image` block as defined below.
+        /// </summary>
+        [Input("jpgImage")]
+        public Input<Inputs.TransformOutputCustomPresetCodecJpgImageArgs>? JpgImage { get; set; }
+
+        /// <summary>
+        /// A `png_image` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+        /// </summary>
+        [Input("pngImage")]
+        public Input<Inputs.TransformOutputCustomPresetCodecPngImageArgs>? PngImage { get; set; }
 
         public TransformOutputCustomPresetCodecArgs()
         {

@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(data.azurerm_client_config().current().tenant_id())
+ *             .tenantId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(data.azurerm_client_config().current().tenant_id())
- *                 .objectId(data.azurerm_client_config().current().object_id())
+ *                 .tenantId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                 .secretPermissions(                
  *                     &#34;Get&#34;,
  *                     &#34;Delete&#34;)
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new ManagedStorageAccount(&#34;test&#34;, ManagedStorageAccountArgs.builder()        
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountKey(&#34;key1&#34;)
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleManagedStorageAccountSasTokenDefinition = new ManagedStorageAccountSasTokenDefinition(&#34;exampleManagedStorageAccountSasTokenDefinition&#34;, ManagedStorageAccountSasTokenDefinitionArgs.builder()        
  *             .validityPeriod(&#34;P1D&#34;)
- *             .managedStorageAccountId(azurerm_key_vault_managed_storage_account.example().id())
+ *             .managedStorageAccountId(exampleManagedStorageAccount.id())
  *             .sasTemplateUri(exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())))
  *             .sasType(&#34;account&#34;)
  *             .build());

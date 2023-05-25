@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? NameClaimType { get; set; }
 
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        /// Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         /// </summary>
         [Input("openidConfigurationEndpoint", required: true)]
         public Input<string> OpenidConfigurationEndpoint { get; set; } = null!;

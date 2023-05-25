@@ -20,6 +20,10 @@ public final class GetAccountResult {
      * 
      */
     private String accountEndpoint;
+    /**
+     * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     * 
+     */
     private @Nullable GetAccountEncryption encryption;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -76,6 +80,10 @@ public final class GetAccountResult {
     public String accountEndpoint() {
         return this.accountEndpoint;
     }
+    /**
+     * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     * 
+     */
     public Optional<GetAccountEncryption> encryption() {
         return Optional.ofNullable(this.encryption);
     }

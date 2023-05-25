@@ -13,9 +13,17 @@ public final class GetAccountEncryptionArgs extends com.pulumi.resources.Resourc
 
     public static final GetAccountEncryptionArgs Empty = new GetAccountEncryptionArgs();
 
+    /**
+     * The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+     * 
+     */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
+    /**
+     * @return The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+     * 
+     */
     public Output<String> keyVaultKeyId() {
         return this.keyVaultKeyId;
     }
@@ -44,11 +52,23 @@ public final class GetAccountEncryptionArgs extends com.pulumi.resources.Resourc
             $ = new GetAccountEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyVaultKeyId The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultKeyId(Output<String> keyVaultKeyId) {
             $.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
 
+        /**
+         * @param keyVaultKeyId The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
         }
