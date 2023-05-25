@@ -1,9 +1,8 @@
-From 4986b192bf9facf93c4ceac8cd3068aa5c0fc7bb Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:27:57 -0700
-Subject: [PATCH 3/8] Add new resources
+From 79f02b9204251ea7c041400998813b44fe42fbf9 Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:38 -0700
+Subject: [PATCH 3/8] Add-new-resources
 
-It looks like these are auto-generated, but I'm not 100% sure.
 ---
  .../parse/proximity_placement_group.go        |  69 ++++++++++
  .../parse/proximity_placement_group_test.go   | 112 +++++++++++++++
@@ -4843,5 +4842,5 @@ index 0000000000..ad87350b81
 +	}
 +}
 -- 
-2.40.1
+2.39.1
 

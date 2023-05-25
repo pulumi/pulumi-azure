@@ -1,7 +1,7 @@
-From 431b1faf658e6b90a08114d994e0103c75a3e102 Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:30:35 -0700
-Subject: [PATCH 5/8] Modify resources
+From c8435af6c79671548611e80b822baf2dbcec61fc Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:38 -0700
+Subject: [PATCH 5/8] Modify-resources
 
 ---
  .../advisor_recommendations_data_source.go    |  6 ++-
@@ -547,10 +547,10 @@ index 0109de6887..d793918a3a 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 37de5d53c9..16b7588f39 100644
+index 98af37b6f1..0896183b6d 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -881,7 +881,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -880,7 +880,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -700,7 +700,7 @@ index 428f297761..4711ff2bcf 100644
  
  						"value": {
 diff --git a/internal/services/eventhub/eventhub_namespace_resource.go b/internal/services/eventhub/eventhub_namespace_resource.go
-index b09900134e..5cf343e951 100644
+index 5f08e9fa0b..082b187147 100644
 --- a/internal/services/eventhub/eventhub_namespace_resource.go
 +++ b/internal/services/eventhub/eventhub_namespace_resource.go
 @@ -78,7 +78,7 @@ func resourceEventHubNamespace() *pluginsdk.Resource {
@@ -872,7 +872,7 @@ index e7394315af..50e1671cd5 100644
  								string(devices.EncodingAvro),
  								string(devices.EncodingAvroDeflate),
 diff --git a/internal/services/keyvault/key_vault_certificate_resource.go b/internal/services/keyvault/key_vault_certificate_resource.go
-index 2247187780..814f0e1a47 100644
+index d8fca78693..c0cec274c0 100644
 --- a/internal/services/keyvault/key_vault_certificate_resource.go
 +++ b/internal/services/keyvault/key_vault_certificate_resource.go
 @@ -6,6 +6,8 @@ import (
@@ -884,7 +884,7 @@ index 2247187780..814f0e1a47 100644
  	"log"
  	"math"
  	"strings"
-@@ -157,7 +159,8 @@ func resourceKeyVaultCertificate() *pluginsdk.Resource {
+@@ -158,7 +160,8 @@ func resourceKeyVaultCertificate() *pluginsdk.Resource {
  											string(keyvault.JSONWebKeyTypeRSA),
  											string(keyvault.JSONWebKeyTypeRSAHSM),
  											string(keyvault.JSONWebKeyTypeOct),
@@ -2147,7 +2147,7 @@ index 1b069d032b..89bd76279c 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 333e4e61c7..2b99c949bd 100644
+index 64ab28635d..7e5a45d47a 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -2646,7 +2646,7 @@ index 8a52e281be..ceb38abbaf 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index c69ba91952..3575f9de76 100644
+index 5d837e8b2f..38caab031b 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -3,6 +3,8 @@ package storage
@@ -2965,5 +2965,5 @@ index f5da0048e7..08740abac0 100644
  	}
  
 -- 
-2.40.1
+2.39.1
 

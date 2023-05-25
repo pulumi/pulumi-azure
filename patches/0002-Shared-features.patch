@@ -1,7 +1,7 @@
-From 547e6e78827ad710e004323f321ed94a08e0d41c Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:25:24 -0700
-Subject: [PATCH 2/8] Shared features
+From 5f07ae5e5e19342327111ac44baaacbe4aacc14f Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:38 -0700
+Subject: [PATCH 2/8] Shared-features
 
 ---
  internal/features/four_point_oh.go | 6 ++++++
@@ -23,10 +23,10 @@ index 5b88169333..a57b9fac8e 100644
 +	return true
 +}
 diff --git a/internal/provider/features.go b/internal/provider/features.go
-index 2757e5c3b1..029a0c9936 100644
+index dbc70805a1..b62cb3141f 100644
 --- a/internal/provider/features.go
 +++ b/internal/provider/features.go
-@@ -295,7 +295,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+@@ -281,7 +281,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
  
  	return &pluginsdk.Schema{
  		Type:     pluginsdk.TypeList,
@@ -36,5 +36,5 @@ index 2757e5c3b1..029a0c9936 100644
  		MinItems: 1,
  		Elem: &pluginsdk.Resource{
 -- 
-2.40.1
+2.39.1
 

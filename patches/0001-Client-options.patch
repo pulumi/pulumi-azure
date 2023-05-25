@@ -1,7 +1,7 @@
-From 612e0fbfc9ca54d352b30a1765eb48066601651e Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:24:57 -0700
-Subject: [PATCH 1/8] Client options
+From 1a16ec0434850df99bf4f3ebcd70ac2f115960e5 Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:38 -0700
+Subject: [PATCH 1/8] Client-options
 
 ---
  internal/common/client_options.go | 15 +++++----------
@@ -50,5 +50,5 @@ index 0e227eaa68..6477e38cae 100644
  
  	if partnerID != "" {
 -- 
-2.40.1
+2.39.1
 
