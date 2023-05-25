@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.GetClientConfig(ctx, nil, nil)
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -80,12 +80,12 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+//				TenantId:          *pulumi.String(exampleClientConfig.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
-//						ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
+//						TenantId: *pulumi.String(exampleClientConfig.TenantId),
+//						ObjectId: *pulumi.String(exampleClientConfig.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),
@@ -106,7 +106,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewManagedStorageAccount(ctx, "test", &keyvault.ManagedStorageAccountArgs{
+//			exampleManagedStorageAccount, err := keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
 //				KeyVaultId:                 exampleKeyVault.ID(),
 //				StorageAccountId:           exampleAccount.ID(),
 //				StorageAccountKey:          pulumi.String("key1"),
@@ -118,7 +118,7 @@ import (
 //			}
 //			_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "exampleManagedStorageAccountSasTokenDefinition", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
 //				ValidityPeriod:          pulumi.String("P1D"),
-//				ManagedStorageAccountId: pulumi.Any(azurerm_key_vault_managed_storage_account.Example.Id),
+//				ManagedStorageAccountId: exampleManagedStorageAccount.ID(),
 //				SasTemplateUri: exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (*string, error) {
 //					return &exampleAccountSAS.Sas, nil
 //				}).(pulumi.StringPtrOutput),

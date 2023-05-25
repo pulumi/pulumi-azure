@@ -11,7 +11,7 @@ import (
 )
 
 type AccountEncryption struct {
-	// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+	// The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 }
 
@@ -27,7 +27,7 @@ type AccountEncryptionInput interface {
 }
 
 type AccountEncryptionArgs struct {
-	// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+	// The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 }
 
@@ -108,7 +108,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx con
 	}).(AccountEncryptionPtrOutput)
 }
 
-// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+// The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
 func (o AccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
@@ -137,7 +137,7 @@ func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
 	}).(AccountEncryptionOutput)
 }
 
-// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+// The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
 func (o AccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *string {
 		if v == nil {
@@ -4897,6 +4897,7 @@ func (o PoolWindowArrayOutput) Index(i pulumi.IntInput) PoolWindowOutput {
 }
 
 type GetAccountEncryption struct {
+	// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 }
 
@@ -4912,6 +4913,7 @@ type GetAccountEncryptionInput interface {
 }
 
 type GetAccountEncryptionArgs struct {
+	// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 }
 
@@ -4992,6 +4994,7 @@ func (o GetAccountEncryptionOutput) ToGetAccountEncryptionPtrOutputWithContext(c
 	}).(GetAccountEncryptionPtrOutput)
 }
 
+// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 func (o GetAccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
@@ -5020,6 +5023,7 @@ func (o GetAccountEncryptionPtrOutput) Elem() GetAccountEncryptionOutput {
 	}).(GetAccountEncryptionOutput)
 }
 
+// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 func (o GetAccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetAccountEncryption) *string {
 		if v == nil {

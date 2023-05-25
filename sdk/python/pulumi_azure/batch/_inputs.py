@@ -51,7 +51,7 @@ class AccountEncryptionArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_vault_key_id: The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        :param pulumi.Input[str] key_vault_key_id: The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
 
@@ -59,7 +59,7 @@ class AccountEncryptionArgs:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[str]:
         """
-        The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -2180,11 +2180,17 @@ class PoolWindowArgs:
 class GetAccountEncryptionArgs:
     def __init__(__self__, *,
                  key_vault_key_id: str):
+        """
+        :param str key_vault_key_id: The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+        """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> str:
+        """
+        The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+        """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter

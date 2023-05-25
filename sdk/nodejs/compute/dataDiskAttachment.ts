@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
- *         sku: "16.04-LTS",
+ *         sku: "20.04-LTS",
  *         version: "latest",
  *     },
  *     storageOsDisk: {

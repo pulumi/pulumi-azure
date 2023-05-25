@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Batch.Outputs
     [OutputType]
     public sealed class GetAccountEncryptionResult
     {
+        /// <summary>
+        /// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+        /// </summary>
         public readonly string KeyVaultKeyId;
 
         [OutputConstructor]

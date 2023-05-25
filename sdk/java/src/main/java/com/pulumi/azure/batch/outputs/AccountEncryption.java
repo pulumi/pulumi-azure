@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class AccountEncryption {
     /**
-     * @return The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+     * @return The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
      * 
      */
     private String keyVaultKeyId;
 
     private AccountEncryption() {}
     /**
-     * @return The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+     * @return The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
      * 
      */
     public String keyVaultKeyId() {

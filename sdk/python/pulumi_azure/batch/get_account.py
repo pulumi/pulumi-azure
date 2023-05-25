@@ -72,6 +72,9 @@ class GetAccountResult:
     @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.GetAccountEncryptionResult']:
+        """
+        The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+        """
         return pulumi.get(self, "encryption")
 
     @property
@@ -191,6 +194,7 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
     ```
 
 
+    :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
     :param str name: The name of the Batch account.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
@@ -236,6 +240,7 @@ def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputTy
     ```
 
 
+    :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
     :param str name: The name of the Batch account.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """

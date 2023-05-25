@@ -14,14 +14,14 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     public static final AccountEncryptionArgs Empty = new AccountEncryptionArgs();
 
     /**
-     * The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+     * The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+     * @return The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -53,7 +53,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultKeyId The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+         * @param keyVaultKeyId The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultKeyId The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+         * @param keyVaultKeyId The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
          * 
          * @return builder
          * 

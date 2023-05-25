@@ -15454,7 +15454,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str name: The Site Credentials Username used for publishing.
-        :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param str openid_configuration_endpoint: Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
@@ -15520,7 +15520,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="openidConfigurationEndpoint")
     def openid_configuration_endpoint(self) -> str:
         """
-        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         """
         return pulumi.get(self, "openid_configuration_endpoint")
 

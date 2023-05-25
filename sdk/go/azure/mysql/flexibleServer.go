@@ -127,7 +127,7 @@ type FlexibleServer struct {
 	//
 	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
-	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
+	// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
 	//
@@ -230,7 +230,7 @@ type flexibleServerState struct {
 	//
 	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
-	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
+	// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
 	//
@@ -295,7 +295,7 @@ type FlexibleServerState struct {
 	//
 	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
-	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
+	// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
 	//
@@ -364,7 +364,7 @@ type flexibleServerArgs struct {
 	//
 	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
-	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
+	// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
 	//
@@ -424,7 +424,7 @@ type FlexibleServerArgs struct {
 	//
 	// > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
-	// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
+	// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
 	//
@@ -578,7 +578,7 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 //
 // > **NOTE:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 //
-// > **NOTE:** The best practise is that it has to wait greater than 10 minutes to create the `GeoRestore` server once the source server is created.
+// > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }

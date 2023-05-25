@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             Publisher = "Canonical",
     ///             Offer = "UbuntuServer",
-    ///             Sku = "16.04-LTS",
+    ///             Sku = "20.04-LTS",
     ///             Version = "latest",
     ///         },
     ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs

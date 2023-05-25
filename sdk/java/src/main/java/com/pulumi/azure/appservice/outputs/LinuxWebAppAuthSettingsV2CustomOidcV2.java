@@ -63,7 +63,7 @@ public final class LinuxWebAppAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String nameClaimType;
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
      * 
      */
     private String openidConfigurationEndpoint;
@@ -146,7 +146,7 @@ public final class LinuxWebAppAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.nameClaimType);
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
      * 
      */
     public String openidConfigurationEndpoint() {

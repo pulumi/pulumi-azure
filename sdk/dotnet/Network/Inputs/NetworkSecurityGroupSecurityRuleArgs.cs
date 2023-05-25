@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
         /// </summary>
         [Input("destinationAddressPrefix")]
         public Input<string>? DestinationAddressPrefix { get; set; }
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         /// </summary>
         [Input("sourceAddressPrefix")]
         public Input<string>? SourceAddressPrefix { get; set; }

@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificateContacts = new CertificateContacts(&#34;exampleCertificateContacts&#34;, CertificateContactsArgs.builder()        
- *             .keyVaultId(azurerm_key_vault.test().id())
+ *             .keyVaultId(exampleKeyVault.id())
  *             .contacts(            
  *                 CertificateContactsContactArgs.builder()
  *                     .email(&#34;example@example.com&#34;)

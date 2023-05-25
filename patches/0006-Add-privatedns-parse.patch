@@ -1,7 +1,7 @@
-From 6c38d288bf671a3e8703073881b277b19ab3804f Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:30:49 -0700
-Subject: [PATCH 6/8] Add privatedns/parse
+From 247db220a69604536cbbb68f641c16b36fad3a8a Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:39 -0700
+Subject: [PATCH 6/8] Add-privatedns-parse
 
 ---
  .../services/privatedns/parse/a_record.go     |  75 ++++++++++
@@ -1956,5 +1956,5 @@ index 0000000000..1f45b56b1b
 +	}
 +}
 -- 
-2.40.1
+2.39.1
 

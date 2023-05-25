@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        /// The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
         /// </summary>
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;

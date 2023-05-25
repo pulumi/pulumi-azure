@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: data.azurerm_client_config.current.tenant_id,
+ *     tenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{
- *         tenantId: data.azurerm_client_config.current.tenant_id,
- *         objectId: data.azurerm_client_config.current.object_id,
+ *         tenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
+ *         objectId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  *         secretPermissions: [
  *             "Get",
  *             "Delete",
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const test = new azure.keyvault.ManagedStorageAccount("test", {
+ * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount", {
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
  *     storageAccountKey: "key1",
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleManagedStorageAccountSasTokenDefinition = new azure.keyvault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", {
  *     validityPeriod: "P1D",
- *     managedStorageAccountId: azurerm_key_vault_managed_storage_account.example.id,
+ *     managedStorageAccountId: exampleManagedStorageAccount.id,
  *     sasTemplateUri: exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas),
  *     sasType: "account",
  * });

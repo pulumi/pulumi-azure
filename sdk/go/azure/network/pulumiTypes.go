@@ -2476,7 +2476,7 @@ func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) In
 }
 
 type ApplicationGatewayProbe struct {
-	// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+	// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
 	Host *string `pulumi:"host"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
@@ -2514,7 +2514,7 @@ type ApplicationGatewayProbeInput interface {
 }
 
 type ApplicationGatewayProbeArgs struct {
-	// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+	// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2591,7 +2591,7 @@ func (o ApplicationGatewayProbeOutput) ToApplicationGatewayProbeOutputWithContex
 	return o
 }
 
-// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
 func (o ApplicationGatewayProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
@@ -14819,7 +14819,7 @@ type NetworkSecurityGroupSecurityRule struct {
 	Access string `pulumi:"access"`
 	// A description for this rule. Restricted to 140 characters.
 	Description *string `pulumi:"description"`
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
@@ -14837,7 +14837,7 @@ type NetworkSecurityGroupSecurityRule struct {
 	Priority int `pulumi:"priority"`
 	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol string `pulumi:"protocol"`
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
@@ -14865,7 +14865,7 @@ type NetworkSecurityGroupSecurityRuleArgs struct {
 	Access pulumi.StringInput `pulumi:"access"`
 	// A description for this rule. Restricted to 140 characters.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix pulumi.StringPtrInput `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayInput `pulumi:"destinationAddressPrefixes"`
@@ -14883,7 +14883,7 @@ type NetworkSecurityGroupSecurityRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayInput `pulumi:"sourceAddressPrefixes"`
@@ -14956,7 +14956,7 @@ func (o NetworkSecurityGroupSecurityRuleOutput) Description() pulumi.StringPtrOu
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
 func (o NetworkSecurityGroupSecurityRuleOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) *string { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
 }
@@ -15001,7 +15001,7 @@ func (o NetworkSecurityGroupSecurityRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
 func (o NetworkSecurityGroupSecurityRuleOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) *string { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
@@ -27933,6 +27933,346 @@ func (o GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) Index(i pu
 	}).(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput)
 }
 
+type GetVirtualHubConnectionRouting struct {
+	// The ID of the route table associated with this Virtual Hub connection.
+	AssociatedRouteTableId string `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTables []GetVirtualHubConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTables"`
+	// A `staticVnetRoute` block as defined below.
+	StaticVnetRoutes []GetVirtualHubConnectionRoutingStaticVnetRoute `pulumi:"staticVnetRoutes"`
+}
+
+// GetVirtualHubConnectionRoutingInput is an input type that accepts GetVirtualHubConnectionRoutingArgs and GetVirtualHubConnectionRoutingOutput values.
+// You can construct a concrete instance of `GetVirtualHubConnectionRoutingInput` via:
+//
+//	GetVirtualHubConnectionRoutingArgs{...}
+type GetVirtualHubConnectionRoutingInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubConnectionRoutingOutput() GetVirtualHubConnectionRoutingOutput
+	ToGetVirtualHubConnectionRoutingOutputWithContext(context.Context) GetVirtualHubConnectionRoutingOutput
+}
+
+type GetVirtualHubConnectionRoutingArgs struct {
+	// The ID of the route table associated with this Virtual Hub connection.
+	AssociatedRouteTableId pulumi.StringInput `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTables GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput `pulumi:"propagatedRouteTables"`
+	// A `staticVnetRoute` block as defined below.
+	StaticVnetRoutes GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput `pulumi:"staticVnetRoutes"`
+}
+
+func (GetVirtualHubConnectionRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (i GetVirtualHubConnectionRoutingArgs) ToGetVirtualHubConnectionRoutingOutput() GetVirtualHubConnectionRoutingOutput {
+	return i.ToGetVirtualHubConnectionRoutingOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubConnectionRoutingArgs) ToGetVirtualHubConnectionRoutingOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubConnectionRoutingOutput)
+}
+
+// GetVirtualHubConnectionRoutingArrayInput is an input type that accepts GetVirtualHubConnectionRoutingArray and GetVirtualHubConnectionRoutingArrayOutput values.
+// You can construct a concrete instance of `GetVirtualHubConnectionRoutingArrayInput` via:
+//
+//	GetVirtualHubConnectionRoutingArray{ GetVirtualHubConnectionRoutingArgs{...} }
+type GetVirtualHubConnectionRoutingArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubConnectionRoutingArrayOutput() GetVirtualHubConnectionRoutingArrayOutput
+	ToGetVirtualHubConnectionRoutingArrayOutputWithContext(context.Context) GetVirtualHubConnectionRoutingArrayOutput
+}
+
+type GetVirtualHubConnectionRoutingArray []GetVirtualHubConnectionRoutingInput
+
+func (GetVirtualHubConnectionRoutingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (i GetVirtualHubConnectionRoutingArray) ToGetVirtualHubConnectionRoutingArrayOutput() GetVirtualHubConnectionRoutingArrayOutput {
+	return i.ToGetVirtualHubConnectionRoutingArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubConnectionRoutingArray) ToGetVirtualHubConnectionRoutingArrayOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubConnectionRoutingArrayOutput)
+}
+
+type GetVirtualHubConnectionRoutingOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubConnectionRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (o GetVirtualHubConnectionRoutingOutput) ToGetVirtualHubConnectionRoutingOutput() GetVirtualHubConnectionRoutingOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingOutput) ToGetVirtualHubConnectionRoutingOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingOutput {
+	return o
+}
+
+// The ID of the route table associated with this Virtual Hub connection.
+func (o GetVirtualHubConnectionRoutingOutput) AssociatedRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) string { return v.AssociatedRouteTableId }).(pulumi.StringOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o GetVirtualHubConnectionRoutingOutput) PropagatedRouteTables() GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) []GetVirtualHubConnectionRoutingPropagatedRouteTable {
+		return v.PropagatedRouteTables
+	}).(GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput)
+}
+
+// A `staticVnetRoute` block as defined below.
+func (o GetVirtualHubConnectionRoutingOutput) StaticVnetRoutes() GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) []GetVirtualHubConnectionRoutingStaticVnetRoute {
+		return v.StaticVnetRoutes
+	}).(GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput)
+}
+
+type GetVirtualHubConnectionRoutingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubConnectionRoutingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (o GetVirtualHubConnectionRoutingArrayOutput) ToGetVirtualHubConnectionRoutingArrayOutput() GetVirtualHubConnectionRoutingArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingArrayOutput) ToGetVirtualHubConnectionRoutingArrayOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingArrayOutput) Index(i pulumi.IntInput) GetVirtualHubConnectionRoutingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualHubConnectionRouting {
+		return vs[0].([]GetVirtualHubConnectionRouting)[vs[1].(int)]
+	}).(GetVirtualHubConnectionRoutingOutput)
+}
+
+type GetVirtualHubConnectionRoutingPropagatedRouteTable struct {
+	// The list of labels assigned to this route table.
+	Labels []string `pulumi:"labels"`
+	// A list of Route Table IDs associated with this Virtual Hub Connection.
+	RouteTableIds []string `pulumi:"routeTableIds"`
+}
+
+// GetVirtualHubConnectionRoutingPropagatedRouteTableInput is an input type that accepts GetVirtualHubConnectionRoutingPropagatedRouteTableArgs and GetVirtualHubConnectionRoutingPropagatedRouteTableOutput values.
+// You can construct a concrete instance of `GetVirtualHubConnectionRoutingPropagatedRouteTableInput` via:
+//
+//	GetVirtualHubConnectionRoutingPropagatedRouteTableArgs{...}
+type GetVirtualHubConnectionRoutingPropagatedRouteTableInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutput() GetVirtualHubConnectionRoutingPropagatedRouteTableOutput
+	ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(context.Context) GetVirtualHubConnectionRoutingPropagatedRouteTableOutput
+}
+
+type GetVirtualHubConnectionRoutingPropagatedRouteTableArgs struct {
+	// The list of labels assigned to this route table.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// A list of Route Table IDs associated with this Virtual Hub Connection.
+	RouteTableIds pulumi.StringArrayInput `pulumi:"routeTableIds"`
+}
+
+func (GetVirtualHubConnectionRoutingPropagatedRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i GetVirtualHubConnectionRoutingPropagatedRouteTableArgs) ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutput() GetVirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return i.ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubConnectionRoutingPropagatedRouteTableArgs) ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubConnectionRoutingPropagatedRouteTableOutput)
+}
+
+// GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput is an input type that accepts GetVirtualHubConnectionRoutingPropagatedRouteTableArray and GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput values.
+// You can construct a concrete instance of `GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput` via:
+//
+//	GetVirtualHubConnectionRoutingPropagatedRouteTableArray{ GetVirtualHubConnectionRoutingPropagatedRouteTableArgs{...} }
+type GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput() GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput
+	ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutputWithContext(context.Context) GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput
+}
+
+type GetVirtualHubConnectionRoutingPropagatedRouteTableArray []GetVirtualHubConnectionRoutingPropagatedRouteTableInput
+
+func (GetVirtualHubConnectionRoutingPropagatedRouteTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i GetVirtualHubConnectionRoutingPropagatedRouteTableArray) ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput() GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput {
+	return i.ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubConnectionRoutingPropagatedRouteTableArray) ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput)
+}
+
+type GetVirtualHubConnectionRoutingPropagatedRouteTableOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubConnectionRoutingPropagatedRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableOutput) ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutput() GetVirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableOutput) ToGetVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+// The list of labels assigned to this route table.
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRoutingPropagatedRouteTable) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// A list of Route Table IDs associated with this Virtual Hub Connection.
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRoutingPropagatedRouteTable) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+type GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput) ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput() GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput) ToGetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput) Index(i pulumi.IntInput) GetVirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualHubConnectionRoutingPropagatedRouteTable {
+		return vs[0].([]GetVirtualHubConnectionRoutingPropagatedRouteTable)[vs[1].(int)]
+	}).(GetVirtualHubConnectionRoutingPropagatedRouteTableOutput)
+}
+
+type GetVirtualHubConnectionRoutingStaticVnetRoute struct {
+	// A list of CIDR Ranges which is used as Address Prefixes.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// The name of the Connection which should be retrieved.
+	Name string `pulumi:"name"`
+	// The IP Address which is used for the Next Hop.
+	NextHopIpAddress string `pulumi:"nextHopIpAddress"`
+}
+
+// GetVirtualHubConnectionRoutingStaticVnetRouteInput is an input type that accepts GetVirtualHubConnectionRoutingStaticVnetRouteArgs and GetVirtualHubConnectionRoutingStaticVnetRouteOutput values.
+// You can construct a concrete instance of `GetVirtualHubConnectionRoutingStaticVnetRouteInput` via:
+//
+//	GetVirtualHubConnectionRoutingStaticVnetRouteArgs{...}
+type GetVirtualHubConnectionRoutingStaticVnetRouteInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubConnectionRoutingStaticVnetRouteOutput() GetVirtualHubConnectionRoutingStaticVnetRouteOutput
+	ToGetVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(context.Context) GetVirtualHubConnectionRoutingStaticVnetRouteOutput
+}
+
+type GetVirtualHubConnectionRoutingStaticVnetRouteArgs struct {
+	// A list of CIDR Ranges which is used as Address Prefixes.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+	// The name of the Connection which should be retrieved.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The IP Address which is used for the Next Hop.
+	NextHopIpAddress pulumi.StringInput `pulumi:"nextHopIpAddress"`
+}
+
+func (GetVirtualHubConnectionRoutingStaticVnetRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (i GetVirtualHubConnectionRoutingStaticVnetRouteArgs) ToGetVirtualHubConnectionRoutingStaticVnetRouteOutput() GetVirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return i.ToGetVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubConnectionRoutingStaticVnetRouteArgs) ToGetVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubConnectionRoutingStaticVnetRouteOutput)
+}
+
+// GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput is an input type that accepts GetVirtualHubConnectionRoutingStaticVnetRouteArray and GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput values.
+// You can construct a concrete instance of `GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput` via:
+//
+//	GetVirtualHubConnectionRoutingStaticVnetRouteArray{ GetVirtualHubConnectionRoutingStaticVnetRouteArgs{...} }
+type GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput() GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput
+	ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(context.Context) GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput
+}
+
+type GetVirtualHubConnectionRoutingStaticVnetRouteArray []GetVirtualHubConnectionRoutingStaticVnetRouteInput
+
+func (GetVirtualHubConnectionRoutingStaticVnetRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (i GetVirtualHubConnectionRoutingStaticVnetRouteArray) ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput() GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return i.ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubConnectionRoutingStaticVnetRouteArray) ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput)
+}
+
+type GetVirtualHubConnectionRoutingStaticVnetRouteOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubConnectionRoutingStaticVnetRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteOutput) ToGetVirtualHubConnectionRoutingStaticVnetRouteOutput() GetVirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteOutput) ToGetVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return o
+}
+
+// A list of CIDR Ranges which is used as Address Prefixes.
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRoutingStaticVnetRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Connection which should be retrieved.
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRoutingStaticVnetRoute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The IP Address which is used for the Next Hop.
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteOutput) NextHopIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRoutingStaticVnetRoute) string { return v.NextHopIpAddress }).(pulumi.StringOutput)
+}
+
+type GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput) ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput() GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput) ToGetVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(ctx context.Context) GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput) Index(i pulumi.IntInput) GetVirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualHubConnectionRoutingStaticVnetRoute {
+		return vs[0].([]GetVirtualHubConnectionRoutingStaticVnetRoute)[vs[1].(int)]
+	}).(GetVirtualHubConnectionRoutingStaticVnetRouteOutput)
+}
+
 type GetVirtualHubRouteTableRouteType struct {
 	// A list of destination addresses for this route.
 	Destinations []string `pulumi:"destinations"`
@@ -29645,6 +29985,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigArrayInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigCustomHeaderInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigCustomHeaderArrayInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubConnectionRoutingInput)(nil)).Elem(), GetVirtualHubConnectionRoutingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubConnectionRoutingArrayInput)(nil)).Elem(), GetVirtualHubConnectionRoutingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubConnectionRoutingPropagatedRouteTableInput)(nil)).Elem(), GetVirtualHubConnectionRoutingPropagatedRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput)(nil)).Elem(), GetVirtualHubConnectionRoutingPropagatedRouteTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubConnectionRoutingStaticVnetRouteInput)(nil)).Elem(), GetVirtualHubConnectionRoutingStaticVnetRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput)(nil)).Elem(), GetVirtualHubConnectionRoutingStaticVnetRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubRouteTableRouteTypeInput)(nil)).Elem(), GetVirtualHubRouteTableRouteTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubRouteTableRouteTypeArrayInput)(nil)).Elem(), GetVirtualHubRouteTableRouteTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkGatewayBgpSettingInput)(nil)).Elem(), GetVirtualNetworkGatewayBgpSettingArgs{})
@@ -30029,6 +30375,12 @@ func init() {
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubConnectionRoutingOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubConnectionRoutingArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubConnectionRoutingPropagatedRouteTableOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubConnectionRoutingStaticVnetRouteOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubConnectionRoutingStaticVnetRouteArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualHubRouteTableRouteTypeOutput{})
 	pulumi.RegisterOutputType(GetVirtualHubRouteTableRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingOutput{})

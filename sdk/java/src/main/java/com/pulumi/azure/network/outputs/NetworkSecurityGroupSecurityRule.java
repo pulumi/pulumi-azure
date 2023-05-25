@@ -24,7 +24,7 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private @Nullable String description;
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
      * 
      */
     private @Nullable String destinationAddressPrefix;
@@ -69,7 +69,7 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private String protocol;
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
      * 
      */
     private @Nullable String sourceAddressPrefix;
@@ -110,7 +110,7 @@ public final class NetworkSecurityGroupSecurityRule {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
      * 
      */
     public Optional<String> destinationAddressPrefix() {
@@ -173,7 +173,7 @@ public final class NetworkSecurityGroupSecurityRule {
         return this.protocol;
     }
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
      * 
      */
     public Optional<String> sourceAddressPrefix() {

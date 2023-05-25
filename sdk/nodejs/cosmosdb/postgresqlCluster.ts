@@ -80,6 +80,8 @@ export class PostgresqlCluster extends pulumi.CustomResource {
     public readonly coordinatorServerEdition!: pulumi.Output<string | undefined>;
     /**
      * The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+     *
+     * > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
     public readonly coordinatorStorageQuotaInMb!: pulumi.Output<number>;
     /**
@@ -267,6 +269,8 @@ export interface PostgresqlClusterState {
     coordinatorServerEdition?: pulumi.Input<string>;
     /**
      * The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+     *
+     * > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
     coordinatorStorageQuotaInMb?: pulumi.Input<number>;
     /**
@@ -369,6 +373,8 @@ export interface PostgresqlClusterArgs {
     coordinatorServerEdition?: pulumi.Input<string>;
     /**
      * The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+     *
+     * > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
     coordinatorStorageQuotaInMb: pulumi.Input<number>;
     /**

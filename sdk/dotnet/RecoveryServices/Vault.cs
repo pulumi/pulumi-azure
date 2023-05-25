@@ -90,6 +90,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `monitoring` block as defined below.
+        /// </summary>
+        [Output("monitoring")]
+        public Output<Outputs.VaultMonitoring?> Monitoring { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -218,6 +224,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `monitoring` block as defined below.
+        /// </summary>
+        [Input("monitoring")]
+        public Input<Inputs.VaultMonitoringArgs>? Monitoring { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -312,6 +324,12 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `monitoring` block as defined below.
+        /// </summary>
+        [Input("monitoring")]
+        public Input<Inputs.VaultMonitoringGetArgs>? Monitoring { get; set; }
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.

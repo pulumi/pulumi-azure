@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### With Managed Disks (Recommended)
- * 
  * ```java
  * package generated_program;
  * 
@@ -117,7 +116,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bpepool = new BackendAddressPool(&#34;bpepool&#34;, BackendAddressPoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .build());
  * 
@@ -132,7 +130,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleProbe = new Probe(&#34;exampleProbe&#34;, ProbeArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .protocol(&#34;Http&#34;)
  *             .requestPath(&#34;/health&#34;)
@@ -159,7 +156,7 @@ import javax.annotation.Nullable;
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
  *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .sku(&#34;20.04-LTS&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
@@ -311,7 +308,7 @@ import javax.annotation.Nullable;
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
  *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .sku(&#34;20.04-LTS&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());

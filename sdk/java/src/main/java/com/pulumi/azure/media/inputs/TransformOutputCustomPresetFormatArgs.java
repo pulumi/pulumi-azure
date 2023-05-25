@@ -3,7 +3,9 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatJpgArgs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatMp4Args;
+import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatPngArgs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatTransportStreamArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -15,6 +17,21 @@ import javax.annotation.Nullable;
 public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TransformOutputCustomPresetFormatArgs Empty = new TransformOutputCustomPresetFormatArgs();
+
+    /**
+     * A `jpg` block as defined below.
+     * 
+     */
+    @Import(name="jpg")
+    private @Nullable Output<TransformOutputCustomPresetFormatJpgArgs> jpg;
+
+    /**
+     * @return A `jpg` block as defined below.
+     * 
+     */
+    public Optional<Output<TransformOutputCustomPresetFormatJpgArgs>> jpg() {
+        return Optional.ofNullable(this.jpg);
+    }
 
     /**
      * A `mp4` block as defined below.
@@ -32,9 +49,24 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
     }
 
     /**
+     * A `png` block as defined below.
+     * 
+     */
+    @Import(name="png")
+    private @Nullable Output<TransformOutputCustomPresetFormatPngArgs> png;
+
+    /**
+     * @return A `png` block as defined below.
+     * 
+     */
+    public Optional<Output<TransformOutputCustomPresetFormatPngArgs>> png() {
+        return Optional.ofNullable(this.png);
+    }
+
+    /**
      * A `transport_stream` block as defined below.
      * 
-     * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+     * &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
      * 
      */
     @Import(name="transportStream")
@@ -43,7 +75,7 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
     /**
      * @return A `transport_stream` block as defined below.
      * 
-     * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+     * &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
      * 
      */
     public Optional<Output<TransformOutputCustomPresetFormatTransportStreamArgs>> transportStream() {
@@ -53,7 +85,9 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
     private TransformOutputCustomPresetFormatArgs() {}
 
     private TransformOutputCustomPresetFormatArgs(TransformOutputCustomPresetFormatArgs $) {
+        this.jpg = $.jpg;
         this.mp4 = $.mp4;
+        this.png = $.png;
         this.transportStream = $.transportStream;
     }
 
@@ -73,6 +107,27 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
 
         public Builder(TransformOutputCustomPresetFormatArgs defaults) {
             $ = new TransformOutputCustomPresetFormatArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param jpg A `jpg` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jpg(@Nullable Output<TransformOutputCustomPresetFormatJpgArgs> jpg) {
+            $.jpg = jpg;
+            return this;
+        }
+
+        /**
+         * @param jpg A `jpg` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jpg(TransformOutputCustomPresetFormatJpgArgs jpg) {
+            return jpg(Output.of(jpg));
         }
 
         /**
@@ -97,9 +152,30 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
         }
 
         /**
+         * @param png A `png` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder png(@Nullable Output<TransformOutputCustomPresetFormatPngArgs> png) {
+            $.png = png;
+            return this;
+        }
+
+        /**
+         * @param png A `png` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder png(TransformOutputCustomPresetFormatPngArgs png) {
+            return png(Output.of(png));
+        }
+
+        /**
          * @param transportStream A `transport_stream` block as defined below.
          * 
-         * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+         * &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
          * 
          * @return builder
          * 
@@ -112,7 +188,7 @@ public final class TransformOutputCustomPresetFormatArgs extends com.pulumi.reso
         /**
          * @param transportStream A `transport_stream` block as defined below.
          * 
-         * &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+         * &gt; **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
          * 
          * @return builder
          * 

@@ -13,11 +13,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class HBaseClusterRolesWorkerNodeAutoscale
     {
-        /// <summary>
-        /// A `recurrence` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
-        /// </summary>
         public readonly Outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence? Recurrence;
 
         [OutputConstructor]

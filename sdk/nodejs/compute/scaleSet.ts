@@ -10,6 +10,119 @@ import * as utilities from "../utilities";
  * Manages a virtual machine scale set.
  *
  * ## Example Usage
+ * ### With Managed Disks (Recommended)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     domainNameLabel: exampleResourceGroup.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     frontendIpConfigurations: [{
+ *         name: "PublicIPAddress",
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const bpepool = new azure.lb.BackendAddressPool("bpepool", {loadbalancerId: exampleLoadBalancer.id});
+ * const lbnatpool = new azure.lb.NatPool("lbnatpool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     protocol: "Tcp",
+ *     frontendPortStart: 50000,
+ *     frontendPortEnd: 50119,
+ *     backendPort: 22,
+ *     frontendIpConfigurationName: "PublicIPAddress",
+ * });
+ * const exampleProbe = new azure.lb.Probe("exampleProbe", {
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     protocol: "Http",
+ *     requestPath: "/health",
+ *     port: 8080,
+ * });
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automaticOsUpgrade: true,
+ *     upgradePolicyMode: "Rolling",
+ *     rollingUpgradePolicy: {
+ *         maxBatchInstancePercent: 20,
+ *         maxUnhealthyInstancePercent: 20,
+ *         maxUnhealthyUpgradedInstancePercent: 5,
+ *         pauseTimeBetweenBatches: "PT0S",
+ *     },
+ *     healthProbeId: exampleProbe.id,
+ *     sku: {
+ *         name: "Standard_F2",
+ *         tier: "Standard",
+ *         capacity: 2,
+ *     },
+ *     storageProfileImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "20.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageProfileOsDisk: {
+ *         name: "",
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *     },
+ *     storageProfileDataDisks: [{
+ *         lun: 0,
+ *         caching: "ReadWrite",
+ *         createOption: "Empty",
+ *         diskSizeGb: 10,
+ *     }],
+ *     osProfile: {
+ *         computerNamePrefix: "testvm",
+ *         adminUsername: "myadmin",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: true,
+ *         sshKeys: [{
+ *             path: "/home/myadmin/.ssh/authorized_keys",
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
+ *         }],
+ *     },
+ *     networkProfiles: [{
+ *         name: "mynetworkprofile",
+ *         primary: true,
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *             loadBalancerBackendAddressPoolIds: [bpepool.id],
+ *             loadBalancerInboundNatRulesIds: [lbnatpool.id],
+ *         }],
+ *     }],
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
  * ### With Unmanaged Disks
  *
  * ```typescript
@@ -79,7 +192,7 @@ import * as utilities from "../utilities";
  *     storageProfileImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
- *         sku: "16.04-LTS",
+ *         sku: "20.04-LTS",
  *         version: "latest",
  *     },
  * });

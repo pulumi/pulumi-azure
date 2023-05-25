@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Batch.Inputs
 
     public sealed class GetAccountEncryptionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The full URL path of the Key Vault Key used to encrypt data for this Batch account.
+        /// </summary>
         [Input("keyVaultKeyId", required: true)]
         public string KeyVaultKeyId { get; set; } = null!;
 

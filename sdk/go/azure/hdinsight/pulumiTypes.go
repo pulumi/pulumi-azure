@@ -2382,7 +2382,6 @@ func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInpu
 }
 
 type HBaseClusterRolesWorkerNode struct {
-	// A `autoscale` block as defined below.
 	Autoscale *HBaseClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -2418,7 +2417,6 @@ type HBaseClusterRolesWorkerNodeInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeArgs struct {
-	// A `autoscale` block as defined below.
 	Autoscale HBaseClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -2519,7 +2517,6 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutpu
 	}).(HBaseClusterRolesWorkerNodePtrOutput)
 }
 
-// A `autoscale` block as defined below.
 func (o HBaseClusterRolesWorkerNodeOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale { return v.Autoscale }).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
@@ -2592,7 +2589,6 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNode
 	}).(HBaseClusterRolesWorkerNodeOutput)
 }
 
-// A `autoscale` block as defined below.
 func (o HBaseClusterRolesWorkerNodePtrOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale {
 		if v == nil {
@@ -2687,9 +2683,6 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscale struct {
-	// A `recurrence` block as defined below.
-	//
-	// > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
 	Recurrence *HBaseClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
 
@@ -2705,9 +2698,6 @@ type HBaseClusterRolesWorkerNodeAutoscaleInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleArgs struct {
-	// A `recurrence` block as defined below.
-	//
-	// > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
 	Recurrence HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -2788,9 +2778,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNod
 	}).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-// A `recurrence` block as defined below.
-//
-// > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
 func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		return v.Recurrence
@@ -2821,9 +2808,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HBaseClusterRolesW
 	}).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-// A `recurrence` block as defined below.
-//
-// > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
 func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		if v == nil {
@@ -2834,10 +2818,8 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HBaseCluster
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrence struct {
-	// A list of `schedule` blocks as defined below.
 	Schedules []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule `pulumi:"schedules"`
-	// The time zone for the autoscale schedule times.
-	Timezone string `pulumi:"timezone"`
+	Timezone  string                                                   `pulumi:"timezone"`
 }
 
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
@@ -2852,10 +2834,8 @@ type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs struct {
-	// A list of `schedule` blocks as defined below.
 	Schedules HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput `pulumi:"schedules"`
-	// The time zone for the autoscale schedule times.
-	Timezone pulumi.StringInput `pulumi:"timezone"`
+	Timezone  pulumi.StringInput                                               `pulumi:"timezone"`
 }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ElementType() reflect.Type {
@@ -2935,14 +2915,12 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRole
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
 
-// A list of `schedule` blocks as defined below.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Schedules() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
 		return v.Schedules
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
-// The time zone for the autoscale schedule times.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
 }
@@ -2971,7 +2949,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HBaseClu
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
-// A list of `schedule` blocks as defined below.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
 		if v == nil {
@@ -2981,7 +2958,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() HBa
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
-// The time zone for the autoscale schedule times.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *string {
 		if v == nil {
@@ -2992,12 +2968,10 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulu
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
-	// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	Days []string `pulumi:"days"`
-	// The number of worker nodes to autoscale at the specified time.
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	// The time of day to perform the autoscale in 24hour format.
-	Time string `pulumi:"time"`
+	// The number of instances which should be run for the Worker Nodes.
+	TargetInstanceCount int    `pulumi:"targetInstanceCount"`
+	Time                string `pulumi:"time"`
 }
 
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
@@ -3012,12 +2986,10 @@ type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs struct {
-	// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	Days pulumi.StringArrayInput `pulumi:"days"`
-	// The number of worker nodes to autoscale at the specified time.
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	// The time of day to perform the autoscale in 24hour format.
-	Time pulumi.StringInput `pulumi:"time"`
+	// The number of instances which should be run for the Worker Nodes.
+	TargetInstanceCount pulumi.IntInput    `pulumi:"targetInstanceCount"`
+	Time                pulumi.StringInput `pulumi:"time"`
 }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ElementType() reflect.Type {
@@ -3071,17 +3043,15 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHBaseClu
 	return o
 }
 
-// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
-// The number of worker nodes to autoscale at the specified time.
+// The number of instances which should be run for the Worker Nodes.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) TargetInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
-// The time of day to perform the autoscale in 24hour format.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) string { return v.Time }).(pulumi.StringOutput)
 }

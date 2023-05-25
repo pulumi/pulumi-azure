@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HBaseClusterRolesWorkerNode {
-    /**
-     * @return A `autoscale` block as defined below.
-     * 
-     */
     private @Nullable HBaseClusterRolesWorkerNodeAutoscale autoscale;
     /**
      * @return The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -66,10 +62,6 @@ public final class HBaseClusterRolesWorkerNode {
     private String vmSize;
 
     private HBaseClusterRolesWorkerNode() {}
-    /**
-     * @return A `autoscale` block as defined below.
-     * 
-     */
     public Optional<HBaseClusterRolesWorkerNodeAutoscale> autoscale() {
         return Optional.ofNullable(this.autoscale);
     }

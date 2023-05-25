@@ -406,17 +406,17 @@ class FlowletDataFlow(pulumi.CustomResource):
             ),
             encoding="UTF-8")
         example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
-            data_factory_id=azurerm_data_factory["test"]["id"],
+            data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
                 linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
                 name="sink1",
                 linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             script=\"\"\"source(
@@ -432,17 +432,17 @@ class FlowletDataFlow(pulumi.CustomResource):
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
-            data_factory_id=azurerm_data_factory["test"]["id"],
+            data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
                 linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
                 name="sink1",
                 linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             script=\"\"\"source(
@@ -465,7 +465,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                     name=example1_flowlet_data_flow.name,
                 ),
                 linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
@@ -474,7 +474,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                     name=example2_flowlet_data_flow.name,
                 ),
                 linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             script=\"\"\"source(
@@ -562,17 +562,17 @@ class FlowletDataFlow(pulumi.CustomResource):
             ),
             encoding="UTF-8")
         example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
-            data_factory_id=azurerm_data_factory["test"]["id"],
+            data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
                 linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
                 name="sink1",
                 linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             script=\"\"\"source(
@@ -588,17 +588,17 @@ class FlowletDataFlow(pulumi.CustomResource):
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
-            data_factory_id=azurerm_data_factory["test"]["id"],
+            data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
                 linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
                 name="sink1",
                 linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             script=\"\"\"source(
@@ -621,7 +621,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                     name=example1_flowlet_data_flow.name,
                 ),
                 linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
@@ -630,7 +630,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                     name=example2_flowlet_data_flow.name,
                 ),
                 linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=example_linked_custom_service.name,
                 ),
             )],
             script=\"\"\"source(

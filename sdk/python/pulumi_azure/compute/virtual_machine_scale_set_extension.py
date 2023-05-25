@@ -543,6 +543,12 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             sku="Standard_F2",
             admin_username="adminuser",
             instances=1,
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="20.04-LTS",
+                version="latest",
+            ),
             network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
                 name="example",
                 ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
@@ -628,6 +634,12 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             sku="Standard_F2",
             admin_username="adminuser",
             instances=1,
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="20.04-LTS",
+                version="latest",
+            ),
             network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
                 name="example",
                 ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(

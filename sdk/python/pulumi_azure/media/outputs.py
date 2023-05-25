@@ -81,6 +81,10 @@ __all__ = [
     'TransformOutputCustomPresetCodecH264VideoLayer',
     'TransformOutputCustomPresetCodecH265Video',
     'TransformOutputCustomPresetCodecH265VideoLayer',
+    'TransformOutputCustomPresetCodecJpgImage',
+    'TransformOutputCustomPresetCodecJpgImageLayer',
+    'TransformOutputCustomPresetCodecPngImage',
+    'TransformOutputCustomPresetCodecPngImageLayer',
     'TransformOutputCustomPresetFilter',
     'TransformOutputCustomPresetFilterCropRectangle',
     'TransformOutputCustomPresetFilterDeinterlace',
@@ -92,8 +96,10 @@ __all__ = [
     'TransformOutputCustomPresetFilterOverlayVideoCropRectangle',
     'TransformOutputCustomPresetFilterOverlayVideoPosition',
     'TransformOutputCustomPresetFormat',
+    'TransformOutputCustomPresetFormatJpg',
     'TransformOutputCustomPresetFormatMp4',
     'TransformOutputCustomPresetFormatMp4OutputFile',
+    'TransformOutputCustomPresetFormatPng',
     'TransformOutputCustomPresetFormatTransportStream',
     'TransformOutputCustomPresetFormatTransportStreamOutputFile',
     'TransformOutputFaceDetectorPreset',
@@ -4150,6 +4156,10 @@ class TransformOutputCustomPresetCodec(dict):
             suggest = "h264_video"
         elif key == "h265Video":
             suggest = "h265_video"
+        elif key == "jpgImage":
+            suggest = "jpg_image"
+        elif key == "pngImage":
+            suggest = "png_image"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodec. Access the value via the '{suggest}' property getter instead.")
@@ -4168,7 +4178,9 @@ class TransformOutputCustomPresetCodec(dict):
                  copy_video: Optional['outputs.TransformOutputCustomPresetCodecCopyVideo'] = None,
                  dd_audio: Optional['outputs.TransformOutputCustomPresetCodecDdAudio'] = None,
                  h264_video: Optional['outputs.TransformOutputCustomPresetCodecH264Video'] = None,
-                 h265_video: Optional['outputs.TransformOutputCustomPresetCodecH265Video'] = None):
+                 h265_video: Optional['outputs.TransformOutputCustomPresetCodecH265Video'] = None,
+                 jpg_image: Optional['outputs.TransformOutputCustomPresetCodecJpgImage'] = None,
+                 png_image: Optional['outputs.TransformOutputCustomPresetCodecPngImage'] = None):
         """
         :param 'TransformOutputCustomPresetCodecAacAudioArgs' aac_audio: A `aac_audio` block as defined above.
         :param 'TransformOutputCustomPresetCodecCopyAudioArgs' copy_audio: A `copy_audio` block as defined below.
@@ -4176,8 +4188,10 @@ class TransformOutputCustomPresetCodec(dict):
         :param 'TransformOutputCustomPresetCodecDdAudioArgs' dd_audio: A `dd_audio` block as defined below.
         :param 'TransformOutputCustomPresetCodecH264VideoArgs' h264_video: A `h264_video` block as defined below.
         :param 'TransformOutputCustomPresetCodecH265VideoArgs' h265_video: A `h265_video` block as defined below.
+        :param 'TransformOutputCustomPresetCodecJpgImageArgs' jpg_image: A `jpg_image` block as defined below.
+        :param 'TransformOutputCustomPresetCodecPngImageArgs' png_image: A `png_image` block as defined below.
                
-               > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
+               > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
         """
         if aac_audio is not None:
             pulumi.set(__self__, "aac_audio", aac_audio)
@@ -4191,6 +4205,10 @@ class TransformOutputCustomPresetCodec(dict):
             pulumi.set(__self__, "h264_video", h264_video)
         if h265_video is not None:
             pulumi.set(__self__, "h265_video", h265_video)
+        if jpg_image is not None:
+            pulumi.set(__self__, "jpg_image", jpg_image)
+        if png_image is not None:
+            pulumi.set(__self__, "png_image", png_image)
 
     @property
     @pulumi.getter(name="aacAudio")
@@ -4237,10 +4255,26 @@ class TransformOutputCustomPresetCodec(dict):
     def h265_video(self) -> Optional['outputs.TransformOutputCustomPresetCodecH265Video']:
         """
         A `h265_video` block as defined below.
-
-        > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video` or `h265_video`. If you need to apply different codec you must create one codec for each one.
         """
         return pulumi.get(self, "h265_video")
+
+    @property
+    @pulumi.getter(name="jpgImage")
+    def jpg_image(self) -> Optional['outputs.TransformOutputCustomPresetCodecJpgImage']:
+        """
+        A `jpg_image` block as defined below.
+        """
+        return pulumi.get(self, "jpg_image")
+
+    @property
+    @pulumi.getter(name="pngImage")
+    def png_image(self) -> Optional['outputs.TransformOutputCustomPresetCodecPngImage']:
+        """
+        A `png_image` block as defined below.
+
+        > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+        """
+        return pulumi.get(self, "png_image")
 
 
 @pulumi.output_type
@@ -5096,6 +5130,364 @@ class TransformOutputCustomPresetCodecH265VideoLayer(dict):
 
 
 @pulumi.output_type
+class TransformOutputCustomPresetCodecJpgImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "spriteColumn":
+            suggest = "sprite_column"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+        elif key == "syncMode":
+            suggest = "sync_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecJpgImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecJpgImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecJpgImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start: str,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.TransformOutputCustomPresetCodecJpgImageLayer']] = None,
+                 range: Optional[str] = None,
+                 sprite_column: Optional[int] = None,
+                 step: Optional[str] = None,
+                 stretch_mode: Optional[str] = None,
+                 sync_mode: Optional[str] = None):
+        """
+        :param str start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['TransformOutputCustomPresetCodecJpgImageLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param str range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        :param int sprite_column: Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+        :param str step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        :param str stretch_mode: The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        :param str sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        pulumi.set(__self__, "start", start)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if sprite_column is not None:
+            pulumi.set(__self__, "sprite_column", sprite_column)
+        if step is not None:
+            pulumi.set(__self__, "step", step)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetCodecJpgImageLayer']]:
+        """
+        One or more `layer` blocks as defined below.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional[str]:
+        """
+        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter(name="spriteColumn")
+    def sprite_column(self) -> Optional[int]:
+        """
+        Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+        """
+        return pulumi.get(self, "sprite_column")
+
+    @property
+    @pulumi.getter
+    def step(self) -> Optional[str]:
+        """
+        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        """
+        return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[str]:
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        return pulumi.get(self, "sync_mode")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecJpgImageLayer(dict):
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 quality: Optional[int] = None,
+                 width: Optional[str] = None):
+        """
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param int quality: The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if quality is not None:
+            pulumi.set(__self__, "quality", quality)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def quality(self) -> Optional[int]:
+        """
+        The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+        """
+        return pulumi.get(self, "quality")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecPngImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+        elif key == "syncMode":
+            suggest = "sync_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecPngImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecPngImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecPngImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start: str,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.TransformOutputCustomPresetCodecPngImageLayer']] = None,
+                 range: Optional[str] = None,
+                 step: Optional[str] = None,
+                 stretch_mode: Optional[str] = None,
+                 sync_mode: Optional[str] = None):
+        """
+        :param str start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['TransformOutputCustomPresetCodecPngImageLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param str range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        :param str step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        :param str stretch_mode: The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        :param str sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        pulumi.set(__self__, "start", start)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if step is not None:
+            pulumi.set(__self__, "step", step)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetCodecPngImageLayer']]:
+        """
+        One or more `layer` blocks as defined below.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional[str]:
+        """
+        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def step(self) -> Optional[str]:
+        """
+        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        """
+        return pulumi.get(self, "step")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[str]:
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        return pulumi.get(self, "sync_mode")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecPngImageLayer(dict):
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
 class TransformOutputCustomPresetFilter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5802,18 +6194,34 @@ class TransformOutputCustomPresetFormat(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 jpg: Optional['outputs.TransformOutputCustomPresetFormatJpg'] = None,
                  mp4: Optional['outputs.TransformOutputCustomPresetFormatMp4'] = None,
+                 png: Optional['outputs.TransformOutputCustomPresetFormatPng'] = None,
                  transport_stream: Optional['outputs.TransformOutputCustomPresetFormatTransportStream'] = None):
         """
+        :param 'TransformOutputCustomPresetFormatJpgArgs' jpg: A `jpg` block as defined below.
         :param 'TransformOutputCustomPresetFormatMp4Args' mp4: A `mp4` block as defined below.
+        :param 'TransformOutputCustomPresetFormatPngArgs' png: A `png` block as defined below.
         :param 'TransformOutputCustomPresetFormatTransportStreamArgs' transport_stream: A `transport_stream` block as defined below.
                
-               > **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+               > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
         """
+        if jpg is not None:
+            pulumi.set(__self__, "jpg", jpg)
         if mp4 is not None:
             pulumi.set(__self__, "mp4", mp4)
+        if png is not None:
+            pulumi.set(__self__, "png", png)
         if transport_stream is not None:
             pulumi.set(__self__, "transport_stream", transport_stream)
+
+    @property
+    @pulumi.getter
+    def jpg(self) -> Optional['outputs.TransformOutputCustomPresetFormatJpg']:
+        """
+        A `jpg` block as defined below.
+        """
+        return pulumi.get(self, "jpg")
 
     @property
     @pulumi.getter
@@ -5824,14 +6232,57 @@ class TransformOutputCustomPresetFormat(dict):
         return pulumi.get(self, "mp4")
 
     @property
+    @pulumi.getter
+    def png(self) -> Optional['outputs.TransformOutputCustomPresetFormatPng']:
+        """
+        A `png` block as defined below.
+        """
+        return pulumi.get(self, "png")
+
+    @property
     @pulumi.getter(name="transportStream")
     def transport_stream(self) -> Optional['outputs.TransformOutputCustomPresetFormatTransportStream']:
         """
         A `transport_stream` block as defined below.
 
-        > **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
+        > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
         """
         return pulumi.get(self, "transport_stream")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormatJpg(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filenamePattern":
+            suggest = "filename_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFormatJpg. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFormatJpg.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFormatJpg.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filename_pattern: str):
+        """
+        :param str filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        pulumi.set(__self__, "filename_pattern", filename_pattern)
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> str:
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
 
 
 @pulumi.output_type
@@ -5899,6 +6350,41 @@ class TransformOutputCustomPresetFormatMp4OutputFile(dict):
         The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
         """
         return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormatPng(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filenamePattern":
+            suggest = "filename_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFormatPng. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFormatPng.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFormatPng.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filename_pattern: str):
+        """
+        :param str filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        pulumi.set(__self__, "filename_pattern", filename_pattern)
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> str:
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
 
 
 @pulumi.output_type

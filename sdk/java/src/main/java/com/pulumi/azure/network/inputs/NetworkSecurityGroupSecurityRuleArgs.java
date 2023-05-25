@@ -48,14 +48,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
      * 
      */
     @Import(name="destinationAddressPrefix")
     private @Nullable Output<String> destinationAddressPrefix;
 
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
      * 
      */
     public Optional<Output<String>> destinationAddressPrefix() {
@@ -183,14 +183,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
      * 
      */
     @Import(name="sourceAddressPrefix")
     private @Nullable Output<String> sourceAddressPrefix;
 
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
      * 
      */
     public Optional<Output<String>> sourceAddressPrefix() {
@@ -339,7 +339,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
          * 
          * @return builder
          * 

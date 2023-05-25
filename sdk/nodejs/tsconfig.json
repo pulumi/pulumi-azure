@@ -1053,6 +1053,7 @@
         "network/getTrafficManager.ts",
         "network/getTrafficManagerProfile.ts",
         "network/getVirtualHub.ts",
+        "network/getVirtualHubConnection.ts",
         "network/getVirtualHubRouteTable.ts",
         "network/getVirtualNetwork.ts",
         "network/getVirtualNetworkGateway.ts",

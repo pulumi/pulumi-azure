@@ -14,10 +14,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
     {
         [Input("days", required: true)]
         private InputList<string>? _days;
-
-        /// <summary>
-        /// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-        /// </summary>
         public InputList<string> Days
         {
             get => _days ?? (_days = new InputList<string>());
@@ -25,14 +21,11 @@ namespace Pulumi.Azure.HDInsight.Inputs
         }
 
         /// <summary>
-        /// The number of worker nodes to autoscale at the specified time.
+        /// The number of instances which should be run for the Worker Nodes.
         /// </summary>
         [Input("targetInstanceCount", required: true)]
         public Input<int> TargetInstanceCount { get; set; } = null!;
 
-        /// <summary>
-        /// The time of day to perform the autoscale in 24hour format.
-        /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
 

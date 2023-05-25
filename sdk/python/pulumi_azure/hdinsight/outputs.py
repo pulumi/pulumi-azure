@@ -984,7 +984,6 @@ class HBaseClusterRolesWorkerNode(dict):
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
-        :param 'HBaseClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
@@ -1038,9 +1037,6 @@ class HBaseClusterRolesWorkerNode(dict):
     @property
     @pulumi.getter
     def autoscale(self) -> Optional['outputs.HBaseClusterRolesWorkerNodeAutoscale']:
-        """
-        A `autoscale` block as defined below.
-        """
         return pulumi.get(self, "autoscale")
 
     @property
@@ -1092,22 +1088,12 @@ class HBaseClusterRolesWorkerNode(dict):
 class HBaseClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
-        """
-        :param 'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
-               
-               > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
-        """
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
 
     @property
     @pulumi.getter
     def recurrence(self) -> Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence']:
-        """
-        A `recurrence` block as defined below.
-
-        > **NOTE:** Capacity based autoscaling isn't supported to HBase clusters.
-        """
         return pulumi.get(self, "recurrence")
 
 
@@ -1116,27 +1102,17 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
-        """
-        :param Sequence['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
-        :param str timezone: The time zone for the autoscale schedule times.
-        """
         pulumi.set(__self__, "schedules", schedules)
         pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
     def schedules(self) -> Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule']:
-        """
-        A list of `schedule` blocks as defined below.
-        """
         return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter
     def timezone(self) -> str:
-        """
-        The time zone for the autoscale schedule times.
-        """
         return pulumi.get(self, "timezone")
 
 
@@ -1164,9 +1140,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
                  target_instance_count: int,
                  time: str):
         """
-        :param Sequence[str] days: The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-        :param int target_instance_count: The number of worker nodes to autoscale at the specified time.
-        :param str time: The time of day to perform the autoscale in 24hour format.
+        :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -1175,25 +1149,19 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
     @property
     @pulumi.getter
     def days(self) -> Sequence[str]:
-        """
-        The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter(name="targetInstanceCount")
     def target_instance_count(self) -> int:
         """
-        The number of worker nodes to autoscale at the specified time.
+        The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @property
     @pulumi.getter
     def time(self) -> str:
-        """
-        The time of day to perform the autoscale in 24hour format.
-        """
         return pulumi.get(self, "time")
 
 

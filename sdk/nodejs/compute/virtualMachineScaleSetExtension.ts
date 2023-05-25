@@ -24,6 +24,12 @@ import * as utilities from "../utilities";
  *     sku: "Standard_F2",
  *     adminUsername: "adminuser",
  *     instances: 1,
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "20.04-LTS",
+ *         version: "latest",
+ *     },
  *     networkInterfaces: [{
  *         name: "example",
  *         ipConfigurations: [{

@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
  * import com.pulumi.azure.compute.VirtualMachineScaleSetExtension;
@@ -61,6 +62,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard_F2&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .instances(1)
+ *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
+ *                 .publisher(&#34;Canonical&#34;)
+ *                 .offer(&#34;UbuntuServer&#34;)
+ *                 .sku(&#34;20.04-LTS&#34;)
+ *                 .version(&#34;latest&#34;)
+ *                 .build())
  *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
  *                 .name(&#34;example&#34;)
  *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()

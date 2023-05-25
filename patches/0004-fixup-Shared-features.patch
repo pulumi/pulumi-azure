@@ -1,7 +1,7 @@
-From 95404594882628046f47a86ebffd8576effc1da1 Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:28:33 -0700
-Subject: [PATCH 4/8] fixup! Shared features
+From fe3e403e251de0b933fd7d9d2706c0f6353c288d Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:38 -0700
+Subject: [PATCH 4/8] fixup-Shared-features
 
 ---
  internal/tf/suppress/deprecated_soon.go | 6 ++++++
@@ -22,5 +22,5 @@ index 942454b4c8..d71e131240 100644
 +	return strings.EqualFold(old, new)
 +}
 -- 
-2.40.1
+2.39.1
 

@@ -11,41 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
-    /**
-     * @return The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-     * 
-     */
     private List<String> days;
     /**
-     * @return The number of worker nodes to autoscale at the specified time.
+     * @return The number of instances which should be run for the Worker Nodes.
      * 
      */
     private Integer targetInstanceCount;
-    /**
-     * @return The time of day to perform the autoscale in 24hour format.
-     * 
-     */
     private String time;
 
     private HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule() {}
-    /**
-     * @return The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-     * 
-     */
     public List<String> days() {
         return this.days;
     }
     /**
-     * @return The number of worker nodes to autoscale at the specified time.
+     * @return The number of instances which should be run for the Worker Nodes.
      * 
      */
     public Integer targetInstanceCount() {
         return this.targetInstanceCount;
     }
-    /**
-     * @return The time of day to perform the autoscale in 24hour format.
-     * 
-     */
     public String time() {
         return this.time;
     }

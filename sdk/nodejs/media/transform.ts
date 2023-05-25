@@ -212,8 +212,43 @@ import * as utilities from "../utilities";
  *                             }],
  *                         },
  *                     },
+ *                     {
+ *                         jpgImage: {
+ *                             stretchMode: "AutoSize",
+ *                             syncMode: "Auto",
+ *                             start: "10",
+ *                             range: "100%%",
+ *                             spriteColumn: 1,
+ *                             step: "10",
+ *                             layers: [{
+ *                                 quality: 70,
+ *                                 height: "180",
+ *                                 label: "test",
+ *                                 width: "120",
+ *                             }],
+ *                         },
+ *                     },
+ *                     {
+ *                         pngImage: {
+ *                             stretchMode: "AutoSize",
+ *                             syncMode: "Auto",
+ *                             start: "{Best}",
+ *                             range: "80",
+ *                             step: "10",
+ *                             layers: [{
+ *                                 height: "180",
+ *                                 label: "test",
+ *                                 width: "120",
+ *                             }],
+ *                         },
+ *                     },
  *                 ],
  *                 formats: [
+ *                     {
+ *                         jpg: {
+ *                             filenamePattern: "test{Basename}",
+ *                         },
+ *                     },
  *                     {
  *                         mp4: {
  *                             filenamePattern: "test{Bitrate}",
@@ -223,6 +258,11 @@ import * as utilities from "../utilities";
  *                                     "ppe",
  *                                 ],
  *                             }],
+ *                         },
+ *                     },
+ *                     {
+ *                         png: {
+ *                             filenamePattern: "test{Basename}",
  *                         },
  *                     },
  *                     {

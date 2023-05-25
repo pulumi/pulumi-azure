@@ -19,17 +19,9 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
 
     public static final HBaseClusterRolesWorkerNodeArgs Empty = new HBaseClusterRolesWorkerNodeArgs();
 
-    /**
-     * A `autoscale` block as defined below.
-     * 
-     */
     @Import(name="autoscale")
     private @Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleArgs> autoscale;
 
-    /**
-     * @return A `autoscale` block as defined below.
-     * 
-     */
     public Optional<Output<HBaseClusterRolesWorkerNodeAutoscaleArgs>> autoscale() {
         return Optional.ofNullable(this.autoscale);
     }
@@ -194,23 +186,11 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
             $ = new HBaseClusterRolesWorkerNodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoscale A `autoscale` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscale(@Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleArgs> autoscale) {
             $.autoscale = autoscale;
             return this;
         }
 
-        /**
-         * @param autoscale A `autoscale` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscale(HBaseClusterRolesWorkerNodeAutoscaleArgs autoscale) {
             return autoscale(Output.of(autoscale));
         }

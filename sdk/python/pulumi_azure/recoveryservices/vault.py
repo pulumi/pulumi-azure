@@ -24,6 +24,7 @@ class VaultArgs:
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
@@ -43,6 +44,7 @@ class VaultArgs:
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
@@ -63,6 +65,8 @@ class VaultArgs:
             pulumi.set(__self__, "immutability", immutability)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -176,6 +180,18 @@ class VaultArgs:
 
     @property
     @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArgs']]:
+        """
+        A `monitoring` block as defined below.
+        """
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArgs']]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -244,6 +260,7 @@ class _VaultState:
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -263,6 +280,7 @@ class _VaultState:
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -283,6 +301,8 @@ class _VaultState:
             pulumi.set(__self__, "immutability", immutability)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -373,6 +393,18 @@ class _VaultState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArgs']]:
+        """
+        A `monitoring` block as defined below.
+        """
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArgs']]):
+        pulumi.set(self, "monitoring", value)
 
     @property
     @pulumi.getter
@@ -470,6 +502,7 @@ class Vault(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -515,6 +548,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VaultMonitoringArgs']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -575,6 +609,7 @@ class Vault(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -597,6 +632,7 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["immutability"] = immutability
             __props__.__dict__["location"] = location
+            __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
@@ -624,6 +660,7 @@ class Vault(pulumi.CustomResource):
             identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
             immutability: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -648,6 +685,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VaultMonitoringArgs']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -666,6 +704,7 @@ class Vault(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["immutability"] = immutability
         __props__.__dict__["location"] = location
+        __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -726,6 +765,14 @@ class Vault(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> pulumi.Output[Optional['outputs.VaultMonitoring']]:
+        """
+        A `monitoring` block as defined below.
+        """
+        return pulumi.get(self, "monitoring")
 
     @property
     @pulumi.getter

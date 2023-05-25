@@ -30,6 +30,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datadog.Monitor;
+ * import com.pulumi.azure.datadog.MonitorArgs;
+ * import com.pulumi.azure.datadog.inputs.MonitorDatadogOrganizationArgs;
+ * import com.pulumi.azure.datadog.inputs.MonitorUserArgs;
+ * import com.pulumi.azure.datadog.inputs.MonitorIdentityArgs;
  * import com.pulumi.azure.datadog.MonitorTagRule;
  * import com.pulumi.azure.datadog.MonitorTagRuleArgs;
  * import com.pulumi.azure.datadog.inputs.MonitorTagRuleLogArgs;
@@ -51,8 +56,25 @@ import javax.annotation.Nullable;
  *             .location(&#34;West US 2&#34;)
  *             .build());
  * 
+ *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
+ *                 .apiKey(&#34;XXXX&#34;)
+ *                 .applicationKey(&#34;XXXX&#34;)
+ *                 .build())
+ *             .user(MonitorUserArgs.builder()
+ *                 .name(&#34;Example&#34;)
+ *                 .email(&#34;abc@xyz.com&#34;)
+ *                 .build())
+ *             .skuName(&#34;Linked&#34;)
+ *             .identity(MonitorIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleMonitorTagRule = new MonitorTagRule(&#34;exampleMonitorTagRule&#34;, MonitorTagRuleArgs.builder()        
- *             .datadogMonitorId(azurerm_datadog_monitor.example().id())
+ *             .datadogMonitorId(exampleMonitor.id())
  *             .logs(MonitorTagRuleLogArgs.builder()
  *                 .subscriptionLogEnabled(true)
  *                 .build())

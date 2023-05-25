@@ -1,7 +1,7 @@
-From 84e6bd046996be83cd46784e715ecbaf66b07f9e Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:31:11 -0700
-Subject: [PATCH 7/8] Update documentation
+From 6940c6cfd6130acd737fd743d73866fade9dd432 Mon Sep 17 00:00:00 2001
+From: aq17 <aqiu@pulumi.com>
+Date: Thu, 25 May 2023 10:33:39 -0700
+Subject: [PATCH 7/8] Update-documentation
 
 ---
  .../d/function_app_host_keys.html.markdown    |   2 -
@@ -126,7 +126,7 @@ Subject: [PATCH 7/8] Update documentation
  .../r/network_security_group.html.markdown    |   4 +-
  .../r/network_security_rule.html.markdown     |   2 +-
  website/docs/r/notification_hub.html.markdown |   2 +-
- website/docs/r/private_endpoint.html.markdown |   9 -
+ website/docs/r/private_endpoint.html.markdown |   2 +-
  website/docs/r/public_ip.html.markdown        |   2 +-
  .../r/recovery_services_vault.html.markdown   |   1 +
  website/docs/r/redis_cache.html.markdown      |   4 +-
@@ -162,7 +162,7 @@ Subject: [PATCH 7/8] Update documentation
  website/docs/r/virtual_network.html.markdown  |   8 +-
  .../r/windows_virtual_machine.html.markdown   |   6 +-
  ...ws_virtual_machine_scale_set.html.markdown |  20 +-
- 158 files changed, 501 insertions(+), 400 deletions(-)
+ 158 files changed, 502 insertions(+), 392 deletions(-)
  create mode 100644 website/docs/r/azuread_service_principal_password.html.markdown
  create mode 100644 website/docs/r/connection_monitor.html.markdown
 
@@ -905,7 +905,7 @@ index 0000000000..067d552662
 +
 +-> **NOTE:** This ID format is unique to this provider and is composed of the Service Principal's Object ID and the Service Principal Password's Key ID in the format `{ServicePrincipalObjectId}/{ServicePrincipalPasswordKeyId}`.
 diff --git a/website/docs/r/batch_account.html.markdown b/website/docs/r/batch_account.html.markdown
-index f019492611..a99659fd3e 100644
+index 63c8d566be..9f15c668c6 100644
 --- a/website/docs/r/batch_account.html.markdown
 +++ b/website/docs/r/batch_account.html.markdown
 @@ -49,7 +49,7 @@ The following arguments are supported:
@@ -918,10 +918,10 @@ index f019492611..a99659fd3e 100644
  * `location` - (Required) Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
  
 diff --git a/website/docs/r/batch_certificate.html.markdown b/website/docs/r/batch_certificate.html.markdown
-index 0da8b118f1..f693e1da89 100644
+index b16ea1322a..b268986569 100644
 --- a/website/docs/r/batch_certificate.html.markdown
 +++ b/website/docs/r/batch_certificate.html.markdown
-@@ -44,7 +44,7 @@ resource "azurerm_batch_certificate" "example" {
+@@ -45,7 +45,7 @@ resource "azurerm_batch_certificate" "example" {
    account_name         = azurerm_batch_account.example.name
    certificate          = filebase64("certificate.pfx")
    format               = "Pfx"
@@ -1637,7 +1637,7 @@ index 88a38129b7..8b4f1f661c 100644
  ## Example Usage
  
 diff --git a/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown b/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
-index d4a43bd35a..acfeaf1835 100644
+index fc5d3047ee..9ae5b7c5c6 100644
 --- a/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
 +++ b/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1732,7 +1732,7 @@ index 11c2e0bb3a..4d6ff566b6 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_hbase_cluster.html.markdown b/website/docs/r/hdinsight_hbase_cluster.html.markdown
-index bb85f440b7..90f045f1ad 100644
+index 32ccf6503e..3b4c1493cf 100644
 --- a/website/docs/r/hdinsight_hbase_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hbase_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hbase_cluster" "example" {
@@ -1949,7 +1949,7 @@ index d97d53b42d..d04a166153 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 182e8f3541..eeffad272f 100644
+index 3b1aa4b3db..34cd28967f 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2076,7 +2076,7 @@ index d33d3ca84c..4df5c79d74 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 17e6c815bf..2f33b0e467 100644
+index b25e4069fe..a67f71220c 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2101,7 +2101,7 @@ index 17e6c815bf..2f33b0e467 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 841fd4dda6..e3027950a4 100644
+index 2ef147658c..fae68177ac 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -12,15 +12,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2288,7 +2288,7 @@ index 493de7b692..476f4a2a2f 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index 935d4be3f4..dd93318cf6 100644
+index 36cac8d4a6..2682d8125d 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -2347,7 +2347,7 @@ index e717ee3aee..cdef8e4c39 100644
 --> **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 +-> **Note:** This is a provider Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 diff --git a/website/docs/r/network_connection_monitor.html.markdown b/website/docs/r/network_connection_monitor.html.markdown
-index 56e2f04656..5122a5d072 100644
+index 6e82fa7760..678cbc003d 100644
 --- a/website/docs/r/network_connection_monitor.html.markdown
 +++ b/website/docs/r/network_connection_monitor.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -2464,7 +2464,7 @@ index aea63418f8..63057dce4a 100644
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{networkInterfaceId}|{networkSecurityGroupId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{networkSecurityGroupId}`.
 diff --git a/website/docs/r/network_security_group.html.markdown b/website/docs/r/network_security_group.html.markdown
-index 8ca9eb6ed9..2a6127a3e9 100644
+index 12455f92fb..6bbde1bf23 100644
 --- a/website/docs/r/network_security_group.html.markdown
 +++ b/website/docs/r/network_security_group.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -2486,7 +2486,7 @@ index 8ca9eb6ed9..2a6127a3e9 100644
  -> **NOTE** Since `security_rule` can be configured both inline and via the separate `azurerm_network_security_rule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
 diff --git a/website/docs/r/network_security_rule.html.markdown b/website/docs/r/network_security_rule.html.markdown
-index e70d6ea251..e1462c1dfa 100644
+index a2a63e6897..c09a419039 100644
 --- a/website/docs/r/network_security_rule.html.markdown
 +++ b/website/docs/r/network_security_rule.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -2512,25 +2512,18 @@ index 06e3f57418..0ac142e857 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 4424e61fc5..5caa021285 100644
+index 355bae7e48..42dcd18a62 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -346,15 +346,6 @@ A `record_sets` block exports:
+@@ -348,7 +348,7 @@ A `record_sets` block exports:
  
- ---
+ ## Example HCL Configurations
  
--## Example HCL Configurations
--
 -* How to connect a `Private Endpoint` to a [Application Gateway](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/application-gateway)
--* How to connect a `Private Endpoint` to a [Cosmos MongoDB](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/cosmos-db)
--* How to connect a `Private Endpoint` to a [PostgreSQL Server](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/postgresql)
--* How to connect a `Private Endpoint` to a [Private Link Service](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/private-link-service)
--* How to connect a `Private Endpoint` to a [Private DNS Group](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/private-dns-group)
--* How to connect a `Private Endpoint` to a [Databricks Workspace](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/databricks)
--
- ## Timeouts
- 
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
++* How to conneca `Private Endpoint` to a [Application Gateway](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/application-gateway)
+ * How to connect a `Private Endpoint` to a [Cosmos MongoDB](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/cosmos-db/mongodb)
+ * How to connect a `Private Endpoint` to a [Cosmos PostgreSQL](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/cosmos-db/postgresql)
+ * How to connect a `Private Endpoint` to a [PostgreSQL Server](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/postgresql)
 diff --git a/website/docs/r/public_ip.html.markdown b/website/docs/r/public_ip.html.markdown
 index d598dc9729..8e2076dcb8 100644
 --- a/website/docs/r/public_ip.html.markdown
@@ -2545,7 +2538,7 @@ index d598dc9729..8e2076dcb8 100644
  * `fqdn` - Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
  
 diff --git a/website/docs/r/recovery_services_vault.html.markdown b/website/docs/r/recovery_services_vault.html.markdown
-index 6994e14a46..be709fb4e7 100644
+index 0cea957b79..afd6bbc42f 100644
 --- a/website/docs/r/recovery_services_vault.html.markdown
 +++ b/website/docs/r/recovery_services_vault.html.markdown
 @@ -49,6 +49,7 @@ The following arguments are supported:
@@ -3063,7 +3056,7 @@ index b5ef30c661..6b8afb87b3 100644
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
-index dfb22f3d1d..76a92c5de5 100644
+index 248f2768c0..b5e2c1bd47 100644
 --- a/website/docs/r/virtual_machine.html.markdown
 +++ b/website/docs/r/virtual_machine.html.markdown
 @@ -12,13 +12,13 @@ Manages a Virtual Machine.
@@ -3124,7 +3117,7 @@ index dfb22f3d1d..76a92c5de5 100644
  
  A `storage_data_disk` block supports the following:
 diff --git a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
-index 0ba82f7f61..e926fdc98c 100644
+index 256e59f7fd..0333ddcac1 100644
 --- a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 +++ b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 @@ -144,4 +144,4 @@ Virtual Machines Data Disk Attachments can be imported using the `resource id`,
@@ -3134,7 +3127,7 @@ index 0ba82f7f61..e926fdc98c 100644
 --> **Please Note:** This is a Terraform Unique ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 +-> **Please Note:** This is a ID (specific to this provider) matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index 9dad90e505..52bae2e016 100644
+index 2f1b6e07da..fb1f7f91b7 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
 @@ -10,12 +10,6 @@ description: |-
@@ -3150,7 +3143,7 @@ index 9dad90e505..52bae2e016 100644
  ## Example Usage with Managed Disks (Recommended)
  
  ```hcl
-@@ -148,7 +142,7 @@ resource "azurerm_virtual_machine_scale_set" "example" {
+@@ -146,7 +140,7 @@ resource "azurerm_virtual_machine_scale_set" "example" {
    }
  
    network_profile {
@@ -3159,7 +3152,7 @@ index 9dad90e505..52bae2e016 100644
      primary = true
  
      ip_configuration {
-@@ -388,7 +382,7 @@ The `os_profile` block supports the following:
+@@ -386,7 +380,7 @@ The `os_profile` block supports the following:
  * `computer_name_prefix` - (Required) Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
  * `admin_username` - (Required) Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
  * `admin_password` - (Optional) Specifies the administrator password to use for all the instances of virtual machines in a scale set.
@@ -3213,7 +3206,7 @@ index 87f4b33d63..fb92a5630e 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 88bc7ca653..f6f89d9934 100644
+index e94d26bbb6..3b17a31535 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,15 @@ Manages a Windows Virtual Machine Scale Set.
@@ -3269,5 +3262,5 @@ index 88bc7ca653..f6f89d9934 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.40.1
+2.39.1
 

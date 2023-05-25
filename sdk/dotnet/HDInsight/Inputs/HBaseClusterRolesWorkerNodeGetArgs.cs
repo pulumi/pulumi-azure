@@ -12,9 +12,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
     public sealed class HBaseClusterRolesWorkerNodeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `autoscale` block as defined below.
-        /// </summary>
         [Input("autoscale")]
         public Input<Inputs.HBaseClusterRolesWorkerNodeAutoscaleGetArgs>? Autoscale { get; set; }
 

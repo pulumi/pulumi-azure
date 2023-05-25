@@ -2971,6 +2971,7 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+			"azurerm_virtual_hub_connection": {Tok: azureDataSource(azureNetwork, "getVirtualHubConnection")},
 			"azurerm_virtual_network": {
 				Tok: azureDataSource(azureNetwork, "getVirtualNetwork"),
 				Fields: map[string]*tfbridge.SchemaInfo{

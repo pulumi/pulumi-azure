@@ -157,14 +157,14 @@ public final class LinuxWebAppAuthSettingsV2CustomOidcV2Args extends com.pulumi.
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
      * 
      */
     @Import(name="openidConfigurationEndpoint", required=true)
     private Output<String> openidConfigurationEndpoint;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
      * 
      */
     public Output<String> openidConfigurationEndpoint() {
@@ -424,7 +424,7 @@ public final class LinuxWebAppAuthSettingsV2CustomOidcV2Args extends com.pulumi.
         }
 
         /**
-         * @param openidConfigurationEndpoint The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+         * @param openidConfigurationEndpoint Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class LinuxWebAppAuthSettingsV2CustomOidcV2Args extends com.pulumi.
         }
 
         /**
-         * @param openidConfigurationEndpoint The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+         * @param openidConfigurationEndpoint Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          * 
          * @return builder
          * 

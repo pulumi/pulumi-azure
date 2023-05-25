@@ -36,6 +36,9 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountArgs {
+    /**
+     * The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     */
     encryption?: inputs.batch.GetAccountEncryption;
     /**
      * The name of the Batch account.
@@ -55,6 +58,9 @@ export interface GetAccountResult {
      * The account endpoint used to interact with the Batch service.
      */
     readonly accountEndpoint: string;
+    /**
+     * The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     */
     readonly encryption?: outputs.batch.GetAccountEncryption;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -118,6 +124,9 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountOutputArgs {
+    /**
+     * The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
+     */
     encryption?: pulumi.Input<inputs.batch.GetAccountEncryptionArgs>;
     /**
      * The name of the Batch account.

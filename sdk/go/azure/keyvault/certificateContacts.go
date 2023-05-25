@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewCertificateContacts(ctx, "exampleCertificateContacts", &keyvault.CertificateContactsArgs{
-//				KeyVaultId: pulumi.Any(azurerm_key_vault.Test.Id),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				Contacts: keyvault.CertificateContactsContactArray{
 //					&keyvault.CertificateContactsContactArgs{
 //						Email: pulumi.String("example@example.com"),
