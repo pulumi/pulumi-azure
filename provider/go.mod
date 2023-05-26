@@ -4,10 +4,10 @@ go 1.19
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk v0.20230511.1094507
+	github.com/hashicorp/go-azure-sdk v0.20230523.1080931
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.4
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.48.0
 	github.com/pulumi/pulumi/sdk/v3 v3.68.0
 	github.com/stretchr/testify v1.8.2
 )
@@ -212,7 +212,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tombuildsstuff/giovanni v0.20.0 // indirect
-	github.com/tombuildsstuff/kermit v0.20230424.1090808 // indirect
+	github.com/tombuildsstuff/kermit v0.20230518.1143920 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect

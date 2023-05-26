@@ -1756,7 +1756,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
-			"azurerm_mysql_flexible_database":             {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
+			"azurerm_mysql_flexible_server_active_directory_administrator": {
+				Tok: azureResource(azureMySQL, "FlexibleServerActiveDirectoryAdministrator"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+
+			"azurerm_mysql_flexible_database": {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration": {
@@ -2446,6 +2453,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_vmware_replication_policy":             {Tok: azureResource(azureSiteRecovery, "VMWareReplicationPolicy")},
 
 			"azurerm_recovery_services_vault": {Tok: azureResource(azureRecoveryServices, "Vault")},
+			"azurerm_recovery_services_vault_resource_guard_association": {
+				Tok: azureResource(azureRecoveryServices, "VaultResourceGuardAssociation"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 
 			// Dashboard
 			"azurerm_dashboard_grafana": {Tok: azureResource(azureDashboard, "Grafana")},
