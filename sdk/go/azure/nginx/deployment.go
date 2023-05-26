@@ -94,9 +94,6 @@ import (
 //						SubnetId: exampleSubnet.ID(),
 //					},
 //				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
 //			})
 //			if err != nil {
 //				return err

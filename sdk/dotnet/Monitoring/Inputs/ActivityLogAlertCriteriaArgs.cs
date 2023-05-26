@@ -30,6 +30,20 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("level")]
         public Input<string>? Level { get; set; }
 
+        [Input("levels")]
+        private InputList<string>? _levels;
+
+        /// <summary>
+        /// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+        /// 
+        /// &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+        /// </summary>
+        public InputList<string> Levels
+        {
+            get => _levels ?? (_levels = new InputList<string>());
+            set => _levels = value;
+        }
+
         /// <summary>
         /// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
         /// </summary>
@@ -60,6 +74,20 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("resourceGroup")]
         public Input<string>? ResourceGroup { get; set; }
 
+        [Input("resourceGroups")]
+        private InputList<string>? _resourceGroups;
+
+        /// <summary>
+        /// A list of names of resource groups monitored by the activity log alert.
+        /// 
+        /// &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        /// </summary>
+        public InputList<string> ResourceGroups
+        {
+            get => _resourceGroups ?? (_resourceGroups = new InputList<string>());
+            set => _resourceGroups = value;
+        }
+
         [Input("resourceHealths")]
         private InputList<Inputs.ActivityLogAlertCriteriaResourceHealthArgs>? _resourceHealths;
 
@@ -78,17 +106,59 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
+        [Input("resourceIds")]
+        private InputList<string>? _resourceIds;
+
+        /// <summary>
+        /// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+        /// 
+        /// &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        /// </summary>
+        public InputList<string> ResourceIds
+        {
+            get => _resourceIds ?? (_resourceIds = new InputList<string>());
+            set => _resourceIds = value;
+        }
+
         /// <summary>
         /// The name of the resource provider monitored by the activity log alert.
         /// </summary>
         [Input("resourceProvider")]
         public Input<string>? ResourceProvider { get; set; }
 
+        [Input("resourceProviders")]
+        private InputList<string>? _resourceProviders;
+
+        /// <summary>
+        /// A list of names of resource providers monitored by the activity log alert.
+        /// 
+        /// &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        /// </summary>
+        public InputList<string> ResourceProviders
+        {
+            get => _resourceProviders ?? (_resourceProviders = new InputList<string>());
+            set => _resourceProviders = value;
+        }
+
         /// <summary>
         /// The resource type monitored by the activity log alert.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
+
+        [Input("resourceTypes")]
+        private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// A list of resource types monitored by the activity log alert.
+        /// 
+        /// &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        /// </summary>
+        public InputList<string> ResourceTypes
+        {
+            get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
+            set => _resourceTypes = value;
+        }
 
         [Input("serviceHealths")]
         private InputList<Inputs.ActivityLogAlertCriteriaServiceHealthArgs>? _serviceHealths;
@@ -108,11 +178,39 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        [Input("statuses")]
+        private InputList<string>? _statuses;
+
+        /// <summary>
+        /// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+        /// 
+        /// &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+        /// </summary>
+        public InputList<string> Statuses
+        {
+            get => _statuses ?? (_statuses = new InputList<string>());
+            set => _statuses = value;
+        }
+
         /// <summary>
         /// The sub status of the event.
         /// </summary>
         [Input("subStatus")]
         public Input<string>? SubStatus { get; set; }
+
+        [Input("subStatuses")]
+        private InputList<string>? _subStatuses;
+
+        /// <summary>
+        /// A list of sub status of the event.
+        /// 
+        /// &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        /// </summary>
+        public InputList<string> SubStatuses
+        {
+            get => _subStatuses ?? (_subStatuses = new InputList<string>());
+            set => _subStatuses = value;
+        }
 
         public ActivityLogAlertCriteriaArgs()
         {

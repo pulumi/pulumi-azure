@@ -31,9 +31,14 @@ import * as utilities from "../utilities";
  *     networkManagerId: exampleNetworkManager.id,
  *     description: "example network group",
  * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["192.168.1.0/24"],
+ *     location: exampleResourceGroup.location,
+ * });
  * const exampleNetworkManagerStaticMember = new azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember", {
  *     networkGroupId: exampleNetworkManagerNetworkGroup.id,
- *     targetVirtualNetworkId: azurerm_virtual_network.example.id,
+ *     targetVirtualNetworkId: exampleVirtualNetwork.id,
  * });
  * ```
  *

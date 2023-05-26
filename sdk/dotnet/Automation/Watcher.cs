@@ -22,12 +22,45 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Automation.Watcher("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         AutomationAccountId = azurerm_automation_account.Test.Id,
     ///         Location = "West Europe",
-    ///         ScriptName = azurerm_automation_runbook.Test.Name,
-    ///         ScriptRunOn = azurerm_automation_hybrid_runbook_worker_group.Test.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         LogVerbose = true,
+    ///         LogProgress = true,
+    ///         Description = "This is an example runbook",
+    ///         RunbookType = "PowerShellWorkflow",
+    ///         PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
+    ///         {
+    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWatcher = new Azure.Automation.Watcher("exampleWatcher", new()
+    ///     {
+    ///         AutomationAccountId = exampleAccount.Id,
+    ///         Location = "West Europe",
+    ///         ScriptName = exampleRunBook.Name,
+    ///         ScriptRunOn = exampleHybridRunbookWorkerGroup.Name,
     ///         Description = "example-watcher desc",
     ///         ExecutionFrequencyInSeconds = 42,
     ///         Tags = 

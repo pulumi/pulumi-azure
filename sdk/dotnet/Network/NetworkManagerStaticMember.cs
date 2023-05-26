@@ -54,10 +54,20 @@ namespace Pulumi.Azure.Network
     ///         Description = "example network group",
     ///     });
     /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.1.0/24",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
     ///     var exampleNetworkManagerStaticMember = new Azure.Network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember", new()
     ///     {
     ///         NetworkGroupId = exampleNetworkManagerNetworkGroup.Id,
-    ///         TargetVirtualNetworkId = azurerm_virtual_network.Example.Id,
+    ///         TargetVirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
     /// });

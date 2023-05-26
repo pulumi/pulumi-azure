@@ -76,7 +76,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### With Customer Managed Key
- * 
  * ```java
  * package generated_program;
  * 
@@ -128,7 +127,6 @@ import javax.annotation.Nullable;
  *                 .loginUsername(&#34;AzureAD Admin&#34;)
  *                 .objectId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *                 .build())
- *             .extendedAuditingPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
  *             .identity(ServerIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)

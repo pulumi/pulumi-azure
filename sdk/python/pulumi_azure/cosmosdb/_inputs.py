@@ -40,6 +40,8 @@ __all__ = [
     'MongoCollectionIndexArgs',
     'MongoCollectionSystemIndexArgs',
     'MongoDatabaseAutoscaleSettingsArgs',
+    'MongoRoleDefinitionPrivilegeArgs',
+    'MongoRoleDefinitionPrivilegeResourceArgs',
     'PostgresqlClusterMaintenanceWindowArgs',
     'SqlContainerAutoscaleSettingsArgs',
     'SqlContainerConflictResolutionPolicyArgs',
@@ -1290,6 +1292,82 @@ class MongoDatabaseAutoscaleSettingsArgs:
     @max_throughput.setter
     def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class MongoRoleDefinitionPrivilegeArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 resource: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs']):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions that are allowed.
+        :param pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs'] resource: A `resource` block as defined below.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of actions that are allowed.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs']:
+        """
+        A `resource` block as defined below.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class MongoRoleDefinitionPrivilegeResourceArgs:
+    def __init__(__self__, *,
+                 collection_name: Optional[pulumi.Input[str]] = None,
+                 db_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] collection_name: The name of the Mongo DB Collection that the Role Definition is applied.
+        :param pulumi.Input[str] db_name: The name of the Mongo DB that the Role Definition is applied.
+        """
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Mongo DB Collection that the Role Definition is applied.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @collection_name.setter
+    def collection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collection_name", value)
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Mongo DB that the Role Definition is applied.
+        """
+        return pulumi.get(self, "db_name")
+
+    @db_name.setter
+    def db_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_name", value)
 
 
 @pulumi.input_type

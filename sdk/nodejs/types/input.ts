@@ -4448,7 +4448,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -4642,6 +4644,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -5525,7 +5530,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -5719,6 +5726,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -6679,7 +6689,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -6873,6 +6885,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -7885,7 +7900,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -8079,6 +8096,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -9822,7 +9842,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -10016,6 +10038,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -10858,7 +10883,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -11052,6 +11079,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -11969,7 +11999,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -12163,6 +12195,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -13255,7 +13290,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -13449,6 +13486,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -15201,13 +15241,23 @@ export namespace backup {
          */
         count: pulumi.Input<number>;
         /**
+         * The days of the month to retain backups of. Must be between `1` and `31`.
+         */
+        days?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Including the last day of the month, default to `false`.
+         *
+         * > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+         */
+        includeLastDays?: pulumi.Input<boolean>;
+        /**
          * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
-        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
          */
-        weeks: pulumi.Input<pulumi.Input<string>[]>;
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PolicyVMRetentionWeekly {
@@ -15227,17 +15277,27 @@ export namespace backup {
          */
         count: pulumi.Input<number>;
         /**
+         * The days of the month to retain backups of. Must be between `1` and `31`.
+         */
+        days?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Including the last day of the month, default to `false`.
+         *
+         * > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+         */
+        includeLastDays?: pulumi.Input<boolean>;
+        /**
          * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          */
         months: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
-        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
          */
-        weeks: pulumi.Input<pulumi.Input<string>[]>;
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PolicyVMWorkloadProtectionPolicy {
@@ -22305,7 +22365,7 @@ export namespace containerservice {
          */
         customCaTrustEnabled?: pulumi.Input<boolean>;
         /**
-         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
          *
          * > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
          *
@@ -23039,8 +23099,6 @@ export namespace containerservice {
          * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
          *
          * > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
          */
         networkPluginMode?: pulumi.Input<string>;
         /**
@@ -24806,6 +24864,28 @@ export namespace cosmosdb {
          * The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface MongoRoleDefinitionPrivilege {
+        /**
+         * A list of actions that are allowed.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `resource` block as defined below.
+         */
+        resource: pulumi.Input<inputs.cosmosdb.MongoRoleDefinitionPrivilegeResource>;
+    }
+
+    export interface MongoRoleDefinitionPrivilegeResource {
+        /**
+         * The name of the Mongo DB Collection that the Role Definition is applied.
+         */
+        collectionName?: pulumi.Input<string>;
+        /**
+         * The name of the Mongo DB that the Role Definition is applied.
+         */
+        dbName?: pulumi.Input<string>;
     }
 
     export interface PostgresqlClusterMaintenanceWindow {
@@ -36533,6 +36613,10 @@ export namespace media {
          */
         codecs: pulumi.Input<pulumi.Input<inputs.media.TransformOutputCustomPresetCodec>[]>;
         /**
+         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         */
+        experimentalOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * A `filter` block as defined below.
          */
         filter?: pulumi.Input<inputs.media.TransformOutputCustomPresetFilter>;
@@ -37336,6 +37420,53 @@ export namespace mediaservices {
 }
 
 export namespace mobile {
+    export interface NetworkPacketCoreControlPlaneIdentity {
+        /**
+         * A list of the IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
+        /**
+         * How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+         */
+        authenticationType: pulumi.Input<string>;
+        /**
+         * The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+         */
+        httpsServerCertificateUrl?: pulumi.Input<string>;
+    }
+
+    export interface NetworkPacketCoreControlPlanePlatform {
+        /**
+         * The ID of the Azure Arc connected cluster where the packet core is deployed.
+         */
+        arcKubernetesClusterId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Arc custom location where the packet core is deployed.
+         *
+         * > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+         */
+        customLocationId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+         */
+        edgeDeviceId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Stack HCI cluster where the packet core is deployed.
+         */
+        stackHciClusterId?: pulumi.Input<string>;
+        /**
+         * Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface NetworkServicePccRule {
         /**
          * Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
@@ -38128,6 +38259,12 @@ export namespace monitoring {
          */
         level?: pulumi.Input<string>;
         /**
+         * A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+         *
+         * > **NOTE:** `level` and `levels` are mutually exclusive.
+         */
+        levels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
          */
         operationName?: pulumi.Input<string>;
@@ -38148,6 +38285,12 @@ export namespace monitoring {
          */
         resourceGroup?: pulumi.Input<string>;
         /**
+         * A list of names of resource groups monitored by the activity log alert.
+         *
+         * > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+         */
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * A block to define fine grain resource health settings.
          */
         resourceHealths?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertCriteriaResourceHealth>[]>;
@@ -38156,13 +38299,31 @@ export namespace monitoring {
          */
         resourceId?: pulumi.Input<string>;
         /**
+         * A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+         *
+         * > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+         */
+        resourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The name of the resource provider monitored by the activity log alert.
          */
         resourceProvider?: pulumi.Input<string>;
         /**
+         * A list of names of resource providers monitored by the activity log alert.
+         *
+         * > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+         */
+        resourceProviders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The resource type monitored by the activity log alert.
          */
         resourceType?: pulumi.Input<string>;
+        /**
+         * A list of resource types monitored by the activity log alert.
+         *
+         * > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A block to define fine grain service health settings.
          */
@@ -38172,9 +38333,21 @@ export namespace monitoring {
          */
         status?: pulumi.Input<string>;
         /**
+         * A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+         *
+         * > **NOTE:** `status` and `statuses` are mutually exclusive.
+         */
+        statuses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The sub status of the event.
          */
         subStatus?: pulumi.Input<string>;
+        /**
+         * A list of sub status of the event.
+         *
+         * > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+         */
+        subStatuses?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ActivityLogAlertCriteriaResourceHealth {
@@ -38693,6 +38866,71 @@ export namespace monitoring {
          * Specifies the recurrence start time (H:M:S).
          */
         startTime?: pulumi.Input<string>;
+    }
+
+    export interface AlertPrometheusRuleGroupRule {
+        /**
+         * An `action` block as defined below.
+         */
+        actions?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRuleAction>[]>;
+        /**
+         * Specifies the Alert rule name.
+         */
+        alert?: pulumi.Input<string>;
+        /**
+         * An `alertResolution` block as defined below.
+         */
+        alertResolution?: pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRuleAlertResolution>;
+        /**
+         * Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+         */
+        annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Is this rule enabled? Possible values are `true` and `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+         */
+        expression: pulumi.Input<string>;
+        /**
+         * Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+         */
+        for?: pulumi.Input<string>;
+        /**
+         * Specifies the labels to add or overwrite before storing the result.
+         */
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies the recorded metrics name.
+         */
+        record?: pulumi.Input<string>;
+        /**
+         * Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+         */
+        severity?: pulumi.Input<number>;
+    }
+
+    export interface AlertPrometheusRuleGroupRuleAction {
+        /**
+         * Specifies the resource id of the monitor action group.
+         */
+        actionGroupId: pulumi.Input<string>;
+        /**
+         * Specifies the properties of an action group object.
+         */
+        actionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface AlertPrometheusRuleGroupRuleAlertResolution {
+        /**
+         * Is the alert auto-resolution? Possible values are `true` and `false`.
+         */
+        autoResolved?: pulumi.Input<boolean>;
+        /**
+         * Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+         */
+        timeToResolve?: pulumi.Input<string>;
     }
 
     export interface AutoscaleSettingNotification {
@@ -43147,7 +43385,7 @@ export namespace network {
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
          */
         name: pulumi.Input<string>;
     }
@@ -43162,7 +43400,13 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+         * The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+         */
+        service?: pulumi.Input<string>;
+        /**
+         * Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+         *
+         * > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
          */
         serviceResources: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -46493,15 +46737,27 @@ export namespace signalr {
          * The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
          */
         urlTemplate: pulumi.Input<string>;
+        /**
+         * Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 }
 
 export namespace siterecovery {
     export interface ProtectionContainerMappingAutomaticUpdate {
         /**
+         * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+         *
+         * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         *
+         * > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
+         */
+        authenticationType?: pulumi.Input<string>;
+        /**
          * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          *
-         * > **Note:** `automationAccountId` is required when `enabled` is sepcified.
+         * > **Note:** `automationAccountId` is required when `enabled` is specified.
          */
         automationAccountId?: pulumi.Input<string>;
         /**
@@ -46626,6 +46882,29 @@ export namespace siterecovery {
          * Storage account disk should belong to when a failover is done.
          */
         targetStorageAccountId: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanAzureToAzureSettings {
+        /**
+         * The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         */
+        primaryEdgeZone?: pulumi.Input<string>;
+        /**
+         * The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         */
+        primaryZone?: pulumi.Input<string>;
+        /**
+         * The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         *
+         * > **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
+         */
+        recoveryEdgeZone?: pulumi.Input<string>;
+        /**
+         * The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         *
+         * > **Note:** `primaryZone` and `recoveryZone` must be specified together.
+         */
+        recoveryZone?: pulumi.Input<string>;
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroup {

@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        /// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

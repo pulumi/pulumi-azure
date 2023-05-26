@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
  * import com.pulumi.azure.network.NetworkManagerNetworkGroup;
  * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.NetworkManagerStaticMember;
  * import com.pulumi.azure.network.NetworkManagerStaticMemberArgs;
  * import java.util.List;
@@ -70,9 +72,15 @@ import javax.annotation.Nullable;
  *             .description(&#34;example network group&#34;)
  *             .build());
  * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .addressSpaces(&#34;192.168.1.0/24&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
  *         var exampleNetworkManagerStaticMember = new NetworkManagerStaticMember(&#34;exampleNetworkManagerStaticMember&#34;, NetworkManagerStaticMemberArgs.builder()        
  *             .networkGroupId(exampleNetworkManagerNetworkGroup.id())
- *             .targetVirtualNetworkId(azurerm_virtual_network.example().id())
+ *             .targetVirtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
  *     }

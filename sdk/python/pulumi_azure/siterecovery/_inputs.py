@@ -17,6 +17,7 @@ __all__ = [
     'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs',
     'ReplicatedVMNetworkInterfaceArgs',
     'ReplicatedVMUnmanagedDiskArgs',
+    'ReplicationRecoveryPlanAzureToAzureSettingsArgs',
     'ReplicationRecoveryPlanRecoveryGroupArgs',
     'ReplicationRecoveryPlanRecoveryGroupPostActionArgs',
     'ReplicationRecoveryPlanRecoveryGroupPreActionArgs',
@@ -25,20 +26,44 @@ __all__ = [
 @pulumi.input_type
 class ProtectionContainerMappingAutomaticUpdateArgs:
     def __init__(__self__, *,
+                 authentication_type: Optional[pulumi.Input[str]] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[str] authentication_type: The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+               
+               > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+               
+               > **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
         :param pulumi.Input[str] automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
                
-               > **Note:** `automation_account_id` is required when `enabled` is sepcified.
+               > **Note:** `automation_account_id` is required when `enabled` is specified.
         :param pulumi.Input[bool] enabled: Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
                
                > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         """
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if automation_account_id is not None:
             pulumi.set(__self__, "automation_account_id", automation_account_id)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+
+        > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+
+        > **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -46,7 +71,7 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         """
         The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 
-        > **Note:** `automation_account_id` is required when `enabled` is sepcified.
+        > **Note:** `automation_account_id` is required when `enabled` is specified.
         """
         return pulumi.get(self, "automation_account_id")
 
@@ -483,6 +508,85 @@ class ReplicatedVMUnmanagedDiskArgs:
     @target_storage_account_id.setter
     def target_storage_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_storage_account_id", value)
+
+
+@pulumi.input_type
+class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
+    def __init__(__self__, *,
+                 primary_edge_zone: Optional[pulumi.Input[str]] = None,
+                 primary_zone: Optional[pulumi.Input[str]] = None,
+                 recovery_edge_zone: Optional[pulumi.Input[str]] = None,
+                 recovery_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] primary_edge_zone: The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+        :param pulumi.Input[str] primary_zone: The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+        :param pulumi.Input[str] recovery_edge_zone: The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+               
+               > **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+        :param pulumi.Input[str] recovery_zone: The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+               
+               > **Note:** `primary_zone` and `recovery_zone` must be specified together.
+        """
+        if primary_edge_zone is not None:
+            pulumi.set(__self__, "primary_edge_zone", primary_edge_zone)
+        if primary_zone is not None:
+            pulumi.set(__self__, "primary_zone", primary_zone)
+        if recovery_edge_zone is not None:
+            pulumi.set(__self__, "recovery_edge_zone", recovery_edge_zone)
+        if recovery_zone is not None:
+            pulumi.set(__self__, "recovery_zone", recovery_zone)
+
+    @property
+    @pulumi.getter(name="primaryEdgeZone")
+    def primary_edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+        """
+        return pulumi.get(self, "primary_edge_zone")
+
+    @primary_edge_zone.setter
+    def primary_edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_edge_zone", value)
+
+    @property
+    @pulumi.getter(name="primaryZone")
+    def primary_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+        """
+        return pulumi.get(self, "primary_zone")
+
+    @primary_zone.setter
+    def primary_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_zone", value)
+
+    @property
+    @pulumi.getter(name="recoveryEdgeZone")
+    def recovery_edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+
+        > **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+        """
+        return pulumi.get(self, "recovery_edge_zone")
+
+    @recovery_edge_zone.setter
+    def recovery_edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_edge_zone", value)
+
+    @property
+    @pulumi.getter(name="recoveryZone")
+    def recovery_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+
+        > **Note:** `primary_zone` and `recovery_zone` must be specified together.
+        """
+        return pulumi.get(self, "recovery_zone")
+
+    @recovery_zone.setter
+    def recovery_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_zone", value)
 
 
 @pulumi.input_type

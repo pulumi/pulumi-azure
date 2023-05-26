@@ -20,6 +20,11 @@ export type ServiceCustomCertificate = import("./serviceCustomCertificate").Serv
 export const ServiceCustomCertificate: typeof import("./serviceCustomCertificate").ServiceCustomCertificate = null as any;
 utilities.lazyLoad(exports, ["ServiceCustomCertificate"], () => require("./serviceCustomCertificate"));
 
+export { ServiceCustomDomainArgs, ServiceCustomDomainState } from "./serviceCustomDomain";
+export type ServiceCustomDomain = import("./serviceCustomDomain").ServiceCustomDomain;
+export const ServiceCustomDomain: typeof import("./serviceCustomDomain").ServiceCustomDomain = null as any;
+utilities.lazyLoad(exports, ["ServiceCustomDomain"], () => require("./serviceCustomDomain"));
+
 export { ServiceNetworkAclArgs, ServiceNetworkAclState } from "./serviceNetworkAcl";
 export type ServiceNetworkAcl = import("./serviceNetworkAcl").ServiceNetworkAcl;
 export const ServiceNetworkAcl: typeof import("./serviceNetworkAcl").ServiceNetworkAcl = null as any;
@@ -39,6 +44,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate":
                 return new ServiceCustomCertificate(name, <any>undefined, { urn })
+            case "azure:signalr/serviceCustomDomain:ServiceCustomDomain":
+                return new ServiceCustomDomain(name, <any>undefined, { urn })
             case "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl":
                 return new ServiceNetworkAcl(name, <any>undefined, { urn })
             case "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource":
@@ -50,5 +57,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "signalr/service", _module)
 pulumi.runtime.registerResourceModule("azure", "signalr/serviceCustomCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "signalr/serviceCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "signalr/serviceNetworkAcl", _module)
 pulumi.runtime.registerResourceModule("azure", "signalr/sharedPrivateLinkResource", _module)

@@ -62,9 +62,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("192.168.1.0/24"),
+//				},
+//				Location: exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = network.NewNetworkManagerStaticMember(ctx, "exampleNetworkManagerStaticMember", &network.NetworkManagerStaticMemberArgs{
 //				NetworkGroupId:         exampleNetworkManagerNetworkGroup.ID(),
-//				TargetVirtualNetworkId: pulumi.Any(azurerm_virtual_network.Example.Id),
+//				TargetVirtualNetworkId: exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err

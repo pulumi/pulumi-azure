@@ -37,9 +37,10 @@ import (
 //				return err
 //			}
 //			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
-//				PolicyType: pulumi.String("Custom"),
-//				Mode:       pulumi.String("All"),
-//				PolicyRule: pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"equals\": \"westeurope\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"Deny\"\n    }\n  }\n"),
+//				PolicyType:  pulumi.String("Custom"),
+//				Mode:        pulumi.String("All"),
+//				DisplayName: pulumi.String("my-policy-definition"),
+//				PolicyRule:  pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"equals\": \"westeurope\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"Deny\"\n    }\n  }\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -85,7 +86,7 @@ type ResourcePolicyAssignment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages ResourcePolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
@@ -154,7 +155,7 @@ type resourcePolicyAssignmentState struct {
 	Location *string `pulumi:"location"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata *string `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name *string `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages []ResourcePolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
@@ -189,7 +190,7 @@ type ResourcePolicyAssignmentState struct {
 	Location pulumi.StringPtrInput
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringPtrInput
-	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name pulumi.StringPtrInput
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages ResourcePolicyAssignmentNonComplianceMessageArrayInput
@@ -228,7 +229,7 @@ type resourcePolicyAssignmentArgs struct {
 	Location *string `pulumi:"location"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata *string `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name *string `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages []ResourcePolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
@@ -264,7 +265,7 @@ type ResourcePolicyAssignmentArgs struct {
 	Location pulumi.StringPtrInput
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringPtrInput
-	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name pulumi.StringPtrInput
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages ResourcePolicyAssignmentNonComplianceMessageArrayInput
@@ -403,7 +404,7 @@ func (o ResourcePolicyAssignmentOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignment) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
 func (o ResourcePolicyAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

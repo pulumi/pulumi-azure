@@ -345,18 +345,47 @@ class PolicyVMRetentionDaily(dict):
 
 @pulumi.output_type
 class PolicyVMRetentionMonthly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeLastDays":
+            suggest = "include_last_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyVMRetentionMonthly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyVMRetentionMonthly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyVMRetentionMonthly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
-                 weekdays: Sequence[str],
-                 weeks: Sequence[str]):
+                 days: Optional[Sequence[int]] = None,
+                 include_last_days: Optional[bool] = None,
+                 weekdays: Optional[Sequence[str]] = None,
+                 weeks: Optional[Sequence[str]] = None):
         """
         :param int count: The number of monthly backups to keep. Must be between `1` and `9999`
+        :param Sequence[int] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param bool include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -368,7 +397,25 @@ class PolicyVMRetentionMonthly(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Sequence[str]:
+    def days(self) -> Optional[Sequence[int]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[bool]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
@@ -376,7 +423,7 @@ class PolicyVMRetentionMonthly(dict):
 
     @property
     @pulumi.getter
-    def weeks(self) -> Sequence[str]:
+    def weeks(self) -> Optional[Sequence[str]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -414,21 +461,50 @@ class PolicyVMRetentionWeekly(dict):
 
 @pulumi.output_type
 class PolicyVMRetentionYearly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeLastDays":
+            suggest = "include_last_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyVMRetentionYearly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyVMRetentionYearly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyVMRetentionYearly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
                  months: Sequence[str],
-                 weekdays: Sequence[str],
-                 weeks: Sequence[str]):
+                 days: Optional[Sequence[int]] = None,
+                 include_last_days: Optional[bool] = None,
+                 weekdays: Optional[Sequence[str]] = None,
+                 weeks: Optional[Sequence[str]] = None):
         """
         :param int count: The number of yearly backups to keep. Must be between `1` and `9999`
         :param Sequence[str] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+        :param Sequence[int] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param bool include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "months", months)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -448,7 +524,25 @@ class PolicyVMRetentionYearly(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Sequence[str]:
+    def days(self) -> Optional[Sequence[int]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[bool]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
@@ -456,7 +550,7 @@ class PolicyVMRetentionYearly(dict):
 
     @property
     @pulumi.getter
-    def weeks(self) -> Sequence[str]:
+    def weeks(self) -> Optional[Sequence[str]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """

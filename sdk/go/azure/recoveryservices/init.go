@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:recoveryservices/vault:Vault":
 		r = &Vault{}
+	case "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation":
+		r = &VaultResourceGuardAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"recoveryservices/vault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"recoveryservices/vaultResourceGuardAssociation",
 		&module{version},
 	)
 }

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  *     customSubdomainName: "example-account",
  *     identity: {
- *         type: "UserAssigned",
+ *         type: "SystemAssigned, UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  * });

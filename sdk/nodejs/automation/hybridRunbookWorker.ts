@@ -13,11 +13,59 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.automation.HybridRunbookWorker("example", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     automationAccountName: azurerm_automation_account.test.name,
- *     workerGroupName: azurerm_automation_hybrid_runbook_worker_group.test.name,
- *     vmResourceId: azurerm_linux_virtual_machine.test.id,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleHybridRunbookWorkerGroup = new azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["192.168.1.0/24"],
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["192.168.1.0/24"],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ipConfigurations: [{
+ *         name: "vm-example",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     size: "Standard_B1s",
+ *     adminUsername: "testadmin",
+ *     adminPassword: "Password1234!",
+ *     disablePasswordAuthentication: false,
+ *     sourceImageReference: {
+ *         publisher: "OpenLogic",
+ *         offer: "CentOS",
+ *         sku: "7.5",
+ *         version: "latest",
+ *     },
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ * });
+ * const exampleHybridRunbookWorker = new azure.automation.HybridRunbookWorker("exampleHybridRunbookWorker", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     workerGroupName: exampleHybridRunbookWorkerGroup.name,
+ *     vmResourceId: exampleLinuxVirtualMachine.id,
  *     workerId: "00000000-0000-0000-0000-000000000000",
  * });
  * //unique uuid

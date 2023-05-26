@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Network
     ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
-    ///     var test = new Azure.Network.VirtualHub("test", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleRouteMap = new Azure.Network.RouteMap("exampleRouteMap", new()
     ///     {
-    ///         VirtualHubId = azurerm_virtual_hub.Example.Id,
+    ///         VirtualHubId = exampleVirtualHub.Id,
     ///         Rules = new[]
     ///         {
     ///             new Azure.Network.Inputs.RouteMapRuleArgs

@@ -47,12 +47,28 @@ import (
 //			_, err = network.NewSubnetServiceEndpointStoragePolicy(ctx, "exampleSubnetServiceEndpointStoragePolicy", &network.SubnetServiceEndpointStoragePolicyArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				Definition: &network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
-//					Name:        pulumi.String("name1"),
-//					Description: pulumi.String("definition1"),
-//					ServiceResources: pulumi.StringArray{
-//						exampleResourceGroup.ID(),
-//						exampleAccount.ID(),
+//				Definitions: network.SubnetServiceEndpointStoragePolicyDefinitionArray{
+//					&network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
+//						Name:        pulumi.String("name1"),
+//						Description: pulumi.String("definition1"),
+//						Service:     pulumi.String("Microsoft.Storage"),
+//						ServiceResources: pulumi.StringArray{
+//							exampleResourceGroup.ID(),
+//							exampleAccount.ID(),
+//						},
+//					},
+//					&network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
+//						Name:        pulumi.String("name2"),
+//						Description: pulumi.String("definition2"),
+//						Service:     pulumi.String("Global"),
+//						ServiceResources: pulumi.StringArray{
+//							pulumi.String("/services/Azure"),
+//							pulumi.String("/services/Azure/Batch"),
+//							pulumi.String("/services/Azure/DataFactory"),
+//							pulumi.String("/services/Azure/MachineLearning"),
+//							pulumi.String("/services/Azure/ManagedInstance"),
+//							pulumi.String("/services/Azure/WebPI"),
+//						},
 //					},
 //				},
 //			})
@@ -78,7 +94,7 @@ type SubnetServiceEndpointStoragePolicy struct {
 	pulumi.CustomResourceState
 
 	// A `definition` block as defined below
-	Definition SubnetServiceEndpointStoragePolicyDefinitionPtrOutput `pulumi:"definition"`
+	Definitions SubnetServiceEndpointStoragePolicyDefinitionArrayOutput `pulumi:"definitions"`
 	// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -122,7 +138,7 @@ func GetSubnetServiceEndpointStoragePolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SubnetServiceEndpointStoragePolicy resources.
 type subnetServiceEndpointStoragePolicyState struct {
 	// A `definition` block as defined below
-	Definition *SubnetServiceEndpointStoragePolicyDefinition `pulumi:"definition"`
+	Definitions []SubnetServiceEndpointStoragePolicyDefinition `pulumi:"definitions"`
 	// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -135,7 +151,7 @@ type subnetServiceEndpointStoragePolicyState struct {
 
 type SubnetServiceEndpointStoragePolicyState struct {
 	// A `definition` block as defined below
-	Definition SubnetServiceEndpointStoragePolicyDefinitionPtrInput
+	Definitions SubnetServiceEndpointStoragePolicyDefinitionArrayInput
 	// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -152,7 +168,7 @@ func (SubnetServiceEndpointStoragePolicyState) ElementType() reflect.Type {
 
 type subnetServiceEndpointStoragePolicyArgs struct {
 	// A `definition` block as defined below
-	Definition *SubnetServiceEndpointStoragePolicyDefinition `pulumi:"definition"`
+	Definitions []SubnetServiceEndpointStoragePolicyDefinition `pulumi:"definitions"`
 	// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -166,7 +182,7 @@ type subnetServiceEndpointStoragePolicyArgs struct {
 // The set of arguments for constructing a SubnetServiceEndpointStoragePolicy resource.
 type SubnetServiceEndpointStoragePolicyArgs struct {
 	// A `definition` block as defined below
-	Definition SubnetServiceEndpointStoragePolicyDefinitionPtrInput
+	Definitions SubnetServiceEndpointStoragePolicyDefinitionArrayInput
 	// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -265,10 +281,10 @@ func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStorage
 }
 
 // A `definition` block as defined below
-func (o SubnetServiceEndpointStoragePolicyOutput) Definition() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicy) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-		return v.Definition
-	}).(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput)
+func (o SubnetServiceEndpointStoragePolicyOutput) Definitions() SubnetServiceEndpointStoragePolicyDefinitionArrayOutput {
+	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicy) SubnetServiceEndpointStoragePolicyDefinitionArrayOutput {
+		return v.Definitions
+	}).(SubnetServiceEndpointStoragePolicyDefinitionArrayOutput)
 }
 
 // The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.

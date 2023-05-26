@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpacecraft = new Spacecraft(&#34;exampleSpacecraft&#34;, SpacecraftArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(&#34;westeurope&#34;)
  *             .noradId(&#34;12345&#34;)
  *             .links(SpacecraftLinkArgs.builder()

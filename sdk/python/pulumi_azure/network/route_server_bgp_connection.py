@@ -171,8 +171,32 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.network.RouteServerBgpConnection("example",
-            route_server_id=azurerm_route_server["example"]["id"],
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            tags={
+                "environment": "Production",
+            })
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            virtual_network_name=example_virtual_network.name,
+            resource_group_name=example_resource_group.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            sku="Standard")
+        example_route_server = azure.network.RouteServer("exampleRouteServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard",
+            public_ip_address_id=example_public_ip.id,
+            subnet_id=example_subnet.id,
+            branch_to_branch_traffic_enabled=True)
+        example_route_server_bgp_connection = azure.network.RouteServerBgpConnection("exampleRouteServerBgpConnection",
+            route_server_id=example_route_server.id,
             peer_asn=65501,
             peer_ip="169.254.21.5")
         ```
@@ -207,8 +231,32 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.network.RouteServerBgpConnection("example",
-            route_server_id=azurerm_route_server["example"]["id"],
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            tags={
+                "environment": "Production",
+            })
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            virtual_network_name=example_virtual_network.name,
+            resource_group_name=example_resource_group.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            sku="Standard")
+        example_route_server = azure.network.RouteServer("exampleRouteServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard",
+            public_ip_address_id=example_public_ip.id,
+            subnet_id=example_subnet.id,
+            branch_to_branch_traffic_enabled=True)
+        example_route_server_bgp_connection = azure.network.RouteServerBgpConnection("exampleRouteServerBgpConnection",
+            route_server_id=example_route_server.id,
             peer_asn=65501,
             peer_ip="169.254.21.5")
         ```

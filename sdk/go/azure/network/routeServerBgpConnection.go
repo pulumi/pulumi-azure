@@ -20,6 +20,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -27,8 +28,57 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := network.NewRouteServerBgpConnection(ctx, "example", &network.RouteServerBgpConnectionArgs{
-//				RouteServerId: pulumi.Any(azurerm_route_server.Example.Id),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRouteServer, err := network.NewRouteServer(ctx, "exampleRouteServer", &network.RouteServerArgs{
+//				ResourceGroupName:            exampleResourceGroup.Name,
+//				Location:                     exampleResourceGroup.Location,
+//				Sku:                          pulumi.String("Standard"),
+//				PublicIpAddressId:            examplePublicIp.ID(),
+//				SubnetId:                     exampleSubnet.ID(),
+//				BranchToBranchTrafficEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewRouteServerBgpConnection(ctx, "exampleRouteServerBgpConnection", &network.RouteServerBgpConnectionArgs{
+//				RouteServerId: exampleRouteServer.ID(),
 //				PeerAsn:       pulumi.Int(65501),
 //				PeerIp:        pulumi.String("169.254.21.5"),
 //			})

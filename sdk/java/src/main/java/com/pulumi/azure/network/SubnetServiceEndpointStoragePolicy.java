@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -60,13 +61,27 @@ import javax.annotation.Nullable;
  *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy(&#34;exampleSubnetServiceEndpointStoragePolicy&#34;, SubnetServiceEndpointStoragePolicyArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .definition(SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
- *                 .name(&#34;name1&#34;)
- *                 .description(&#34;definition1&#34;)
- *                 .serviceResources(                
- *                     exampleResourceGroup.id(),
- *                     exampleAccount.id())
- *                 .build())
+ *             .definitions(            
+ *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
+ *                     .name(&#34;name1&#34;)
+ *                     .description(&#34;definition1&#34;)
+ *                     .service(&#34;Microsoft.Storage&#34;)
+ *                     .serviceResources(                    
+ *                         exampleResourceGroup.id(),
+ *                         exampleAccount.id())
+ *                     .build(),
+ *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
+ *                     .name(&#34;name2&#34;)
+ *                     .description(&#34;definition2&#34;)
+ *                     .service(&#34;Global&#34;)
+ *                     .serviceResources(                    
+ *                         &#34;/services/Azure&#34;,
+ *                         &#34;/services/Azure/Batch&#34;,
+ *                         &#34;/services/Azure/DataFactory&#34;,
+ *                         &#34;/services/Azure/MachineLearning&#34;,
+ *                         &#34;/services/Azure/ManagedInstance&#34;,
+ *                         &#34;/services/Azure/WebPI&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -88,15 +103,15 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * A `definition` block as defined below
      * 
      */
-    @Export(name="definition", refs={SubnetServiceEndpointStoragePolicyDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ SubnetServiceEndpointStoragePolicyDefinition> definition;
+    @Export(name="definitions", refs={List.class,SubnetServiceEndpointStoragePolicyDefinition.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SubnetServiceEndpointStoragePolicyDefinition>> definitions;
 
     /**
      * @return A `definition` block as defined below
      * 
      */
-    public Output<Optional<SubnetServiceEndpointStoragePolicyDefinition>> definition() {
-        return Codegen.optional(this.definition);
+    public Output<Optional<List<SubnetServiceEndpointStoragePolicyDefinition>>> definitions() {
+        return Codegen.optional(this.definitions);
     }
     /**
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.

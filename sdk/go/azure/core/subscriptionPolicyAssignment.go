@@ -80,7 +80,7 @@ type SubscriptionPolicyAssignment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
@@ -147,7 +147,7 @@ type subscriptionPolicyAssignmentState struct {
 	Location *string `pulumi:"location"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata *string `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name *string `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
@@ -180,7 +180,7 @@ type SubscriptionPolicyAssignmentState struct {
 	Location pulumi.StringPtrInput
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringPtrInput
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name pulumi.StringPtrInput
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
@@ -217,7 +217,7 @@ type subscriptionPolicyAssignmentArgs struct {
 	Location *string `pulumi:"location"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata *string `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name *string `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
@@ -251,7 +251,7 @@ type SubscriptionPolicyAssignmentArgs struct {
 	Location pulumi.StringPtrInput
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringPtrInput
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
 	Name pulumi.StringPtrInput
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
@@ -388,7 +388,7 @@ func (o SubscriptionPolicyAssignmentOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
 func (o SubscriptionPolicyAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

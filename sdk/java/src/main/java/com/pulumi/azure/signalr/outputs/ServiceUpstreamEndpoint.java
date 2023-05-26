@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceUpstreamEndpoint {
@@ -30,6 +32,11 @@ public final class ServiceUpstreamEndpoint {
      * 
      */
     private String urlTemplate;
+    /**
+     * @return Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+     * 
+     */
+    private @Nullable String userAssignedIdentityId;
 
     private ServiceUpstreamEndpoint() {}
     /**
@@ -60,6 +67,13 @@ public final class ServiceUpstreamEndpoint {
     public String urlTemplate() {
         return this.urlTemplate;
     }
+    /**
+     * @return Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+     * 
+     */
+    public Optional<String> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -74,6 +88,7 @@ public final class ServiceUpstreamEndpoint {
         private List<String> eventPatterns;
         private List<String> hubPatterns;
         private String urlTemplate;
+        private @Nullable String userAssignedIdentityId;
         public Builder() {}
         public Builder(ServiceUpstreamEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -81,6 +96,7 @@ public final class ServiceUpstreamEndpoint {
     	      this.eventPatterns = defaults.eventPatterns;
     	      this.hubPatterns = defaults.hubPatterns;
     	      this.urlTemplate = defaults.urlTemplate;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
@@ -112,12 +128,18 @@ public final class ServiceUpstreamEndpoint {
             this.urlTemplate = Objects.requireNonNull(urlTemplate);
             return this;
         }
+        @CustomType.Setter
+        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+            this.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
         public ServiceUpstreamEndpoint build() {
             final var o = new ServiceUpstreamEndpoint();
             o.categoryPatterns = categoryPatterns;
             o.eventPatterns = eventPatterns;
             o.hubPatterns = hubPatterns;
             o.urlTemplate = urlTemplate;
+            o.userAssignedIdentityId = userAssignedIdentityId;
             return o;
         }
     }

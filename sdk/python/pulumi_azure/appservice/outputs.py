@@ -6213,7 +6213,9 @@ class LinuxFunctionAppAuthSettings(dict):
         :param 'LinuxFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'LinuxFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -6293,7 +6295,9 @@ class LinuxFunctionAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -6927,6 +6931,9 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'LinuxFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -7051,6 +7058,9 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -10015,7 +10025,9 @@ class LinuxFunctionAppSlotAuthSettings(dict):
         :param 'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'LinuxFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
         :param 'LinuxFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
         :param 'LinuxFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
@@ -10095,7 +10107,9 @@ class LinuxFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -10729,6 +10743,9 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -10853,6 +10870,9 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -14083,7 +14103,9 @@ class LinuxWebAppAuthSettings(dict):
         :param 'LinuxWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'LinuxWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -14163,7 +14185,9 @@ class LinuxWebAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -14797,6 +14821,9 @@ class LinuxWebAppAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'LinuxWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -14921,6 +14948,9 @@ class LinuxWebAppAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -18396,7 +18426,9 @@ class LinuxWebAppSlotAuthSettings(dict):
         :param 'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'LinuxWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -18476,7 +18508,9 @@ class LinuxWebAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -19110,6 +19144,9 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'LinuxWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -19234,6 +19271,9 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -25480,7 +25520,9 @@ class WindowsFunctionAppAuthSettings(dict):
         :param 'WindowsFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'WindowsFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -25560,7 +25602,9 @@ class WindowsFunctionAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -26194,6 +26238,9 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'WindowsFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -26318,6 +26365,9 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -29135,7 +29185,9 @@ class WindowsFunctionAppSlotAuthSettings(dict):
         :param 'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'WindowsFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
         :param 'WindowsFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
         :param 'WindowsFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
@@ -29215,7 +29267,9 @@ class WindowsFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -29849,6 +29903,9 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -29973,6 +30030,9 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -33052,7 +33112,9 @@ class WindowsWebAppAuthSettings(dict):
         :param 'WindowsWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'WindowsWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -33132,7 +33194,9 @@ class WindowsWebAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -33766,6 +33830,9 @@ class WindowsWebAppAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'WindowsWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -33890,6 +33957,9 @@ class WindowsWebAppAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -37630,7 +37700,9 @@ class WindowsWebAppSlotAuthSettings(dict):
         :param 'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
-        :param str default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param 'WindowsWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -37710,7 +37782,9 @@ class WindowsWebAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -38344,6 +38418,9 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
                > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               
+               
+               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         :param 'WindowsWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
@@ -38468,6 +38545,9 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
         > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 

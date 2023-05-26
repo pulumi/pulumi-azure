@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var test = new VirtualHub(&#34;test&#34;, VirtualHubArgs.builder()        
+ *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .virtualWanId(exampleVirtualWan.id())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRouteMap = new RouteMap(&#34;exampleRouteMap&#34;, RouteMapArgs.builder()        
- *             .virtualHubId(azurerm_virtual_hub.example().id())
+ *             .virtualHubId(exampleVirtualHub.id())
  *             .rules(RouteMapRuleArgs.builder()
  *                 .name(&#34;rule1&#34;)
  *                 .nextStepIfMatched(&#34;Continue&#34;)

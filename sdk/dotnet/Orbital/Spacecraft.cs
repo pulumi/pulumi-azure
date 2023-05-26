@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Orbital
     /// 
     ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("exampleSpacecraft", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = "westeurope",
     ///         NoradId = "12345",
     ///         Links = new[]

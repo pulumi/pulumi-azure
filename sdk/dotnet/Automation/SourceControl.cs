@@ -22,9 +22,21 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Automation.SourceControl("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         AutomationAccountId = azurerm_automation_account.Test.Id,
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleSourceControl = new Azure.Automation.SourceControl("exampleSourceControl", new()
+    ///     {
+    ///         AutomationAccountId = exampleAccount.Id,
     ///         FolderPath = "runbook",
     ///         Security = new Azure.Automation.Inputs.SourceControlSecurityArgs
     ///         {

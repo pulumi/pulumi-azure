@@ -10,6 +10,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'NetworkPacketCoreControlPlaneIdentityArgs',
+    'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs',
+    'NetworkPacketCoreControlPlanePlatformArgs',
     'NetworkServicePccRuleArgs',
     'NetworkServicePccRuleQosPolicyArgs',
     'NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs',
@@ -24,6 +27,171 @@ __all__ = [
     'NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs',
     'NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs',
 ]
+
+@pulumi.input_type
+class NetworkPacketCoreControlPlaneIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of the IDs for User Assigned Managed Identity resources to be assigned.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the IDs for User Assigned Managed Identity resources to be assigned.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[str],
+                 https_server_certificate_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] authentication_type: How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+        :param pulumi.Input[str] https_server_certificate_url: The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if https_server_certificate_url is not None:
+            pulumi.set(__self__, "https_server_certificate_url", https_server_certificate_url)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="httpsServerCertificateUrl")
+    def https_server_certificate_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+        """
+        return pulumi.get(self, "https_server_certificate_url")
+
+    @https_server_certificate_url.setter
+    def https_server_certificate_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_server_certificate_url", value)
+
+
+@pulumi.input_type
+class NetworkPacketCoreControlPlanePlatformArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 arc_kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+                 custom_location_id: Optional[pulumi.Input[str]] = None,
+                 edge_device_id: Optional[pulumi.Input[str]] = None,
+                 stack_hci_cluster_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+        :param pulumi.Input[str] arc_kubernetes_cluster_id: The ID of the Azure Arc connected cluster where the packet core is deployed.
+        :param pulumi.Input[str] custom_location_id: The ID of the Azure Arc custom location where the packet core is deployed.
+               
+               > **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+        :param pulumi.Input[str] edge_device_id: The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+        :param pulumi.Input[str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster where the packet core is deployed.
+        """
+        pulumi.set(__self__, "type", type)
+        if arc_kubernetes_cluster_id is not None:
+            pulumi.set(__self__, "arc_kubernetes_cluster_id", arc_kubernetes_cluster_id)
+        if custom_location_id is not None:
+            pulumi.set(__self__, "custom_location_id", custom_location_id)
+        if edge_device_id is not None:
+            pulumi.set(__self__, "edge_device_id", edge_device_id)
+        if stack_hci_cluster_id is not None:
+            pulumi.set(__self__, "stack_hci_cluster_id", stack_hci_cluster_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="arcKubernetesClusterId")
+    def arc_kubernetes_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Azure Arc connected cluster where the packet core is deployed.
+        """
+        return pulumi.get(self, "arc_kubernetes_cluster_id")
+
+    @arc_kubernetes_cluster_id.setter
+    def arc_kubernetes_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arc_kubernetes_cluster_id", value)
+
+    @property
+    @pulumi.getter(name="customLocationId")
+    def custom_location_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Azure Arc custom location where the packet core is deployed.
+
+        > **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+        """
+        return pulumi.get(self, "custom_location_id")
+
+    @custom_location_id.setter
+    def custom_location_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_location_id", value)
+
+    @property
+    @pulumi.getter(name="edgeDeviceId")
+    def edge_device_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+        """
+        return pulumi.get(self, "edge_device_id")
+
+    @edge_device_id.setter
+    def edge_device_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_device_id", value)
+
+    @property
+    @pulumi.getter(name="stackHciClusterId")
+    def stack_hci_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Azure Stack HCI cluster where the packet core is deployed.
+        """
+        return pulumi.get(self, "stack_hci_cluster_id")
+
+    @stack_hci_cluster_id.setter
+    def stack_hci_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_hci_cluster_id", value)
+
 
 @pulumi.input_type
 class NetworkServicePccRuleArgs:

@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleIPGroup = new azure.network.IPGroup("exampleIPGroup", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleIPGroupCIDR = new azure.network.IPGroupCIDR("exampleIPGroupCIDR", {
  *     ipGroupId: exampleIPGroup.id,

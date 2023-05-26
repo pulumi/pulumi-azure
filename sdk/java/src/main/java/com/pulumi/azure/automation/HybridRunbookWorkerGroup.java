@@ -24,6 +24,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.automation.Account;
+ * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.HybridRunbookWorkerGroup;
  * import com.pulumi.azure.automation.HybridRunbookWorkerGroupArgs;
  * import java.util.List;
@@ -39,9 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HybridRunbookWorkerGroup(&#34;example&#34;, HybridRunbookWorkerGroupArgs.builder()        
- *             .automationAccountName(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Basic&#34;)
+ *             .build());
+ * 
+ *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup(&#34;exampleHybridRunbookWorkerGroup&#34;, HybridRunbookWorkerGroupArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
  *             .build());
  * 
  *     }

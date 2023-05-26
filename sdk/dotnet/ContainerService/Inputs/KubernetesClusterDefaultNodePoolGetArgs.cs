@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? CustomCaTrustEnabled { get; set; }
 
         /// <summary>
-        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
         /// 
         /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
         /// 

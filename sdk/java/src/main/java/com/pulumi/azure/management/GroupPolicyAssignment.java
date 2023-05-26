@@ -196,14 +196,14 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
         return this.metadata;
     }
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * @return The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
      * 
      */
     public Output<String> name() {

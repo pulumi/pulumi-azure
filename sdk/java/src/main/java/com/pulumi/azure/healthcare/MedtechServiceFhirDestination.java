@@ -21,8 +21,25 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.healthcare.Workspace;
+ * import com.pulumi.azure.healthcare.WorkspaceArgs;
+ * import com.pulumi.azure.eventhub.EventHubNamespace;
+ * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
+ * import com.pulumi.azure.eventhub.EventHub;
+ * import com.pulumi.azure.eventhub.EventHubArgs;
+ * import com.pulumi.azure.eventhub.ConsumerGroup;
+ * import com.pulumi.azure.eventhub.ConsumerGroupArgs;
+ * import com.pulumi.azure.healthcare.FhirService;
+ * import com.pulumi.azure.healthcare.FhirServiceArgs;
+ * import com.pulumi.azure.healthcare.inputs.FhirServiceAuthenticationArgs;
+ * import com.pulumi.azure.healthcare.MedtechService;
+ * import com.pulumi.azure.healthcare.MedtechServiceArgs;
  * import com.pulumi.azure.healthcare.MedtechServiceFhirDestination;
  * import com.pulumi.azure.healthcare.MedtechServiceFhirDestinationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -36,39 +53,88 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MedtechServiceFhirDestination(&#34;test&#34;, MedtechServiceFhirDestinationArgs.builder()        
- *             .destinationFhirMappingJson(&#34;&#34;&#34;
- *   {
- *             &#34;templateType&#34;: &#34;CollectionFhirTemplate&#34;,
- *             &#34;template&#34;: [
- *               {
- *                 &#34;templateType&#34;: &#34;CodeValueFhir&#34;,
- *                 &#34;template&#34;: {
- *                   &#34;codes&#34;: [
- *                     {
- *                       &#34;code&#34;: &#34;8867-4&#34;,
- *                       &#34;system&#34;: &#34;http://loinc.org&#34;,
- *                       &#34;display&#34;: &#34;Heart rate&#34;
- *                     }
- *                   ],
- *                   &#34;periodInterval&#34;: 60,
- *                   &#34;typeName&#34;: &#34;heartrate&#34;,
- *                   &#34;value&#34;: {
- *                     &#34;defaultPeriod&#34;: 5000,
- *                     &#34;unit&#34;: &#34;count/min&#34;,
- *                     &#34;valueName&#34;: &#34;hr&#34;,
- *                     &#34;valueType&#34;: &#34;SampledData&#34;
- *                   }
- *                 }
- *               }
- *             ]
- *   }
- *   
- *             &#34;&#34;&#34;)
- *             .destinationFhirServiceId(&#34;fhir_service_id&#34;)
- *             .destinationIdentityResolutionType(&#34;Create&#34;)
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;Standard&#34;)
+ *             .build());
+ * 
+ *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .namespaceName(exampleEventHubNamespace.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .partitionCount(1)
+ *             .messageRetention(1)
+ *             .build());
+ * 
+ *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .namespaceName(exampleEventHubNamespace.name())
+ *             .eventhubName(exampleEventHub.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleFhirService = new FhirService(&#34;exampleFhirService&#34;, FhirServiceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .workspaceId(exampleWorkspace.id())
+ *             .kind(&#34;fhir-R4&#34;)
+ *             .authentication(FhirServiceAuthenticationArgs.builder()
+ *                 .authority(&#34;https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;)
+ *                 .audience(&#34;https://examplefhir.fhir.azurehealthcareapis.com&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleMedtechService = new MedtechService(&#34;exampleMedtechService&#34;, MedtechServiceArgs.builder()        
+ *             .workspaceId(exampleWorkspace.id())
+ *             .location(exampleResourceGroup.location())
+ *             .eventhubNamespaceName(exampleEventHubNamespace.name())
+ *             .eventhubName(exampleEventHub.name())
+ *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
+ *             .deviceMappingJson(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;templateType&#34;, &#34;CollectionContent&#34;),
+ *                     jsonProperty(&#34;template&#34;, jsonArray(
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleMedtechServiceFhirDestination = new MedtechServiceFhirDestination(&#34;exampleMedtechServiceFhirDestination&#34;, MedtechServiceFhirDestinationArgs.builder()        
  *             .location(&#34;east us&#34;)
- *             .medtechServiceId(&#34;mt_service_id&#34;)
+ *             .medtechServiceId(exampleMedtechService.id())
+ *             .destinationFhirServiceId(exampleFhirService.id())
+ *             .destinationIdentityResolutionType(&#34;Create&#34;)
+ *             .destinationFhirMappingJson(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;templateType&#34;, &#34;CollectionFhirTemplate&#34;),
+ *                     jsonProperty(&#34;template&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;templateType&#34;, &#34;CodeValueFhir&#34;),
+ *                         jsonProperty(&#34;template&#34;, jsonObject(
+ *                             jsonProperty(&#34;codes&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;code&#34;, &#34;8867-4&#34;),
+ *                                 jsonProperty(&#34;system&#34;, &#34;http://loinc.org&#34;),
+ *                                 jsonProperty(&#34;display&#34;, &#34;Heart rate&#34;)
+ *                             ))),
+ *                             jsonProperty(&#34;periodInterval&#34;, 60),
+ *                             jsonProperty(&#34;typeName&#34;, &#34;heartrate&#34;),
+ *                             jsonProperty(&#34;value&#34;, jsonObject(
+ *                                 jsonProperty(&#34;defaultPeriod&#34;, 5000),
+ *                                 jsonProperty(&#34;unit&#34;, &#34;count/min&#34;),
+ *                                 jsonProperty(&#34;valueName&#34;, &#34;hr&#34;),
+ *                                 jsonProperty(&#34;valueType&#34;, &#34;SampledData&#34;)
+ *                             ))
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
  *     }

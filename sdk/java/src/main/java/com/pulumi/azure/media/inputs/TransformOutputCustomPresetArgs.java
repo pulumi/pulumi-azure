@@ -8,7 +8,9 @@ import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterArgs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,6 +33,21 @@ public final class TransformOutputCustomPresetArgs extends com.pulumi.resources.
      */
     public Output<List<TransformOutputCustomPresetCodecArgs>> codecs() {
         return this.codecs;
+    }
+
+    /**
+     * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    @Import(name="experimentalOptions")
+    private @Nullable Output<Map<String,String>> experimentalOptions;
+
+    /**
+     * @return Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> experimentalOptions() {
+        return Optional.ofNullable(this.experimentalOptions);
     }
 
     /**
@@ -67,6 +84,7 @@ public final class TransformOutputCustomPresetArgs extends com.pulumi.resources.
 
     private TransformOutputCustomPresetArgs(TransformOutputCustomPresetArgs $) {
         this.codecs = $.codecs;
+        this.experimentalOptions = $.experimentalOptions;
         this.filter = $.filter;
         this.formats = $.formats;
     }
@@ -118,6 +136,27 @@ public final class TransformOutputCustomPresetArgs extends com.pulumi.resources.
          */
         public Builder codecs(TransformOutputCustomPresetCodecArgs... codecs) {
             return codecs(List.of(codecs));
+        }
+
+        /**
+         * @param experimentalOptions Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalOptions(@Nullable Output<Map<String,String>> experimentalOptions) {
+            $.experimentalOptions = experimentalOptions;
+            return this;
+        }
+
+        /**
+         * @param experimentalOptions Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalOptions(Map<String,String> experimentalOptions) {
+            return experimentalOptions(Output.of(experimentalOptions));
         }
 
         /**

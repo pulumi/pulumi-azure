@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TransformOutputCustomPresetCodec> Codecs;
         /// <summary>
+        /// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ExperimentalOptions;
+        /// <summary>
         /// A `filter` block as defined below.
         /// </summary>
         public readonly Outputs.TransformOutputCustomPresetFilter? Filter;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.Media.Outputs
         private TransformOutputCustomPreset(
             ImmutableArray<Outputs.TransformOutputCustomPresetCodec> codecs,
 
+            ImmutableDictionary<string, string>? experimentalOptions,
+
             Outputs.TransformOutputCustomPresetFilter? filter,
 
             ImmutableArray<Outputs.TransformOutputCustomPresetFormat> formats)
         {
             Codecs = codecs;
+            ExperimentalOptions = experimentalOptions;
             Filter = filter;
             Formats = formats;
         }

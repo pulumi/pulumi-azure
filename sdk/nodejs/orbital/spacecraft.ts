@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleSpacecraft = new azure.orbital.Spacecraft("exampleSpacecraft", {
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     location: "westeurope",
  *     noradId: "12345",
  *     links: [{

@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Cognitive
     ///         CustomSubdomainName = "example-account",
     ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
     ///         {
-    ///             Type = "UserAssigned",
+    ///             Type = "SystemAssigned, UserAssigned",
     ///             IdentityIds = new[]
     ///             {
     ///                 exampleUserAssignedIdentity.Id,

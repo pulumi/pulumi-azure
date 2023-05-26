@@ -10,6 +10,541 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type NetworkPacketCoreControlPlaneIdentity struct {
+	// A list of the IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// NetworkPacketCoreControlPlaneIdentityInput is an input type that accepts NetworkPacketCoreControlPlaneIdentityArgs and NetworkPacketCoreControlPlaneIdentityOutput values.
+// You can construct a concrete instance of `NetworkPacketCoreControlPlaneIdentityInput` via:
+//
+//	NetworkPacketCoreControlPlaneIdentityArgs{...}
+type NetworkPacketCoreControlPlaneIdentityInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCoreControlPlaneIdentityOutput() NetworkPacketCoreControlPlaneIdentityOutput
+	ToNetworkPacketCoreControlPlaneIdentityOutputWithContext(context.Context) NetworkPacketCoreControlPlaneIdentityOutput
+}
+
+type NetworkPacketCoreControlPlaneIdentityArgs struct {
+	// A list of the IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NetworkPacketCoreControlPlaneIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (i NetworkPacketCoreControlPlaneIdentityArgs) ToNetworkPacketCoreControlPlaneIdentityOutput() NetworkPacketCoreControlPlaneIdentityOutput {
+	return i.ToNetworkPacketCoreControlPlaneIdentityOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCoreControlPlaneIdentityArgs) ToNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneIdentityOutput)
+}
+
+func (i NetworkPacketCoreControlPlaneIdentityArgs) ToNetworkPacketCoreControlPlaneIdentityPtrOutput() NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return i.ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCoreControlPlaneIdentityArgs) ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneIdentityOutput).ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx)
+}
+
+// NetworkPacketCoreControlPlaneIdentityPtrInput is an input type that accepts NetworkPacketCoreControlPlaneIdentityArgs, NetworkPacketCoreControlPlaneIdentityPtr and NetworkPacketCoreControlPlaneIdentityPtrOutput values.
+// You can construct a concrete instance of `NetworkPacketCoreControlPlaneIdentityPtrInput` via:
+//
+//	        NetworkPacketCoreControlPlaneIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkPacketCoreControlPlaneIdentityPtrInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCoreControlPlaneIdentityPtrOutput() NetworkPacketCoreControlPlaneIdentityPtrOutput
+	ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(context.Context) NetworkPacketCoreControlPlaneIdentityPtrOutput
+}
+
+type networkPacketCoreControlPlaneIdentityPtrType NetworkPacketCoreControlPlaneIdentityArgs
+
+func NetworkPacketCoreControlPlaneIdentityPtr(v *NetworkPacketCoreControlPlaneIdentityArgs) NetworkPacketCoreControlPlaneIdentityPtrInput {
+	return (*networkPacketCoreControlPlaneIdentityPtrType)(v)
+}
+
+func (*networkPacketCoreControlPlaneIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (i *networkPacketCoreControlPlaneIdentityPtrType) ToNetworkPacketCoreControlPlaneIdentityPtrOutput() NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return i.ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *networkPacketCoreControlPlaneIdentityPtrType) ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneIdentityPtrOutput)
+}
+
+type NetworkPacketCoreControlPlaneIdentityOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCoreControlPlaneIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityOutput) ToNetworkPacketCoreControlPlaneIdentityOutput() NetworkPacketCoreControlPlaneIdentityOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityOutput) ToNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityOutput) ToNetworkPacketCoreControlPlaneIdentityPtrOutput() NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return o.ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityOutput) ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCoreControlPlaneIdentity) *NetworkPacketCoreControlPlaneIdentity {
+		return &v
+	}).(NetworkPacketCoreControlPlaneIdentityPtrOutput)
+}
+
+// A list of the IDs for User Assigned Managed Identity resources to be assigned.
+func (o NetworkPacketCoreControlPlaneIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlaneIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o NetworkPacketCoreControlPlaneIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlaneIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NetworkPacketCoreControlPlaneIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCoreControlPlaneIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) ToNetworkPacketCoreControlPlaneIdentityPtrOutput() NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityPtrOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) Elem() NetworkPacketCoreControlPlaneIdentityOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlaneIdentity) NetworkPacketCoreControlPlaneIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPacketCoreControlPlaneIdentity
+		return ret
+	}).(NetworkPacketCoreControlPlaneIdentityOutput)
+}
+
+// A list of the IDs for User Assigned Managed Identity resources to be assigned.
+func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlaneIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlaneIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkPacketCoreControlPlaneLocalDiagnosticsAccess struct {
+	// How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+	HttpsServerCertificateUrl *string `pulumi:"httpsServerCertificateUrl"`
+}
+
+// NetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput is an input type that accepts NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs and NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput values.
+// You can construct a concrete instance of `NetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput` via:
+//
+//	NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{...}
+type NetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput
+	ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput
+}
+
+type NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs struct {
+	// How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+	HttpsServerCertificateUrl pulumi.StringPtrInput `pulumi:"httpsServerCertificateUrl"`
+}
+
+func (NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return i.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput)
+}
+
+func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return i.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput).ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx)
+}
+
+// NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrInput is an input type that accepts NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs, NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtr and NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput values.
+// You can construct a concrete instance of `NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrInput` via:
+//
+//	        NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput
+	ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput
+}
+
+type networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs
+
+func NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtr(v *NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrInput {
+	return (*networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType)(v)
+}
+
+func (*networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (i *networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return i.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput)
+}
+
+type NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return o.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) *NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
+		return &v
+	}).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput)
+}
+
+// How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) HttpsServerCertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) *string {
+		return v.HttpsServerCertificateUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) Elem() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPacketCoreControlPlaneLocalDiagnosticsAccess
+		return ret
+	}).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput)
+}
+
+// How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) HttpsServerCertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsServerCertificateUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkPacketCoreControlPlanePlatform struct {
+	// The ID of the Azure Arc connected cluster where the packet core is deployed.
+	ArcKubernetesClusterId *string `pulumi:"arcKubernetesClusterId"`
+	// The ID of the Azure Arc custom location where the packet core is deployed.
+	//
+	// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+	CustomLocationId *string `pulumi:"customLocationId"`
+	// The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+	EdgeDeviceId *string `pulumi:"edgeDeviceId"`
+	// The ID of the Azure Stack HCI cluster where the packet core is deployed.
+	StackHciClusterId *string `pulumi:"stackHciClusterId"`
+	// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+	Type string `pulumi:"type"`
+}
+
+// NetworkPacketCoreControlPlanePlatformInput is an input type that accepts NetworkPacketCoreControlPlanePlatformArgs and NetworkPacketCoreControlPlanePlatformOutput values.
+// You can construct a concrete instance of `NetworkPacketCoreControlPlanePlatformInput` via:
+//
+//	NetworkPacketCoreControlPlanePlatformArgs{...}
+type NetworkPacketCoreControlPlanePlatformInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCoreControlPlanePlatformOutput() NetworkPacketCoreControlPlanePlatformOutput
+	ToNetworkPacketCoreControlPlanePlatformOutputWithContext(context.Context) NetworkPacketCoreControlPlanePlatformOutput
+}
+
+type NetworkPacketCoreControlPlanePlatformArgs struct {
+	// The ID of the Azure Arc connected cluster where the packet core is deployed.
+	ArcKubernetesClusterId pulumi.StringPtrInput `pulumi:"arcKubernetesClusterId"`
+	// The ID of the Azure Arc custom location where the packet core is deployed.
+	//
+	// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+	CustomLocationId pulumi.StringPtrInput `pulumi:"customLocationId"`
+	// The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+	EdgeDeviceId pulumi.StringPtrInput `pulumi:"edgeDeviceId"`
+	// The ID of the Azure Stack HCI cluster where the packet core is deployed.
+	StackHciClusterId pulumi.StringPtrInput `pulumi:"stackHciClusterId"`
+	// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NetworkPacketCoreControlPlanePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (i NetworkPacketCoreControlPlanePlatformArgs) ToNetworkPacketCoreControlPlanePlatformOutput() NetworkPacketCoreControlPlanePlatformOutput {
+	return i.ToNetworkPacketCoreControlPlanePlatformOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCoreControlPlanePlatformArgs) ToNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlanePlatformOutput)
+}
+
+func (i NetworkPacketCoreControlPlanePlatformArgs) ToNetworkPacketCoreControlPlanePlatformPtrOutput() NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return i.ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCoreControlPlanePlatformArgs) ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlanePlatformOutput).ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx)
+}
+
+// NetworkPacketCoreControlPlanePlatformPtrInput is an input type that accepts NetworkPacketCoreControlPlanePlatformArgs, NetworkPacketCoreControlPlanePlatformPtr and NetworkPacketCoreControlPlanePlatformPtrOutput values.
+// You can construct a concrete instance of `NetworkPacketCoreControlPlanePlatformPtrInput` via:
+//
+//	        NetworkPacketCoreControlPlanePlatformArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkPacketCoreControlPlanePlatformPtrInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCoreControlPlanePlatformPtrOutput() NetworkPacketCoreControlPlanePlatformPtrOutput
+	ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(context.Context) NetworkPacketCoreControlPlanePlatformPtrOutput
+}
+
+type networkPacketCoreControlPlanePlatformPtrType NetworkPacketCoreControlPlanePlatformArgs
+
+func NetworkPacketCoreControlPlanePlatformPtr(v *NetworkPacketCoreControlPlanePlatformArgs) NetworkPacketCoreControlPlanePlatformPtrInput {
+	return (*networkPacketCoreControlPlanePlatformPtrType)(v)
+}
+
+func (*networkPacketCoreControlPlanePlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (i *networkPacketCoreControlPlanePlatformPtrType) ToNetworkPacketCoreControlPlanePlatformPtrOutput() NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return i.ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *networkPacketCoreControlPlanePlatformPtrType) ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlanePlatformPtrOutput)
+}
+
+type NetworkPacketCoreControlPlanePlatformOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCoreControlPlanePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (o NetworkPacketCoreControlPlanePlatformOutput) ToNetworkPacketCoreControlPlanePlatformOutput() NetworkPacketCoreControlPlanePlatformOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlanePlatformOutput) ToNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlanePlatformOutput) ToNetworkPacketCoreControlPlanePlatformPtrOutput() NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return o.ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPacketCoreControlPlanePlatformOutput) ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCoreControlPlanePlatform) *NetworkPacketCoreControlPlanePlatform {
+		return &v
+	}).(NetworkPacketCoreControlPlanePlatformPtrOutput)
+}
+
+// The ID of the Azure Arc connected cluster where the packet core is deployed.
+func (o NetworkPacketCoreControlPlanePlatformOutput) ArcKubernetesClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) *string { return v.ArcKubernetesClusterId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Arc custom location where the packet core is deployed.
+//
+// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+func (o NetworkPacketCoreControlPlanePlatformOutput) CustomLocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) *string { return v.CustomLocationId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+func (o NetworkPacketCoreControlPlanePlatformOutput) EdgeDeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) *string { return v.EdgeDeviceId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Stack HCI cluster where the packet core is deployed.
+func (o NetworkPacketCoreControlPlanePlatformOutput) StackHciClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) *string { return v.StackHciClusterId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+func (o NetworkPacketCoreControlPlanePlatformOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NetworkPacketCoreControlPlanePlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCoreControlPlanePlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ToNetworkPacketCoreControlPlanePlatformPtrOutput() NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformPtrOutput {
+	return o
+}
+
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) Elem() NetworkPacketCoreControlPlanePlatformOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) NetworkPacketCoreControlPlanePlatform {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPacketCoreControlPlanePlatform
+		return ret
+	}).(NetworkPacketCoreControlPlanePlatformOutput)
+}
+
+// The ID of the Azure Arc connected cluster where the packet core is deployed.
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ArcKubernetesClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArcKubernetesClusterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Arc custom location where the packet core is deployed.
+//
+// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) CustomLocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLocationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) EdgeDeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EdgeDeviceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Stack HCI cluster where the packet core is deployed.
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) StackHciClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StackHciClusterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+func (o NetworkPacketCoreControlPlanePlatformPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkServicePccRule struct {
 	// Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
 	Name string `pulumi:"name"`
@@ -2023,6 +2558,353 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) S
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetNetworkPacketCoreControlPlaneIdentity struct {
+	// A list of User Assigned Managed Identity IDs assigned to this resource.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The platform type where the packet core is deployed.
+	Type string `pulumi:"type"`
+}
+
+// GetNetworkPacketCoreControlPlaneIdentityInput is an input type that accepts GetNetworkPacketCoreControlPlaneIdentityArgs and GetNetworkPacketCoreControlPlaneIdentityOutput values.
+// You can construct a concrete instance of `GetNetworkPacketCoreControlPlaneIdentityInput` via:
+//
+//	GetNetworkPacketCoreControlPlaneIdentityArgs{...}
+type GetNetworkPacketCoreControlPlaneIdentityInput interface {
+	pulumi.Input
+
+	ToGetNetworkPacketCoreControlPlaneIdentityOutput() GetNetworkPacketCoreControlPlaneIdentityOutput
+	ToGetNetworkPacketCoreControlPlaneIdentityOutputWithContext(context.Context) GetNetworkPacketCoreControlPlaneIdentityOutput
+}
+
+type GetNetworkPacketCoreControlPlaneIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs assigned to this resource.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The platform type where the packet core is deployed.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetNetworkPacketCoreControlPlaneIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (i GetNetworkPacketCoreControlPlaneIdentityArgs) ToGetNetworkPacketCoreControlPlaneIdentityOutput() GetNetworkPacketCoreControlPlaneIdentityOutput {
+	return i.ToGetNetworkPacketCoreControlPlaneIdentityOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPacketCoreControlPlaneIdentityArgs) ToGetNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneIdentityOutput)
+}
+
+// GetNetworkPacketCoreControlPlaneIdentityArrayInput is an input type that accepts GetNetworkPacketCoreControlPlaneIdentityArray and GetNetworkPacketCoreControlPlaneIdentityArrayOutput values.
+// You can construct a concrete instance of `GetNetworkPacketCoreControlPlaneIdentityArrayInput` via:
+//
+//	GetNetworkPacketCoreControlPlaneIdentityArray{ GetNetworkPacketCoreControlPlaneIdentityArgs{...} }
+type GetNetworkPacketCoreControlPlaneIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkPacketCoreControlPlaneIdentityArrayOutput() GetNetworkPacketCoreControlPlaneIdentityArrayOutput
+	ToGetNetworkPacketCoreControlPlaneIdentityArrayOutputWithContext(context.Context) GetNetworkPacketCoreControlPlaneIdentityArrayOutput
+}
+
+type GetNetworkPacketCoreControlPlaneIdentityArray []GetNetworkPacketCoreControlPlaneIdentityInput
+
+func (GetNetworkPacketCoreControlPlaneIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (i GetNetworkPacketCoreControlPlaneIdentityArray) ToGetNetworkPacketCoreControlPlaneIdentityArrayOutput() GetNetworkPacketCoreControlPlaneIdentityArrayOutput {
+	return i.ToGetNetworkPacketCoreControlPlaneIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPacketCoreControlPlaneIdentityArray) ToGetNetworkPacketCoreControlPlaneIdentityArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneIdentityArrayOutput)
+}
+
+type GetNetworkPacketCoreControlPlaneIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPacketCoreControlPlaneIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (o GetNetworkPacketCoreControlPlaneIdentityOutput) ToGetNetworkPacketCoreControlPlaneIdentityOutput() GetNetworkPacketCoreControlPlaneIdentityOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlaneIdentityOutput) ToGetNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneIdentityOutput {
+	return o
+}
+
+// A list of User Assigned Managed Identity IDs assigned to this resource.
+func (o GetNetworkPacketCoreControlPlaneIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlaneIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The platform type where the packet core is deployed.
+func (o GetNetworkPacketCoreControlPlaneIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlaneIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetNetworkPacketCoreControlPlaneIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPacketCoreControlPlaneIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPacketCoreControlPlaneIdentity)(nil)).Elem()
+}
+
+func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) ToGetNetworkPacketCoreControlPlaneIdentityArrayOutput() GetNetworkPacketCoreControlPlaneIdentityArrayOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) ToGetNetworkPacketCoreControlPlaneIdentityArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneIdentityArrayOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) Index(i pulumi.IntInput) GetNetworkPacketCoreControlPlaneIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkPacketCoreControlPlaneIdentity {
+		return vs[0].([]GetNetworkPacketCoreControlPlaneIdentity)[vs[1].(int)]
+	}).(GetNetworkPacketCoreControlPlaneIdentityOutput)
+}
+
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess struct {
+	// How to authenticate users who access local diagnostics APIs.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+	HttpsServerCertificateUrl string `pulumi:"httpsServerCertificateUrl"`
+}
+
+// GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput is an input type that accepts GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs and GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput values.
+// You can construct a concrete instance of `GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput` via:
+//
+//	GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{...}
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput interface {
+	pulumi.Input
+
+	ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput() GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput
+	ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput
+}
+
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs struct {
+	// How to authenticate users who access local diagnostics APIs.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+	HttpsServerCertificateUrl pulumi.StringInput `pulumi:"httpsServerCertificateUrl"`
+}
+
+func (GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput() GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return i.ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput)
+}
+
+// GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayInput is an input type that accepts GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray and GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput values.
+// You can construct a concrete instance of `GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayInput` via:
+//
+//	GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray{ GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{...} }
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput() GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput
+	ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutputWithContext(context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput
+}
+
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray []GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput
+
+func (GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput() GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput {
+	return i.ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput)
+}
+
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput() GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return o
+}
+
+// How to authenticate users who access local diagnostics APIs.
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) HttpsServerCertificateUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess) string {
+		return v.HttpsServerCertificateUrl
+	}).(pulumi.StringOutput)
+}
+
+type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess)(nil)).Elem()
+}
+
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput() GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) Index(i pulumi.IntInput) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
+		return vs[0].([]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess)[vs[1].(int)]
+	}).(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput)
+}
+
+type GetNetworkPacketCoreControlPlanePlatform struct {
+	// The ID of Azure Arc connected cluster where the packet core is deployed.
+	ArcKubernetesClusterId string `pulumi:"arcKubernetesClusterId"`
+	// The ID of Azure Arc custom location where the packet core is deployed.
+	CustomLocationId string `pulumi:"customLocationId"`
+	// The ID of Azure Stack Edge device where the packet core is deployed.
+	EdgeDeviceId string `pulumi:"edgeDeviceId"`
+	// The ID of Azure Stack HCI cluster where the packet core is deployed.
+	StackHciClusterId string `pulumi:"stackHciClusterId"`
+	// The platform type where the packet core is deployed.
+	Type string `pulumi:"type"`
+}
+
+// GetNetworkPacketCoreControlPlanePlatformInput is an input type that accepts GetNetworkPacketCoreControlPlanePlatformArgs and GetNetworkPacketCoreControlPlanePlatformOutput values.
+// You can construct a concrete instance of `GetNetworkPacketCoreControlPlanePlatformInput` via:
+//
+//	GetNetworkPacketCoreControlPlanePlatformArgs{...}
+type GetNetworkPacketCoreControlPlanePlatformInput interface {
+	pulumi.Input
+
+	ToGetNetworkPacketCoreControlPlanePlatformOutput() GetNetworkPacketCoreControlPlanePlatformOutput
+	ToGetNetworkPacketCoreControlPlanePlatformOutputWithContext(context.Context) GetNetworkPacketCoreControlPlanePlatformOutput
+}
+
+type GetNetworkPacketCoreControlPlanePlatformArgs struct {
+	// The ID of Azure Arc connected cluster where the packet core is deployed.
+	ArcKubernetesClusterId pulumi.StringInput `pulumi:"arcKubernetesClusterId"`
+	// The ID of Azure Arc custom location where the packet core is deployed.
+	CustomLocationId pulumi.StringInput `pulumi:"customLocationId"`
+	// The ID of Azure Stack Edge device where the packet core is deployed.
+	EdgeDeviceId pulumi.StringInput `pulumi:"edgeDeviceId"`
+	// The ID of Azure Stack HCI cluster where the packet core is deployed.
+	StackHciClusterId pulumi.StringInput `pulumi:"stackHciClusterId"`
+	// The platform type where the packet core is deployed.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetNetworkPacketCoreControlPlanePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (i GetNetworkPacketCoreControlPlanePlatformArgs) ToGetNetworkPacketCoreControlPlanePlatformOutput() GetNetworkPacketCoreControlPlanePlatformOutput {
+	return i.ToGetNetworkPacketCoreControlPlanePlatformOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPacketCoreControlPlanePlatformArgs) ToGetNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlanePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlanePlatformOutput)
+}
+
+// GetNetworkPacketCoreControlPlanePlatformArrayInput is an input type that accepts GetNetworkPacketCoreControlPlanePlatformArray and GetNetworkPacketCoreControlPlanePlatformArrayOutput values.
+// You can construct a concrete instance of `GetNetworkPacketCoreControlPlanePlatformArrayInput` via:
+//
+//	GetNetworkPacketCoreControlPlanePlatformArray{ GetNetworkPacketCoreControlPlanePlatformArgs{...} }
+type GetNetworkPacketCoreControlPlanePlatformArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkPacketCoreControlPlanePlatformArrayOutput() GetNetworkPacketCoreControlPlanePlatformArrayOutput
+	ToGetNetworkPacketCoreControlPlanePlatformArrayOutputWithContext(context.Context) GetNetworkPacketCoreControlPlanePlatformArrayOutput
+}
+
+type GetNetworkPacketCoreControlPlanePlatformArray []GetNetworkPacketCoreControlPlanePlatformInput
+
+func (GetNetworkPacketCoreControlPlanePlatformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (i GetNetworkPacketCoreControlPlanePlatformArray) ToGetNetworkPacketCoreControlPlanePlatformArrayOutput() GetNetworkPacketCoreControlPlanePlatformArrayOutput {
+	return i.ToGetNetworkPacketCoreControlPlanePlatformArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPacketCoreControlPlanePlatformArray) ToGetNetworkPacketCoreControlPlanePlatformArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlanePlatformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlanePlatformArrayOutput)
+}
+
+type GetNetworkPacketCoreControlPlanePlatformOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPacketCoreControlPlanePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) ToGetNetworkPacketCoreControlPlanePlatformOutput() GetNetworkPacketCoreControlPlanePlatformOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) ToGetNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlanePlatformOutput {
+	return o
+}
+
+// The ID of Azure Arc connected cluster where the packet core is deployed.
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) ArcKubernetesClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlanePlatform) string { return v.ArcKubernetesClusterId }).(pulumi.StringOutput)
+}
+
+// The ID of Azure Arc custom location where the packet core is deployed.
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) CustomLocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlanePlatform) string { return v.CustomLocationId }).(pulumi.StringOutput)
+}
+
+// The ID of Azure Stack Edge device where the packet core is deployed.
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) EdgeDeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlanePlatform) string { return v.EdgeDeviceId }).(pulumi.StringOutput)
+}
+
+// The ID of Azure Stack HCI cluster where the packet core is deployed.
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) StackHciClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlanePlatform) string { return v.StackHciClusterId }).(pulumi.StringOutput)
+}
+
+// The platform type where the packet core is deployed.
+func (o GetNetworkPacketCoreControlPlanePlatformOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPacketCoreControlPlanePlatform) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetNetworkPacketCoreControlPlanePlatformArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPacketCoreControlPlanePlatformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPacketCoreControlPlanePlatform)(nil)).Elem()
+}
+
+func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) ToGetNetworkPacketCoreControlPlanePlatformArrayOutput() GetNetworkPacketCoreControlPlanePlatformArrayOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) ToGetNetworkPacketCoreControlPlanePlatformArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlanePlatformArrayOutput {
+	return o
+}
+
+func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) Index(i pulumi.IntInput) GetNetworkPacketCoreControlPlanePlatformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkPacketCoreControlPlanePlatform {
+		return vs[0].([]GetNetworkPacketCoreControlPlanePlatform)[vs[1].(int)]
+	}).(GetNetworkPacketCoreControlPlanePlatformOutput)
+}
+
 type GetNetworkServicePccRule struct {
 	// Specifies the name which should be used for this Mobile Network Service.
 	Name string `pulumi:"name"`
@@ -2891,7 +3773,7 @@ func (o GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput) Index(i pulu
 }
 
 type GetNetworkSimGroupIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// A list of User Assigned Managed Identity IDs assigned to this resource.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId string   `pulumi:"principalId"`
 	TenantId    string   `pulumi:"tenantId"`
@@ -2911,7 +3793,7 @@ type GetNetworkSimGroupIdentityInput interface {
 }
 
 type GetNetworkSimGroupIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// A list of User Assigned Managed Identity IDs assigned to this resource.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
 	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
@@ -2970,7 +3852,7 @@ func (o GetNetworkSimGroupIdentityOutput) ToGetNetworkSimGroupIdentityOutputWith
 	return o
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// A list of User Assigned Managed Identity IDs assigned to this resource.
 func (o GetNetworkSimGroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkSimGroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -3624,6 +4506,12 @@ func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneIdentityInput)(nil)).Elem(), NetworkPacketCoreControlPlaneIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneIdentityPtrInput)(nil)).Elem(), NetworkPacketCoreControlPlaneIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput)(nil)).Elem(), NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrInput)(nil)).Elem(), NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlanePlatformInput)(nil)).Elem(), NetworkPacketCoreControlPlanePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlanePlatformPtrInput)(nil)).Elem(), NetworkPacketCoreControlPlanePlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkServicePccRuleInput)(nil)).Elem(), NetworkServicePccRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkServicePccRuleArrayInput)(nil)).Elem(), NetworkServicePccRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkServicePccRuleQosPolicyInput)(nil)).Elem(), NetworkServicePccRuleQosPolicyArgs{})
@@ -3649,6 +4537,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput)(nil)).Elem(), NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneIdentityInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneIdentityArrayInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlanePlatformInput)(nil)).Elem(), GetNetworkPacketCoreControlPlanePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlanePlatformArrayInput)(nil)).Elem(), GetNetworkPacketCoreControlPlanePlatformArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkServicePccRuleInput)(nil)).Elem(), GetNetworkServicePccRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkServicePccRuleArrayInput)(nil)).Elem(), GetNetworkServicePccRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkServicePccRuleQosPolicyInput)(nil)).Elem(), GetNetworkServicePccRuleQosPolicyArgs{})
@@ -3675,6 +4569,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray{})
+	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneIdentityOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneIdentityPtrOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCoreControlPlanePlatformOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCoreControlPlanePlatformPtrOutput{})
 	pulumi.RegisterOutputType(NetworkServicePccRuleOutput{})
 	pulumi.RegisterOutputType(NetworkServicePccRuleArrayOutput{})
 	pulumi.RegisterOutputType(NetworkServicePccRuleQosPolicyOutput{})
@@ -3700,6 +4600,12 @@ func init() {
 	pulumi.RegisterOutputType(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput{})
+	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneIdentityOutput{})
+	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput{})
+	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlanePlatformOutput{})
+	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlanePlatformArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkServicePccRuleOutput{})
 	pulumi.RegisterOutputType(GetNetworkServicePccRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkServicePccRuleQosPolicyOutput{})

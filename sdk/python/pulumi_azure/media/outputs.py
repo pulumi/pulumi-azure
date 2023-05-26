@@ -4100,17 +4100,38 @@ class TransformOutputBuiltinPresetPresetConfiguration(dict):
 
 @pulumi.output_type
 class TransformOutputCustomPreset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "experimentalOptions":
+            suggest = "experimental_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPreset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPreset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPreset.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  codecs: Sequence['outputs.TransformOutputCustomPresetCodec'],
                  formats: Sequence['outputs.TransformOutputCustomPresetFormat'],
+                 experimental_options: Optional[Mapping[str, str]] = None,
                  filter: Optional['outputs.TransformOutputCustomPresetFilter'] = None):
         """
         :param Sequence['TransformOutputCustomPresetCodecArgs'] codecs: One or more `codec` blocks as defined above.
         :param Sequence['TransformOutputCustomPresetFormatArgs'] formats: One or more `format` blocks as defined below.
+        :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
         :param 'TransformOutputCustomPresetFilterArgs' filter: A `filter` block as defined below.
         """
         pulumi.set(__self__, "codecs", codecs)
         pulumi.set(__self__, "formats", formats)
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
 
@@ -4129,6 +4150,14 @@ class TransformOutputCustomPreset(dict):
         One or more `format` blocks as defined below.
         """
         return pulumi.get(self, "formats")
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        return pulumi.get(self, "experimental_options")
 
     @property
     @pulumi.getter

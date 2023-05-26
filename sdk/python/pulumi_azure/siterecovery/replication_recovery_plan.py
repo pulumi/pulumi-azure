@@ -19,6 +19,7 @@ class ReplicationRecoveryPlanArgs:
                  recovery_vault_id: pulumi.Input[str],
                  source_recovery_fabric_id: pulumi.Input[str],
                  target_recovery_fabric_id: pulumi.Input[str],
+                 azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None):
         """
@@ -26,12 +27,15 @@ class ReplicationRecoveryPlanArgs:
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
+        :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block defined as below.
         """
         pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
         pulumi.set(__self__, "source_recovery_fabric_id", source_recovery_fabric_id)
         pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
+        if azure_to_azure_settings is not None:
+            pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recovery_groups is not None:
@@ -74,6 +78,18 @@ class ReplicationRecoveryPlanArgs:
         pulumi.set(self, "target_recovery_fabric_id", value)
 
     @property
+    @pulumi.getter(name="azureToAzureSettings")
+    def azure_to_azure_settings(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]:
+        """
+        An `azure_to_azure_settings` block defined as block.
+        """
+        return pulumi.get(self, "azure_to_azure_settings")
+
+    @azure_to_azure_settings.setter
+    def azure_to_azure_settings(self, value: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]):
+        pulumi.set(self, "azure_to_azure_settings", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -89,7 +105,7 @@ class ReplicationRecoveryPlanArgs:
     @pulumi.getter(name="recoveryGroups")
     def recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]:
         """
-        Three or more `recovery_group` block.
+        Three or more `recovery_group` block defined as below.
         """
         return pulumi.get(self, "recovery_groups")
 
@@ -101,6 +117,7 @@ class ReplicationRecoveryPlanArgs:
 @pulumi.input_type
 class _ReplicationRecoveryPlanState:
     def __init__(__self__, *,
+                 azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
@@ -108,12 +125,15 @@ class _ReplicationRecoveryPlanState:
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
+        :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block defined as below.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
+        if azure_to_azure_settings is not None:
+            pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recovery_groups is not None:
@@ -126,6 +146,18 @@ class _ReplicationRecoveryPlanState:
             pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
 
     @property
+    @pulumi.getter(name="azureToAzureSettings")
+    def azure_to_azure_settings(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]:
+        """
+        An `azure_to_azure_settings` block defined as block.
+        """
+        return pulumi.get(self, "azure_to_azure_settings")
+
+    @azure_to_azure_settings.setter
+    def azure_to_azure_settings(self, value: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]):
+        pulumi.set(self, "azure_to_azure_settings", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -141,7 +173,7 @@ class _ReplicationRecoveryPlanState:
     @pulumi.getter(name="recoveryGroups")
     def recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]:
         """
-        Three or more `recovery_group` block.
+        Three or more `recovery_group` block defined as below.
         """
         return pulumi.get(self, "recovery_groups")
 
@@ -191,6 +223,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
@@ -198,7 +231,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+        Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
 
         ## Example Usage
 
@@ -367,8 +400,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
@@ -380,7 +414,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  args: ReplicationRecoveryPlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+        Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
 
         ## Example Usage
 
@@ -562,6 +596,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
@@ -576,6 +611,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationRecoveryPlanArgs.__new__(ReplicationRecoveryPlanArgs)
 
+            __props__.__dict__["azure_to_azure_settings"] = azure_to_azure_settings
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_groups"] = recovery_groups
             if recovery_vault_id is None and not opts.urn:
@@ -597,6 +633,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
             recovery_vault_id: Optional[pulumi.Input[str]] = None,
@@ -609,8 +646,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
@@ -619,12 +657,21 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         __props__ = _ReplicationRecoveryPlanState.__new__(_ReplicationRecoveryPlanState)
 
+        __props__.__dict__["azure_to_azure_settings"] = azure_to_azure_settings
         __props__.__dict__["name"] = name
         __props__.__dict__["recovery_groups"] = recovery_groups
         __props__.__dict__["recovery_vault_id"] = recovery_vault_id
         __props__.__dict__["source_recovery_fabric_id"] = source_recovery_fabric_id
         __props__.__dict__["target_recovery_fabric_id"] = target_recovery_fabric_id
         return ReplicationRecoveryPlan(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureToAzureSettings")
+    def azure_to_azure_settings(self) -> pulumi.Output[Optional['outputs.ReplicationRecoveryPlanAzureToAzureSettings']]:
+        """
+        An `azure_to_azure_settings` block defined as block.
+        """
+        return pulumi.get(self, "azure_to_azure_settings")
 
     @property
     @pulumi.getter
@@ -638,7 +685,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     @pulumi.getter(name="recoveryGroups")
     def recovery_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationRecoveryPlanRecoveryGroup']]]:
         """
-        Three or more `recovery_group` block.
+        Three or more `recovery_group` block defined as below.
         """
         return pulumi.get(self, "recovery_groups")
 

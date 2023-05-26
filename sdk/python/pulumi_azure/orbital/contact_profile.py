@@ -372,8 +372,8 @@ class ContactProfile(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"])
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
@@ -391,8 +391,8 @@ class ContactProfile(pulumi.CustomResource):
                 ),
             )])
         example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
             links=[azure.orbital.ContactProfileLinkArgs(
@@ -453,8 +453,8 @@ class ContactProfile(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"])
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
@@ -472,8 +472,8 @@ class ContactProfile(pulumi.CustomResource):
                 ),
             )])
         example_contact_profile = azure.orbital.ContactProfile("exampleContactProfile",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
             links=[azure.orbital.ContactProfileLinkArgs(

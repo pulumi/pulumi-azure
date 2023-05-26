@@ -13,6 +13,72 @@ import (
 
 // Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//				ObjectId: pulumi.StringRef(current.ObjectId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				AdministratorLogin:    pulumi.String("adminTerraform"),
+//				AdministratorPassword: pulumi.String("QAZwsx123"),
+//				StorageMb:             pulumi.Int(32768),
+//				Version:               pulumi.String("12"),
+//				SkuName:               pulumi.String("GP_Standard_D2s_v3"),
+//				Zone:                  pulumi.String("2"),
+//				Authentication: &postgresql.FlexibleServerAuthenticationArgs{
+//					ActiveDirectoryAuthEnabled: pulumi.Bool(true),
+//					TenantId:                   *pulumi.String(current.TenantId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServerActiveDirectoryAdministrator(ctx, "exampleFlexibleServerActiveDirectoryAdministrator", &postgresql.FlexibleServerActiveDirectoryAdministratorArgs{
+//				ServerName:        exampleFlexibleServer.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          *pulumi.String(current.TenantId),
+//				ObjectId:          *pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalName:     *pulumi.String(exampleServicePrincipal.DisplayName),
+//				PrincipalType:     pulumi.String("ServicePrincipal"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.

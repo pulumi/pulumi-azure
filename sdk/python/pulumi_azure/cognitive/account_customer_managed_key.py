@@ -153,7 +153,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="E0",
             custom_subdomain_name="example-account",
             identity=azure.cognitive.AccountIdentityArgs(
-                type="UserAssigned",
+                type="SystemAssigned, UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -285,7 +285,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="E0",
             custom_subdomain_name="example-account",
             identity=azure.cognitive.AccountIdentityArgs(
-                type="UserAssigned",
+                type="SystemAssigned, UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",

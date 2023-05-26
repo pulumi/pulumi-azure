@@ -249,7 +249,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly networkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
-     * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+     * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
      */
@@ -719,7 +719,7 @@ export interface KubernetesClusterState {
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
-     * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+     * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
      */
@@ -1013,7 +1013,7 @@ export interface KubernetesClusterArgs {
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
-     * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+     * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
      */

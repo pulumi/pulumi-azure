@@ -30,6 +30,13 @@ public final class ActivityLogAlertCriteria {
      */
     private @Nullable String level;
     /**
+     * @return A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+     * 
+     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> levels;
+    /**
      * @return The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
      * 
      */
@@ -55,6 +62,13 @@ public final class ActivityLogAlertCriteria {
      */
     private @Nullable String resourceGroup;
     /**
+     * @return A list of names of resource groups monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> resourceGroups;
+    /**
      * @return A block to define fine grain resource health settings.
      * 
      */
@@ -65,15 +79,36 @@ public final class ActivityLogAlertCriteria {
      */
     private @Nullable String resourceId;
     /**
+     * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+     * 
+     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> resourceIds;
+    /**
      * @return The name of the resource provider monitored by the activity log alert.
      * 
      */
     private @Nullable String resourceProvider;
     /**
+     * @return A list of names of resource providers monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> resourceProviders;
+    /**
      * @return The resource type monitored by the activity log alert.
      * 
      */
     private @Nullable String resourceType;
+    /**
+     * @return A list of resource types monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> resourceTypes;
     /**
      * @return A block to define fine grain service health settings.
      * 
@@ -85,10 +120,24 @@ public final class ActivityLogAlertCriteria {
      */
     private @Nullable String status;
     /**
+     * @return A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+     * 
+     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> statuses;
+    /**
      * @return The sub status of the event.
      * 
      */
     private @Nullable String subStatus;
+    /**
+     * @return A list of sub status of the event.
+     * 
+     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * 
+     */
+    private @Nullable List<String> subStatuses;
 
     private ActivityLogAlertCriteria() {}
     /**
@@ -111,6 +160,15 @@ public final class ActivityLogAlertCriteria {
      */
     public Optional<String> level() {
         return Optional.ofNullable(this.level);
+    }
+    /**
+     * @return A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+     * 
+     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * 
+     */
+    public List<String> levels() {
+        return this.levels == null ? List.of() : this.levels;
     }
     /**
      * @return The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
@@ -148,6 +206,15 @@ public final class ActivityLogAlertCriteria {
         return Optional.ofNullable(this.resourceGroup);
     }
     /**
+     * @return A list of names of resource groups monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * 
+     */
+    public List<String> resourceGroups() {
+        return this.resourceGroups == null ? List.of() : this.resourceGroups;
+    }
+    /**
      * @return A block to define fine grain resource health settings.
      * 
      */
@@ -162,6 +229,15 @@ public final class ActivityLogAlertCriteria {
         return Optional.ofNullable(this.resourceId);
     }
     /**
+     * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+     * 
+     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * 
+     */
+    public List<String> resourceIds() {
+        return this.resourceIds == null ? List.of() : this.resourceIds;
+    }
+    /**
      * @return The name of the resource provider monitored by the activity log alert.
      * 
      */
@@ -169,11 +245,29 @@ public final class ActivityLogAlertCriteria {
         return Optional.ofNullable(this.resourceProvider);
     }
     /**
+     * @return A list of names of resource providers monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * 
+     */
+    public List<String> resourceProviders() {
+        return this.resourceProviders == null ? List.of() : this.resourceProviders;
+    }
+    /**
      * @return The resource type monitored by the activity log alert.
      * 
      */
     public Optional<String> resourceType() {
         return Optional.ofNullable(this.resourceType);
+    }
+    /**
+     * @return A list of resource types monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * 
+     */
+    public List<String> resourceTypes() {
+        return this.resourceTypes == null ? List.of() : this.resourceTypes;
     }
     /**
      * @return A block to define fine grain service health settings.
@@ -190,11 +284,29 @@ public final class ActivityLogAlertCriteria {
         return Optional.ofNullable(this.status);
     }
     /**
+     * @return A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+     * 
+     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * 
+     */
+    public List<String> statuses() {
+        return this.statuses == null ? List.of() : this.statuses;
+    }
+    /**
      * @return The sub status of the event.
      * 
      */
     public Optional<String> subStatus() {
         return Optional.ofNullable(this.subStatus);
+    }
+    /**
+     * @return A list of sub status of the event.
+     * 
+     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * 
+     */
+    public List<String> subStatuses() {
+        return this.subStatuses == null ? List.of() : this.subStatuses;
     }
 
     public static Builder builder() {
@@ -209,36 +321,50 @@ public final class ActivityLogAlertCriteria {
         private @Nullable String caller;
         private String category;
         private @Nullable String level;
+        private @Nullable List<String> levels;
         private @Nullable String operationName;
         private @Nullable String recommendationCategory;
         private @Nullable String recommendationImpact;
         private @Nullable String recommendationType;
         private @Nullable String resourceGroup;
+        private @Nullable List<String> resourceGroups;
         private @Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths;
         private @Nullable String resourceId;
+        private @Nullable List<String> resourceIds;
         private @Nullable String resourceProvider;
+        private @Nullable List<String> resourceProviders;
         private @Nullable String resourceType;
+        private @Nullable List<String> resourceTypes;
         private @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths;
         private @Nullable String status;
+        private @Nullable List<String> statuses;
         private @Nullable String subStatus;
+        private @Nullable List<String> subStatuses;
         public Builder() {}
         public Builder(ActivityLogAlertCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caller = defaults.caller;
     	      this.category = defaults.category;
     	      this.level = defaults.level;
+    	      this.levels = defaults.levels;
     	      this.operationName = defaults.operationName;
     	      this.recommendationCategory = defaults.recommendationCategory;
     	      this.recommendationImpact = defaults.recommendationImpact;
     	      this.recommendationType = defaults.recommendationType;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.resourceGroups = defaults.resourceGroups;
     	      this.resourceHealths = defaults.resourceHealths;
     	      this.resourceId = defaults.resourceId;
+    	      this.resourceIds = defaults.resourceIds;
     	      this.resourceProvider = defaults.resourceProvider;
+    	      this.resourceProviders = defaults.resourceProviders;
     	      this.resourceType = defaults.resourceType;
+    	      this.resourceTypes = defaults.resourceTypes;
     	      this.serviceHealths = defaults.serviceHealths;
     	      this.status = defaults.status;
+    	      this.statuses = defaults.statuses;
     	      this.subStatus = defaults.subStatus;
+    	      this.subStatuses = defaults.subStatuses;
         }
 
         @CustomType.Setter
@@ -255,6 +381,14 @@ public final class ActivityLogAlertCriteria {
         public Builder level(@Nullable String level) {
             this.level = level;
             return this;
+        }
+        @CustomType.Setter
+        public Builder levels(@Nullable List<String> levels) {
+            this.levels = levels;
+            return this;
+        }
+        public Builder levels(String... levels) {
+            return levels(List.of(levels));
         }
         @CustomType.Setter
         public Builder operationName(@Nullable String operationName) {
@@ -282,6 +416,14 @@ public final class ActivityLogAlertCriteria {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceGroups(@Nullable List<String> resourceGroups) {
+            this.resourceGroups = resourceGroups;
+            return this;
+        }
+        public Builder resourceGroups(String... resourceGroups) {
+            return resourceGroups(List.of(resourceGroups));
+        }
+        @CustomType.Setter
         public Builder resourceHealths(@Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths) {
             this.resourceHealths = resourceHealths;
             return this;
@@ -295,14 +437,38 @@ public final class ActivityLogAlertCriteria {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceIds(@Nullable List<String> resourceIds) {
+            this.resourceIds = resourceIds;
+            return this;
+        }
+        public Builder resourceIds(String... resourceIds) {
+            return resourceIds(List.of(resourceIds));
+        }
+        @CustomType.Setter
         public Builder resourceProvider(@Nullable String resourceProvider) {
             this.resourceProvider = resourceProvider;
             return this;
         }
         @CustomType.Setter
+        public Builder resourceProviders(@Nullable List<String> resourceProviders) {
+            this.resourceProviders = resourceProviders;
+            return this;
+        }
+        public Builder resourceProviders(String... resourceProviders) {
+            return resourceProviders(List.of(resourceProviders));
+        }
+        @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
             this.resourceType = resourceType;
             return this;
+        }
+        @CustomType.Setter
+        public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+            this.resourceTypes = resourceTypes;
+            return this;
+        }
+        public Builder resourceTypes(String... resourceTypes) {
+            return resourceTypes(List.of(resourceTypes));
         }
         @CustomType.Setter
         public Builder serviceHealths(@Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths) {
@@ -318,27 +484,50 @@ public final class ActivityLogAlertCriteria {
             return this;
         }
         @CustomType.Setter
+        public Builder statuses(@Nullable List<String> statuses) {
+            this.statuses = statuses;
+            return this;
+        }
+        public Builder statuses(String... statuses) {
+            return statuses(List.of(statuses));
+        }
+        @CustomType.Setter
         public Builder subStatus(@Nullable String subStatus) {
             this.subStatus = subStatus;
             return this;
+        }
+        @CustomType.Setter
+        public Builder subStatuses(@Nullable List<String> subStatuses) {
+            this.subStatuses = subStatuses;
+            return this;
+        }
+        public Builder subStatuses(String... subStatuses) {
+            return subStatuses(List.of(subStatuses));
         }
         public ActivityLogAlertCriteria build() {
             final var o = new ActivityLogAlertCriteria();
             o.caller = caller;
             o.category = category;
             o.level = level;
+            o.levels = levels;
             o.operationName = operationName;
             o.recommendationCategory = recommendationCategory;
             o.recommendationImpact = recommendationImpact;
             o.recommendationType = recommendationType;
             o.resourceGroup = resourceGroup;
+            o.resourceGroups = resourceGroups;
             o.resourceHealths = resourceHealths;
             o.resourceId = resourceId;
+            o.resourceIds = resourceIds;
             o.resourceProvider = resourceProvider;
+            o.resourceProviders = resourceProviders;
             o.resourceType = resourceType;
+            o.resourceTypes = resourceTypes;
             o.serviceHealths = serviceHealths;
             o.status = status;
+            o.statuses = statuses;
             o.subStatus = subStatus;
+            o.subStatuses = subStatuses;
             return o;
         }
     }

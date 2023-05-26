@@ -1361,6 +1361,12 @@ func (o PolicyVMRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
 type PolicyVMRetentionMonthly struct {
 	// The number of monthly backups to keep. Must be between `1` and `9999`
 	Count int `pulumi:"count"`
+	// The days of the month to retain backups of. Must be between `1` and `31`.
+	Days []int `pulumi:"days"`
+	// Including the last day of the month, default to `false`.
+	//
+	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	IncludeLastDays *bool `pulumi:"includeLastDays"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
 	// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
@@ -1381,6 +1387,12 @@ type PolicyVMRetentionMonthlyInput interface {
 type PolicyVMRetentionMonthlyArgs struct {
 	// The number of monthly backups to keep. Must be between `1` and `9999`
 	Count pulumi.IntInput `pulumi:"count"`
+	// The days of the month to retain backups of. Must be between `1` and `31`.
+	Days pulumi.IntArrayInput `pulumi:"days"`
+	// Including the last day of the month, default to `false`.
+	//
+	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 	// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
@@ -1469,6 +1481,18 @@ func (o PolicyVMRetentionMonthlyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
 }
 
+// The days of the month to retain backups of. Must be between `1` and `31`.
+func (o PolicyVMRetentionMonthlyOutput) Days() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) []int { return v.Days }).(pulumi.IntArrayOutput)
+}
+
+// Including the last day of the month, default to `false`.
+//
+// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+func (o PolicyVMRetentionMonthlyOutput) IncludeLastDays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
+}
+
 // The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 func (o PolicyVMRetentionMonthlyOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyVMRetentionMonthly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
@@ -1511,6 +1535,28 @@ func (o PolicyVMRetentionMonthlyPtrOutput) Count() pulumi.IntPtrOutput {
 		}
 		return &v.Count
 	}).(pulumi.IntPtrOutput)
+}
+
+// The days of the month to retain backups of. Must be between `1` and `31`.
+func (o PolicyVMRetentionMonthlyPtrOutput) Days() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *PolicyVMRetentionMonthly) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntArrayOutput)
+}
+
+// Including the last day of the month, default to `false`.
+//
+// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+func (o PolicyVMRetentionMonthlyPtrOutput) IncludeLastDays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyVMRetentionMonthly) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeLastDays
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
@@ -1692,6 +1738,12 @@ func (o PolicyVMRetentionWeeklyPtrOutput) Weekdays() pulumi.StringArrayOutput {
 type PolicyVMRetentionYearly struct {
 	// The number of yearly backups to keep. Must be between `1` and `9999`
 	Count int `pulumi:"count"`
+	// The days of the month to retain backups of. Must be between `1` and `31`.
+	Days []int `pulumi:"days"`
+	// Including the last day of the month, default to `false`.
+	//
+	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	IncludeLastDays *bool `pulumi:"includeLastDays"`
 	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months []string `pulumi:"months"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
@@ -1714,6 +1766,12 @@ type PolicyVMRetentionYearlyInput interface {
 type PolicyVMRetentionYearlyArgs struct {
 	// The number of yearly backups to keep. Must be between `1` and `9999`
 	Count pulumi.IntInput `pulumi:"count"`
+	// The days of the month to retain backups of. Must be between `1` and `31`.
+	Days pulumi.IntArrayInput `pulumi:"days"`
+	// Including the last day of the month, default to `false`.
+	//
+	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
 	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months pulumi.StringArrayInput `pulumi:"months"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
@@ -1804,6 +1862,18 @@ func (o PolicyVMRetentionYearlyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
 }
 
+// The days of the month to retain backups of. Must be between `1` and `31`.
+func (o PolicyVMRetentionYearlyOutput) Days() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []int { return v.Days }).(pulumi.IntArrayOutput)
+}
+
+// Including the last day of the month, default to `false`.
+//
+// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+func (o PolicyVMRetentionYearlyOutput) IncludeLastDays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyVMRetentionYearly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
+}
+
 // The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 func (o PolicyVMRetentionYearlyOutput) Months() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
@@ -1851,6 +1921,28 @@ func (o PolicyVMRetentionYearlyPtrOutput) Count() pulumi.IntPtrOutput {
 		}
 		return &v.Count
 	}).(pulumi.IntPtrOutput)
+}
+
+// The days of the month to retain backups of. Must be between `1` and `31`.
+func (o PolicyVMRetentionYearlyPtrOutput) Days() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *PolicyVMRetentionYearly) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntArrayOutput)
+}
+
+// Including the last day of the month, default to `false`.
+//
+// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+func (o PolicyVMRetentionYearlyPtrOutput) IncludeLastDays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyVMRetentionYearly) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeLastDays
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.

@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			exampleSpacecraft, err := orbital.NewSpacecraft(ctx, "exampleSpacecraft", &orbital.SpacecraftArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          pulumi.String("westeurope"),
 //				NoradId:           pulumi.String("12345"),
 //				Links: orbital.SpacecraftLinkArray{

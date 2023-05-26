@@ -11,38 +11,75 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = new azure.healthcare.MedtechServiceFhirDestination("test", {
- *     destinationFhirMappingJson: `  {
- *             "templateType": "CollectionFhirTemplate",
- *             "template": [
- *               {
- *                 "templateType": "CodeValueFhir",
- *                 "template": {
- *                   "codes": [
- *                     {
- *                       "code": "8867-4",
- *                       "system": "http://loinc.org",
- *                       "display": "Heart rate"
- *                     }
- *                   ],
- *                   "periodInterval": 60,
- *                   "typeName": "heartrate",
- *                   "value": {
- *                     "defaultPeriod": 5000,
- *                     "unit": "count/min",
- *                     "valueName": "hr",
- *                     "valueType": "SampledData"
- *                   }
- *                 }
- *               }
- *             ]
- *   }
- *   
- * `,
- *     destinationFhirServiceId: "fhir_service_id",
- *     destinationIdentityResolutionType: "Create",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getClientConfig({});
+ * const exampleWorkspace = new azure.healthcare.Workspace("exampleWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 1,
+ *     messageRetention: 1,
+ * });
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleFhirService = new azure.healthcare.FhirService("exampleFhirService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceId: exampleWorkspace.id,
+ *     kind: "fhir-R4",
+ *     authentication: {
+ *         authority: "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+ *         audience: "https://examplefhir.fhir.azurehealthcareapis.com",
+ *     },
+ * });
+ * const exampleMedtechService = new azure.healthcare.MedtechService("exampleMedtechService", {
+ *     workspaceId: exampleWorkspace.id,
+ *     location: exampleResourceGroup.location,
+ *     eventhubNamespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     eventhubConsumerGroupName: exampleConsumerGroup.name,
+ *     deviceMappingJson: JSON.stringify({
+ *         templateType: "CollectionContent",
+ *         template: [],
+ *     }),
+ * });
+ * const exampleMedtechServiceFhirDestination = new azure.healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination", {
  *     location: "east us",
- *     medtechServiceId: "mt_service_id",
+ *     medtechServiceId: exampleMedtechService.id,
+ *     destinationFhirServiceId: exampleFhirService.id,
+ *     destinationIdentityResolutionType: "Create",
+ *     destinationFhirMappingJson: JSON.stringify({
+ *         templateType: "CollectionFhirTemplate",
+ *         template: [{
+ *             templateType: "CodeValueFhir",
+ *             template: {
+ *                 codes: [{
+ *                     code: "8867-4",
+ *                     system: "http://loinc.org",
+ *                     display: "Heart rate",
+ *                 }],
+ *                 periodInterval: 60,
+ *                 typeName: "heartrate",
+ *                 value: {
+ *                     defaultPeriod: 5000,
+ *                     unit: "count/min",
+ *                     valueName: "hr",
+ *                     valueType: "SampledData",
+ *                 },
+ *             },
+ *         }],
+ *     }),
  * });
  * ```
  *

@@ -95,10 +95,6 @@ namespace Pulumi.Azure.Nginx
     ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
     ///     });
     /// 
     /// });

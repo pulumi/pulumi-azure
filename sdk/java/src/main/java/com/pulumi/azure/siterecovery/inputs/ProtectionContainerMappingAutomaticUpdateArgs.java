@@ -17,9 +17,32 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     public static final ProtectionContainerMappingAutomaticUpdateArgs Empty = new ProtectionContainerMappingAutomaticUpdateArgs();
 
     /**
+     * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+     * 
+     * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * 
+     * &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+     * 
+     */
+    @Import(name="authenticationType")
+    private @Nullable Output<String> authenticationType;
+
+    /**
+     * @return The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+     * 
+     * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * 
+     * &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+     * 
+     */
+    public Optional<Output<String>> authenticationType() {
+        return Optional.ofNullable(this.authenticationType);
+    }
+
+    /**
      * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
      * 
      */
     @Import(name="automationAccountId")
@@ -28,7 +51,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
      * 
      */
     public Optional<Output<String>> automationAccountId() {
@@ -57,6 +80,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     private ProtectionContainerMappingAutomaticUpdateArgs() {}
 
     private ProtectionContainerMappingAutomaticUpdateArgs(ProtectionContainerMappingAutomaticUpdateArgs $) {
+        this.authenticationType = $.authenticationType;
         this.automationAccountId = $.automationAccountId;
         this.enabled = $.enabled;
     }
@@ -80,9 +104,38 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         }
 
         /**
+         * @param authenticationType The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+         * 
+         * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         * 
+         * &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationType(@Nullable Output<String> authenticationType) {
+            $.authenticationType = authenticationType;
+            return this;
+        }
+
+        /**
+         * @param authenticationType The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+         * 
+         * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         * 
+         * &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationType(String authenticationType) {
+            return authenticationType(Output.of(authenticationType));
+        }
+
+        /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
-         * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+         * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
          * 
          * @return builder
          * 
@@ -95,7 +148,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
-         * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+         * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
          * 
          * @return builder
          * 

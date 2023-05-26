@@ -3978,14 +3978,18 @@ class TransformOutputCustomPresetArgs:
     def __init__(__self__, *,
                  codecs: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgs']]],
                  formats: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]],
+                 experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  filter: Optional[pulumi.Input['TransformOutputCustomPresetFilterArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgs']]] codecs: One or more `codec` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]] formats: One or more `format` blocks as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
         :param pulumi.Input['TransformOutputCustomPresetFilterArgs'] filter: A `filter` block as defined below.
         """
         pulumi.set(__self__, "codecs", codecs)
         pulumi.set(__self__, "formats", formats)
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
 
@@ -4012,6 +4016,18 @@ class TransformOutputCustomPresetArgs:
     @formats.setter
     def formats(self, value: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]]):
         pulumi.set(self, "formats", value)
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        return pulumi.get(self, "experimental_options")
+
+    @experimental_options.setter
+    def experimental_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "experimental_options", value)
 
     @property
     @pulumi.getter

@@ -314,7 +314,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         /// </summary>
@@ -790,7 +790,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         /// </summary>
@@ -1279,7 +1279,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         /// </summary>

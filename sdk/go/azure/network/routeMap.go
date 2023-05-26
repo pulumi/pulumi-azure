@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualHub(ctx, "test", &network.VirtualHubArgs{
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				VirtualWanId:      exampleVirtualWan.ID(),
@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = network.NewRouteMap(ctx, "exampleRouteMap", &network.RouteMapArgs{
-//				VirtualHubId: pulumi.Any(azurerm_virtual_hub.Example.Id),
+//				VirtualHubId: exampleVirtualHub.ID(),
 //				Rules: network.RouteMapRuleArray{
 //					&network.RouteMapRuleArgs{
 //						Name:              pulumi.String("rule1"),

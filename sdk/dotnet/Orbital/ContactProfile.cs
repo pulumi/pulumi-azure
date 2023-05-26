@@ -33,8 +33,8 @@ namespace Pulumi.Azure.Orbital
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
@@ -67,8 +67,8 @@ namespace Pulumi.Azure.Orbital
     /// 
     ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("exampleContactProfile", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///         Location = azurerm_resource_group.Test.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
     ///         MinimumVariableContactDuration = "PT1M",
     ///         AutoTracking = "disabled",
     ///         Links = new[]

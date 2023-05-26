@@ -116,14 +116,14 @@ public final class ResourceGroupPolicyAssignmentArgs extends com.pulumi.resource
     }
 
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * @return The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -403,7 +403,7 @@ public final class ResourceGroupPolicyAssignmentArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+         * @param name The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ResourceGroupPolicyAssignmentArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+         * @param name The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
          * 
          * @return builder
          * 

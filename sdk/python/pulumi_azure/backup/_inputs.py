@@ -407,16 +407,28 @@ class PolicyVMRetentionDailyArgs:
 class PolicyVMRetentionMonthlyArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
-                 weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 weeks: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 include_last_days: Optional[pulumi.Input[bool]] = None,
+                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] count: The number of monthly backups to keep. Must be between `1` and `9999`
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param pulumi.Input[bool] include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -432,26 +444,52 @@ class PolicyVMRetentionMonthlyArgs:
 
     @property
     @pulumi.getter
-    def weekdays(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @include_last_days.setter
+    def include_last_days(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_last_days", value)
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
 
     @weekdays.setter
-    def weekdays(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weekdays", value)
 
     @property
     @pulumi.getter
-    def weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         return pulumi.get(self, "weeks")
 
     @weeks.setter
-    def weeks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weeks", value)
 
 
@@ -497,18 +535,30 @@ class PolicyVMRetentionYearlyArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  months: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 weeks: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 include_last_days: Optional[pulumi.Input[bool]] = None,
+                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `9999`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param pulumi.Input[bool] include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "months", months)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -536,26 +586,52 @@ class PolicyVMRetentionYearlyArgs:
 
     @property
     @pulumi.getter
-    def weekdays(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @include_last_days.setter
+    def include_last_days(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_last_days", value)
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
 
     @weekdays.setter
-    def weekdays(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weekdays", value)
 
     @property
     @pulumi.getter
-    def weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         return pulumi.get(self, "weeks")
 
     @weeks.setter
-    def weeks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weeks", value)
 
 

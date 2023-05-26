@@ -26,6 +26,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.automation.Account;
+ * import com.pulumi.azure.automation.AccountArgs;
+ * import com.pulumi.azure.automation.HybridRunbookWorkerGroup;
+ * import com.pulumi.azure.automation.HybridRunbookWorkerGroupArgs;
+ * import com.pulumi.azure.automation.RunBook;
+ * import com.pulumi.azure.automation.RunBookArgs;
+ * import com.pulumi.azure.automation.inputs.RunBookPublishContentLinkArgs;
  * import com.pulumi.azure.automation.Watcher;
  * import com.pulumi.azure.automation.WatcherArgs;
  * import java.util.List;
@@ -41,11 +50,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Watcher(&#34;example&#34;, WatcherArgs.builder()        
- *             .automationAccountId(azurerm_automation_account.test().id())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
- *             .scriptName(azurerm_automation_runbook.test().name())
- *             .scriptRunOn(azurerm_automation_hybrid_runbook_worker_group.test().name())
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Basic&#34;)
+ *             .build());
+ * 
+ *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup(&#34;exampleHybridRunbookWorkerGroup&#34;, HybridRunbookWorkerGroupArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
+ *             .build());
+ * 
+ *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
+ *             .logVerbose(&#34;true&#34;)
+ *             .logProgress(&#34;true&#34;)
+ *             .description(&#34;This is an example runbook&#34;)
+ *             .runbookType(&#34;PowerShellWorkflow&#34;)
+ *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
+ *                 .uri(&#34;https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleWatcher = new Watcher(&#34;exampleWatcher&#34;, WatcherArgs.builder()        
+ *             .automationAccountId(exampleAccount.id())
+ *             .location(&#34;West Europe&#34;)
+ *             .scriptName(exampleRunBook.name())
+ *             .scriptRunOn(exampleHybridRunbookWorkerGroup.name())
  *             .description(&#34;example-watcher desc&#34;)
  *             .executionFrequencyInSeconds(42)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))

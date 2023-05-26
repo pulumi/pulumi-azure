@@ -2760,6 +2760,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cosmosdb/mongoRoleDefinition",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition": "MongoRoleDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/mongoUserDefinition",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition": "MongoUserDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cosmosdb/notebookWorkspace",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
@@ -4224,6 +4240,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "iot/fileUpload",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/fileUpload:FileUpload": "FileUpload"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "iot/ioTHub",
   "fqn": "pulumi_azure.iot",
   "classes": {
@@ -5248,6 +5272,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mobile/networkPacketCoreControlPlane",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane": "NetworkPacketCoreControlPlane"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mobile/networkService",
   "fqn": "pulumi_azure.mobile",
   "classes": {
@@ -5340,6 +5372,14 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression": "AlertProcessingRuleSuppression"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/alertPrometheusRuleGroup",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup": "AlertPrometheusRuleGroup"
   }
  },
  {
@@ -5740,6 +5780,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mysql",
   "classes": {
    "azure:mysql/flexibleServer:FlexibleServer": "FlexibleServer"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mysql/flexibleServerActiveDirectoryAdministrator",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "FlexibleServerActiveDirectoryAdministrator"
   }
  },
  {
@@ -6920,6 +6968,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "recoveryservices/vaultResourceGuardAssociation",
+  "fqn": "pulumi_azure.recoveryservices",
+  "classes": {
+   "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": "VaultResourceGuardAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "redis/cache",
   "fqn": "pulumi_azure.redis",
   "classes": {
@@ -7488,6 +7544,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "signalr/serviceCustomDomain",
+  "fqn": "pulumi_azure.signalr",
+  "classes": {
+   "azure:signalr/serviceCustomDomain:ServiceCustomDomain": "ServiceCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "signalr/serviceNetworkAcl",
   "fqn": "pulumi_azure.signalr",
   "classes": {
@@ -7532,6 +7596,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/hyperVSite:HyperVSite": "HyperVSite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/hypervNetworkMapping",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping": "HypervNetworkMapping"
   }
  },
  {
@@ -7588,6 +7660,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": "VMWareReplicationPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/vmwareReplicationPolicyAssociation",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": "VmwareReplicationPolicyAssociation"
   }
  },
  {
@@ -8316,6 +8396,14 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/customCertificate:CustomCertificate": "CustomCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/customDomain",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/customDomain:CustomDomain": "CustomDomain"
   }
  },
  {

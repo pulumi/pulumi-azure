@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Network{}
 	case "azure:mobile/networkDataNetwork:NetworkDataNetwork":
 		r = &NetworkDataNetwork{}
+	case "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane":
+		r = &NetworkPacketCoreControlPlane{}
 	case "azure:mobile/networkService:NetworkService":
 		r = &NetworkService{}
 	case "azure:mobile/networkSimGroup:NetworkSimGroup":
@@ -56,6 +58,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mobile/networkDataNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkPacketCoreControlPlane",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

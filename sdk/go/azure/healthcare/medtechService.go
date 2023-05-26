@@ -20,6 +20,9 @@ import (
 //
 // import (
 //
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -27,16 +30,54 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := healthcare.NewMedtechService(ctx, "test", &healthcare.MedtechServiceArgs{
-//				DeviceMappingJson:         pulumi.String("{\n    \"templateType\": \"CollectionContent\",\n    \"template\": [\n                {\n                  \"templateType\": \"JsonPathContent\",\n                  \"template\": {\n                    \"typeName\": \"heartrate\",\n                    \"typeMatchExpression\": \"$..[?(@heartrate)]\",\n                    \"deviceIdExpression\": \"$.deviceid\",\n                    \"timestampExpression\": \"$.measurementdatetime\",\n                    \"values\": [\n                      {\n                        \"required\": \"true\",\n                        \"valueExpression\": \"$.heartrate\",\n                        \"valueName\": \"hr\"\n                      }\n                    ]\n                  }\n                }\n              ]\n}\n\n"),
-//				EventhubConsumerGroupName: pulumi.String("tfex-eventhub-consumer-group.name"),
-//				EventhubName:              pulumi.String("tfex-eventhub.name"),
-//				EventhubNamespaceName:     pulumi.String("tfex-eventhub-namespace.name"),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"templateType": "CollectionContent",
+//				"template": []map[string]interface{}{
+//					map[string]interface{}{
+//						"templateType": "JsonPathContent",
+//						"template": map[string]interface{}{
+//							"typeName":            "heartrate",
+//							"typeMatchExpression": "$..[?(@heartrate)]",
+//							"deviceIdExpression":  "$.deviceid",
+//							"timestampExpression": "$.measurementdatetime",
+//							"values": []map[string]interface{}{
+//								map[string]interface{}{
+//									"required":        "true",
+//									"valueExpression": "$.heartrate",
+//									"valueName":       "hr",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = healthcare.NewMedtechService(ctx, "exampleMedtechService", &healthcare.MedtechServiceArgs{
+//				WorkspaceId: exampleWorkspace.ID(),
+//				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.MedtechServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
-//				Location:    pulumi.String("east us"),
-//				WorkspaceId: pulumi.String("tfex-workspace_id"),
+//				EventhubNamespaceName:     pulumi.String("example-eventhub-namespace"),
+//				EventhubName:              pulumi.String("example-eventhub"),
+//				EventhubConsumerGroupName: pulumi.String("$Default"),
+//				DeviceMappingJson:         pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

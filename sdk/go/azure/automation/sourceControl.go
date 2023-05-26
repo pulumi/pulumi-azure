@@ -21,14 +21,29 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := automation.NewSourceControl(ctx, "example", &automation.SourceControlArgs{
-//				AutomationAccountId: pulumi.Any(azurerm_automation_account.Test.Id),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewSourceControl(ctx, "exampleSourceControl", &automation.SourceControlArgs{
+//				AutomationAccountId: exampleAccount.ID(),
 //				FolderPath:          pulumi.String("runbook"),
 //				Security: &automation.SourceControlSecurityArgs{
 //					Token:     pulumi.String("ghp_xxx"),

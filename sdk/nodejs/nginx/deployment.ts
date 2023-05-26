@@ -54,9 +54,6 @@ import * as utilities from "../utilities";
  *     networkInterfaces: [{
  *         subnetId: exampleSubnet.id,
  *     }],
- *     tags: {
- *         foo: "bar",
- *     },
  * });
  * ```
  *

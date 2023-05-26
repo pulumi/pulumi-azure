@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+ * Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
  *
  * ## Example Usage
  *
@@ -223,11 +223,15 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     }
 
     /**
+     * An `azureToAzureSettings` block defined as block.
+     */
+    public readonly azureToAzureSettings!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
+    /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Three or more `recoveryGroup` block.
+     * Three or more `recoveryGroup` block defined as below.
      */
     public readonly recoveryGroups!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup[] | undefined>;
     /**
@@ -256,6 +260,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationRecoveryPlanState | undefined;
+            resourceInputs["azureToAzureSettings"] = state ? state.azureToAzureSettings : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recoveryGroups"] = state ? state.recoveryGroups : undefined;
             resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
@@ -272,6 +277,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             if ((!args || args.targetRecoveryFabricId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryFabricId'");
             }
+            resourceInputs["azureToAzureSettings"] = args ? args.azureToAzureSettings : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recoveryGroups"] = args ? args.recoveryGroups : undefined;
             resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
@@ -288,11 +294,15 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
  */
 export interface ReplicationRecoveryPlanState {
     /**
+     * An `azureToAzureSettings` block defined as block.
+     */
+    azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
+    /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Three or more `recoveryGroup` block.
+     * Three or more `recoveryGroup` block defined as below.
      */
     recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**
@@ -314,11 +324,15 @@ export interface ReplicationRecoveryPlanState {
  */
 export interface ReplicationRecoveryPlanArgs {
     /**
+     * An `azureToAzureSettings` block defined as block.
+     */
+    azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
+    /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Three or more `recoveryGroup` block.
+     * Three or more `recoveryGroup` block defined as below.
      */
     recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**

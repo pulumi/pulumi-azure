@@ -26,6 +26,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.automation.Account;
+ * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.SourceControl;
  * import com.pulumi.azure.automation.SourceControlArgs;
  * import com.pulumi.azure.automation.inputs.SourceControlSecurityArgs;
@@ -42,8 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceControl(&#34;example&#34;, SourceControlArgs.builder()        
- *             .automationAccountId(azurerm_automation_account.test().id())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Basic&#34;)
+ *             .build());
+ * 
+ *         var exampleSourceControl = new SourceControl(&#34;exampleSourceControl&#34;, SourceControlArgs.builder()        
+ *             .automationAccountId(exampleAccount.id())
  *             .folderPath(&#34;runbook&#34;)
  *             .security(SourceControlSecurityArgs.builder()
  *                 .token(&#34;ghp_xxx&#34;)

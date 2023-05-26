@@ -29,6 +29,10 @@ namespace Pulumi.Azure.SignalR.Outputs
         /// The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
         /// </summary>
         public readonly string UrlTemplate;
+        /// <summary>
+        /// Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+        /// </summary>
+        public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]
         private ServiceUpstreamEndpoint(
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.SignalR.Outputs
 
             ImmutableArray<string> hubPatterns,
 
-            string urlTemplate)
+            string urlTemplate,
+
+            string? userAssignedIdentityId)
         {
             CategoryPatterns = categoryPatterns;
             EventPatterns = eventPatterns;
             HubPatterns = hubPatterns;
             UrlTemplate = urlTemplate;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

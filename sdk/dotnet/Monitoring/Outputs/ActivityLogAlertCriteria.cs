@@ -26,6 +26,12 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? Level;
         /// <summary>
+        /// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+        /// 
+        /// &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> Levels;
+        /// <summary>
         /// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
         /// </summary>
         public readonly string? OperationName;
@@ -46,6 +52,12 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? ResourceGroup;
         /// <summary>
+        /// A list of names of resource groups monitored by the activity log alert.
+        /// 
+        /// &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGroups;
+        /// <summary>
         /// A block to define fine grain resource health settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityLogAlertCriteriaResourceHealth> ResourceHealths;
@@ -54,13 +66,31 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? ResourceId;
         /// <summary>
+        /// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+        /// 
+        /// &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceIds;
+        /// <summary>
         /// The name of the resource provider monitored by the activity log alert.
         /// </summary>
         public readonly string? ResourceProvider;
         /// <summary>
+        /// A list of names of resource providers monitored by the activity log alert.
+        /// 
+        /// &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceProviders;
+        /// <summary>
         /// The resource type monitored by the activity log alert.
         /// </summary>
         public readonly string? ResourceType;
+        /// <summary>
+        /// A list of resource types monitored by the activity log alert.
+        /// 
+        /// &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceTypes;
         /// <summary>
         /// A block to define fine grain service health settings.
         /// </summary>
@@ -70,9 +100,21 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? Status;
         /// <summary>
+        /// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+        /// 
+        /// &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> Statuses;
+        /// <summary>
         /// The sub status of the event.
         /// </summary>
         public readonly string? SubStatus;
+        /// <summary>
+        /// A list of sub status of the event.
+        /// 
+        /// &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        /// </summary>
+        public readonly ImmutableArray<string> SubStatuses;
 
         [OutputConstructor]
         private ActivityLogAlertCriteria(
@@ -81,6 +123,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
             string category,
 
             string? level,
+
+            ImmutableArray<string> levels,
 
             string? operationName,
 
@@ -92,35 +136,54 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string? resourceGroup,
 
+            ImmutableArray<string> resourceGroups,
+
             ImmutableArray<Outputs.ActivityLogAlertCriteriaResourceHealth> resourceHealths,
 
             string? resourceId,
 
+            ImmutableArray<string> resourceIds,
+
             string? resourceProvider,
 
+            ImmutableArray<string> resourceProviders,
+
             string? resourceType,
+
+            ImmutableArray<string> resourceTypes,
 
             ImmutableArray<Outputs.ActivityLogAlertCriteriaServiceHealth> serviceHealths,
 
             string? status,
 
-            string? subStatus)
+            ImmutableArray<string> statuses,
+
+            string? subStatus,
+
+            ImmutableArray<string> subStatuses)
         {
             Caller = caller;
             Category = category;
             Level = level;
+            Levels = levels;
             OperationName = operationName;
             RecommendationCategory = recommendationCategory;
             RecommendationImpact = recommendationImpact;
             RecommendationType = recommendationType;
             ResourceGroup = resourceGroup;
+            ResourceGroups = resourceGroups;
             ResourceHealths = resourceHealths;
             ResourceId = resourceId;
+            ResourceIds = resourceIds;
             ResourceProvider = resourceProvider;
+            ResourceProviders = resourceProviders;
             ResourceType = resourceType;
+            ResourceTypes = resourceTypes;
             ServiceHealths = serviceHealths;
             Status = status;
+            Statuses = statuses;
             SubStatus = subStatus;
+            SubStatuses = subStatuses;
         }
     }
 }

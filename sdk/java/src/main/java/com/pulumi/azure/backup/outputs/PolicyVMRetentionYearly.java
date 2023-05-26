@@ -4,10 +4,13 @@
 package com.pulumi.azure.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyVMRetentionYearly {
@@ -17,6 +20,18 @@ public final class PolicyVMRetentionYearly {
      */
     private Integer count;
     /**
+     * @return The days of the month to retain backups of. Must be between `1` and `31`.
+     * 
+     */
+    private @Nullable List<Integer> days;
+    /**
+     * @return Including the last day of the month, default to `false`.
+     * 
+     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * 
+     */
+    private @Nullable Boolean includeLastDays;
+    /**
      * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
      * 
      */
@@ -25,12 +40,12 @@ public final class PolicyVMRetentionYearly {
      * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    private List<String> weekdays;
+    private @Nullable List<String> weekdays;
     /**
      * @return The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
      * 
      */
-    private List<String> weeks;
+    private @Nullable List<String> weeks;
 
     private PolicyVMRetentionYearly() {}
     /**
@@ -39,6 +54,22 @@ public final class PolicyVMRetentionYearly {
      */
     public Integer count() {
         return this.count;
+    }
+    /**
+     * @return The days of the month to retain backups of. Must be between `1` and `31`.
+     * 
+     */
+    public List<Integer> days() {
+        return this.days == null ? List.of() : this.days;
+    }
+    /**
+     * @return Including the last day of the month, default to `false`.
+     * 
+     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * 
+     */
+    public Optional<Boolean> includeLastDays() {
+        return Optional.ofNullable(this.includeLastDays);
     }
     /**
      * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
@@ -52,14 +83,14 @@ public final class PolicyVMRetentionYearly {
      * 
      */
     public List<String> weekdays() {
-        return this.weekdays;
+        return this.weekdays == null ? List.of() : this.weekdays;
     }
     /**
      * @return The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
      * 
      */
     public List<String> weeks() {
-        return this.weeks;
+        return this.weeks == null ? List.of() : this.weeks;
     }
 
     public static Builder builder() {
@@ -72,13 +103,17 @@ public final class PolicyVMRetentionYearly {
     @CustomType.Builder
     public static final class Builder {
         private Integer count;
+        private @Nullable List<Integer> days;
+        private @Nullable Boolean includeLastDays;
         private List<String> months;
-        private List<String> weekdays;
-        private List<String> weeks;
+        private @Nullable List<String> weekdays;
+        private @Nullable List<String> weeks;
         public Builder() {}
         public Builder(PolicyVMRetentionYearly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
+    	      this.days = defaults.days;
+    	      this.includeLastDays = defaults.includeLastDays;
     	      this.months = defaults.months;
     	      this.weekdays = defaults.weekdays;
     	      this.weeks = defaults.weeks;
@@ -90,6 +125,19 @@ public final class PolicyVMRetentionYearly {
             return this;
         }
         @CustomType.Setter
+        public Builder days(@Nullable List<Integer> days) {
+            this.days = days;
+            return this;
+        }
+        public Builder days(Integer... days) {
+            return days(List.of(days));
+        }
+        @CustomType.Setter
+        public Builder includeLastDays(@Nullable Boolean includeLastDays) {
+            this.includeLastDays = includeLastDays;
+            return this;
+        }
+        @CustomType.Setter
         public Builder months(List<String> months) {
             this.months = Objects.requireNonNull(months);
             return this;
@@ -98,16 +146,16 @@ public final class PolicyVMRetentionYearly {
             return months(List.of(months));
         }
         @CustomType.Setter
-        public Builder weekdays(List<String> weekdays) {
-            this.weekdays = Objects.requireNonNull(weekdays);
+        public Builder weekdays(@Nullable List<String> weekdays) {
+            this.weekdays = weekdays;
             return this;
         }
         public Builder weekdays(String... weekdays) {
             return weekdays(List.of(weekdays));
         }
         @CustomType.Setter
-        public Builder weeks(List<String> weeks) {
-            this.weeks = Objects.requireNonNull(weeks);
+        public Builder weeks(@Nullable List<String> weeks) {
+            this.weeks = weeks;
             return this;
         }
         public Builder weeks(String... weeks) {
@@ -116,6 +164,8 @@ public final class PolicyVMRetentionYearly {
         public PolicyVMRetentionYearly build() {
             final var o = new PolicyVMRetentionYearly();
             o.count = count;
+            o.days = days;
+            o.includeLastDays = includeLastDays;
             o.months = months;
             o.weekdays = weekdays;
             o.weeks = weeks;

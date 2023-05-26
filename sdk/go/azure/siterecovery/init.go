@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HyperVReplicationPolicyAssociation{}
 	case "azure:siterecovery/hyperVSite:HyperVSite":
 		r = &HyperVSite{}
+	case "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping":
+		r = &HypervNetworkMapping{}
 	case "azure:siterecovery/networkMapping:NetworkMapping":
 		r = &NetworkMapping{}
 	case "azure:siterecovery/protectionContainer:ProtectionContainer":
@@ -43,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationRecoveryPlan{}
 	case "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy":
 		r = &VMWareReplicationPolicy{}
+	case "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation":
+		r = &VmwareReplicationPolicyAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -78,6 +82,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"siterecovery/hypervNetworkMapping",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"siterecovery/networkMapping",
 		&module{version},
 	)
@@ -109,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"siterecovery/vMWareReplicationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"siterecovery/vmwareReplicationPolicyAssociation",
 		&module{version},
 	)
 }

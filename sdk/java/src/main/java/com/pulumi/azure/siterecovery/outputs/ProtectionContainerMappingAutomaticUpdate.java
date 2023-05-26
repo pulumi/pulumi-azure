@@ -13,9 +13,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProtectionContainerMappingAutomaticUpdate {
     /**
+     * @return The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+     * 
+     * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * 
+     * &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+     * 
+     */
+    private @Nullable String authenticationType;
+    /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
      * 
      */
     private @Nullable String automationAccountId;
@@ -29,9 +38,20 @@ public final class ProtectionContainerMappingAutomaticUpdate {
 
     private ProtectionContainerMappingAutomaticUpdate() {}
     /**
+     * @return The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+     * 
+     * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * 
+     * &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
+     * 
+     */
+    public Optional<String> authenticationType() {
+        return Optional.ofNullable(this.authenticationType);
+    }
+    /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automation_account_id` is required when `enabled` is sepcified.
+     * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
      * 
      */
     public Optional<String> automationAccountId() {
@@ -56,15 +76,22 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String authenticationType;
         private @Nullable String automationAccountId;
         private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(ProtectionContainerMappingAutomaticUpdate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.authenticationType = defaults.authenticationType;
     	      this.automationAccountId = defaults.automationAccountId;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
+        public Builder authenticationType(@Nullable String authenticationType) {
+            this.authenticationType = authenticationType;
+            return this;
+        }
         @CustomType.Setter
         public Builder automationAccountId(@Nullable String automationAccountId) {
             this.automationAccountId = automationAccountId;
@@ -77,6 +104,7 @@ public final class ProtectionContainerMappingAutomaticUpdate {
         }
         public ProtectionContainerMappingAutomaticUpdate build() {
             final var o = new ProtectionContainerMappingAutomaticUpdate();
+            o.authenticationType = authenticationType;
             o.automationAccountId = automationAccountId;
             o.enabled = enabled;
             return o;

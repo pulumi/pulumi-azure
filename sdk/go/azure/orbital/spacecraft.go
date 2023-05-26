@@ -28,14 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = orbital.NewSpacecraft(ctx, "exampleSpacecraft", &orbital.SpacecraftArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          pulumi.String("westeurope"),
 //				NoradId:           pulumi.String("12345"),
 //				Links: orbital.SpacecraftLinkArray{

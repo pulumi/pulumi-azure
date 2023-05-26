@@ -26,9 +26,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.healthcare.Workspace;
+ * import com.pulumi.azure.healthcare.WorkspaceArgs;
  * import com.pulumi.azure.healthcare.MedtechService;
  * import com.pulumi.azure.healthcare.MedtechServiceArgs;
  * import com.pulumi.azure.healthcare.inputs.MedtechServiceIdentityArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,39 +47,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MedtechService(&#34;test&#34;, MedtechServiceArgs.builder()        
- *             .deviceMappingJson(&#34;&#34;&#34;
- * {
- *     &#34;templateType&#34;: &#34;CollectionContent&#34;,
- *     &#34;template&#34;: [
- *                 {
- *                   &#34;templateType&#34;: &#34;JsonPathContent&#34;,
- *                   &#34;template&#34;: {
- *                     &#34;typeName&#34;: &#34;heartrate&#34;,
- *                     &#34;typeMatchExpression&#34;: &#34;$..[?(@heartrate)]&#34;,
- *                     &#34;deviceIdExpression&#34;: &#34;$.deviceid&#34;,
- *                     &#34;timestampExpression&#34;: &#34;$.measurementdatetime&#34;,
- *                     &#34;values&#34;: [
- *                       {
- *                         &#34;required&#34;: &#34;true&#34;,
- *                         &#34;valueExpression&#34;: &#34;$.heartrate&#34;,
- *                         &#34;valueName&#34;: &#34;hr&#34;
- *                       }
- *                     ]
- *                   }
- *                 }
- *               ]
- * }
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;east us&#34;)
+ *             .build());
  * 
- *             &#34;&#34;&#34;)
- *             .eventhubConsumerGroupName(&#34;tfex-eventhub-consumer-group.name&#34;)
- *             .eventhubName(&#34;tfex-eventhub.name&#34;)
- *             .eventhubNamespaceName(&#34;tfex-eventhub-namespace.name&#34;)
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleMedtechService = new MedtechService(&#34;exampleMedtechService&#34;, MedtechServiceArgs.builder()        
+ *             .workspaceId(exampleWorkspace.id())
+ *             .location(&#34;east us&#34;)
  *             .identity(MedtechServiceIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
- *             .location(&#34;east us&#34;)
- *             .workspaceId(&#34;tfex-workspace_id&#34;)
+ *             .eventhubNamespaceName(&#34;example-eventhub-namespace&#34;)
+ *             .eventhubName(&#34;example-eventhub&#34;)
+ *             .eventhubConsumerGroupName(&#34;$Default&#34;)
+ *             .deviceMappingJson(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;templateType&#34;, &#34;CollectionContent&#34;),
+ *                     jsonProperty(&#34;template&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;templateType&#34;, &#34;JsonPathContent&#34;),
+ *                         jsonProperty(&#34;template&#34;, jsonObject(
+ *                             jsonProperty(&#34;typeName&#34;, &#34;heartrate&#34;),
+ *                             jsonProperty(&#34;typeMatchExpression&#34;, &#34;$..[?(@heartrate)]&#34;),
+ *                             jsonProperty(&#34;deviceIdExpression&#34;, &#34;$.deviceid&#34;),
+ *                             jsonProperty(&#34;timestampExpression&#34;, &#34;$.measurementdatetime&#34;),
+ *                             jsonProperty(&#34;values&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;required&#34;, &#34;true&#34;),
+ *                                 jsonProperty(&#34;valueExpression&#34;, &#34;$.heartrate&#34;),
+ *                                 jsonProperty(&#34;valueName&#34;, &#34;hr&#34;)
+ *                             )))
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
  *     }
