@@ -767,124 +767,20 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				}},
-			"azurerm_function_app_slot":              {Tok: azureResource(azureAppService, "FunctionAppSlot")},
-			"azurerm_function_app_active_slot":       {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
-			"azurerm_function_app_function":          {Tok: azureResource(azureAppService, "FunctionAppFunction")},
-			"azurerm_function_app_hybrid_connection": {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
-			"azurerm_linux_function_app":             {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
-			"azurerm_linux_function_app_slot":        {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
-			"azurerm_linux_web_app": {
-				Tok: azureResource(azureAppService, "LinuxWebApp"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_linux_web_app_slot": {
-				Tok: azureResource(azureAppService, "LinuxWebAppSlot"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_web_app_active_slot":       {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
-			"azurerm_web_app_hybrid_connection": {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
-			"azurerm_windows_function_app":      {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
-			"azurerm_windows_function_app_slot": {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
-			"azurerm_windows_web_app": {
-				Tok: azureResource(azureAppService, "WindowsWebApp"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_windows_web_app_slot": {
-				Tok: azureResource(azureAppService, "WindowsWebAppSlot"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
+			"azurerm_function_app_slot":                {Tok: azureResource(azureAppService, "FunctionAppSlot")},
+			"azurerm_function_app_active_slot":         {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
+			"azurerm_function_app_function":            {Tok: azureResource(azureAppService, "FunctionAppFunction")},
+			"azurerm_function_app_hybrid_connection":   {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
+			"azurerm_linux_function_app":               {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
+			"azurerm_linux_function_app_slot":          {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
+			"azurerm_linux_web_app":                    {Tok: azureResource(azureAppService, "LinuxWebApp")},
+			"azurerm_linux_web_app_slot":               {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
+			"azurerm_web_app_active_slot":              {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
+			"azurerm_web_app_hybrid_connection":        {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
+			"azurerm_windows_function_app":             {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
+			"azurerm_windows_function_app_slot":        {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
+			"azurerm_windows_web_app":                  {Tok: azureResource(azureAppService, "WindowsWebApp")},
+			"azurerm_windows_web_app_slot":             {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
 			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
 			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
 			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
