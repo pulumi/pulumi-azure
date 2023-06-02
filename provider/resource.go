@@ -16,6 +16,9 @@
 package provider
 
 import (
+	// Allow embedding the metadata file
+	_ "embed"
+
 	"context"
 	"fmt"
 	"os"
@@ -346,13 +349,8 @@ func azureResource(mod string, res string) tokens.Type {
 	return azureType(mod, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
-
-func strRef(s string) *string {
-	return &s
+func ref[T any](value T) *T {
+	return &value
 }
 
 type cloudShellProfile struct {
@@ -504,6 +502,9 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	return nil
 }
 
+//go:embed cmd/pulumi-resource-azure/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the azure package.
 //
 // nolint: lll
@@ -525,6 +526,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:       "https://github.com/pulumi/pulumi-azure",
 		Version:          version.Version,
 		UpstreamRepoPath: "./upstream",
+		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
 		Config: map[string]*tfbridge.SchemaInfo{
 			"subscription_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -1103,7 +1105,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Alias added due to first release of this resource being mapped to the wrong name
-			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: strRef("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
+			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
 			"azurerm_cdn_frontdoor_custom_domain_association":            {Tok: azureResource(azureCDN, "FrontdoorCustomDomainAssociation")},
 			"azurerm_cdn_frontdoor_endpoint":                             {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
 			"azurerm_cdn_frontdoor_firewall_policy":                      {Tok: azureResource(azureCDN, "FrontdoorFirewallPolicy")},
@@ -1885,7 +1887,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"traffic_selector_policy": {
 						Name:        "trafficSelectorPolicy",
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -2000,7 +2002,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Per the Azure API, this is not able to be multiple versions so is wrong in the upstream provider
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_route":        {Tok: azureResource(azureNetwork, "Route")},
@@ -2772,7 +2774,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_api_management_api":                             {Tok: azureDataSource(azureAPIManagement, "getApi")},
@@ -2788,7 +2790,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_app_service_plan": {
@@ -2796,7 +2798,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_linux_function_app":   {Tok: azureDataSource(azureAppService, "getLinuxFunctionApp")},
@@ -2937,7 +2939,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
@@ -2968,7 +2970,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_virtual_hub_connection": {Tok: azureDataSource(azureNetwork, "getVirtualHubConnection")},
@@ -3007,7 +3009,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 
