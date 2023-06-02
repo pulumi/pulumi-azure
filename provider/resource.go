@@ -3574,6 +3574,9 @@ func Provider() tfbridge.ProviderInfo {
 
 	prov.SetAutonaming(24, "")
 
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "failed to compute automatic aliasing")
+
 	// Provide default values for certain resource properties, to improve usability:
 	//     For all resources with `location` properties, default to the resource group's location to which the
 	//        resource belongs. This ensures that each resource doesn't need to be given a location explicitly.
