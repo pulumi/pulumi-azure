@@ -3,9 +3,6 @@
 archives:
 - id: archive
   name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
-before:
-  hooks:
-  - make tfgen
 blobs:
 - bucket: get.pulumi.com
   folder: releases/plugins/
