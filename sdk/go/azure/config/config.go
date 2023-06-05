@@ -55,7 +55,11 @@ func GetEnvironment(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string)
+	var value string
+	if d := getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 func GetFeatures(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:features")
@@ -65,7 +69,11 @@ func GetLocation(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_LOCATION").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "ARM_LOCATION"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // The Hostname which should be used for the Azure Metadata Service.
@@ -74,7 +82,11 @@ func GetMetadataHost(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "ARM_METADATA_HOSTNAME"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -117,7 +129,11 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool)
+	var value bool
+	if d := getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION"); d != nil {
+		value = d.(bool)
+	}
+	return value
 }
 
 // Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
@@ -126,7 +142,11 @@ func GetStorageUseAzuread(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD").(bool)
+	var value bool
+	if d := getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD"); d != nil {
+		value = d.(bool)
+	}
+	return value
 }
 
 // The Subscription ID which should be used.
@@ -135,7 +155,11 @@ func GetSubscriptionId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string)
+	var value string
+	if d := getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // The Tenant ID which should be used.

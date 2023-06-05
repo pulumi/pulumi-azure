@@ -62,19 +62,29 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.Environment == nil {
-		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string))
+		if d := getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"); d != nil {
+			args.Environment = pulumi.StringPtr(d.(string))
+		}
 	}
 	if args.MetadataHost == nil {
-		args.MetadataHost = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string))
+		if d := getEnvOrDefault(nil, nil, "ARM_METADATA_HOSTNAME"); d != nil {
+			args.MetadataHost = pulumi.StringPtr(d.(string))
+		}
 	}
 	if args.SkipProviderRegistration == nil {
-		args.SkipProviderRegistration = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool))
+		if d := getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION"); d != nil {
+			args.SkipProviderRegistration = pulumi.BoolPtr(d.(bool))
+		}
 	}
 	if args.StorageUseAzuread == nil {
-		args.StorageUseAzuread = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD").(bool))
+		if d := getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD"); d != nil {
+			args.StorageUseAzuread = pulumi.BoolPtr(d.(bool))
+		}
 	}
 	if args.SubscriptionId == nil {
-		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
+		if d := getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID"); d != nil {
+			args.SubscriptionId = pulumi.StringPtr(d.(string))
+		}
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azure", name, args, &resource, opts...)
