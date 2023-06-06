@@ -207,6 +207,11 @@ jobs:
         repo: pulumi/schema-tools
     - name: Build tfgen & provider binaries
       run: make provider
+    - name: Upload schema-embed.json
+      uses: actions/upload-artifact@v3
+      with:
+        name: schema-embed
+        path: provider/cmd/pulumi-resource-azure/schema-embed.json
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
       run: >-
@@ -248,7 +253,7 @@ jobs:
         status: ${{ job.status }}
   publish:
     name: publish
-    needs: test
+    needs: prerequisites
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
@@ -278,6 +283,12 @@ jobs:
     - name: Set PreRelease Version
       run: echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)"
         >> $GITHUB_ENV
+    - name: Fetch and patch upstream code
+      run: make upstream
+    - name: Download schema-embed.json
+      uses: actions/download-artifact@v3
+      with:
+        name: schema-embed
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
