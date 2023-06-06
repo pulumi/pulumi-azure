@@ -12,6 +12,10 @@ blobs:
   region: us-west-2
 builds:
 - binary: pulumi-resource-azure
+  hooks:
+    pre:
+      - "go clean -cache"
+      - "go clean -modcache"
   dir: provider
   env:
   - CGO_ENABLED=0
