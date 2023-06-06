@@ -13,9 +13,9 @@ blobs:
 builds:
 - binary: pulumi-resource-azure
   hooks:
-    pre:
-      - "go clean -cache"
-      - "go clean -modcache"
+    post:
+      - "env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -cache"
+      - "env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -modcache"
   dir: provider
   env:
   - CGO_ENABLED=0
