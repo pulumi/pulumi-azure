@@ -416,6 +416,7 @@ on:
   push:
     branches:
     - master
+    - t0yv0/experiment-with-faster-goreleaser
     paths-ignore:
     - "**.md"
     tags-ignore:
