@@ -16,6 +16,9 @@
 package provider
 
 import (
+	// Allow embedding the metadata file
+	_ "embed"
+
 	"context"
 	"fmt"
 	"os"
@@ -346,13 +349,8 @@ func azureResource(mod string, res string) tokens.Type {
 	return azureType(mod, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
-
-func strRef(s string) *string {
-	return &s
+func ref[T any](value T) *T {
+	return &value
 }
 
 type cloudShellProfile struct {
@@ -504,6 +502,9 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	return nil
 }
 
+//go:embed cmd/pulumi-resource-azure/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the azure package.
 //
 // nolint: lll
@@ -525,6 +526,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:       "https://github.com/pulumi/pulumi-azure",
 		Version:          version.Version,
 		UpstreamRepoPath: "./upstream",
+		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
 		Config: map[string]*tfbridge.SchemaInfo{
 			"subscription_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -765,124 +767,20 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				}},
-			"azurerm_function_app_slot":              {Tok: azureResource(azureAppService, "FunctionAppSlot")},
-			"azurerm_function_app_active_slot":       {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
-			"azurerm_function_app_function":          {Tok: azureResource(azureAppService, "FunctionAppFunction")},
-			"azurerm_function_app_hybrid_connection": {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
-			"azurerm_linux_function_app":             {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
-			"azurerm_linux_function_app_slot":        {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
-			"azurerm_linux_web_app": {
-				Tok: azureResource(azureAppService, "LinuxWebApp"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_linux_web_app_slot": {
-				Tok: azureResource(azureAppService, "LinuxWebAppSlot"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_web_app_active_slot":       {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
-			"azurerm_web_app_hybrid_connection": {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
-			"azurerm_windows_function_app":      {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
-			"azurerm_windows_function_app_slot": {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
-			"azurerm_windows_web_app": {
-				Tok: azureResource(azureAppService, "WindowsWebApp"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_windows_web_app_slot": {
-				Tok: azureResource(azureAppService, "WindowsWebAppSlot"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auto_heal_setting": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"trigger": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"slow_request": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "slowRequests",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
+			"azurerm_function_app_slot":                {Tok: azureResource(azureAppService, "FunctionAppSlot")},
+			"azurerm_function_app_active_slot":         {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
+			"azurerm_function_app_function":            {Tok: azureResource(azureAppService, "FunctionAppFunction")},
+			"azurerm_function_app_hybrid_connection":   {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
+			"azurerm_linux_function_app":               {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
+			"azurerm_linux_function_app_slot":          {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
+			"azurerm_linux_web_app":                    {Tok: azureResource(azureAppService, "LinuxWebApp")},
+			"azurerm_linux_web_app_slot":               {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
+			"azurerm_web_app_active_slot":              {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
+			"azurerm_web_app_hybrid_connection":        {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
+			"azurerm_windows_function_app":             {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
+			"azurerm_windows_function_app_slot":        {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
+			"azurerm_windows_web_app":                  {Tok: azureResource(azureAppService, "WindowsWebApp")},
+			"azurerm_windows_web_app_slot":             {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
 			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
 			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
 			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
@@ -1103,7 +1001,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Alias added due to first release of this resource being mapped to the wrong name
-			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: strRef("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
+			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
 			"azurerm_cdn_frontdoor_custom_domain_association":            {Tok: azureResource(azureCDN, "FrontdoorCustomDomainAssociation")},
 			"azurerm_cdn_frontdoor_endpoint":                             {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
 			"azurerm_cdn_frontdoor_firewall_policy":                      {Tok: azureResource(azureCDN, "FrontdoorFirewallPolicy")},
@@ -1885,7 +1783,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"traffic_selector_policy": {
 						Name:        "trafficSelectorPolicy",
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -2000,7 +1898,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Per the Azure API, this is not able to be multiple versions so is wrong in the upstream provider
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_route":        {Tok: azureResource(azureNetwork, "Route")},
@@ -2772,7 +2670,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_api_management_api":                             {Tok: azureDataSource(azureAPIManagement, "getApi")},
@@ -2788,7 +2686,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_app_service_plan": {
@@ -2796,7 +2694,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_linux_function_app":   {Tok: azureDataSource(azureAppService, "getLinuxFunctionApp")},
@@ -2937,7 +2835,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
@@ -2968,7 +2866,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_virtual_hub_connection": {Tok: azureDataSource(azureNetwork, "getVirtualHubConnection")},
@@ -3007,7 +2905,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+					"sku": {Name: "sku", MaxItemsOne: ref(true)},
 				},
 			},
 
@@ -3571,6 +3469,9 @@ func Provider() tfbridge.ProviderInfo {
 	contract.AssertNoErrorf(err, "failed to compute default tokens")
 
 	prov.SetAutonaming(24, "")
+
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "failed to compute automatic aliasing")
 
 	// Provide default values for certain resource properties, to improve usability:
 	//     For all resources with `location` properties, default to the resource group's location to which the
