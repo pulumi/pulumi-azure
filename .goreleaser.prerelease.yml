@@ -33,8 +33,7 @@ builds:
   ignore: []
   ldflags:
   - -X github.com/pulumi/pulumi-azure/provider/v5/pkg/version.Version={{.Tag}}
-  - -X
-    github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
+  - -X github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-azure/
 changelog:
   skip: true
