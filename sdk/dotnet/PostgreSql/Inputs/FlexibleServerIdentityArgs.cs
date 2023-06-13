@@ -12,13 +12,11 @@ namespace Pulumi.Azure.PostgreSql.Inputs
 
     public sealed class FlexibleServerIdentityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identityIds")]
+        [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
 
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-        /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -26,21 +24,8 @@ namespace Pulumi.Azure.PostgreSql.Inputs
             set => _identityIds = value;
         }
 
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
         /// <summary>
-        /// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
-        /// 
-        /// &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-        /// 
-        /// &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

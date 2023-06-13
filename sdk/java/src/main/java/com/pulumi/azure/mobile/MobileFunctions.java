@@ -7,6 +7,10 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkPlainArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlanePlainArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlanePlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkServiceArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkServicePlainArgs;
@@ -19,6 +23,8 @@ import com.pulumi.azure.mobile.inputs.GetNetworkSitePlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSlicePlainArgs;
 import com.pulumi.azure.mobile.outputs.GetNetworkDataNetworkResult;
+import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreControlPlaneResult;
+import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreDataPlaneResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkServiceResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSimGroupResult;
@@ -359,6 +365,334 @@ public final class MobileFunctions {
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", TypeShape.of(GetNetworkDataNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Mobile Network Packet Core Control Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args) {
+        return getNetworkPacketCoreControlPlane(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Mobile Network Packet Core Control Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args) {
+        return getNetworkPacketCoreControlPlanePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Mobile Network Packet Core Control Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", TypeShape.of(GetNetworkPacketCoreControlPlaneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Mobile Network Packet Core Control Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", TypeShape.of(GetNetworkPacketCoreControlPlaneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information a Mobile Network Packet Core Data Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
+     *             .name(&#34;example-mnpcdp&#34;)
+     *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args) {
+        return getNetworkPacketCoreDataPlane(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information a Mobile Network Packet Core Data Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
+     *             .name(&#34;example-mnpcdp&#34;)
+     *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args) {
+        return getNetworkPacketCoreDataPlanePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information a Mobile Network Packet Core Data Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
+     *             .name(&#34;example-mnpcdp&#34;)
+     *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", TypeShape.of(GetNetworkPacketCoreDataPlaneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information a Mobile Network Packet Core Data Plane.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
+     *             .name(&#34;example-mnpcdp&#34;)
+     *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", TypeShape.of(GetNetworkPacketCoreDataPlaneResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Service.

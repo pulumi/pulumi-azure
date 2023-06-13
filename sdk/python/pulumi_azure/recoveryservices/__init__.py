@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .get_vault import *
 from .vault import *
+from .vault_resource_guard_association import *
 from ._inputs import *
 from . import outputs

@@ -13,13 +13,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity
     {
-        /// <summary>
-        /// The maximum number of worker nodes to autoscale to based on the cluster's activity.
-        /// </summary>
         public readonly int MaxInstanceCount;
-        /// <summary>
-        /// The minimum number of worker nodes to autoscale to based on the cluster's activity.
-        /// </summary>
         public readonly int MinInstanceCount;
 
         [OutputConstructor]

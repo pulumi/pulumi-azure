@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appplatform.SpringCloudGatewayArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayState;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayApiMetadata;
+import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayClientAuthorization;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayCors;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayQuota;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewaySso;
@@ -141,6 +142,20 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> applicationPerformanceMonitoringTypes() {
         return Codegen.optional(this.applicationPerformanceMonitoringTypes);
+    }
+    /**
+     * A `client_authorization` block as defined below.
+     * 
+     */
+    @Export(name="clientAuthorization", refs={SpringCloudGatewayClientAuthorization.class}, tree="[0]")
+    private Output</* @Nullable */ SpringCloudGatewayClientAuthorization> clientAuthorization;
+
+    /**
+     * @return A `client_authorization` block as defined below.
+     * 
+     */
+    public Output<Optional<SpringCloudGatewayClientAuthorization>> clientAuthorization() {
+        return Codegen.optional(this.clientAuthorization);
     }
     /**
      * A `cors` block as defined below.

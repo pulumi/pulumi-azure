@@ -21,9 +21,6 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.containerservice.KubernetesFleetManager("example", {
- *     hubProfile: {
- *         dnsPrefix: "example",
- *     },
  *     location: azurerm_resource_group.example.location,
  *     resourceGroupName: azurerm_resource_group.example.name,
  * });
@@ -36,13 +33,10 @@ import * as utilities from "../utilities";
  *
  * * `dnsPrefix` - (Required)
  *
- * The `hubProfile` block exports the following arguments:
+ * In addition to the arguments defined above, the `hubProfile` block exports the following attributes:
  *
  * * `fqdn` -
- *
  * * `kubernetesVersion` -
- *
- * ***
  *
  * ## Import
  *

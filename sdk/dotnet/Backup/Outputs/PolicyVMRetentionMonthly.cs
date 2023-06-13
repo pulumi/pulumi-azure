@@ -18,6 +18,16 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly int Count;
         /// <summary>
+        /// The days of the month to retain backups of. Must be between `1` and `31`.
+        /// </summary>
+        public readonly ImmutableArray<int> Days;
+        /// <summary>
+        /// Including the last day of the month, default to `false`.
+        /// 
+        /// &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        /// </summary>
+        public readonly bool? IncludeLastDays;
+        /// <summary>
         /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         /// </summary>
         public readonly ImmutableArray<string> Weekdays;
@@ -30,11 +40,17 @@ namespace Pulumi.Azure.Backup.Outputs
         private PolicyVMRetentionMonthly(
             int count,
 
+            ImmutableArray<int> days,
+
+            bool? includeLastDays,
+
             ImmutableArray<string> weekdays,
 
             ImmutableArray<string> weeks)
         {
             Count = count;
+            Days = days;
+            IncludeLastDays = includeLastDays;
             Weekdays = weekdays;
             Weeks = weeks;
         }

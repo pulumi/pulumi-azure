@@ -505,10 +505,7 @@ class Deployment(pulumi.CustomResource):
             ),
             network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
                 subnet_id=example_subnet.id,
-            )],
-            tags={
-                "foo": "bar",
-            })
+            )])
         ```
 
         ## Import
@@ -584,10 +581,7 @@ class Deployment(pulumi.CustomResource):
             ),
             network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
                 subnet_id=example_subnet.id,
-            )],
-            tags={
-                "foo": "bar",
-            })
+            )])
         ```
 
         ## Import

@@ -135,7 +135,7 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.cdn.get_frontdoor_firewall_policy(name="examplecdnfdwafpolicy",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
 
@@ -173,7 +173,7 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = Non
     import pulumi_azure as azure
 
     example = azure.cdn.get_frontdoor_firewall_policy(name="examplecdnfdwafpolicy",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
 

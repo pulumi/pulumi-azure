@@ -17,6 +17,10 @@ public final class HybridFunctions {
     /**
      * Use this data source to access information about an existing Hybrid Compute.
      * 
+     * ## Disclaimers
+     * 
+     * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -55,6 +59,10 @@ public final class HybridFunctions {
     }
     /**
      * Use this data source to access information about an existing Hybrid Compute.
+     * 
+     * ## Disclaimers
+     * 
+     * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
      * ## Example Usage
      * ```java
@@ -95,6 +103,10 @@ public final class HybridFunctions {
     /**
      * Use this data source to access information about an existing Hybrid Compute.
      * 
+     * ## Disclaimers
+     * 
+     * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -133,6 +145,10 @@ public final class HybridFunctions {
     }
     /**
      * Use this data source to access information about an existing Hybrid Compute.
+     * 
+     * ## Disclaimers
+     * 
+     * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
      * ## Example Usage
      * ```java

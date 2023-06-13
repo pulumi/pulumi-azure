@@ -32,7 +32,7 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
-    ///         DisplayName = "Azure Spring Cloud Domain-Management",
+    ///         DisplayName = "Azure Spring Cloud Resource Provider",
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
@@ -139,6 +139,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///         KeyVaultCertificateId = exampleCertificate.Id,
+    ///         ExcludePrivateKey = true,
     ///     });
     /// 
     /// });
@@ -160,6 +161,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("certificateContent")]
         public Output<string?> CertificateContent { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        /// </summary>
+        [Output("excludePrivateKey")]
+        public Output<bool?> ExcludePrivateKey { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
@@ -244,6 +251,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? CertificateContent { get; set; }
 
         /// <summary>
+        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        /// </summary>
+        [Input("excludePrivateKey")]
+        public Input<bool>? ExcludePrivateKey { get; set; }
+
+        /// <summary>
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultCertificateId")]
@@ -280,6 +293,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("certificateContent")]
         public Input<string>? CertificateContent { get; set; }
+
+        /// <summary>
+        /// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        /// </summary>
+        [Input("excludePrivateKey")]
+        public Input<bool>? ExcludePrivateKey { get; set; }
 
         /// <summary>
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.

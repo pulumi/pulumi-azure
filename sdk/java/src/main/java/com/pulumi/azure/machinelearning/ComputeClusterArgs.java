@@ -111,6 +111,21 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * 
+     */
+    @Import(name="nodePublicIpEnabled")
+    private @Nullable Output<Boolean> nodePublicIpEnabled;
+
+    /**
+     * @return Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> nodePublicIpEnabled() {
+        return Optional.ofNullable(this.nodePublicIpEnabled);
+    }
+
+    /**
      * A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
@@ -224,6 +239,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         this.location = $.location;
         this.machineLearningWorkspaceId = $.machineLearningWorkspaceId;
         this.name = $.name;
+        this.nodePublicIpEnabled = $.nodePublicIpEnabled;
         this.scaleSettings = $.scaleSettings;
         this.ssh = $.ssh;
         this.sshPublicAccessEnabled = $.sshPublicAccessEnabled;
@@ -375,6 +391,27 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param nodePublicIpEnabled Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePublicIpEnabled(@Nullable Output<Boolean> nodePublicIpEnabled) {
+            $.nodePublicIpEnabled = nodePublicIpEnabled;
+            return this;
+        }
+
+        /**
+         * @param nodePublicIpEnabled Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePublicIpEnabled(Boolean nodePublicIpEnabled) {
+            return nodePublicIpEnabled(Output.of(nodePublicIpEnabled));
         }
 
         /**

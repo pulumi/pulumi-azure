@@ -62,6 +62,10 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly authSettingsV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2[];
     /**
+     * The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+     */
+    readonly availability: string;
+    /**
      * A `backup` block as defined below.
      */
     readonly backups: outputs.appservice.GetLinuxFunctionAppBackup[];
@@ -190,6 +194,10 @@ export interface GetLinuxFunctionAppResult {
      * A mapping of tags which are assigned to the Linux Function App.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The current usage state. Possible values are `Normal` and `Exceeded`.
+     */
+    readonly usage: string;
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      */

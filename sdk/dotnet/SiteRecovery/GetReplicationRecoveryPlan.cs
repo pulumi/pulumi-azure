@@ -127,6 +127,7 @@ namespace Pulumi.Azure.SiteRecovery
     [OutputType]
     public sealed class GetReplicationRecoveryPlanResult
     {
+        public readonly ImmutableArray<Outputs.GetReplicationRecoveryPlanAzureToAzureSettingResult> AzureToAzureSettings;
         public readonly string FailoverDeploymentModel;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -153,6 +154,8 @@ namespace Pulumi.Azure.SiteRecovery
 
         [OutputConstructor]
         private GetReplicationRecoveryPlanResult(
+            ImmutableArray<Outputs.GetReplicationRecoveryPlanAzureToAzureSettingResult> azureToAzureSettings,
+
             string failoverDeploymentModel,
 
             string id,
@@ -167,6 +170,7 @@ namespace Pulumi.Azure.SiteRecovery
 
             string targetRecoveryFabricId)
         {
+            AzureToAzureSettings = azureToAzureSettings;
             FailoverDeploymentModel = failoverDeploymentModel;
             Id = id;
             Name = name;

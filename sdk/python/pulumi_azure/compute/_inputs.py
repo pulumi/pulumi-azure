@@ -5512,9 +5512,9 @@ class ScaleSetIdentityArgs:
                    resource_group_name=azurerm_resource_group["example"]["name"],
                    location=azurerm_resource_group["example"]["location"],
                    sku=azure.compute.ScaleSetSkuArgs(
-                       name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                       name=var["vm_sku"],
                        tier="Standard",
-                       capacity=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                       capacity=var["instance_count"],
                    ),
                    identity=azure.compute.ScaleSetIdentityArgs(
                        type="SystemAssigned",
@@ -5562,9 +5562,9 @@ class ScaleSetIdentityArgs:
             resource_group_name=azurerm_resource_group["example"]["name"],
             location=azurerm_resource_group["example"]["location"],
             sku=azure.compute.ScaleSetSkuArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=var["vm_sku"],
                 tier="Standard",
-                capacity=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                capacity=var["instance_count"],
             ),
             identity=azure.compute.ScaleSetIdentityArgs(
                 type="SystemAssigned",

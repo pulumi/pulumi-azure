@@ -18,12 +18,16 @@ public final class GetVirtualMachineResult {
     private String id;
     /**
      * @return A `identity` block as defined below.
-     * *
      * 
      */
     private List<GetVirtualMachineIdentity> identities;
     private String location;
     private String name;
+    /**
+     * @return The power state of the virtual machine.
+     * 
+     */
+    private String powerState;
     /**
      * @return The Primary Private IP Address assigned to this Virtual Machine.
      * 
@@ -56,7 +60,6 @@ public final class GetVirtualMachineResult {
     }
     /**
      * @return A `identity` block as defined below.
-     * *
      * 
      */
     public List<GetVirtualMachineIdentity> identities() {
@@ -67,6 +70,13 @@ public final class GetVirtualMachineResult {
     }
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The power state of the virtual machine.
+     * 
+     */
+    public String powerState() {
+        return this.powerState;
     }
     /**
      * @return The Primary Private IP Address assigned to this Virtual Machine.
@@ -113,6 +123,7 @@ public final class GetVirtualMachineResult {
         private List<GetVirtualMachineIdentity> identities;
         private String location;
         private String name;
+        private String powerState;
         private String privateIpAddress;
         private List<String> privateIpAddresses;
         private String publicIpAddress;
@@ -125,6 +136,7 @@ public final class GetVirtualMachineResult {
     	      this.identities = defaults.identities;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.powerState = defaults.powerState;
     	      this.privateIpAddress = defaults.privateIpAddress;
     	      this.privateIpAddresses = defaults.privateIpAddresses;
     	      this.publicIpAddress = defaults.publicIpAddress;
@@ -153,6 +165,11 @@ public final class GetVirtualMachineResult {
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder powerState(String powerState) {
+            this.powerState = Objects.requireNonNull(powerState);
             return this;
         }
         @CustomType.Setter
@@ -192,6 +209,7 @@ public final class GetVirtualMachineResult {
             o.identities = identities;
             o.location = location;
             o.name = name;
+            o.powerState = powerState;
             o.privateIpAddress = privateIpAddress;
             o.privateIpAddresses = privateIpAddresses;
             o.publicIpAddress = publicIpAddress;

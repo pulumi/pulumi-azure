@@ -504,6 +504,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.storageImageReference;
     }
     /**
+     * The desired node communication mode for the pool.
+     * 
+     */
+    @Export(name="targetNodeCommunicationMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> targetNodeCommunicationMode;
+
+    /**
+     * @return The desired node communication mode for the pool.
+     * 
+     */
+    public Output<Optional<String>> targetNodeCommunicationMode() {
+        return Codegen.optional(this.targetNodeCommunicationMode);
+    }
+    /**
      * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      * 
      */

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery.outputs;
 
+import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanAzureToAzureSetting;
 import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanRecoveryGroup;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -11,6 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationRecoveryPlanResult {
+    private List<GetReplicationRecoveryPlanAzureToAzureSetting> azureToAzureSettings;
     private String failoverDeploymentModel;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -41,6 +43,9 @@ public final class GetReplicationRecoveryPlanResult {
     private String targetRecoveryFabricId;
 
     private GetReplicationRecoveryPlanResult() {}
+    public List<GetReplicationRecoveryPlanAzureToAzureSetting> azureToAzureSettings() {
+        return this.azureToAzureSettings;
+    }
     public String failoverDeploymentModel() {
         return this.failoverDeploymentModel;
     }
@@ -93,6 +98,7 @@ public final class GetReplicationRecoveryPlanResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetReplicationRecoveryPlanAzureToAzureSetting> azureToAzureSettings;
         private String failoverDeploymentModel;
         private String id;
         private String name;
@@ -103,6 +109,7 @@ public final class GetReplicationRecoveryPlanResult {
         public Builder() {}
         public Builder(GetReplicationRecoveryPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.azureToAzureSettings = defaults.azureToAzureSettings;
     	      this.failoverDeploymentModel = defaults.failoverDeploymentModel;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -112,6 +119,14 @@ public final class GetReplicationRecoveryPlanResult {
     	      this.targetRecoveryFabricId = defaults.targetRecoveryFabricId;
         }
 
+        @CustomType.Setter
+        public Builder azureToAzureSettings(List<GetReplicationRecoveryPlanAzureToAzureSetting> azureToAzureSettings) {
+            this.azureToAzureSettings = Objects.requireNonNull(azureToAzureSettings);
+            return this;
+        }
+        public Builder azureToAzureSettings(GetReplicationRecoveryPlanAzureToAzureSetting... azureToAzureSettings) {
+            return azureToAzureSettings(List.of(azureToAzureSettings));
+        }
         @CustomType.Setter
         public Builder failoverDeploymentModel(String failoverDeploymentModel) {
             this.failoverDeploymentModel = Objects.requireNonNull(failoverDeploymentModel);
@@ -152,6 +167,7 @@ public final class GetReplicationRecoveryPlanResult {
         }
         public GetReplicationRecoveryPlanResult build() {
             final var o = new GetReplicationRecoveryPlanResult();
+            o.azureToAzureSettings = azureToAzureSettings;
             o.failoverDeploymentModel = failoverDeploymentModel;
             o.id = id;
             o.name = name;

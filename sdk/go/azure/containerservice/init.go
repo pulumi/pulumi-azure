@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:containerservice/connectedRegistry:ConnectedRegistry":
 		r = &ConnectedRegistry{}
+	case "azure:containerservice/fluxConfiguration:FluxConfiguration":
+		r = &FluxConfiguration{}
 	case "azure:containerservice/group:Group":
 		r = &Group{}
 	case "azure:containerservice/kubernetesCluster:KubernetesCluster":
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/connectedRegistry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/fluxConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -26,7 +26,7 @@ class LoadTestArgs:
         The set of arguments for constructing a LoadTest resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input['LoadTestIdentityArgs'] identity: Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Load Test.
@@ -71,7 +71,7 @@ class LoadTestArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['LoadTestIdentityArgs']]:
         """
-        Specifies the Managed Identity which should be assigned to this Load Test.
+        An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         """
         return pulumi.get(self, "identity")
 
@@ -130,7 +130,7 @@ class _LoadTestState:
         Input properties used for looking up and filtering LoadTest resources.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input['LoadTestIdentityArgs'] identity: Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
@@ -179,7 +179,7 @@ class _LoadTestState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['LoadTestIdentityArgs']]:
         """
-        Specifies the Managed Identity which should be assigned to this Load Test.
+        An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         """
         return pulumi.get(self, "identity")
 
@@ -263,6 +263,19 @@ class LoadTest(pulumi.CustomResource):
             location=azurerm_resource_group["example"]["location"],
             resource_group_name=azurerm_resource_group["example"]["name"])
         ```
+        ## Blocks Reference
+
+        ### `identity` Block
+
+        The `identity` block supports the following arguments:
+
+        * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+        * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+
+        In addition to the arguments defined above, the `identity` block exports the following attributes:
+
+        * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+        * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 
         ## Import
 
@@ -277,7 +290,7 @@ class LoadTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
@@ -304,6 +317,19 @@ class LoadTest(pulumi.CustomResource):
             location=azurerm_resource_group["example"]["location"],
             resource_group_name=azurerm_resource_group["example"]["name"])
         ```
+        ## Blocks Reference
+
+        ### `identity` Block
+
+        The `identity` block supports the following arguments:
+
+        * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+        * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+
+        In addition to the arguments defined above, the `identity` block exports the following attributes:
+
+        * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+        * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 
         ## Import
 
@@ -380,7 +406,7 @@ class LoadTest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
@@ -419,7 +445,7 @@ class LoadTest(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.LoadTestIdentity']]:
         """
-        Specifies the Managed Identity which should be assigned to this Load Test.
+        An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         """
         return pulumi.get(self, "identity")
 

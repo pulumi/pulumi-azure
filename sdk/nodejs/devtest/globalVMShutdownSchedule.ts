@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  *     size: "Standard_B2s",
  *     sourceImageReference: {
  *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "20.04-LTS",
+ *         offer: "0001-com-ubuntu-server-focal",
+ *         sku: "20_04-lts",
  *         version: "latest",
  *     },
  *     osDisk: {

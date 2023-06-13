@@ -9847,6 +9847,8 @@ func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) MinHeight() pu
 type TransformOutputCustomPreset struct {
 	// One or more `codec` blocks as defined above.
 	Codecs []TransformOutputCustomPresetCodec `pulumi:"codecs"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
 	// A `filter` block as defined below.
 	Filter *TransformOutputCustomPresetFilter `pulumi:"filter"`
 	// One or more `format` blocks as defined below.
@@ -9867,6 +9869,8 @@ type TransformOutputCustomPresetInput interface {
 type TransformOutputCustomPresetArgs struct {
 	// One or more `codec` blocks as defined above.
 	Codecs TransformOutputCustomPresetCodecArrayInput `pulumi:"codecs"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
 	// A `filter` block as defined below.
 	Filter TransformOutputCustomPresetFilterPtrInput `pulumi:"filter"`
 	// One or more `format` blocks as defined below.
@@ -9955,6 +9959,11 @@ func (o TransformOutputCustomPresetOutput) Codecs() TransformOutputCustomPresetC
 	return o.ApplyT(func(v TransformOutputCustomPreset) []TransformOutputCustomPresetCodec { return v.Codecs }).(TransformOutputCustomPresetCodecArrayOutput)
 }
 
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputCustomPresetOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TransformOutputCustomPreset) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
 // A `filter` block as defined below.
 func (o TransformOutputCustomPresetOutput) Filter() TransformOutputCustomPresetFilterPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPreset) *TransformOutputCustomPresetFilter { return v.Filter }).(TransformOutputCustomPresetFilterPtrOutput)
@@ -9997,6 +10006,16 @@ func (o TransformOutputCustomPresetPtrOutput) Codecs() TransformOutputCustomPres
 		}
 		return v.Codecs
 	}).(TransformOutputCustomPresetCodecArrayOutput)
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputCustomPresetPtrOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPreset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExperimentalOptions
+	}).(pulumi.StringMapOutput)
 }
 
 // A `filter` block as defined below.

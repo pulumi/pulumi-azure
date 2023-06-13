@@ -26,6 +26,11 @@ public final class GetResourcesResource {
      */
     private String name;
     /**
+     * @return The name of the Resource group where the Resources are located.
+     * 
+     */
+    private String resourceGroupName;
+    /**
      * @return A map of tags assigned to this Resource.
      * 
      */
@@ -59,6 +64,13 @@ public final class GetResourcesResource {
         return this.name;
     }
     /**
+     * @return The name of the Resource group where the Resources are located.
+     * 
+     */
+    public String resourceGroupName() {
+        return this.resourceGroupName;
+    }
+    /**
      * @return A map of tags assigned to this Resource.
      * 
      */
@@ -85,6 +97,7 @@ public final class GetResourcesResource {
         private String id;
         private String location;
         private String name;
+        private String resourceGroupName;
         private Map<String,String> tags;
         private String type;
         public Builder() {}
@@ -93,6 +106,7 @@ public final class GetResourcesResource {
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -113,6 +127,11 @@ public final class GetResourcesResource {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceGroupName(String resourceGroupName) {
+            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -127,6 +146,7 @@ public final class GetResourcesResource {
             o.id = id;
             o.location = location;
             o.name = name;
+            o.resourceGroupName = resourceGroupName;
             o.tags = tags;
             o.type = type;
             return o;

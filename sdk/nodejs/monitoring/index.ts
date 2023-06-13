@@ -40,6 +40,11 @@ export type AlertProcessingRuleSuppression = import("./alertProcessingRuleSuppre
 export const AlertProcessingRuleSuppression: typeof import("./alertProcessingRuleSuppression").AlertProcessingRuleSuppression = null as any;
 utilities.lazyLoad(exports, ["AlertProcessingRuleSuppression"], () => require("./alertProcessingRuleSuppression"));
 
+export { AlertPrometheusRuleGroupArgs, AlertPrometheusRuleGroupState } from "./alertPrometheusRuleGroup";
+export type AlertPrometheusRuleGroup = import("./alertPrometheusRuleGroup").AlertPrometheusRuleGroup;
+export const AlertPrometheusRuleGroup: typeof import("./alertPrometheusRuleGroup").AlertPrometheusRuleGroup = null as any;
+utilities.lazyLoad(exports, ["AlertPrometheusRuleGroup"], () => require("./alertPrometheusRuleGroup"));
+
 export { AutoscaleSettingArgs, AutoscaleSettingState } from "./autoscaleSetting";
 export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
 export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
@@ -184,6 +189,8 @@ const _module = {
                 return new AlertProcessingRuleActionGroup(name, <any>undefined, { urn })
             case "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression":
                 return new AlertProcessingRuleSuppression(name, <any>undefined, { urn })
+            case "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup":
+                return new AlertPrometheusRuleGroup(name, <any>undefined, { urn })
             case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint":
@@ -232,6 +239,7 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleSuppression
 pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/alertProcessingRuleActionGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/alertProcessingRuleSuppression", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/alertPrometheusRuleGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRule", _module)

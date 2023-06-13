@@ -48,11 +48,26 @@ public final class Config {
         return Codegen.stringProp("clientId").config(config).get();
     }
 /**
+ * The path to a file containing the Client ID which should be used.
+ * 
+ */
+    public Optional<String> clientIdFilePath() {
+        return Codegen.stringProp("clientIdFilePath").config(config).get();
+    }
+/**
  * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
  * 
  */
     public Optional<String> clientSecret() {
         return Codegen.stringProp("clientSecret").config(config).get();
+    }
+/**
+ * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+ * using a Client Secret.
+ * 
+ */
+    public Optional<String> clientSecretFilePath() {
+        return Codegen.stringProp("clientSecretFilePath").config(config).get();
     }
 /**
  * This will disable the x-ms-correlation-request-id header.

@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
  *     policyType: "Custom",
  *     mode: "All",
+ *     displayName: "my-policy-definition",
  *     policyRule: ` {
  *     "if": {
  *       "not": {
@@ -106,7 +107,7 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -226,7 +227,7 @@ export interface ResourcePolicyAssignmentState {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -292,7 +293,7 @@ export interface ResourcePolicyAssignmentArgs {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**

@@ -973,6 +973,8 @@ type ServiceUpstreamEndpoint struct {
 	HubPatterns []string `pulumi:"hubPatterns"`
 	// The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
 	UrlTemplate string `pulumi:"urlTemplate"`
+	// Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // ServiceUpstreamEndpointInput is an input type that accepts ServiceUpstreamEndpointArgs and ServiceUpstreamEndpointOutput values.
@@ -995,6 +997,8 @@ type ServiceUpstreamEndpointArgs struct {
 	HubPatterns pulumi.StringArrayInput `pulumi:"hubPatterns"`
 	// The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
 	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
+	// Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (ServiceUpstreamEndpointArgs) ElementType() reflect.Type {
@@ -1066,6 +1070,11 @@ func (o ServiceUpstreamEndpointOutput) HubPatterns() pulumi.StringArrayOutput {
 // The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
 func (o ServiceUpstreamEndpointOutput) UrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceUpstreamEndpoint) string { return v.UrlTemplate }).(pulumi.StringOutput)
+}
+
+// Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+func (o ServiceUpstreamEndpointOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceUpstreamEndpoint) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 type ServiceUpstreamEndpointArrayOutput struct{ *pulumi.OutputState }

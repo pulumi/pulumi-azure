@@ -12,12 +12,85 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
  *
- * const test = new azure.nginx.Certificate("test", {
- *     nginxDeploymentId: azurerm_nginx_deployment.test.id,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             name: "NGINX.NGINXPLUS/nginxDeployments",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *     }],
+ * });
+ * const exampleDeployment = new azure.nginx.Deployment("exampleDeployment", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
+ *     location: exampleResourceGroup.location,
+ *     managedResourceGroup: "example",
+ *     diagnoseSupportEnabled: true,
+ *     frontendPublic: {
+ *         ipAddresses: [examplePublicIp.id],
+ *     },
+ *     networkInterfaces: [{
+ *         subnetId: exampleSubnet.id,
+ *     }],
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: [
+ *             "Create",
+ *             "Delete",
+ *             "DeleteIssuers",
+ *             "Get",
+ *             "GetIssuers",
+ *             "Import",
+ *             "List",
+ *             "ListIssuers",
+ *             "ManageContacts",
+ *             "ManageIssuers",
+ *             "SetIssuers",
+ *             "Update",
+ *         ],
+ *     }],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx"), 'binary').toString('base64'),
+ *         password: "",
+ *     },
+ * });
+ * const exampleNginx_certificateCertificate = new azure.nginx.Certificate("exampleNginx/certificateCertificate", {
+ *     nginxDeploymentId: exampleDeployment.id,
  *     keyVirtualPath: "/src/cert/soservermekey.key",
  *     certificateVirtualPath: "/src/cert/server.cert",
- *     keyVaultSecretId: azurerm_key_vault_certificate.test.secret_id,
+ *     keyVaultSecretId: exampleCertificate.secretId,
  * });
  * ```
  *
@@ -58,15 +131,15 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the cert file of this certificate.
      */
     public readonly certificateVirtualPath!: pulumi.Output<string>;
     /**
-     * Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the ID of the Key Vault Secret for this certificate.
      */
     public readonly keyVaultSecretId!: pulumi.Output<string>;
     /**
-     * Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the key file of this certificate.
      */
     public readonly keyVirtualPath!: pulumi.Output<string>;
     /**
@@ -126,15 +199,15 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the cert file of this certificate.
      */
     certificateVirtualPath?: pulumi.Input<string>;
     /**
-     * Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the ID of the Key Vault Secret for this certificate.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
-     * Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the key file of this certificate.
      */
     keyVirtualPath?: pulumi.Input<string>;
     /**
@@ -152,15 +225,15 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the cert file of this certificate.
      */
     certificateVirtualPath: pulumi.Input<string>;
     /**
-     * Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the ID of the Key Vault Secret for this certificate.
      */
     keyVaultSecretId: pulumi.Input<string>;
     /**
-     * Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the key file of this certificate.
      */
     keyVirtualPath: pulumi.Input<string>;
     /**

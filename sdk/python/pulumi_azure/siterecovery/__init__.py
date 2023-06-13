@@ -13,6 +13,7 @@ from .get_replication_recovery_plan import *
 from .hyper_v_replication_policy import *
 from .hyper_v_replication_policy_association import *
 from .hyper_v_site import *
+from .hyperv_network_mapping import *
 from .network_mapping import *
 from .protection_container import *
 from .protection_container_mapping import *
@@ -20,5 +21,6 @@ from .replicated_vm import *
 from .replication_policy import *
 from .replication_recovery_plan import *
 from .vm_ware_replication_policy import *
+from .vmware_replication_policy_association import *
 from ._inputs import *
 from . import outputs

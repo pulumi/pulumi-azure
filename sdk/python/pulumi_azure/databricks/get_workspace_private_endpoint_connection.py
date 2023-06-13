@@ -93,8 +93,8 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[str]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.databricks.get_workspace_private_endpoint_connection(workspace_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        private_endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.databricks.get_workspace_private_endpoint_connection(workspace_id=azurerm_databricks_workspace["example"]["id"],
+        private_endpoint_id=azurerm_private_endpoint["example"]["id"])
     pulumi.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections[0].status)
     ```
 
@@ -128,8 +128,8 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_id: Option
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.databricks.get_workspace_private_endpoint_connection(workspace_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        private_endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.databricks.get_workspace_private_endpoint_connection(workspace_id=azurerm_databricks_workspace["example"]["id"],
+        private_endpoint_id=azurerm_private_endpoint["example"]["id"])
     pulumi.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections[0].status)
     ```
 

@@ -50,6 +50,11 @@ export type FallbackRoute = import("./fallbackRoute").FallbackRoute;
 export const FallbackRoute: typeof import("./fallbackRoute").FallbackRoute = null as any;
 utilities.lazyLoad(exports, ["FallbackRoute"], () => require("./fallbackRoute"));
 
+export { FileUploadArgs, FileUploadState } from "./fileUpload";
+export type FileUpload = import("./fileUpload").FileUpload;
+export const FileUpload: typeof import("./fileUpload").FileUpload = null as any;
+utilities.lazyLoad(exports, ["FileUpload"], () => require("./fileUpload"));
+
 export { GetDpsArgs, GetDpsResult, GetDpsOutputArgs } from "./getDps";
 export const getDps: typeof import("./getDps").getDps = null as any;
 export const getDpsOutput: typeof import("./getDps").getDpsOutput = null as any;
@@ -169,6 +174,8 @@ const _module = {
                 return new Enrichment(name, <any>undefined, { urn })
             case "azure:iot/fallbackRoute:FallbackRoute":
                 return new FallbackRoute(name, <any>undefined, { urn })
+            case "azure:iot/fileUpload:FileUpload":
+                return new FileUpload(name, <any>undefined, { urn })
             case "azure:iot/ioTHub:IoTHub":
                 return new IoTHub(name, <any>undefined, { urn })
             case "azure:iot/iotHubCertificate:IotHubCertificate":
@@ -213,6 +220,7 @@ pulumi.runtime.registerResourceModule("azure", "iot/endpointServicebusTopic", _m
 pulumi.runtime.registerResourceModule("azure", "iot/endpointStorageContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/enrichment", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/fallbackRoute", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/fileUpload", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/ioTHub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubDeviceUpdateAccount", _module)

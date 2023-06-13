@@ -19,6 +19,8 @@ from .gremlin_database import *
 from .gremlin_graph import *
 from .mongo_collection import *
 from .mongo_database import *
+from .mongo_role_definition import *
+from .mongo_user_definition import *
 from .notebook_workspace import *
 from .postgresql_cluster import *
 from .postgresql_coordinator_configuration import *

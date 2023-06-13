@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// The private IP address associated with the Firewall.
         /// </summary>
         public readonly string? PrivateIpAddress;
-        public readonly string PublicIpAddressId;
+        public readonly string? PublicIpAddressId;
         /// <summary>
         /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? privateIpAddress,
 
-            string publicIpAddressId,
+            string? publicIpAddressId,
 
             string? subnetId)
         {

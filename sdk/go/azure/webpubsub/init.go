@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:webpubsub/customCertificate:CustomCertificate":
 		r = &CustomCertificate{}
+	case "azure:webpubsub/customDomain:CustomDomain":
+		r = &CustomDomain{}
 	case "azure:webpubsub/hub:Hub":
 		r = &Hub{}
 	case "azure:webpubsub/networkAcl:NetworkAcl":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"webpubsub/customCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"webpubsub/customDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

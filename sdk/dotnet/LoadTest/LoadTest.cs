@@ -32,6 +32,19 @@ namespace Pulumi.Azure.LoadTest
     /// 
     /// });
     /// ```
+    /// ## Blocks Reference
+    /// 
+    /// ### `identity` Block
+    /// 
+    /// The `identity` block supports the following arguments:
+    /// 
+    /// * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+    /// * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+    /// 
+    /// In addition to the arguments defined above, the `identity` block exports the following attributes:
+    /// 
+    /// * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+    /// * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
     /// 
     /// ## Import
     /// 
@@ -59,7 +72,7 @@ namespace Pulumi.Azure.LoadTest
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Managed Identity which should be assigned to this Load Test.
+        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.LoadTestIdentity?> Identity { get; private set; } = null!;
@@ -141,7 +154,7 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the Managed Identity which should be assigned to this Load Test.
+        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LoadTestIdentityArgs>? Identity { get; set; }
@@ -197,7 +210,7 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the Managed Identity which should be assigned to this Load Test.
+        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LoadTestIdentityGetArgs>? Identity { get; set; }

@@ -15,19 +15,143 @@ namespace Pulumi.Azure.Nginx
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System;
     /// using System.Collections.Generic;
+    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// 	}
+    /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Nginx.Certificate("test", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         NginxDeploymentId = azurerm_nginx_deployment.Test.Id,
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Azure.Nginx.Deployment("exampleDeployment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ManagedResourceGroup = "example",
+    ///         DiagnoseSupportEnabled = true,
+    ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
+    ///         {
+    ///             IpAddresses = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Nginx.Inputs.DeploymentNetworkInterfaceArgs
+    ///             {
+    ///                 SubnetId = exampleSubnet.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "DeleteIssuers",
+    ///                     "Get",
+    ///                     "GetIssuers",
+    ///                     "Import",
+    ///                     "List",
+    ///                     "ListIssuers",
+    ///                     "ManageContacts",
+    ///                     "ManageIssuers",
+    ///                     "SetIssuers",
+    ///                     "Update",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///         {
+    ///             Contents = ReadFileBase64("certificate-to-import.pfx"),
+    ///             Password = "",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNginx_certificateCertificate = new Azure.Nginx.Certificate("exampleNginx/certificateCertificate", new()
+    ///     {
+    ///         NginxDeploymentId = exampleDeployment.Id,
     ///         KeyVirtualPath = "/src/cert/soservermekey.key",
     ///         CertificateVirtualPath = "/src/cert/server.cert",
-    ///         KeyVaultSecretId = azurerm_key_vault_certificate.Test.Secret_id,
+    ///         KeyVaultSecretId = exampleCertificate.SecretId,
     ///     });
     /// 
     /// });
@@ -45,19 +169,19 @@ namespace Pulumi.Azure.Nginx
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the path to the cert file of this certificate.
         /// </summary>
         [Output("certificateVirtualPath")]
         public Output<string> CertificateVirtualPath { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the ID of the Key Vault Secret for this certificate.
         /// </summary>
         [Output("keyVaultSecretId")]
         public Output<string> KeyVaultSecretId { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the path to the key file of this certificate.
         /// </summary>
         [Output("keyVirtualPath")]
         public Output<string> KeyVirtualPath { get; private set; } = null!;
@@ -121,19 +245,19 @@ namespace Pulumi.Azure.Nginx
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the path to the cert file of this certificate.
         /// </summary>
         [Input("certificateVirtualPath", required: true)]
         public Input<string> CertificateVirtualPath { get; set; } = null!;
 
         /// <summary>
-        /// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the ID of the Key Vault Secret for this certificate.
         /// </summary>
         [Input("keyVaultSecretId", required: true)]
         public Input<string> KeyVaultSecretId { get; set; } = null!;
 
         /// <summary>
-        /// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the path to the key file of this certificate.
         /// </summary>
         [Input("keyVirtualPath", required: true)]
         public Input<string> KeyVirtualPath { get; set; } = null!;
@@ -159,19 +283,19 @@ namespace Pulumi.Azure.Nginx
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the path to the cert file of this certificate.
         /// </summary>
         [Input("certificateVirtualPath")]
         public Input<string>? CertificateVirtualPath { get; set; }
 
         /// <summary>
-        /// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the ID of the Key Vault Secret for this certificate.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
-        /// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        /// Specify the path to the key file of this certificate.
         /// </summary>
         [Input("keyVirtualPath")]
         public Input<string>? KeyVirtualPath { get; set; }

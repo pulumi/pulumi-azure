@@ -294,7 +294,7 @@ type KubernetesCluster struct {
 	//
 	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+	// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
 	WorkloadIdentityEnabled pulumi.BoolPtrOutput `pulumi:"workloadIdentityEnabled"`
 }
 
@@ -557,7 +557,7 @@ type kubernetesClusterState struct {
 	//
 	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+	// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
 	WorkloadIdentityEnabled *bool `pulumi:"workloadIdentityEnabled"`
 }
 
@@ -779,7 +779,7 @@ type KubernetesClusterState struct {
 	//
 	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+	// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
 	WorkloadIdentityEnabled pulumi.BoolPtrInput
 }
 
@@ -985,7 +985,7 @@ type kubernetesClusterArgs struct {
 	//
 	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+	// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
 	WorkloadIdentityEnabled *bool `pulumi:"workloadIdentityEnabled"`
 }
 
@@ -1188,7 +1188,7 @@ type KubernetesClusterArgs struct {
 	//
 	// > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+	// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
 	WorkloadIdentityEnabled pulumi.BoolPtrInput
 }
 
@@ -1696,7 +1696,7 @@ func (o KubernetesClusterOutput) WorkloadAutoscalerProfile() KubernetesClusterWo
 //
 // > **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
 //
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
 func (o KubernetesClusterOutput) WorkloadIdentityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.WorkloadIdentityEnabled }).(pulumi.BoolPtrOutput)
 }

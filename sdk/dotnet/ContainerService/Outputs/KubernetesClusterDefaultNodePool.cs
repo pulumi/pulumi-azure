@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? CustomCaTrustEnabled;
         /// <summary>
-        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
         /// 
         /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
         /// 
@@ -32,13 +32,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableAutoScaling;
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        /// Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
         /// 
         /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
         /// </summary>
         public readonly bool? EnableHostEncryption;
         /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
+        /// Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? HostGroupId;
         /// <summary>
-        /// A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? KubeletConfig;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? KubeletDiskType;
         /// <summary>
-        /// A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig? LinuxOsConfig;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? MaxCount;
         /// <summary>
-        /// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        /// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly int? MaxPods;
         /// <summary>
@@ -103,11 +103,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? NodePublicIpPrefixId;
         /// <summary>
-        /// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
+        /// A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
-        /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+        /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly bool? OnlyCriticalAddonsEnabled;
         /// <summary>
@@ -117,15 +117,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? OrchestratorVersion;
         /// <summary>
-        /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+        /// The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         /// </summary>
         public readonly int? OsDiskSizeGb;
         /// <summary>
-        /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
         /// </summary>
         public readonly string? OsDiskType;
         /// <summary>
-        /// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         /// </summary>
         public readonly string? OsSku;
         /// <summary>
@@ -165,9 +165,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? UpgradeSettings;
         /// <summary>
-        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
-        /// 
-        /// &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         /// </summary>
         public readonly string VmSize;
         /// <summary>
@@ -183,7 +181,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? WorkloadRuntime;
         /// <summary>
-        /// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+        /// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporary_name_for_rotation` must be specified when changing this property.
         /// 
         /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         /// </summary>

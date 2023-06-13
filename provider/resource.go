@@ -63,9 +63,11 @@ const (
 	azureAppPlatform           = "AppPlatform"           // AppPlatform
 	azureAppService            = "AppService"            // App Service
 	azureArcKubernetes         = "ArcKubernetes"         // Arc Kubernetes
+	azureArcMachine            = "ArcMachine"            // Arc Machine
 	armMsi                     = "ArmMsi"                // ARM MSI (managed service identity)
 	azureAttestation           = "Attestation"           // Attestation
 	azureAutomation            = "Automation"            // Automation
+	azureAutomanage            = "Automanage"            // Automanage (https://learn.microsoft.com/en-us/azure/governance/machine-configuration/)
 	azureAuthorization         = "Authorization"         // Authorization
 	azureAvs                   = "Avs"                   // Avs
 	azureBackup                = "Backup"                // Backup
@@ -188,9 +190,11 @@ var moduleMap = map[string]string{
 
 	"app_service":    azureAppService,
 	"arc_kubernetes": azureArcKubernetes,
+	"arc_machine":    azureArcMachine,
 	//Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
 	"attestation": azureAttestation,
 	"automation":  azureAutomation,
+	"automanage":  azureAutomanage,
 	// Ignored: azureAuthorization. Only used with RenameResourceWithAlias
 	"vmware":        azureAvs,
 	"backup":        azureBackup,
@@ -252,6 +256,7 @@ var moduleMap = map[string]string{
 	"iotcentral":  azureIotCentral,
 	"key_vault":   azureKeyVault,
 	"kusto":       azureKusto,
+	"kubernetes":  azureContainerService,
 	"lab_service": azureLab,
 	"lighthouse":  azureLighthouse,
 	// Ignored: azureLogAnalytics. The token prefix log_ maps into either

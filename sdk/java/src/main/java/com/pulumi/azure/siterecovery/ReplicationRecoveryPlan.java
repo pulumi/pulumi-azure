@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.siterecovery.ReplicationRecoveryPlanArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanState;
+import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanAzureToAzureSettings;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanRecoveryGroup;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -17,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+ * Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
  * 
  * ## Example Usage
  * ```java
@@ -286,6 +287,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan")
 public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource {
     /**
+     * An `azure_to_azure_settings` block defined as block.
+     * 
+     */
+    @Export(name="azureToAzureSettings", refs={ReplicationRecoveryPlanAzureToAzureSettings.class}, tree="[0]")
+    private Output</* @Nullable */ ReplicationRecoveryPlanAzureToAzureSettings> azureToAzureSettings;
+
+    /**
+     * @return An `azure_to_azure_settings` block defined as block.
+     * 
+     */
+    public Output<Optional<ReplicationRecoveryPlanAzureToAzureSettings>> azureToAzureSettings() {
+        return Codegen.optional(this.azureToAzureSettings);
+    }
+    /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
@@ -300,14 +315,14 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * Three or more `recovery_group` block.
+     * Three or more `recovery_group` block defined as below.
      * 
      */
     @Export(name="recoveryGroups", refs={List.class,ReplicationRecoveryPlanRecoveryGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups;
 
     /**
-     * @return Three or more `recovery_group` block.
+     * @return Three or more `recovery_group` block defined as below.
      * 
      */
     public Output<Optional<List<ReplicationRecoveryPlanRecoveryGroup>>> recoveryGroups() {

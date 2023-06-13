@@ -17,16 +17,20 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
     public static final InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs Empty = new InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs();
 
     /**
-     * A `capacity` block as defined below.
+     * @deprecated
+     * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
      * 
      */
+    @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
     @Import(name="capacity")
     private @Nullable Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs> capacity;
 
     /**
-     * @return A `capacity` block as defined below.
+     * @deprecated
+     * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
      * 
      */
+    @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
     public Optional<Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs>> capacity() {
         return Optional.ofNullable(this.capacity);
     }
@@ -34,16 +38,12 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
     /**
      * A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
-     * 
      */
     @Import(name="recurrence")
     private @Nullable Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs> recurrence;
 
     /**
      * @return A `recurrence` block as defined below.
-     * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
@@ -76,30 +76,32 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
         }
 
         /**
-         * @param capacity A `capacity` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
+         * 
          */
+        @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
         public Builder capacity(@Nullable Output<InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs> capacity) {
             $.capacity = capacity;
             return this;
         }
 
         /**
-         * @param capacity A `capacity` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
+         * 
          */
+        @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
         public Builder capacity(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs capacity) {
             return capacity(Output.of(capacity));
         }
 
         /**
          * @param recurrence A `recurrence` block as defined below.
-         * 
-         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 
@@ -111,8 +113,6 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs extends c
 
         /**
          * @param recurrence A `recurrence` block as defined below.
-         * 
-         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 

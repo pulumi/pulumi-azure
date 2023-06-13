@@ -396,6 +396,21 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The desired node communication mode for the pool.
+     * 
+     */
+    @Import(name="targetNodeCommunicationMode")
+    private @Nullable Output<String> targetNodeCommunicationMode;
+
+    /**
+     * @return The desired node communication mode for the pool.
+     * 
+     */
+    public Optional<Output<String>> targetNodeCommunicationMode() {
+        return Optional.ofNullable(this.targetNodeCommunicationMode);
+    }
+
+    /**
      * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      * 
      */
@@ -490,6 +505,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         this.startTask = $.startTask;
         this.stopPendingResizeOperation = $.stopPendingResizeOperation;
         this.storageImageReference = $.storageImageReference;
+        this.targetNodeCommunicationMode = $.targetNodeCommunicationMode;
         this.taskSchedulingPolicies = $.taskSchedulingPolicies;
         this.userAccounts = $.userAccounts;
         this.vmSize = $.vmSize;
@@ -1076,6 +1092,27 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageImageReference(PoolStorageImageReferenceArgs storageImageReference) {
             return storageImageReference(Output.of(storageImageReference));
+        }
+
+        /**
+         * @param targetNodeCommunicationMode The desired node communication mode for the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetNodeCommunicationMode(@Nullable Output<String> targetNodeCommunicationMode) {
+            $.targetNodeCommunicationMode = targetNodeCommunicationMode;
+            return this;
+        }
+
+        /**
+         * @param targetNodeCommunicationMode The desired node communication mode for the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetNodeCommunicationMode(String targetNodeCommunicationMode) {
+            return targetNodeCommunicationMode(Output.of(targetNodeCommunicationMode));
         }
 
         /**

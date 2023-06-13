@@ -18,18 +18,18 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProtectedVMArgs Empty = new ProtectedVMArgs();
 
     /**
-     * Specifies the id of the backup policy to use.
+     * Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
      * 
      */
-    @Import(name="backupPolicyId", required=true)
-    private Output<String> backupPolicyId;
+    @Import(name="backupPolicyId")
+    private @Nullable Output<String> backupPolicyId;
 
     /**
-     * @return Specifies the id of the backup policy to use.
+     * @return Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
      * 
      */
-    public Output<String> backupPolicyId() {
-        return this.backupPolicyId;
+    public Optional<Output<String>> backupPolicyId() {
+        return Optional.ofNullable(this.backupPolicyId);
     }
 
     /**
@@ -60,6 +60,21 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<Integer>>> includeDiskLuns() {
         return Optional.ofNullable(this.includeDiskLuns);
+    }
+
+    /**
+     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * 
+     */
+    @Import(name="protectionState")
+    private @Nullable Output<String> protectionState;
+
+    /**
+     * @return Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * 
+     */
+    public Optional<Output<String>> protectionState() {
+        return Optional.ofNullable(this.protectionState);
     }
 
     /**
@@ -119,6 +134,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         this.backupPolicyId = $.backupPolicyId;
         this.excludeDiskLuns = $.excludeDiskLuns;
         this.includeDiskLuns = $.includeDiskLuns;
+        this.protectionState = $.protectionState;
         this.recoveryVaultName = $.recoveryVaultName;
         this.resourceGroupName = $.resourceGroupName;
         this.sourceVmId = $.sourceVmId;
@@ -143,18 +159,18 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupPolicyId Specifies the id of the backup policy to use.
+         * @param backupPolicyId Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
          * 
          * @return builder
          * 
          */
-        public Builder backupPolicyId(Output<String> backupPolicyId) {
+        public Builder backupPolicyId(@Nullable Output<String> backupPolicyId) {
             $.backupPolicyId = backupPolicyId;
             return this;
         }
 
         /**
-         * @param backupPolicyId Specifies the id of the backup policy to use.
+         * @param backupPolicyId Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
          * 
          * @return builder
          * 
@@ -223,6 +239,27 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder includeDiskLuns(Integer... includeDiskLuns) {
             return includeDiskLuns(List.of(includeDiskLuns));
+        }
+
+        /**
+         * @param protectionState Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(@Nullable Output<String> protectionState) {
+            $.protectionState = protectionState;
+            return this;
+        }
+
+        /**
+         * @param protectionState Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectionState(String protectionState) {
+            return protectionState(Output.of(protectionState));
         }
 
         /**
@@ -295,7 +332,6 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProtectedVMArgs build() {
-            $.backupPolicyId = Objects.requireNonNull($.backupPolicyId, "expected parameter 'backupPolicyId' to be non-null");
             $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             return $;

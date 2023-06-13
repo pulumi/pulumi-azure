@@ -34,9 +34,20 @@ clientId: Optional[str]
 The Client ID which should be used.
 """
 
+clientIdFilePath: Optional[str]
+"""
+The path to a file containing the Client ID which should be used.
+"""
+
 clientSecret: Optional[str]
 """
 The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+"""
+
+clientSecretFilePath: Optional[str]
+"""
+The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+using a Client Secret.
 """
 
 disableCorrelationRequestId: Optional[bool]

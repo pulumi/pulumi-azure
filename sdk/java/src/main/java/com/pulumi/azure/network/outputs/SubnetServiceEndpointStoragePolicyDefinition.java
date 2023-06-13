@@ -23,7 +23,14 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
      */
     private String name;
     /**
-     * @return Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+     * 
+     */
+    private @Nullable String service;
+    /**
+     * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+     * 
+     * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     private List<String> serviceResources;
@@ -44,7 +51,16 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
         return this.name;
     }
     /**
-     * @return Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+     * 
+     */
+    public Optional<String> service() {
+        return Optional.ofNullable(this.service);
+    }
+    /**
+     * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+     * 
+     * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     public List<String> serviceResources() {
@@ -62,12 +78,14 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
     public static final class Builder {
         private @Nullable String description;
         private String name;
+        private @Nullable String service;
         private List<String> serviceResources;
         public Builder() {}
         public Builder(SubnetServiceEndpointStoragePolicyDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.name = defaults.name;
+    	      this.service = defaults.service;
     	      this.serviceResources = defaults.serviceResources;
         }
 
@@ -82,6 +100,11 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder service(@Nullable String service) {
+            this.service = service;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceResources(List<String> serviceResources) {
             this.serviceResources = Objects.requireNonNull(serviceResources);
             return this;
@@ -93,6 +116,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
             final var o = new SubnetServiceEndpointStoragePolicyDefinition();
             o.description = description;
             o.name = name;
+            o.service = service;
             o.serviceResources = serviceResources;
             return o;
         }

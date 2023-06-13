@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,6 +29,21 @@ public final class SpringCloudCertificateArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<String>> certificateContent() {
         return Optional.ofNullable(this.certificateContent);
+    }
+
+    /**
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * 
+     */
+    @Import(name="excludePrivateKey")
+    private @Nullable Output<Boolean> excludePrivateKey;
+
+    /**
+     * @return Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> excludePrivateKey() {
+        return Optional.ofNullable(this.excludePrivateKey);
     }
 
     /**
@@ -94,6 +110,7 @@ public final class SpringCloudCertificateArgs extends com.pulumi.resources.Resou
 
     private SpringCloudCertificateArgs(SpringCloudCertificateArgs $) {
         this.certificateContent = $.certificateContent;
+        this.excludePrivateKey = $.excludePrivateKey;
         this.keyVaultCertificateId = $.keyVaultCertificateId;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -137,6 +154,27 @@ public final class SpringCloudCertificateArgs extends com.pulumi.resources.Resou
          */
         public Builder certificateContent(String certificateContent) {
             return certificateContent(Output.of(certificateContent));
+        }
+
+        /**
+         * @param excludePrivateKey Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludePrivateKey(@Nullable Output<Boolean> excludePrivateKey) {
+            $.excludePrivateKey = excludePrivateKey;
+            return this;
+        }
+
+        /**
+         * @param excludePrivateKey Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludePrivateKey(Boolean excludePrivateKey) {
+            return excludePrivateKey(Output.of(excludePrivateKey));
         }
 
         /**

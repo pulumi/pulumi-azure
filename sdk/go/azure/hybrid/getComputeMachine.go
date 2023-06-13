@@ -12,6 +12,10 @@ import (
 
 // Use this data source to access information about an existing Hybrid Compute.
 //
+// ## Disclaimers
+//
+// > **Note:** The  Data Source `hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `arcmachine.get` Data Source.
+//
 // ## Example Usage
 //
 // ```go

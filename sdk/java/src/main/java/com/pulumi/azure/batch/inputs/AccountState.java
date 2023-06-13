@@ -157,7 +157,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      * 
      * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
      * 
@@ -168,7 +168,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Whether public network access is allowed for this server. Defaults to `true`.
      * 
      * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
      * 
@@ -520,7 +520,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
          * 
          * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
          * 
@@ -535,7 +535,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
          * 
          * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
          * 

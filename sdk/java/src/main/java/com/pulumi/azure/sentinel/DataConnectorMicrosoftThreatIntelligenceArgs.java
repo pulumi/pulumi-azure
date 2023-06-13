@@ -18,14 +18,26 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
     /**
      * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
      * 
+     * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
     @Import(name="bingSafetyPhishingUrlLookbackDate")
     private @Nullable Output<String> bingSafetyPhishingUrlLookbackDate;
 
     /**
      * @return The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
      * 
+     * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> bingSafetyPhishingUrlLookbackDate() {
         return Optional.ofNullable(this.bingSafetyPhishingUrlLookbackDate);
     }
@@ -48,6 +60,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
      * 
+     * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
+     * 
      * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
      * 
      */
@@ -56,6 +70,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
 
     /**
      * @return The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     * 
+     * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
      * 
      * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
      * 
@@ -129,9 +145,15 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
         /**
          * @param bingSafetyPhishingUrlLookbackDate The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
          * 
+         * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder bingSafetyPhishingUrlLookbackDate(@Nullable Output<String> bingSafetyPhishingUrlLookbackDate) {
             $.bingSafetyPhishingUrlLookbackDate = bingSafetyPhishingUrlLookbackDate;
             return this;
@@ -140,9 +162,15 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
         /**
          * @param bingSafetyPhishingUrlLookbackDate The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
          * 
+         * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder bingSafetyPhishingUrlLookbackDate(String bingSafetyPhishingUrlLookbackDate) {
             return bingSafetyPhishingUrlLookbackDate(Output.of(bingSafetyPhishingUrlLookbackDate));
         }
@@ -171,6 +199,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
         /**
          * @param microsoftEmergingThreatFeedLookbackDate The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
          * 
+         * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
+         * 
          * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
          * 
          * @return builder
@@ -183,6 +213,8 @@ public final class DataConnectorMicrosoftThreatIntelligenceArgs extends com.pulu
 
         /**
          * @param microsoftEmergingThreatFeedLookbackDate The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+         * 
+         * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
          * 
          * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
          * 

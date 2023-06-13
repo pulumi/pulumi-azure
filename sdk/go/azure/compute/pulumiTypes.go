@@ -29350,6 +29350,8 @@ func (o GetSharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) G
 type GetSharedImageVersionsImage struct {
 	// Is this Image Version excluded from the `latest` filter?
 	ExcludeFromLatest bool `pulumi:"excludeFromLatest"`
+	// The ID of this Shared Image Version.
+	Id string `pulumi:"id"`
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location string `pulumi:"location"`
 	// The ID of the Managed Image which was the source of this Shared Image Version.
@@ -29376,6 +29378,8 @@ type GetSharedImageVersionsImageInput interface {
 type GetSharedImageVersionsImageArgs struct {
 	// Is this Image Version excluded from the `latest` filter?
 	ExcludeFromLatest pulumi.BoolInput `pulumi:"excludeFromLatest"`
+	// The ID of this Shared Image Version.
+	Id pulumi.StringInput `pulumi:"id"`
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Managed Image which was the source of this Shared Image Version.
@@ -29442,6 +29446,11 @@ func (o GetSharedImageVersionsImageOutput) ToGetSharedImageVersionsImageOutputWi
 // Is this Image Version excluded from the `latest` filter?
 func (o GetSharedImageVersionsImageOutput) ExcludeFromLatest() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetSharedImageVersionsImage) bool { return v.ExcludeFromLatest }).(pulumi.BoolOutput)
+}
+
+// The ID of this Shared Image Version.
+func (o GetSharedImageVersionsImageOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The supported Azure location where the Shared Image Gallery exists.
@@ -30171,6 +30180,8 @@ type GetVirtualMachineScaleSetInstance struct {
 	LatestModelApplied bool `pulumi:"latestModelApplied"`
 	// The name of this Virtual Machine Scale Set.
 	Name string `pulumi:"name"`
+	// The power state of the virtual machine.
+	PowerState string `pulumi:"powerState"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -30205,6 +30216,8 @@ type GetVirtualMachineScaleSetInstanceArgs struct {
 	LatestModelApplied pulumi.BoolInput `pulumi:"latestModelApplied"`
 	// The name of this Virtual Machine Scale Set.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The power state of the virtual machine.
+	PowerState pulumi.StringInput `pulumi:"powerState"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -30288,6 +30301,11 @@ func (o GetVirtualMachineScaleSetInstanceOutput) LatestModelApplied() pulumi.Boo
 // The name of this Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The power state of the virtual machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) PowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.PowerState }).(pulumi.StringOutput)
 }
 
 // The Primary Private IP Address assigned to this Virtual Machine.

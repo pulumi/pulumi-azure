@@ -88,6 +88,10 @@ type SpringCloudService struct {
 	BuildAgentPoolSize pulumi.StringPtrOutput `pulumi:"buildAgentPoolSize"`
 	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrOutput `pulumi:"configServerGitSetting"`
+	// One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	ContainerRegistries SpringCloudServiceContainerRegistryArrayOutput `pulumi:"containerRegistries"`
+	// A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	DefaultBuildService SpringCloudServiceDefaultBuildServicePtrOutput `pulumi:"defaultBuildService"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
@@ -152,6 +156,10 @@ type springCloudServiceState struct {
 	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`
 	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
+	// One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	ContainerRegistries []SpringCloudServiceContainerRegistry `pulumi:"containerRegistries"`
+	// A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	DefaultBuildService *SpringCloudServiceDefaultBuildService `pulumi:"defaultBuildService"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
@@ -185,6 +193,10 @@ type SpringCloudServiceState struct {
 	BuildAgentPoolSize pulumi.StringPtrInput
 	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
+	// One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	ContainerRegistries SpringCloudServiceContainerRegistryArrayInput
+	// A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	DefaultBuildService SpringCloudServiceDefaultBuildServicePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Should the log stream in vnet injection instance could be accessed from Internet?
@@ -222,6 +234,10 @@ type springCloudServiceArgs struct {
 	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`
 	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
+	// One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	ContainerRegistries []SpringCloudServiceContainerRegistry `pulumi:"containerRegistries"`
+	// A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	DefaultBuildService *SpringCloudServiceDefaultBuildService `pulumi:"defaultBuildService"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
@@ -250,6 +266,10 @@ type SpringCloudServiceArgs struct {
 	BuildAgentPoolSize pulumi.StringPtrInput
 	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
+	// One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	ContainerRegistries SpringCloudServiceContainerRegistryArrayInput
+	// A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+	DefaultBuildService SpringCloudServiceDefaultBuildServicePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Should the log stream in vnet injection instance could be accessed from Internet?
@@ -369,6 +389,20 @@ func (o SpringCloudServiceOutput) ConfigServerGitSetting() SpringCloudServiceCon
 	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceConfigServerGitSettingPtrOutput {
 		return v.ConfigServerGitSetting
 	}).(SpringCloudServiceConfigServerGitSettingPtrOutput)
+}
+
+// One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+func (o SpringCloudServiceOutput) ContainerRegistries() SpringCloudServiceContainerRegistryArrayOutput {
+	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceContainerRegistryArrayOutput {
+		return v.ContainerRegistries
+	}).(SpringCloudServiceContainerRegistryArrayOutput)
+}
+
+// A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+func (o SpringCloudServiceOutput) DefaultBuildService() SpringCloudServiceDefaultBuildServicePtrOutput {
+	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceDefaultBuildServicePtrOutput {
+		return v.DefaultBuildService
+	}).(SpringCloudServiceDefaultBuildServicePtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -116,8 +116,8 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_key_vault = azure.keyvault.get_key_vault(name=azurerm_key_vault["example"]["name"],
+        resource_group_name=azurerm_key_vault["example"]["resource_group_name"])
     example_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example_key_vault.id)
     ```
 
@@ -150,8 +150,8 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = 
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_key_vault = azure.keyvault.get_key_vault(name=azurerm_key_vault["example"]["name"],
+        resource_group_name=azurerm_key_vault["example"]["resource_group_name"])
     example_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example_key_vault.id)
     ```
 

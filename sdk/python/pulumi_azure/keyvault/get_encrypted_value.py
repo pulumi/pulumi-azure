@@ -21,10 +21,13 @@ class GetEncryptedValueResult:
     """
     A collection of values returned by getEncryptedValue.
     """
-    def __init__(__self__, algorithm=None, encrypted_data=None, id=None, key_vault_key_id=None, plain_text_value=None):
+    def __init__(__self__, algorithm=None, decoded_plain_text_value=None, encrypted_data=None, id=None, key_vault_key_id=None, plain_text_value=None):
         if algorithm and not isinstance(algorithm, str):
             raise TypeError("Expected argument 'algorithm' to be a str")
         pulumi.set(__self__, "algorithm", algorithm)
+        if decoded_plain_text_value and not isinstance(decoded_plain_text_value, str):
+            raise TypeError("Expected argument 'decoded_plain_text_value' to be a str")
+        pulumi.set(__self__, "decoded_plain_text_value", decoded_plain_text_value)
         if encrypted_data and not isinstance(encrypted_data, str):
             raise TypeError("Expected argument 'encrypted_data' to be a str")
         pulumi.set(__self__, "encrypted_data", encrypted_data)
@@ -42,6 +45,14 @@ class GetEncryptedValueResult:
     @pulumi.getter
     def algorithm(self) -> str:
         return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="decodedPlainTextValue")
+    def decoded_plain_text_value(self) -> str:
+        """
+        The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+        """
+        return pulumi.get(self, "decoded_plain_text_value")
 
     @property
     @pulumi.getter(name="encryptedData")
@@ -74,6 +85,7 @@ class AwaitableGetEncryptedValueResult(GetEncryptedValueResult):
             yield self
         return GetEncryptedValueResult(
             algorithm=self.algorithm,
+            decoded_plain_text_value=self.decoded_plain_text_value,
             encrypted_data=self.encrypted_data,
             id=self.id,
             key_vault_key_id=self.key_vault_key_id,
@@ -87,22 +99,6 @@ def get_encrypted_value(algorithm: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptedValueResult:
     """
     Encrypts or Decrypts a value using a Key Vault Key.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
-        resource_group_name="some-resource-group")
-    example_key = azure.keyvault.get_key(name="some-key",
-        key_vault_id=example_key_vault.id)
-    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        algorithm="RSA1_5",
-        plain_text_value="some-encrypted-value")
-    pulumi.export("id", data["azurerm_key_vault_encrypted_value"]["example"]["encrypted_data"])
-    ```
 
 
     :param str algorithm: The Algorithm which should be used to Decrypt/Encrypt this Value. Possible values are `RSA1_5`, `RSA-OAEP` and `RSA-OAEP-256`.
@@ -122,6 +118,7 @@ def get_encrypted_value(algorithm: Optional[str] = None,
 
     return AwaitableGetEncryptedValueResult(
         algorithm=__ret__.algorithm,
+        decoded_plain_text_value=__ret__.decoded_plain_text_value,
         encrypted_data=__ret__.encrypted_data,
         id=__ret__.id,
         key_vault_key_id=__ret__.key_vault_key_id,
@@ -136,22 +133,6 @@ def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptedValueResult]:
     """
     Encrypts or Decrypts a value using a Key Vault Key.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
-        resource_group_name="some-resource-group")
-    example_key = azure.keyvault.get_key(name="some-key",
-        key_vault_id=example_key_vault.id)
-    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        algorithm="RSA1_5",
-        plain_text_value="some-encrypted-value")
-    pulumi.export("id", data["azurerm_key_vault_encrypted_value"]["example"]["encrypted_data"])
-    ```
 
 
     :param str algorithm: The Algorithm which should be used to Decrypt/Encrypt this Value. Possible values are `RSA1_5`, `RSA-OAEP` and `RSA-OAEP-256`.

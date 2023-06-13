@@ -13,30 +13,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
     /**
-     * @return A `capacity` block as defined below.
+     * @deprecated
+     * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
      * 
      */
+    @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
     private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity;
     /**
      * @return A `recurrence` block as defined below.
-     * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
     private InteractiveQueryClusterRolesWorkerNodeAutoscale() {}
     /**
-     * @return A `capacity` block as defined below.
+     * @deprecated
+     * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
      * 
      */
+    @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
     public Optional<InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity> capacity() {
         return Optional.ofNullable(this.capacity);
     }
     /**
      * @return A `recurrence` block as defined below.
-     * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence> recurrence() {

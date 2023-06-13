@@ -10,6 +10,11 @@ export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
 export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
 utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
 
+export { FluxConfigurationArgs, FluxConfigurationState } from "./fluxConfiguration";
+export type FluxConfiguration = import("./fluxConfiguration").FluxConfiguration;
+export const FluxConfiguration: typeof import("./fluxConfiguration").FluxConfiguration = null as any;
+utilities.lazyLoad(exports, ["FluxConfiguration"], () => require("./fluxConfiguration"));
+
 export { GetClusterNodePoolArgs, GetClusterNodePoolResult, GetClusterNodePoolOutputArgs } from "./getClusterNodePool";
 export const getClusterNodePool: typeof import("./getClusterNodePool").getClusterNodePool = null as any;
 export const getClusterNodePoolOutput: typeof import("./getClusterNodePool").getClusterNodePoolOutput = null as any;
@@ -127,6 +132,8 @@ const _module = {
         switch (type) {
             case "azure:containerservice/connectedRegistry:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
+            case "azure:containerservice/fluxConfiguration:FluxConfiguration":
+                return new FluxConfiguration(name, <any>undefined, { urn })
             case "azure:containerservice/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure:containerservice/kubernetesCluster:KubernetesCluster":
@@ -161,6 +168,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/fluxConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterExtension", _module)

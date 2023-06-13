@@ -12,6 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEncryptedValueResult {
     private String algorithm;
+    /**
+     * @return The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+     * 
+     */
+    private String decodedPlainTextValue;
     private @Nullable String encryptedData;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,6 +29,13 @@ public final class GetEncryptedValueResult {
     private GetEncryptedValueResult() {}
     public String algorithm() {
         return this.algorithm;
+    }
+    /**
+     * @return The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+     * 
+     */
+    public String decodedPlainTextValue() {
+        return this.decodedPlainTextValue;
     }
     public Optional<String> encryptedData() {
         return Optional.ofNullable(this.encryptedData);
@@ -52,6 +64,7 @@ public final class GetEncryptedValueResult {
     @CustomType.Builder
     public static final class Builder {
         private String algorithm;
+        private String decodedPlainTextValue;
         private @Nullable String encryptedData;
         private String id;
         private String keyVaultKeyId;
@@ -60,6 +73,7 @@ public final class GetEncryptedValueResult {
         public Builder(GetEncryptedValueResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.algorithm = defaults.algorithm;
+    	      this.decodedPlainTextValue = defaults.decodedPlainTextValue;
     	      this.encryptedData = defaults.encryptedData;
     	      this.id = defaults.id;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
@@ -69,6 +83,11 @@ public final class GetEncryptedValueResult {
         @CustomType.Setter
         public Builder algorithm(String algorithm) {
             this.algorithm = Objects.requireNonNull(algorithm);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder decodedPlainTextValue(String decodedPlainTextValue) {
+            this.decodedPlainTextValue = Objects.requireNonNull(decodedPlainTextValue);
             return this;
         }
         @CustomType.Setter
@@ -94,6 +113,7 @@ public final class GetEncryptedValueResult {
         public GetEncryptedValueResult build() {
             final var o = new GetEncryptedValueResult();
             o.algorithm = algorithm;
+            o.decodedPlainTextValue = decodedPlainTextValue;
             o.encryptedData = encryptedData;
             o.id = id;
             o.keyVaultKeyId = keyVaultKeyId;

@@ -129,11 +129,14 @@ namespace Pulumi.Azure.Compute
         public readonly string Id;
         /// <summary>
         /// A `identity` block as defined below.
-        /// *
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineIdentityResult> Identities;
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// The power state of the virtual machine.
+        /// </summary>
+        public readonly string PowerState;
         /// <summary>
         /// The Primary Private IP Address assigned to this Virtual Machine.
         /// </summary>
@@ -162,6 +165,8 @@ namespace Pulumi.Azure.Compute
 
             string name,
 
+            string powerState,
+
             string privateIpAddress,
 
             ImmutableArray<string> privateIpAddresses,
@@ -176,6 +181,7 @@ namespace Pulumi.Azure.Compute
             Identities = identities;
             Location = location;
             Name = name;
+            PowerState = powerState;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddresses = privateIpAddresses;
             PublicIpAddress = publicIpAddress;

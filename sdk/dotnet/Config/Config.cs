@@ -81,6 +81,16 @@ namespace Pulumi.Azure
             set => _clientId.Set(value);
         }
 
+        private static readonly __Value<string?> _clientIdFilePath = new __Value<string?>(() => __config.Get("clientIdFilePath"));
+        /// <summary>
+        /// The path to a file containing the Client ID which should be used.
+        /// </summary>
+        public static string? ClientIdFilePath
+        {
+            get => _clientIdFilePath.Get();
+            set => _clientIdFilePath.Set(value);
+        }
+
         private static readonly __Value<string?> _clientSecret = new __Value<string?>(() => __config.Get("clientSecret"));
         /// <summary>
         /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
@@ -89,6 +99,17 @@ namespace Pulumi.Azure
         {
             get => _clientSecret.Get();
             set => _clientSecret.Set(value);
+        }
+
+        private static readonly __Value<string?> _clientSecretFilePath = new __Value<string?>(() => __config.Get("clientSecretFilePath"));
+        /// <summary>
+        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+        /// using a Client Secret.
+        /// </summary>
+        public static string? ClientSecretFilePath
+        {
+            get => _clientSecretFilePath.Get();
+            set => _clientSecretFilePath.Set(value);
         }
 
         private static readonly __Value<bool?> _disableCorrelationRequestId = new __Value<bool?>(() => __config.GetBoolean("disableCorrelationRequestId"));

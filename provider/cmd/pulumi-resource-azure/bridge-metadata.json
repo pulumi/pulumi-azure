@@ -1744,12 +1744,120 @@
                     }
                 }
             },
+            "azurerm_arc_kubernetes_flux_configuration": {
+                "current": "azure:arckubernetes/fluxConfiguration:FluxConfiguration",
+                "majorVersion": 5,
+                "fields": {
+                    "blob_storage": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "service_principal": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "bucket": {
+                        "maxItemsOne": true
+                    },
+                    "git_repository": {
+                        "maxItemsOne": true
+                    },
+                    "kustomizations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "depends_on": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_arc_machine_extension": {
+                "current": "azure:arcmachine/extension:Extension",
+                "majorVersion": 5
+            },
             "azurerm_attestation_provider": {
                 "current": "azure:attestation/provider:Provider",
                 "majorVersion": 5,
                 "fields": {
                     "policy": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_automanage_configuration": {
+                "current": "azure:automanage/configuration:Configuration",
+                "majorVersion": 5,
+                "fields": {
+                    "antimalware": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclusions": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "azure_security_baseline": {
+                        "maxItemsOne": true
+                    },
+                    "backup": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "retention_policy": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "daily_schedule": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "retention_duration": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "retention_times": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "weekly_schedule": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "retention_duration": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "retention_times": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "schedule_policy": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "schedule_run_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "schedule_run_times": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -2043,7 +2151,14 @@
                 "majorVersion": 5,
                 "fields": {
                     "backup": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "hourly": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "retention_daily": {
                         "maxItemsOne": true
@@ -2052,6 +2167,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "days": {
+                                    "maxItemsOne": false
+                                },
                                 "weekdays": {
                                     "maxItemsOne": false
                                 },
@@ -2075,6 +2193,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "days": {
+                                    "maxItemsOne": false
+                                },
                                 "months": {
                                     "maxItemsOne": false
                                 },
@@ -2113,6 +2234,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "days": {
+                                    "maxItemsOne": false
+                                },
                                 "weekdays": {
                                     "maxItemsOne": false
                                 },
@@ -2136,6 +2260,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "days": {
+                                    "maxItemsOne": false
+                                },
                                 "months": {
                                     "maxItemsOne": false
                                 },
@@ -4293,6 +4420,37 @@
                 "fields": {
                     "autoscale_settings": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_cosmosdb_mongo_role_definition": {
+                "current": "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition",
+                "majorVersion": 5,
+                "fields": {
+                    "inherited_role_names": {
+                        "maxItemsOne": false
+                    },
+                    "privilege": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": false
+                                },
+                                "resource": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_cosmosdb_mongo_user_definition": {
+                "current": "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition",
+                "majorVersion": 5,
+                "fields": {
+                    "inherited_role_names": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -8854,6 +9012,10 @@
                     }
                 }
             },
+            "azurerm_iothub_file_upload": {
+                "current": "azure:iot/fileUpload:FileUpload",
+                "majorVersion": 5
+            },
             "azurerm_iothub_route": {
                 "current": "azure:iot/route:Route",
                 "majorVersion": 5,
@@ -9454,6 +9616,41 @@
                 "fields": {
                     "hub_profile": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_kubernetes_flux_configuration": {
+                "current": "azure:containerservice/fluxConfiguration:FluxConfiguration",
+                "majorVersion": 5,
+                "fields": {
+                    "blob_storage": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "managed_identity": {
+                                    "maxItemsOne": true
+                                },
+                                "service_principal": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "bucket": {
+                        "maxItemsOne": true
+                    },
+                    "git_repository": {
+                        "maxItemsOne": true
+                    },
+                    "kustomizations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "depends_on": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -11337,7 +11534,14 @@
                 "majorVersion": 5,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -12730,6 +12934,35 @@
                 "current": "azure:mobile/networkDataNetwork:NetworkDataNetwork",
                 "majorVersion": 5
             },
+            "azurerm_mobile_network_packet_core_control_plane": {
+                "current": "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "local_diagnostics_access": {
+                        "maxItemsOne": true
+                    },
+                    "platform": {
+                        "maxItemsOne": true
+                    },
+                    "site_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_mobile_network_packet_core_data_plane": {
+                "current": "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane",
+                "majorVersion": 5
+            },
             "azurerm_mobile_network_service": {
                 "current": "azure:mobile/networkService:NetworkService",
                 "majorVersion": 5,
@@ -13127,6 +13360,12 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "levels": {
+                                    "maxItemsOne": false
+                                },
+                                "resource_groups": {
+                                    "maxItemsOne": false
+                                },
                                 "resource_health": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -13143,6 +13382,15 @@
                                         }
                                     }
                                 },
+                                "resource_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "resource_providers": {
+                                    "maxItemsOne": false
+                                },
+                                "resource_types": {
+                                    "maxItemsOne": false
+                                },
                                 "service_health": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -13158,6 +13406,12 @@
                                             }
                                         }
                                     }
+                                },
+                                "statuses": {
+                                    "maxItemsOne": false
+                                },
+                                "sub_statuses": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -13496,6 +13750,28 @@
                     }
                 }
             },
+            "azurerm_monitor_alert_prometheus_rule_group": {
+                "current": "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup",
+                "majorVersion": 5,
+                "fields": {
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "action": {
+                                    "maxItemsOne": false
+                                },
+                                "alert_resolution": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_monitor_autoscale_setting": {
                 "current": "azure:monitoring/autoscaleSetting:AutoscaleSetting",
                 "majorVersion": 5,
@@ -13519,6 +13795,9 @@
                                 }
                             }
                         }
+                    },
+                    "predictive": {
+                        "maxItemsOne": true
                     },
                     "profile": {
                         "maxItemsOne": false,
@@ -14385,6 +14664,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_mysql_flexible_server_active_directory_administrator": {
+                "current": "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator",
+                "majorVersion": 5
             },
             "azurerm_mysql_flexible_server_configuration": {
                 "current": "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration",
@@ -15611,6 +15894,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_recovery_services_vault_resource_guard_association": {
+                "current": "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation",
+                "majorVersion": 5
             },
             "azurerm_redis_cache": {
                 "current": "azure:redis/cache:Cache",
@@ -17054,6 +17341,10 @@
                 "current": "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate",
                 "majorVersion": 5
             },
+            "azurerm_signalr_service_custom_domain": {
+                "current": "azure:signalr/serviceCustomDomain:ServiceCustomDomain",
+                "majorVersion": 5
+            },
             "azurerm_signalr_service_network_acl": {
                 "current": "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl",
                 "majorVersion": 5,
@@ -17092,6 +17383,10 @@
             },
             "azurerm_site_recovery_fabric": {
                 "current": "azure:siterecovery/fabric:Fabric",
+                "majorVersion": 5
+            },
+            "azurerm_site_recovery_hyperv_network_mapping": {
+                "current": "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping",
                 "majorVersion": 5
             },
             "azurerm_site_recovery_hyperv_replication_policy": {
@@ -17159,6 +17454,9 @@
                 "current": "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan",
                 "majorVersion": 5,
                 "fields": {
+                    "azure_to_azure_settings": {
+                        "maxItemsOne": true
+                    },
                     "recovery_group": {
                         "maxItemsOne": false,
                         "elem": {
@@ -17203,6 +17501,10 @@
             },
             "azurerm_site_recovery_vmware_replication_policy": {
                 "current": "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy",
+                "majorVersion": 5
+            },
+            "azurerm_site_recovery_vmware_replication_policy_association": {
+                "current": "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation",
                 "majorVersion": 5
             },
             "azurerm_snapshot": {
@@ -17450,6 +17752,16 @@
                     "application_performance_monitoring_types": {
                         "maxItemsOne": false
                     },
+                    "client_authorization": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "certificate_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "cors": {
                         "maxItemsOne": true,
                         "elem": {
@@ -17566,6 +17878,12 @@
                                 }
                             }
                         }
+                    },
+                    "container_registry": {
+                        "maxItemsOne": false
+                    },
+                    "default_build_service": {
+                        "maxItemsOne": true
                     },
                     "network": {
                         "maxItemsOne": true,
@@ -19806,6 +20124,10 @@
                 "current": "azure:webpubsub/customCertificate:CustomCertificate",
                 "majorVersion": 5
             },
+            "azurerm_web_pubsub_custom_domain": {
+                "current": "azure:webpubsub/customDomain:CustomDomain",
+                "majorVersion": 5
+            },
             "azurerm_web_pubsub_hub": {
                 "current": "azure:webpubsub/hub:Hub",
                 "majorVersion": 5,
@@ -21515,6 +21837,9 @@
             "azurerm_application_security_group": {
                 "current": "azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup"
             },
+            "azurerm_arc_machine": {
+                "current": "azure:arcmachine/get:get"
+            },
             "azurerm_attestation_provider": {
                 "current": "azure:attestation/getProvider:getProvider"
             },
@@ -21958,6 +22283,12 @@
             },
             "azurerm_mobile_network_data_network": {
                 "current": "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork"
+            },
+            "azurerm_mobile_network_packet_core_control_plane": {
+                "current": "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane"
+            },
+            "azurerm_mobile_network_packet_core_data_plane": {
+                "current": "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane"
             },
             "azurerm_mobile_network_service": {
                 "current": "azure:mobile/getNetworkService:getNetworkService"
@@ -22538,11 +22869,14 @@
             "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot": "azurerm_windows_web_app_slot",
             "azure:arckubernetes/cluster:Cluster": "azurerm_arc_kubernetes_cluster",
             "azure:arckubernetes/clusterExtension:ClusterExtension": "azurerm_arc_kubernetes_cluster_extension",
+            "azure:arckubernetes/fluxConfiguration:FluxConfiguration": "azurerm_arc_kubernetes_flux_configuration",
+            "azure:arcmachine/extension:Extension": "azurerm_arc_machine_extension",
             "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential": "azurerm_federated_identity_credential",
             "azure:attestation/provider:Provider": "azurerm_attestation_provider",
             "azure:authorization/assignment:Assignment": "azurerm_role_assignment",
             "azure:authorization/roleDefinition:RoleDefinition": "azurerm_role_definition",
             "azure:authorization/userAssignedIdentity:UserAssignedIdentity": "azurerm_user_assigned_identity",
+            "azure:automanage/configuration:Configuration": "azurerm_automanage_configuration",
             "azure:automation/account:Account": "azurerm_automation_account",
             "azure:automation/boolVariable:BoolVariable": "azurerm_automation_variable_bool",
             "azure:automation/certificate:Certificate": "azurerm_automation_certificate",
@@ -22665,6 +22999,7 @@
             "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent": "azurerm_container_app_environment_dapr_component",
             "azure:containerapp/environmentStorage:EnvironmentStorage": "azurerm_container_app_environment_storage",
             "azure:containerservice/connectedRegistry:ConnectedRegistry": "azurerm_container_connected_registry",
+            "azure:containerservice/fluxConfiguration:FluxConfiguration": "azurerm_kubernetes_flux_configuration",
             "azure:containerservice/group:Group": "azurerm_container_group",
             "azure:containerservice/kubernetesCluster:KubernetesCluster": "azurerm_kubernetes_cluster",
             "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension": "azurerm_kubernetes_cluster_extension",
@@ -22712,6 +23047,8 @@
             "azure:cosmosdb/gremlinGraph:GremlinGraph": "azurerm_cosmosdb_gremlin_graph",
             "azure:cosmosdb/mongoCollection:MongoCollection": "azurerm_cosmosdb_mongo_collection",
             "azure:cosmosdb/mongoDatabase:MongoDatabase": "azurerm_cosmosdb_mongo_database",
+            "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition": "azurerm_cosmosdb_mongo_role_definition",
+            "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition": "azurerm_cosmosdb_mongo_user_definition",
             "azure:cosmosdb/notebookWorkspace:NotebookWorkspace": "azurerm_cosmosdb_notebook_workspace",
             "azure:cosmosdb/postgresqlCluster:PostgresqlCluster": "azurerm_cosmosdb_postgresql_cluster",
             "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration": "azurerm_cosmosdb_postgresql_coordinator_configuration",
@@ -22895,6 +23232,7 @@
             "azure:iot/endpointStorageContainer:EndpointStorageContainer": "azurerm_iothub_endpoint_storage_container",
             "azure:iot/enrichment:Enrichment": "azurerm_iothub_enrichment",
             "azure:iot/fallbackRoute:FallbackRoute": "azurerm_iothub_fallback_route",
+            "azure:iot/fileUpload:FileUpload": "azurerm_iothub_file_upload",
             "azure:iot/ioTHub:IoTHub": "azurerm_iothub",
             "azure:iot/iotHubCertificate:IotHubCertificate": "azurerm_iothub_dps_certificate",
             "azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount": "azurerm_iothub_device_update_account",
@@ -23023,6 +23361,8 @@
             "azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount": "azurerm_spatial_anchors_account",
             "azure:mobile/network:Network": "azurerm_mobile_network",
             "azure:mobile/networkDataNetwork:NetworkDataNetwork": "azurerm_mobile_network_data_network",
+            "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane": "azurerm_mobile_network_packet_core_control_plane",
+            "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane": "azurerm_mobile_network_packet_core_data_plane",
             "azure:mobile/networkService:NetworkService": "azurerm_mobile_network_service",
             "azure:mobile/networkSimGroup:NetworkSimGroup": "azurerm_mobile_network_sim_group",
             "azure:mobile/networkSimPolicy:NetworkSimPolicy": "azurerm_mobile_network_sim_policy",
@@ -23035,6 +23375,7 @@
             "azure:monitoring/activityLogAlert:ActivityLogAlert": "azurerm_monitor_activity_log_alert",
             "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup": "azurerm_monitor_alert_processing_rule_action_group",
             "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression": "azurerm_monitor_alert_processing_rule_suppression",
+            "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup": "azurerm_monitor_alert_prometheus_rule_group",
             "azure:monitoring/autoscaleSetting:AutoscaleSetting": "azurerm_monitor_autoscale_setting",
             "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint": "azurerm_monitor_data_collection_endpoint",
             "azure:monitoring/dataCollectionRule:DataCollectionRule": "azurerm_monitor_data_collection_rule",
@@ -23085,6 +23426,7 @@
             "azure:mysql/firewallRule:FirewallRule": "azurerm_mysql_firewall_rule",
             "azure:mysql/flexibleDatabase:FlexibleDatabase": "azurerm_mysql_flexible_database",
             "azure:mysql/flexibleServer:FlexibleServer": "azurerm_mysql_flexible_server",
+            "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "azurerm_mysql_flexible_server_active_directory_administrator",
             "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration": "azurerm_mysql_flexible_server_configuration",
             "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule": "azurerm_mysql_flexible_server_firewall_rule",
             "azure:mysql/server:Server": "azurerm_mysql_server",
@@ -23232,6 +23574,7 @@
             "azure:proximity/placementGroup:PlacementGroup": "azurerm_proximity_placement_group",
             "azure:purview/account:Account": "azurerm_purview_account",
             "azure:recoveryservices/vault:Vault": "azurerm_recovery_services_vault",
+            "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": "azurerm_recovery_services_vault_resource_guard_association",
             "azure:redis/cache:Cache": "azurerm_redis_cache",
             "azure:redis/enterpriseCluster:EnterpriseCluster": "azurerm_redis_enterprise_cluster",
             "azure:redis/enterpriseDatabase:EnterpriseDatabase": "azurerm_redis_enterprise_database",
@@ -23303,12 +23646,14 @@
             "azure:servicefabric/managedCluster:ManagedCluster": "azurerm_service_fabric_managed_cluster",
             "azure:signalr/service:Service": "azurerm_signalr_service",
             "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate": "azurerm_signalr_service_custom_certificate",
+            "azure:signalr/serviceCustomDomain:ServiceCustomDomain": "azurerm_signalr_service_custom_domain",
             "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl": "azurerm_signalr_service_network_acl",
             "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource": "azurerm_signalr_shared_private_link_resource",
             "azure:siterecovery/fabric:Fabric": "azurerm_site_recovery_fabric",
             "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy": "azurerm_site_recovery_hyperv_replication_policy",
             "azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation": "azurerm_site_recovery_hyperv_replication_policy_association",
             "azure:siterecovery/hyperVSite:HyperVSite": "azurerm_site_recovery_services_vault_hyperv_site",
+            "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping": "azurerm_site_recovery_hyperv_network_mapping",
             "azure:siterecovery/networkMapping:NetworkMapping": "azurerm_site_recovery_network_mapping",
             "azure:siterecovery/protectionContainer:ProtectionContainer": "azurerm_site_recovery_protection_container",
             "azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping": "azurerm_site_recovery_protection_container_mapping",
@@ -23316,6 +23661,7 @@
             "azure:siterecovery/replicationPolicy:ReplicationPolicy": "azurerm_site_recovery_replication_policy",
             "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan": "azurerm_site_recovery_replication_recovery_plan",
             "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": "azurerm_site_recovery_vmware_replication_policy",
+            "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": "azurerm_site_recovery_vmware_replication_policy_association",
             "azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator": "azurerm_sql_active_directory_administrator",
             "azure:sql/database:Database": "azurerm_sql_database",
             "azure:sql/elasticPool:ElasticPool": "azurerm_sql_elasticpool",
@@ -23407,6 +23753,7 @@
             "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine": "azurerm_voice_services_communications_gateway_test_line",
             "azure:waf/policy:Policy": "azurerm_web_application_firewall_policy",
             "azure:webpubsub/customCertificate:CustomCertificate": "azurerm_web_pubsub_custom_certificate",
+            "azure:webpubsub/customDomain:CustomDomain": "azurerm_web_pubsub_custom_domain",
             "azure:webpubsub/hub:Hub": "azurerm_web_pubsub_hub",
             "azure:webpubsub/networkAcl:NetworkAcl": "azurerm_web_pubsub_network_acl",
             "azure:webpubsub/service:Service": "azurerm_web_pubsub",
@@ -23443,6 +23790,7 @@
             "azure:appservice/getSourceControlToken:getSourceControlToken": "azurerm_source_control_token",
             "azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp": "azurerm_windows_function_app",
             "azure:appservice/getWindowsWebApp:getWindowsWebApp": "azurerm_windows_web_app",
+            "azure:arcmachine/get:get": "azurerm_arc_machine",
             "azure:attestation/getProvider:getProvider": "azurerm_attestation_provider",
             "azure:authorization/getRoleDefinition:getRoleDefinition": "azurerm_role_definition",
             "azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity": "azurerm_user_assigned_identity",
@@ -23609,6 +23957,8 @@
             "azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount": "azurerm_spatial_anchors_account",
             "azure:mobile/getNetwork:getNetwork": "azurerm_mobile_network",
             "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork": "azurerm_mobile_network_data_network",
+            "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane": "azurerm_mobile_network_packet_core_control_plane",
+            "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane": "azurerm_mobile_network_packet_core_data_plane",
             "azure:mobile/getNetworkService:getNetworkService": "azurerm_mobile_network_service",
             "azure:mobile/getNetworkSimGroup:getNetworkSimGroup": "azurerm_mobile_network_sim_group",
             "azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy": "azurerm_mobile_network_sim_policy",
@@ -24857,6 +25207,7 @@
             },
             "azure:appplatform/SpringCloudCustomizedAcceleratorGitRepository:SpringCloudCustomizedAcceleratorGitRepository": {
                 "basicAuth": "basic_auth",
+                "caCertificateId": "ca_certificate_id",
                 "gitTag": "git_tag",
                 "intervalInSeconds": "interval_in_seconds",
                 "sshAuth": "ssh_auth"
@@ -24875,6 +25226,10 @@
             "azure:appplatform/SpringCloudGatewayApiMetadata:SpringCloudGatewayApiMetadata": {
                 "documentationUrl": "documentation_url",
                 "serverUrl": "server_url"
+            },
+            "azure:appplatform/SpringCloudGatewayClientAuthorization:SpringCloudGatewayClientAuthorization": {
+                "certificateIds": "certificate_ids",
+                "verificationEnabled": "verification_enabled"
             },
             "azure:appplatform/SpringCloudGatewayCors:SpringCloudGatewayCors": {
                 "allowedHeaders": "allowed_headers",
@@ -24918,6 +25273,9 @@
                 "hostKeyAlgorithm": "host_key_algorithm",
                 "privateKey": "private_key",
                 "strictHostKeyCheckingEnabled": "strict_host_key_checking_enabled"
+            },
+            "azure:appplatform/SpringCloudServiceDefaultBuildService:SpringCloudServiceDefaultBuildService": {
+                "containerRegistryName": "container_registry_name"
             },
             "azure:appplatform/SpringCloudServiceNetwork:SpringCloudServiceNetwork": {
                 "appNetworkResourceGroup": "app_network_resource_group",
@@ -25056,6 +25414,7 @@
             },
             "azure:appplatform/springCloudCertificate:SpringCloudCertificate": {
                 "certificateContent": "certificate_content",
+                "excludePrivateKey": "exclude_private_key",
                 "keyVaultCertificateId": "key_vault_certificate_id",
                 "resourceGroupName": "resource_group_name",
                 "serviceName": "service_name"
@@ -25098,6 +25457,7 @@
             "azure:appplatform/springCloudGateway:SpringCloudGateway": {
                 "apiMetadata": "api_metadata",
                 "applicationPerformanceMonitoringTypes": "application_performance_monitoring_types",
+                "clientAuthorization": "client_authorization",
                 "environmentVariables": "environment_variables",
                 "httpsOnly": "https_only",
                 "instanceCount": "instance_count",
@@ -25125,6 +25485,8 @@
             "azure:appplatform/springCloudService:SpringCloudService": {
                 "buildAgentPoolSize": "build_agent_pool_size",
                 "configServerGitSetting": "config_server_git_setting",
+                "containerRegistries": "container_registry",
+                "defaultBuildService": "default_build_service",
                 "logStreamPublicEndpointEnabled": "log_stream_public_endpoint_enabled",
                 "outboundPublicIpAddresses": "outbound_public_ip_addresses",
                 "requiredNetworkTrafficRules": "required_network_traffic_rules",
@@ -29779,6 +30141,52 @@
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
+            "azure:arckubernetes/FluxConfigurationBlobStorage:FluxConfigurationBlobStorage": {
+                "accountKey": "account_key",
+                "containerId": "container_id",
+                "localAuthReference": "local_auth_reference",
+                "sasToken": "sas_token",
+                "servicePrincipal": "service_principal",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds"
+            },
+            "azure:arckubernetes/FluxConfigurationBlobStorageServicePrincipal:FluxConfigurationBlobStorageServicePrincipal": {
+                "clientCertificateBase64": "client_certificate_base64",
+                "clientCertificatePassword": "client_certificate_password",
+                "clientCertificateSendChain": "client_certificate_send_chain",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "tenantId": "tenant_id"
+            },
+            "azure:arckubernetes/FluxConfigurationBucket:FluxConfigurationBucket": {
+                "accessKey": "access_key",
+                "bucketName": "bucket_name",
+                "localAuthReference": "local_auth_reference",
+                "secretKeyBase64": "secret_key_base64",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds",
+                "tlsEnabled": "tls_enabled"
+            },
+            "azure:arckubernetes/FluxConfigurationGitRepository:FluxConfigurationGitRepository": {
+                "httpsCaCertBase64": "https_ca_cert_base64",
+                "httpsKeyBase64": "https_key_base64",
+                "httpsUser": "https_user",
+                "localAuthReference": "local_auth_reference",
+                "referenceType": "reference_type",
+                "referenceValue": "reference_value",
+                "sshKnownHostsBase64": "ssh_known_hosts_base64",
+                "sshPrivateKeyBase64": "ssh_private_key_base64",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds"
+            },
+            "azure:arckubernetes/FluxConfigurationKustomization:FluxConfigurationKustomization": {
+                "dependsOns": "depends_on",
+                "garbageCollectionEnabled": "garbage_collection_enabled",
+                "recreatingEnabled": "recreating_enabled",
+                "retryIntervalInSeconds": "retry_interval_in_seconds",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds"
+            },
             "azure:arckubernetes/cluster:Cluster": {
                 "agentPublicKeyCertificate": "agent_public_key_certificate",
                 "agentVersion": "agent_version",
@@ -29796,6 +30204,90 @@
                 "releaseNamespace": "release_namespace",
                 "releaseTrain": "release_train",
                 "targetNamespace": "target_namespace"
+            },
+            "azure:arckubernetes/fluxConfiguration:FluxConfiguration": {
+                "blobStorage": "blob_storage",
+                "clusterId": "cluster_id",
+                "continuousReconciliationEnabled": "continuous_reconciliation_enabled",
+                "gitRepository": "git_repository"
+            },
+            "azure:arcmachine/extension:Extension": {
+                "arcMachineId": "arc_machine_id",
+                "automaticUpgradeEnabled": "automatic_upgrade_enabled",
+                "forceUpdateTag": "force_update_tag",
+                "protectedSettings": "protected_settings",
+                "typeHandlerVersion": "type_handler_version"
+            },
+            "azure:arcmachine/get:get": {
+                "activeDirectoryFqdn": "active_directory_fqdn",
+                "agentVersion": "agent_version",
+                "agents": "agent",
+                "clientPublicKey": "client_public_key",
+                "cloudMetadatas": "cloud_metadata",
+                "detectedProperties": "detected_properties",
+                "displayName": "display_name",
+                "dnsFqdn": "dns_fqdn",
+                "domainName": "domain_name",
+                "identities": "identity",
+                "lastStatusChangeTime": "last_status_change_time",
+                "locationDatas": "location_data",
+                "machineFqdn": "machine_fqdn",
+                "mssqlDiscovered": "mssql_discovered",
+                "osName": "os_name",
+                "osProfiles": "os_profile",
+                "osSku": "os_sku",
+                "osType": "os_type",
+                "osVersion": "os_version",
+                "parentClusterResourceId": "parent_cluster_resource_id",
+                "privateLinkScopeResourceId": "private_link_scope_resource_id",
+                "resourceGroupName": "resource_group_name",
+                "serviceStatuses": "service_status",
+                "vmId": "vm_id",
+                "vmUuid": "vm_uuid"
+            },
+            "azure:arcmachine/getAgent:getAgent": {
+                "extensionsAllowLists": "extensions_allow_list",
+                "extensionsBlockLists": "extensions_block_list",
+                "extensionsEnabled": "extensions_enabled",
+                "guestConfigurationEnabled": "guest_configuration_enabled",
+                "incomingConnectionsPorts": "incoming_connections_ports",
+                "proxyBypasses": "proxy_bypass",
+                "proxyUrl": "proxy_url"
+            },
+            "azure:arcmachine/getIdentity:getIdentity": {
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
+            "azure:arcmachine/getLocationData:getLocationData": {
+                "countryOrRegion": "country_or_region"
+            },
+            "azure:arcmachine/getOsProfile:getOsProfile": {
+                "computerName": "computer_name",
+                "linuxes": "linux"
+            },
+            "azure:arcmachine/getOsProfileLinux:getOsProfileLinux": {
+                "patches": "patch"
+            },
+            "azure:arcmachine/getOsProfileLinuxPatch:getOsProfileLinuxPatch": {
+                "assessmentMode": "assessment_mode",
+                "patchMode": "patch_mode"
+            },
+            "azure:arcmachine/getOsProfileWindow:getOsProfileWindow": {
+                "patches": "patch"
+            },
+            "azure:arcmachine/getOsProfileWindowPatch:getOsProfileWindowPatch": {
+                "assessmentMode": "assessment_mode",
+                "patchMode": "patch_mode"
+            },
+            "azure:arcmachine/getServiceStatus:getServiceStatus": {
+                "extensionServices": "extension_service",
+                "guestConfigurationServices": "guest_configuration_service"
+            },
+            "azure:arcmachine/getServiceStatusExtensionService:getServiceStatusExtensionService": {
+                "startupType": "startup_type"
+            },
+            "azure:arcmachine/getServiceStatusGuestConfigurationService:getServiceStatusGuestConfigurationService": {
+                "startupType": "startup_type"
             },
             "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential": {
                 "parentId": "parent_id",
@@ -29858,6 +30350,58 @@
                 "principalId": "principal_id",
                 "resourceGroupName": "resource_group_name",
                 "tenantId": "tenant_id"
+            },
+            "azure:automanage/ConfigurationAntimalware:ConfigurationAntimalware": {
+                "realTimeProtectionEnabled": "real_time_protection_enabled",
+                "scheduledScanDay": "scheduled_scan_day",
+                "scheduledScanEnabled": "scheduled_scan_enabled",
+                "scheduledScanTimeInMinutes": "scheduled_scan_time_in_minutes",
+                "scheduledScanType": "scheduled_scan_type"
+            },
+            "azure:automanage/ConfigurationAzureSecurityBaseline:ConfigurationAzureSecurityBaseline": {
+                "assignmentType": "assignment_type"
+            },
+            "azure:automanage/ConfigurationBackup:ConfigurationBackup": {
+                "instantRpRetentionRangeInDays": "instant_rp_retention_range_in_days",
+                "policyName": "policy_name",
+                "retentionPolicy": "retention_policy",
+                "schedulePolicy": "schedule_policy",
+                "timeZone": "time_zone"
+            },
+            "azure:automanage/ConfigurationBackupRetentionPolicy:ConfigurationBackupRetentionPolicy": {
+                "dailySchedule": "daily_schedule",
+                "retentionPolicyType": "retention_policy_type",
+                "weeklySchedule": "weekly_schedule"
+            },
+            "azure:automanage/ConfigurationBackupRetentionPolicyDailySchedule:ConfigurationBackupRetentionPolicyDailySchedule": {
+                "retentionDuration": "retention_duration",
+                "retentionTimes": "retention_times"
+            },
+            "azure:automanage/ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration:ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration": {
+                "durationType": "duration_type"
+            },
+            "azure:automanage/ConfigurationBackupRetentionPolicyWeeklySchedule:ConfigurationBackupRetentionPolicyWeeklySchedule": {
+                "retentionDuration": "retention_duration",
+                "retentionTimes": "retention_times"
+            },
+            "azure:automanage/ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration:ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration": {
+                "durationType": "duration_type"
+            },
+            "azure:automanage/ConfigurationBackupSchedulePolicy:ConfigurationBackupSchedulePolicy": {
+                "schedulePolicyType": "schedule_policy_type",
+                "scheduleRunDays": "schedule_run_days",
+                "scheduleRunFrequency": "schedule_run_frequency",
+                "scheduleRunTimes": "schedule_run_times"
+            },
+            "azure:automanage/configuration:Configuration": {
+                "automationAccountEnabled": "automation_account_enabled",
+                "azureSecurityBaseline": "azure_security_baseline",
+                "bootDiagnosticsEnabled": "boot_diagnostics_enabled",
+                "defenderForCloudEnabled": "defender_for_cloud_enabled",
+                "guestConfigurationEnabled": "guest_configuration_enabled",
+                "logAnalyticsEnabled": "log_analytics_enabled",
+                "resourceGroupName": "resource_group_name",
+                "statusChangeAlertEnabled": "status_change_alert_enabled"
             },
             "azure:automation/AccountEncryption:AccountEncryption": {
                 "keySource": "key_source",
@@ -30182,9 +30726,25 @@
                 "vcsaEndpoint": "vcsa_endpoint",
                 "vmotionSubnetCidr": "vmotion_subnet_cidr"
             },
+            "azure:backup/PolicyFileShareBackupHourly:PolicyFileShareBackupHourly": {
+                "startTime": "start_time",
+                "windowDuration": "window_duration"
+            },
+            "azure:backup/PolicyFileShareRetentionMonthly:PolicyFileShareRetentionMonthly": {
+                "includeLastDays": "include_last_days"
+            },
+            "azure:backup/PolicyFileShareRetentionYearly:PolicyFileShareRetentionYearly": {
+                "includeLastDays": "include_last_days"
+            },
             "azure:backup/PolicyVMBackup:PolicyVMBackup": {
                 "hourDuration": "hour_duration",
                 "hourInterval": "hour_interval"
+            },
+            "azure:backup/PolicyVMRetentionMonthly:PolicyVMRetentionMonthly": {
+                "includeLastDays": "include_last_days"
+            },
+            "azure:backup/PolicyVMRetentionYearly:PolicyVMRetentionYearly": {
+                "includeLastDays": "include_last_days"
             },
             "azure:backup/PolicyVMWorkloadProtectionPolicy:PolicyVMWorkloadProtectionPolicy": {
                 "policyType": "policy_type",
@@ -30256,6 +30816,7 @@
                 "backupPolicyId": "backup_policy_id",
                 "excludeDiskLuns": "exclude_disk_luns",
                 "includeDiskLuns": "include_disk_luns",
+                "protectionState": "protection_state",
                 "recoveryVaultName": "recovery_vault_name",
                 "resourceGroupName": "resource_group_name",
                 "sourceVmId": "source_vm_id"
@@ -30646,6 +31207,7 @@
                 "startTask": "start_task",
                 "stopPendingResizeOperation": "stop_pending_resize_operation",
                 "storageImageReference": "storage_image_reference",
+                "targetNodeCommunicationMode": "target_node_communication_mode",
                 "taskSchedulingPolicies": "task_scheduling_policy",
                 "userAccounts": "user_accounts",
                 "vmSize": "vm_size"
@@ -31330,6 +31892,7 @@
                 "customerCertificates": "customer_certificate"
             },
             "azure:cdn/getFrontdoorSecretSecretCustomerCertificate:getFrontdoorSecretSecretCustomerCertificate": {
+                "expirationDate": "expiration_date",
                 "keyVaultCertificateId": "key_vault_certificate_id",
                 "subjectAlternativeNames": "subject_alternative_names"
             },
@@ -32325,6 +32888,7 @@
             },
             "azure:compute/getVirtualMachine:getVirtualMachine": {
                 "identities": "identity",
+                "powerState": "power_state",
                 "privateIpAddress": "private_ip_address",
                 "privateIpAddresses": "private_ip_addresses",
                 "publicIpAddress": "public_ip_address",
@@ -32350,6 +32914,7 @@
                 "computerName": "computer_name",
                 "instanceId": "instance_id",
                 "latestModelApplied": "latest_model_applied",
+                "powerState": "power_state",
                 "privateIpAddress": "private_ip_address",
                 "privateIpAddresses": "private_ip_addresses",
                 "publicIpAddress": "public_ip_address",
@@ -33171,6 +33736,56 @@
                 "issueDate": "issue_date",
                 "subjectName": "subject_name"
             },
+            "azure:containerservice/FluxConfigurationBlobStorage:FluxConfigurationBlobStorage": {
+                "accountKey": "account_key",
+                "containerId": "container_id",
+                "localAuthReference": "local_auth_reference",
+                "managedIdentity": "managed_identity",
+                "sasToken": "sas_token",
+                "servicePrincipal": "service_principal",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds"
+            },
+            "azure:containerservice/FluxConfigurationBlobStorageManagedIdentity:FluxConfigurationBlobStorageManagedIdentity": {
+                "clientId": "client_id"
+            },
+            "azure:containerservice/FluxConfigurationBlobStorageServicePrincipal:FluxConfigurationBlobStorageServicePrincipal": {
+                "clientCertificateBase64": "client_certificate_base64",
+                "clientCertificatePassword": "client_certificate_password",
+                "clientCertificateSendChain": "client_certificate_send_chain",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "tenantId": "tenant_id"
+            },
+            "azure:containerservice/FluxConfigurationBucket:FluxConfigurationBucket": {
+                "accessKey": "access_key",
+                "bucketName": "bucket_name",
+                "localAuthReference": "local_auth_reference",
+                "secretKeyBase64": "secret_key_base64",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds",
+                "tlsEnabled": "tls_enabled"
+            },
+            "azure:containerservice/FluxConfigurationGitRepository:FluxConfigurationGitRepository": {
+                "httpsCaCertBase64": "https_ca_cert_base64",
+                "httpsKeyBase64": "https_key_base64",
+                "httpsUser": "https_user",
+                "localAuthReference": "local_auth_reference",
+                "referenceType": "reference_type",
+                "referenceValue": "reference_value",
+                "sshKnownHostsBase64": "ssh_known_hosts_base64",
+                "sshPrivateKeyBase64": "ssh_private_key_base64",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds"
+            },
+            "azure:containerservice/FluxConfigurationKustomization:FluxConfigurationKustomization": {
+                "dependsOns": "depends_on",
+                "garbageCollectionEnabled": "garbage_collection_enabled",
+                "recreatingEnabled": "recreating_enabled",
+                "retryIntervalInSeconds": "retry_interval_in_seconds",
+                "syncIntervalInSeconds": "sync_interval_in_seconds",
+                "timeoutInSeconds": "timeout_in_seconds"
+            },
             "azure:containerservice/GroupContainer:GroupContainer": {
                 "cpuLimit": "cpu_limit",
                 "environmentVariables": "environment_variables",
@@ -33675,6 +34290,12 @@
                 "syncSchedule": "sync_schedule",
                 "syncTokenId": "sync_token_id",
                 "syncWindow": "sync_window"
+            },
+            "azure:containerservice/fluxConfiguration:FluxConfiguration": {
+                "blobStorage": "blob_storage",
+                "clusterId": "cluster_id",
+                "continuousReconciliationEnabled": "continuous_reconciliation_enabled",
+                "gitRepository": "git_repository"
             },
             "azure:containerservice/getClusterNodePool:getClusterNodePool": {
                 "enableAutoScaling": "enable_auto_scaling",
@@ -34211,6 +34832,9 @@
                 "requiredTags": "required_tags",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:core/getResourcesResource:getResourcesResource": {
+                "resourceGroupName": "resource_group_name"
+            },
             "azure:core/getSubscription:getSubscription": {
                 "displayName": "display_name",
                 "locationPlacementId": "location_placement_id",
@@ -34512,6 +35136,10 @@
             "azure:cosmosdb/MongoDatabaseAutoscaleSettings:MongoDatabaseAutoscaleSettings": {
                 "maxThroughput": "max_throughput"
             },
+            "azure:cosmosdb/MongoRoleDefinitionPrivilegeResource:MongoRoleDefinitionPrivilegeResource": {
+                "collectionName": "collection_name",
+                "dbName": "db_name"
+            },
             "azure:cosmosdb/PostgresqlClusterMaintenanceWindow:PostgresqlClusterMaintenanceWindow": {
                 "dayOfWeek": "day_of_week",
                 "startHour": "start_hour",
@@ -34703,6 +35331,16 @@
                 "accountName": "account_name",
                 "autoscaleSettings": "autoscale_settings",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition": {
+                "cosmosMongoDatabaseId": "cosmos_mongo_database_id",
+                "inheritedRoleNames": "inherited_role_names",
+                "privileges": "privilege",
+                "roleName": "role_name"
+            },
+            "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition": {
+                "cosmosMongoDatabaseId": "cosmos_mongo_database_id",
+                "inheritedRoleNames": "inherited_role_names"
             },
             "azure:cosmosdb/notebookWorkspace:NotebookWorkspace": {
                 "accountName": "account_name",
@@ -38013,7 +38651,9 @@
                 "searchDomain": "search_domain"
             },
             "azure:hpc/CacheIdentity:CacheIdentity": {
-                "identityIds": "identity_ids"
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:hpc/CacheNfsTargetNamespaceJunction:CacheNfsTargetNamespaceJunction": {
                 "accessPolicyName": "access_policy_name",
@@ -38218,7 +38858,9 @@
                 "clientCertificatePassword": "client_certificate_password",
                 "clientCertificatePath": "client_certificate_path",
                 "clientId": "client_id",
+                "clientIdFilePath": "client_id_file_path",
                 "clientSecret": "client_secret",
+                "clientSecretFilePath": "client_secret_file_path",
                 "disableCorrelationRequestId": "disable_correlation_request_id",
                 "disableTerraformPartnerId": "disable_terraform_partner_id",
                 "metadataHost": "metadata_host",
@@ -38410,6 +39052,18 @@
                 "endpointNames": "endpoint_names",
                 "iothubName": "iothub_name",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:iot/fileUpload:FileUpload": {
+                "authenticationType": "authentication_type",
+                "connectionString": "connection_string",
+                "containerName": "container_name",
+                "defaultTtl": "default_ttl",
+                "identityId": "identity_id",
+                "iothubId": "iothub_id",
+                "lockDuration": "lock_duration",
+                "maxDeliveryCount": "max_delivery_count",
+                "notificationsEnabled": "notifications_enabled",
+                "sasTtl": "sas_ttl"
             },
             "azure:iot/getDps:getDps": {
                 "allocationPolicy": "allocation_policy",
@@ -38806,6 +39460,7 @@
                 "keyVaultId": "key_vault_id"
             },
             "azure:keyvault/getEncryptedValue:getEncryptedValue": {
+                "decodedPlainTextValue": "decoded_plain_text_value",
                 "encryptedData": "encrypted_data",
                 "keyVaultKeyId": "key_vault_key_id",
                 "plainTextValue": "plain_text_value"
@@ -39338,6 +39993,7 @@
                 "managingTenantId": "managing_tenant_id"
             },
             "azure:loadtest/LoadTestIdentity:LoadTestIdentity": {
+                "identityIds": "identity_ids",
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
@@ -39777,6 +40433,7 @@
             "azure:machinelearning/computeCluster:ComputeCluster": {
                 "localAuthEnabled": "local_auth_enabled",
                 "machineLearningWorkspaceId": "machine_learning_workspace_id",
+                "nodePublicIpEnabled": "node_public_ip_enabled",
                 "scaleSettings": "scale_settings",
                 "sshPublicAccessEnabled": "ssh_public_access_enabled",
                 "subnetResourceId": "subnet_resource_id",
@@ -39788,6 +40445,7 @@
                 "authorizationType": "authorization_type",
                 "localAuthEnabled": "local_auth_enabled",
                 "machineLearningWorkspaceId": "machine_learning_workspace_id",
+                "nodePublicIpEnabled": "node_public_ip_enabled",
                 "subnetResourceId": "subnet_resource_id",
                 "virtualMachineSize": "virtual_machine_size"
             },
@@ -40371,6 +41029,7 @@
             },
             "azure:media/TransformOutputCustomPreset:TransformOutputCustomPreset": {
                 "codecs": "codec",
+                "experimentalOptions": "experimental_options",
                 "formats": "format"
             },
             "azure:media/TransformOutputCustomPresetCodec:TransformOutputCustomPresetCodec": {
@@ -40630,6 +41289,19 @@
                 "accountId": "account_id",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:mobile/NetworkPacketCoreControlPlaneIdentity:NetworkPacketCoreControlPlaneIdentity": {
+                "identityIds": "identity_ids"
+            },
+            "azure:mobile/NetworkPacketCoreControlPlaneLocalDiagnosticsAccess:NetworkPacketCoreControlPlaneLocalDiagnosticsAccess": {
+                "authenticationType": "authentication_type",
+                "httpsServerCertificateUrl": "https_server_certificate_url"
+            },
+            "azure:mobile/NetworkPacketCoreControlPlanePlatform:NetworkPacketCoreControlPlanePlatform": {
+                "arcKubernetesClusterId": "arc_kubernetes_cluster_id",
+                "customLocationId": "custom_location_id",
+                "edgeDeviceId": "edge_device_id",
+                "stackHciClusterId": "stack_hci_cluster_id"
+            },
             "azure:mobile/NetworkServicePccRule:NetworkServicePccRule": {
                 "qosPolicy": "qos_policy",
                 "serviceDataFlowTemplates": "service_data_flow_template",
@@ -40686,6 +41358,41 @@
             },
             "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork": {
                 "mobileNetworkId": "mobile_network_id"
+            },
+            "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane": {
+                "controlPlaneAccessIpv4Address": "control_plane_access_ipv4_address",
+                "controlPlaneAccessIpv4Gateway": "control_plane_access_ipv4_gateway",
+                "controlPlaneAccessIpv4Subnet": "control_plane_access_ipv4_subnet",
+                "controlPlaneAccessName": "control_plane_access_name",
+                "coreNetworkTechnology": "core_network_technology",
+                "identities": "identity",
+                "interoperabilitySettingsJson": "interoperability_settings_json",
+                "localDiagnosticsAccesses": "local_diagnostics_access",
+                "platforms": "platform",
+                "resourceGroupName": "resource_group_name",
+                "siteIds": "site_ids",
+                "softwareVersion": "software_version",
+                "userEquipmentMtuInBytes": "user_equipment_mtu_in_bytes"
+            },
+            "azure:mobile/getNetworkPacketCoreControlPlaneIdentity:getNetworkPacketCoreControlPlaneIdentity": {
+                "identityIds": "identity_ids"
+            },
+            "azure:mobile/getNetworkPacketCoreControlPlaneLocalDiagnosticsAccess:getNetworkPacketCoreControlPlaneLocalDiagnosticsAccess": {
+                "authenticationType": "authentication_type",
+                "httpsServerCertificateUrl": "https_server_certificate_url"
+            },
+            "azure:mobile/getNetworkPacketCoreControlPlanePlatform:getNetworkPacketCoreControlPlanePlatform": {
+                "arcKubernetesClusterId": "arc_kubernetes_cluster_id",
+                "customLocationId": "custom_location_id",
+                "edgeDeviceId": "edge_device_id",
+                "stackHciClusterId": "stack_hci_cluster_id"
+            },
+            "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane": {
+                "mobileNetworkPacketCoreControlPlaneId": "mobile_network_packet_core_control_plane_id",
+                "userPlaneAccessIpv4Address": "user_plane_access_ipv4_address",
+                "userPlaneAccessIpv4Gateway": "user_plane_access_ipv4_gateway",
+                "userPlaneAccessIpv4Subnet": "user_plane_access_ipv4_subnet",
+                "userPlaneAccessName": "user_plane_access_name"
             },
             "azure:mobile/getNetworkService:getNetworkService": {
                 "mobileNetworkId": "mobile_network_id",
@@ -40772,6 +41479,26 @@
             },
             "azure:mobile/networkDataNetwork:NetworkDataNetwork": {
                 "mobileNetworkId": "mobile_network_id"
+            },
+            "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane": {
+                "controlPlaneAccessIpv4Address": "control_plane_access_ipv4_address",
+                "controlPlaneAccessIpv4Gateway": "control_plane_access_ipv4_gateway",
+                "controlPlaneAccessIpv4Subnet": "control_plane_access_ipv4_subnet",
+                "controlPlaneAccessName": "control_plane_access_name",
+                "coreNetworkTechnology": "core_network_technology",
+                "interoperabilitySettingsJson": "interoperability_settings_json",
+                "localDiagnosticsAccess": "local_diagnostics_access",
+                "resourceGroupName": "resource_group_name",
+                "siteIds": "site_ids",
+                "softwareVersion": "software_version",
+                "userEquipmentMtuInBytes": "user_equipment_mtu_in_bytes"
+            },
+            "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane": {
+                "mobileNetworkPacketCoreControlPlaneId": "mobile_network_packet_core_control_plane_id",
+                "userPlaneAccessIpv4Address": "user_plane_access_ipv4_address",
+                "userPlaneAccessIpv4Gateway": "user_plane_access_ipv4_gateway",
+                "userPlaneAccessIpv4Subnet": "user_plane_access_ipv4_subnet",
+                "userPlaneAccessName": "user_plane_access_name"
             },
             "azure:mobile/networkService:NetworkService": {
                 "mobileNetworkId": "mobile_network_id",
@@ -40900,12 +41627,17 @@
                 "recommendationImpact": "recommendation_impact",
                 "recommendationType": "recommendation_type",
                 "resourceGroup": "resource_group",
+                "resourceGroups": "resource_groups",
                 "resourceHealths": "resource_health",
                 "resourceId": "resource_id",
+                "resourceIds": "resource_ids",
                 "resourceProvider": "resource_provider",
+                "resourceProviders": "resource_providers",
                 "resourceType": "resource_type",
+                "resourceTypes": "resource_types",
                 "serviceHealths": "service_health",
-                "subStatus": "sub_status"
+                "subStatus": "sub_status",
+                "subStatuses": "sub_statuses"
             },
             "azure:monitoring/ActivityLogAlertCriteriaResourceHealth:ActivityLogAlertCriteriaResourceHealth": {
                 "currents": "current",
@@ -40982,6 +41714,18 @@
                 "endTime": "end_time",
                 "startTime": "start_time"
             },
+            "azure:monitoring/AlertPrometheusRuleGroupRule:AlertPrometheusRuleGroupRule": {
+                "actions": "action",
+                "alertResolution": "alert_resolution"
+            },
+            "azure:monitoring/AlertPrometheusRuleGroupRuleAction:AlertPrometheusRuleGroupRuleAction": {
+                "actionGroupId": "action_group_id",
+                "actionProperties": "action_properties"
+            },
+            "azure:monitoring/AlertPrometheusRuleGroupRuleAlertResolution:AlertPrometheusRuleGroupRuleAlertResolution": {
+                "autoResolved": "auto_resolved",
+                "timeToResolve": "time_to_resolve"
+            },
             "azure:monitoring/AutoscaleSettingNotification:AutoscaleSettingNotification": {
                 "webhooks": "webhook"
             },
@@ -40992,6 +41736,10 @@
             },
             "azure:monitoring/AutoscaleSettingNotificationWebhook:AutoscaleSettingNotificationWebhook": {
                 "serviceUri": "service_uri"
+            },
+            "azure:monitoring/AutoscaleSettingPredictive:AutoscaleSettingPredictive": {
+                "lookAheadTime": "look_ahead_time",
+                "scaleMode": "scale_mode"
             },
             "azure:monitoring/AutoscaleSettingProfile:AutoscaleSettingProfile": {
                 "fixedDate": "fixed_date",
@@ -41230,6 +41978,12 @@
             },
             "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression": {
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup": {
+                "clusterName": "cluster_name",
+                "resourceGroupName": "resource_group_name",
+                "ruleGroupEnabled": "rule_group_enabled",
+                "rules": "rule"
             },
             "azure:monitoring/autoscaleSetting:AutoscaleSetting": {
                 "profiles": "profile",
@@ -42055,6 +42809,12 @@
                 "resourceGroupName": "resource_group_name",
                 "skuName": "sku_name",
                 "sourceServerId": "source_server_id"
+            },
+            "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": {
+                "identityId": "identity_id",
+                "objectId": "object_id",
+                "serverId": "server_id",
+                "tenantId": "tenant_id"
             },
             "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration": {
                 "resourceGroupName": "resource_group_name",
@@ -44352,9 +45112,7 @@
                 "standbyAvailabilityZone": "standby_availability_zone"
             },
             "azure:postgresql/FlexibleServerIdentity:FlexibleServerIdentity": {
-                "identityIds": "identity_ids",
-                "principalId": "principal_id",
-                "tenantId": "tenant_id"
+                "identityIds": "identity_ids"
             },
             "azure:postgresql/FlexibleServerMaintenanceWindow:FlexibleServerMaintenanceWindow": {
                 "dayOfWeek": "day_of_week",
@@ -44798,6 +45556,10 @@
                 "resourceGroupName": "resource_group_name",
                 "softDeleteEnabled": "soft_delete_enabled",
                 "storageModeType": "storage_mode_type"
+            },
+            "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": {
+                "resourceGuardId": "resource_guard_id",
+                "vaultId": "vault_id"
             },
             "azure:redis/CacheIdentity:CacheIdentity": {
                 "identityIds": "identity_ids",
@@ -45894,7 +46656,8 @@
                 "categoryPatterns": "category_pattern",
                 "eventPatterns": "event_pattern",
                 "hubPatterns": "hub_pattern",
-                "urlTemplate": "url_template"
+                "urlTemplate": "url_template",
+                "userAssignedIdentityId": "user_assigned_identity_id"
             },
             "azure:signalr/getService:getService": {
                 "aadAuthEnabled": "aad_auth_enabled",
@@ -45938,6 +46701,11 @@
                 "customCertificateId": "custom_certificate_id",
                 "signalrServiceId": "signalr_service_id"
             },
+            "azure:signalr/serviceCustomDomain:ServiceCustomDomain": {
+                "domainName": "domain_name",
+                "signalrCustomCertificateId": "signalr_custom_certificate_id",
+                "signalrServiceId": "signalr_service_id"
+            },
             "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl": {
                 "defaultAction": "default_action",
                 "privateEndpoints": "private_endpoint",
@@ -45951,6 +46719,7 @@
                 "targetResourceId": "target_resource_id"
             },
             "azure:siterecovery/ProtectionContainerMappingAutomaticUpdate:ProtectionContainerMappingAutomaticUpdate": {
+                "authenticationType": "authentication_type",
                 "automationAccountId": "automation_account_id"
             },
             "azure:siterecovery/ReplicatedVMManagedDisk:ReplicatedVMManagedDisk": {
@@ -45988,6 +46757,12 @@
                 "diskUri": "disk_uri",
                 "stagingStorageAccountId": "staging_storage_account_id",
                 "targetStorageAccountId": "target_storage_account_id"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanAzureToAzureSettings:ReplicationRecoveryPlanAzureToAzureSettings": {
+                "primaryEdgeZone": "primary_edge_zone",
+                "primaryZone": "primary_zone",
+                "recoveryEdgeZone": "recovery_edge_zone",
+                "recoveryZone": "recovery_zone"
             },
             "azure:siterecovery/ReplicationRecoveryPlanRecoveryGroup:ReplicationRecoveryPlanRecoveryGroup": {
                 "postActions": "post_action",
@@ -46030,11 +46805,18 @@
                 "resourceGroupName": "resource_group_name"
             },
             "azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan": {
+                "azureToAzureSettings": "azure_to_azure_settings",
                 "failoverDeploymentModel": "failover_deployment_model",
                 "recoveryGroups": "recovery_group",
                 "recoveryVaultId": "recovery_vault_id",
                 "sourceRecoveryFabricId": "source_recovery_fabric_id",
                 "targetRecoveryFabricId": "target_recovery_fabric_id"
+            },
+            "azure:siterecovery/getReplicationRecoveryPlanAzureToAzureSetting:getReplicationRecoveryPlanAzureToAzureSetting": {
+                "primaryEdgeZone": "primary_edge_zone",
+                "primaryZone": "primary_zone",
+                "recoveryEdgeZone": "recovery_edge_zone",
+                "recoveryZone": "recovery_zone"
             },
             "azure:siterecovery/getReplicationRecoveryPlanRecoveryGroup:getReplicationRecoveryPlanRecoveryGroup": {
                 "postActions": "post_action",
@@ -46069,6 +46851,12 @@
             },
             "azure:siterecovery/hyperVSite:HyperVSite": {
                 "recoveryVaultId": "recovery_vault_id"
+            },
+            "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping": {
+                "recoveryVaultId": "recovery_vault_id",
+                "sourceNetworkName": "source_network_name",
+                "sourceSystemCenterVirtualMachineManagerName": "source_system_center_virtual_machine_manager_name",
+                "targetNetworkId": "target_network_id"
             },
             "azure:siterecovery/networkMapping:NetworkMapping": {
                 "recoveryVaultName": "recovery_vault_name",
@@ -46123,6 +46911,7 @@
                 "resourceGroupName": "resource_group_name"
             },
             "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan": {
+                "azureToAzureSettings": "azure_to_azure_settings",
                 "recoveryGroups": "recovery_group",
                 "recoveryVaultId": "recovery_vault_id",
                 "sourceRecoveryFabricId": "source_recovery_fabric_id",
@@ -46131,6 +46920,10 @@
             "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": {
                 "applicationConsistentSnapshotFrequencyInMinutes": "application_consistent_snapshot_frequency_in_minutes",
                 "recoveryPointRetentionInMinutes": "recovery_point_retention_in_minutes",
+                "recoveryVaultId": "recovery_vault_id"
+            },
+            "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": {
+                "policyId": "policy_id",
                 "recoveryVaultId": "recovery_vault_id"
             },
             "azure:sql/DatabaseImport:DatabaseImport": {
@@ -47484,6 +48277,11 @@
                 "customCertificateId": "custom_certificate_id",
                 "webPubsubId": "web_pubsub_id"
             },
+            "azure:webpubsub/customDomain:CustomDomain": {
+                "domainName": "domain_name",
+                "webPubsubCustomCertificateId": "web_pubsub_custom_certificate_id",
+                "webPubsubId": "web_pubsub_id"
+            },
             "azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource": {
                 "sharedPrivateLinkResourceTypes": "shared_private_link_resource_types",
                 "webPubsubId": "web_pubsub_id"
@@ -47545,7 +48343,9 @@
             "clientCertificatePassword": "client_certificate_password",
             "clientCertificatePath": "client_certificate_path",
             "clientId": "client_id",
+            "clientIdFilePath": "client_id_file_path",
             "clientSecret": "client_secret",
+            "clientSecretFilePath": "client_secret_file_path",
             "disableCorrelationRequestId": "disable_correlation_request_id",
             "disableTerraformPartnerId": "disable_terraform_partner_id",
             "metadataHost": "metadata_host",

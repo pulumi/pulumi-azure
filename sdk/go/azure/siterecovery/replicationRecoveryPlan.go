@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+// Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
 //
 // ## Example Usage
 //
@@ -304,9 +304,11 @@ import (
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 
+	// An `azureToAzureSettings` block defined as block.
+	AzureToAzureSettings ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput `pulumi:"azureToAzureSettings"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Three or more `recoveryGroup` block.
+	// Three or more `recoveryGroup` block defined as below.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayOutput `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringOutput `pulumi:"recoveryVaultId"`
@@ -354,9 +356,11 @@ func GetReplicationRecoveryPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
 type replicationRecoveryPlanState struct {
+	// An `azureToAzureSettings` block defined as block.
+	AzureToAzureSettings *ReplicationRecoveryPlanAzureToAzureSettings `pulumi:"azureToAzureSettings"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Three or more `recoveryGroup` block.
+	// Three or more `recoveryGroup` block defined as below.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId *string `pulumi:"recoveryVaultId"`
@@ -367,9 +371,11 @@ type replicationRecoveryPlanState struct {
 }
 
 type ReplicationRecoveryPlanState struct {
+	// An `azureToAzureSettings` block defined as block.
+	AzureToAzureSettings ReplicationRecoveryPlanAzureToAzureSettingsPtrInput
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Three or more `recoveryGroup` block.
+	// Three or more `recoveryGroup` block defined as below.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringPtrInput
@@ -384,9 +390,11 @@ func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
 }
 
 type replicationRecoveryPlanArgs struct {
+	// An `azureToAzureSettings` block defined as block.
+	AzureToAzureSettings *ReplicationRecoveryPlanAzureToAzureSettings `pulumi:"azureToAzureSettings"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Three or more `recoveryGroup` block.
+	// Three or more `recoveryGroup` block defined as below.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId string `pulumi:"recoveryVaultId"`
@@ -398,9 +406,11 @@ type replicationRecoveryPlanArgs struct {
 
 // The set of arguments for constructing a ReplicationRecoveryPlan resource.
 type ReplicationRecoveryPlanArgs struct {
+	// An `azureToAzureSettings` block defined as block.
+	AzureToAzureSettings ReplicationRecoveryPlanAzureToAzureSettingsPtrInput
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Three or more `recoveryGroup` block.
+	// Three or more `recoveryGroup` block defined as below.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringInput
@@ -497,12 +507,19 @@ func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutputWithContex
 	return o
 }
 
+// An `azureToAzureSettings` block defined as block.
+func (o ReplicationRecoveryPlanOutput) AzureToAzureSettings() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlan) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+		return v.AzureToAzureSettings
+	}).(ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput)
+}
+
 // The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 func (o ReplicationRecoveryPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Three or more `recoveryGroup` block.
+// Three or more `recoveryGroup` block defined as below.
 func (o ReplicationRecoveryPlanOutput) RecoveryGroups() ReplicationRecoveryPlanRecoveryGroupArrayOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) ReplicationRecoveryPlanRecoveryGroupArrayOutput {
 		return v.RecoveryGroups

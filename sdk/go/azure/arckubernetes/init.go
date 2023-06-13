@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "azure:arckubernetes/clusterExtension:ClusterExtension":
 		r = &ClusterExtension{}
+	case "azure:arckubernetes/fluxConfiguration:FluxConfiguration":
+		r = &FluxConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"arckubernetes/clusterExtension",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"arckubernetes/fluxConfiguration",
 		&module{version},
 	)
 }

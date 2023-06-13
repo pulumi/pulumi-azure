@@ -5248,6 +5248,10 @@ type ActivityLogAlertCriteria struct {
 	Category string `pulumi:"category"`
 	// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 	Level *string `pulumi:"level"`
+	// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+	//
+	// > **NOTE:** `level` and `levels` are mutually exclusive.
+	Levels []string `pulumi:"levels"`
 	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 	OperationName *string `pulumi:"operationName"`
 	// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
@@ -5258,20 +5262,44 @@ type ActivityLogAlertCriteria struct {
 	RecommendationType *string `pulumi:"recommendationType"`
 	// The name of resource group monitored by the activity log alert.
 	ResourceGroup *string `pulumi:"resourceGroup"`
+	// A list of names of resource groups monitored by the activity log alert.
+	//
+	// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+	ResourceGroups []string `pulumi:"resourceGroups"`
 	// A block to define fine grain resource health settings.
 	ResourceHealths []ActivityLogAlertCriteriaResourceHealth `pulumi:"resourceHealths"`
 	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 	ResourceId *string `pulumi:"resourceId"`
+	// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+	//
+	// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+	ResourceIds []string `pulumi:"resourceIds"`
 	// The name of the resource provider monitored by the activity log alert.
 	ResourceProvider *string `pulumi:"resourceProvider"`
+	// A list of names of resource providers monitored by the activity log alert.
+	//
+	// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+	ResourceProviders []string `pulumi:"resourceProviders"`
 	// The resource type monitored by the activity log alert.
 	ResourceType *string `pulumi:"resourceType"`
+	// A list of resource types monitored by the activity log alert.
+	//
+	// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+	ResourceTypes []string `pulumi:"resourceTypes"`
 	// A block to define fine grain service health settings.
 	ServiceHealths []ActivityLogAlertCriteriaServiceHealth `pulumi:"serviceHealths"`
 	// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 	Status *string `pulumi:"status"`
+	// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+	//
+	// > **NOTE:** `status` and `statuses` are mutually exclusive.
+	Statuses []string `pulumi:"statuses"`
 	// The sub status of the event.
 	SubStatus *string `pulumi:"subStatus"`
+	// A list of sub status of the event.
+	//
+	// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+	SubStatuses []string `pulumi:"subStatuses"`
 }
 
 // ActivityLogAlertCriteriaInput is an input type that accepts ActivityLogAlertCriteriaArgs and ActivityLogAlertCriteriaOutput values.
@@ -5292,6 +5320,10 @@ type ActivityLogAlertCriteriaArgs struct {
 	Category pulumi.StringInput `pulumi:"category"`
 	// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 	Level pulumi.StringPtrInput `pulumi:"level"`
+	// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+	//
+	// > **NOTE:** `level` and `levels` are mutually exclusive.
+	Levels pulumi.StringArrayInput `pulumi:"levels"`
 	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
 	// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
@@ -5302,20 +5334,44 @@ type ActivityLogAlertCriteriaArgs struct {
 	RecommendationType pulumi.StringPtrInput `pulumi:"recommendationType"`
 	// The name of resource group monitored by the activity log alert.
 	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// A list of names of resource groups monitored by the activity log alert.
+	//
+	// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
 	// A block to define fine grain resource health settings.
 	ResourceHealths ActivityLogAlertCriteriaResourceHealthArrayInput `pulumi:"resourceHealths"`
 	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+	//
+	// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+	ResourceIds pulumi.StringArrayInput `pulumi:"resourceIds"`
 	// The name of the resource provider monitored by the activity log alert.
 	ResourceProvider pulumi.StringPtrInput `pulumi:"resourceProvider"`
+	// A list of names of resource providers monitored by the activity log alert.
+	//
+	// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+	ResourceProviders pulumi.StringArrayInput `pulumi:"resourceProviders"`
 	// The resource type monitored by the activity log alert.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// A list of resource types monitored by the activity log alert.
+	//
+	// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 	// A block to define fine grain service health settings.
 	ServiceHealths ActivityLogAlertCriteriaServiceHealthArrayInput `pulumi:"serviceHealths"`
 	// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
+	// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+	//
+	// > **NOTE:** `status` and `statuses` are mutually exclusive.
+	Statuses pulumi.StringArrayInput `pulumi:"statuses"`
 	// The sub status of the event.
 	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
+	// A list of sub status of the event.
+	//
+	// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+	SubStatuses pulumi.StringArrayInput `pulumi:"subStatuses"`
 }
 
 func (ActivityLogAlertCriteriaArgs) ElementType() reflect.Type {
@@ -5410,6 +5466,13 @@ func (o ActivityLogAlertCriteriaOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
+// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+//
+// > **NOTE:** `level` and `levels` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) Levels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.Levels }).(pulumi.StringArrayOutput)
+}
+
 // The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 func (o ActivityLogAlertCriteriaOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
@@ -5435,6 +5498,13 @@ func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
+// A list of names of resource groups monitored by the activity log alert.
+//
+// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
 // A block to define fine grain resource health settings.
 func (o ActivityLogAlertCriteriaOutput) ResourceHealths() ActivityLogAlertCriteriaResourceHealthArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []ActivityLogAlertCriteriaResourceHealth { return v.ResourceHealths }).(ActivityLogAlertCriteriaResourceHealthArrayOutput)
@@ -5445,14 +5515,35 @@ func (o ActivityLogAlertCriteriaOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+//
+// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) ResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceIds }).(pulumi.StringArrayOutput)
+}
+
 // The name of the resource provider monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
 }
 
+// A list of names of resource providers monitored by the activity log alert.
+//
+// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) ResourceProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceProviders }).(pulumi.StringArrayOutput)
+}
+
 // The resource type monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// A list of resource types monitored by the activity log alert.
+//
+// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
 // A block to define fine grain service health settings.
@@ -5465,9 +5556,23 @@ func (o ActivityLogAlertCriteriaOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+//
+// > **NOTE:** `status` and `statuses` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) Statuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.Statuses }).(pulumi.StringArrayOutput)
+}
+
 // The sub status of the event.
 func (o ActivityLogAlertCriteriaOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
+}
+
+// A list of sub status of the event.
+//
+// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+func (o ActivityLogAlertCriteriaOutput) SubStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.SubStatuses }).(pulumi.StringArrayOutput)
 }
 
 type ActivityLogAlertCriteriaPtrOutput struct{ *pulumi.OutputState }
@@ -5524,6 +5629,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) Level() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+//
+// > **NOTE:** `level` and `levels` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) Levels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Levels
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 func (o ActivityLogAlertCriteriaPtrOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
@@ -5574,6 +5691,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of names of resource groups monitored by the activity log alert.
+//
+// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroups
+	}).(pulumi.StringArrayOutput)
+}
+
 // A block to define fine grain resource health settings.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceHealths() ActivityLogAlertCriteriaResourceHealthArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []ActivityLogAlertCriteriaResourceHealth {
@@ -5594,6 +5723,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+//
+// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) ResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The name of the resource provider monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
@@ -5604,6 +5745,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of names of resource providers monitored by the activity log alert.
+//
+// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) ResourceProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceProviders
+	}).(pulumi.StringArrayOutput)
+}
+
 // The resource type monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
@@ -5612,6 +5765,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput
 		}
 		return v.ResourceType
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of resource types monitored by the activity log alert.
+//
+// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // A block to define fine grain service health settings.
@@ -5634,6 +5799,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+//
+// > **NOTE:** `status` and `statuses` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) Statuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Statuses
+	}).(pulumi.StringArrayOutput)
+}
+
 // The sub status of the event.
 func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
@@ -5642,6 +5819,18 @@ func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 		}
 		return v.SubStatus
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of sub status of the event.
+//
+// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+func (o ActivityLogAlertCriteriaPtrOutput) SubStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubStatuses
+	}).(pulumi.StringArrayOutput)
 }
 
 type ActivityLogAlertCriteriaResourceHealth struct {
@@ -11438,6 +11627,448 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) Index
 	}).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput)
 }
 
+type AlertPrometheusRuleGroupRule struct {
+	// An `action` block as defined below.
+	Actions []AlertPrometheusRuleGroupRuleAction `pulumi:"actions"`
+	// Specifies the Alert rule name.
+	Alert *string `pulumi:"alert"`
+	// An `alertResolution` block as defined below.
+	AlertResolution *AlertPrometheusRuleGroupRuleAlertResolution `pulumi:"alertResolution"`
+	// Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+	Annotations map[string]string `pulumi:"annotations"`
+	// Is this rule enabled? Possible values are `true` and `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+	Expression string `pulumi:"expression"`
+	// Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+	For *string `pulumi:"for"`
+	// Specifies the labels to add or overwrite before storing the result.
+	Labels map[string]string `pulumi:"labels"`
+	// Specifies the recorded metrics name.
+	Record *string `pulumi:"record"`
+	// Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+	Severity *int `pulumi:"severity"`
+}
+
+// AlertPrometheusRuleGroupRuleInput is an input type that accepts AlertPrometheusRuleGroupRuleArgs and AlertPrometheusRuleGroupRuleOutput values.
+// You can construct a concrete instance of `AlertPrometheusRuleGroupRuleInput` via:
+//
+//	AlertPrometheusRuleGroupRuleArgs{...}
+type AlertPrometheusRuleGroupRuleInput interface {
+	pulumi.Input
+
+	ToAlertPrometheusRuleGroupRuleOutput() AlertPrometheusRuleGroupRuleOutput
+	ToAlertPrometheusRuleGroupRuleOutputWithContext(context.Context) AlertPrometheusRuleGroupRuleOutput
+}
+
+type AlertPrometheusRuleGroupRuleArgs struct {
+	// An `action` block as defined below.
+	Actions AlertPrometheusRuleGroupRuleActionArrayInput `pulumi:"actions"`
+	// Specifies the Alert rule name.
+	Alert pulumi.StringPtrInput `pulumi:"alert"`
+	// An `alertResolution` block as defined below.
+	AlertResolution AlertPrometheusRuleGroupRuleAlertResolutionPtrInput `pulumi:"alertResolution"`
+	// Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+	Annotations pulumi.StringMapInput `pulumi:"annotations"`
+	// Is this rule enabled? Possible values are `true` and `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+	For pulumi.StringPtrInput `pulumi:"for"`
+	// Specifies the labels to add or overwrite before storing the result.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Specifies the recorded metrics name.
+	Record pulumi.StringPtrInput `pulumi:"record"`
+	// Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+	Severity pulumi.IntPtrInput `pulumi:"severity"`
+}
+
+func (AlertPrometheusRuleGroupRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPrometheusRuleGroupRule)(nil)).Elem()
+}
+
+func (i AlertPrometheusRuleGroupRuleArgs) ToAlertPrometheusRuleGroupRuleOutput() AlertPrometheusRuleGroupRuleOutput {
+	return i.ToAlertPrometheusRuleGroupRuleOutputWithContext(context.Background())
+}
+
+func (i AlertPrometheusRuleGroupRuleArgs) ToAlertPrometheusRuleGroupRuleOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleOutput)
+}
+
+// AlertPrometheusRuleGroupRuleArrayInput is an input type that accepts AlertPrometheusRuleGroupRuleArray and AlertPrometheusRuleGroupRuleArrayOutput values.
+// You can construct a concrete instance of `AlertPrometheusRuleGroupRuleArrayInput` via:
+//
+//	AlertPrometheusRuleGroupRuleArray{ AlertPrometheusRuleGroupRuleArgs{...} }
+type AlertPrometheusRuleGroupRuleArrayInput interface {
+	pulumi.Input
+
+	ToAlertPrometheusRuleGroupRuleArrayOutput() AlertPrometheusRuleGroupRuleArrayOutput
+	ToAlertPrometheusRuleGroupRuleArrayOutputWithContext(context.Context) AlertPrometheusRuleGroupRuleArrayOutput
+}
+
+type AlertPrometheusRuleGroupRuleArray []AlertPrometheusRuleGroupRuleInput
+
+func (AlertPrometheusRuleGroupRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPrometheusRuleGroupRule)(nil)).Elem()
+}
+
+func (i AlertPrometheusRuleGroupRuleArray) ToAlertPrometheusRuleGroupRuleArrayOutput() AlertPrometheusRuleGroupRuleArrayOutput {
+	return i.ToAlertPrometheusRuleGroupRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AlertPrometheusRuleGroupRuleArray) ToAlertPrometheusRuleGroupRuleArrayOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleArrayOutput)
+}
+
+type AlertPrometheusRuleGroupRuleOutput struct{ *pulumi.OutputState }
+
+func (AlertPrometheusRuleGroupRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPrometheusRuleGroupRule)(nil)).Elem()
+}
+
+func (o AlertPrometheusRuleGroupRuleOutput) ToAlertPrometheusRuleGroupRuleOutput() AlertPrometheusRuleGroupRuleOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleOutput) ToAlertPrometheusRuleGroupRuleOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleOutput {
+	return o
+}
+
+// An `action` block as defined below.
+func (o AlertPrometheusRuleGroupRuleOutput) Actions() AlertPrometheusRuleGroupRuleActionArrayOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) []AlertPrometheusRuleGroupRuleAction { return v.Actions }).(AlertPrometheusRuleGroupRuleActionArrayOutput)
+}
+
+// Specifies the Alert rule name.
+func (o AlertPrometheusRuleGroupRuleOutput) Alert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) *string { return v.Alert }).(pulumi.StringPtrOutput)
+}
+
+// An `alertResolution` block as defined below.
+func (o AlertPrometheusRuleGroupRuleOutput) AlertResolution() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) *AlertPrometheusRuleGroupRuleAlertResolution {
+		return v.AlertResolution
+	}).(AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput)
+}
+
+// Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+func (o AlertPrometheusRuleGroupRuleOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) map[string]string { return v.Annotations }).(pulumi.StringMapOutput)
+}
+
+// Is this rule enabled? Possible values are `true` and `false`.
+func (o AlertPrometheusRuleGroupRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+func (o AlertPrometheusRuleGroupRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+func (o AlertPrometheusRuleGroupRuleOutput) For() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) *string { return v.For }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the labels to add or overwrite before storing the result.
+func (o AlertPrometheusRuleGroupRuleOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Specifies the recorded metrics name.
+func (o AlertPrometheusRuleGroupRuleOutput) Record() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) *string { return v.Record }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+func (o AlertPrometheusRuleGroupRuleOutput) Severity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRule) *int { return v.Severity }).(pulumi.IntPtrOutput)
+}
+
+type AlertPrometheusRuleGroupRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertPrometheusRuleGroupRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPrometheusRuleGroupRule)(nil)).Elem()
+}
+
+func (o AlertPrometheusRuleGroupRuleArrayOutput) ToAlertPrometheusRuleGroupRuleArrayOutput() AlertPrometheusRuleGroupRuleArrayOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleArrayOutput) ToAlertPrometheusRuleGroupRuleArrayOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleArrayOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleArrayOutput) Index(i pulumi.IntInput) AlertPrometheusRuleGroupRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPrometheusRuleGroupRule {
+		return vs[0].([]AlertPrometheusRuleGroupRule)[vs[1].(int)]
+	}).(AlertPrometheusRuleGroupRuleOutput)
+}
+
+type AlertPrometheusRuleGroupRuleAction struct {
+	// Specifies the resource id of the monitor action group.
+	ActionGroupId string `pulumi:"actionGroupId"`
+	// Specifies the properties of an action group object.
+	ActionProperties map[string]string `pulumi:"actionProperties"`
+}
+
+// AlertPrometheusRuleGroupRuleActionInput is an input type that accepts AlertPrometheusRuleGroupRuleActionArgs and AlertPrometheusRuleGroupRuleActionOutput values.
+// You can construct a concrete instance of `AlertPrometheusRuleGroupRuleActionInput` via:
+//
+//	AlertPrometheusRuleGroupRuleActionArgs{...}
+type AlertPrometheusRuleGroupRuleActionInput interface {
+	pulumi.Input
+
+	ToAlertPrometheusRuleGroupRuleActionOutput() AlertPrometheusRuleGroupRuleActionOutput
+	ToAlertPrometheusRuleGroupRuleActionOutputWithContext(context.Context) AlertPrometheusRuleGroupRuleActionOutput
+}
+
+type AlertPrometheusRuleGroupRuleActionArgs struct {
+	// Specifies the resource id of the monitor action group.
+	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	// Specifies the properties of an action group object.
+	ActionProperties pulumi.StringMapInput `pulumi:"actionProperties"`
+}
+
+func (AlertPrometheusRuleGroupRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPrometheusRuleGroupRuleAction)(nil)).Elem()
+}
+
+func (i AlertPrometheusRuleGroupRuleActionArgs) ToAlertPrometheusRuleGroupRuleActionOutput() AlertPrometheusRuleGroupRuleActionOutput {
+	return i.ToAlertPrometheusRuleGroupRuleActionOutputWithContext(context.Background())
+}
+
+func (i AlertPrometheusRuleGroupRuleActionArgs) ToAlertPrometheusRuleGroupRuleActionOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleActionOutput)
+}
+
+// AlertPrometheusRuleGroupRuleActionArrayInput is an input type that accepts AlertPrometheusRuleGroupRuleActionArray and AlertPrometheusRuleGroupRuleActionArrayOutput values.
+// You can construct a concrete instance of `AlertPrometheusRuleGroupRuleActionArrayInput` via:
+//
+//	AlertPrometheusRuleGroupRuleActionArray{ AlertPrometheusRuleGroupRuleActionArgs{...} }
+type AlertPrometheusRuleGroupRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToAlertPrometheusRuleGroupRuleActionArrayOutput() AlertPrometheusRuleGroupRuleActionArrayOutput
+	ToAlertPrometheusRuleGroupRuleActionArrayOutputWithContext(context.Context) AlertPrometheusRuleGroupRuleActionArrayOutput
+}
+
+type AlertPrometheusRuleGroupRuleActionArray []AlertPrometheusRuleGroupRuleActionInput
+
+func (AlertPrometheusRuleGroupRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPrometheusRuleGroupRuleAction)(nil)).Elem()
+}
+
+func (i AlertPrometheusRuleGroupRuleActionArray) ToAlertPrometheusRuleGroupRuleActionArrayOutput() AlertPrometheusRuleGroupRuleActionArrayOutput {
+	return i.ToAlertPrometheusRuleGroupRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i AlertPrometheusRuleGroupRuleActionArray) ToAlertPrometheusRuleGroupRuleActionArrayOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleActionArrayOutput)
+}
+
+type AlertPrometheusRuleGroupRuleActionOutput struct{ *pulumi.OutputState }
+
+func (AlertPrometheusRuleGroupRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPrometheusRuleGroupRuleAction)(nil)).Elem()
+}
+
+func (o AlertPrometheusRuleGroupRuleActionOutput) ToAlertPrometheusRuleGroupRuleActionOutput() AlertPrometheusRuleGroupRuleActionOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleActionOutput) ToAlertPrometheusRuleGroupRuleActionOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleActionOutput {
+	return o
+}
+
+// Specifies the resource id of the monitor action group.
+func (o AlertPrometheusRuleGroupRuleActionOutput) ActionGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRuleAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
+}
+
+// Specifies the properties of an action group object.
+func (o AlertPrometheusRuleGroupRuleActionOutput) ActionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRuleAction) map[string]string { return v.ActionProperties }).(pulumi.StringMapOutput)
+}
+
+type AlertPrometheusRuleGroupRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertPrometheusRuleGroupRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPrometheusRuleGroupRuleAction)(nil)).Elem()
+}
+
+func (o AlertPrometheusRuleGroupRuleActionArrayOutput) ToAlertPrometheusRuleGroupRuleActionArrayOutput() AlertPrometheusRuleGroupRuleActionArrayOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleActionArrayOutput) ToAlertPrometheusRuleGroupRuleActionArrayOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleActionArrayOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleActionArrayOutput) Index(i pulumi.IntInput) AlertPrometheusRuleGroupRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPrometheusRuleGroupRuleAction {
+		return vs[0].([]AlertPrometheusRuleGroupRuleAction)[vs[1].(int)]
+	}).(AlertPrometheusRuleGroupRuleActionOutput)
+}
+
+type AlertPrometheusRuleGroupRuleAlertResolution struct {
+	// Is the alert auto-resolution? Possible values are `true` and `false`.
+	AutoResolved *bool `pulumi:"autoResolved"`
+	// Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+	TimeToResolve *string `pulumi:"timeToResolve"`
+}
+
+// AlertPrometheusRuleGroupRuleAlertResolutionInput is an input type that accepts AlertPrometheusRuleGroupRuleAlertResolutionArgs and AlertPrometheusRuleGroupRuleAlertResolutionOutput values.
+// You can construct a concrete instance of `AlertPrometheusRuleGroupRuleAlertResolutionInput` via:
+//
+//	AlertPrometheusRuleGroupRuleAlertResolutionArgs{...}
+type AlertPrometheusRuleGroupRuleAlertResolutionInput interface {
+	pulumi.Input
+
+	ToAlertPrometheusRuleGroupRuleAlertResolutionOutput() AlertPrometheusRuleGroupRuleAlertResolutionOutput
+	ToAlertPrometheusRuleGroupRuleAlertResolutionOutputWithContext(context.Context) AlertPrometheusRuleGroupRuleAlertResolutionOutput
+}
+
+type AlertPrometheusRuleGroupRuleAlertResolutionArgs struct {
+	// Is the alert auto-resolution? Possible values are `true` and `false`.
+	AutoResolved pulumi.BoolPtrInput `pulumi:"autoResolved"`
+	// Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+	TimeToResolve pulumi.StringPtrInput `pulumi:"timeToResolve"`
+}
+
+func (AlertPrometheusRuleGroupRuleAlertResolutionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPrometheusRuleGroupRuleAlertResolution)(nil)).Elem()
+}
+
+func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToAlertPrometheusRuleGroupRuleAlertResolutionOutput() AlertPrometheusRuleGroupRuleAlertResolutionOutput {
+	return i.ToAlertPrometheusRuleGroupRuleAlertResolutionOutputWithContext(context.Background())
+}
+
+func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToAlertPrometheusRuleGroupRuleAlertResolutionOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleAlertResolutionOutput)
+}
+
+func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutput() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return i.ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleAlertResolutionOutput).ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx)
+}
+
+// AlertPrometheusRuleGroupRuleAlertResolutionPtrInput is an input type that accepts AlertPrometheusRuleGroupRuleAlertResolutionArgs, AlertPrometheusRuleGroupRuleAlertResolutionPtr and AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput values.
+// You can construct a concrete instance of `AlertPrometheusRuleGroupRuleAlertResolutionPtrInput` via:
+//
+//	        AlertPrometheusRuleGroupRuleAlertResolutionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertPrometheusRuleGroupRuleAlertResolutionPtrInput interface {
+	pulumi.Input
+
+	ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutput() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput
+	ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(context.Context) AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput
+}
+
+type alertPrometheusRuleGroupRuleAlertResolutionPtrType AlertPrometheusRuleGroupRuleAlertResolutionArgs
+
+func AlertPrometheusRuleGroupRuleAlertResolutionPtr(v *AlertPrometheusRuleGroupRuleAlertResolutionArgs) AlertPrometheusRuleGroupRuleAlertResolutionPtrInput {
+	return (*alertPrometheusRuleGroupRuleAlertResolutionPtrType)(v)
+}
+
+func (*alertPrometheusRuleGroupRuleAlertResolutionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPrometheusRuleGroupRuleAlertResolution)(nil)).Elem()
+}
+
+func (i *alertPrometheusRuleGroupRuleAlertResolutionPtrType) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutput() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return i.ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertPrometheusRuleGroupRuleAlertResolutionPtrType) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput)
+}
+
+type AlertPrometheusRuleGroupRuleAlertResolutionOutput struct{ *pulumi.OutputState }
+
+func (AlertPrometheusRuleGroupRuleAlertResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPrometheusRuleGroupRuleAlertResolution)(nil)).Elem()
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionOutput() AlertPrometheusRuleGroupRuleAlertResolutionOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutput() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return o.ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertPrometheusRuleGroupRuleAlertResolution) *AlertPrometheusRuleGroupRuleAlertResolution {
+		return &v
+	}).(AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput)
+}
+
+// Is the alert auto-resolution? Possible values are `true` and `false`.
+func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) AutoResolved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRuleAlertResolution) *bool { return v.AutoResolved }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) TimeToResolve() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPrometheusRuleGroupRuleAlertResolution) *string { return v.TimeToResolve }).(pulumi.StringPtrOutput)
+}
+
+type AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPrometheusRuleGroupRuleAlertResolution)(nil)).Elem()
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutput() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
+	return o
+}
+
+func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) Elem() AlertPrometheusRuleGroupRuleAlertResolutionOutput {
+	return o.ApplyT(func(v *AlertPrometheusRuleGroupRuleAlertResolution) AlertPrometheusRuleGroupRuleAlertResolution {
+		if v != nil {
+			return *v
+		}
+		var ret AlertPrometheusRuleGroupRuleAlertResolution
+		return ret
+	}).(AlertPrometheusRuleGroupRuleAlertResolutionOutput)
+}
+
+// Is the alert auto-resolution? Possible values are `true` and `false`.
+func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) AutoResolved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPrometheusRuleGroupRuleAlertResolution) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoResolved
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) TimeToResolve() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPrometheusRuleGroupRuleAlertResolution) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeToResolve
+	}).(pulumi.StringPtrOutput)
+}
+
 type AutoscaleSettingNotification struct {
 	// A `email` block as defined below.
 	Email *AutoscaleSettingNotificationEmail `pulumi:"email"`
@@ -11873,6 +12504,162 @@ func (o AutoscaleSettingNotificationWebhookArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleSettingNotificationWebhook {
 		return vs[0].([]AutoscaleSettingNotificationWebhook)[vs[1].(int)]
 	}).(AutoscaleSettingNotificationWebhookOutput)
+}
+
+type AutoscaleSettingPredictive struct {
+	// Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+	LookAheadTime *string `pulumi:"lookAheadTime"`
+	// Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+	ScaleMode string `pulumi:"scaleMode"`
+}
+
+// AutoscaleSettingPredictiveInput is an input type that accepts AutoscaleSettingPredictiveArgs and AutoscaleSettingPredictiveOutput values.
+// You can construct a concrete instance of `AutoscaleSettingPredictiveInput` via:
+//
+//	AutoscaleSettingPredictiveArgs{...}
+type AutoscaleSettingPredictiveInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingPredictiveOutput() AutoscaleSettingPredictiveOutput
+	ToAutoscaleSettingPredictiveOutputWithContext(context.Context) AutoscaleSettingPredictiveOutput
+}
+
+type AutoscaleSettingPredictiveArgs struct {
+	// Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+	LookAheadTime pulumi.StringPtrInput `pulumi:"lookAheadTime"`
+	// Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+	ScaleMode pulumi.StringInput `pulumi:"scaleMode"`
+}
+
+func (AutoscaleSettingPredictiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSettingPredictive)(nil)).Elem()
+}
+
+func (i AutoscaleSettingPredictiveArgs) ToAutoscaleSettingPredictiveOutput() AutoscaleSettingPredictiveOutput {
+	return i.ToAutoscaleSettingPredictiveOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSettingPredictiveArgs) ToAutoscaleSettingPredictiveOutputWithContext(ctx context.Context) AutoscaleSettingPredictiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPredictiveOutput)
+}
+
+func (i AutoscaleSettingPredictiveArgs) ToAutoscaleSettingPredictivePtrOutput() AutoscaleSettingPredictivePtrOutput {
+	return i.ToAutoscaleSettingPredictivePtrOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSettingPredictiveArgs) ToAutoscaleSettingPredictivePtrOutputWithContext(ctx context.Context) AutoscaleSettingPredictivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPredictiveOutput).ToAutoscaleSettingPredictivePtrOutputWithContext(ctx)
+}
+
+// AutoscaleSettingPredictivePtrInput is an input type that accepts AutoscaleSettingPredictiveArgs, AutoscaleSettingPredictivePtr and AutoscaleSettingPredictivePtrOutput values.
+// You can construct a concrete instance of `AutoscaleSettingPredictivePtrInput` via:
+//
+//	        AutoscaleSettingPredictiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoscaleSettingPredictivePtrInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingPredictivePtrOutput() AutoscaleSettingPredictivePtrOutput
+	ToAutoscaleSettingPredictivePtrOutputWithContext(context.Context) AutoscaleSettingPredictivePtrOutput
+}
+
+type autoscaleSettingPredictivePtrType AutoscaleSettingPredictiveArgs
+
+func AutoscaleSettingPredictivePtr(v *AutoscaleSettingPredictiveArgs) AutoscaleSettingPredictivePtrInput {
+	return (*autoscaleSettingPredictivePtrType)(v)
+}
+
+func (*autoscaleSettingPredictivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoscaleSettingPredictive)(nil)).Elem()
+}
+
+func (i *autoscaleSettingPredictivePtrType) ToAutoscaleSettingPredictivePtrOutput() AutoscaleSettingPredictivePtrOutput {
+	return i.ToAutoscaleSettingPredictivePtrOutputWithContext(context.Background())
+}
+
+func (i *autoscaleSettingPredictivePtrType) ToAutoscaleSettingPredictivePtrOutputWithContext(ctx context.Context) AutoscaleSettingPredictivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPredictivePtrOutput)
+}
+
+type AutoscaleSettingPredictiveOutput struct{ *pulumi.OutputState }
+
+func (AutoscaleSettingPredictiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSettingPredictive)(nil)).Elem()
+}
+
+func (o AutoscaleSettingPredictiveOutput) ToAutoscaleSettingPredictiveOutput() AutoscaleSettingPredictiveOutput {
+	return o
+}
+
+func (o AutoscaleSettingPredictiveOutput) ToAutoscaleSettingPredictiveOutputWithContext(ctx context.Context) AutoscaleSettingPredictiveOutput {
+	return o
+}
+
+func (o AutoscaleSettingPredictiveOutput) ToAutoscaleSettingPredictivePtrOutput() AutoscaleSettingPredictivePtrOutput {
+	return o.ToAutoscaleSettingPredictivePtrOutputWithContext(context.Background())
+}
+
+func (o AutoscaleSettingPredictiveOutput) ToAutoscaleSettingPredictivePtrOutputWithContext(ctx context.Context) AutoscaleSettingPredictivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingPredictive) *AutoscaleSettingPredictive {
+		return &v
+	}).(AutoscaleSettingPredictivePtrOutput)
+}
+
+// Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+func (o AutoscaleSettingPredictiveOutput) LookAheadTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoscaleSettingPredictive) *string { return v.LookAheadTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+func (o AutoscaleSettingPredictiveOutput) ScaleMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoscaleSettingPredictive) string { return v.ScaleMode }).(pulumi.StringOutput)
+}
+
+type AutoscaleSettingPredictivePtrOutput struct{ *pulumi.OutputState }
+
+func (AutoscaleSettingPredictivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoscaleSettingPredictive)(nil)).Elem()
+}
+
+func (o AutoscaleSettingPredictivePtrOutput) ToAutoscaleSettingPredictivePtrOutput() AutoscaleSettingPredictivePtrOutput {
+	return o
+}
+
+func (o AutoscaleSettingPredictivePtrOutput) ToAutoscaleSettingPredictivePtrOutputWithContext(ctx context.Context) AutoscaleSettingPredictivePtrOutput {
+	return o
+}
+
+func (o AutoscaleSettingPredictivePtrOutput) Elem() AutoscaleSettingPredictiveOutput {
+	return o.ApplyT(func(v *AutoscaleSettingPredictive) AutoscaleSettingPredictive {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettingPredictive
+		return ret
+	}).(AutoscaleSettingPredictiveOutput)
+}
+
+// Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+func (o AutoscaleSettingPredictivePtrOutput) LookAheadTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSettingPredictive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LookAheadTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+func (o AutoscaleSettingPredictivePtrOutput) ScaleMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSettingPredictive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScaleMode
+	}).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfile struct {
@@ -26936,12 +27723,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPrometheusRuleGroupRuleInput)(nil)).Elem(), AlertPrometheusRuleGroupRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPrometheusRuleGroupRuleArrayInput)(nil)).Elem(), AlertPrometheusRuleGroupRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPrometheusRuleGroupRuleActionInput)(nil)).Elem(), AlertPrometheusRuleGroupRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPrometheusRuleGroupRuleActionArrayInput)(nil)).Elem(), AlertPrometheusRuleGroupRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPrometheusRuleGroupRuleAlertResolutionInput)(nil)).Elem(), AlertPrometheusRuleGroupRuleAlertResolutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPrometheusRuleGroupRuleAlertResolutionPtrInput)(nil)).Elem(), AlertPrometheusRuleGroupRuleAlertResolutionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationInput)(nil)).Elem(), AutoscaleSettingNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationPtrInput)(nil)).Elem(), AutoscaleSettingNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationEmailInput)(nil)).Elem(), AutoscaleSettingNotificationEmailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationEmailPtrInput)(nil)).Elem(), AutoscaleSettingNotificationEmailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationWebhookInput)(nil)).Elem(), AutoscaleSettingNotificationWebhookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationWebhookArrayInput)(nil)).Elem(), AutoscaleSettingNotificationWebhookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingPredictiveInput)(nil)).Elem(), AutoscaleSettingPredictiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingPredictivePtrInput)(nil)).Elem(), AutoscaleSettingPredictiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingProfileInput)(nil)).Elem(), AutoscaleSettingProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingProfileArrayInput)(nil)).Elem(), AutoscaleSettingProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingProfileCapacityInput)(nil)).Elem(), AutoscaleSettingProfileCapacityArgs{})
@@ -27302,12 +28097,20 @@ func init() {
 	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput{})
 	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput{})
 	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput{})
+	pulumi.RegisterOutputType(AlertPrometheusRuleGroupRuleOutput{})
+	pulumi.RegisterOutputType(AlertPrometheusRuleGroupRuleArrayOutput{})
+	pulumi.RegisterOutputType(AlertPrometheusRuleGroupRuleActionOutput{})
+	pulumi.RegisterOutputType(AlertPrometheusRuleGroupRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(AlertPrometheusRuleGroupRuleAlertResolutionOutput{})
+	pulumi.RegisterOutputType(AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationEmailOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationEmailPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationWebhookOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationWebhookArrayOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingPredictiveOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingPredictivePtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileCapacityOutput{})

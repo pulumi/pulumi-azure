@@ -225,6 +225,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly storageImageReference!: pulumi.Output<outputs.batch.PoolStorageImageReference>;
     /**
+     * The desired node communication mode for the pool.
+     */
+    public readonly targetNodeCommunicationMode!: pulumi.Output<string | undefined>;
+    /**
      * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      */
     public readonly taskSchedulingPolicies!: pulumi.Output<outputs.batch.PoolTaskSchedulingPolicy[]>;
@@ -282,6 +286,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["startTask"] = state ? state.startTask : undefined;
             resourceInputs["stopPendingResizeOperation"] = state ? state.stopPendingResizeOperation : undefined;
             resourceInputs["storageImageReference"] = state ? state.storageImageReference : undefined;
+            resourceInputs["targetNodeCommunicationMode"] = state ? state.targetNodeCommunicationMode : undefined;
             resourceInputs["taskSchedulingPolicies"] = state ? state.taskSchedulingPolicies : undefined;
             resourceInputs["userAccounts"] = state ? state.userAccounts : undefined;
             resourceInputs["vmSize"] = state ? state.vmSize : undefined;
@@ -327,6 +332,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["startTask"] = args ? args.startTask : undefined;
             resourceInputs["stopPendingResizeOperation"] = args ? args.stopPendingResizeOperation : undefined;
             resourceInputs["storageImageReference"] = args ? args.storageImageReference : undefined;
+            resourceInputs["targetNodeCommunicationMode"] = args ? args.targetNodeCommunicationMode : undefined;
             resourceInputs["taskSchedulingPolicies"] = args ? args.taskSchedulingPolicies : undefined;
             resourceInputs["userAccounts"] = args ? args.userAccounts : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
@@ -437,6 +443,10 @@ export interface PoolState {
      * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      */
     storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
+    /**
+     * The desired node communication mode for the pool.
+     */
+    targetNodeCommunicationMode?: pulumi.Input<string>;
     /**
      * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      */
@@ -559,6 +569,10 @@ export interface PoolArgs {
      * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      */
     storageImageReference: pulumi.Input<inputs.batch.PoolStorageImageReference>;
+    /**
+     * The desired node communication mode for the pool.
+     */
+    targetNodeCommunicationMode?: pulumi.Input<string>;
     /**
      * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      */

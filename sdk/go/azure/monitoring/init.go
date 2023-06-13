@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertProcessingRuleActionGroup{}
 	case "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression":
 		r = &AlertProcessingRuleSuppression{}
+	case "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup":
+		r = &AlertPrometheusRuleGroup{}
 	case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
 		r = &AutoscaleSetting{}
 	case "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint":
@@ -117,6 +119,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/alertProcessingRuleSuppression",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/alertPrometheusRuleGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

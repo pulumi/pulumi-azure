@@ -64,6 +64,25 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+     * 
+     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * 
+     */
+    @Import(name="levels")
+    private @Nullable Output<List<String>> levels;
+
+    /**
+     * @return A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+     * 
+     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> levels() {
+        return Optional.ofNullable(this.levels);
+    }
+
+    /**
      * The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
      * 
      */
@@ -139,6 +158,25 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * A list of names of resource groups monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * 
+     */
+    @Import(name="resourceGroups")
+    private @Nullable Output<List<String>> resourceGroups;
+
+    /**
+     * @return A list of names of resource groups monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceGroups() {
+        return Optional.ofNullable(this.resourceGroups);
+    }
+
+    /**
      * A block to define fine grain resource health settings.
      * 
      */
@@ -169,6 +207,25 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+     * 
+     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * 
+     */
+    @Import(name="resourceIds")
+    private @Nullable Output<List<String>> resourceIds;
+
+    /**
+     * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+     * 
+     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceIds() {
+        return Optional.ofNullable(this.resourceIds);
+    }
+
+    /**
      * The name of the resource provider monitored by the activity log alert.
      * 
      */
@@ -184,6 +241,25 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * A list of names of resource providers monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * 
+     */
+    @Import(name="resourceProviders")
+    private @Nullable Output<List<String>> resourceProviders;
+
+    /**
+     * @return A list of names of resource providers monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceProviders() {
+        return Optional.ofNullable(this.resourceProviders);
+    }
+
+    /**
      * The resource type monitored by the activity log alert.
      * 
      */
@@ -196,6 +272,25 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
      */
     public Optional<Output<String>> resourceType() {
         return Optional.ofNullable(this.resourceType);
+    }
+
+    /**
+     * A list of resource types monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * 
+     */
+    @Import(name="resourceTypes")
+    private @Nullable Output<List<String>> resourceTypes;
+
+    /**
+     * @return A list of resource types monitored by the activity log alert.
+     * 
+     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceTypes() {
+        return Optional.ofNullable(this.resourceTypes);
     }
 
     /**
@@ -229,6 +324,25 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+     * 
+     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * 
+     */
+    @Import(name="statuses")
+    private @Nullable Output<List<String>> statuses;
+
+    /**
+     * @return A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+     * 
+     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> statuses() {
+        return Optional.ofNullable(this.statuses);
+    }
+
+    /**
      * The sub status of the event.
      * 
      */
@@ -243,24 +357,50 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.subStatus);
     }
 
+    /**
+     * A list of sub status of the event.
+     * 
+     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * 
+     */
+    @Import(name="subStatuses")
+    private @Nullable Output<List<String>> subStatuses;
+
+    /**
+     * @return A list of sub status of the event.
+     * 
+     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * 
+     */
+    public Optional<Output<List<String>>> subStatuses() {
+        return Optional.ofNullable(this.subStatuses);
+    }
+
     private ActivityLogAlertCriteriaArgs() {}
 
     private ActivityLogAlertCriteriaArgs(ActivityLogAlertCriteriaArgs $) {
         this.caller = $.caller;
         this.category = $.category;
         this.level = $.level;
+        this.levels = $.levels;
         this.operationName = $.operationName;
         this.recommendationCategory = $.recommendationCategory;
         this.recommendationImpact = $.recommendationImpact;
         this.recommendationType = $.recommendationType;
         this.resourceGroup = $.resourceGroup;
+        this.resourceGroups = $.resourceGroups;
         this.resourceHealths = $.resourceHealths;
         this.resourceId = $.resourceId;
+        this.resourceIds = $.resourceIds;
         this.resourceProvider = $.resourceProvider;
+        this.resourceProviders = $.resourceProviders;
         this.resourceType = $.resourceType;
+        this.resourceTypes = $.resourceTypes;
         this.serviceHealths = $.serviceHealths;
         this.status = $.status;
+        this.statuses = $.statuses;
         this.subStatus = $.subStatus;
+        this.subStatuses = $.subStatuses;
     }
 
     public static Builder builder() {
@@ -342,6 +482,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
          */
         public Builder level(String level) {
             return level(Output.of(level));
+        }
+
+        /**
+         * @param levels A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+         * 
+         * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder levels(@Nullable Output<List<String>> levels) {
+            $.levels = levels;
+            return this;
+        }
+
+        /**
+         * @param levels A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+         * 
+         * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder levels(List<String> levels) {
+            return levels(Output.of(levels));
+        }
+
+        /**
+         * @param levels A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+         * 
+         * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder levels(String... levels) {
+            return levels(List.of(levels));
         }
 
         /**
@@ -450,6 +627,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param resourceGroups A list of names of resource groups monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceGroups(@Nullable Output<List<String>> resourceGroups) {
+            $.resourceGroups = resourceGroups;
+            return this;
+        }
+
+        /**
+         * @param resourceGroups A list of names of resource groups monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceGroups(List<String> resourceGroups) {
+            return resourceGroups(Output.of(resourceGroups));
+        }
+
+        /**
+         * @param resourceGroups A list of names of resource groups monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceGroups(String... resourceGroups) {
+            return resourceGroups(List.of(resourceGroups));
+        }
+
+        /**
          * @param resourceHealths A block to define fine grain resource health settings.
          * 
          * @return builder
@@ -502,6 +716,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param resourceIds A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+         * 
+         * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceIds(@Nullable Output<List<String>> resourceIds) {
+            $.resourceIds = resourceIds;
+            return this;
+        }
+
+        /**
+         * @param resourceIds A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+         * 
+         * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceIds(List<String> resourceIds) {
+            return resourceIds(Output.of(resourceIds));
+        }
+
+        /**
+         * @param resourceIds A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+         * 
+         * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceIds(String... resourceIds) {
+            return resourceIds(List.of(resourceIds));
+        }
+
+        /**
          * @param resourceProvider The name of the resource provider monitored by the activity log alert.
          * 
          * @return builder
@@ -523,6 +774,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param resourceProviders A list of names of resource providers monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviders(@Nullable Output<List<String>> resourceProviders) {
+            $.resourceProviders = resourceProviders;
+            return this;
+        }
+
+        /**
+         * @param resourceProviders A list of names of resource providers monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviders(List<String> resourceProviders) {
+            return resourceProviders(Output.of(resourceProviders));
+        }
+
+        /**
+         * @param resourceProviders A list of names of resource providers monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviders(String... resourceProviders) {
+            return resourceProviders(List.of(resourceProviders));
+        }
+
+        /**
          * @param resourceType The resource type monitored by the activity log alert.
          * 
          * @return builder
@@ -541,6 +829,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
          */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
+        }
+
+        /**
+         * @param resourceTypes A list of resource types monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTypes(@Nullable Output<List<String>> resourceTypes) {
+            $.resourceTypes = resourceTypes;
+            return this;
+        }
+
+        /**
+         * @param resourceTypes A list of resource types monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTypes(List<String> resourceTypes) {
+            return resourceTypes(Output.of(resourceTypes));
+        }
+
+        /**
+         * @param resourceTypes A list of resource types monitored by the activity log alert.
+         * 
+         * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTypes(String... resourceTypes) {
+            return resourceTypes(List.of(resourceTypes));
         }
 
         /**
@@ -596,6 +921,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param statuses A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+         * 
+         * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statuses(@Nullable Output<List<String>> statuses) {
+            $.statuses = statuses;
+            return this;
+        }
+
+        /**
+         * @param statuses A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+         * 
+         * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statuses(List<String> statuses) {
+            return statuses(Output.of(statuses));
+        }
+
+        /**
+         * @param statuses A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+         * 
+         * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statuses(String... statuses) {
+            return statuses(List.of(statuses));
+        }
+
+        /**
          * @param subStatus The sub status of the event.
          * 
          * @return builder
@@ -614,6 +976,43 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
          */
         public Builder subStatus(String subStatus) {
             return subStatus(Output.of(subStatus));
+        }
+
+        /**
+         * @param subStatuses A list of sub status of the event.
+         * 
+         * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subStatuses(@Nullable Output<List<String>> subStatuses) {
+            $.subStatuses = subStatuses;
+            return this;
+        }
+
+        /**
+         * @param subStatuses A list of sub status of the event.
+         * 
+         * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subStatuses(List<String> subStatuses) {
+            return subStatuses(Output.of(subStatuses));
+        }
+
+        /**
+         * @param subStatuses A list of sub status of the event.
+         * 
+         * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subStatuses(String... subStatuses) {
+            return subStatuses(List.of(subStatuses));
         }
 
         public ActivityLogAlertCriteriaArgs build() {

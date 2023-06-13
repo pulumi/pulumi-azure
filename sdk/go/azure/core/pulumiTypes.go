@@ -5915,6 +5915,8 @@ type GetResourcesResource struct {
 	Location string `pulumi:"location"`
 	// The name of the Resource.
 	Name string `pulumi:"name"`
+	// The name of the Resource group where the Resources are located.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A map of tags assigned to this Resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
@@ -5939,6 +5941,8 @@ type GetResourcesResourceArgs struct {
 	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Resource.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource group where the Resources are located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A map of tags assigned to this Resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
@@ -6009,6 +6013,11 @@ func (o GetResourcesResourceOutput) Location() pulumi.StringOutput {
 // The name of the Resource.
 func (o GetResourcesResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourcesResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the Resource group where the Resources are located.
+func (o GetResourcesResourceOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourcesResource) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to this Resource.

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Mobile.Outputs
     public sealed class GetNetworkSimGroupIdentityResult
     {
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// A list of User Assigned Managed Identity IDs assigned to this resource.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string PrincipalId;

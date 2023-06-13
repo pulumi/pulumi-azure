@@ -81,7 +81,7 @@ type Account struct {
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name                       pulumi.StringOutput                         `pulumi:"name"`
 	PrivateEndpointConnections AccountPrivateEndpointConnectionArrayOutput `pulumi:"privateEndpointConnections"`
-	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	// Whether public network access is allowed for the automation account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -149,7 +149,7 @@ type accountState struct {
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name                       *string                            `pulumi:"name"`
 	PrivateEndpointConnections []AccountPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	// Whether public network access is allowed for the automation account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -178,7 +178,7 @@ type AccountState struct {
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name                       pulumi.StringPtrInput
 	PrivateEndpointConnections AccountPrivateEndpointConnectionArrayInput
-	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	// Whether public network access is allowed for the automation account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	// Whether public network access is allowed for the automation account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -223,7 +223,7 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	// Whether public network access is allowed for the automation account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -368,7 +368,7 @@ func (o AccountOutput) PrivateEndpointConnections() AccountPrivateEndpointConnec
 	return o.ApplyT(func(v *Account) AccountPrivateEndpointConnectionArrayOutput { return v.PrivateEndpointConnections }).(AccountPrivateEndpointConnectionArrayOutput)
 }
 
-// Whether public network access is allowed for the container registry. Defaults to `true`.
+// Whether public network access is allowed for the automation account. Defaults to `true`.
 func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

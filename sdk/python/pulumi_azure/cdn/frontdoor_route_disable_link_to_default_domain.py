@@ -200,17 +200,17 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontdoorRouteDisableLinkToDefaultDomainArgs.__new__(FrontdoorRouteDisableLinkToDefaultDomainArgs)
 
-            if cdn_frontdoor_custom_domain_ids is None and not opts.urn:
-                raise TypeError("Missing required property 'cdn_frontdoor_custom_domain_ids'")
             if cdn_frontdoor_custom_domain_ids is not None and not opts.urn:
                 warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
                 pulumi.log.warn("""cdn_frontdoor_custom_domain_ids is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
+            if cdn_frontdoor_custom_domain_ids is None and not opts.urn:
+                raise TypeError("Missing required property 'cdn_frontdoor_custom_domain_ids'")
             __props__.__dict__["cdn_frontdoor_custom_domain_ids"] = cdn_frontdoor_custom_domain_ids
-            if cdn_frontdoor_route_id is None and not opts.urn:
-                raise TypeError("Missing required property 'cdn_frontdoor_route_id'")
             if cdn_frontdoor_route_id is not None and not opts.urn:
                 warnings.warn("""the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""", DeprecationWarning)
                 pulumi.log.warn("""cdn_frontdoor_route_id is deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value""")
+            if cdn_frontdoor_route_id is None and not opts.urn:
+                raise TypeError("Missing required property 'cdn_frontdoor_route_id'")
             __props__.__dict__["cdn_frontdoor_route_id"] = cdn_frontdoor_route_id
         super(FrontdoorRouteDisableLinkToDefaultDomain, __self__).__init__(
             'azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain',

@@ -19,7 +19,7 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable String primaryUserAssignedIdentityId;
@@ -35,7 +35,7 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<String> primaryUserAssignedIdentityId() {

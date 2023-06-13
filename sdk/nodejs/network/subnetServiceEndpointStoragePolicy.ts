@@ -9,33 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Subnet Service Endpoint Storage Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleSubnetServiceEndpointStoragePolicy = new azure.network.SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     definition: {
- *         name: "name1",
- *         description: "definition1",
- *         serviceResources: [
- *             exampleResourceGroup.id,
- *             exampleAccount.id,
- *         ],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Subnet Service Endpoint Policies can be imported using the `resource id`, e.g.

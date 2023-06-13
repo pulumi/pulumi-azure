@@ -45,10 +45,23 @@ namespace Pulumi.Azure
         public Output<string?> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// The path to a file containing the Client ID which should be used.
+        /// </summary>
+        [Output("clientIdFilePath")]
+        public Output<string?> ClientIdFilePath { get; private set; } = null!;
+
+        /// <summary>
         /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
         [Output("clientSecret")]
         public Output<string?> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+        /// using a Client Secret.
+        /// </summary>
+        [Output("clientSecretFilePath")]
+        public Output<string?> ClientSecretFilePath { get; private set; } = null!;
 
         /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
@@ -176,10 +189,23 @@ namespace Pulumi.Azure
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
+        /// The path to a file containing the Client ID which should be used.
+        /// </summary>
+        [Input("clientIdFilePath")]
+        public Input<string>? ClientIdFilePath { get; set; }
+
+        /// <summary>
         /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
+
+        /// <summary>
+        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+        /// using a Client Secret.
+        /// </summary>
+        [Input("clientSecretFilePath")]
+        public Input<string>? ClientSecretFilePath { get; set; }
 
         /// <summary>
         /// This will disable the x-ms-correlation-request-id header.

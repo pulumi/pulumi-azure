@@ -22,6 +22,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -30,6 +32,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 //				Location: pulumi.String("West Europe"),
 //			})
@@ -50,7 +56,7 @@ import (
 //				Sso: &appplatform.SpringCloudDevToolPortalSsoArgs{
 //					ClientId:     pulumi.String("example id"),
 //					ClientSecret: pulumi.String("example secret"),
-//					MetadataUrl:  pulumi.String("https://www.example.com/metadata"),
+//					MetadataUrl:  pulumi.String(fmt.Sprintf("https://login.microsoftonline.com/%v/v2.0/.well-known/openid-configuration", current.TenantId)),
 //					Scopes: pulumi.StringArray{
 //						pulumi.String("openid"),
 //						pulumi.String("profile"),

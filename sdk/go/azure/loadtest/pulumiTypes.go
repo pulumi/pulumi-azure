@@ -11,9 +11,10 @@ import (
 )
 
 type LoadTestIdentity struct {
-	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	Type        string  `pulumi:"type"`
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	Type        string   `pulumi:"type"`
 }
 
 // LoadTestIdentityInput is an input type that accepts LoadTestIdentityArgs and LoadTestIdentityOutput values.
@@ -28,9 +29,10 @@ type LoadTestIdentityInput interface {
 }
 
 type LoadTestIdentityArgs struct {
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type        pulumi.StringInput    `pulumi:"type"`
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
 func (LoadTestIdentityArgs) ElementType() reflect.Type {
@@ -110,6 +112,10 @@ func (o LoadTestIdentityOutput) ToLoadTestIdentityPtrOutputWithContext(ctx conte
 	}).(LoadTestIdentityPtrOutput)
 }
 
+func (o LoadTestIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LoadTestIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 func (o LoadTestIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadTestIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -144,6 +150,15 @@ func (o LoadTestIdentityPtrOutput) Elem() LoadTestIdentityOutput {
 		var ret LoadTestIdentity
 		return ret
 	}).(LoadTestIdentityOutput)
+}
+
+func (o LoadTestIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoadTestIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o LoadTestIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {

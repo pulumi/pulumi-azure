@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingState;
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingNotification;
+import com.pulumi.azure.monitoring.outputs.AutoscaleSettingPredictive;
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -45,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingPredictiveArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import java.util.List;
@@ -102,8 +104,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;20.04-LTS&#34;)
+ *                 .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+ *                 .sku(&#34;20_04-lts&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
@@ -162,6 +164,10 @@ import javax.annotation.Nullable;
  *                             .cooldown(&#34;PT1M&#34;)
  *                             .build())
  *                         .build())
+ *                 .build())
+ *             .predictive(AutoscaleSettingPredictiveArgs.builder()
+ *                 .scaleMode(&#34;Enabled&#34;)
+ *                 .lookAheadTime(&#34;PT5M&#34;)
  *                 .build())
  *             .notification(AutoscaleSettingNotificationArgs.builder()
  *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
@@ -257,8 +263,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;20.04-LTS&#34;)
+ *                 .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+ *                 .sku(&#34;20_04-lts&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
@@ -413,8 +419,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;UbuntuServer&#34;)
- *                 .sku(&#34;20.04-LTS&#34;)
+ *                 .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+ *                 .sku(&#34;20_04-lts&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
@@ -553,6 +559,20 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AutoscaleSettingNotification>> notification() {
         return Codegen.optional(this.notification);
+    }
+    /**
+     * A `predictive` block as defined below.
+     * 
+     */
+    @Export(name="predictive", refs={AutoscaleSettingPredictive.class}, tree="[0]")
+    private Output</* @Nullable */ AutoscaleSettingPredictive> predictive;
+
+    /**
+     * @return A `predictive` block as defined below.
+     * 
+     */
+    public Output<Optional<AutoscaleSettingPredictive>> predictive() {
+        return Codegen.optional(this.predictive);
     }
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.

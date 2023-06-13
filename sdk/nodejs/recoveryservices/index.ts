@@ -15,6 +15,11 @@ export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
 utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 
+export { VaultResourceGuardAssociationArgs, VaultResourceGuardAssociationState } from "./vaultResourceGuardAssociation";
+export type VaultResourceGuardAssociation = import("./vaultResourceGuardAssociation").VaultResourceGuardAssociation;
+export const VaultResourceGuardAssociation: typeof import("./vaultResourceGuardAssociation").VaultResourceGuardAssociation = null as any;
+utilities.lazyLoad(exports, ["VaultResourceGuardAssociation"], () => require("./vaultResourceGuardAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,9 +27,12 @@ const _module = {
         switch (type) {
             case "azure:recoveryservices/vault:Vault":
                 return new Vault(name, <any>undefined, { urn })
+            case "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation":
+                return new VaultResourceGuardAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "recoveryservices/vault", _module)
+pulumi.runtime.registerResourceModule("azure", "recoveryservices/vaultResourceGuardAssociation", _module)

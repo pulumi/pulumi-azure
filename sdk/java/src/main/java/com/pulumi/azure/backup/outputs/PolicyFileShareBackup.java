@@ -3,28 +3,38 @@
 
 package com.pulumi.azure.backup.outputs;
 
+import com.pulumi.azure.backup.outputs.PolicyFileShareBackupHourly;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyFileShareBackup {
     /**
-     * @return Sets the backup frequency. Currently, only `Daily` is supported
+     * @return Sets the backup frequency. Possible values are `Daily` and `Hourly`.
      * 
      * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
      * 
      */
     private String frequency;
     /**
-     * @return The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * @return A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
      * 
      */
-    private String time;
+    private @Nullable PolicyFileShareBackupHourly hourly;
+    /**
+     * @return The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * 
+     * &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+     * 
+     */
+    private @Nullable String time;
 
     private PolicyFileShareBackup() {}
     /**
-     * @return Sets the backup frequency. Currently, only `Daily` is supported
+     * @return Sets the backup frequency. Possible values are `Daily` and `Hourly`.
      * 
      * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
      * 
@@ -33,11 +43,20 @@ public final class PolicyFileShareBackup {
         return this.frequency;
     }
     /**
-     * @return The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * @return A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
      * 
      */
-    public String time() {
-        return this.time;
+    public Optional<PolicyFileShareBackupHourly> hourly() {
+        return Optional.ofNullable(this.hourly);
+    }
+    /**
+     * @return The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * 
+     * &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+     * 
+     */
+    public Optional<String> time() {
+        return Optional.ofNullable(this.time);
     }
 
     public static Builder builder() {
@@ -50,11 +69,13 @@ public final class PolicyFileShareBackup {
     @CustomType.Builder
     public static final class Builder {
         private String frequency;
-        private String time;
+        private @Nullable PolicyFileShareBackupHourly hourly;
+        private @Nullable String time;
         public Builder() {}
         public Builder(PolicyFileShareBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequency = defaults.frequency;
+    	      this.hourly = defaults.hourly;
     	      this.time = defaults.time;
         }
 
@@ -64,13 +85,19 @@ public final class PolicyFileShareBackup {
             return this;
         }
         @CustomType.Setter
-        public Builder time(String time) {
-            this.time = Objects.requireNonNull(time);
+        public Builder hourly(@Nullable PolicyFileShareBackupHourly hourly) {
+            this.hourly = hourly;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable String time) {
+            this.time = time;
             return this;
         }
         public PolicyFileShareBackup build() {
             final var o = new PolicyFileShareBackup();
             o.frequency = frequency;
+            o.hourly = hourly;
             o.time = time;
             return o;
         }

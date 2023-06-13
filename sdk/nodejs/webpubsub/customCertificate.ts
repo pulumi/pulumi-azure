@@ -5,11 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Web Pubsub Custom Certificate.
+ * Manages an Azure Web PubSub Custom Certificate.
  *
  * ## Import
  *
- * Custom Certificate for a Web Pubsub service can be imported using the `resource id`, e.g.
+ * Custom Certificate for a Web PubSub service can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:webpubsub/customCertificate:CustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/WebPubsub1/customCertificates/cert1
@@ -44,23 +44,23 @@ export class CustomCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * The certificate version of the Web Pubsub Custom Certificate.
+     * The certificate version of the Web PubSub Custom Certificate.
      */
     public /*out*/ readonly certificateVersion!: pulumi.Output<string>;
     /**
-     * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     public readonly customCertificateId!: pulumi.Output<string>;
     /**
-     * The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
-     * > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+     * > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     public readonly webPubsubId!: pulumi.Output<string>;
 
@@ -104,23 +104,23 @@ export class CustomCertificate extends pulumi.CustomResource {
  */
 export interface CustomCertificateState {
     /**
-     * The certificate version of the Web Pubsub Custom Certificate.
+     * The certificate version of the Web PubSub Custom Certificate.
      */
     certificateVersion?: pulumi.Input<string>;
     /**
-     * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     customCertificateId?: pulumi.Input<string>;
     /**
-     * The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
-     * > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+     * > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     webPubsubId?: pulumi.Input<string>;
 }
@@ -130,19 +130,19 @@ export interface CustomCertificateState {
  */
 export interface CustomCertificateArgs {
     /**
-     * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     customCertificateId: pulumi.Input<string>;
     /**
-     * The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
-     * > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+     * > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     webPubsubId: pulumi.Input<string>;
 }

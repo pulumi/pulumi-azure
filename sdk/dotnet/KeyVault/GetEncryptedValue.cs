@@ -13,92 +13,12 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Encrypts or Decrypts a value using a Key Vault Key.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
-        ///     {
-        ///         Name = "mykeyvault",
-        ///         ResourceGroupName = "some-resource-group",
-        ///     });
-        /// 
-        ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
-        ///     {
-        ///         Name = "some-key",
-        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-        ///     });
-        /// 
-        ///     var encrypted = Azure.KeyVault.GetEncryptedValue.Invoke(new()
-        ///     {
-        ///         KeyVaultKeyId = azurerm_key_vault_key.Test.Id,
-        ///         Algorithm = "RSA1_5",
-        ///         PlainTextValue = "some-encrypted-value",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEncryptedValueResult> InvokeAsync(GetEncryptedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Encrypts or Decrypts a value using a Key Vault Key.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
-        ///     {
-        ///         Name = "mykeyvault",
-        ///         ResourceGroupName = "some-resource-group",
-        ///     });
-        /// 
-        ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
-        ///     {
-        ///         Name = "some-key",
-        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-        ///     });
-        /// 
-        ///     var encrypted = Azure.KeyVault.GetEncryptedValue.Invoke(new()
-        ///     {
-        ///         KeyVaultKeyId = azurerm_key_vault_key.Test.Id,
-        ///         Algorithm = "RSA1_5",
-        ///         PlainTextValue = "some-encrypted-value",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEncryptedValueResult> Invoke(GetEncryptedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueInvokeArgs(), options.WithDefaults());
@@ -210,6 +130,10 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetEncryptedValueResult
     {
         public readonly string Algorithm;
+        /// <summary>
+        /// The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+        /// </summary>
+        public readonly string DecodedPlainTextValue;
         public readonly string? EncryptedData;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -222,6 +146,8 @@ namespace Pulumi.Azure.KeyVault
         private GetEncryptedValueResult(
             string algorithm,
 
+            string decodedPlainTextValue,
+
             string? encryptedData,
 
             string id,
@@ -231,6 +157,7 @@ namespace Pulumi.Azure.KeyVault
             string? plainTextValue)
         {
             Algorithm = algorithm;
+            DecodedPlainTextValue = decodedPlainTextValue;
             EncryptedData = encryptedData;
             Id = id;
             KeyVaultKeyId = keyVaultKeyId;

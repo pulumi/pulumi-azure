@@ -65,7 +65,7 @@ type PostgresqlCluster struct {
 
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
 	CitusVersion pulumi.StringOutput `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrOutput `pulumi:"coordinatorPublicIpAccessEnabled"`
@@ -168,7 +168,7 @@ func GetPostgresqlCluster(ctx *pulumi.Context,
 type postgresqlClusterState struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
@@ -221,7 +221,7 @@ type postgresqlClusterState struct {
 type PostgresqlClusterState struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
@@ -278,7 +278,7 @@ func (PostgresqlClusterState) ElementType() reflect.Type {
 type postgresqlClusterArgs struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
@@ -330,7 +330,7 @@ type postgresqlClusterArgs struct {
 type PostgresqlClusterArgs struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringInput
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
@@ -470,7 +470,7 @@ func (o PostgresqlClusterOutput) AdministratorLoginPassword() pulumi.StringOutpu
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
 }
 
-// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
 func (o PostgresqlClusterOutput) CitusVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.CitusVersion }).(pulumi.StringOutput)
 }

@@ -179,14 +179,14 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
         return this.metadata;
     }
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * @return The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
     public Output<String> name() {

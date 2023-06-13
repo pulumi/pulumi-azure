@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
- * const test = new azure.network.VirtualHub("test", {
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
  * const exampleRouteMap = new azure.network.RouteMap("exampleRouteMap", {
- *     virtualHubId: azurerm_virtual_hub.example.id,
+ *     virtualHubId: exampleVirtualHub.id,
  *     rules: [{
  *         name: "rule1",
  *         nextStepIfMatched: "Continue",

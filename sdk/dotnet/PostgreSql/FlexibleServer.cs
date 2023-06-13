@@ -263,7 +263,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         /// </summary>
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         /// </summary>
@@ -663,7 +663,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         /// </summary>

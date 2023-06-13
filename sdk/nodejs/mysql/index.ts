@@ -35,6 +35,11 @@ export type FlexibleServer = import("./flexibleServer").FlexibleServer;
 export const FlexibleServer: typeof import("./flexibleServer").FlexibleServer = null as any;
 utilities.lazyLoad(exports, ["FlexibleServer"], () => require("./flexibleServer"));
 
+export { FlexibleServerActiveDirectoryAdministratorArgs, FlexibleServerActiveDirectoryAdministratorState } from "./flexibleServerActiveDirectoryAdministrator";
+export type FlexibleServerActiveDirectoryAdministrator = import("./flexibleServerActiveDirectoryAdministrator").FlexibleServerActiveDirectoryAdministrator;
+export const FlexibleServerActiveDirectoryAdministrator: typeof import("./flexibleServerActiveDirectoryAdministrator").FlexibleServerActiveDirectoryAdministrator = null as any;
+utilities.lazyLoad(exports, ["FlexibleServerActiveDirectoryAdministrator"], () => require("./flexibleServerActiveDirectoryAdministrator"));
+
 export { FlexibleServerConfigurationArgs, FlexibleServerConfigurationState } from "./flexibleServerConfiguration";
 export type FlexibleServerConfiguration = import("./flexibleServerConfiguration").FlexibleServerConfiguration;
 export const FlexibleServerConfiguration: typeof import("./flexibleServerConfiguration").FlexibleServerConfiguration = null as any;
@@ -87,6 +92,8 @@ const _module = {
                 return new FlexibleDatabase(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServer:FlexibleServer":
                 return new FlexibleServer(name, <any>undefined, { urn })
+            case "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
+                return new FlexibleServerActiveDirectoryAdministrator(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration":
                 return new FlexibleServerConfiguration(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule":
@@ -108,6 +115,7 @@ pulumi.runtime.registerResourceModule("azure", "mysql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServer", _module)
+pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerActiveDirectoryAdministrator", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/server", _module)

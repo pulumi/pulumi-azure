@@ -545,8 +545,8 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             instances=1,
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ),
             network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
@@ -636,8 +636,8 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             instances=1,
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ),
             network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(

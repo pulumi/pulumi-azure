@@ -54,6 +54,12 @@ namespace Pulumi.Azure.SignalR.Inputs
         [Input("urlTemplate", required: true)]
         public Input<string> UrlTemplate { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
         public ServiceUpstreamEndpointGetArgs()
         {
         }

@@ -18,6 +18,10 @@ import (
 //
 // import (
 //
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -25,12 +29,115 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := healthcare.NewMedtechServiceFhirDestination(ctx, "test", &healthcare.MedtechServiceFhirDestinationArgs{
-//				DestinationFhirMappingJson:        pulumi.String("  {\n            \"templateType\": \"CollectionFhirTemplate\",\n            \"template\": [\n              {\n                \"templateType\": \"CodeValueFhir\",\n                \"template\": {\n                  \"codes\": [\n                    {\n                      \"code\": \"8867-4\",\n                      \"system\": \"http://loinc.org\",\n                      \"display\": \"Heart rate\"\n                    }\n                  ],\n                  \"periodInterval\": 60,\n                  \"typeName\": \"heartrate\",\n                  \"value\": {\n                    \"defaultPeriod\": 5000,\n                    \"unit\": \"count/min\",\n                    \"valueName\": \"hr\",\n                    \"valueType\": \"SampledData\"\n                  }\n                }\n              }\n            ]\n  }\n  \n"),
-//				DestinationFhirServiceId:          pulumi.String("fhir_service_id"),
-//				DestinationIdentityResolutionType: pulumi.String("Create"),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(1),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFhirService, err := healthcare.NewFhirService(ctx, "exampleFhirService", &healthcare.FhirServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				WorkspaceId:       exampleWorkspace.ID(),
+//				Kind:              pulumi.String("fhir-R4"),
+//				Authentication: &healthcare.FhirServiceAuthenticationArgs{
+//					Authority: pulumi.String("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+//					Audience:  pulumi.String("https://examplefhir.fhir.azurehealthcareapis.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"templateType": "CollectionContent",
+//				"template":     []interface{}{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleMedtechService, err := healthcare.NewMedtechService(ctx, "exampleMedtechService", &healthcare.MedtechServiceArgs{
+//				WorkspaceId:               exampleWorkspace.ID(),
+//				Location:                  exampleResourceGroup.Location,
+//				EventhubNamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:              exampleEventHub.Name,
+//				EventhubConsumerGroupName: exampleConsumerGroup.Name,
+//				DeviceMappingJson:         pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"templateType": "CollectionFhirTemplate",
+//				"template": []map[string]interface{}{
+//					map[string]interface{}{
+//						"templateType": "CodeValueFhir",
+//						"template": map[string]interface{}{
+//							"codes": []map[string]interface{}{
+//								map[string]interface{}{
+//									"code":    "8867-4",
+//									"system":  "http://loinc.org",
+//									"display": "Heart rate",
+//								},
+//							},
+//							"periodInterval": 60,
+//							"typeName":       "heartrate",
+//							"value": map[string]interface{}{
+//								"defaultPeriod": 5000,
+//								"unit":          "count/min",
+//								"valueName":     "hr",
+//								"valueType":     "SampledData",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = healthcare.NewMedtechServiceFhirDestination(ctx, "exampleMedtechServiceFhirDestination", &healthcare.MedtechServiceFhirDestinationArgs{
 //				Location:                          pulumi.String("east us"),
-//				MedtechServiceId:                  pulumi.String("mt_service_id"),
+//				MedtechServiceId:                  exampleMedtechService.ID(),
+//				DestinationFhirServiceId:          exampleFhirService.ID(),
+//				DestinationIdentityResolutionType: pulumi.String("Create"),
+//				DestinationFhirMappingJson:        pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

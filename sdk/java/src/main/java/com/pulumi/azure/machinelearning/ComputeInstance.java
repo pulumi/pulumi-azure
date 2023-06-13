@@ -255,6 +255,20 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * 
+     */
+    @Export(name="nodePublicIpEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> nodePublicIpEnabled;
+
+    /**
+     * @return Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> nodePublicIpEnabled() {
+        return Codegen.optional(this.nodePublicIpEnabled);
+    }
+    /**
      * A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */

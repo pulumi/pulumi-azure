@@ -110,6 +110,8 @@ type SpringCloudGateway struct {
 	ApiMetadata SpringCloudGatewayApiMetadataPtrOutput `pulumi:"apiMetadata"`
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes pulumi.StringArrayOutput `pulumi:"applicationPerformanceMonitoringTypes"`
+	// A `clientAuthorization` block as defined below.
+	ClientAuthorization SpringCloudGatewayClientAuthorizationPtrOutput `pulumi:"clientAuthorization"`
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrOutput `pulumi:"cors"`
 	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
@@ -177,6 +179,8 @@ type springCloudGatewayState struct {
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes []string `pulumi:"applicationPerformanceMonitoringTypes"`
+	// A `clientAuthorization` block as defined below.
+	ClientAuthorization *SpringCloudGatewayClientAuthorization `pulumi:"clientAuthorization"`
 	// A `cors` block as defined below.
 	Cors *SpringCloudGatewayCors `pulumi:"cors"`
 	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
@@ -206,6 +210,8 @@ type SpringCloudGatewayState struct {
 	ApiMetadata SpringCloudGatewayApiMetadataPtrInput
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes pulumi.StringArrayInput
+	// A `clientAuthorization` block as defined below.
+	ClientAuthorization SpringCloudGatewayClientAuthorizationPtrInput
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrInput
 	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
@@ -239,6 +245,8 @@ type springCloudGatewayArgs struct {
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes []string `pulumi:"applicationPerformanceMonitoringTypes"`
+	// A `clientAuthorization` block as defined below.
+	ClientAuthorization *SpringCloudGatewayClientAuthorization `pulumi:"clientAuthorization"`
 	// A `cors` block as defined below.
 	Cors *SpringCloudGatewayCors `pulumi:"cors"`
 	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
@@ -267,6 +275,8 @@ type SpringCloudGatewayArgs struct {
 	ApiMetadata SpringCloudGatewayApiMetadataPtrInput
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes pulumi.StringArrayInput
+	// A `clientAuthorization` block as defined below.
+	ClientAuthorization SpringCloudGatewayClientAuthorizationPtrInput
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrInput
 	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
@@ -384,6 +394,13 @@ func (o SpringCloudGatewayOutput) ApiMetadata() SpringCloudGatewayApiMetadataPtr
 // Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 func (o SpringCloudGatewayOutput) ApplicationPerformanceMonitoringTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringArrayOutput { return v.ApplicationPerformanceMonitoringTypes }).(pulumi.StringArrayOutput)
+}
+
+// A `clientAuthorization` block as defined below.
+func (o SpringCloudGatewayOutput) ClientAuthorization() SpringCloudGatewayClientAuthorizationPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayClientAuthorizationPtrOutput {
+		return v.ClientAuthorization
+	}).(SpringCloudGatewayClientAuthorizationPtrOutput)
 }
 
 // A `cors` block as defined below.

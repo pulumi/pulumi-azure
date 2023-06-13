@@ -20,7 +20,9 @@ class ProviderArgs:
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_id_file_path: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_file_path: Optional[pulumi.Input[str]] = None,
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
@@ -47,7 +49,10 @@ class ProviderArgs:
         :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
                Principal using a Client Certificate.
         :param pulumi.Input[str] client_id: The Client ID which should be used.
+        :param pulumi.Input[str] client_id_file_path: The path to a file containing the Client ID which should be used.
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        :param pulumi.Input[str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+               using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
@@ -80,8 +85,12 @@ class ProviderArgs:
             pulumi.set(__self__, "client_certificate_path", client_certificate_path)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if client_id_file_path is not None:
+            pulumi.set(__self__, "client_id_file_path", client_id_file_path)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_file_path is not None:
+            pulumi.set(__self__, "client_secret_file_path", client_secret_file_path)
         if disable_correlation_request_id is not None:
             pulumi.set(__self__, "disable_correlation_request_id", disable_correlation_request_id)
         if disable_terraform_partner_id is not None:
@@ -189,6 +198,18 @@ class ProviderArgs:
         pulumi.set(self, "client_id", value)
 
     @property
+    @pulumi.getter(name="clientIdFilePath")
+    def client_id_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to a file containing the Client ID which should be used.
+        """
+        return pulumi.get(self, "client_id_file_path")
+
+    @client_id_file_path.setter
+    def client_id_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id_file_path", value)
+
+    @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
@@ -199,6 +220,19 @@ class ProviderArgs:
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretFilePath")
+    def client_secret_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+        using a Client Secret.
+        """
+        return pulumi.get(self, "client_secret_file_path")
+
+    @client_secret_file_path.setter
+    def client_secret_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_file_path", value)
 
     @property
     @pulumi.getter(name="disableCorrelationRequestId")
@@ -428,7 +462,9 @@ class Provider(pulumi.ProviderResource):
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_id_file_path: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_file_path: Optional[pulumi.Input[str]] = None,
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
@@ -462,7 +498,10 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
                Principal using a Client Certificate.
         :param pulumi.Input[str] client_id: The Client ID which should be used.
+        :param pulumi.Input[str] client_id_file_path: The path to a file containing the Client ID which should be used.
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        :param pulumi.Input[str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+               using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
@@ -517,7 +556,9 @@ class Provider(pulumi.ProviderResource):
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_id_file_path: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_file_path: Optional[pulumi.Input[str]] = None,
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
@@ -550,7 +591,9 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["client_certificate_password"] = client_certificate_password
             __props__.__dict__["client_certificate_path"] = client_certificate_path
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_id_file_path"] = client_id_file_path
             __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret_file_path"] = client_secret_file_path
             __props__.__dict__["disable_correlation_request_id"] = pulumi.Output.from_input(disable_correlation_request_id).apply(pulumi.runtime.to_json) if disable_correlation_request_id is not None else None
             __props__.__dict__["disable_terraform_partner_id"] = pulumi.Output.from_input(disable_terraform_partner_id).apply(pulumi.runtime.to_json) if disable_terraform_partner_id is not None else None
             if environment is None:
@@ -620,12 +663,29 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "client_id")
 
     @property
+    @pulumi.getter(name="clientIdFilePath")
+    def client_id_file_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to a file containing the Client ID which should be used.
+        """
+        return pulumi.get(self, "client_id_file_path")
+
+    @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[Optional[str]]:
         """
         The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="clientSecretFilePath")
+    def client_secret_file_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+        using a Client Secret.
+        """
+        return pulumi.get(self, "client_secret_file_path")
 
     @property
     @pulumi.getter

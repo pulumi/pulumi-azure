@@ -15,21 +15,10 @@ namespace Pulumi.Azure.PostgreSql.Outputs
     {
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-        /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
-        public readonly string? PrincipalId;
         /// <summary>
-        /// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
-        /// 
-        /// &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-        /// 
-        /// &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
-        /// </summary>
-        public readonly string? TenantId;
-        /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
         /// </summary>
         public readonly string Type;
 
@@ -37,15 +26,9 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         private FlexibleServerIdentity(
             ImmutableArray<string> identityIds,
 
-            string? principalId,
-
-            string? tenantId,
-
             string type)
         {
             IdentityIds = identityIds;
-            PrincipalId = principalId;
-            TenantId = tenantId;
             Type = type;
         }
     }

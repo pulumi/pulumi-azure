@@ -51,6 +51,19 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ## Blocks Reference
+ * 
+ * ### `identity` Block
+ * 
+ * The `identity` block supports the following arguments:
+ * 
+ * * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+ * * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+ * 
+ * In addition to the arguments defined above, the `identity` block exports the following attributes:
+ * 
+ * * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+ * * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
  * 
  * ## Import
  * 
@@ -94,14 +107,14 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      * 
      */
     @Export(name="identity", refs={LoadTestIdentity.class}, tree="[0]")
     private Output</* @Nullable */ LoadTestIdentity> identity;
 
     /**
-     * @return Specifies the Managed Identity which should be assigned to this Load Test.
+     * @return An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      * 
      */
     public Output<Optional<LoadTestIdentity>> identity() {

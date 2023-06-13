@@ -103,18 +103,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:backup/protectedVM:ProtectedVM")
 public class ProtectedVM extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the id of the backup policy to use.
+     * Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
      * 
      */
     @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
-    private Output<String> backupPolicyId;
+    private Output</* @Nullable */ String> backupPolicyId;
 
     /**
-     * @return Specifies the id of the backup policy to use.
+     * @return Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
      * 
      */
-    public Output<String> backupPolicyId() {
-        return this.backupPolicyId;
+    public Output<Optional<String>> backupPolicyId() {
+        return Codegen.optional(this.backupPolicyId);
     }
     /**
      * A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
@@ -143,6 +143,20 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<Integer>>> includeDiskLuns() {
         return Codegen.optional(this.includeDiskLuns);
+    }
+    /**
+     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * 
+     */
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
+    private Output<String> protectionState;
+
+    /**
+     * @return Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * 
+     */
+    public Output<String> protectionState() {
+        return this.protectionState;
     }
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.

@@ -4193,6 +4193,173 @@ func (o MongoDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type MongoRoleDefinitionPrivilege struct {
+	// A list of actions that are allowed.
+	Actions []string `pulumi:"actions"`
+	// A `resource` block as defined below.
+	Resource MongoRoleDefinitionPrivilegeResource `pulumi:"resource"`
+}
+
+// MongoRoleDefinitionPrivilegeInput is an input type that accepts MongoRoleDefinitionPrivilegeArgs and MongoRoleDefinitionPrivilegeOutput values.
+// You can construct a concrete instance of `MongoRoleDefinitionPrivilegeInput` via:
+//
+//	MongoRoleDefinitionPrivilegeArgs{...}
+type MongoRoleDefinitionPrivilegeInput interface {
+	pulumi.Input
+
+	ToMongoRoleDefinitionPrivilegeOutput() MongoRoleDefinitionPrivilegeOutput
+	ToMongoRoleDefinitionPrivilegeOutputWithContext(context.Context) MongoRoleDefinitionPrivilegeOutput
+}
+
+type MongoRoleDefinitionPrivilegeArgs struct {
+	// A list of actions that are allowed.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// A `resource` block as defined below.
+	Resource MongoRoleDefinitionPrivilegeResourceInput `pulumi:"resource"`
+}
+
+func (MongoRoleDefinitionPrivilegeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoRoleDefinitionPrivilege)(nil)).Elem()
+}
+
+func (i MongoRoleDefinitionPrivilegeArgs) ToMongoRoleDefinitionPrivilegeOutput() MongoRoleDefinitionPrivilegeOutput {
+	return i.ToMongoRoleDefinitionPrivilegeOutputWithContext(context.Background())
+}
+
+func (i MongoRoleDefinitionPrivilegeArgs) ToMongoRoleDefinitionPrivilegeOutputWithContext(ctx context.Context) MongoRoleDefinitionPrivilegeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoRoleDefinitionPrivilegeOutput)
+}
+
+// MongoRoleDefinitionPrivilegeArrayInput is an input type that accepts MongoRoleDefinitionPrivilegeArray and MongoRoleDefinitionPrivilegeArrayOutput values.
+// You can construct a concrete instance of `MongoRoleDefinitionPrivilegeArrayInput` via:
+//
+//	MongoRoleDefinitionPrivilegeArray{ MongoRoleDefinitionPrivilegeArgs{...} }
+type MongoRoleDefinitionPrivilegeArrayInput interface {
+	pulumi.Input
+
+	ToMongoRoleDefinitionPrivilegeArrayOutput() MongoRoleDefinitionPrivilegeArrayOutput
+	ToMongoRoleDefinitionPrivilegeArrayOutputWithContext(context.Context) MongoRoleDefinitionPrivilegeArrayOutput
+}
+
+type MongoRoleDefinitionPrivilegeArray []MongoRoleDefinitionPrivilegeInput
+
+func (MongoRoleDefinitionPrivilegeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoRoleDefinitionPrivilege)(nil)).Elem()
+}
+
+func (i MongoRoleDefinitionPrivilegeArray) ToMongoRoleDefinitionPrivilegeArrayOutput() MongoRoleDefinitionPrivilegeArrayOutput {
+	return i.ToMongoRoleDefinitionPrivilegeArrayOutputWithContext(context.Background())
+}
+
+func (i MongoRoleDefinitionPrivilegeArray) ToMongoRoleDefinitionPrivilegeArrayOutputWithContext(ctx context.Context) MongoRoleDefinitionPrivilegeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoRoleDefinitionPrivilegeArrayOutput)
+}
+
+type MongoRoleDefinitionPrivilegeOutput struct{ *pulumi.OutputState }
+
+func (MongoRoleDefinitionPrivilegeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoRoleDefinitionPrivilege)(nil)).Elem()
+}
+
+func (o MongoRoleDefinitionPrivilegeOutput) ToMongoRoleDefinitionPrivilegeOutput() MongoRoleDefinitionPrivilegeOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionPrivilegeOutput) ToMongoRoleDefinitionPrivilegeOutputWithContext(ctx context.Context) MongoRoleDefinitionPrivilegeOutput {
+	return o
+}
+
+// A list of actions that are allowed.
+func (o MongoRoleDefinitionPrivilegeOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MongoRoleDefinitionPrivilege) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// A `resource` block as defined below.
+func (o MongoRoleDefinitionPrivilegeOutput) Resource() MongoRoleDefinitionPrivilegeResourceOutput {
+	return o.ApplyT(func(v MongoRoleDefinitionPrivilege) MongoRoleDefinitionPrivilegeResource { return v.Resource }).(MongoRoleDefinitionPrivilegeResourceOutput)
+}
+
+type MongoRoleDefinitionPrivilegeArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoRoleDefinitionPrivilegeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoRoleDefinitionPrivilege)(nil)).Elem()
+}
+
+func (o MongoRoleDefinitionPrivilegeArrayOutput) ToMongoRoleDefinitionPrivilegeArrayOutput() MongoRoleDefinitionPrivilegeArrayOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionPrivilegeArrayOutput) ToMongoRoleDefinitionPrivilegeArrayOutputWithContext(ctx context.Context) MongoRoleDefinitionPrivilegeArrayOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionPrivilegeArrayOutput) Index(i pulumi.IntInput) MongoRoleDefinitionPrivilegeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoRoleDefinitionPrivilege {
+		return vs[0].([]MongoRoleDefinitionPrivilege)[vs[1].(int)]
+	}).(MongoRoleDefinitionPrivilegeOutput)
+}
+
+type MongoRoleDefinitionPrivilegeResource struct {
+	// The name of the Mongo DB Collection that the Role Definition is applied.
+	CollectionName *string `pulumi:"collectionName"`
+	// The name of the Mongo DB that the Role Definition is applied.
+	DbName *string `pulumi:"dbName"`
+}
+
+// MongoRoleDefinitionPrivilegeResourceInput is an input type that accepts MongoRoleDefinitionPrivilegeResourceArgs and MongoRoleDefinitionPrivilegeResourceOutput values.
+// You can construct a concrete instance of `MongoRoleDefinitionPrivilegeResourceInput` via:
+//
+//	MongoRoleDefinitionPrivilegeResourceArgs{...}
+type MongoRoleDefinitionPrivilegeResourceInput interface {
+	pulumi.Input
+
+	ToMongoRoleDefinitionPrivilegeResourceOutput() MongoRoleDefinitionPrivilegeResourceOutput
+	ToMongoRoleDefinitionPrivilegeResourceOutputWithContext(context.Context) MongoRoleDefinitionPrivilegeResourceOutput
+}
+
+type MongoRoleDefinitionPrivilegeResourceArgs struct {
+	// The name of the Mongo DB Collection that the Role Definition is applied.
+	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
+	// The name of the Mongo DB that the Role Definition is applied.
+	DbName pulumi.StringPtrInput `pulumi:"dbName"`
+}
+
+func (MongoRoleDefinitionPrivilegeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoRoleDefinitionPrivilegeResource)(nil)).Elem()
+}
+
+func (i MongoRoleDefinitionPrivilegeResourceArgs) ToMongoRoleDefinitionPrivilegeResourceOutput() MongoRoleDefinitionPrivilegeResourceOutput {
+	return i.ToMongoRoleDefinitionPrivilegeResourceOutputWithContext(context.Background())
+}
+
+func (i MongoRoleDefinitionPrivilegeResourceArgs) ToMongoRoleDefinitionPrivilegeResourceOutputWithContext(ctx context.Context) MongoRoleDefinitionPrivilegeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoRoleDefinitionPrivilegeResourceOutput)
+}
+
+type MongoRoleDefinitionPrivilegeResourceOutput struct{ *pulumi.OutputState }
+
+func (MongoRoleDefinitionPrivilegeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoRoleDefinitionPrivilegeResource)(nil)).Elem()
+}
+
+func (o MongoRoleDefinitionPrivilegeResourceOutput) ToMongoRoleDefinitionPrivilegeResourceOutput() MongoRoleDefinitionPrivilegeResourceOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionPrivilegeResourceOutput) ToMongoRoleDefinitionPrivilegeResourceOutputWithContext(ctx context.Context) MongoRoleDefinitionPrivilegeResourceOutput {
+	return o
+}
+
+// The name of the Mongo DB Collection that the Role Definition is applied.
+func (o MongoRoleDefinitionPrivilegeResourceOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoRoleDefinitionPrivilegeResource) *string { return v.CollectionName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Mongo DB that the Role Definition is applied.
+func (o MongoRoleDefinitionPrivilegeResourceOutput) DbName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoRoleDefinitionPrivilegeResource) *string { return v.DbName }).(pulumi.StringPtrOutput)
+}
+
 type PostgresqlClusterMaintenanceWindow struct {
 	// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
 	DayOfWeek *int `pulumi:"dayOfWeek"`
@@ -6805,6 +6972,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionSystemIndexArrayInput)(nil)).Elem(), MongoCollectionSystemIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseAutoscaleSettingsInput)(nil)).Elem(), MongoDatabaseAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseAutoscaleSettingsPtrInput)(nil)).Elem(), MongoDatabaseAutoscaleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoRoleDefinitionPrivilegeInput)(nil)).Elem(), MongoRoleDefinitionPrivilegeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoRoleDefinitionPrivilegeArrayInput)(nil)).Elem(), MongoRoleDefinitionPrivilegeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoRoleDefinitionPrivilegeResourceInput)(nil)).Elem(), MongoRoleDefinitionPrivilegeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterMaintenanceWindowInput)(nil)).Elem(), PostgresqlClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterMaintenanceWindowPtrInput)(nil)).Elem(), PostgresqlClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerAutoscaleSettingsInput)(nil)).Elem(), SqlContainerAutoscaleSettingsArgs{})
@@ -6907,6 +7077,9 @@ func init() {
 	pulumi.RegisterOutputType(MongoCollectionSystemIndexArrayOutput{})
 	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MongoRoleDefinitionPrivilegeOutput{})
+	pulumi.RegisterOutputType(MongoRoleDefinitionPrivilegeArrayOutput{})
+	pulumi.RegisterOutputType(MongoRoleDefinitionPrivilegeResourceOutput{})
 	pulumi.RegisterOutputType(PostgresqlClusterMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(PostgresqlClusterMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsOutput{})

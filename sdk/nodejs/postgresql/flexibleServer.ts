@@ -197,7 +197,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */
@@ -389,7 +389,7 @@ export interface FlexibleServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */
@@ -498,7 +498,7 @@ export interface FlexibleServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */

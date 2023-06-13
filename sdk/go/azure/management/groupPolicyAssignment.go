@@ -85,7 +85,7 @@ type GroupPolicyAssignment struct {
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages GroupPolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
@@ -152,7 +152,7 @@ type groupPolicyAssignmentState struct {
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata *string `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
 	Name *string `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages []GroupPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
@@ -185,7 +185,7 @@ type GroupPolicyAssignmentState struct {
 	ManagementGroupId pulumi.StringPtrInput
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringPtrInput
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
 	Name pulumi.StringPtrInput
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages GroupPolicyAssignmentNonComplianceMessageArrayInput
@@ -222,7 +222,7 @@ type groupPolicyAssignmentArgs struct {
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata *string `pulumi:"metadata"`
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
 	Name *string `pulumi:"name"`
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages []GroupPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
@@ -256,7 +256,7 @@ type GroupPolicyAssignmentArgs struct {
 	ManagementGroupId pulumi.StringInput
 	// A JSON mapping of any Metadata for this Policy.
 	Metadata pulumi.StringPtrInput
-	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+	// The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
 	Name pulumi.StringPtrInput
 	// One or more `nonComplianceMessage` blocks as defined below.
 	NonComplianceMessages GroupPolicyAssignmentNonComplianceMessageArrayInput
@@ -396,7 +396,7 @@ func (o GroupPolicyAssignmentOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyAssignment) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+// The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
 func (o GroupPolicyAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

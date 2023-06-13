@@ -11,6 +11,12 @@ from .. import _utilities
 
 __all__ = [
     'ConnectedRegistryNotificationArgs',
+    'FluxConfigurationBlobStorageArgs',
+    'FluxConfigurationBlobStorageManagedIdentityArgs',
+    'FluxConfigurationBlobStorageServicePrincipalArgs',
+    'FluxConfigurationBucketArgs',
+    'FluxConfigurationGitRepositoryArgs',
+    'FluxConfigurationKustomizationArgs',
     'GroupContainerArgs',
     'GroupContainerGpuArgs',
     'GroupContainerGpuLimitArgs',
@@ -176,6 +182,710 @@ class ConnectedRegistryNotificationArgs:
     @tag.setter
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
+
+
+@pulumi.input_type
+class FluxConfigurationBlobStorageArgs:
+    def __init__(__self__, *,
+                 container_id: pulumi.Input[str],
+                 account_key: Optional[pulumi.Input[str]] = None,
+                 local_auth_reference: Optional[pulumi.Input[str]] = None,
+                 managed_identity: Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs']] = None,
+                 sas_token: Optional[pulumi.Input[str]] = None,
+                 service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
+                 sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] container_id: Specifies the Azure Blob container ID.
+        :param pulumi.Input[str] account_key: Specifies the account key (shared key) to access the storage account.
+        :param pulumi.Input[str] local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        :param pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input[str] sas_token: Specifies the shared access token to access the storage container.
+        :param pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
+        :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        """
+        pulumi.set(__self__, "container_id", container_id)
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if local_auth_reference is not None:
+            pulumi.set(__self__, "local_auth_reference", local_auth_reference)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the Azure Blob container ID.
+        """
+        return pulumi.get(self, "container_id")
+
+    @container_id.setter
+    def container_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_id", value)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the account key (shared key) to access the storage account.
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="localAuthReference")
+    def local_auth_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        return pulumi.get(self, "local_auth_reference")
+
+    @local_auth_reference.setter
+    def local_auth_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_auth_reference", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs']]:
+        """
+        A `managed_identity` block as defined below.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the shared access token to access the storage container.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @sas_token.setter
+    def sas_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sas_token", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]:
+        """
+        A `service_principal` block as defined below.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @service_principal.setter
+    def service_principal(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]):
+        pulumi.set(self, "service_principal", value)
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @sync_interval_in_seconds.setter
+    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sync_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class FluxConfigurationBlobStorageManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: Specifies the client ID for authenticating a Managed Identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the client ID for authenticating a Managed Identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+
+@pulumi.input_type
+class FluxConfigurationBlobStorageServicePrincipalArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 client_certificate_base64: Optional[pulumi.Input[str]] = None,
+                 client_certificate_password: Optional[pulumi.Input[str]] = None,
+                 client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: Specifies the client ID for authenticating a Service Principal.
+        :param pulumi.Input[str] tenant_id: Specifies the tenant ID for authenticating a Service Principal.
+        :param pulumi.Input[str] client_certificate_base64: Base64-encoded certificate used to authenticate a Service Principal .
+        :param pulumi.Input[str] client_certificate_password: Specifies the password for the certificate used to authenticate a Service Principal .
+        :param pulumi.Input[bool] client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+        :param pulumi.Input[str] client_secret: Specifies the client secret for authenticating a Service Principal.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if client_certificate_base64 is not None:
+            pulumi.set(__self__, "client_certificate_base64", client_certificate_base64)
+        if client_certificate_password is not None:
+            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+        if client_certificate_send_chain is not None:
+            pulumi.set(__self__, "client_certificate_send_chain", client_certificate_send_chain)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the client ID for authenticating a Service Principal.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the tenant ID for authenticating a Service Principal.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateBase64")
+    def client_certificate_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64-encoded certificate used to authenticate a Service Principal .
+        """
+        return pulumi.get(self, "client_certificate_base64")
+
+    @client_certificate_base64.setter
+    def client_certificate_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_base64", value)
+
+    @property
+    @pulumi.getter(name="clientCertificatePassword")
+    def client_certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the password for the certificate used to authenticate a Service Principal .
+        """
+        return pulumi.get(self, "client_certificate_password")
+
+    @client_certificate_password.setter
+    def client_certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_password", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateSendChain")
+    def client_certificate_send_chain(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+        """
+        return pulumi.get(self, "client_certificate_send_chain")
+
+    @client_certificate_send_chain.setter
+    def client_certificate_send_chain(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_certificate_send_chain", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the client secret for authenticating a Service Principal.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+
+@pulumi.input_type
+class FluxConfigurationBucketArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 local_auth_reference: Optional[pulumi.Input[str]] = None,
+                 secret_key_base64: Optional[pulumi.Input[str]] = None,
+                 sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tls_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: Specifies the bucket name to sync from the url endpoint for the flux configuration.
+        :param pulumi.Input[str] url: Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+        :param pulumi.Input[str] access_key: Specifies the plaintext access key used to securely access the S3 bucket.
+        :param pulumi.Input[str] local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+        :param pulumi.Input[str] secret_key_base64: Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+        :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+        :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+        :param pulumi.Input[bool] tls_enabled: Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "url", url)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if local_auth_reference is not None:
+            pulumi.set(__self__, "local_auth_reference", local_auth_reference)
+        if secret_key_base64 is not None:
+            pulumi.set(__self__, "secret_key_base64", secret_key_base64)
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if tls_enabled is not None:
+            pulumi.set(__self__, "tls_enabled", tls_enabled)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the bucket name to sync from the url endpoint for the flux configuration.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the plaintext access key used to securely access the S3 bucket.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="localAuthReference")
+    def local_auth_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+        """
+        return pulumi.get(self, "local_auth_reference")
+
+    @local_auth_reference.setter
+    def local_auth_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_auth_reference", value)
+
+    @property
+    @pulumi.getter(name="secretKeyBase64")
+    def secret_key_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+        """
+        return pulumi.get(self, "secret_key_base64")
+
+    @secret_key_base64.setter
+    def secret_key_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_key_base64", value)
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @sync_interval_in_seconds.setter
+    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sync_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="tlsEnabled")
+    def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "tls_enabled")
+
+    @tls_enabled.setter
+    def tls_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_enabled", value)
+
+
+@pulumi.input_type
+class FluxConfigurationGitRepositoryArgs:
+    def __init__(__self__, *,
+                 reference_type: pulumi.Input[str],
+                 reference_value: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 https_ca_cert_base64: Optional[pulumi.Input[str]] = None,
+                 https_key_base64: Optional[pulumi.Input[str]] = None,
+                 https_user: Optional[pulumi.Input[str]] = None,
+                 local_auth_reference: Optional[pulumi.Input[str]] = None,
+                 ssh_known_hosts_base64: Optional[pulumi.Input[str]] = None,
+                 ssh_private_key_base64: Optional[pulumi.Input[str]] = None,
+                 sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] reference_type: Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+        :param pulumi.Input[str] reference_value: Specifies the source reference value for the GitRepository object.
+        :param pulumi.Input[str] url: Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+        :param pulumi.Input[str] https_ca_cert_base64: Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+        :param pulumi.Input[str] https_key_base64: Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+        :param pulumi.Input[str] https_user: Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+        :param pulumi.Input[str] local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+        :param pulumi.Input[str] ssh_known_hosts_base64: Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+        :param pulumi.Input[str] ssh_private_key_base64: Specifies the Base64-encoded SSH private key in PEM format.
+        :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+        :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        pulumi.set(__self__, "reference_type", reference_type)
+        pulumi.set(__self__, "reference_value", reference_value)
+        pulumi.set(__self__, "url", url)
+        if https_ca_cert_base64 is not None:
+            pulumi.set(__self__, "https_ca_cert_base64", https_ca_cert_base64)
+        if https_key_base64 is not None:
+            pulumi.set(__self__, "https_key_base64", https_key_base64)
+        if https_user is not None:
+            pulumi.set(__self__, "https_user", https_user)
+        if local_auth_reference is not None:
+            pulumi.set(__self__, "local_auth_reference", local_auth_reference)
+        if ssh_known_hosts_base64 is not None:
+            pulumi.set(__self__, "ssh_known_hosts_base64", ssh_known_hosts_base64)
+        if ssh_private_key_base64 is not None:
+            pulumi.set(__self__, "ssh_private_key_base64", ssh_private_key_base64)
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="referenceType")
+    def reference_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+        """
+        return pulumi.get(self, "reference_type")
+
+    @reference_type.setter
+    def reference_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_type", value)
+
+    @property
+    @pulumi.getter(name="referenceValue")
+    def reference_value(self) -> pulumi.Input[str]:
+        """
+        Specifies the source reference value for the GitRepository object.
+        """
+        return pulumi.get(self, "reference_value")
+
+    @reference_value.setter
+    def reference_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_value", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="httpsCaCertBase64")
+    def https_ca_cert_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+        """
+        return pulumi.get(self, "https_ca_cert_base64")
+
+    @https_ca_cert_base64.setter
+    def https_ca_cert_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_ca_cert_base64", value)
+
+    @property
+    @pulumi.getter(name="httpsKeyBase64")
+    def https_key_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+        """
+        return pulumi.get(self, "https_key_base64")
+
+    @https_key_base64.setter
+    def https_key_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_key_base64", value)
+
+    @property
+    @pulumi.getter(name="httpsUser")
+    def https_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+        """
+        return pulumi.get(self, "https_user")
+
+    @https_user.setter
+    def https_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_user", value)
+
+    @property
+    @pulumi.getter(name="localAuthReference")
+    def local_auth_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+        """
+        return pulumi.get(self, "local_auth_reference")
+
+    @local_auth_reference.setter
+    def local_auth_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_auth_reference", value)
+
+    @property
+    @pulumi.getter(name="sshKnownHostsBase64")
+    def ssh_known_hosts_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+        """
+        return pulumi.get(self, "ssh_known_hosts_base64")
+
+    @ssh_known_hosts_base64.setter
+    def ssh_known_hosts_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_known_hosts_base64", value)
+
+    @property
+    @pulumi.getter(name="sshPrivateKeyBase64")
+    def ssh_private_key_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Base64-encoded SSH private key in PEM format.
+        """
+        return pulumi.get(self, "ssh_private_key_base64")
+
+    @ssh_private_key_base64.setter
+    def ssh_private_key_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_private_key_base64", value)
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @sync_interval_in_seconds.setter
+    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sync_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class FluxConfigurationKustomizationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 garbage_collection_enabled: Optional[pulumi.Input[bool]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 recreating_enabled: Optional[pulumi.Input[bool]] = None,
+                 retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name of the kustomization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_ons: Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+        :param pulumi.Input[bool] garbage_collection_enabled: Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+        :param pulumi.Input[str] path: Specifies the path in the source reference to reconcile on the cluster.
+        :param pulumi.Input[bool] recreating_enabled: Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+        :param pulumi.Input[int] retry_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+        :param pulumi.Input[int] sync_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+        :param pulumi.Input[int] timeout_in_seconds: The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+        """
+        pulumi.set(__self__, "name", name)
+        if depends_ons is not None:
+            pulumi.set(__self__, "depends_ons", depends_ons)
+        if garbage_collection_enabled is not None:
+            pulumi.set(__self__, "garbage_collection_enabled", garbage_collection_enabled)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if recreating_enabled is not None:
+            pulumi.set(__self__, "recreating_enabled", recreating_enabled)
+        if retry_interval_in_seconds is not None:
+            pulumi.set(__self__, "retry_interval_in_seconds", retry_interval_in_seconds)
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the kustomization.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="dependsOns")
+    def depends_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+        """
+        return pulumi.get(self, "depends_ons")
+
+    @depends_ons.setter
+    def depends_ons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "depends_ons", value)
+
+    @property
+    @pulumi.getter(name="garbageCollectionEnabled")
+    def garbage_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "garbage_collection_enabled")
+
+    @garbage_collection_enabled.setter
+    def garbage_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "garbage_collection_enabled", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the path in the source reference to reconcile on the cluster.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="recreatingEnabled")
+    def recreating_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+        """
+        return pulumi.get(self, "recreating_enabled")
+
+    @recreating_enabled.setter
+    def recreating_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recreating_enabled", value)
+
+    @property
+    @pulumi.getter(name="retryIntervalInSeconds")
+    def retry_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+        """
+        return pulumi.get(self, "retry_interval_in_seconds")
+
+    @retry_interval_in_seconds.setter
+    def retry_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @sync_interval_in_seconds.setter
+    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sync_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
 
 
 @pulumi.input_type
@@ -2449,29 +3159,27 @@ class KubernetesClusterDefaultNodePoolArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
-               
-               > **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+        :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-        :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+        :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
                
                > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
-        :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
@@ -2483,14 +3191,14 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
+        :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
-        :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
+        :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+        :param pulumi.Input[str] os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
@@ -2509,7 +3217,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
                
                > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporary_name_for_rotation` must be specified when changing this property.
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         """
@@ -2602,9 +3310,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Input[str]:
         """
-        The size of the Virtual Machine, such as `Standard_DS2_v2`.
-
-        > **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         """
         return pulumi.get(self, "vm_size")
 
@@ -2642,7 +3348,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 
         > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
 
@@ -2658,7 +3364,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
 
         > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
         """
@@ -2672,7 +3378,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
+        Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -2708,7 +3414,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]:
         """
-        A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -2732,7 +3438,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="linuxOsConfig")
     def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']]:
         """
-        A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -2756,7 +3462,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="maxPods")
     def max_pods(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
         """
         return pulumi.get(self, "max_pods")
 
@@ -2845,7 +3551,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
+        A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
         """
         return pulumi.get(self, "node_taints")
 
@@ -2857,7 +3563,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="onlyCriticalAddonsEnabled")
     def only_critical_addons_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+        Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
         """
         return pulumi.get(self, "only_critical_addons_enabled")
 
@@ -2883,7 +3589,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osDiskSizeGb")
     def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+        The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
@@ -2895,7 +3601,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -2907,7 +3613,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
+        Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_sku")
 
@@ -3047,7 +3753,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+        Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporary_name_for_rotation` must be specified when changing this property.
 
         > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         """
@@ -4946,7 +5652,7 @@ class KubernetesClusterNetworkProfileArgs:
         """
         :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
                
-               > **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
+               > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
                
@@ -4974,8 +5680,6 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
@@ -5028,7 +5732,7 @@ class KubernetesClusterNetworkProfileArgs:
         """
         Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 
-        > **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
+        > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
         """
         return pulumi.get(self, "network_plugin")
 
@@ -5155,8 +5859,6 @@ class KubernetesClusterNetworkProfileArgs:
         Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
 
         > **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
         """
         return pulumi.get(self, "network_plugin_mode")
 

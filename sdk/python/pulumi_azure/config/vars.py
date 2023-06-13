@@ -51,11 +51,26 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('clientId')
 
     @property
+    def client_id_file_path(self) -> Optional[str]:
+        """
+        The path to a file containing the Client ID which should be used.
+        """
+        return __config__.get('clientIdFilePath')
+
+    @property
     def client_secret(self) -> Optional[str]:
         """
         The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         """
         return __config__.get('clientSecret')
+
+    @property
+    def client_secret_file_path(self) -> Optional[str]:
+        """
+        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+        using a Client Secret.
+        """
+        return __config__.get('clientSecretFilePath')
 
     @property
     def disable_correlation_request_id(self) -> Optional[bool]:

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class GetFrontdoorSecretSecretCustomerCertificateResult
     {
         /// <summary>
+        /// The key vault certificate expiration date.
+        /// </summary>
+        public readonly string ExpirationDate;
+        /// <summary>
         /// The key vault certificate ID.
         /// </summary>
         public readonly string KeyVaultCertificateId;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.Cdn.Outputs
 
         [OutputConstructor]
         private GetFrontdoorSecretSecretCustomerCertificateResult(
+            string expirationDate,
+
             string keyVaultCertificateId,
 
             ImmutableArray<string> subjectAlternativeNames)
         {
+            ExpirationDate = expirationDate;
             KeyVaultCertificateId = keyVaultCertificateId;
             SubjectAlternativeNames = subjectAlternativeNames;
         }

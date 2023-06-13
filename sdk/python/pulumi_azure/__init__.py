@@ -28,12 +28,16 @@ if typing.TYPE_CHECKING:
     appservice = __appservice
     import pulumi_azure.arckubernetes as __arckubernetes
     arckubernetes = __arckubernetes
+    import pulumi_azure.arcmachine as __arcmachine
+    arcmachine = __arcmachine
     import pulumi_azure.armmsi as __armmsi
     armmsi = __armmsi
     import pulumi_azure.attestation as __attestation
     attestation = __attestation
     import pulumi_azure.authorization as __authorization
     authorization = __authorization
+    import pulumi_azure.automanage as __automanage
+    automanage = __automanage
     import pulumi_azure.automation as __automation
     automation = __automation
     import pulumi_azure.avs as __avs
@@ -254,9 +258,11 @@ else:
     appplatform = _utilities.lazy_import('pulumi_azure.appplatform')
     appservice = _utilities.lazy_import('pulumi_azure.appservice')
     arckubernetes = _utilities.lazy_import('pulumi_azure.arckubernetes')
+    arcmachine = _utilities.lazy_import('pulumi_azure.arcmachine')
     armmsi = _utilities.lazy_import('pulumi_azure.armmsi')
     attestation = _utilities.lazy_import('pulumi_azure.attestation')
     authorization = _utilities.lazy_import('pulumi_azure.authorization')
+    automanage = _utilities.lazy_import('pulumi_azure.automanage')
     automation = _utilities.lazy_import('pulumi_azure.automation')
     avs = _utilities.lazy_import('pulumi_azure.avs')
     backup = _utilities.lazy_import('pulumi_azure.backup')
@@ -1368,6 +1374,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "arckubernetes/fluxConfiguration",
+  "fqn": "pulumi_azure.arckubernetes",
+  "classes": {
+   "azure:arckubernetes/fluxConfiguration:FluxConfiguration": "FluxConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "arcmachine/extension",
+  "fqn": "pulumi_azure.arcmachine",
+  "classes": {
+   "azure:arcmachine/extension:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "armmsi/federatedIdentityCredential",
   "fqn": "pulumi_azure.armmsi",
   "classes": {
@@ -1404,6 +1426,14 @@ _utilities.register(
   "fqn": "pulumi_azure.authorization",
   "classes": {
    "azure:authorization/userAssignedIdentity:UserAssignedIdentity": "UserAssignedIdentity"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "automanage/configuration",
+  "fqn": "pulumi_azure.automanage",
+  "classes": {
+   "azure:automanage/configuration:Configuration": "Configuration"
   }
  },
  {
@@ -2384,6 +2414,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/fluxConfiguration",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/fluxConfiguration:FluxConfiguration": "FluxConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/group",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -2756,6 +2794,22 @@ _utilities.register(
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
    "azure:cosmosdb/mongoDatabase:MongoDatabase": "MongoDatabase"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/mongoRoleDefinition",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition": "MongoRoleDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/mongoUserDefinition",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition": "MongoUserDefinition"
   }
  },
  {
@@ -4224,6 +4278,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "iot/fileUpload",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/fileUpload:FileUpload": "FileUpload"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "iot/ioTHub",
   "fqn": "pulumi_azure.iot",
   "classes": {
@@ -5248,6 +5310,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mobile/networkPacketCoreControlPlane",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane": "NetworkPacketCoreControlPlane"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/networkPacketCoreDataPlane",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane": "NetworkPacketCoreDataPlane"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mobile/networkService",
   "fqn": "pulumi_azure.mobile",
   "classes": {
@@ -5340,6 +5418,14 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression": "AlertProcessingRuleSuppression"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/alertPrometheusRuleGroup",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup": "AlertPrometheusRuleGroup"
   }
  },
  {
@@ -5740,6 +5826,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mysql",
   "classes": {
    "azure:mysql/flexibleServer:FlexibleServer": "FlexibleServer"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mysql/flexibleServerActiveDirectoryAdministrator",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "FlexibleServerActiveDirectoryAdministrator"
   }
  },
  {
@@ -6920,6 +7014,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "recoveryservices/vaultResourceGuardAssociation",
+  "fqn": "pulumi_azure.recoveryservices",
+  "classes": {
+   "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": "VaultResourceGuardAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "redis/cache",
   "fqn": "pulumi_azure.redis",
   "classes": {
@@ -7488,6 +7590,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "signalr/serviceCustomDomain",
+  "fqn": "pulumi_azure.signalr",
+  "classes": {
+   "azure:signalr/serviceCustomDomain:ServiceCustomDomain": "ServiceCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "signalr/serviceNetworkAcl",
   "fqn": "pulumi_azure.signalr",
   "classes": {
@@ -7532,6 +7642,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/hyperVSite:HyperVSite": "HyperVSite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/hypervNetworkMapping",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping": "HypervNetworkMapping"
   }
  },
  {
@@ -7588,6 +7706,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": "VMWareReplicationPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/vmwareReplicationPolicyAssociation",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": "VmwareReplicationPolicyAssociation"
   }
  },
  {
@@ -8316,6 +8442,14 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/customCertificate:CustomCertificate": "CustomCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/customDomain",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/customDomain:CustomDomain": "CustomDomain"
   }
  },
  {

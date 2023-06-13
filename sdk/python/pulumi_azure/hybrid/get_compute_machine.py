@@ -408,6 +408,10 @@ def get_compute_machine(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Hybrid Compute.
 
+    ## Disclaimers
+
+    > **Note:** The  Data Source `hybrid_get_compute_machine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `arcmachine_get` Data Source.
+
     ## Example Usage
 
     ```python
@@ -469,6 +473,10 @@ def get_compute_machine_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeMachineResult]:
     """
     Use this data source to access information about an existing Hybrid Compute.
+
+    ## Disclaimers
+
+    > **Note:** The  Data Source `hybrid_get_compute_machine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `arcmachine_get` Data Source.
 
     ## Example Usage
 

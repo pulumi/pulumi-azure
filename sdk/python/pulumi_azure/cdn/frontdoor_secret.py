@@ -199,7 +199,7 @@ class FrontdoorSecret(pulumi.CustomResource):
             cdn_frontdoor_profile_id=azurerm_cdn_frontdoor_profile["test"]["id"],
             secret=azure.cdn.FrontdoorSecretSecretArgs(
                 customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    key_vault_certificate_id=azurerm_key_vault_certificate["test"]["id"],
                 )],
             ))
         ```
@@ -275,7 +275,7 @@ class FrontdoorSecret(pulumi.CustomResource):
             cdn_frontdoor_profile_id=azurerm_cdn_frontdoor_profile["test"]["id"],
             secret=azure.cdn.FrontdoorSecretSecretArgs(
                 customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    key_vault_certificate_id=azurerm_key_vault_certificate["test"]["id"],
                 )],
             ))
         ```

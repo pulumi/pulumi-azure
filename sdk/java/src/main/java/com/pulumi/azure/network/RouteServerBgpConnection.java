@@ -24,6 +24,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.RouteServer;
+ * import com.pulumi.azure.network.RouteServerArgs;
  * import com.pulumi.azure.network.RouteServerBgpConnection;
  * import com.pulumi.azure.network.RouteServerBgpConnectionArgs;
  * import java.util.List;
@@ -39,8 +49,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteServerBgpConnection(&#34;example&#34;, RouteServerBgpConnectionArgs.builder()        
- *             .routeServerId(azurerm_route_server.example().id())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .sku(&#34;Standard&#34;)
+ *             .build());
+ * 
+ *         var exampleRouteServer = new RouteServer(&#34;exampleRouteServer&#34;, RouteServerArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .sku(&#34;Standard&#34;)
+ *             .publicIpAddressId(examplePublicIp.id())
+ *             .subnetId(exampleSubnet.id())
+ *             .branchToBranchTrafficEnabled(true)
+ *             .build());
+ * 
+ *         var exampleRouteServerBgpConnection = new RouteServerBgpConnection(&#34;exampleRouteServerBgpConnection&#34;, RouteServerBgpConnectionArgs.builder()        
+ *             .routeServerId(exampleRouteServer.id())
  *             .peerAsn(65501)
  *             .peerIp(&#34;169.254.21.5&#34;)
  *             .build());

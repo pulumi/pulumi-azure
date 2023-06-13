@@ -741,6 +741,8 @@ class IoTHub(pulumi.CustomResource):
 
         > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
+        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+
         ## Example Usage
 
         ```python
@@ -878,6 +880,8 @@ class IoTHub(pulumi.CustomResource):
         > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+
+        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 

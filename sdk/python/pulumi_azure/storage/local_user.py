@@ -323,11 +323,11 @@ class LocalUser(pulumi.CustomResource):
             ssh_authorized_keys=[
                 azure.storage.LocalUserSshAuthorizedKeyArgs(
                     description="key1",
-                    key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    key=local["first_public_key"],
                 ),
                 azure.storage.LocalUserSshAuthorizedKeyArgs(
                     description="key2",
-                    key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    key=local["second_public_key"],
                 ),
             ],
             permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
@@ -390,11 +390,11 @@ class LocalUser(pulumi.CustomResource):
             ssh_authorized_keys=[
                 azure.storage.LocalUserSshAuthorizedKeyArgs(
                     description="key1",
-                    key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    key=local["first_public_key"],
                 ),
                 azure.storage.LocalUserSshAuthorizedKeyArgs(
                     description="key2",
-                    key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    key=local["second_public_key"],
                 ),
             ],
             permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(

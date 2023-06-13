@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appplatform.SpringCloudService;
@@ -48,6 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
  *             .build());
@@ -64,7 +67,7 @@ import javax.annotation.Nullable;
  *             .sso(SpringCloudDevToolPortalSsoArgs.builder()
  *                 .clientId(&#34;example id&#34;)
  *                 .clientSecret(&#34;example secret&#34;)
- *                 .metadataUrl(&#34;https://www.example.com/metadata&#34;)
+ *                 .metadataUrl(String.format(&#34;https://login.microsoftonline.com/%s/v2.0/.well-known/openid-configuration&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId())))
  *                 .scopes(                
  *                     &#34;openid&#34;,
  *                     &#34;profile&#34;,

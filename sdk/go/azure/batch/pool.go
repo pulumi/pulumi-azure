@@ -198,6 +198,8 @@ type Pool struct {
 	StopPendingResizeOperation pulumi.BoolPtrOutput `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
+	// The desired node communication mode for the pool.
+	TargetNodeCommunicationMode pulumi.StringPtrOutput `pulumi:"targetNodeCommunicationMode"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayOutput `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
@@ -304,6 +306,8 @@ type poolState struct {
 	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference *PoolStorageImageReference `pulumi:"storageImageReference"`
+	// The desired node communication mode for the pool.
+	TargetNodeCommunicationMode *string `pulumi:"targetNodeCommunicationMode"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
@@ -367,6 +371,8 @@ type PoolState struct {
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferencePtrInput
+	// The desired node communication mode for the pool.
+	TargetNodeCommunicationMode pulumi.StringPtrInput
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
@@ -434,6 +440,8 @@ type poolArgs struct {
 	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReference `pulumi:"storageImageReference"`
+	// The desired node communication mode for the pool.
+	TargetNodeCommunicationMode *string `pulumi:"targetNodeCommunicationMode"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
@@ -498,6 +506,8 @@ type PoolArgs struct {
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceInput
+	// The desired node communication mode for the pool.
+	TargetNodeCommunicationMode pulumi.StringPtrInput
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
@@ -717,6 +727,11 @@ func (o PoolOutput) StopPendingResizeOperation() pulumi.BoolPtrOutput {
 // A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) StorageImageReference() PoolStorageImageReferenceOutput {
 	return o.ApplyT(func(v *Pool) PoolStorageImageReferenceOutput { return v.StorageImageReference }).(PoolStorageImageReferenceOutput)
+}
+
+// The desired node communication mode for the pool.
+func (o PoolOutput) TargetNodeCommunicationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.TargetNodeCommunicationMode }).(pulumi.StringPtrOutput)
 }
 
 // A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.

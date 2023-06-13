@@ -88,8 +88,8 @@ namespace Pulumi.Azure.Monitoring
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "UbuntuServer",
-    ///             Sku = "20.04-LTS",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
     ///             Version = "latest",
     ///         },
     ///     });
@@ -169,6 +169,11 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///         Predictive = new Azure.Monitoring.Inputs.AutoscaleSettingPredictiveArgs
+    ///         {
+    ///             ScaleMode = "Enabled",
+    ///             LookAheadTime = "PT5M",
     ///         },
     ///         Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
     ///         {
@@ -262,8 +267,8 @@ namespace Pulumi.Azure.Monitoring
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "UbuntuServer",
-    ///             Sku = "20.04-LTS",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
     ///             Version = "latest",
     ///         },
     ///     });
@@ -391,6 +396,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<Outputs.AutoscaleSettingNotification?> Notification { get; private set; } = null!;
 
         /// <summary>
+        /// A `predictive` block as defined below.
+        /// </summary>
+        [Output("predictive")]
+        public Output<Outputs.AutoscaleSettingPredictive?> Predictive { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies one or more (up to 20) `profile` blocks as defined below.
         /// </summary>
         [Output("profiles")]
@@ -484,6 +495,12 @@ namespace Pulumi.Azure.Monitoring
         [Input("notification")]
         public Input<Inputs.AutoscaleSettingNotificationArgs>? Notification { get; set; }
 
+        /// <summary>
+        /// A `predictive` block as defined below.
+        /// </summary>
+        [Input("predictive")]
+        public Input<Inputs.AutoscaleSettingPredictiveArgs>? Predictive { get; set; }
+
         [Input("profiles", required: true)]
         private InputList<Inputs.AutoscaleSettingProfileArgs>? _profiles;
 
@@ -551,6 +568,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("notification")]
         public Input<Inputs.AutoscaleSettingNotificationGetArgs>? Notification { get; set; }
+
+        /// <summary>
+        /// A `predictive` block as defined below.
+        /// </summary>
+        [Input("predictive")]
+        public Input<Inputs.AutoscaleSettingPredictiveGetArgs>? Predictive { get; set; }
 
         [Input("profiles")]
         private InputList<Inputs.AutoscaleSettingProfileGetArgs>? _profiles;

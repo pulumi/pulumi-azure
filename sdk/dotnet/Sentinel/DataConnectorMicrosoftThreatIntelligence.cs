@@ -42,7 +42,6 @@ namespace Pulumi.Azure.Sentinel
     ///     var exampleDataConnectorMicrosoftThreatIntelligence = new Azure.Sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", new()
     ///     {
     ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         BingSafetyPhishingUrlLookbackDate = "1970-01-01T00:00:00Z",
     ///         MicrosoftEmergingThreatFeedLookbackDate = "1970-01-01T00:00:00Z",
     ///     });
     /// 
@@ -62,6 +61,8 @@ namespace Pulumi.Azure.Sentinel
     {
         /// <summary>
         /// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+        /// 
+        /// &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         [Output("bingSafetyPhishingUrlLookbackDate")]
         public Output<string?> BingSafetyPhishingUrlLookbackDate { get; private set; } = null!;
@@ -74,6 +75,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+        /// 
+        /// &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
         /// 
         /// &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         /// </summary>
@@ -142,6 +145,8 @@ namespace Pulumi.Azure.Sentinel
     {
         /// <summary>
         /// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+        /// 
+        /// &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         [Input("bingSafetyPhishingUrlLookbackDate")]
         public Input<string>? BingSafetyPhishingUrlLookbackDate { get; set; }
@@ -154,6 +159,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+        /// 
+        /// &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
         /// 
         /// &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         /// </summary>
@@ -184,6 +191,8 @@ namespace Pulumi.Azure.Sentinel
     {
         /// <summary>
         /// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+        /// 
+        /// &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         /// </summary>
         [Input("bingSafetyPhishingUrlLookbackDate")]
         public Input<string>? BingSafetyPhishingUrlLookbackDate { get; set; }
@@ -196,6 +205,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+        /// 
+        /// &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
         /// 
         /// &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         /// </summary>

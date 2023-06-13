@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayApiMetadataArgs;
+import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayClientAuthorizationArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayCorsArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayQuotaArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewaySsoArgs;
@@ -51,6 +52,21 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
      */
     public Optional<Output<List<String>>> applicationPerformanceMonitoringTypes() {
         return Optional.ofNullable(this.applicationPerformanceMonitoringTypes);
+    }
+
+    /**
+     * A `client_authorization` block as defined below.
+     * 
+     */
+    @Import(name="clientAuthorization")
+    private @Nullable Output<SpringCloudGatewayClientAuthorizationArgs> clientAuthorization;
+
+    /**
+     * @return A `client_authorization` block as defined below.
+     * 
+     */
+    public Optional<Output<SpringCloudGatewayClientAuthorizationArgs>> clientAuthorization() {
+        return Optional.ofNullable(this.clientAuthorization);
     }
 
     /**
@@ -223,6 +239,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     private SpringCloudGatewayState(SpringCloudGatewayState $) {
         this.apiMetadata = $.apiMetadata;
         this.applicationPerformanceMonitoringTypes = $.applicationPerformanceMonitoringTypes;
+        this.clientAuthorization = $.clientAuthorization;
         this.cors = $.cors;
         this.environmentVariables = $.environmentVariables;
         this.httpsOnly = $.httpsOnly;
@@ -304,6 +321,27 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
          */
         public Builder applicationPerformanceMonitoringTypes(String... applicationPerformanceMonitoringTypes) {
             return applicationPerformanceMonitoringTypes(List.of(applicationPerformanceMonitoringTypes));
+        }
+
+        /**
+         * @param clientAuthorization A `client_authorization` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAuthorization(@Nullable Output<SpringCloudGatewayClientAuthorizationArgs> clientAuthorization) {
+            $.clientAuthorization = clientAuthorization;
+            return this;
+        }
+
+        /**
+         * @param clientAuthorization A `client_authorization` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAuthorization(SpringCloudGatewayClientAuthorizationArgs clientAuthorization) {
+            return clientAuthorization(Output.of(clientAuthorization));
         }
 
         /**

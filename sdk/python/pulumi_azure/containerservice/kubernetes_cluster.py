@@ -123,7 +123,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
@@ -179,7 +179,7 @@ class KubernetesClusterArgs:
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+               > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -706,7 +706,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 
         > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         """
@@ -960,7 +960,7 @@ class KubernetesClusterArgs:
 
         > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
 
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+        > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         return pulumi.get(self, "workload_identity_enabled")
 
@@ -1094,7 +1094,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
@@ -1155,7 +1155,7 @@ class _KubernetesClusterState:
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+               > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
@@ -1764,7 +1764,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 
         > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         """
@@ -2078,7 +2078,7 @@ class _KubernetesClusterState:
 
         > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
 
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+        > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         return pulumi.get(self, "workload_identity_enabled")
 
@@ -2238,7 +2238,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
@@ -2295,7 +2295,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+               > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         ...
     @overload
@@ -2629,7 +2629,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
@@ -2690,7 +2690,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+               > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -3084,7 +3084,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 
         > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         """
@@ -3306,7 +3306,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
 
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+        > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         return pulumi.get(self, "workload_identity_enabled")
 

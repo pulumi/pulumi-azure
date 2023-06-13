@@ -7,30 +7,16 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class FlexibleServerIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-     * 
      */
-    private @Nullable List<String> identityIds;
-    private @Nullable String principalId;
+    private List<String> identityIds;
     /**
-     * @return The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
-     * 
-     * &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-     * 
-     * &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
-     * 
-     */
-    private @Nullable String tenantId;
-    /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
      * 
      */
     private String type;
@@ -39,28 +25,12 @@ public final class FlexibleServerIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-     * 
      */
     public List<String> identityIds() {
-        return this.identityIds == null ? List.of() : this.identityIds;
-    }
-    public Optional<String> principalId() {
-        return Optional.ofNullable(this.principalId);
+        return this.identityIds;
     }
     /**
-     * @return The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
-     * 
-     * &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-     * 
-     * &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
-     * 
-     */
-    public Optional<String> tenantId() {
-        return Optional.ofNullable(this.tenantId);
-    }
-    /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
      * 
      */
     public String type() {
@@ -76,36 +46,22 @@ public final class FlexibleServerIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> identityIds;
-        private @Nullable String principalId;
-        private @Nullable String tenantId;
+        private List<String> identityIds;
         private String type;
         public Builder() {}
         public Builder(FlexibleServerIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
-    	      this.principalId = defaults.principalId;
-    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder identityIds(@Nullable List<String> identityIds) {
-            this.identityIds = identityIds;
+        public Builder identityIds(List<String> identityIds) {
+            this.identityIds = Objects.requireNonNull(identityIds);
             return this;
         }
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
-        }
-        @CustomType.Setter
-        public Builder principalId(@Nullable String principalId) {
-            this.principalId = principalId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder tenantId(@Nullable String tenantId) {
-            this.tenantId = tenantId;
-            return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -115,8 +71,6 @@ public final class FlexibleServerIdentity {
         public FlexibleServerIdentity build() {
             final var o = new FlexibleServerIdentity();
             o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
             o.type = type;
             return o;
         }

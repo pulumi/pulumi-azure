@@ -25,6 +25,7 @@ class ComputeInstanceArgs:
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -39,6 +40,7 @@ class ComputeInstanceArgs:
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeInstanceSshArgs'] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -59,6 +61,8 @@ class ComputeInstanceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if node_public_ip_enabled is not None:
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if ssh is not None:
             pulumi.set(__self__, "ssh", ssh)
         if subnet_resource_id is not None:
@@ -175,6 +179,18 @@ class ComputeInstanceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
+
+    @node_public_ip_enabled.setter
+    def node_public_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "node_public_ip_enabled", value)
+
+    @property
     @pulumi.getter
     def ssh(self) -> Optional[pulumi.Input['ComputeInstanceSshArgs']]:
         """
@@ -222,6 +238,7 @@ class _ComputeInstanceState:
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -236,6 +253,7 @@ class _ComputeInstanceState:
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeInstanceSshArgs'] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -257,6 +275,8 @@ class _ComputeInstanceState:
             pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if node_public_ip_enabled is not None:
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if ssh is not None:
             pulumi.set(__self__, "ssh", ssh)
         if subnet_resource_id is not None:
@@ -363,6 +383,18 @@ class _ComputeInstanceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
+
+    @node_public_ip_enabled.setter
+    def node_public_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "node_public_ip_enabled", value)
+
+    @property
     @pulumi.getter
     def ssh(self) -> Optional[pulumi.Input['ComputeInstanceSshArgs']]:
         """
@@ -424,6 +456,7 @@ class ComputeInstance(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -513,6 +546,7 @@ class ComputeInstance(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -621,6 +655,7 @@ class ComputeInstance(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -644,6 +679,7 @@ class ComputeInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'machine_learning_workspace_id'")
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
             __props__.__dict__["ssh"] = ssh
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id
             __props__.__dict__["tags"] = tags
@@ -668,6 +704,7 @@ class ComputeInstance(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
             ssh: Optional[pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']]] = None,
             subnet_resource_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -687,6 +724,7 @@ class ComputeInstance(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[pulumi.InputType['ComputeInstanceSshArgs']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -704,6 +742,7 @@ class ComputeInstance(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
         __props__.__dict__["ssh"] = ssh
         __props__.__dict__["subnet_resource_id"] = subnet_resource_id
         __props__.__dict__["tags"] = tags
@@ -773,6 +812,14 @@ class ComputeInstance(pulumi.CustomResource):
         The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
 
     @property
     @pulumi.getter

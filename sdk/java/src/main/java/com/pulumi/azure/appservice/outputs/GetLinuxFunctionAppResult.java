@@ -37,6 +37,11 @@ public final class GetLinuxFunctionAppResult {
      */
     private List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s;
     /**
+     * @return The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+     * 
+     */
+    private String availability;
+    /**
      * @return A `backup` block as defined below.
      * 
      */
@@ -198,6 +203,11 @@ public final class GetLinuxFunctionAppResult {
      */
     private Map<String,String> tags;
     /**
+     * @return The current usage state. Possible values are `Normal` and `Exceeded`.
+     * 
+     */
+    private String usage;
+    /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
@@ -224,6 +234,13 @@ public final class GetLinuxFunctionAppResult {
      */
     public List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s() {
         return this.authSettingsV2s;
+    }
+    /**
+     * @return The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+     * 
+     */
+    public String availability() {
+        return this.availability;
     }
     /**
      * @return A `backup` block as defined below.
@@ -453,6 +470,13 @@ public final class GetLinuxFunctionAppResult {
         return this.tags;
     }
     /**
+     * @return The current usage state. Possible values are `Normal` and `Exceeded`.
+     * 
+     */
+    public String usage() {
+        return this.usage;
+    }
+    /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
@@ -472,6 +496,7 @@ public final class GetLinuxFunctionAppResult {
         private Map<String,String> appSettings;
         private List<GetLinuxFunctionAppAuthSetting> authSettings;
         private List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s;
+        private String availability;
         private List<GetLinuxFunctionAppBackup> backups;
         private Boolean builtinLoggingEnabled;
         private Boolean clientCertificateEnabled;
@@ -505,6 +530,7 @@ public final class GetLinuxFunctionAppResult {
         private String storageKeyVaultSecretId;
         private Boolean storageUsesManagedIdentity;
         private Map<String,String> tags;
+        private String usage;
         private String virtualNetworkSubnetId;
         public Builder() {}
         public Builder(GetLinuxFunctionAppResult defaults) {
@@ -512,6 +538,7 @@ public final class GetLinuxFunctionAppResult {
     	      this.appSettings = defaults.appSettings;
     	      this.authSettings = defaults.authSettings;
     	      this.authSettingsV2s = defaults.authSettingsV2s;
+    	      this.availability = defaults.availability;
     	      this.backups = defaults.backups;
     	      this.builtinLoggingEnabled = defaults.builtinLoggingEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
@@ -545,6 +572,7 @@ public final class GetLinuxFunctionAppResult {
     	      this.storageKeyVaultSecretId = defaults.storageKeyVaultSecretId;
     	      this.storageUsesManagedIdentity = defaults.storageUsesManagedIdentity;
     	      this.tags = defaults.tags;
+    	      this.usage = defaults.usage;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
@@ -568,6 +596,11 @@ public final class GetLinuxFunctionAppResult {
         }
         public Builder authSettingsV2s(GetLinuxFunctionAppAuthSettingsV2... authSettingsV2s) {
             return authSettingsV2s(List.of(authSettingsV2s));
+        }
+        @CustomType.Setter
+        public Builder availability(String availability) {
+            this.availability = Objects.requireNonNull(availability);
+            return this;
         }
         @CustomType.Setter
         public Builder backups(List<GetLinuxFunctionAppBackup> backups) {
@@ -759,6 +792,11 @@ public final class GetLinuxFunctionAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder usage(String usage) {
+            this.usage = Objects.requireNonNull(usage);
+            return this;
+        }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
@@ -768,6 +806,7 @@ public final class GetLinuxFunctionAppResult {
             o.appSettings = appSettings;
             o.authSettings = authSettings;
             o.authSettingsV2s = authSettingsV2s;
+            o.availability = availability;
             o.backups = backups;
             o.builtinLoggingEnabled = builtinLoggingEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;
@@ -801,6 +840,7 @@ public final class GetLinuxFunctionAppResult {
             o.storageKeyVaultSecretId = storageKeyVaultSecretId;
             o.storageUsesManagedIdentity = storageUsesManagedIdentity;
             o.tags = tags;
+            o.usage = usage;
             o.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return o;
         }

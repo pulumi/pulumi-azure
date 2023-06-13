@@ -18,7 +18,27 @@ namespace Pulumi.Azure.Backup.Inputs
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
-        [Input("weekdays", required: true)]
+        [Input("days")]
+        private InputList<int>? _days;
+
+        /// <summary>
+        /// The days of the month to retain backups of. Must be between `1` and `31`.
+        /// </summary>
+        public InputList<int> Days
+        {
+            get => _days ?? (_days = new InputList<int>());
+            set => _days = value;
+        }
+
+        /// <summary>
+        /// Including the last day of the month, default to `false`.
+        /// 
+        /// &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        /// </summary>
+        [Input("includeLastDays")]
+        public Input<bool>? IncludeLastDays { get; set; }
+
+        [Input("weekdays")]
         private InputList<string>? _weekdays;
 
         /// <summary>
@@ -30,7 +50,7 @@ namespace Pulumi.Azure.Backup.Inputs
             set => _weekdays = value;
         }
 
-        [Input("weeks", required: true)]
+        [Input("weeks")]
         private InputList<string>? _weeks;
 
         /// <summary>

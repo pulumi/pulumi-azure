@@ -11,49 +11,6 @@ import (
 )
 
 // Encrypts or Decrypts a value using a Key Vault Key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-//				Name:              "mykeyvault",
-//				ResourceGroupName: "some-resource-group",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
-//				Name:       "some-key",
-//				KeyVaultId: exampleKeyVault.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.GetEncryptedValue(ctx, &keyvault.GetEncryptedValueArgs{
-//				KeyVaultKeyId:  azurerm_key_vault_key.Test.Id,
-//				Algorithm:      "RSA1_5",
-//				PlainTextValue: pulumi.StringRef("some-encrypted-value"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEncryptedValue(ctx *pulumi.Context, args *GetEncryptedValueArgs, opts ...pulumi.InvokeOption) (*GetEncryptedValueResult, error) {
 	var rv GetEncryptedValueResult
 	err := ctx.Invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", args, &rv, opts...)
@@ -79,8 +36,10 @@ type GetEncryptedValueArgs struct {
 
 // A collection of values returned by getEncryptedValue.
 type GetEncryptedValueResult struct {
-	Algorithm     string  `pulumi:"algorithm"`
-	EncryptedData *string `pulumi:"encryptedData"`
+	Algorithm string `pulumi:"algorithm"`
+	// The Base64URL decoded string of `plainTextValue`. Because the API would remove padding characters of `plainTextValue` when encrypting, this attribute is useful to get the original value.
+	DecodedPlainTextValue string  `pulumi:"decodedPlainTextValue"`
+	EncryptedData         *string `pulumi:"encryptedData"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string  `pulumi:"id"`
 	KeyVaultKeyId  string  `pulumi:"keyVaultKeyId"`
@@ -135,6 +94,11 @@ func (o GetEncryptedValueResultOutput) ToGetEncryptedValueResultOutputWithContex
 
 func (o GetEncryptedValueResultOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEncryptedValueResult) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// The Base64URL decoded string of `plainTextValue`. Because the API would remove padding characters of `plainTextValue` when encrypting, this attribute is useful to get the original value.
+func (o GetEncryptedValueResultOutput) DecodedPlainTextValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEncryptedValueResult) string { return v.DecodedPlainTextValue }).(pulumi.StringOutput)
 }
 
 func (o GetEncryptedValueResultOutput) EncryptedData() pulumi.StringPtrOutput {

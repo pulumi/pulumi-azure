@@ -140,6 +140,11 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2Result> AuthSettingsV2s;
         /// <summary>
+        /// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+        /// *
+        /// </summary>
+        public readonly string Availability;
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppBackupResult> Backups;
@@ -250,6 +255,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The current usage state. Possible values are `Normal` and `Exceeded`.
+        /// </summary>
+        public readonly string Usage;
+        /// <summary>
         /// The subnet id which the Linux Web App is vNet Integrated with.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
@@ -263,6 +272,8 @@ namespace Pulumi.Azure.AppService
             ImmutableArray<Outputs.GetLinuxWebAppAuthSettingResult> authSettings,
 
             ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2Result> authSettingsV2s,
+
+            string availability,
 
             ImmutableArray<Outputs.GetLinuxWebAppBackupResult> backups,
 
@@ -322,12 +333,15 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags,
 
+            string usage,
+
             string virtualNetworkSubnetId)
         {
             AppMetadata = appMetadata;
             AppSettings = appSettings;
             AuthSettings = authSettings;
             AuthSettingsV2s = authSettingsV2s;
+            Availability = availability;
             Backups = backups;
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertificateEnabled = clientCertificateEnabled;
@@ -357,6 +371,7 @@ namespace Pulumi.Azure.AppService
             StickySettings = stickySettings;
             StorageAccounts = storageAccounts;
             Tags = tags;
+            Usage = usage;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

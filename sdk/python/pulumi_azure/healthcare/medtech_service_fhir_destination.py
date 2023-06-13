@@ -232,40 +232,72 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_azure as azure
 
-        test = azure.healthcare.MedtechServiceFhirDestination("test",
-            destination_fhir_mapping_json=\"\"\"  {
-                    "templateType": "CollectionFhirTemplate",
-                    "template": [
-                      {
-                        "templateType": "CodeValueFhir",
-                        "template": {
-                          "codes": [
-                            {
-                              "code": "8867-4",
-                              "system": "http://loinc.org",
-                              "display": "Heart rate"
-                            }
-                          ],
-                          "periodInterval": 60,
-                          "typeName": "heartrate",
-                          "value": {
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=1,
+            message_retention=1)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name)
+        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_id=example_workspace.id,
+            kind="fhir-R4",
+            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
+                authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                audience="https://examplefhir.fhir.azurehealthcareapis.com",
+            ))
+        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+            workspace_id=example_workspace.id,
+            location=example_resource_group.location,
+            eventhub_namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            eventhub_consumer_group_name=example_consumer_group.name,
+            device_mapping_json=json.dumps({
+                "templateType": "CollectionContent",
+                "template": [],
+            }))
+        example_medtech_service_fhir_destination = azure.healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination",
+            location="east us",
+            medtech_service_id=example_medtech_service.id,
+            destination_fhir_service_id=example_fhir_service.id,
+            destination_identity_resolution_type="Create",
+            destination_fhir_mapping_json=json.dumps({
+                "templateType": "CollectionFhirTemplate",
+                "template": [{
+                    "templateType": "CodeValueFhir",
+                    "template": {
+                        "codes": [{
+                            "code": "8867-4",
+                            "system": "http://loinc.org",
+                            "display": "Heart rate",
+                        }],
+                        "periodInterval": 60,
+                        "typeName": "heartrate",
+                        "value": {
                             "defaultPeriod": 5000,
                             "unit": "count/min",
                             "valueName": "hr",
-                            "valueType": "SampledData"
-                          }
-                        }
-                      }
-                    ]
-          }
-          
-        \"\"\",
-            destination_fhir_service_id="fhir_service_id",
-            destination_identity_resolution_type="Create",
-            location="east us",
-            medtech_service_id="mt_service_id")
+                            "valueType": "SampledData",
+                        },
+                    },
+                }],
+            }))
         ```
 
         ## Import
@@ -296,40 +328,72 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_azure as azure
 
-        test = azure.healthcare.MedtechServiceFhirDestination("test",
-            destination_fhir_mapping_json=\"\"\"  {
-                    "templateType": "CollectionFhirTemplate",
-                    "template": [
-                      {
-                        "templateType": "CodeValueFhir",
-                        "template": {
-                          "codes": [
-                            {
-                              "code": "8867-4",
-                              "system": "http://loinc.org",
-                              "display": "Heart rate"
-                            }
-                          ],
-                          "periodInterval": 60,
-                          "typeName": "heartrate",
-                          "value": {
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=1,
+            message_retention=1)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name)
+        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_id=example_workspace.id,
+            kind="fhir-R4",
+            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
+                authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                audience="https://examplefhir.fhir.azurehealthcareapis.com",
+            ))
+        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+            workspace_id=example_workspace.id,
+            location=example_resource_group.location,
+            eventhub_namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            eventhub_consumer_group_name=example_consumer_group.name,
+            device_mapping_json=json.dumps({
+                "templateType": "CollectionContent",
+                "template": [],
+            }))
+        example_medtech_service_fhir_destination = azure.healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination",
+            location="east us",
+            medtech_service_id=example_medtech_service.id,
+            destination_fhir_service_id=example_fhir_service.id,
+            destination_identity_resolution_type="Create",
+            destination_fhir_mapping_json=json.dumps({
+                "templateType": "CollectionFhirTemplate",
+                "template": [{
+                    "templateType": "CodeValueFhir",
+                    "template": {
+                        "codes": [{
+                            "code": "8867-4",
+                            "system": "http://loinc.org",
+                            "display": "Heart rate",
+                        }],
+                        "periodInterval": 60,
+                        "typeName": "heartrate",
+                        "value": {
                             "defaultPeriod": 5000,
                             "unit": "count/min",
                             "valueName": "hr",
-                            "valueType": "SampledData"
-                          }
-                        }
-                      }
-                    ]
-          }
-          
-        \"\"\",
-            destination_fhir_service_id="fhir_service_id",
-            destination_identity_resolution_type="Create",
-            location="east us",
-            medtech_service_id="mt_service_id")
+                            "valueType": "SampledData",
+                        },
+                    },
+                }],
+            }))
         ```
 
         ## Import

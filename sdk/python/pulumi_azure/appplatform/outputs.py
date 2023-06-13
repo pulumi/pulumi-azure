@@ -29,6 +29,7 @@ __all__ = [
     'SpringCloudCustomizedAcceleratorGitRepositorySshAuth',
     'SpringCloudDevToolPortalSso',
     'SpringCloudGatewayApiMetadata',
+    'SpringCloudGatewayClientAuthorization',
     'SpringCloudGatewayCors',
     'SpringCloudGatewayQuota',
     'SpringCloudGatewayRouteConfigOpenApi',
@@ -41,6 +42,8 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth',
     'SpringCloudServiceConfigServerGitSettingRepositorySshAuth',
     'SpringCloudServiceConfigServerGitSettingSshAuth',
+    'SpringCloudServiceContainerRegistry',
+    'SpringCloudServiceDefaultBuildService',
     'SpringCloudServiceNetwork',
     'SpringCloudServiceRequiredNetworkTrafficRule',
     'SpringCloudServiceTrace',
@@ -938,6 +941,8 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
         suggest = None
         if key == "basicAuth":
             suggest = "basic_auth"
+        elif key == "caCertificateId":
+            suggest = "ca_certificate_id"
         elif key == "gitTag":
             suggest = "git_tag"
         elif key == "intervalInSeconds":
@@ -960,6 +965,7 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
                  url: str,
                  basic_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth'] = None,
                  branch: Optional[str] = None,
+                 ca_certificate_id: Optional[str] = None,
                  commit: Optional[str] = None,
                  git_tag: Optional[str] = None,
                  interval_in_seconds: Optional[int] = None,
@@ -968,6 +974,7 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
         :param str url: Specifies Git repository URL for the accelerator.
         :param 'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs' basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param str branch: Specifies the Git repository branch to be used.
+        :param str ca_certificate_id: Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
         :param str commit: Specifies the Git repository commit to be used.
         :param str git_tag: Specifies the Git repository tag to be used.
         :param int interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
@@ -978,6 +985,8 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
             pulumi.set(__self__, "basic_auth", basic_auth)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
+        if ca_certificate_id is not None:
+            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
         if commit is not None:
             pulumi.set(__self__, "commit", commit)
         if git_tag is not None:
@@ -1010,6 +1019,14 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
         Specifies the Git repository branch to be used.
         """
         return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="caCertificateId")
+    def ca_certificate_id(self) -> Optional[str]:
+        """
+        Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_certificate_id")
 
     @property
     @pulumi.getter
@@ -1296,6 +1313,56 @@ class SpringCloudGatewayApiMetadata(dict):
         Specifies the version of APIs available on this Gateway instance.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SpringCloudGatewayClientAuthorization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateIds":
+            suggest = "certificate_ids"
+        elif key == "verificationEnabled":
+            suggest = "verification_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayClientAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayClientAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayClientAuthorization.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_ids: Optional[Sequence[str]] = None,
+                 verification_enabled: Optional[bool] = None):
+        """
+        :param Sequence[str] certificate_ids: Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+        :param bool verification_enabled: Specifies whether the client certificate verification is enabled.
+        """
+        if certificate_ids is not None:
+            pulumi.set(__self__, "certificate_ids", certificate_ids)
+        if verification_enabled is not None:
+            pulumi.set(__self__, "verification_enabled", verification_enabled)
+
+    @property
+    @pulumi.getter(name="certificateIds")
+    def certificate_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+        """
+        return pulumi.get(self, "certificate_ids")
+
+    @property
+    @pulumi.getter(name="verificationEnabled")
+    def verification_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether the client certificate verification is enabled.
+        """
+        return pulumi.get(self, "verification_enabled")
 
 
 @pulumi.output_type
@@ -2131,6 +2198,93 @@ class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
         Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
+
+
+@pulumi.output_type
+class SpringCloudServiceContainerRegistry(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 password: str,
+                 server: str,
+                 username: str):
+        """
+        :param str name: Specifies the name of the container registry.
+        :param str password: Specifies the password of the container registry.
+        :param str server: Specifies the login server of the container registry.
+        :param str username: Specifies the username of the container registry.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the container registry.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Specifies the password of the container registry.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        Specifies the login server of the container registry.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Specifies the username of the container registry.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class SpringCloudServiceDefaultBuildService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerRegistryName":
+            suggest = "container_registry_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceDefaultBuildService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceDefaultBuildService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceDefaultBuildService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_registry_name: Optional[str] = None):
+        """
+        :param str container_registry_name: Specifies the name of the container registry used in the default build service.
+        """
+        if container_registry_name is not None:
+            pulumi.set(__self__, "container_registry_name", container_registry_name)
+
+    @property
+    @pulumi.getter(name="containerRegistryName")
+    def container_registry_name(self) -> Optional[str]:
+        """
+        Specifies the name of the container registry used in the default build service.
+        """
+        return pulumi.get(self, "container_registry_name")
 
 
 @pulumi.output_type

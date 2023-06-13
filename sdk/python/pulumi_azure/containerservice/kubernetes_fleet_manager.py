@@ -214,9 +214,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.containerservice.KubernetesFleetManager("example",
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="example",
-            ),
             location=azurerm_resource_group["example"]["location"],
             resource_group_name=azurerm_resource_group["example"]["name"])
         ```
@@ -228,13 +225,10 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         * `dns_prefix` - (Required)
 
-        The `hub_profile` block exports the following arguments:
+        In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
 
         * `fqdn` -
-
         * `kubernetes_version` -
-
-        ***
 
         ## Import
 
@@ -275,9 +269,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.containerservice.KubernetesFleetManager("example",
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="example",
-            ),
             location=azurerm_resource_group["example"]["location"],
             resource_group_name=azurerm_resource_group["example"]["name"])
         ```
@@ -289,13 +280,10 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         * `dns_prefix` - (Required)
 
-        The `hub_profile` block exports the following arguments:
+        In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
 
         * `fqdn` -
-
         * `kubernetes_version` -
-
-        ***
 
         ## Import
 

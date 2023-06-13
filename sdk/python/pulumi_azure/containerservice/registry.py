@@ -779,7 +779,7 @@ class Registry(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_key = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+            key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
         acr = azure.containerservice.Registry("acr",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -910,7 +910,7 @@ class Registry(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_key = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+            key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
         acr = azure.containerservice.Registry("acr",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

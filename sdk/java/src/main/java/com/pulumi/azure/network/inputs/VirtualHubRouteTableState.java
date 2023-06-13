@@ -48,14 +48,14 @@ public final class VirtualHubRouteTableState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `route` block as defined below.
+     * One or more `route` blocks as defined below.
      * 
      */
     @Import(name="routes")
     private @Nullable Output<List<VirtualHubRouteTableRouteArgs>> routes;
 
     /**
-     * @return A `route` block as defined below.
+     * @return One or more `route` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualHubRouteTableRouteArgs>>> routes() {
@@ -157,7 +157,7 @@ public final class VirtualHubRouteTableState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param routes A `route` block as defined below.
+         * @param routes One or more `route` blocks as defined below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class VirtualHubRouteTableState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param routes A `route` block as defined below.
+         * @param routes One or more `route` blocks as defined below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class VirtualHubRouteTableState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param routes A `route` block as defined below.
+         * @param routes One or more `route` blocks as defined below.
          * 
          * @return builder
          * 

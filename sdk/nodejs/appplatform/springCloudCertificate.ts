@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const current = azure.core.getClientConfig({});
  * const exampleServicePrincipal = azuread.getServicePrincipal({
- *     displayName: "Azure Spring Cloud Domain-Management",
+ *     displayName: "Azure Spring Cloud Resource Provider",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
@@ -95,6 +95,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleSpringCloudService.resourceGroupName,
  *     serviceName: exampleSpringCloudService.name,
  *     keyVaultCertificateId: exampleCertificate.id,
+ *     excludePrivateKey: true,
  * });
  * ```
  *
@@ -139,6 +140,10 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
      */
     public readonly certificateContent!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     */
+    public readonly excludePrivateKey!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
     public readonly keyVaultCertificateId!: pulumi.Output<string | undefined>;
@@ -173,6 +178,7 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudCertificateState | undefined;
             resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
+            resourceInputs["excludePrivateKey"] = state ? state.excludePrivateKey : undefined;
             resourceInputs["keyVaultCertificateId"] = state ? state.keyVaultCertificateId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -187,6 +193,7 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["certificateContent"] = args ? args.certificateContent : undefined;
+            resourceInputs["excludePrivateKey"] = args ? args.excludePrivateKey : undefined;
             resourceInputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -206,6 +213,10 @@ export interface SpringCloudCertificateState {
      * The content of uploaded certificate. Changing this forces a new resource to be created.
      */
     certificateContent?: pulumi.Input<string>;
+    /**
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     */
+    excludePrivateKey?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
@@ -236,6 +247,10 @@ export interface SpringCloudCertificateArgs {
      * The content of uploaded certificate. Changing this forces a new resource to be created.
      */
     certificateContent?: pulumi.Input<string>;
+    /**
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     */
+    excludePrivateKey?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */

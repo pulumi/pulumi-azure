@@ -24,11 +24,19 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+        /// </summary>
+        [Input("service")]
+        public Input<string>? Service { get; set; }
+
         [Input("serviceResources", required: true)]
         private InputList<string>? _serviceResources;
 
         /// <summary>
-        /// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+        /// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+        /// 
+        /// &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         /// </summary>
         public InputList<string> ServiceResources
         {

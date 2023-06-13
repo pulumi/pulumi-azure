@@ -21,7 +21,7 @@ public final class FirewallIpConfiguration {
      * 
      */
     private @Nullable String privateIpAddress;
-    private String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
@@ -47,8 +47,8 @@ public final class FirewallIpConfiguration {
     public Optional<String> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
-    public String publicIpAddressId() {
-        return this.publicIpAddressId;
+    public Optional<String> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
     }
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
@@ -73,7 +73,7 @@ public final class FirewallIpConfiguration {
     public static final class Builder {
         private String name;
         private @Nullable String privateIpAddress;
-        private String publicIpAddressId;
+        private @Nullable String publicIpAddressId;
         private @Nullable String subnetId;
         public Builder() {}
         public Builder(FirewallIpConfiguration defaults) {
@@ -95,8 +95,8 @@ public final class FirewallIpConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+        public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter

@@ -102,7 +102,6 @@ import javax.annotation.Nullable;
  *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
  *     }

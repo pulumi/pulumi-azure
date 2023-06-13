@@ -1011,11 +1011,11 @@ class KafkaCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rest_proxy"] = rest_proxy
-            if roles is None and not opts.urn:
-                raise TypeError("Missing required property 'roles'")
             if roles is not None and not opts.urn:
                 warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
                 pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
+            if roles is None and not opts.urn:
+                raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2

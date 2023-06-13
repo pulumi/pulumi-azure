@@ -41,6 +41,8 @@ __all__ = [
     'MongoCollectionIndex',
     'MongoCollectionSystemIndex',
     'MongoDatabaseAutoscaleSettings',
+    'MongoRoleDefinitionPrivilege',
+    'MongoRoleDefinitionPrivilegeResource',
     'PostgresqlClusterMaintenanceWindow',
     'SqlContainerAutoscaleSettings',
     'SqlContainerConflictResolutionPolicy',
@@ -1430,6 +1432,85 @@ class MongoDatabaseAutoscaleSettings(dict):
         The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
+
+
+@pulumi.output_type
+class MongoRoleDefinitionPrivilege(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 resource: 'outputs.MongoRoleDefinitionPrivilegeResource'):
+        """
+        :param Sequence[str] actions: A list of actions that are allowed.
+        :param 'MongoRoleDefinitionPrivilegeResourceArgs' resource: A `resource` block as defined below.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        A list of actions that are allowed.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> 'outputs.MongoRoleDefinitionPrivilegeResource':
+        """
+        A `resource` block as defined below.
+        """
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class MongoRoleDefinitionPrivilegeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionName":
+            suggest = "collection_name"
+        elif key == "dbName":
+            suggest = "db_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoRoleDefinitionPrivilegeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoRoleDefinitionPrivilegeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoRoleDefinitionPrivilegeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_name: Optional[str] = None,
+                 db_name: Optional[str] = None):
+        """
+        :param str collection_name: The name of the Mongo DB Collection that the Role Definition is applied.
+        :param str db_name: The name of the Mongo DB that the Role Definition is applied.
+        """
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> Optional[str]:
+        """
+        The name of the Mongo DB Collection that the Role Definition is applied.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[str]:
+        """
+        The name of the Mongo DB that the Role Definition is applied.
+        """
+        return pulumi.get(self, "db_name")
 
 
 @pulumi.output_type

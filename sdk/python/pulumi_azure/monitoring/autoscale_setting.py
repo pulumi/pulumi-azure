@@ -23,6 +23,7 @@ class AutoscaleSettingArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
+                 predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutoscaleSetting resource.
@@ -33,6 +34,7 @@ class AutoscaleSettingArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
         :param pulumi.Input['AutoscaleSettingNotificationArgs'] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input['AutoscaleSettingPredictiveArgs'] predictive: A `predictive` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "profiles", profiles)
@@ -46,6 +48,8 @@ class AutoscaleSettingArgs:
             pulumi.set(__self__, "name", name)
         if notification is not None:
             pulumi.set(__self__, "notification", notification)
+        if predictive is not None:
+            pulumi.set(__self__, "predictive", predictive)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -135,6 +139,18 @@ class AutoscaleSettingArgs:
 
     @property
     @pulumi.getter
+    def predictive(self) -> Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]:
+        """
+        A `predictive` block as defined below.
+        """
+        return pulumi.get(self, "predictive")
+
+    @predictive.setter
+    def predictive(self, value: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]):
+        pulumi.set(self, "predictive", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
@@ -153,6 +169,7 @@ class _AutoscaleSettingState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
+                 predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -163,6 +180,7 @@ class _AutoscaleSettingState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
         :param pulumi.Input['AutoscaleSettingNotificationArgs'] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input['AutoscaleSettingPredictiveArgs'] predictive: A `predictive` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -176,6 +194,8 @@ class _AutoscaleSettingState:
             pulumi.set(__self__, "name", name)
         if notification is not None:
             pulumi.set(__self__, "notification", notification)
+        if predictive is not None:
+            pulumi.set(__self__, "predictive", predictive)
         if profiles is not None:
             pulumi.set(__self__, "profiles", profiles)
         if resource_group_name is not None:
@@ -235,6 +255,18 @@ class _AutoscaleSettingState:
 
     @property
     @pulumi.getter
+    def predictive(self) -> Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]:
+        """
+        A `predictive` block as defined below.
+        """
+        return pulumi.get(self, "predictive")
+
+    @predictive.setter
+    def predictive(self, value: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]):
+        pulumi.set(self, "predictive", value)
+
+    @property
+    @pulumi.getter
     def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]:
         """
         Specifies one or more (up to 20) `profile` blocks as defined below.
@@ -291,6 +323,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
+                 predictive: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -340,8 +373,8 @@ class AutoscaleSetting(pulumi.CustomResource):
             ),
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
@@ -400,6 +433,10 @@ class AutoscaleSetting(pulumi.CustomResource):
                     ),
                 ],
             )],
+            predictive=azure.monitoring.AutoscaleSettingPredictiveArgs(
+                scale_mode="Enabled",
+                look_ahead_time="PT5M",
+            ),
             notification=azure.monitoring.AutoscaleSettingNotificationArgs(
                 email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
                     send_to_subscription_administrator=True,
@@ -449,8 +486,8 @@ class AutoscaleSetting(pulumi.CustomResource):
             ),
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
@@ -532,6 +569,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']] predictive: A `predictive` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -587,8 +625,8 @@ class AutoscaleSetting(pulumi.CustomResource):
             ),
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
@@ -647,6 +685,10 @@ class AutoscaleSetting(pulumi.CustomResource):
                     ),
                 ],
             )],
+            predictive=azure.monitoring.AutoscaleSettingPredictiveArgs(
+                scale_mode="Enabled",
+                look_ahead_time="PT5M",
+            ),
             notification=azure.monitoring.AutoscaleSettingNotificationArgs(
                 email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
                     send_to_subscription_administrator=True,
@@ -696,8 +738,8 @@ class AutoscaleSetting(pulumi.CustomResource):
             ),
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
@@ -792,6 +834,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
+                 predictive: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -809,6 +852,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["notification"] = notification
+            __props__.__dict__["predictive"] = predictive
             if profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'profiles'")
             __props__.__dict__["profiles"] = profiles
@@ -833,6 +877,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
+            predictive: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']]] = None,
             profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -848,6 +893,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']] predictive: A `predictive` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -861,6 +907,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["notification"] = notification
+        __props__.__dict__["predictive"] = predictive
         __props__.__dict__["profiles"] = profiles
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
@@ -898,6 +945,14 @@ class AutoscaleSetting(pulumi.CustomResource):
         Specifies a `notification` block as defined below.
         """
         return pulumi.get(self, "notification")
+
+    @property
+    @pulumi.getter
+    def predictive(self) -> pulumi.Output[Optional['outputs.AutoscaleSettingPredictive']]:
+        """
+        A `predictive` block as defined below.
+        """
+        return pulumi.get(self, "predictive")
 
     @property
     @pulumi.getter

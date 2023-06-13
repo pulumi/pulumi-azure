@@ -120,7 +120,7 @@ def get_spatial_anchors_account(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.mixedreality.get_spatial_anchors_account(name="example",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("accountDomain", data["azurerm_spatial_anchors_account"]["account_domain"])
     ```
 
@@ -158,7 +158,7 @@ def get_spatial_anchors_account_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.mixedreality.get_spatial_anchors_account(name="example",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("accountDomain", data["azurerm_spatial_anchors_account"]["account_domain"])
     ```
 

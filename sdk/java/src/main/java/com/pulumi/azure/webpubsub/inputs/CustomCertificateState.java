@@ -16,14 +16,14 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
     public static final CustomCertificateState Empty = new CustomCertificateState();
 
     /**
-     * The certificate version of the Web Pubsub Custom Certificate.
+     * The certificate version of the Web PubSub Custom Certificate.
      * 
      */
     @Import(name="certificateVersion")
     private @Nullable Output<String> certificateVersion;
 
     /**
-     * @return The certificate version of the Web Pubsub Custom Certificate.
+     * @return The certificate version of the Web PubSub Custom Certificate.
      * 
      */
     public Optional<Output<String>> certificateVersion() {
@@ -31,7 +31,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      * 
@@ -40,7 +40,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> customCertificateId;
 
     /**
-     * @return The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * @return The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      * 
@@ -50,14 +50,14 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * @return The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -65,18 +65,18 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+     * &gt; **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      * 
      */
     @Import(name="webPubsubId")
     private @Nullable Output<String> webPubsubId;
 
     /**
-     * @return The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     * @return The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+     * &gt; **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      * 
      */
     public Optional<Output<String>> webPubsubId() {
@@ -111,7 +111,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateVersion The certificate version of the Web Pubsub Custom Certificate.
+         * @param certificateVersion The certificate version of the Web PubSub Custom Certificate.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateVersion The certificate version of the Web Pubsub Custom Certificate.
+         * @param certificateVersion The certificate version of the Web PubSub Custom Certificate.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customCertificateId The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+         * @param customCertificateId The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
          * 
@@ -145,7 +145,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customCertificateId The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+         * @param customCertificateId The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
          * 
@@ -157,7 +157,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+         * @param name The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+         * @param name The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -178,9 +178,9 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param webPubsubId The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+         * @param webPubsubId The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+         * &gt; **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
          * 
          * @return builder
          * 
@@ -191,9 +191,9 @@ public final class CustomCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param webPubsubId The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+         * @param webPubsubId The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+         * &gt; **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
          * 
          * @return builder
          * 

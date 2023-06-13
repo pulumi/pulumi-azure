@@ -154,6 +154,8 @@ type ComputeCluster struct {
 	MachineLearningWorkspaceId pulumi.StringOutput `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	NodePublicIpEnabled pulumi.BoolPtrOutput `pulumi:"nodePublicIpEnabled"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsOutput `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -223,6 +225,8 @@ type computeClusterState struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name *string `pulumi:"name"`
+	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings *ComputeClusterScaleSettings `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -252,6 +256,8 @@ type ComputeClusterState struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name pulumi.StringPtrInput
+	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	NodePublicIpEnabled pulumi.BoolPtrInput
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsPtrInput
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -285,6 +291,8 @@ type computeClusterArgs struct {
 	MachineLearningWorkspaceId string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name *string `pulumi:"name"`
+	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettings `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -315,6 +323,8 @@ type ComputeClusterArgs struct {
 	MachineLearningWorkspaceId pulumi.StringInput
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name pulumi.StringPtrInput
+	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	NodePublicIpEnabled pulumi.BoolPtrInput
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsInput
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -446,6 +456,11 @@ func (o ComputeClusterOutput) MachineLearningWorkspaceId() pulumi.StringOutput {
 // The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 func (o ComputeClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeCluster) pulumi.BoolPtrOutput { return v.NodePublicIpEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.

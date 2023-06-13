@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Enrichment{}
 	case "azure:iot/fallbackRoute:FallbackRoute":
 		r = &FallbackRoute{}
+	case "azure:iot/fileUpload:FileUpload":
+		r = &FileUpload{}
 	case "azure:iot/ioTHub:IoTHub":
 		r = &IoTHub{}
 	case "azure:iot/iotHubCertificate:IotHubCertificate":
@@ -125,6 +127,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iot/fallbackRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iot/fileUpload",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

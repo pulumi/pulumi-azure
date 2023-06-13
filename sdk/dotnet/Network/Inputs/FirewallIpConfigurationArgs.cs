@@ -24,8 +24,8 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
 
         /// <summary>
         /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.

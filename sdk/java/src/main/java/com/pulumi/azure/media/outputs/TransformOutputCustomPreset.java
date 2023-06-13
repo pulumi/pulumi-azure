@@ -7,7 +7,9 @@ import com.pulumi.azure.media.outputs.TransformOutputCustomPresetCodec;
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFilter;
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormat;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,6 +21,11 @@ public final class TransformOutputCustomPreset {
      * 
      */
     private List<TransformOutputCustomPresetCodec> codecs;
+    /**
+     * @return Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    private @Nullable Map<String,String> experimentalOptions;
     /**
      * @return A `filter` block as defined below.
      * 
@@ -37,6 +44,13 @@ public final class TransformOutputCustomPreset {
      */
     public List<TransformOutputCustomPresetCodec> codecs() {
         return this.codecs;
+    }
+    /**
+     * @return Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    public Map<String,String> experimentalOptions() {
+        return this.experimentalOptions == null ? Map.of() : this.experimentalOptions;
     }
     /**
      * @return A `filter` block as defined below.
@@ -63,12 +77,14 @@ public final class TransformOutputCustomPreset {
     @CustomType.Builder
     public static final class Builder {
         private List<TransformOutputCustomPresetCodec> codecs;
+        private @Nullable Map<String,String> experimentalOptions;
         private @Nullable TransformOutputCustomPresetFilter filter;
         private List<TransformOutputCustomPresetFormat> formats;
         public Builder() {}
         public Builder(TransformOutputCustomPreset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codecs = defaults.codecs;
+    	      this.experimentalOptions = defaults.experimentalOptions;
     	      this.filter = defaults.filter;
     	      this.formats = defaults.formats;
         }
@@ -80,6 +96,11 @@ public final class TransformOutputCustomPreset {
         }
         public Builder codecs(TransformOutputCustomPresetCodec... codecs) {
             return codecs(List.of(codecs));
+        }
+        @CustomType.Setter
+        public Builder experimentalOptions(@Nullable Map<String,String> experimentalOptions) {
+            this.experimentalOptions = experimentalOptions;
+            return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable TransformOutputCustomPresetFilter filter) {
@@ -97,6 +118,7 @@ public final class TransformOutputCustomPreset {
         public TransformOutputCustomPreset build() {
             final var o = new TransformOutputCustomPreset();
             o.codecs = codecs;
+            o.experimentalOptions = experimentalOptions;
             o.filter = filter;
             o.formats = formats;
             return o;

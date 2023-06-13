@@ -172,7 +172,7 @@ def get_maria_db_server(name: Optional[str] = None,
     import pulumi_azure as azure
 
     db_server = azure.mariadb.get_maria_db_server(name="mariadb-server",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_mariadb_server["example"]["resource_group_name"])
     pulumi.export("mariadbServerId", data["azurerm_mariadb_server"]["example"]["id"])
     ```
 
@@ -214,7 +214,7 @@ def get_maria_db_server_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     db_server = azure.mariadb.get_maria_db_server(name="mariadb-server",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_mariadb_server["example"]["resource_group_name"])
     pulumi.export("mariadbServerId", data["azurerm_mariadb_server"]["example"]["id"])
     ```
 

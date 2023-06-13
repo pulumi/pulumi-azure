@@ -177,7 +177,7 @@ type FlexibleServer struct {
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version pulumi.StringOutput    `pulumi:"version"`
@@ -281,7 +281,7 @@ type flexibleServerState struct {
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -347,7 +347,7 @@ type FlexibleServerState struct {
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version pulumi.StringPtrInput
@@ -413,7 +413,7 @@ type flexibleServerArgs struct {
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -476,7 +476,7 @@ type FlexibleServerArgs struct {
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version pulumi.StringPtrInput
@@ -697,7 +697,7 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 //
 // > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {

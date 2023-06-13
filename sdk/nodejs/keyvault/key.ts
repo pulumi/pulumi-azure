@@ -161,7 +161,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * A `rotationPolicy` block as defined below.
      */
-    public readonly rotationPolicy!: pulumi.Output<outputs.keyvault.KeyRotationPolicy>;
+    public readonly rotationPolicy!: pulumi.Output<outputs.keyvault.KeyRotationPolicy | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */

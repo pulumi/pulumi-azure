@@ -41,6 +41,19 @@ import (
 //	}
 //
 // ```
+// ## Blocks Reference
+//
+// ### `identity` Block
+//
+// The `identity` block supports the following arguments:
+//
+// * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+// * `identityIds` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+//
+// In addition to the arguments defined above, the `identity` block exports the following attributes:
+//
+// * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+// * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 //
 // ## Import
 //
@@ -60,7 +73,7 @@ type LoadTest struct {
 	DataPlaneUri pulumi.StringOutput `pulumi:"dataPlaneUri"`
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the Managed Identity which should be assigned to this Load Test.
+	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity LoadTestIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -108,7 +121,7 @@ type loadTestState struct {
 	DataPlaneUri *string `pulumi:"dataPlaneUri"`
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description *string `pulumi:"description"`
-	// Specifies the Managed Identity which should be assigned to this Load Test.
+	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity *LoadTestIdentity `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location *string `pulumi:"location"`
@@ -125,7 +138,7 @@ type LoadTestState struct {
 	DataPlaneUri pulumi.StringPtrInput
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description pulumi.StringPtrInput
-	// Specifies the Managed Identity which should be assigned to this Load Test.
+	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity LoadTestIdentityPtrInput
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location pulumi.StringPtrInput
@@ -144,7 +157,7 @@ func (LoadTestState) ElementType() reflect.Type {
 type loadTestArgs struct {
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description *string `pulumi:"description"`
-	// Specifies the Managed Identity which should be assigned to this Load Test.
+	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity *LoadTestIdentity `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location *string `pulumi:"location"`
@@ -160,7 +173,7 @@ type loadTestArgs struct {
 type LoadTestArgs struct {
 	// Description of the resource. Changing this forces a new Load Test to be created.
 	Description pulumi.StringPtrInput
-	// Specifies the Managed Identity which should be assigned to this Load Test.
+	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 	Identity LoadTestIdentityPtrInput
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location pulumi.StringPtrInput
@@ -269,7 +282,7 @@ func (o LoadTestOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Managed Identity which should be assigned to this Load Test.
+// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
 func (o LoadTestOutput) Identity() LoadTestIdentityPtrOutput {
 	return o.ApplyT(func(v *LoadTest) LoadTestIdentityPtrOutput { return v.Identity }).(LoadTestIdentityPtrOutput)
 }

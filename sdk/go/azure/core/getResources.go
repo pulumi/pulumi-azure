@@ -37,9 +37,10 @@ type GetResourcesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of this Resource.
-	Name              string            `pulumi:"name"`
-	RequiredTags      map[string]string `pulumi:"requiredTags"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Name         string            `pulumi:"name"`
+	RequiredTags map[string]string `pulumi:"requiredTags"`
+	// The name of the Resource Group in which this Resource exists.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `resource` blocks as defined below.
 	Resources []GetResourcesResource `pulumi:"resources"`
 	// The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
@@ -104,6 +105,7 @@ func (o GetResourcesResultOutput) RequiredTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetResourcesResult) map[string]string { return v.RequiredTags }).(pulumi.StringMapOutput)
 }
 
+// The name of the Resource Group in which this Resource exists.
 func (o GetResourcesResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourcesResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

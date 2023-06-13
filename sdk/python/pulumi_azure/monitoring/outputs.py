@@ -83,9 +83,13 @@ __all__ = [
     'AlertProcessingRuleSuppressionScheduleRecurrenceDaily',
     'AlertProcessingRuleSuppressionScheduleRecurrenceMonthly',
     'AlertProcessingRuleSuppressionScheduleRecurrenceWeekly',
+    'AlertPrometheusRuleGroupRule',
+    'AlertPrometheusRuleGroupRuleAction',
+    'AlertPrometheusRuleGroupRuleAlertResolution',
     'AutoscaleSettingNotification',
     'AutoscaleSettingNotificationEmail',
     'AutoscaleSettingNotificationWebhook',
+    'AutoscaleSettingPredictive',
     'AutoscaleSettingProfile',
     'AutoscaleSettingProfileCapacity',
     'AutoscaleSettingProfileFixedDate',
@@ -2104,18 +2108,28 @@ class ActivityLogAlertCriteria(dict):
             suggest = "recommendation_type"
         elif key == "resourceGroup":
             suggest = "resource_group"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
         elif key == "resourceHealths":
             suggest = "resource_healths"
         elif key == "resourceId":
             suggest = "resource_id"
+        elif key == "resourceIds":
+            suggest = "resource_ids"
         elif key == "resourceProvider":
             suggest = "resource_provider"
+        elif key == "resourceProviders":
+            suggest = "resource_providers"
         elif key == "resourceType":
             suggest = "resource_type"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
         elif key == "serviceHealths":
             suggest = "service_healths"
         elif key == "subStatus":
             suggest = "sub_status"
+        elif key == "subStatuses":
+            suggest = "sub_statuses"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ActivityLogAlertCriteria. Access the value via the '{suggest}' property getter instead.")
@@ -2132,40 +2146,70 @@ class ActivityLogAlertCriteria(dict):
                  category: str,
                  caller: Optional[str] = None,
                  level: Optional[str] = None,
+                 levels: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  recommendation_category: Optional[str] = None,
                  recommendation_impact: Optional[str] = None,
                  recommendation_type: Optional[str] = None,
                  resource_group: Optional[str] = None,
+                 resource_groups: Optional[Sequence[str]] = None,
                  resource_healths: Optional[Sequence['outputs.ActivityLogAlertCriteriaResourceHealth']] = None,
                  resource_id: Optional[str] = None,
+                 resource_ids: Optional[Sequence[str]] = None,
                  resource_provider: Optional[str] = None,
+                 resource_providers: Optional[Sequence[str]] = None,
                  resource_type: Optional[str] = None,
+                 resource_types: Optional[Sequence[str]] = None,
                  service_healths: Optional[Sequence['outputs.ActivityLogAlertCriteriaServiceHealth']] = None,
                  status: Optional[str] = None,
-                 sub_status: Optional[str] = None):
+                 statuses: Optional[Sequence[str]] = None,
+                 sub_status: Optional[str] = None,
+                 sub_statuses: Optional[Sequence[str]] = None):
         """
         :param str category: The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
         :param str caller: The email address or Azure Active Directory identifier of the user who performed the operation.
         :param str level: The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+        :param Sequence[str] levels: A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+               
+               > **NOTE:** `level` and `levels` are mutually exclusive.
         :param str operation_name: The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
         :param str recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
         :param str recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
         :param str recommendation_type: The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
         :param str resource_group: The name of resource group monitored by the activity log alert.
+        :param Sequence[str] resource_groups: A list of names of resource groups monitored by the activity log alert.
+               
+               > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
         :param Sequence['ActivityLogAlertCriteriaResourceHealthArgs'] resource_healths: A block to define fine grain resource health settings.
         :param str resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+        :param Sequence[str] resource_ids: A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+               
+               > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
         :param str resource_provider: The name of the resource provider monitored by the activity log alert.
+        :param Sequence[str] resource_providers: A list of names of resource providers monitored by the activity log alert.
+               
+               > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
         :param str resource_type: The resource type monitored by the activity log alert.
+        :param Sequence[str] resource_types: A list of resource types monitored by the activity log alert.
+               
+               > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
         :param Sequence['ActivityLogAlertCriteriaServiceHealthArgs'] service_healths: A block to define fine grain service health settings.
         :param str status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+        :param Sequence[str] statuses: A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+               
+               > **NOTE:** `status` and `statuses` are mutually exclusive.
         :param str sub_status: The sub status of the event.
+        :param Sequence[str] sub_statuses: A list of sub status of the event.
+               
+               > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
         """
         pulumi.set(__self__, "category", category)
         if caller is not None:
             pulumi.set(__self__, "caller", caller)
         if level is not None:
             pulumi.set(__self__, "level", level)
+        if levels is not None:
+            pulumi.set(__self__, "levels", levels)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
         if recommendation_category is not None:
@@ -2176,20 +2220,32 @@ class ActivityLogAlertCriteria(dict):
             pulumi.set(__self__, "recommendation_type", recommendation_type)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
         if resource_healths is not None:
             pulumi.set(__self__, "resource_healths", resource_healths)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if resource_ids is not None:
+            pulumi.set(__self__, "resource_ids", resource_ids)
         if resource_provider is not None:
             pulumi.set(__self__, "resource_provider", resource_provider)
+        if resource_providers is not None:
+            pulumi.set(__self__, "resource_providers", resource_providers)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
         if service_healths is not None:
             pulumi.set(__self__, "service_healths", service_healths)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
         if sub_status is not None:
             pulumi.set(__self__, "sub_status", sub_status)
+        if sub_statuses is not None:
+            pulumi.set(__self__, "sub_statuses", sub_statuses)
 
     @property
     @pulumi.getter
@@ -2214,6 +2270,16 @@ class ActivityLogAlertCriteria(dict):
         The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
         """
         return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def levels(self) -> Optional[Sequence[str]]:
+        """
+        A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+
+        > **NOTE:** `level` and `levels` are mutually exclusive.
+        """
+        return pulumi.get(self, "levels")
 
     @property
     @pulumi.getter(name="operationName")
@@ -2256,6 +2322,16 @@ class ActivityLogAlertCriteria(dict):
         return pulumi.get(self, "resource_group")
 
     @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of names of resource groups monitored by the activity log alert.
+
+        > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @property
     @pulumi.getter(name="resourceHealths")
     def resource_healths(self) -> Optional[Sequence['outputs.ActivityLogAlertCriteriaResourceHealth']]:
         """
@@ -2272,6 +2348,16 @@ class ActivityLogAlertCriteria(dict):
         return pulumi.get(self, "resource_id")
 
     @property
+    @pulumi.getter(name="resourceIds")
+    def resource_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+
+        > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_ids")
+
+    @property
     @pulumi.getter(name="resourceProvider")
     def resource_provider(self) -> Optional[str]:
         """
@@ -2280,12 +2366,32 @@ class ActivityLogAlertCriteria(dict):
         return pulumi.get(self, "resource_provider")
 
     @property
+    @pulumi.getter(name="resourceProviders")
+    def resource_providers(self) -> Optional[Sequence[str]]:
+        """
+        A list of names of resource providers monitored by the activity log alert.
+
+        > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_providers")
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[str]:
         """
         The resource type monitored by the activity log alert.
         """
         return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of resource types monitored by the activity log alert.
+
+        > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_types")
 
     @property
     @pulumi.getter(name="serviceHealths")
@@ -2304,12 +2410,32 @@ class ActivityLogAlertCriteria(dict):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence[str]]:
+        """
+        A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+
+        > **NOTE:** `status` and `statuses` are mutually exclusive.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
     @pulumi.getter(name="subStatus")
     def sub_status(self) -> Optional[str]:
         """
         The sub status of the event.
         """
         return pulumi.get(self, "sub_status")
+
+    @property
+    @pulumi.getter(name="subStatuses")
+    def sub_statuses(self) -> Optional[Sequence[str]]:
+        """
+        A list of sub status of the event.
+
+        > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        """
+        return pulumi.get(self, "sub_statuses")
 
 
 @pulumi.output_type
@@ -3971,6 +4097,250 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
 
 
 @pulumi.output_type
+class AlertPrometheusRuleGroupRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertResolution":
+            suggest = "alert_resolution"
+        elif key == "for":
+            suggest = "for_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPrometheusRuleGroupRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPrometheusRuleGroupRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPrometheusRuleGroupRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: str,
+                 actions: Optional[Sequence['outputs.AlertPrometheusRuleGroupRuleAction']] = None,
+                 alert: Optional[str] = None,
+                 alert_resolution: Optional['outputs.AlertPrometheusRuleGroupRuleAlertResolution'] = None,
+                 annotations: Optional[Mapping[str, str]] = None,
+                 enabled: Optional[bool] = None,
+                 for_: Optional[str] = None,
+                 labels: Optional[Mapping[str, str]] = None,
+                 record: Optional[str] = None,
+                 severity: Optional[int] = None):
+        """
+        :param str expression: Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+        :param Sequence['AlertPrometheusRuleGroupRuleActionArgs'] actions: An `action` block as defined below.
+        :param str alert: Specifies the Alert rule name.
+        :param 'AlertPrometheusRuleGroupRuleAlertResolutionArgs' alert_resolution: An `alert_resolution` block as defined below.
+        :param Mapping[str, str] annotations: Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+        :param bool enabled: Is this rule enabled? Possible values are `true` and `false`.
+        :param str for_: Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+        :param Mapping[str, str] labels: Specifies the labels to add or overwrite before storing the result.
+        :param str record: Specifies the recorded metrics name.
+        :param int severity: Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+        """
+        pulumi.set(__self__, "expression", expression)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if alert is not None:
+            pulumi.set(__self__, "alert", alert)
+        if alert_resolution is not None:
+            pulumi.set(__self__, "alert_resolution", alert_resolution)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if for_ is not None:
+            pulumi.set(__self__, "for_", for_)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if record is not None:
+            pulumi.set(__self__, "record", record)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.AlertPrometheusRuleGroupRuleAction']]:
+        """
+        An `action` block as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def alert(self) -> Optional[str]:
+        """
+        Specifies the Alert rule name.
+        """
+        return pulumi.get(self, "alert")
+
+    @property
+    @pulumi.getter(name="alertResolution")
+    def alert_resolution(self) -> Optional['outputs.AlertPrometheusRuleGroupRuleAlertResolution']:
+        """
+        An `alert_resolution` block as defined below.
+        """
+        return pulumi.get(self, "alert_resolution")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is this rule enabled? Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="for")
+    def for_(self) -> Optional[str]:
+        """
+        Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "for_")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies the labels to add or overwrite before storing the result.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def record(self) -> Optional[str]:
+        """
+        Specifies the recorded metrics name.
+        """
+        return pulumi.get(self, "record")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[int]:
+        """
+        Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+        """
+        return pulumi.get(self, "severity")
+
+
+@pulumi.output_type
+class AlertPrometheusRuleGroupRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "actionProperties":
+            suggest = "action_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPrometheusRuleGroupRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPrometheusRuleGroupRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPrometheusRuleGroupRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_group_id: str,
+                 action_properties: Optional[Mapping[str, str]] = None):
+        """
+        :param str action_group_id: Specifies the resource id of the monitor action group.
+        :param Mapping[str, str] action_properties: Specifies the properties of an action group object.
+        """
+        pulumi.set(__self__, "action_group_id", action_group_id)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> str:
+        """
+        Specifies the resource id of the monitor action group.
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies the properties of an action group object.
+        """
+        return pulumi.get(self, "action_properties")
+
+
+@pulumi.output_type
+class AlertPrometheusRuleGroupRuleAlertResolution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResolved":
+            suggest = "auto_resolved"
+        elif key == "timeToResolve":
+            suggest = "time_to_resolve"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPrometheusRuleGroupRuleAlertResolution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPrometheusRuleGroupRuleAlertResolution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPrometheusRuleGroupRuleAlertResolution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resolved: Optional[bool] = None,
+                 time_to_resolve: Optional[str] = None):
+        """
+        :param bool auto_resolved: Is the alert auto-resolution? Possible values are `true` and `false`.
+        :param str time_to_resolve: Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[bool]:
+        """
+        Is the alert auto-resolution? Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[str]:
+        """
+        Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+
+@pulumi.output_type
 class AutoscaleSettingNotification(dict):
     def __init__(__self__, *,
                  email: Optional['outputs.AutoscaleSettingNotificationEmail'] = None,
@@ -4110,6 +4480,55 @@ class AutoscaleSettingNotificationWebhook(dict):
         A map of settings.
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class AutoscaleSettingPredictive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleMode":
+            suggest = "scale_mode"
+        elif key == "lookAheadTime":
+            suggest = "look_ahead_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingPredictive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingPredictive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingPredictive.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_mode: str,
+                 look_ahead_time: Optional[str] = None):
+        """
+        :param str scale_mode: Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+        :param str look_ahead_time: Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+        """
+        pulumi.set(__self__, "scale_mode", scale_mode)
+        if look_ahead_time is not None:
+            pulumi.set(__self__, "look_ahead_time", look_ahead_time)
+
+    @property
+    @pulumi.getter(name="scaleMode")
+    def scale_mode(self) -> str:
+        """
+        Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+        """
+        return pulumi.get(self, "scale_mode")
+
+    @property
+    @pulumi.getter(name="lookAheadTime")
+    def look_ahead_time(self) -> Optional[str]:
+        """
+        Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+        """
+        return pulumi.get(self, "look_ahead_time")
 
 
 @pulumi.output_type

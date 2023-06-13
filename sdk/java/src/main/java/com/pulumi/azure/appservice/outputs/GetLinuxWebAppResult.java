@@ -43,6 +43,12 @@ public final class GetLinuxWebAppResult {
      */
     private List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s;
     /**
+     * @return The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+     * *
+     * 
+     */
+    private String availability;
+    /**
      * @return A `backup` block as defined below.
      * 
      */
@@ -180,6 +186,11 @@ public final class GetLinuxWebAppResult {
      */
     private Map<String,String> tags;
     /**
+     * @return The current usage state. Possible values are `Normal` and `Exceeded`.
+     * 
+     */
+    private String usage;
+    /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
      * 
      */
@@ -213,6 +224,14 @@ public final class GetLinuxWebAppResult {
      */
     public List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s() {
         return this.authSettingsV2s;
+    }
+    /**
+     * @return The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+     * *
+     * 
+     */
+    public String availability() {
+        return this.availability;
     }
     /**
      * @return A `backup` block as defined below.
@@ -410,6 +429,13 @@ public final class GetLinuxWebAppResult {
         return this.tags;
     }
     /**
+     * @return The current usage state. Possible values are `Normal` and `Exceeded`.
+     * 
+     */
+    public String usage() {
+        return this.usage;
+    }
+    /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
      * 
      */
@@ -430,6 +456,7 @@ public final class GetLinuxWebAppResult {
         private Map<String,String> appSettings;
         private List<GetLinuxWebAppAuthSetting> authSettings;
         private List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s;
+        private String availability;
         private List<GetLinuxWebAppBackup> backups;
         private Boolean clientAffinityEnabled;
         private Boolean clientCertificateEnabled;
@@ -459,6 +486,7 @@ public final class GetLinuxWebAppResult {
         private List<GetLinuxWebAppStickySetting> stickySettings;
         private List<GetLinuxWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
+        private String usage;
         private String virtualNetworkSubnetId;
         public Builder() {}
         public Builder(GetLinuxWebAppResult defaults) {
@@ -467,6 +495,7 @@ public final class GetLinuxWebAppResult {
     	      this.appSettings = defaults.appSettings;
     	      this.authSettings = defaults.authSettings;
     	      this.authSettingsV2s = defaults.authSettingsV2s;
+    	      this.availability = defaults.availability;
     	      this.backups = defaults.backups;
     	      this.clientAffinityEnabled = defaults.clientAffinityEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
@@ -496,6 +525,7 @@ public final class GetLinuxWebAppResult {
     	      this.stickySettings = defaults.stickySettings;
     	      this.storageAccounts = defaults.storageAccounts;
     	      this.tags = defaults.tags;
+    	      this.usage = defaults.usage;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
@@ -524,6 +554,11 @@ public final class GetLinuxWebAppResult {
         }
         public Builder authSettingsV2s(GetLinuxWebAppAuthSettingsV2... authSettingsV2s) {
             return authSettingsV2s(List.of(authSettingsV2s));
+        }
+        @CustomType.Setter
+        public Builder availability(String availability) {
+            this.availability = Objects.requireNonNull(availability);
+            return this;
         }
         @CustomType.Setter
         public Builder backups(List<GetLinuxWebAppBackup> backups) {
@@ -701,6 +736,11 @@ public final class GetLinuxWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder usage(String usage) {
+            this.usage = Objects.requireNonNull(usage);
+            return this;
+        }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
@@ -711,6 +751,7 @@ public final class GetLinuxWebAppResult {
             o.appSettings = appSettings;
             o.authSettings = authSettings;
             o.authSettingsV2s = authSettingsV2s;
+            o.availability = availability;
             o.backups = backups;
             o.clientAffinityEnabled = clientAffinityEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;
@@ -740,6 +781,7 @@ public final class GetLinuxWebAppResult {
             o.stickySettings = stickySettings;
             o.storageAccounts = storageAccounts;
             o.tags = tags;
+            o.usage = usage;
             o.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return o;
         }

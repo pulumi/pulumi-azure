@@ -93,12 +93,14 @@ import (
 type ProtectedVM struct {
 	pulumi.CustomResourceState
 
-	// Specifies the id of the backup policy to use.
-	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
+	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
+	BackupPolicyId pulumi.StringPtrOutput `pulumi:"backupPolicyId"`
 	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayOutput `pulumi:"excludeDiskLuns"`
 	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
 	IncludeDiskLuns pulumi.IntArrayOutput `pulumi:"includeDiskLuns"`
+	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -117,9 +119,6 @@ func NewProtectedVM(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BackupPolicyId == nil {
-		return nil, errors.New("invalid value for required argument 'BackupPolicyId'")
-	}
 	if args.RecoveryVaultName == nil {
 		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
 	}
@@ -148,12 +147,14 @@ func GetProtectedVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectedVM resources.
 type protectedVMState struct {
-	// Specifies the id of the backup policy to use.
+	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
 	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns []int `pulumi:"excludeDiskLuns"`
 	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
 	IncludeDiskLuns []int `pulumi:"includeDiskLuns"`
+	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	ProtectionState *string `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -166,12 +167,14 @@ type protectedVMState struct {
 }
 
 type ProtectedVMState struct {
-	// Specifies the id of the backup policy to use.
+	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId pulumi.StringPtrInput
 	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayInput
 	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
 	IncludeDiskLuns pulumi.IntArrayInput
+	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	ProtectionState pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -188,12 +191,14 @@ func (ProtectedVMState) ElementType() reflect.Type {
 }
 
 type protectedVMArgs struct {
-	// Specifies the id of the backup policy to use.
-	BackupPolicyId string `pulumi:"backupPolicyId"`
+	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
+	BackupPolicyId *string `pulumi:"backupPolicyId"`
 	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns []int `pulumi:"excludeDiskLuns"`
 	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
 	IncludeDiskLuns []int `pulumi:"includeDiskLuns"`
+	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	ProtectionState *string `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -207,12 +212,14 @@ type protectedVMArgs struct {
 
 // The set of arguments for constructing a ProtectedVM resource.
 type ProtectedVMArgs struct {
-	// Specifies the id of the backup policy to use.
-	BackupPolicyId pulumi.StringInput
+	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
+	BackupPolicyId pulumi.StringPtrInput
 	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayInput
 	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
 	IncludeDiskLuns pulumi.IntArrayInput
+	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	ProtectionState pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -311,9 +318,9 @@ func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Specifies the id of the backup policy to use.
-func (o ProtectedVMOutput) BackupPolicyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.BackupPolicyId }).(pulumi.StringOutput)
+// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
+func (o ProtectedVMOutput) BackupPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedVM) pulumi.StringPtrOutput { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
@@ -324,6 +331,11 @@ func (o ProtectedVMOutput) ExcludeDiskLuns() pulumi.IntArrayOutput {
 // A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
 func (o ProtectedVMOutput) IncludeDiskLuns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.IntArrayOutput { return v.IncludeDiskLuns }).(pulumi.IntArrayOutput)
+}
+
+// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+func (o ProtectedVMOutput) ProtectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.ProtectionState }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.

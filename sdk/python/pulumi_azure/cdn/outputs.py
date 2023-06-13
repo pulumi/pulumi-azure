@@ -5894,14 +5894,25 @@ class GetFrontdoorSecretSecretResult(dict):
 @pulumi.output_type
 class GetFrontdoorSecretSecretCustomerCertificateResult(dict):
     def __init__(__self__, *,
+                 expiration_date: str,
                  key_vault_certificate_id: str,
                  subject_alternative_names: Sequence[str]):
         """
+        :param str expiration_date: The key vault certificate expiration date.
         :param str key_vault_certificate_id: The key vault certificate ID.
         :param Sequence[str] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
         """
+        pulumi.set(__self__, "expiration_date", expiration_date)
         pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
         pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        The key vault certificate expiration date.
+        """
+        return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter(name="keyVaultCertificateId")
