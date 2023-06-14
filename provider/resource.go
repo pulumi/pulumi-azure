@@ -1659,7 +1659,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
-			"azurerm_mysql_flexible_database":             {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
+			"azurerm_mysql_flexible_server_active_directory_administrator": {
+				Tok: azureResource(azureMySQL, "FlexibleServerActiveDirectoryAdministratory"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"azurerm_mysql_flexible_database": {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration": {
