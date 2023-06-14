@@ -23,6 +23,27 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.nginx.Deployment;
+ * import com.pulumi.azure.nginx.DeploymentArgs;
+ * import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
+ * import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Certificate;
+ * import com.pulumi.azure.keyvault.CertificateArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.azure.nginx.Certificate;
  * import com.pulumi.azure.nginx.CertificateArgs;
  * import java.util.List;
@@ -38,11 +59,90 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
- *             .nginxDeploymentId(azurerm_nginx_deployment.test().id())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .sku(&#34;Standard&#34;)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name(&#34;delegation&#34;)
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name(&#34;NGINX.NGINXPLUS/nginxDeployments&#34;)
+ *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;publicpreview_Monthly_gmz7xq9ge3py&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .managedResourceGroup(&#34;example&#34;)
+ *             .diagnoseSupportEnabled(true)
+ *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
+ *                 .ipAddresses(examplePublicIp.id())
+ *                 .build())
+ *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
+ *                 .subnetId(exampleSubnet.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;premium&#34;)
+ *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .certificatePermissions(                
+ *                     &#34;Create&#34;,
+ *                     &#34;Delete&#34;,
+ *                     &#34;DeleteIssuers&#34;,
+ *                     &#34;Get&#34;,
+ *                     &#34;GetIssuers&#34;,
+ *                     &#34;Import&#34;,
+ *                     &#34;List&#34;,
+ *                     &#34;ListIssuers&#34;,
+ *                     &#34;ManageContacts&#34;,
+ *                     &#34;ManageIssuers&#34;,
+ *                     &#34;SetIssuers&#34;,
+ *                     &#34;Update&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .certificate(CertificateCertificateArgs.builder()
+ *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate-to-import.pfx&#34;))))
+ *                 .password(&#34;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNginx_certificateCertificate = new Certificate(&#34;exampleNginx/certificateCertificate&#34;, CertificateArgs.builder()        
+ *             .nginxDeploymentId(exampleDeployment.id())
  *             .keyVirtualPath(&#34;/src/cert/soservermekey.key&#34;)
  *             .certificateVirtualPath(&#34;/src/cert/server.cert&#34;)
- *             .keyVaultSecretId(azurerm_key_vault_certificate.test().secret_id())
+ *             .keyVaultSecretId(exampleCertificate.secretId())
  *             .build());
  * 
  *     }
@@ -61,42 +161,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:nginx/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the cert file of this certificate.
      * 
      */
     @Export(name="certificateVirtualPath", refs={String.class}, tree="[0]")
     private Output<String> certificateVirtualPath;
 
     /**
-     * @return Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return Specify the path to the cert file of this certificate.
      * 
      */
     public Output<String> certificateVirtualPath() {
         return this.certificateVirtualPath;
     }
     /**
-     * Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the ID of the Key Vault Secret for this certificate.
      * 
      */
     @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultSecretId;
 
     /**
-     * @return Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return Specify the ID of the Key Vault Secret for this certificate.
      * 
      */
     public Output<String> keyVaultSecretId() {
         return this.keyVaultSecretId;
     }
     /**
-     * Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the key file of this certificate.
      * 
      */
     @Export(name="keyVirtualPath", refs={String.class}, tree="[0]")
     private Output<String> keyVirtualPath;
 
     /**
-     * @return Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return Specify the path to the key file of this certificate.
      * 
      */
     public Output<String> keyVirtualPath() {

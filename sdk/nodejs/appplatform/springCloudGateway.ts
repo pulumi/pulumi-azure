@@ -101,6 +101,10 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly applicationPerformanceMonitoringTypes!: pulumi.Output<string[] | undefined>;
     /**
+     * A `clientAuthorization` block as defined below.
+     */
+    public readonly clientAuthorization!: pulumi.Output<outputs.appplatform.SpringCloudGatewayClientAuthorization | undefined>;
+    /**
      * A `cors` block as defined below.
      */
     public readonly cors!: pulumi.Output<outputs.appplatform.SpringCloudGatewayCors | undefined>;
@@ -160,6 +164,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
             const state = argsOrState as SpringCloudGatewayState | undefined;
             resourceInputs["apiMetadata"] = state ? state.apiMetadata : undefined;
             resourceInputs["applicationPerformanceMonitoringTypes"] = state ? state.applicationPerformanceMonitoringTypes : undefined;
+            resourceInputs["clientAuthorization"] = state ? state.clientAuthorization : undefined;
             resourceInputs["cors"] = state ? state.cors : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
@@ -178,6 +183,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
             }
             resourceInputs["apiMetadata"] = args ? args.apiMetadata : undefined;
             resourceInputs["applicationPerformanceMonitoringTypes"] = args ? args.applicationPerformanceMonitoringTypes : undefined;
+            resourceInputs["clientAuthorization"] = args ? args.clientAuthorization : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
@@ -209,6 +215,10 @@ export interface SpringCloudGatewayState {
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
     applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `clientAuthorization` block as defined below.
+     */
+    clientAuthorization?: pulumi.Input<inputs.appplatform.SpringCloudGatewayClientAuthorization>;
     /**
      * A `cors` block as defined below.
      */
@@ -267,6 +277,10 @@ export interface SpringCloudGatewayArgs {
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
     applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `clientAuthorization` block as defined below.
+     */
+    clientAuthorization?: pulumi.Input<inputs.appplatform.SpringCloudGatewayClientAuthorization>;
     /**
      * A `cors` block as defined below.
      */

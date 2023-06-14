@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkSimGroupIdentity {
     /**
-     * @return A list of IDs for User Assigned Managed Identity resources to be assigned.
+     * @return A list of User Assigned Managed Identity IDs assigned to this resource.
      * 
      */
     private List<String> identityIds;
@@ -25,7 +25,7 @@ public final class GetNetworkSimGroupIdentity {
 
     private GetNetworkSimGroupIdentity() {}
     /**
-     * @return A list of IDs for User Assigned Managed Identity resources to be assigned.
+     * @return A list of User Assigned Managed Identity IDs assigned to this resource.
      * 
      */
     public List<String> identityIds() {

@@ -378,6 +378,8 @@ class ServiceUpstreamEndpoint(dict):
             suggest = "hub_patterns"
         elif key == "urlTemplate":
             suggest = "url_template"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceUpstreamEndpoint. Access the value via the '{suggest}' property getter instead.")
@@ -394,17 +396,21 @@ class ServiceUpstreamEndpoint(dict):
                  category_patterns: Sequence[str],
                  event_patterns: Sequence[str],
                  hub_patterns: Sequence[str],
-                 url_template: str):
+                 url_template: str,
+                 user_assigned_identity_id: Optional[str] = None):
         """
         :param Sequence[str] category_patterns: The categories to match on, or `*` for all.
         :param Sequence[str] event_patterns: The events to match on, or `*` for all.
         :param Sequence[str] hub_patterns: The hubs to match on, or `*` for all.
         :param str url_template: The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+        :param str user_assigned_identity_id: Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
         """
         pulumi.set(__self__, "category_patterns", category_patterns)
         pulumi.set(__self__, "event_patterns", event_patterns)
         pulumi.set(__self__, "hub_patterns", hub_patterns)
         pulumi.set(__self__, "url_template", url_template)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="categoryPatterns")
@@ -437,5 +443,13 @@ class ServiceUpstreamEndpoint(dict):
         The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
         """
         return pulumi.get(self, "url_template")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 

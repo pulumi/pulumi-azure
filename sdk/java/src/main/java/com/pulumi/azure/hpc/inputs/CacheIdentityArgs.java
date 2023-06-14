@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,27 +19,61 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
-    @Import(name="identityIds", required=true)
-    private Output<List<String>> identityIds;
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
-    public Output<List<String>> identityIds() {
-        return this.identityIds;
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+     * The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    @Import(name="principalId")
+    private @Nullable Output<String> principalId;
+
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<Output<String>> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+
+    /**
+     * The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
+    /**
+     * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -48,6 +84,8 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     private CacheIdentityArgs(CacheIdentityArgs $) {
         this.identityIds = $.identityIds;
+        this.principalId = $.principalId;
+        this.tenantId = $.tenantId;
         this.type = $.type;
     }
 
@@ -72,16 +110,20 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
-        public Builder identityIds(Output<List<String>> identityIds) {
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -93,6 +135,8 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -101,7 +145,49 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalId(@Nullable Output<String> principalId) {
+            $.principalId = principalId;
+            return this;
+        }
+
+        /**
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalId(String principalId) {
+            return principalId(Output.of(principalId));
+        }
+
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
+        }
+
+        /**
+         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +198,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -122,7 +208,6 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CacheIdentityArgs build() {
-            $.identityIds = Objects.requireNonNull($.identityIds, "expected parameter 'identityIds' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }

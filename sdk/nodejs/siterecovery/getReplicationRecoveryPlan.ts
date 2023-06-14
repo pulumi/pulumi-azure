@@ -52,6 +52,7 @@ export interface GetReplicationRecoveryPlanArgs {
  * A collection of values returned by getReplicationRecoveryPlan.
  */
 export interface GetReplicationRecoveryPlanResult {
+    readonly azureToAzureSettings: outputs.siterecovery.GetReplicationRecoveryPlanAzureToAzureSetting[];
     readonly failoverDeploymentModel: string;
     /**
      * The provider-assigned unique ID for this managed resource.

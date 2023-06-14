@@ -74,7 +74,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """
@@ -392,7 +392,7 @@ class FlexibleServerArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 
         > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """
@@ -477,7 +477,7 @@ class _FlexibleServerState:
         :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """
@@ -824,7 +824,7 @@ class _FlexibleServerState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 
         > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """
@@ -961,7 +961,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """
@@ -1177,7 +1177,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """
@@ -1412,7 +1412,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 
         > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         """

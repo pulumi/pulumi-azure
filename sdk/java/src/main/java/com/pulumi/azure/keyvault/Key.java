@@ -320,14 +320,14 @@ public class Key extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="rotationPolicy", refs={KeyRotationPolicy.class}, tree="[0]")
-    private Output<KeyRotationPolicy> rotationPolicy;
+    private Output</* @Nullable */ KeyRotationPolicy> rotationPolicy;
 
     /**
      * @return A `rotation_policy` block as defined below.
      * 
      */
-    public Output<KeyRotationPolicy> rotationPolicy() {
-        return this.rotationPolicy;
+    public Output<Optional<KeyRotationPolicy>> rotationPolicy() {
+        return Codegen.optional(this.rotationPolicy);
     }
     /**
      * A mapping of tags to assign to the resource.

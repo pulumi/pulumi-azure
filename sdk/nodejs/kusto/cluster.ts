@@ -100,7 +100,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity | undefined>;
     /**
-     * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+     * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+     *
+     * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
     public readonly languageExtensions!: pulumi.Output<string[] | undefined>;
     /**
@@ -280,7 +282,9 @@ export interface ClusterState {
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
-     * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+     * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+     *
+     * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
     languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -382,7 +386,9 @@ export interface ClusterArgs {
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
-     * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+     * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+     *
+     * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
     languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

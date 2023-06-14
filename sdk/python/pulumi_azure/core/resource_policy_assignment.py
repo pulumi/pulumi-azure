@@ -44,7 +44,7 @@ class ResourcePolicyAssignmentArgs:
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideArgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -182,7 +182,7 @@ class ResourcePolicyAssignmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -278,7 +278,7 @@ class _ResourcePolicyAssignmentState:
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideArgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -396,7 +396,7 @@ class _ResourcePolicyAssignmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -525,6 +525,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
+            display_name="my-policy-definition",
             policy_rule=\"\"\" {
             "if": {
               "not": {
@@ -562,7 +563,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentOverrideArgs']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -593,6 +594,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
+            display_name="my-policy-definition",
             policy_rule=\"\"\" {
             "if": {
               "not": {
@@ -715,7 +717,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentOverrideArgs']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -800,7 +802,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+        The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         """
         return pulumi.get(self, "name")
 

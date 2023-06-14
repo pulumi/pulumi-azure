@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorSecretSecretCustomerCertificate {
     /**
+     * @return The key vault certificate expiration date.
+     * 
+     */
+    private String expirationDate;
+    /**
      * @return The key vault certificate ID.
      * 
      */
@@ -22,6 +27,13 @@ public final class GetFrontdoorSecretSecretCustomerCertificate {
     private List<String> subjectAlternativeNames;
 
     private GetFrontdoorSecretSecretCustomerCertificate() {}
+    /**
+     * @return The key vault certificate expiration date.
+     * 
+     */
+    public String expirationDate() {
+        return this.expirationDate;
+    }
     /**
      * @return The key vault certificate ID.
      * 
@@ -46,15 +58,22 @@ public final class GetFrontdoorSecretSecretCustomerCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String expirationDate;
         private String keyVaultCertificateId;
         private List<String> subjectAlternativeNames;
         public Builder() {}
         public Builder(GetFrontdoorSecretSecretCustomerCertificate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.expirationDate = defaults.expirationDate;
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
     	      this.subjectAlternativeNames = defaults.subjectAlternativeNames;
         }
 
+        @CustomType.Setter
+        public Builder expirationDate(String expirationDate) {
+            this.expirationDate = Objects.requireNonNull(expirationDate);
+            return this;
+        }
         @CustomType.Setter
         public Builder keyVaultCertificateId(String keyVaultCertificateId) {
             this.keyVaultCertificateId = Objects.requireNonNull(keyVaultCertificateId);
@@ -70,6 +89,7 @@ public final class GetFrontdoorSecretSecretCustomerCertificate {
         }
         public GetFrontdoorSecretSecretCustomerCertificate build() {
             final var o = new GetFrontdoorSecretSecretCustomerCertificate();
+            o.expirationDate = expirationDate;
             o.keyVaultCertificateId = keyVaultCertificateId;
             o.subjectAlternativeNames = subjectAlternativeNames;
             return o;

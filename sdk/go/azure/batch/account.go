@@ -93,7 +93,7 @@ type Account struct {
 	PoolAllocationMode pulumi.StringPtrOutput `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
-	// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	//
 	// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
 	//
@@ -174,7 +174,7 @@ type accountState struct {
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
-	// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	//
 	// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
 	//
@@ -219,7 +219,7 @@ type AccountState struct {
 	PoolAllocationMode pulumi.StringPtrInput
 	// The Batch account primary access key.
 	PrimaryAccessKey pulumi.StringPtrInput
-	// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	//
 	// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
 	//
@@ -264,7 +264,7 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
-	// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	//
 	// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
 	//
@@ -304,7 +304,7 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrInput
-	// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether public network access is allowed for this server. Defaults to `true`.
 	//
 	// > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
 	//
@@ -460,7 +460,7 @@ func (o AccountOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryAccessKey }).(pulumi.StringOutput)
 }
 
-// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+// Whether public network access is allowed for this server. Defaults to `true`.
 //
 // > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
 //

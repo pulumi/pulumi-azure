@@ -52,8 +52,8 @@ import * as utilities from "../utilities";
  *     },
  *     sourceImageReference: {
  *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "20.04-LTS",
+ *         offer: "0001-com-ubuntu-server-focal",
+ *         sku: "20_04-lts",
  *         version: "latest",
  *     },
  * });
@@ -113,6 +113,10 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
+ *     predictive: {
+ *         scaleMode: "Enabled",
+ *         lookAheadTime: "PT5M",
+ *     },
  *     notification: {
  *         email: {
  *             sendToSubscriptionAdministrator: true,
@@ -165,8 +169,8 @@ import * as utilities from "../utilities";
  *     },
  *     sourceImageReference: {
  *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "20.04-LTS",
+ *         offer: "0001-com-ubuntu-server-focal",
+ *         sku: "20_04-lts",
  *         version: "latest",
  *     },
  * });
@@ -289,6 +293,10 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     public readonly notification!: pulumi.Output<outputs.monitoring.AutoscaleSettingNotification | undefined>;
     /**
+     * A `predictive` block as defined below.
+     */
+    public readonly predictive!: pulumi.Output<outputs.monitoring.AutoscaleSettingPredictive | undefined>;
+    /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
     public readonly profiles!: pulumi.Output<outputs.monitoring.AutoscaleSettingProfile[]>;
@@ -322,6 +330,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notification"] = state ? state.notification : undefined;
+            resourceInputs["predictive"] = state ? state.predictive : undefined;
             resourceInputs["profiles"] = state ? state.profiles : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -341,6 +350,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notification"] = args ? args.notification : undefined;
+            resourceInputs["predictive"] = args ? args.predictive : undefined;
             resourceInputs["profiles"] = args ? args.profiles : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -371,6 +381,10 @@ export interface AutoscaleSettingState {
      * Specifies a `notification` block as defined below.
      */
     notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
+    /**
+     * A `predictive` block as defined below.
+     */
+    predictive?: pulumi.Input<inputs.monitoring.AutoscaleSettingPredictive>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
@@ -409,6 +423,10 @@ export interface AutoscaleSettingArgs {
      * Specifies a `notification` block as defined below.
      */
     notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
+    /**
+     * A `predictive` block as defined below.
+     */
+    predictive?: pulumi.Input<inputs.monitoring.AutoscaleSettingPredictive>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */

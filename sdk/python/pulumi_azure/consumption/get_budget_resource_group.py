@@ -139,7 +139,7 @@ def get_budget_resource_group(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.consumption.get_budget_resource_group(name="existing",
-        resource_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_id=azurerm_resource_group["example"]["id"])
     pulumi.export("id", example.id)
     ```
 
@@ -178,7 +178,7 @@ def get_budget_resource_group_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.consumption.get_budget_resource_group(name="existing",
-        resource_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_id=azurerm_resource_group["example"]["id"])
     pulumi.export("id", example.id)
     ```
 

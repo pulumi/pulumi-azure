@@ -15,10 +15,20 @@ namespace Pulumi.Azure.Hpc.Outputs
     {
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
+        public readonly string? PrincipalId;
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
+        public readonly string? TenantId;
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 
@@ -26,9 +36,15 @@ namespace Pulumi.Azure.Hpc.Outputs
         private CacheIdentity(
             ImmutableArray<string> identityIds,
 
+            string? principalId,
+
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
+            PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

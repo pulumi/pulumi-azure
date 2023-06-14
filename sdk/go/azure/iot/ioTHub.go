@@ -21,6 +21,8 @@ import (
 //
 // > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
+// > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+//
 // ## Example Usage
 //
 // ```go

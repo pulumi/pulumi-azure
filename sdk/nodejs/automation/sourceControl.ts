@@ -15,8 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.automation.SourceControl("example", {
- *     automationAccountId: azurerm_automation_account.test.id,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleSourceControl = new azure.automation.SourceControl("exampleSourceControl", {
+ *     automationAccountId: exampleAccount.id,
  *     folderPath: "runbook",
  *     security: {
  *         token: "ghp_xxx",

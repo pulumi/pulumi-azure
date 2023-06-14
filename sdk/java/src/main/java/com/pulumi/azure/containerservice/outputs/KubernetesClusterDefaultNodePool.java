@@ -41,14 +41,14 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Boolean enableAutoScaling;
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
      * 
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
      * 
      */
     private @Nullable Boolean enableHostEncryption;
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     private @Nullable Boolean enableNodePublicIp;
@@ -63,7 +63,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String hostGroupId;
     /**
-     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
@@ -73,7 +73,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String kubeletDiskType;
     /**
-     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
@@ -83,7 +83,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer maxCount;
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     private @Nullable Integer maxPods;
@@ -127,12 +127,12 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String nodePublicIpPrefixId;
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
+     * @return A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     private @Nullable List<String> nodeTaints;
     /**
-     * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+     * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     private @Nullable Boolean onlyCriticalAddonsEnabled;
@@ -144,17 +144,17 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String orchestratorVersion;
     /**
-     * @return The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+     * @return The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable Integer osDiskSizeGb;
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable String osDiskType;
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
+     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable String osSku;
@@ -203,9 +203,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
     /**
-     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`.
-     * 
-     * &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
     private String vmSize;
@@ -224,7 +222,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String workloadRuntime;
     /**
-     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
      * 
@@ -260,7 +258,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.enableAutoScaling);
     }
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
      * 
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
      * 
@@ -269,7 +267,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.enableHostEncryption);
     }
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     public Optional<Boolean> enableNodePublicIp() {
@@ -290,7 +288,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.hostGroupId);
     }
     /**
-     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolKubeletConfig> kubeletConfig() {
@@ -304,7 +302,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.kubeletDiskType);
     }
     /**
-     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolLinuxOsConfig> linuxOsConfig() {
@@ -318,7 +316,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.maxCount);
     }
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     public Optional<Integer> maxPods() {
@@ -378,14 +376,14 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.nodePublicIpPrefixId);
     }
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
+     * @return A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     public List<String> nodeTaints() {
         return this.nodeTaints == null ? List.of() : this.nodeTaints;
     }
     /**
-     * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+     * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     public Optional<Boolean> onlyCriticalAddonsEnabled() {
@@ -401,21 +399,21 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.orchestratorVersion);
     }
     /**
-     * @return The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+     * @return The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<Integer> osDiskSizeGb() {
         return Optional.ofNullable(this.osDiskSizeGb);
     }
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<String> osDiskType() {
         return Optional.ofNullable(this.osDiskType);
     }
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
+     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<String> osSku() {
@@ -482,9 +480,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.upgradeSettings);
     }
     /**
-     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`.
-     * 
-     * &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
+     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
     public String vmSize() {
@@ -509,7 +505,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.workloadRuntime);
     }
     /**
-     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
      * 

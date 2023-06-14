@@ -77,7 +77,7 @@ public final class KubernetesClusterNetworkProfile {
     /**
      * @return Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
+     * &gt; **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
      * 
      */
     private String networkPlugin;
@@ -85,8 +85,6 @@ public final class KubernetesClusterNetworkProfile {
      * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
      * 
      */
     private @Nullable String networkPluginMode;
@@ -205,7 +203,7 @@ public final class KubernetesClusterNetworkProfile {
     /**
      * @return Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
+     * &gt; **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
      * 
      */
     public String networkPlugin() {
@@ -215,8 +213,6 @@ public final class KubernetesClusterNetworkProfile {
      * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
      * 
      */
     public Optional<String> networkPluginMode() {

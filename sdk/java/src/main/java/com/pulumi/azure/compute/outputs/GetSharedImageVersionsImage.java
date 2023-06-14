@@ -19,6 +19,11 @@ public final class GetSharedImageVersionsImage {
      */
     private Boolean excludeFromLatest;
     /**
+     * @return The ID of this Shared Image Version.
+     * 
+     */
+    private String id;
+    /**
      * @return The supported Azure location where the Shared Image Gallery exists.
      * 
      */
@@ -51,6 +56,13 @@ public final class GetSharedImageVersionsImage {
      */
     public Boolean excludeFromLatest() {
         return this.excludeFromLatest;
+    }
+    /**
+     * @return The ID of this Shared Image Version.
+     * 
+     */
+    public String id() {
+        return this.id;
     }
     /**
      * @return The supported Azure location where the Shared Image Gallery exists.
@@ -98,6 +110,7 @@ public final class GetSharedImageVersionsImage {
     @CustomType.Builder
     public static final class Builder {
         private Boolean excludeFromLatest;
+        private String id;
         private String location;
         private String managedImageId;
         private String name;
@@ -107,6 +120,7 @@ public final class GetSharedImageVersionsImage {
         public Builder(GetSharedImageVersionsImage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeFromLatest = defaults.excludeFromLatest;
+    	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.managedImageId = defaults.managedImageId;
     	      this.name = defaults.name;
@@ -117,6 +131,11 @@ public final class GetSharedImageVersionsImage {
         @CustomType.Setter
         public Builder excludeFromLatest(Boolean excludeFromLatest) {
             this.excludeFromLatest = Objects.requireNonNull(excludeFromLatest);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(String id) {
+            this.id = Objects.requireNonNull(id);
             return this;
         }
         @CustomType.Setter
@@ -150,6 +169,7 @@ public final class GetSharedImageVersionsImage {
         public GetSharedImageVersionsImage build() {
             final var o = new GetSharedImageVersionsImage();
             o.excludeFromLatest = excludeFromLatest;
+            o.id = id;
             o.location = location;
             o.managedImageId = managedImageId;
             o.name = name;

@@ -20,18 +20,144 @@ import (
 //
 // import (
 //
+//	"encoding/base64"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := os.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := nginx.NewCertificate(ctx, "test", &nginx.CertificateArgs{
-//				NginxDeploymentId:      pulumi.Any(azurerm_nginx_deployment.Test.Id),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("delegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("NGINX.NGINXPLUS/nginxDeployments"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := nginx.NewDeployment(ctx, "exampleDeployment", &nginx.DeploymentArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
+//				Location:               exampleResourceGroup.Location,
+//				ManagedResourceGroup:   pulumi.String("example"),
+//				DiagnoseSupportEnabled: pulumi.Bool(true),
+//				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
+//					IpAddresses: pulumi.StringArray{
+//						examplePublicIp.ID(),
+//					},
+//				},
+//				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
+//					&nginx.DeploymentNetworkInterfaceArgs{
+//						SubnetId: exampleSubnet.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          *pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("premium"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
+//						CertificatePermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Delete"),
+//							pulumi.String("DeleteIssuers"),
+//							pulumi.String("Get"),
+//							pulumi.String("GetIssuers"),
+//							pulumi.String("Import"),
+//							pulumi.String("List"),
+//							pulumi.String("ListIssuers"),
+//							pulumi.String("ManageContacts"),
+//							pulumi.String("ManageIssuers"),
+//							pulumi.String("SetIssuers"),
+//							pulumi.String("Update"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				Certificate: &keyvault.CertificateCertificateArgs{
+//					Contents: filebase64OrPanic("certificate-to-import.pfx"),
+//					Password: pulumi.String(""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = nginx.NewCertificate(ctx, "exampleNginx/certificateCertificate", &nginx.CertificateArgs{
+//				NginxDeploymentId:      exampleDeployment.ID(),
 //				KeyVirtualPath:         pulumi.String("/src/cert/soservermekey.key"),
 //				CertificateVirtualPath: pulumi.String("/src/cert/server.cert"),
-//				KeyVaultSecretId:       pulumi.Any(azurerm_key_vault_certificate.Test.Secret_id),
+//				KeyVaultSecretId:       exampleCertificate.SecretId,
 //			})
 //			if err != nil {
 //				return err
@@ -54,11 +180,11 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the cert file of this certificate.
 	CertificateVirtualPath pulumi.StringOutput `pulumi:"certificateVirtualPath"`
-	// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId pulumi.StringOutput `pulumi:"keyVaultSecretId"`
-	// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the key file of this certificate.
 	KeyVirtualPath pulumi.StringOutput `pulumi:"keyVirtualPath"`
 	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -107,11 +233,11 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the cert file of this certificate.
 	CertificateVirtualPath *string `pulumi:"certificateVirtualPath"`
-	// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
-	// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the key file of this certificate.
 	KeyVirtualPath *string `pulumi:"keyVirtualPath"`
 	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
 	Name *string `pulumi:"name"`
@@ -120,11 +246,11 @@ type certificateState struct {
 }
 
 type CertificateState struct {
-	// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the cert file of this certificate.
 	CertificateVirtualPath pulumi.StringPtrInput
-	// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId pulumi.StringPtrInput
-	// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the key file of this certificate.
 	KeyVirtualPath pulumi.StringPtrInput
 	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
 	Name pulumi.StringPtrInput
@@ -137,11 +263,11 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the cert file of this certificate.
 	CertificateVirtualPath string `pulumi:"certificateVirtualPath"`
-	// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
-	// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the key file of this certificate.
 	KeyVirtualPath string `pulumi:"keyVirtualPath"`
 	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
 	Name *string `pulumi:"name"`
@@ -151,11 +277,11 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the cert file of this certificate.
 	CertificateVirtualPath pulumi.StringInput
-	// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId pulumi.StringInput
-	// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+	// Specify the path to the key file of this certificate.
 	KeyVirtualPath pulumi.StringInput
 	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
 	Name pulumi.StringPtrInput
@@ -250,17 +376,17 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+// Specify the path to the cert file of this certificate.
 func (o CertificateOutput) CertificateVirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateVirtualPath }).(pulumi.StringOutput)
 }
 
-// Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+// Specify the ID of the Key Vault Secret for this certificate.
 func (o CertificateOutput) KeyVaultSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyVaultSecretId }).(pulumi.StringOutput)
 }
 
-// Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+// Specify the path to the key file of this certificate.
 func (o CertificateOutput) KeyVirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyVirtualPath }).(pulumi.StringOutput)
 }

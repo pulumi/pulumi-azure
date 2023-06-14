@@ -4497,11 +4497,11 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
                  capacity: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
                  recurrence: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
         """
-        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
-               
-               > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
+        if capacity is not None:
+            warnings.warn("""HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""", DeprecationWarning)
+            pulumi.log.warn("""capacity is deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""")
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
         if recurrence is not None:
@@ -4510,9 +4510,6 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
     @property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
-        """
-        A `capacity` block as defined below.
-        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -4524,8 +4521,6 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
     def recurrence(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
         """
         A `recurrence` block as defined below.
-
-        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         return pulumi.get(self, "recurrence")
 
@@ -4539,19 +4534,12 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
     def __init__(__self__, *,
                  max_instance_count: pulumi.Input[int],
                  min_instance_count: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
-        :param pulumi.Input[int] min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
-        """
         pulumi.set(__self__, "max_instance_count", max_instance_count)
         pulumi.set(__self__, "min_instance_count", min_instance_count)
 
     @property
     @pulumi.getter(name="maxInstanceCount")
     def max_instance_count(self) -> pulumi.Input[int]:
-        """
-        The maximum number of worker nodes to autoscale to based on the cluster's activity.
-        """
         return pulumi.get(self, "max_instance_count")
 
     @max_instance_count.setter
@@ -4561,9 +4549,6 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
     @property
     @pulumi.getter(name="minInstanceCount")
     def min_instance_count(self) -> pulumi.Input[int]:
-        """
-        The minimum number of worker nodes to autoscale to based on the cluster's activity.
-        """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter

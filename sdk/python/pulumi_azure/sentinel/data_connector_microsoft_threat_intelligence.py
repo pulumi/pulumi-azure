@@ -23,7 +23,11 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
         The set of arguments for constructing a DataConnectorMicrosoftThreatIntelligence resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
                
                > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
@@ -32,6 +36,9 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if bing_safety_phishing_url_lookback_date is not None:
+            warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
         if bing_safety_phishing_url_lookback_date is not None:
             pulumi.set(__self__, "bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
         if microsoft_emerging_threat_feed_lookback_date is not None:
@@ -58,6 +65,8 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     def bing_safety_phishing_url_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "bing_safety_phishing_url_lookback_date")
 
@@ -70,6 +79,8 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     def microsoft_emerging_threat_feed_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
 
         > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
@@ -117,8 +128,12 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
         """
         Input properties used for looking up and filtering DataConnectorMicrosoftThreatIntelligence resources.
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
                
                > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
@@ -126,6 +141,9 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
+        if bing_safety_phishing_url_lookback_date is not None:
+            warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
         if bing_safety_phishing_url_lookback_date is not None:
             pulumi.set(__self__, "bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
         if log_analytics_workspace_id is not None:
@@ -142,6 +160,8 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
     def bing_safety_phishing_url_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "bing_safety_phishing_url_lookback_date")
 
@@ -166,6 +186,8 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
     def microsoft_emerging_threat_feed_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
 
         > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
@@ -230,7 +252,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
         example_data_connector_microsoft_threat_intelligence = azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            bing_safety_phishing_url_lookback_date="1970-01-01T00:00:00Z",
             microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
         ```
 
@@ -245,8 +266,12 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
                
                > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
@@ -277,7 +302,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
         example_data_connector_microsoft_threat_intelligence = azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            bing_safety_phishing_url_lookback_date="1970-01-01T00:00:00Z",
             microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
         ```
 
@@ -318,6 +342,9 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataConnectorMicrosoftThreatIntelligenceArgs.__new__(DataConnectorMicrosoftThreatIntelligenceArgs)
 
+            if bing_safety_phishing_url_lookback_date is not None and not opts.urn:
+                warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["bing_safety_phishing_url_lookback_date"] = bing_safety_phishing_url_lookback_date
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
@@ -348,8 +375,12 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
                
                > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
@@ -373,6 +404,8 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     def bing_safety_phishing_url_lookback_date(self) -> pulumi.Output[Optional[str]]:
         """
         The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "bing_safety_phishing_url_lookback_date")
 
@@ -389,6 +422,8 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     def microsoft_emerging_threat_feed_lookback_date(self) -> pulumi.Output[Optional[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
 
         > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """

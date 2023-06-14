@@ -88,8 +88,8 @@ import (
 //				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("UbuntuServer"),
-//					Sku:       pulumi.String("20.04-LTS"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//					Sku:       pulumi.String("20_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //			})
@@ -157,6 +157,10 @@ import (
 //							},
 //						},
 //					},
+//				},
+//				Predictive: &monitoring.AutoscaleSettingPredictiveArgs{
+//					ScaleMode:     pulumi.String("Enabled"),
+//					LookAheadTime: pulumi.String("PT5M"),
 //				},
 //				Notification: &monitoring.AutoscaleSettingNotificationArgs{
 //					Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
@@ -251,8 +255,8 @@ import (
 //				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("UbuntuServer"),
-//					Sku:       pulumi.String("20.04-LTS"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//					Sku:       pulumi.String("20_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //			})
@@ -356,6 +360,8 @@ type AutoscaleSetting struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a `notification` block as defined below.
 	Notification AutoscaleSettingNotificationPtrOutput `pulumi:"notification"`
+	// A `predictive` block as defined below.
+	Predictive AutoscaleSettingPredictivePtrOutput `pulumi:"predictive"`
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
 	Profiles AutoscaleSettingProfileArrayOutput `pulumi:"profiles"`
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
@@ -412,6 +418,8 @@ type autoscaleSettingState struct {
 	Name *string `pulumi:"name"`
 	// Specifies a `notification` block as defined below.
 	Notification *AutoscaleSettingNotification `pulumi:"notification"`
+	// A `predictive` block as defined below.
+	Predictive *AutoscaleSettingPredictive `pulumi:"predictive"`
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
 	Profiles []AutoscaleSettingProfile `pulumi:"profiles"`
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
@@ -431,6 +439,8 @@ type AutoscaleSettingState struct {
 	Name pulumi.StringPtrInput
 	// Specifies a `notification` block as defined below.
 	Notification AutoscaleSettingNotificationPtrInput
+	// A `predictive` block as defined below.
+	Predictive AutoscaleSettingPredictivePtrInput
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
 	Profiles AutoscaleSettingProfileArrayInput
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
@@ -454,6 +464,8 @@ type autoscaleSettingArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies a `notification` block as defined below.
 	Notification *AutoscaleSettingNotification `pulumi:"notification"`
+	// A `predictive` block as defined below.
+	Predictive *AutoscaleSettingPredictive `pulumi:"predictive"`
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
 	Profiles []AutoscaleSettingProfile `pulumi:"profiles"`
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
@@ -474,6 +486,8 @@ type AutoscaleSettingArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies a `notification` block as defined below.
 	Notification AutoscaleSettingNotificationPtrInput
+	// A `predictive` block as defined below.
+	Predictive AutoscaleSettingPredictivePtrInput
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
 	Profiles AutoscaleSettingProfileArrayInput
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
@@ -589,6 +603,11 @@ func (o AutoscaleSettingOutput) Name() pulumi.StringOutput {
 // Specifies a `notification` block as defined below.
 func (o AutoscaleSettingOutput) Notification() AutoscaleSettingNotificationPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSetting) AutoscaleSettingNotificationPtrOutput { return v.Notification }).(AutoscaleSettingNotificationPtrOutput)
+}
+
+// A `predictive` block as defined below.
+func (o AutoscaleSettingOutput) Predictive() AutoscaleSettingPredictivePtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) AutoscaleSettingPredictivePtrOutput { return v.Predictive }).(AutoscaleSettingPredictivePtrOutput)
 }
 
 // Specifies one or more (up to 20) `profile` blocks as defined below.

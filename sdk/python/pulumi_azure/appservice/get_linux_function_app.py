@@ -22,7 +22,7 @@ class GetLinuxFunctionAppResult:
     """
     A collection of values returned by getLinuxFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, usage=None, virtual_network_subnet_id=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -32,6 +32,9 @@ class GetLinuxFunctionAppResult:
         if auth_settings_v2s and not isinstance(auth_settings_v2s, list):
             raise TypeError("Expected argument 'auth_settings_v2s' to be a list")
         pulumi.set(__self__, "auth_settings_v2s", auth_settings_v2s)
+        if availability and not isinstance(availability, str):
+            raise TypeError("Expected argument 'availability' to be a str")
+        pulumi.set(__self__, "availability", availability)
         if backups and not isinstance(backups, list):
             raise TypeError("Expected argument 'backups' to be a list")
         pulumi.set(__self__, "backups", backups)
@@ -131,6 +134,9 @@ class GetLinuxFunctionAppResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if usage and not isinstance(usage, str):
+            raise TypeError("Expected argument 'usage' to be a str")
+        pulumi.set(__self__, "usage", usage)
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
@@ -158,6 +164,14 @@ class GetLinuxFunctionAppResult:
         A `auth_settings_v2` block as defined below.
         """
         return pulumi.get(self, "auth_settings_v2s")
+
+    @property
+    @pulumi.getter
+    def availability(self) -> str:
+        """
+        The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+        """
+        return pulumi.get(self, "availability")
 
     @property
     @pulumi.getter
@@ -421,6 +435,14 @@ class GetLinuxFunctionAppResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter
+    def usage(self) -> str:
+        """
+        The current usage state. Possible values are `Normal` and `Exceeded`.
+        """
+        return pulumi.get(self, "usage")
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
         """
@@ -438,6 +460,7 @@ class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
             app_settings=self.app_settings,
             auth_settings=self.auth_settings,
             auth_settings_v2s=self.auth_settings_v2s,
+            availability=self.availability,
             backups=self.backups,
             builtin_logging_enabled=self.builtin_logging_enabled,
             client_certificate_enabled=self.client_certificate_enabled,
@@ -471,6 +494,7 @@ class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
             storage_key_vault_secret_id=self.storage_key_vault_secret_id,
             storage_uses_managed_identity=self.storage_uses_managed_identity,
             tags=self.tags,
+            usage=self.usage,
             virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
@@ -505,6 +529,7 @@ def get_linux_function_app(name: Optional[str] = None,
         app_settings=__ret__.app_settings,
         auth_settings=__ret__.auth_settings,
         auth_settings_v2s=__ret__.auth_settings_v2s,
+        availability=__ret__.availability,
         backups=__ret__.backups,
         builtin_logging_enabled=__ret__.builtin_logging_enabled,
         client_certificate_enabled=__ret__.client_certificate_enabled,
@@ -538,6 +563,7 @@ def get_linux_function_app(name: Optional[str] = None,
         storage_key_vault_secret_id=__ret__.storage_key_vault_secret_id,
         storage_uses_managed_identity=__ret__.storage_uses_managed_identity,
         tags=__ret__.tags,
+        usage=__ret__.usage,
         virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
 
 

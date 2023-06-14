@@ -21,7 +21,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         /// <summary>
         /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }

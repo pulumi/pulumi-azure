@@ -98,8 +98,8 @@ def get_network_watcher(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_watcher(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.network.get_network_watcher(name=azurerm_network_watcher["example"]["name"],
+        resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("networkWatcherId", example.id)
     ```
 
@@ -134,8 +134,8 @@ def get_network_watcher_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_watcher(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.network.get_network_watcher(name=azurerm_network_watcher["example"]["name"],
+        resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("networkWatcherId", example.id)
     ```
 

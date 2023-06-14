@@ -171,9 +171,13 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
             network_manager_id=example_network_manager.id,
             description="example network group")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location)
         example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
             network_group_id=example_network_manager_network_group.id,
-            target_virtual_network_id=azurerm_virtual_network["example"]["id"])
+            target_virtual_network_id=example_virtual_network.id)
         ```
 
         ## Import
@@ -221,9 +225,13 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
             network_manager_id=example_network_manager.id,
             description="example network group")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location)
         example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
             network_group_id=example_network_manager_network_group.id,
-            target_virtual_network_id=azurerm_virtual_network["example"]["id"])
+            target_virtual_network_id=example_virtual_network.id)
         ```
 
         ## Import

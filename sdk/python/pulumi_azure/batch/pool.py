@@ -41,6 +41,7 @@ class PoolArgs:
                  os_disk_placement: Optional[pulumi.Input[str]] = None,
                  start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
+                 target_node_communication_mode: Optional[pulumi.Input[str]] = None,
                  task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]] = None,
                  windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None):
@@ -71,6 +72,7 @@ class PoolArgs:
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
+        :param pulumi.Input[str] target_node_communication_mode: The desired node communication mode for the pool.
         :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
@@ -124,6 +126,8 @@ class PoolArgs:
             pulumi.set(__self__, "start_task", start_task)
         if stop_pending_resize_operation is not None:
             pulumi.set(__self__, "stop_pending_resize_operation", stop_pending_resize_operation)
+        if target_node_communication_mode is not None:
+            pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policies is not None:
             pulumi.set(__self__, "task_scheduling_policies", task_scheduling_policies)
         if user_accounts is not None:
@@ -432,6 +436,18 @@ class PoolArgs:
         pulumi.set(self, "stop_pending_resize_operation", value)
 
     @property
+    @pulumi.getter(name="targetNodeCommunicationMode")
+    def target_node_communication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The desired node communication mode for the pool.
+        """
+        return pulumi.get(self, "target_node_communication_mode")
+
+    @target_node_communication_mode.setter
+    def target_node_communication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_node_communication_mode", value)
+
+    @property
     @pulumi.getter(name="taskSchedulingPolicies")
     def task_scheduling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]]:
         """
@@ -499,6 +515,7 @@ class _PoolState:
                  start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input['PoolStorageImageReferenceArgs']] = None,
+                 target_node_communication_mode: Optional[pulumi.Input[str]] = None,
                  task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
@@ -529,6 +546,7 @@ class _PoolState:
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_node_communication_mode: The desired node communication mode for the pool.
         :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
@@ -586,6 +604,8 @@ class _PoolState:
             pulumi.set(__self__, "stop_pending_resize_operation", stop_pending_resize_operation)
         if storage_image_reference is not None:
             pulumi.set(__self__, "storage_image_reference", storage_image_reference)
+        if target_node_communication_mode is not None:
+            pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policies is not None:
             pulumi.set(__self__, "task_scheduling_policies", task_scheduling_policies)
         if user_accounts is not None:
@@ -884,6 +904,18 @@ class _PoolState:
         pulumi.set(self, "storage_image_reference", value)
 
     @property
+    @pulumi.getter(name="targetNodeCommunicationMode")
+    def target_node_communication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The desired node communication mode for the pool.
+        """
+        return pulumi.get(self, "target_node_communication_mode")
+
+    @target_node_communication_mode.setter
+    def target_node_communication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_node_communication_mode", value)
+
+    @property
     @pulumi.getter(name="taskSchedulingPolicies")
     def task_scheduling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]]:
         """
@@ -965,6 +997,7 @@ class Pool(pulumi.CustomResource):
                  start_task: Optional[pulumi.Input[pulumi.InputType['PoolStartTaskArgs']]] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']]] = None,
+                 target_node_communication_mode: Optional[pulumi.Input[str]] = None,
                  task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
@@ -1086,6 +1119,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_node_communication_mode: The desired node communication mode for the pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
@@ -1230,6 +1264,7 @@ class Pool(pulumi.CustomResource):
                  start_task: Optional[pulumi.Input[pulumi.InputType['PoolStartTaskArgs']]] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']]] = None,
+                 target_node_communication_mode: Optional[pulumi.Input[str]] = None,
                  task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
@@ -1275,6 +1310,7 @@ class Pool(pulumi.CustomResource):
             if storage_image_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_image_reference'")
             __props__.__dict__["storage_image_reference"] = storage_image_reference
+            __props__.__dict__["target_node_communication_mode"] = target_node_communication_mode
             __props__.__dict__["task_scheduling_policies"] = task_scheduling_policies
             __props__.__dict__["user_accounts"] = user_accounts
             if vm_size is None and not opts.urn:
@@ -1315,6 +1351,7 @@ class Pool(pulumi.CustomResource):
             start_task: Optional[pulumi.Input[pulumi.InputType['PoolStartTaskArgs']]] = None,
             stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
             storage_image_reference: Optional[pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']]] = None,
+            target_node_communication_mode: Optional[pulumi.Input[str]] = None,
             task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]]] = None,
             user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
@@ -1350,6 +1387,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_node_communication_mode: The desired node communication mode for the pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
@@ -1387,6 +1425,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["start_task"] = start_task
         __props__.__dict__["stop_pending_resize_operation"] = stop_pending_resize_operation
         __props__.__dict__["storage_image_reference"] = storage_image_reference
+        __props__.__dict__["target_node_communication_mode"] = target_node_communication_mode
         __props__.__dict__["task_scheduling_policies"] = task_scheduling_policies
         __props__.__dict__["user_accounts"] = user_accounts
         __props__.__dict__["vm_size"] = vm_size
@@ -1584,6 +1623,14 @@ class Pool(pulumi.CustomResource):
         A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
+
+    @property
+    @pulumi.getter(name="targetNodeCommunicationMode")
+    def target_node_communication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The desired node communication mode for the pool.
+        """
+        return pulumi.get(self, "target_node_communication_mode")
 
     @property
     @pulumi.getter(name="taskSchedulingPolicies")

@@ -12,6 +12,14 @@ namespace Pulumi.Azure.LoadTest.Inputs
 
     public sealed class LoadTestIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 

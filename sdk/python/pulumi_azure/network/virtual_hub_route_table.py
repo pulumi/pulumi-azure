@@ -25,7 +25,7 @@ class VirtualHubRouteTableArgs:
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: One or more `route` blocks as defined below.
         """
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
         if labels is not None:
@@ -75,7 +75,7 @@ class VirtualHubRouteTableArgs:
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
         """
-        A `route` block as defined below.
+        One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
@@ -95,7 +95,7 @@ class _VirtualHubRouteTableState:
         Input properties used for looking up and filtering VirtualHubRouteTable resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         if labels is not None:
@@ -135,7 +135,7 @@ class _VirtualHubRouteTableState:
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
         """
-        A `route` block as defined below.
+        One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
@@ -225,7 +225,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -346,7 +346,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -379,7 +379,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.VirtualHubRouteTableRoute']]:
         """
-        A `route` block as defined below.
+        One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 

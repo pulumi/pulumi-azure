@@ -51,7 +51,9 @@ class ClusterArgs:
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -224,7 +226,9 @@ class ClusterArgs:
     @pulumi.getter(name="languageExtensions")
     def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+
+        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         """
         return pulumi.get(self, "language_extensions")
 
@@ -418,7 +422,9 @@ class _ClusterState:
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -588,7 +594,9 @@ class _ClusterState:
     @pulumi.getter(name="languageExtensions")
     def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+
+        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         """
         return pulumi.get(self, "language_extensions")
 
@@ -848,7 +856,9 @@ class Cluster(pulumi.CustomResource):
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -1027,7 +1037,9 @@ class Cluster(pulumi.CustomResource):
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -1146,7 +1158,9 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="languageExtensions")
     def language_extensions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+
+        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         """
         return pulumi.get(self, "language_extensions")
 

@@ -2534,6 +2534,10 @@ export namespace appplatform {
          */
         branch?: pulumi.Input<string>;
         /**
+         * Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+         */
+        caCertificateId?: pulumi.Input<string>;
+        /**
          * Specifies the Git repository commit to be used.
          */
         commit?: pulumi.Input<string>;
@@ -2621,6 +2625,17 @@ export namespace appplatform {
          * Specifies the version of APIs available on this Gateway instance.
          */
         version?: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudGatewayClientAuthorization {
+        /**
+         * Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+         */
+        certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies whether the client certificate verification is enabled.
+         */
+        verificationEnabled?: pulumi.Input<boolean>;
     }
 
     export interface SpringCloudGatewayCors {
@@ -2861,6 +2876,32 @@ export namespace appplatform {
          * Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
          */
         strictHostKeyCheckingEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SpringCloudServiceContainerRegistry {
+        /**
+         * Specifies the name of the container registry.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the password of the container registry.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * Specifies the login server of the container registry.
+         */
+        server: pulumi.Input<string>;
+        /**
+         * Specifies the username of the container registry.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudServiceDefaultBuildService {
+        /**
+         * Specifies the name of the container registry used in the default build service.
+         */
+        containerRegistryName?: pulumi.Input<string>;
     }
 
     export interface SpringCloudServiceNetwork {
@@ -4448,7 +4489,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -4642,6 +4685,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -5345,7 +5391,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -5525,7 +5571,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -5719,6 +5767,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -6434,7 +6485,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to use. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -6679,7 +6730,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -6873,6 +6926,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -7885,7 +7941,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -8079,6 +8137,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -9822,7 +9883,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -10016,6 +10079,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -10858,7 +10924,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -11052,6 +11120,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -11969,7 +12040,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -12163,6 +12236,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -13255,7 +13331,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -13449,6 +13527,9 @@ export namespace appservice {
          * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
          * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         *
+         *
+         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -14618,6 +14699,184 @@ export namespace arckubernetes {
          */
         type: pulumi.Input<string>;
     }
+
+    export interface FluxConfigurationBlobStorage {
+        /**
+         * Specifies the account key (shared key) to access the storage account.
+         */
+        accountKey?: pulumi.Input<string>;
+        /**
+         * Specifies the Azure Blob container ID.
+         */
+        containerId: pulumi.Input<string>;
+        /**
+         * Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+         */
+        localAuthReference?: pulumi.Input<string>;
+        /**
+         * Specifies the shared access token to access the storage container.
+         */
+        sasToken?: pulumi.Input<string>;
+        /**
+         * A `servicePrincipal` block as defined below.
+         */
+        servicePrincipal?: pulumi.Input<inputs.arckubernetes.FluxConfigurationBlobStorageServicePrincipal>;
+        /**
+         * Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface FluxConfigurationBlobStorageServicePrincipal {
+        /**
+         * Base64-encoded certificate used to authenticate a Service Principal .
+         */
+        clientCertificateBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the password for the certificate used to authenticate a Service Principal .
+         */
+        clientCertificatePassword?: pulumi.Input<string>;
+        /**
+         * Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+         */
+        clientCertificateSendChain?: pulumi.Input<boolean>;
+        /**
+         * Specifies the client ID for authenticating a Service Principal.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * Specifies the client secret for authenticating a Service Principal.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * Specifies the tenant ID for authenticating a Service Principal.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationBucket {
+        /**
+         * Specifies the plaintext access key used to securely access the S3 bucket.
+         */
+        accessKey?: pulumi.Input<string>;
+        /**
+         * Specifies the bucket name to sync from the url endpoint for the flux configuration.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+         */
+        localAuthReference?: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+         */
+        secretKeyBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+         */
+        tlsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationGitRepository {
+        /**
+         * Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+         */
+        httpsCaCertBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+         */
+        httpsKeyBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+         */
+        httpsUser?: pulumi.Input<string>;
+        /**
+         * Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+         */
+        localAuthReference?: pulumi.Input<string>;
+        /**
+         * Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+         */
+        referenceType: pulumi.Input<string>;
+        /**
+         * Specifies the source reference value for the GitRepository object.
+         */
+        referenceValue: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
+         */
+        sshKnownHostsBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded SSH private key in PEM format.
+         */
+        sshPrivateKeyBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationKustomization {
+        /**
+         * Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+         */
+        dependsOns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+         */
+        garbageCollectionEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the name of the kustomization.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the path in the source reference to reconcile on the cluster.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+         */
+        recreatingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+         */
+        retryIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+}
+
+export namespace arcmachine {
 }
 
 export namespace attestation {
@@ -14645,6 +14904,158 @@ export namespace authorization {
          * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         notDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
+export namespace automanage {
+    export interface ConfigurationAntimalware {
+        /**
+         * A `exclusions` block as defined below.
+         */
+        exclusions?: pulumi.Input<inputs.automanage.ConfigurationAntimalwareExclusions>;
+        /**
+         * Whether the real time protection is enabled. Defaults to `false`.
+         */
+        realTimeProtectionEnabled?: pulumi.Input<boolean>;
+        /**
+         * The day of the scheduled scan. Possible values are `0` to `8` where `0` is daily, `1` to `7` are the days of the week and `8` is Disabled. Defaults to `8`.
+         */
+        scheduledScanDay?: pulumi.Input<number>;
+        /**
+         * Whether the scheduled scan is enabled. Defaults to `false`.
+         */
+        scheduledScanEnabled?: pulumi.Input<boolean>;
+        /**
+         * The time of the scheduled scan in minutes. Possible values are `0` to `1439` where `0` is 12:00 AM and `1439` is 11:59 PM.
+         */
+        scheduledScanTimeInMinutes?: pulumi.Input<number>;
+        /**
+         * The type of the scheduled scan. Possible values are `Quick` and `Full`. Defaults to `Quick`.
+         */
+        scheduledScanType?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationAntimalwareExclusions {
+        /**
+         * The extensions to exclude from the antimalware scan, separated by `;`. For example `.ext1;.ext2`.
+         */
+        extensions?: pulumi.Input<string>;
+        /**
+         * The paths to exclude from the antimalware scan, separated by `;`. For example `C:\\Windows\\Temp;D:\\Temp`.
+         */
+        paths?: pulumi.Input<string>;
+        /**
+         * The processes to exclude from the antimalware scan, separated by `;`. For example `svchost.exe;notepad.exe`.
+         */
+        processes?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationAzureSecurityBaseline {
+        /**
+         * The assignment type of the azure security baseline. Possible values are `ApplyAndAutoCorrect`, `ApplyAndMonitor`, `Audit` and `DeployAndAutoCorrect`. Defaults to `ApplyAndAutoCorrect`.
+         */
+        assignmentType?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationBackup {
+        /**
+         * The retention range in days of the backup policy. Defaults to `5`.
+         */
+        instantRpRetentionRangeInDays?: pulumi.Input<number>;
+        /**
+         * The name of the backup policy.
+         */
+        policyName?: pulumi.Input<string>;
+        /**
+         * A `retentionPolicy` block as defined below.
+         */
+        retentionPolicy?: pulumi.Input<inputs.automanage.ConfigurationBackupRetentionPolicy>;
+        /**
+         * A `schedulePolicy` block as defined below.
+         */
+        schedulePolicy?: pulumi.Input<inputs.automanage.ConfigurationBackupSchedulePolicy>;
+        /**
+         * The timezone of the backup policy. Defaults to `UTC`.
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationBackupRetentionPolicy {
+        /**
+         * A `dailySchedule` block as defined below.
+         */
+        dailySchedule?: pulumi.Input<inputs.automanage.ConfigurationBackupRetentionPolicyDailySchedule>;
+        /**
+         * The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+         */
+        retentionPolicyType?: pulumi.Input<string>;
+        /**
+         * A `weeklySchedule` block as defined below.
+         */
+        weeklySchedule?: pulumi.Input<inputs.automanage.ConfigurationBackupRetentionPolicyWeeklySchedule>;
+    }
+
+    export interface ConfigurationBackupRetentionPolicyDailySchedule {
+        /**
+         * A `retentionDuration` block as defined below.
+         */
+        retentionDuration?: pulumi.Input<inputs.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration>;
+        /**
+         * The retention times of the backup policy.
+         */
+        retentionTimes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration {
+        /**
+         * The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
+         */
+        count?: pulumi.Input<number>;
+        /**
+         * The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+         */
+        durationType?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationBackupRetentionPolicyWeeklySchedule {
+        /**
+         * A `retentionDuration` block as defined below.
+         */
+        retentionDuration?: pulumi.Input<inputs.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration>;
+        /**
+         * The retention times of the backup policy.
+         */
+        retentionTimes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration {
+        /**
+         * The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
+         */
+        count?: pulumi.Input<number>;
+        /**
+         * The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+         */
+        durationType?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationBackupSchedulePolicy {
+        /**
+         * The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+         */
+        schedulePolicyType?: pulumi.Input<string>;
+        /**
+         * The schedule run days of the backup policy. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        scheduleRunDays?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The schedule run frequency of the backup policy. Possible values are `Daily` and `Weekly`. Defaults to `Daily`.
+         */
+        scheduleRunFrequency?: pulumi.Input<string>;
+        /**
+         * The schedule run times of the backup policy.
+         */
+        scheduleRunTimes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -15087,15 +15498,36 @@ export namespace avs {
 export namespace backup {
     export interface PolicyFileShareBackup {
         /**
-         * Sets the backup frequency. Currently, only `Daily` is supported
+         * Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
          *
          * > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          */
         frequency: pulumi.Input<string>;
         /**
-         * The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         * A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
          */
-        time: pulumi.Input<string>;
+        hourly?: pulumi.Input<inputs.backup.PolicyFileShareBackupHourly>;
+        /**
+         * The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         *
+         * > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+         */
+        time?: pulumi.Input<string>;
+    }
+
+    export interface PolicyFileShareBackupHourly {
+        /**
+         * Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+         */
+        interval: pulumi.Input<number>;
+        /**
+         * Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         */
+        startTime: pulumi.Input<string>;
+        /**
+         * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+         */
+        windowDuration: pulumi.Input<number>;
     }
 
     export interface PolicyFileShareRetentionDaily {
@@ -15111,13 +15543,23 @@ export namespace backup {
          */
         count: pulumi.Input<number>;
         /**
+         * The days of the month to retain backups of. Must be between `1` and `31`.
+         */
+        days?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Including the last day of the month, default to `false`.
+         *
+         * > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+         */
+        includeLastDays?: pulumi.Input<boolean>;
+        /**
          * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
-        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
          */
-        weeks: pulumi.Input<pulumi.Input<string>[]>;
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PolicyFileShareRetentionWeekly {
@@ -15137,17 +15579,27 @@ export namespace backup {
          */
         count: pulumi.Input<number>;
         /**
+         * The days of the month to retain backups of. Must be between `1` and `31`.
+         */
+        days?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Including the last day of the month, default to `false`.
+         *
+         * > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+         */
+        includeLastDays?: pulumi.Input<boolean>;
+        /**
          * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
          */
         months: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
-        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
          */
-        weeks: pulumi.Input<pulumi.Input<string>[]>;
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PolicyVMBackup {
@@ -15201,13 +15653,23 @@ export namespace backup {
          */
         count: pulumi.Input<number>;
         /**
+         * The days of the month to retain backups of. Must be between `1` and `31`.
+         */
+        days?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Including the last day of the month, default to `false`.
+         *
+         * > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+         */
+        includeLastDays?: pulumi.Input<boolean>;
+        /**
          * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
-        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
          */
-        weeks: pulumi.Input<pulumi.Input<string>[]>;
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PolicyVMRetentionWeekly {
@@ -15227,17 +15689,27 @@ export namespace backup {
          */
         count: pulumi.Input<number>;
         /**
+         * The days of the month to retain backups of. Must be between `1` and `31`.
+         */
+        days?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Including the last day of the month, default to `false`.
+         *
+         * > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+         */
+        includeLastDays?: pulumi.Input<boolean>;
+        /**
          * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          */
         months: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
-        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
          */
-        weeks: pulumi.Input<pulumi.Input<string>[]>;
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PolicyVMWorkloadProtectionPolicy {
@@ -21677,6 +22149,192 @@ export namespace containerservice {
         tag?: pulumi.Input<string>;
     }
 
+    export interface FluxConfigurationBlobStorage {
+        /**
+         * Specifies the account key (shared key) to access the storage account.
+         */
+        accountKey?: pulumi.Input<string>;
+        /**
+         * Specifies the Azure Blob container ID.
+         */
+        containerId: pulumi.Input<string>;
+        /**
+         * Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+         */
+        localAuthReference?: pulumi.Input<string>;
+        /**
+         * A `managedIdentity` block as defined below.
+         */
+        managedIdentity?: pulumi.Input<inputs.containerservice.FluxConfigurationBlobStorageManagedIdentity>;
+        /**
+         * Specifies the shared access token to access the storage container.
+         */
+        sasToken?: pulumi.Input<string>;
+        /**
+         * A `servicePrincipal` block as defined below.
+         */
+        servicePrincipal?: pulumi.Input<inputs.containerservice.FluxConfigurationBlobStorageServicePrincipal>;
+        /**
+         * Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface FluxConfigurationBlobStorageManagedIdentity {
+        /**
+         * Specifies the client ID for authenticating a Managed Identity.
+         */
+        clientId: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationBlobStorageServicePrincipal {
+        /**
+         * Base64-encoded certificate used to authenticate a Service Principal .
+         */
+        clientCertificateBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the password for the certificate used to authenticate a Service Principal .
+         */
+        clientCertificatePassword?: pulumi.Input<string>;
+        /**
+         * Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+         */
+        clientCertificateSendChain?: pulumi.Input<boolean>;
+        /**
+         * Specifies the client ID for authenticating a Service Principal.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * Specifies the client secret for authenticating a Service Principal.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * Specifies the tenant ID for authenticating a Service Principal.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationBucket {
+        /**
+         * Specifies the plaintext access key used to securely access the S3 bucket.
+         */
+        accessKey?: pulumi.Input<string>;
+        /**
+         * Specifies the bucket name to sync from the url endpoint for the flux configuration.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+         */
+        localAuthReference?: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+         */
+        secretKeyBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+         */
+        tlsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationGitRepository {
+        /**
+         * Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+         */
+        httpsCaCertBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+         */
+        httpsKeyBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+         */
+        httpsUser?: pulumi.Input<string>;
+        /**
+         * Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+         */
+        localAuthReference?: pulumi.Input<string>;
+        /**
+         * Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+         */
+        referenceType: pulumi.Input<string>;
+        /**
+         * Specifies the source reference value for the GitRepository object.
+         */
+        referenceValue: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
+         */
+        sshKnownHostsBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the Base64-encoded SSH private key in PEM format.
+         */
+        sshPrivateKeyBase64?: pulumi.Input<string>;
+        /**
+         * Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface FluxConfigurationKustomization {
+        /**
+         * Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+         */
+        dependsOns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+         */
+        garbageCollectionEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the name of the kustomization.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the path in the source reference to reconcile on the cluster.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+         */
+        recreatingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+         */
+        retryIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+         */
+        syncIntervalInSeconds?: pulumi.Input<number>;
+        /**
+         * The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+
     export interface GroupContainer {
         /**
          * A list of commands which should be run on the container. Changing this forces a new resource to be created.
@@ -22305,7 +22963,7 @@ export namespace containerservice {
          */
         customCaTrustEnabled?: pulumi.Input<boolean>;
         /**
-         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
          *
          * > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
          *
@@ -22313,13 +22971,13 @@ export namespace containerservice {
          */
         enableAutoScaling?: pulumi.Input<boolean>;
         /**
-         * Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
          */
         enableHostEncryption?: pulumi.Input<boolean>;
         /**
-         * Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
+         * Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
          */
         enableNodePublicIp?: pulumi.Input<boolean>;
         /**
@@ -22331,7 +22989,7 @@ export namespace containerservice {
          */
         hostGroupId?: pulumi.Input<string>;
         /**
-         * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
+         * A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
          */
         kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig>;
         /**
@@ -22339,7 +22997,7 @@ export namespace containerservice {
          */
         kubeletDiskType?: pulumi.Input<string>;
         /**
-         * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
+         * A `linuxOsConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
          */
         linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfig>;
         /**
@@ -22347,7 +23005,7 @@ export namespace containerservice {
          */
         maxCount?: pulumi.Input<number>;
         /**
-         * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+         * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporaryNameForRotation` must be specified when changing this property.
          */
         maxPods?: pulumi.Input<number>;
         /**
@@ -22384,11 +23042,11 @@ export namespace containerservice {
          */
         nodePublicIpPrefixId?: pulumi.Input<string>;
         /**
-         * A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
+         * A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
          */
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+         * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
          */
         onlyCriticalAddonsEnabled?: pulumi.Input<boolean>;
         /**
@@ -22398,15 +23056,15 @@ export namespace containerservice {
          */
         orchestratorVersion?: pulumi.Input<string>;
         /**
-         * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+         * The size of the OS Disk which should be used for each agent in the Node Pool. `temporaryNameForRotation` must be specified when attempting a change.
          */
         osDiskSizeGb?: pulumi.Input<number>;
         /**
-         * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+         * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
          */
         osDiskType?: pulumi.Input<string>;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
+         * Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
          */
         osSku?: pulumi.Input<string>;
         /**
@@ -22446,9 +23104,7 @@ export namespace containerservice {
          */
         upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings>;
         /**
-         * The size of the Virtual Machine, such as `Standard_DS2_v2`.
-         *
-         * > **Note:** Resizing the `defaultNodePool` Virtual Machine is done by cycling the system node pool of the cluster. `temporaryNameForRotation` must be specified when attempting a resize.
+         * The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
          */
         vmSize: pulumi.Input<string>;
         /**
@@ -22464,7 +23120,7 @@ export namespace containerservice {
          */
         workloadRuntime?: pulumi.Input<string>;
         /**
-         * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+         * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporaryNameForRotation` must be specified when changing this property.
          *
          * > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `loadBalancerSku` is set to `standard`.
          */
@@ -23032,15 +23688,13 @@ export namespace containerservice {
         /**
          * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
          *
-         * > **Note:** When `networkPlugin` is set to `azure` - the `vnetSubnetId` field in the `defaultNodePool` block must be set and `podCidr` must not be set.
+         * > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
          */
         networkPlugin: pulumi.Input<string>;
         /**
          * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
          *
          * > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
          */
         networkPluginMode?: pulumi.Input<string>;
         /**
@@ -24806,6 +25460,28 @@ export namespace cosmosdb {
          * The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface MongoRoleDefinitionPrivilege {
+        /**
+         * A list of actions that are allowed.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `resource` block as defined below.
+         */
+        resource: pulumi.Input<inputs.cosmosdb.MongoRoleDefinitionPrivilegeResource>;
+    }
+
+    export interface MongoRoleDefinitionPrivilegeResource {
+        /**
+         * The name of the Mongo DB Collection that the Role Definition is applied.
+         */
+        collectionName?: pulumi.Input<string>;
+        /**
+         * The name of the Mongo DB that the Role Definition is applied.
+         */
+        dbName?: pulumi.Input<string>;
     }
 
     export interface PostgresqlClusterMaintenanceWindow {
@@ -31342,25 +32018,17 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterRolesWorkerNodeAutoscale {
         /**
-         * A `capacity` block as defined below.
+         * @deprecated HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
          */
         capacity?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity>;
         /**
          * A `recurrence` block as defined below.
-         *
-         * > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
          */
         recurrence?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence>;
     }
 
     export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-        /**
-         * The maximum number of worker nodes to autoscale to based on the cluster's activity.
-         */
         maxInstanceCount: pulumi.Input<number>;
-        /**
-         * The minimum number of worker nodes to autoscale to based on the cluster's activity.
-         */
         minInstanceCount: pulumi.Input<number>;
     }
 
@@ -32814,10 +33482,20 @@ export namespace hpc {
     export interface CacheIdentity {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -34415,6 +35093,7 @@ export namespace lighthouse {
 
 export namespace loadtest {
     export interface LoadTestIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         type: pulumi.Input<string>;
@@ -36533,6 +37212,10 @@ export namespace media {
          */
         codecs: pulumi.Input<pulumi.Input<inputs.media.TransformOutputCustomPresetCodec>[]>;
         /**
+         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         */
+        experimentalOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * A `filter` block as defined below.
          */
         filter?: pulumi.Input<inputs.media.TransformOutputCustomPresetFilter>;
@@ -37336,6 +38019,53 @@ export namespace mediaservices {
 }
 
 export namespace mobile {
+    export interface NetworkPacketCoreControlPlaneIdentity {
+        /**
+         * A list of the IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
+        /**
+         * How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+         */
+        authenticationType: pulumi.Input<string>;
+        /**
+         * The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+         */
+        httpsServerCertificateUrl?: pulumi.Input<string>;
+    }
+
+    export interface NetworkPacketCoreControlPlanePlatform {
+        /**
+         * The ID of the Azure Arc connected cluster where the packet core is deployed.
+         */
+        arcKubernetesClusterId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Arc custom location where the packet core is deployed.
+         *
+         * > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+         */
+        customLocationId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+         */
+        edgeDeviceId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Stack HCI cluster where the packet core is deployed.
+         */
+        stackHciClusterId?: pulumi.Input<string>;
+        /**
+         * Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface NetworkServicePccRule {
         /**
          * Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
@@ -38128,6 +38858,12 @@ export namespace monitoring {
          */
         level?: pulumi.Input<string>;
         /**
+         * A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+         *
+         * > **NOTE:** `level` and `levels` are mutually exclusive.
+         */
+        levels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
          */
         operationName?: pulumi.Input<string>;
@@ -38148,6 +38884,12 @@ export namespace monitoring {
          */
         resourceGroup?: pulumi.Input<string>;
         /**
+         * A list of names of resource groups monitored by the activity log alert.
+         *
+         * > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+         */
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * A block to define fine grain resource health settings.
          */
         resourceHealths?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertCriteriaResourceHealth>[]>;
@@ -38156,13 +38898,31 @@ export namespace monitoring {
          */
         resourceId?: pulumi.Input<string>;
         /**
+         * A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+         *
+         * > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+         */
+        resourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The name of the resource provider monitored by the activity log alert.
          */
         resourceProvider?: pulumi.Input<string>;
         /**
+         * A list of names of resource providers monitored by the activity log alert.
+         *
+         * > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+         */
+        resourceProviders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The resource type monitored by the activity log alert.
          */
         resourceType?: pulumi.Input<string>;
+        /**
+         * A list of resource types monitored by the activity log alert.
+         *
+         * > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A block to define fine grain service health settings.
          */
@@ -38172,9 +38932,21 @@ export namespace monitoring {
          */
         status?: pulumi.Input<string>;
         /**
+         * A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+         *
+         * > **NOTE:** `status` and `statuses` are mutually exclusive.
+         */
+        statuses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The sub status of the event.
          */
         subStatus?: pulumi.Input<string>;
+        /**
+         * A list of sub status of the event.
+         *
+         * > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+         */
+        subStatuses?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ActivityLogAlertCriteriaResourceHealth {
@@ -38695,6 +39467,71 @@ export namespace monitoring {
         startTime?: pulumi.Input<string>;
     }
 
+    export interface AlertPrometheusRuleGroupRule {
+        /**
+         * An `action` block as defined below.
+         */
+        actions?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRuleAction>[]>;
+        /**
+         * Specifies the Alert rule name.
+         */
+        alert?: pulumi.Input<string>;
+        /**
+         * An `alertResolution` block as defined below.
+         */
+        alertResolution?: pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRuleAlertResolution>;
+        /**
+         * Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+         */
+        annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Is this rule enabled? Possible values are `true` and `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+         */
+        expression: pulumi.Input<string>;
+        /**
+         * Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+         */
+        for?: pulumi.Input<string>;
+        /**
+         * Specifies the labels to add or overwrite before storing the result.
+         */
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies the recorded metrics name.
+         */
+        record?: pulumi.Input<string>;
+        /**
+         * Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+         */
+        severity?: pulumi.Input<number>;
+    }
+
+    export interface AlertPrometheusRuleGroupRuleAction {
+        /**
+         * Specifies the resource id of the monitor action group.
+         */
+        actionGroupId: pulumi.Input<string>;
+        /**
+         * Specifies the properties of an action group object.
+         */
+        actionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface AlertPrometheusRuleGroupRuleAlertResolution {
+        /**
+         * Is the alert auto-resolution? Possible values are `true` and `false`.
+         */
+        autoResolved?: pulumi.Input<boolean>;
+        /**
+         * Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+         */
+        timeToResolve?: pulumi.Input<string>;
+    }
+
     export interface AutoscaleSettingNotification {
         /**
          * A `email` block as defined below.
@@ -38730,6 +39567,17 @@ export namespace monitoring {
          * The HTTPS URI which should receive scale notifications.
          */
         serviceUri: pulumi.Input<string>;
+    }
+
+    export interface AutoscaleSettingPredictive {
+        /**
+         * Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+         */
+        lookAheadTime?: pulumi.Input<string>;
+        /**
+         * Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+         */
+        scaleMode: pulumi.Input<string>;
     }
 
     export interface AutoscaleSettingProfile {
@@ -41991,7 +42839,7 @@ export namespace network {
          * The private IP address associated with the Firewall.
          */
         privateIpAddress?: pulumi.Input<string>;
-        publicIpAddressId: pulumi.Input<string>;
+        publicIpAddressId?: pulumi.Input<string>;
         /**
          * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
          *
@@ -43147,7 +43995,7 @@ export namespace network {
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
          */
         name: pulumi.Input<string>;
     }
@@ -43162,7 +44010,13 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+         * The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+         */
+        service?: pulumi.Input<string>;
+        /**
+         * Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+         *
+         * > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
          */
         serviceResources: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -44390,7 +45244,7 @@ export namespace postgresql {
         /**
          * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
          */
         primaryUserAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -44406,21 +45260,10 @@ export namespace postgresql {
     export interface FlexibleServerIdentity {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
-         *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
-        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
-        principalId?: pulumi.Input<string>;
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
-         *
-         * > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-         *
-         * > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -46493,15 +47336,27 @@ export namespace signalr {
          * The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
          */
         urlTemplate: pulumi.Input<string>;
+        /**
+         * Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 }
 
 export namespace siterecovery {
     export interface ProtectionContainerMappingAutomaticUpdate {
         /**
+         * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+         *
+         * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         *
+         * > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
+         */
+        authenticationType?: pulumi.Input<string>;
+        /**
          * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          *
-         * > **Note:** `automationAccountId` is required when `enabled` is sepcified.
+         * > **Note:** `automationAccountId` is required when `enabled` is specified.
          */
         automationAccountId?: pulumi.Input<string>;
         /**
@@ -46626,6 +47481,29 @@ export namespace siterecovery {
          * Storage account disk should belong to when a failover is done.
          */
         targetStorageAccountId: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanAzureToAzureSettings {
+        /**
+         * The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         */
+        primaryEdgeZone?: pulumi.Input<string>;
+        /**
+         * The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         */
+        primaryZone?: pulumi.Input<string>;
+        /**
+         * The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         *
+         * > **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
+         */
+        recoveryEdgeZone?: pulumi.Input<string>;
+        /**
+         * The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+         *
+         * > **Note:** `primaryZone` and `recoveryZone` must be specified together.
+         */
+        recoveryZone?: pulumi.Input<string>;
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroup {

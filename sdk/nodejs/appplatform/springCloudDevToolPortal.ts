@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const current = azure.core.getClientConfig({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
  *     location: exampleResourceGroup.location,
@@ -29,7 +30,7 @@ import * as utilities from "../utilities";
  *     sso: {
  *         clientId: "example id",
  *         clientSecret: "example secret",
- *         metadataUrl: "https://www.example.com/metadata",
+ *         metadataUrl: current.then(current => `https://login.microsoftonline.com/${current.tenantId}/v2.0/.well-known/openid-configuration`),
  *         scopes: [
  *             "openid",
  *             "profile",

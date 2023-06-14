@@ -7,6 +7,8 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceState;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSetting;
+import com.pulumi.azure.appplatform.outputs.SpringCloudServiceContainerRegistry;
+import com.pulumi.azure.appplatform.outputs.SpringCloudServiceDefaultBuildService;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceNetwork;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceRequiredNetworkTrafficRule;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceTrace;
@@ -122,6 +124,34 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SpringCloudServiceConfigServerGitSetting>> configServerGitSetting() {
         return Codegen.optional(this.configServerGitSetting);
+    }
+    /**
+     * One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    @Export(name="containerRegistries", refs={List.class,SpringCloudServiceContainerRegistry.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SpringCloudServiceContainerRegistry>> containerRegistries;
+
+    /**
+     * @return One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    public Output<Optional<List<SpringCloudServiceContainerRegistry>>> containerRegistries() {
+        return Codegen.optional(this.containerRegistries);
+    }
+    /**
+     * A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    @Export(name="defaultBuildService", refs={SpringCloudServiceDefaultBuildService.class}, tree="[0]")
+    private Output</* @Nullable */ SpringCloudServiceDefaultBuildService> defaultBuildService;
+
+    /**
+     * @return A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    public Output<Optional<SpringCloudServiceDefaultBuildService>> defaultBuildService() {
+        return Codegen.optional(this.defaultBuildService);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

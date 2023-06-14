@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Core.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The name of the Resource group where the Resources are located.
+        /// </summary>
+        public readonly string ResourceGroupName;
+        /// <summary>
         /// A map of tags assigned to this Resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.Core.Outputs
 
             string name,
 
+            string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
@@ -49,6 +55,7 @@ namespace Pulumi.Azure.Core.Outputs
             Id = id;
             Location = location;
             Name = name;
+            ResourceGroupName = resourceGroupName;
             Tags = tags;
             Type = type;
         }

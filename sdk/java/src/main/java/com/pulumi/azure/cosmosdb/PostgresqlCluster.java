@@ -89,14 +89,14 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
         return this.administratorLoginPassword;
     }
     /**
-     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
      * 
      */
     @Export(name="citusVersion", refs={String.class}, tree="[0]")
     private Output<String> citusVersion;
 
     /**
-     * @return The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1` and `11.2`.
+     * @return The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
      * 
      */
     public Output<String> citusVersion() {

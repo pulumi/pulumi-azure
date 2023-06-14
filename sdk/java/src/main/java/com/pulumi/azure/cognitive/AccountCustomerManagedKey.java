@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;E0&#34;)
  *             .customSubdomainName(&#34;example-account&#34;)
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
+ *                 .type(&#34;SystemAssigned, UserAssigned&#34;)
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());

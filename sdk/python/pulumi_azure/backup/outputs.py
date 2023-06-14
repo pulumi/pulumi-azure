@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'PolicyFileShareBackup',
+    'PolicyFileShareBackupHourly',
     'PolicyFileShareRetentionDaily',
     'PolicyFileShareRetentionMonthly',
     'PolicyFileShareRetentionWeekly',
@@ -36,21 +37,28 @@ __all__ = [
 class PolicyFileShareBackup(dict):
     def __init__(__self__, *,
                  frequency: str,
-                 time: str):
+                 hourly: Optional['outputs.PolicyFileShareBackupHourly'] = None,
+                 time: Optional[str] = None):
         """
-        :param str frequency: Sets the backup frequency. Currently, only `Daily` is supported
+        :param str frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
                
                > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+        :param 'PolicyFileShareBackupHourlyArgs' hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
         :param str time: The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+               
+               > **NOTE:** `time` is required when `frequency` is set to `Daily`.
         """
         pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "time", time)
+        if hourly is not None:
+            pulumi.set(__self__, "hourly", hourly)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
     def frequency(self) -> str:
         """
-        Sets the backup frequency. Currently, only `Daily` is supported
+        Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
 
         > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         """
@@ -58,11 +66,80 @@ class PolicyFileShareBackup(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> str:
+    def hourly(self) -> Optional['outputs.PolicyFileShareBackupHourly']:
+        """
+        A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+        """
+        return pulumi.get(self, "hourly")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
         """
         The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+
+        > **NOTE:** `time` is required when `frequency` is set to `Daily`.
         """
         return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class PolicyFileShareBackupHourly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+        elif key == "windowDuration":
+            suggest = "window_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyFileShareBackupHourly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyFileShareBackupHourly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyFileShareBackupHourly.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: int,
+                 start_time: str,
+                 window_duration: int):
+        """
+        :param int interval: Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+        :param str start_time: Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        :param int window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "window_duration", window_duration)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> int:
+        """
+        Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="windowDuration")
+    def window_duration(self) -> int:
+        """
+        Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+        """
+        return pulumi.get(self, "window_duration")
 
 
 @pulumi.output_type
@@ -85,18 +162,47 @@ class PolicyFileShareRetentionDaily(dict):
 
 @pulumi.output_type
 class PolicyFileShareRetentionMonthly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeLastDays":
+            suggest = "include_last_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyFileShareRetentionMonthly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyFileShareRetentionMonthly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyFileShareRetentionMonthly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
-                 weekdays: Sequence[str],
-                 weeks: Sequence[str]):
+                 days: Optional[Sequence[int]] = None,
+                 include_last_days: Optional[bool] = None,
+                 weekdays: Optional[Sequence[str]] = None,
+                 weeks: Optional[Sequence[str]] = None):
         """
         :param int count: The number of monthly backups to keep. Must be between `1` and `120`
+        :param Sequence[int] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param bool include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -108,7 +214,25 @@ class PolicyFileShareRetentionMonthly(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Sequence[str]:
+    def days(self) -> Optional[Sequence[int]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[bool]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
@@ -116,7 +240,7 @@ class PolicyFileShareRetentionMonthly(dict):
 
     @property
     @pulumi.getter
-    def weeks(self) -> Sequence[str]:
+    def weeks(self) -> Optional[Sequence[str]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -154,21 +278,50 @@ class PolicyFileShareRetentionWeekly(dict):
 
 @pulumi.output_type
 class PolicyFileShareRetentionYearly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeLastDays":
+            suggest = "include_last_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyFileShareRetentionYearly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyFileShareRetentionYearly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyFileShareRetentionYearly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
                  months: Sequence[str],
-                 weekdays: Sequence[str],
-                 weeks: Sequence[str]):
+                 days: Optional[Sequence[int]] = None,
+                 include_last_days: Optional[bool] = None,
+                 weekdays: Optional[Sequence[str]] = None,
+                 weeks: Optional[Sequence[str]] = None):
         """
         :param int count: The number of yearly backups to keep. Must be between `1` and `10`
         :param Sequence[str] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        :param Sequence[int] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param bool include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "months", months)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -188,7 +341,25 @@ class PolicyFileShareRetentionYearly(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Sequence[str]:
+    def days(self) -> Optional[Sequence[int]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[bool]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
@@ -196,7 +367,7 @@ class PolicyFileShareRetentionYearly(dict):
 
     @property
     @pulumi.getter
-    def weeks(self) -> Sequence[str]:
+    def weeks(self) -> Optional[Sequence[str]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -345,18 +516,47 @@ class PolicyVMRetentionDaily(dict):
 
 @pulumi.output_type
 class PolicyVMRetentionMonthly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeLastDays":
+            suggest = "include_last_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyVMRetentionMonthly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyVMRetentionMonthly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyVMRetentionMonthly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
-                 weekdays: Sequence[str],
-                 weeks: Sequence[str]):
+                 days: Optional[Sequence[int]] = None,
+                 include_last_days: Optional[bool] = None,
+                 weekdays: Optional[Sequence[str]] = None,
+                 weeks: Optional[Sequence[str]] = None):
         """
         :param int count: The number of monthly backups to keep. Must be between `1` and `9999`
+        :param Sequence[int] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param bool include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -368,7 +568,25 @@ class PolicyVMRetentionMonthly(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Sequence[str]:
+    def days(self) -> Optional[Sequence[int]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[bool]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
@@ -376,7 +594,7 @@ class PolicyVMRetentionMonthly(dict):
 
     @property
     @pulumi.getter
-    def weeks(self) -> Sequence[str]:
+    def weeks(self) -> Optional[Sequence[str]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -414,21 +632,50 @@ class PolicyVMRetentionWeekly(dict):
 
 @pulumi.output_type
 class PolicyVMRetentionYearly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeLastDays":
+            suggest = "include_last_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyVMRetentionYearly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyVMRetentionYearly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyVMRetentionYearly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
                  months: Sequence[str],
-                 weekdays: Sequence[str],
-                 weeks: Sequence[str]):
+                 days: Optional[Sequence[int]] = None,
+                 include_last_days: Optional[bool] = None,
+                 weekdays: Optional[Sequence[str]] = None,
+                 weeks: Optional[Sequence[str]] = None):
         """
         :param int count: The number of yearly backups to keep. Must be between `1` and `9999`
         :param Sequence[str] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+        :param Sequence[int] days: The days of the month to retain backups of. Must be between `1` and `31`.
+        :param bool include_last_days: Including the last day of the month, default to `false`.
+               
+               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "months", months)
-        pulumi.set(__self__, "weekdays", weekdays)
-        pulumi.set(__self__, "weeks", weeks)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if include_last_days is not None:
+            pulumi.set(__self__, "include_last_days", include_last_days)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+        if weeks is not None:
+            pulumi.set(__self__, "weeks", weeks)
 
     @property
     @pulumi.getter
@@ -448,7 +695,25 @@ class PolicyVMRetentionYearly(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Sequence[str]:
+    def days(self) -> Optional[Sequence[int]]:
+        """
+        The days of the month to retain backups of. Must be between `1` and `31`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="includeLastDays")
+    def include_last_days(self) -> Optional[bool]:
+        """
+        Including the last day of the month, default to `false`.
+
+        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        """
+        return pulumi.get(self, "include_last_days")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
@@ -456,7 +721,7 @@ class PolicyVMRetentionYearly(dict):
 
     @property
     @pulumi.getter
-    def weeks(self) -> Sequence[str]:
+    def weeks(self) -> Optional[Sequence[str]]:
         """
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """

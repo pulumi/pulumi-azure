@@ -13,32 +13,16 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs e
 
     public static final InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs Empty = new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs();
 
-    /**
-     * The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     @Import(name="maxInstanceCount", required=true)
     private Output<Integer> maxInstanceCount;
 
-    /**
-     * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     public Output<Integer> maxInstanceCount() {
         return this.maxInstanceCount;
     }
 
-    /**
-     * The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     @Import(name="minInstanceCount", required=true)
     private Output<Integer> minInstanceCount;
 
-    /**
-     * @return The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     public Output<Integer> minInstanceCount() {
         return this.minInstanceCount;
     }
@@ -68,44 +52,20 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs e
             $ = new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxInstanceCount The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxInstanceCount(Output<Integer> maxInstanceCount) {
             $.maxInstanceCount = maxInstanceCount;
             return this;
         }
 
-        /**
-         * @param maxInstanceCount The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxInstanceCount(Integer maxInstanceCount) {
             return maxInstanceCount(Output.of(maxInstanceCount));
         }
 
-        /**
-         * @param minInstanceCount The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minInstanceCount(Output<Integer> minInstanceCount) {
             $.minInstanceCount = minInstanceCount;
             return this;
         }
 
-        /**
-         * @param minInstanceCount The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minInstanceCount(Integer minInstanceCount) {
             return minInstanceCount(Output.of(minInstanceCount));
         }

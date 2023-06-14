@@ -12260,6 +12260,8 @@ func (o GetFrontdoorSecretSecretArrayOutput) Index(i pulumi.IntInput) GetFrontdo
 }
 
 type GetFrontdoorSecretSecretCustomerCertificate struct {
+	// The key vault certificate expiration date.
+	ExpirationDate string `pulumi:"expirationDate"`
 	// The key vault certificate ID.
 	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
@@ -12278,6 +12280,8 @@ type GetFrontdoorSecretSecretCustomerCertificateInput interface {
 }
 
 type GetFrontdoorSecretSecretCustomerCertificateArgs struct {
+	// The key vault certificate expiration date.
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// The key vault certificate ID.
 	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
@@ -12333,6 +12337,11 @@ func (o GetFrontdoorSecretSecretCustomerCertificateOutput) ToGetFrontdoorSecretS
 
 func (o GetFrontdoorSecretSecretCustomerCertificateOutput) ToGetFrontdoorSecretSecretCustomerCertificateOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretCustomerCertificateOutput {
 	return o
+}
+
+// The key vault certificate expiration date.
+func (o GetFrontdoorSecretSecretCustomerCertificateOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorSecretSecretCustomerCertificate) string { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
 // The key vault certificate ID.

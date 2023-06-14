@@ -33,9 +33,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := containerservice.NewKubernetesFleetManager(ctx, "example", &containerservice.KubernetesFleetManagerArgs{
-//				HubProfile: &containerservice.KubernetesFleetManagerHubProfileArgs{
-//					DnsPrefix: pulumi.String("example"),
-//				},
 //				Location:          pulumi.Any(azurerm_resource_group.Example.Location),
 //				ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
 //			})
@@ -55,13 +52,10 @@ import (
 //
 // * `dnsPrefix` - (Required)
 //
-// The `hubProfile` block exports the following arguments:
+// In addition to the arguments defined above, the `hubProfile` block exports the following attributes:
 //
 // * `fqdn` -
-//
 // * `kubernetesVersion` -
-//
-// ***
 //
 // ## Import
 //

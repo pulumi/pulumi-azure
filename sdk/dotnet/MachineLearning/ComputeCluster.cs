@@ -161,6 +161,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Output("nodePublicIpEnabled")]
+        public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("scaleSettings")]
@@ -285,6 +291,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("nodePublicIpEnabled")]
+        public Input<bool>? NodePublicIpEnabled { get; set; }
+
+        /// <summary>
         /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("scaleSettings", required: true)]
@@ -375,6 +387,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("nodePublicIpEnabled")]
+        public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
         /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.

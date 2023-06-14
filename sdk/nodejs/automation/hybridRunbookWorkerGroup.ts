@@ -13,9 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.automation.HybridRunbookWorkerGroup("example", {
- *     automationAccountName: "example",
- *     resourceGroupName: "example",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleHybridRunbookWorkerGroup = new azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
  * });
  * ```
  *

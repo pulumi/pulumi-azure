@@ -11857,11 +11857,9 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringP
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscale struct {
-	// A `capacity` block as defined below.
+	// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
 	Capacity *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
-	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
 
@@ -11877,11 +11875,9 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscaleInput interface {
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs struct {
-	// A `capacity` block as defined below.
+	// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
 	Capacity InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
-	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -11962,7 +11958,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQuer
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-// A `capacity` block as defined below.
+// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Capacity() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
 		return v.Capacity
@@ -11970,8 +11966,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Capacity() Intera
 }
 
 // A `recurrence` block as defined below.
-//
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Recurrence() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
 		return v.Recurrence
@@ -12002,7 +11996,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Elem() Interac
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-// A `capacity` block as defined below.
+// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
 		if v == nil {
@@ -12013,8 +12007,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() Int
 }
 
 // A `recurrence` block as defined below.
-//
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
 		if v == nil {
@@ -12025,9 +12017,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() I
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity struct {
-	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
 	MaxInstanceCount int `pulumi:"maxInstanceCount"`
-	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
 	MinInstanceCount int `pulumi:"minInstanceCount"`
 }
 
@@ -12043,9 +12033,7 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput interface {
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs struct {
-	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
 	MaxInstanceCount pulumi.IntInput `pulumi:"maxInstanceCount"`
-	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
 	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
 }
 
@@ -12126,12 +12114,10 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInterac
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-// The maximum number of worker nodes to autoscale to based on the cluster's activity.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
 }
 
-// The minimum number of worker nodes to autoscale to based on the cluster's activity.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MinInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MinInstanceCount }).(pulumi.IntOutput)
 }
@@ -12160,7 +12146,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem()
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
-// The maximum number of worker nodes to autoscale to based on the cluster's activity.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *int {
 		if v == nil {
@@ -12170,7 +12155,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MaxIns
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes to autoscale to based on the cluster's activity.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *int {
 		if v == nil {

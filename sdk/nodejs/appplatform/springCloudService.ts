@@ -88,6 +88,14 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly configServerGitSetting!: pulumi.Output<outputs.appplatform.SpringCloudServiceConfigServerGitSetting | undefined>;
     /**
+     * One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     */
+    public readonly containerRegistries!: pulumi.Output<outputs.appplatform.SpringCloudServiceContainerRegistry[] | undefined>;
+    /**
+     * A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     */
+    public readonly defaultBuildService!: pulumi.Output<outputs.appplatform.SpringCloudServiceDefaultBuildService | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -155,6 +163,8 @@ export class SpringCloudService extends pulumi.CustomResource {
             const state = argsOrState as SpringCloudServiceState | undefined;
             resourceInputs["buildAgentPoolSize"] = state ? state.buildAgentPoolSize : undefined;
             resourceInputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
+            resourceInputs["containerRegistries"] = state ? state.containerRegistries : undefined;
+            resourceInputs["defaultBuildService"] = state ? state.defaultBuildService : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logStreamPublicEndpointEnabled"] = state ? state.logStreamPublicEndpointEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -175,6 +185,8 @@ export class SpringCloudService extends pulumi.CustomResource {
             }
             resourceInputs["buildAgentPoolSize"] = args ? args.buildAgentPoolSize : undefined;
             resourceInputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
+            resourceInputs["containerRegistries"] = args ? args.containerRegistries : undefined;
+            resourceInputs["defaultBuildService"] = args ? args.defaultBuildService : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logStreamPublicEndpointEnabled"] = args ? args.logStreamPublicEndpointEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -206,6 +218,14 @@ export interface SpringCloudServiceState {
      * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      */
     configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
+    /**
+     * One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     */
+    containerRegistries?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudServiceContainerRegistry>[]>;
+    /**
+     * A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     */
+    defaultBuildService?: pulumi.Input<inputs.appplatform.SpringCloudServiceDefaultBuildService>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -272,6 +292,14 @@ export interface SpringCloudServiceArgs {
      * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      */
     configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
+    /**
+     * One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     */
+    containerRegistries?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudServiceContainerRegistry>[]>;
+    /**
+     * A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     */
+    defaultBuildService?: pulumi.Input<inputs.appplatform.SpringCloudServiceDefaultBuildService>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -360,13 +360,1275 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FluxConfigurationBlobStorage struct {
+	// Specifies the account key (shared key) to access the storage account.
+	AccountKey *string `pulumi:"accountKey"`
+	// Specifies the Azure Blob container ID.
+	ContainerId string `pulumi:"containerId"`
+	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthReference *string `pulumi:"localAuthReference"`
+	// Specifies the shared access token to access the storage container.
+	SasToken *string `pulumi:"sasToken"`
+	// A `servicePrincipal` block as defined below.
+	ServicePrincipal *FluxConfigurationBlobStorageServicePrincipal `pulumi:"servicePrincipal"`
+	// Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+	SyncIntervalInSeconds *int `pulumi:"syncIntervalInSeconds"`
+	// Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+}
+
+// FluxConfigurationBlobStorageInput is an input type that accepts FluxConfigurationBlobStorageArgs and FluxConfigurationBlobStorageOutput values.
+// You can construct a concrete instance of `FluxConfigurationBlobStorageInput` via:
+//
+//	FluxConfigurationBlobStorageArgs{...}
+type FluxConfigurationBlobStorageInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationBlobStorageOutput() FluxConfigurationBlobStorageOutput
+	ToFluxConfigurationBlobStorageOutputWithContext(context.Context) FluxConfigurationBlobStorageOutput
+}
+
+type FluxConfigurationBlobStorageArgs struct {
+	// Specifies the account key (shared key) to access the storage account.
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// Specifies the Azure Blob container ID.
+	ContainerId pulumi.StringInput `pulumi:"containerId"`
+	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthReference pulumi.StringPtrInput `pulumi:"localAuthReference"`
+	// Specifies the shared access token to access the storage container.
+	SasToken pulumi.StringPtrInput `pulumi:"sasToken"`
+	// A `servicePrincipal` block as defined below.
+	ServicePrincipal FluxConfigurationBlobStorageServicePrincipalPtrInput `pulumi:"servicePrincipal"`
+	// Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+	SyncIntervalInSeconds pulumi.IntPtrInput `pulumi:"syncIntervalInSeconds"`
+	// Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+}
+
+func (FluxConfigurationBlobStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationBlobStorage)(nil)).Elem()
+}
+
+func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStorageOutput() FluxConfigurationBlobStorageOutput {
+	return i.ToFluxConfigurationBlobStorageOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStorageOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageOutput)
+}
+
+func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput {
+	return i.ToFluxConfigurationBlobStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageOutput).ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx)
+}
+
+// FluxConfigurationBlobStoragePtrInput is an input type that accepts FluxConfigurationBlobStorageArgs, FluxConfigurationBlobStoragePtr and FluxConfigurationBlobStoragePtrOutput values.
+// You can construct a concrete instance of `FluxConfigurationBlobStoragePtrInput` via:
+//
+//	        FluxConfigurationBlobStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type FluxConfigurationBlobStoragePtrInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput
+	ToFluxConfigurationBlobStoragePtrOutputWithContext(context.Context) FluxConfigurationBlobStoragePtrOutput
+}
+
+type fluxConfigurationBlobStoragePtrType FluxConfigurationBlobStorageArgs
+
+func FluxConfigurationBlobStoragePtr(v *FluxConfigurationBlobStorageArgs) FluxConfigurationBlobStoragePtrInput {
+	return (*fluxConfigurationBlobStoragePtrType)(v)
+}
+
+func (*fluxConfigurationBlobStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationBlobStorage)(nil)).Elem()
+}
+
+func (i *fluxConfigurationBlobStoragePtrType) ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput {
+	return i.ToFluxConfigurationBlobStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *fluxConfigurationBlobStoragePtrType) ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStoragePtrOutput)
+}
+
+type FluxConfigurationBlobStorageOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationBlobStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationBlobStorage)(nil)).Elem()
+}
+
+func (o FluxConfigurationBlobStorageOutput) ToFluxConfigurationBlobStorageOutput() FluxConfigurationBlobStorageOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStorageOutput) ToFluxConfigurationBlobStorageOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStorageOutput) ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput {
+	return o.ToFluxConfigurationBlobStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FluxConfigurationBlobStorageOutput) ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBlobStorage) *FluxConfigurationBlobStorage {
+		return &v
+	}).(FluxConfigurationBlobStoragePtrOutput)
+}
+
+// Specifies the account key (shared key) to access the storage account.
+func (o FluxConfigurationBlobStorageOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Azure Blob container ID.
+func (o FluxConfigurationBlobStorageOutput) ContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) string { return v.ContainerId }).(pulumi.StringOutput)
+}
+
+// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o FluxConfigurationBlobStorageOutput) LocalAuthReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) *string { return v.LocalAuthReference }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the shared access token to access the storage container.
+func (o FluxConfigurationBlobStorageOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) *string { return v.SasToken }).(pulumi.StringPtrOutput)
+}
+
+// A `servicePrincipal` block as defined below.
+func (o FluxConfigurationBlobStorageOutput) ServicePrincipal() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) *FluxConfigurationBlobStorageServicePrincipal {
+		return v.ServicePrincipal
+	}).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
+}
+
+// Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+func (o FluxConfigurationBlobStorageOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) *int { return v.SyncIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+func (o FluxConfigurationBlobStorageOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorage) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FluxConfigurationBlobStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationBlobStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationBlobStorage)(nil)).Elem()
+}
+
+func (o FluxConfigurationBlobStoragePtrOutput) ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStoragePtrOutput) ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStoragePtrOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStoragePtrOutput) Elem() FluxConfigurationBlobStorageOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) FluxConfigurationBlobStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FluxConfigurationBlobStorage
+		return ret
+	}).(FluxConfigurationBlobStorageOutput)
+}
+
+// Specifies the account key (shared key) to access the storage account.
+func (o FluxConfigurationBlobStoragePtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Azure Blob container ID.
+func (o FluxConfigurationBlobStoragePtrOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o FluxConfigurationBlobStoragePtrOutput) LocalAuthReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the shared access token to access the storage container.
+func (o FluxConfigurationBlobStoragePtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `servicePrincipal` block as defined below.
+func (o FluxConfigurationBlobStoragePtrOutput) ServicePrincipal() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *FluxConfigurationBlobStorageServicePrincipal {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipal
+	}).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
+}
+
+// Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+func (o FluxConfigurationBlobStoragePtrOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+func (o FluxConfigurationBlobStoragePtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type FluxConfigurationBlobStorageServicePrincipal struct {
+	// Base64-encoded certificate used to authenticate a Service Principal .
+	ClientCertificateBase64 *string `pulumi:"clientCertificateBase64"`
+	// Specifies the password for the certificate used to authenticate a Service Principal .
+	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
+	// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+	ClientCertificateSendChain *bool `pulumi:"clientCertificateSendChain"`
+	// Specifies the client ID for authenticating a Service Principal.
+	ClientId string `pulumi:"clientId"`
+	// Specifies the client secret for authenticating a Service Principal.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Specifies the tenant ID for authenticating a Service Principal.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// FluxConfigurationBlobStorageServicePrincipalInput is an input type that accepts FluxConfigurationBlobStorageServicePrincipalArgs and FluxConfigurationBlobStorageServicePrincipalOutput values.
+// You can construct a concrete instance of `FluxConfigurationBlobStorageServicePrincipalInput` via:
+//
+//	FluxConfigurationBlobStorageServicePrincipalArgs{...}
+type FluxConfigurationBlobStorageServicePrincipalInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationBlobStorageServicePrincipalOutput() FluxConfigurationBlobStorageServicePrincipalOutput
+	ToFluxConfigurationBlobStorageServicePrincipalOutputWithContext(context.Context) FluxConfigurationBlobStorageServicePrincipalOutput
+}
+
+type FluxConfigurationBlobStorageServicePrincipalArgs struct {
+	// Base64-encoded certificate used to authenticate a Service Principal .
+	ClientCertificateBase64 pulumi.StringPtrInput `pulumi:"clientCertificateBase64"`
+	// Specifies the password for the certificate used to authenticate a Service Principal .
+	ClientCertificatePassword pulumi.StringPtrInput `pulumi:"clientCertificatePassword"`
+	// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+	ClientCertificateSendChain pulumi.BoolPtrInput `pulumi:"clientCertificateSendChain"`
+	// Specifies the client ID for authenticating a Service Principal.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Specifies the client secret for authenticating a Service Principal.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Specifies the tenant ID for authenticating a Service Principal.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (FluxConfigurationBlobStorageServicePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationBlobStorageServicePrincipal)(nil)).Elem()
+}
+
+func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlobStorageServicePrincipalOutput() FluxConfigurationBlobStorageServicePrincipalOutput {
+	return i.ToFluxConfigurationBlobStorageServicePrincipalOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlobStorageServicePrincipalOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalOutput)
+}
+
+func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return i.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalOutput).ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx)
+}
+
+// FluxConfigurationBlobStorageServicePrincipalPtrInput is an input type that accepts FluxConfigurationBlobStorageServicePrincipalArgs, FluxConfigurationBlobStorageServicePrincipalPtr and FluxConfigurationBlobStorageServicePrincipalPtrOutput values.
+// You can construct a concrete instance of `FluxConfigurationBlobStorageServicePrincipalPtrInput` via:
+//
+//	        FluxConfigurationBlobStorageServicePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type FluxConfigurationBlobStorageServicePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput
+	ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput
+}
+
+type fluxConfigurationBlobStorageServicePrincipalPtrType FluxConfigurationBlobStorageServicePrincipalArgs
+
+func FluxConfigurationBlobStorageServicePrincipalPtr(v *FluxConfigurationBlobStorageServicePrincipalArgs) FluxConfigurationBlobStorageServicePrincipalPtrInput {
+	return (*fluxConfigurationBlobStorageServicePrincipalPtrType)(v)
+}
+
+func (*fluxConfigurationBlobStorageServicePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationBlobStorageServicePrincipal)(nil)).Elem()
+}
+
+func (i *fluxConfigurationBlobStorageServicePrincipalPtrType) ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return i.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *fluxConfigurationBlobStorageServicePrincipalPtrType) ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
+}
+
+type FluxConfigurationBlobStorageServicePrincipalOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationBlobStorageServicePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationBlobStorageServicePrincipal)(nil)).Elem()
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToFluxConfigurationBlobStorageServicePrincipalOutput() FluxConfigurationBlobStorageServicePrincipalOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToFluxConfigurationBlobStorageServicePrincipalOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return o.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBlobStorageServicePrincipal) *FluxConfigurationBlobStorageServicePrincipal {
+		return &v
+	}).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
+}
+
+// Base64-encoded certificate used to authenticate a Service Principal .
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ClientCertificateBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorageServicePrincipal) *string { return v.ClientCertificateBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the password for the certificate used to authenticate a Service Principal .
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorageServicePrincipal) *string { return v.ClientCertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ClientCertificateSendChain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorageServicePrincipal) *bool { return v.ClientCertificateSendChain }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the client ID for authenticating a Service Principal.
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorageServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Specifies the client secret for authenticating a Service Principal.
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorageServicePrincipal) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the tenant ID for authenticating a Service Principal.
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationBlobStorageServicePrincipal) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type FluxConfigurationBlobStorageServicePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationBlobStorageServicePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationBlobStorageServicePrincipal)(nil)).Elem()
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) Elem() FluxConfigurationBlobStorageServicePrincipalOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) FluxConfigurationBlobStorageServicePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret FluxConfigurationBlobStorageServicePrincipal
+		return ret
+	}).(FluxConfigurationBlobStorageServicePrincipalOutput)
+}
+
+// Base64-encoded certificate used to authenticate a Service Principal .
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ClientCertificateBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateBase64
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the password for the certificate used to authenticate a Service Principal .
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificatePassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ClientCertificateSendChain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateSendChain
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the client ID for authenticating a Service Principal.
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the client secret for authenticating a Service Principal.
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the tenant ID for authenticating a Service Principal.
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBlobStorageServicePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type FluxConfigurationBucket struct {
+	// Specifies the plaintext access key used to securely access the S3 bucket.
+	AccessKey *string `pulumi:"accessKey"`
+	// Specifies the bucket name to sync from the url endpoint for the flux configuration.
+	BucketName string `pulumi:"bucketName"`
+	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthReference *string `pulumi:"localAuthReference"`
+	// Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+	SecretKeyBase64 *string `pulumi:"secretKeyBase64"`
+	// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+	SyncIntervalInSeconds *int `pulumi:"syncIntervalInSeconds"`
+	// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+	TlsEnabled *bool `pulumi:"tlsEnabled"`
+	// Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+	Url string `pulumi:"url"`
+}
+
+// FluxConfigurationBucketInput is an input type that accepts FluxConfigurationBucketArgs and FluxConfigurationBucketOutput values.
+// You can construct a concrete instance of `FluxConfigurationBucketInput` via:
+//
+//	FluxConfigurationBucketArgs{...}
+type FluxConfigurationBucketInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationBucketOutput() FluxConfigurationBucketOutput
+	ToFluxConfigurationBucketOutputWithContext(context.Context) FluxConfigurationBucketOutput
+}
+
+type FluxConfigurationBucketArgs struct {
+	// Specifies the plaintext access key used to securely access the S3 bucket.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Specifies the bucket name to sync from the url endpoint for the flux configuration.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+	LocalAuthReference pulumi.StringPtrInput `pulumi:"localAuthReference"`
+	// Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+	SecretKeyBase64 pulumi.StringPtrInput `pulumi:"secretKeyBase64"`
+	// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+	SyncIntervalInSeconds pulumi.IntPtrInput `pulumi:"syncIntervalInSeconds"`
+	// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+	TlsEnabled pulumi.BoolPtrInput `pulumi:"tlsEnabled"`
+	// Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FluxConfigurationBucketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationBucket)(nil)).Elem()
+}
+
+func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketOutput() FluxConfigurationBucketOutput {
+	return i.ToFluxConfigurationBucketOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketOutputWithContext(ctx context.Context) FluxConfigurationBucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketOutput)
+}
+
+func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput {
+	return i.ToFluxConfigurationBucketPtrOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketPtrOutputWithContext(ctx context.Context) FluxConfigurationBucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketOutput).ToFluxConfigurationBucketPtrOutputWithContext(ctx)
+}
+
+// FluxConfigurationBucketPtrInput is an input type that accepts FluxConfigurationBucketArgs, FluxConfigurationBucketPtr and FluxConfigurationBucketPtrOutput values.
+// You can construct a concrete instance of `FluxConfigurationBucketPtrInput` via:
+//
+//	        FluxConfigurationBucketArgs{...}
+//
+//	or:
+//
+//	        nil
+type FluxConfigurationBucketPtrInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput
+	ToFluxConfigurationBucketPtrOutputWithContext(context.Context) FluxConfigurationBucketPtrOutput
+}
+
+type fluxConfigurationBucketPtrType FluxConfigurationBucketArgs
+
+func FluxConfigurationBucketPtr(v *FluxConfigurationBucketArgs) FluxConfigurationBucketPtrInput {
+	return (*fluxConfigurationBucketPtrType)(v)
+}
+
+func (*fluxConfigurationBucketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationBucket)(nil)).Elem()
+}
+
+func (i *fluxConfigurationBucketPtrType) ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput {
+	return i.ToFluxConfigurationBucketPtrOutputWithContext(context.Background())
+}
+
+func (i *fluxConfigurationBucketPtrType) ToFluxConfigurationBucketPtrOutputWithContext(ctx context.Context) FluxConfigurationBucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketPtrOutput)
+}
+
+type FluxConfigurationBucketOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationBucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationBucket)(nil)).Elem()
+}
+
+func (o FluxConfigurationBucketOutput) ToFluxConfigurationBucketOutput() FluxConfigurationBucketOutput {
+	return o
+}
+
+func (o FluxConfigurationBucketOutput) ToFluxConfigurationBucketOutputWithContext(ctx context.Context) FluxConfigurationBucketOutput {
+	return o
+}
+
+func (o FluxConfigurationBucketOutput) ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput {
+	return o.ToFluxConfigurationBucketPtrOutputWithContext(context.Background())
+}
+
+func (o FluxConfigurationBucketOutput) ToFluxConfigurationBucketPtrOutputWithContext(ctx context.Context) FluxConfigurationBucketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBucket) *FluxConfigurationBucket {
+		return &v
+	}).(FluxConfigurationBucketPtrOutput)
+}
+
+// Specifies the plaintext access key used to securely access the S3 bucket.
+func (o FluxConfigurationBucketOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the bucket name to sync from the url endpoint for the flux configuration.
+func (o FluxConfigurationBucketOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o FluxConfigurationBucketOutput) LocalAuthReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) *string { return v.LocalAuthReference }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+func (o FluxConfigurationBucketOutput) SecretKeyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) *string { return v.SecretKeyBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationBucketOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) *int { return v.SyncIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationBucketOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+func (o FluxConfigurationBucketOutput) TlsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) *bool { return v.TlsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+func (o FluxConfigurationBucketOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationBucket) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FluxConfigurationBucketPtrOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationBucketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationBucket)(nil)).Elem()
+}
+
+func (o FluxConfigurationBucketPtrOutput) ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationBucketPtrOutput) ToFluxConfigurationBucketPtrOutputWithContext(ctx context.Context) FluxConfigurationBucketPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationBucketPtrOutput) Elem() FluxConfigurationBucketOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) FluxConfigurationBucket {
+		if v != nil {
+			return *v
+		}
+		var ret FluxConfigurationBucket
+		return ret
+	}).(FluxConfigurationBucketOutput)
+}
+
+// Specifies the plaintext access key used to securely access the S3 bucket.
+func (o FluxConfigurationBucketPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the bucket name to sync from the url endpoint for the flux configuration.
+func (o FluxConfigurationBucketPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+func (o FluxConfigurationBucketPtrOutput) LocalAuthReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+func (o FluxConfigurationBucketPtrOutput) SecretKeyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretKeyBase64
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationBucketPtrOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationBucketPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+func (o FluxConfigurationBucketPtrOutput) TlsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+func (o FluxConfigurationBucketPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationBucket) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type FluxConfigurationGitRepository struct {
+	// Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+	HttpsCaCertBase64 *string `pulumi:"httpsCaCertBase64"`
+	// Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+	HttpsKeyBase64 *string `pulumi:"httpsKeyBase64"`
+	// Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+	HttpsUser *string `pulumi:"httpsUser"`
+	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+	LocalAuthReference *string `pulumi:"localAuthReference"`
+	// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+	ReferenceType string `pulumi:"referenceType"`
+	// Specifies the source reference value for the GitRepository object.
+	ReferenceValue string `pulumi:"referenceValue"`
+	// Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
+	SshKnownHostsBase64 *string `pulumi:"sshKnownHostsBase64"`
+	// Specifies the Base64-encoded SSH private key in PEM format.
+	SshPrivateKeyBase64 *string `pulumi:"sshPrivateKeyBase64"`
+	// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+	SyncIntervalInSeconds *int `pulumi:"syncIntervalInSeconds"`
+	// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	// Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+	Url string `pulumi:"url"`
+}
+
+// FluxConfigurationGitRepositoryInput is an input type that accepts FluxConfigurationGitRepositoryArgs and FluxConfigurationGitRepositoryOutput values.
+// You can construct a concrete instance of `FluxConfigurationGitRepositoryInput` via:
+//
+//	FluxConfigurationGitRepositoryArgs{...}
+type FluxConfigurationGitRepositoryInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationGitRepositoryOutput() FluxConfigurationGitRepositoryOutput
+	ToFluxConfigurationGitRepositoryOutputWithContext(context.Context) FluxConfigurationGitRepositoryOutput
+}
+
+type FluxConfigurationGitRepositoryArgs struct {
+	// Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+	HttpsCaCertBase64 pulumi.StringPtrInput `pulumi:"httpsCaCertBase64"`
+	// Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+	HttpsKeyBase64 pulumi.StringPtrInput `pulumi:"httpsKeyBase64"`
+	// Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+	HttpsUser pulumi.StringPtrInput `pulumi:"httpsUser"`
+	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+	LocalAuthReference pulumi.StringPtrInput `pulumi:"localAuthReference"`
+	// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
+	// Specifies the source reference value for the GitRepository object.
+	ReferenceValue pulumi.StringInput `pulumi:"referenceValue"`
+	// Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
+	SshKnownHostsBase64 pulumi.StringPtrInput `pulumi:"sshKnownHostsBase64"`
+	// Specifies the Base64-encoded SSH private key in PEM format.
+	SshPrivateKeyBase64 pulumi.StringPtrInput `pulumi:"sshPrivateKeyBase64"`
+	// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+	SyncIntervalInSeconds pulumi.IntPtrInput `pulumi:"syncIntervalInSeconds"`
+	// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	// Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FluxConfigurationGitRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationGitRepository)(nil)).Elem()
+}
+
+func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryOutput() FluxConfigurationGitRepositoryOutput {
+	return i.ToFluxConfigurationGitRepositoryOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryOutput)
+}
+
+func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput {
+	return i.ToFluxConfigurationGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryOutput).ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx)
+}
+
+// FluxConfigurationGitRepositoryPtrInput is an input type that accepts FluxConfigurationGitRepositoryArgs, FluxConfigurationGitRepositoryPtr and FluxConfigurationGitRepositoryPtrOutput values.
+// You can construct a concrete instance of `FluxConfigurationGitRepositoryPtrInput` via:
+//
+//	        FluxConfigurationGitRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type FluxConfigurationGitRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput
+	ToFluxConfigurationGitRepositoryPtrOutputWithContext(context.Context) FluxConfigurationGitRepositoryPtrOutput
+}
+
+type fluxConfigurationGitRepositoryPtrType FluxConfigurationGitRepositoryArgs
+
+func FluxConfigurationGitRepositoryPtr(v *FluxConfigurationGitRepositoryArgs) FluxConfigurationGitRepositoryPtrInput {
+	return (*fluxConfigurationGitRepositoryPtrType)(v)
+}
+
+func (*fluxConfigurationGitRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationGitRepository)(nil)).Elem()
+}
+
+func (i *fluxConfigurationGitRepositoryPtrType) ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput {
+	return i.ToFluxConfigurationGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *fluxConfigurationGitRepositoryPtrType) ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryPtrOutput)
+}
+
+type FluxConfigurationGitRepositoryOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationGitRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationGitRepository)(nil)).Elem()
+}
+
+func (o FluxConfigurationGitRepositoryOutput) ToFluxConfigurationGitRepositoryOutput() FluxConfigurationGitRepositoryOutput {
+	return o
+}
+
+func (o FluxConfigurationGitRepositoryOutput) ToFluxConfigurationGitRepositoryOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryOutput {
+	return o
+}
+
+func (o FluxConfigurationGitRepositoryOutput) ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput {
+	return o.ToFluxConfigurationGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o FluxConfigurationGitRepositoryOutput) ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationGitRepository) *FluxConfigurationGitRepository {
+		return &v
+	}).(FluxConfigurationGitRepositoryPtrOutput)
+}
+
+// Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+func (o FluxConfigurationGitRepositoryOutput) HttpsCaCertBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.HttpsCaCertBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+func (o FluxConfigurationGitRepositoryOutput) HttpsKeyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.HttpsKeyBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+func (o FluxConfigurationGitRepositoryOutput) HttpsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.HttpsUser }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+func (o FluxConfigurationGitRepositoryOutput) LocalAuthReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.LocalAuthReference }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+func (o FluxConfigurationGitRepositoryOutput) ReferenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) string { return v.ReferenceType }).(pulumi.StringOutput)
+}
+
+// Specifies the source reference value for the GitRepository object.
+func (o FluxConfigurationGitRepositoryOutput) ReferenceValue() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) string { return v.ReferenceValue }).(pulumi.StringOutput)
+}
+
+// Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
+func (o FluxConfigurationGitRepositoryOutput) SshKnownHostsBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.SshKnownHostsBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded SSH private key in PEM format.
+func (o FluxConfigurationGitRepositoryOutput) SshPrivateKeyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.SshPrivateKeyBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationGitRepositoryOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *int { return v.SyncIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationGitRepositoryOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+func (o FluxConfigurationGitRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FluxConfigurationGitRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationGitRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationGitRepository)(nil)).Elem()
+}
+
+func (o FluxConfigurationGitRepositoryPtrOutput) ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationGitRepositoryPtrOutput) ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationGitRepositoryPtrOutput) Elem() FluxConfigurationGitRepositoryOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) FluxConfigurationGitRepository {
+		if v != nil {
+			return *v
+		}
+		var ret FluxConfigurationGitRepository
+		return ret
+	}).(FluxConfigurationGitRepositoryOutput)
+}
+
+// Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+func (o FluxConfigurationGitRepositoryPtrOutput) HttpsCaCertBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsCaCertBase64
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+func (o FluxConfigurationGitRepositoryPtrOutput) HttpsKeyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsKeyBase64
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+func (o FluxConfigurationGitRepositoryPtrOutput) HttpsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+func (o FluxConfigurationGitRepositoryPtrOutput) LocalAuthReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAuthReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+func (o FluxConfigurationGitRepositoryPtrOutput) ReferenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the source reference value for the GitRepository object.
+func (o FluxConfigurationGitRepositoryPtrOutput) ReferenceValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
+func (o FluxConfigurationGitRepositoryPtrOutput) SshKnownHostsBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SshKnownHostsBase64
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Base64-encoded SSH private key in PEM format.
+func (o FluxConfigurationGitRepositoryPtrOutput) SshPrivateKeyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SshPrivateKeyBase64
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationGitRepositoryPtrOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SyncIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+func (o FluxConfigurationGitRepositoryPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+func (o FluxConfigurationGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type FluxConfigurationKustomization struct {
+	// Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+	DependsOns []string `pulumi:"dependsOns"`
+	// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+	GarbageCollectionEnabled *bool `pulumi:"garbageCollectionEnabled"`
+	// Specifies the name of the kustomization.
+	Name string `pulumi:"name"`
+	// Specifies the path in the source reference to reconcile on the cluster.
+	Path *string `pulumi:"path"`
+	// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+	RecreatingEnabled *bool `pulumi:"recreatingEnabled"`
+	// The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+	RetryIntervalInSeconds *int `pulumi:"retryIntervalInSeconds"`
+	// The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+	SyncIntervalInSeconds *int `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+}
+
+// FluxConfigurationKustomizationInput is an input type that accepts FluxConfigurationKustomizationArgs and FluxConfigurationKustomizationOutput values.
+// You can construct a concrete instance of `FluxConfigurationKustomizationInput` via:
+//
+//	FluxConfigurationKustomizationArgs{...}
+type FluxConfigurationKustomizationInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationKustomizationOutput() FluxConfigurationKustomizationOutput
+	ToFluxConfigurationKustomizationOutputWithContext(context.Context) FluxConfigurationKustomizationOutput
+}
+
+type FluxConfigurationKustomizationArgs struct {
+	// Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+	DependsOns pulumi.StringArrayInput `pulumi:"dependsOns"`
+	// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+	GarbageCollectionEnabled pulumi.BoolPtrInput `pulumi:"garbageCollectionEnabled"`
+	// Specifies the name of the kustomization.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the path in the source reference to reconcile on the cluster.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+	RecreatingEnabled pulumi.BoolPtrInput `pulumi:"recreatingEnabled"`
+	// The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+	RetryIntervalInSeconds pulumi.IntPtrInput `pulumi:"retryIntervalInSeconds"`
+	// The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+	SyncIntervalInSeconds pulumi.IntPtrInput `pulumi:"syncIntervalInSeconds"`
+	// The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+}
+
+func (FluxConfigurationKustomizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationKustomization)(nil)).Elem()
+}
+
+func (i FluxConfigurationKustomizationArgs) ToFluxConfigurationKustomizationOutput() FluxConfigurationKustomizationOutput {
+	return i.ToFluxConfigurationKustomizationOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationKustomizationArgs) ToFluxConfigurationKustomizationOutputWithContext(ctx context.Context) FluxConfigurationKustomizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationOutput)
+}
+
+// FluxConfigurationKustomizationArrayInput is an input type that accepts FluxConfigurationKustomizationArray and FluxConfigurationKustomizationArrayOutput values.
+// You can construct a concrete instance of `FluxConfigurationKustomizationArrayInput` via:
+//
+//	FluxConfigurationKustomizationArray{ FluxConfigurationKustomizationArgs{...} }
+type FluxConfigurationKustomizationArrayInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationKustomizationArrayOutput() FluxConfigurationKustomizationArrayOutput
+	ToFluxConfigurationKustomizationArrayOutputWithContext(context.Context) FluxConfigurationKustomizationArrayOutput
+}
+
+type FluxConfigurationKustomizationArray []FluxConfigurationKustomizationInput
+
+func (FluxConfigurationKustomizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FluxConfigurationKustomization)(nil)).Elem()
+}
+
+func (i FluxConfigurationKustomizationArray) ToFluxConfigurationKustomizationArrayOutput() FluxConfigurationKustomizationArrayOutput {
+	return i.ToFluxConfigurationKustomizationArrayOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationKustomizationArray) ToFluxConfigurationKustomizationArrayOutputWithContext(ctx context.Context) FluxConfigurationKustomizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationArrayOutput)
+}
+
+type FluxConfigurationKustomizationOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationKustomizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationKustomization)(nil)).Elem()
+}
+
+func (o FluxConfigurationKustomizationOutput) ToFluxConfigurationKustomizationOutput() FluxConfigurationKustomizationOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationOutput) ToFluxConfigurationKustomizationOutputWithContext(ctx context.Context) FluxConfigurationKustomizationOutput {
+	return o
+}
+
+// Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+func (o FluxConfigurationKustomizationOutput) DependsOns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) []string { return v.DependsOns }).(pulumi.StringArrayOutput)
+}
+
+// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+func (o FluxConfigurationKustomizationOutput) GarbageCollectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *bool { return v.GarbageCollectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the name of the kustomization.
+func (o FluxConfigurationKustomizationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the path in the source reference to reconcile on the cluster.
+func (o FluxConfigurationKustomizationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+func (o FluxConfigurationKustomizationOutput) RecreatingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *bool { return v.RecreatingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+func (o FluxConfigurationKustomizationOutput) RetryIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *int { return v.RetryIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+func (o FluxConfigurationKustomizationOutput) SyncIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *int { return v.SyncIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+func (o FluxConfigurationKustomizationOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FluxConfigurationKustomizationArrayOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationKustomizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FluxConfigurationKustomization)(nil)).Elem()
+}
+
+func (o FluxConfigurationKustomizationArrayOutput) ToFluxConfigurationKustomizationArrayOutput() FluxConfigurationKustomizationArrayOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationArrayOutput) ToFluxConfigurationKustomizationArrayOutputWithContext(ctx context.Context) FluxConfigurationKustomizationArrayOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationArrayOutput) Index(i pulumi.IntInput) FluxConfigurationKustomizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FluxConfigurationKustomization {
+		return vs[0].([]FluxConfigurationKustomization)[vs[1].(int)]
+	}).(FluxConfigurationKustomizationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExtensionIdentityInput)(nil)).Elem(), ClusterExtensionIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExtensionIdentityPtrInput)(nil)).Elem(), ClusterExtensionIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStorageInput)(nil)).Elem(), FluxConfigurationBlobStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStoragePtrInput)(nil)).Elem(), FluxConfigurationBlobStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStorageServicePrincipalInput)(nil)).Elem(), FluxConfigurationBlobStorageServicePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStorageServicePrincipalPtrInput)(nil)).Elem(), FluxConfigurationBlobStorageServicePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBucketInput)(nil)).Elem(), FluxConfigurationBucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBucketPtrInput)(nil)).Elem(), FluxConfigurationBucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationGitRepositoryInput)(nil)).Elem(), FluxConfigurationGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationGitRepositoryPtrInput)(nil)).Elem(), FluxConfigurationGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationInput)(nil)).Elem(), FluxConfigurationKustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationArrayInput)(nil)).Elem(), FluxConfigurationKustomizationArray{})
 	pulumi.RegisterOutputType(ClusterExtensionIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterExtensionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationBlobStorageOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationBlobStoragePtrOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationBlobStorageServicePrincipalOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationBlobStorageServicePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationBucketOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationBucketPtrOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationGitRepositoryOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationGitRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationKustomizationOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationKustomizationArrayOutput{})
 }

@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.containerservice.KubernetesFleetManager;
  * import com.pulumi.azure.containerservice.KubernetesFleetManagerArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesFleetManagerHubProfileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,9 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KubernetesFleetManager(&#34;example&#34;, KubernetesFleetManagerArgs.builder()        
- *             .hubProfile(KubernetesFleetManagerHubProfileArgs.builder()
- *                 .dnsPrefix(&#34;example&#34;)
- *                 .build())
  *             .location(azurerm_resource_group.example().location())
  *             .resourceGroupName(azurerm_resource_group.example().name())
  *             .build());
@@ -66,13 +62,10 @@ import javax.annotation.Nullable;
  * 
  * * `dns_prefix` - (Required)
  * 
- * The `hub_profile` block exports the following arguments:
+ * In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
  * 
  * * `fqdn` -
- * 
  * * `kubernetes_version` -
- * 
- * ***
  * 
  * ## Import
  * 

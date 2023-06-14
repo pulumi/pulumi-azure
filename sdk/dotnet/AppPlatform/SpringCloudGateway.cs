@@ -115,6 +115,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> ApplicationPerformanceMonitoringTypes { get; private set; } = null!;
 
         /// <summary>
+        /// A `client_authorization` block as defined below.
+        /// </summary>
+        [Output("clientAuthorization")]
+        public Output<Outputs.SpringCloudGatewayClientAuthorization?> ClientAuthorization { get; private set; } = null!;
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Output("cors")]
@@ -249,6 +255,12 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
+        /// A `client_authorization` block as defined below.
+        /// </summary>
+        [Input("clientAuthorization")]
+        public Input<Inputs.SpringCloudGatewayClientAuthorizationArgs>? ClientAuthorization { get; set; }
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]
@@ -349,6 +361,12 @@ namespace Pulumi.Azure.AppPlatform
             get => _applicationPerformanceMonitoringTypes ?? (_applicationPerformanceMonitoringTypes = new InputList<string>());
             set => _applicationPerformanceMonitoringTypes = value;
         }
+
+        /// <summary>
+        /// A `client_authorization` block as defined below.
+        /// </summary>
+        [Input("clientAuthorization")]
+        public Input<Inputs.SpringCloudGatewayClientAuthorizationGetArgs>? ClientAuthorization { get; set; }
 
         /// <summary>
         /// A `cors` block as defined below.

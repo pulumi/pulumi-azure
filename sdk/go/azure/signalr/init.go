@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate":
 		r = &ServiceCustomCertificate{}
+	case "azure:signalr/serviceCustomDomain:ServiceCustomDomain":
+		r = &ServiceCustomDomain{}
 	case "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl":
 		r = &ServiceNetworkAcl{}
 	case "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"signalr/serviceCustomCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"signalr/serviceCustomDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -21,9 +21,9 @@ class CertificateArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
+        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
         """
@@ -38,7 +38,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> pulumi.Input[str]:
         """
-        Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the path to the cert file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
@@ -50,7 +50,7 @@ class CertificateArgs:
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> pulumi.Input[str]:
         """
-        Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the ID of the Key Vault Secret for this certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -62,7 +62,7 @@ class CertificateArgs:
     @pulumi.getter(name="keyVirtualPath")
     def key_virtual_path(self) -> pulumi.Input[str]:
         """
-        Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the path to the key file of this certificate.
         """
         return pulumi.get(self, "key_virtual_path")
 
@@ -105,9 +105,9 @@ class _CertificateState:
                  nginx_deployment_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
+        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
         """
@@ -126,7 +126,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the path to the cert file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
@@ -138,7 +138,7 @@ class _CertificateState:
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the ID of the Key Vault Secret for this certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -150,7 +150,7 @@ class _CertificateState:
     @pulumi.getter(name="keyVirtualPath")
     def key_virtual_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the path to the key file of this certificate.
         """
         return pulumi.get(self, "key_virtual_path")
 
@@ -201,13 +201,80 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import base64
         import pulumi_azure as azure
 
-        test = azure.nginx.Certificate("test",
-            nginx_deployment_id=azurerm_nginx_deployment["test"]["id"],
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            sku="Standard",
+            tags={
+                "environment": "Production",
+            })
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="NGINX.NGINXPLUS/nginxDeployments",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        example_deployment = azure.nginx.Deployment("exampleDeployment",
+            resource_group_name=example_resource_group.name,
+            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            location=example_resource_group.location,
+            managed_resource_group="example",
+            diagnose_support_enabled=True,
+            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
+                ip_addresses=[example_public_ip.id],
+            ),
+            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
+                subnet_id=example_subnet.id,
+            )])
+        current = azure.core.get_client_config()
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "Create",
+                    "Delete",
+                    "DeleteIssuers",
+                    "Get",
+                    "GetIssuers",
+                    "Import",
+                    "List",
+                    "ListIssuers",
+                    "ManageContacts",
+                    "ManageIssuers",
+                    "SetIssuers",
+                    "Update",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                password="",
+            ))
+        example_nginx_certificate_certificate = azure.nginx.Certificate("exampleNginx/certificateCertificate",
+            nginx_deployment_id=example_deployment.id,
             key_virtual_path="/src/cert/soservermekey.key",
             certificate_virtual_path="/src/cert/server.cert",
-            key_vault_secret_id=azurerm_key_vault_certificate["test"]["secret_id"])
+            key_vault_secret_id=example_certificate.secret_id)
         ```
 
         ## Import
@@ -220,9 +287,9 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
+        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
         """
@@ -239,13 +306,80 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import base64
         import pulumi_azure as azure
 
-        test = azure.nginx.Certificate("test",
-            nginx_deployment_id=azurerm_nginx_deployment["test"]["id"],
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            sku="Standard",
+            tags={
+                "environment": "Production",
+            })
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="NGINX.NGINXPLUS/nginxDeployments",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        example_deployment = azure.nginx.Deployment("exampleDeployment",
+            resource_group_name=example_resource_group.name,
+            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            location=example_resource_group.location,
+            managed_resource_group="example",
+            diagnose_support_enabled=True,
+            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
+                ip_addresses=[example_public_ip.id],
+            ),
+            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
+                subnet_id=example_subnet.id,
+            )])
+        current = azure.core.get_client_config()
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "Create",
+                    "Delete",
+                    "DeleteIssuers",
+                    "Get",
+                    "GetIssuers",
+                    "Import",
+                    "List",
+                    "ListIssuers",
+                    "ManageContacts",
+                    "ManageIssuers",
+                    "SetIssuers",
+                    "Update",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                password="",
+            ))
+        example_nginx_certificate_certificate = azure.nginx.Certificate("exampleNginx/certificateCertificate",
+            nginx_deployment_id=example_deployment.id,
             key_virtual_path="/src/cert/soservermekey.key",
             certificate_virtual_path="/src/cert/server.cert",
-            key_vault_secret_id=azurerm_key_vault_certificate["test"]["secret_id"])
+            key_vault_secret_id=example_certificate.secret_id)
         ```
 
         ## Import
@@ -320,9 +454,9 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
+        :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
         """
@@ -341,7 +475,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> pulumi.Output[str]:
         """
-        Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the path to the cert file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
@@ -349,7 +483,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> pulumi.Output[str]:
         """
-        Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the ID of the Key Vault Secret for this certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -357,7 +491,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="keyVirtualPath")
     def key_virtual_path(self) -> pulumi.Output[str]:
         """
-        Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+        Specify the path to the key file of this certificate.
         """
         return pulumi.get(self, "key_virtual_path")
 

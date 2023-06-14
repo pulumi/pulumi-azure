@@ -97,7 +97,7 @@ export class Account extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.automation.AccountPrivateEndpointConnection[]>;
     /**
-     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     * Whether public network access is allowed for the automation account. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface AccountState {
     name?: pulumi.Input<string>;
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.automation.AccountPrivateEndpointConnection>[]>;
     /**
-     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     * Whether public network access is allowed for the automation account. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -248,7 +248,7 @@ export interface AccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     * Whether public network access is allowed for the automation account. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

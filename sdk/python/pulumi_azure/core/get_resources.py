@@ -66,6 +66,9 @@ class GetResourcesResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in which this Resource exists.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @property

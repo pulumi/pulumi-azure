@@ -34,9 +34,20 @@ func GetClientId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:clientId")
 }
 
+// The path to a file containing the Client ID which should be used.
+func GetClientIdFilePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:clientIdFilePath")
+}
+
 // The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 func GetClientSecret(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:clientSecret")
+}
+
+// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+// using a Client Secret.
+func GetClientSecretFilePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:clientSecretFilePath")
 }
 
 // This will disable the x-ms-correlation-request-id header.

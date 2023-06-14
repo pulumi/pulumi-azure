@@ -36,6 +36,83 @@ import * as utilities from "../utilities";
  * });
  * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", {serverId: exampleServer.id});
  * ```
+ * ### With Customer Managed Key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "EastUs"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "missadministrator",
+ *     administratorLoginPassword: "thisIsKat11",
+ *     minimumTlsVersion: "1.2",
+ *     azureadAdministrator: {
+ *         loginUsername: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ *     tags: {
+ *         environment: "production",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * // Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: current.then(current => current.tenantId),
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: false,
+ *     skuName: "standard",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "List",
+ *                 "Create",
+ *                 "Delete",
+ *                 "Update",
+ *                 "Recover",
+ *                 "Purge",
+ *                 "GetRotationPolicy",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: exampleServer.identity.apply(identity => identity?.tenantId),
+ *             objectId: exampleServer.identity.apply(identity => identity?.principalId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "WrapKey",
+ *                 "UnwrapKey",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "unwrapKey",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [exampleKeyVault],
+ * });
+ * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", {
+ *     serverId: exampleServer.id,
+ *     keyVaultKeyId: exampleKey.id,
+ * });
+ * ```
  *
  * ## Import
  *

@@ -12,11 +12,13 @@ namespace Pulumi.Azure.Hpc.Inputs
 
     public sealed class CacheIdentityGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identityIds", required: true)]
+        [Input("identityIds")]
         private InputList<string>? _identityIds;
 
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +27,19 @@ namespace Pulumi.Azure.Hpc.Inputs
         }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

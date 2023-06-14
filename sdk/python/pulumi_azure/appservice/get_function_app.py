@@ -265,7 +265,7 @@ def get_function_app(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.appservice.get_function_app(name="test-azure-functions",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
 
@@ -318,7 +318,7 @@ def get_function_app_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.appservice.get_function_app(name="test-azure-functions",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
 

@@ -289,7 +289,7 @@ def get_managed_instance(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.mssql.get_managed_instance(name="managedsqlinstance",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
 
@@ -340,7 +340,7 @@ def get_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.mssql.get_managed_instance(name="managedsqlinstance",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
 

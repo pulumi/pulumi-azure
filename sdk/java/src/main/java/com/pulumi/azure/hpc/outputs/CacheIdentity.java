@@ -7,16 +7,30 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CacheIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
-    private List<String> identityIds;
+    private @Nullable List<String> identityIds;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    private @Nullable String principalId;
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    private @Nullable String tenantId;
+    /**
+     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     private String type;
@@ -25,12 +39,28 @@ public final class CacheIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     public List<String> identityIds() {
-        return this.identityIds;
+        return this.identityIds == null ? List.of() : this.identityIds;
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<String> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+    /**
+     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     public String type() {
@@ -46,22 +76,36 @@ public final class CacheIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> identityIds;
+        private @Nullable List<String> identityIds;
+        private @Nullable String principalId;
+        private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(CacheIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
+    	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder identityIds(List<String> identityIds) {
-            this.identityIds = Objects.requireNonNull(identityIds);
+        public Builder identityIds(@Nullable List<String> identityIds) {
+            this.identityIds = identityIds;
             return this;
         }
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
+        }
+        @CustomType.Setter
+        public Builder principalId(@Nullable String principalId) {
+            this.principalId = principalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+            this.tenantId = tenantId;
+            return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -71,6 +115,8 @@ public final class CacheIdentity {
         public CacheIdentity build() {
             final var o = new CacheIdentity();
             o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
             o.type = type;
             return o;
         }

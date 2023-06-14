@@ -154,9 +154,9 @@ def get_frontdoor_custom_domain(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_custom_domain(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        profile_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.cdn.get_frontdoor_custom_domain(name=azurerm_cdn_frontdoor_custom_domain["example"]["name"],
+        profile_name=azurerm_cdn_frontdoor_profile["example"]["name"],
+        resource_group_name=azurerm_cdn_frontdoor_profile["example"]["resource_group_name"])
     ```
 
 
@@ -198,9 +198,9 @@ def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_custom_domain(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        profile_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.cdn.get_frontdoor_custom_domain(name=azurerm_cdn_frontdoor_custom_domain["example"]["name"],
+        profile_name=azurerm_cdn_frontdoor_profile["example"]["name"],
+        resource_group_name=azurerm_cdn_frontdoor_profile["example"]["resource_group_name"])
     ```
 
 

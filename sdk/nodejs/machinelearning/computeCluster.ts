@@ -139,6 +139,10 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     */
+    public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     public readonly scaleSettings!: pulumi.Output<outputs.machinelearning.ComputeClusterScaleSettings>;
@@ -186,6 +190,7 @@ export class ComputeCluster extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodePublicIpEnabled"] = state ? state.nodePublicIpEnabled : undefined;
             resourceInputs["scaleSettings"] = state ? state.scaleSettings : undefined;
             resourceInputs["ssh"] = state ? state.ssh : undefined;
             resourceInputs["sshPublicAccessEnabled"] = state ? state.sshPublicAccessEnabled : undefined;
@@ -213,6 +218,7 @@ export class ComputeCluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodePublicIpEnabled"] = args ? args.nodePublicIpEnabled : undefined;
             resourceInputs["scaleSettings"] = args ? args.scaleSettings : undefined;
             resourceInputs["ssh"] = args ? args.ssh : undefined;
             resourceInputs["sshPublicAccessEnabled"] = args ? args.sshPublicAccessEnabled : undefined;
@@ -254,6 +260,10 @@ export interface ComputeClusterState {
      * The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     */
+    nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
      * A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
@@ -312,6 +322,10 @@ export interface ComputeClusterArgs {
      * The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     */
+    nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
      * A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */

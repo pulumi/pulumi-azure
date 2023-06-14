@@ -14,6 +14,7 @@ from .endpoint_servicebus_topic import *
 from .endpoint_storage_container import *
 from .enrichment import *
 from .fallback_route import *
+from .file_upload import *
 from .get_dps import *
 from .get_dps_shared_access_policy import *
 from .get_iot_hub import *

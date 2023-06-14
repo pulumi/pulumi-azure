@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery;
 
+import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ReplicationRecoveryPlanArgs Empty = new ReplicationRecoveryPlanArgs();
+
+    /**
+     * An `azure_to_azure_settings` block defined as block.
+     * 
+     */
+    @Import(name="azureToAzureSettings")
+    private @Nullable Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs> azureToAzureSettings;
+
+    /**
+     * @return An `azure_to_azure_settings` block defined as block.
+     * 
+     */
+    public Optional<Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs>> azureToAzureSettings() {
+        return Optional.ofNullable(this.azureToAzureSettings);
+    }
 
     /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
@@ -33,14 +49,14 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Three or more `recovery_group` block.
+     * Three or more `recovery_group` block defined as below.
      * 
      */
     @Import(name="recoveryGroups")
     private @Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups;
 
     /**
-     * @return Three or more `recovery_group` block.
+     * @return Three or more `recovery_group` block defined as below.
      * 
      */
     public Optional<Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>>> recoveryGroups() {
@@ -95,6 +111,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     private ReplicationRecoveryPlanArgs() {}
 
     private ReplicationRecoveryPlanArgs(ReplicationRecoveryPlanArgs $) {
+        this.azureToAzureSettings = $.azureToAzureSettings;
         this.name = $.name;
         this.recoveryGroups = $.recoveryGroups;
         this.recoveryVaultId = $.recoveryVaultId;
@@ -121,6 +138,27 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param azureToAzureSettings An `azure_to_azure_settings` block defined as block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureToAzureSettings(@Nullable Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs> azureToAzureSettings) {
+            $.azureToAzureSettings = azureToAzureSettings;
+            return this;
+        }
+
+        /**
+         * @param azureToAzureSettings An `azure_to_azure_settings` block defined as block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureToAzureSettings(ReplicationRecoveryPlanAzureToAzureSettingsArgs azureToAzureSettings) {
+            return azureToAzureSettings(Output.of(azureToAzureSettings));
+        }
+
+        /**
          * @param name The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -142,7 +180,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recoveryGroups Three or more `recovery_group` block.
+         * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
          * @return builder
          * 
@@ -153,7 +191,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recoveryGroups Three or more `recovery_group` block.
+         * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
          * @return builder
          * 
@@ -163,7 +201,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recoveryGroups Three or more `recovery_group` block.
+         * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
          * @return builder
          * 

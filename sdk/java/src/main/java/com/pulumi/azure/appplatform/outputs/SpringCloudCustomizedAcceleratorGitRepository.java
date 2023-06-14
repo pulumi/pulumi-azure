@@ -25,6 +25,11 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
      */
     private @Nullable String branch;
     /**
+     * @return Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+     * 
+     */
+    private @Nullable String caCertificateId;
+    /**
      * @return Specifies the Git repository commit to be used.
      * 
      */
@@ -64,6 +69,13 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
      */
     public Optional<String> branch() {
         return Optional.ofNullable(this.branch);
+    }
+    /**
+     * @return Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+     * 
+     */
+    public Optional<String> caCertificateId() {
+        return Optional.ofNullable(this.caCertificateId);
     }
     /**
      * @return Specifies the Git repository commit to be used.
@@ -112,6 +124,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
     public static final class Builder {
         private @Nullable SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth basicAuth;
         private @Nullable String branch;
+        private @Nullable String caCertificateId;
         private @Nullable String commit;
         private @Nullable String gitTag;
         private @Nullable Integer intervalInSeconds;
@@ -122,6 +135,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
     	      Objects.requireNonNull(defaults);
     	      this.basicAuth = defaults.basicAuth;
     	      this.branch = defaults.branch;
+    	      this.caCertificateId = defaults.caCertificateId;
     	      this.commit = defaults.commit;
     	      this.gitTag = defaults.gitTag;
     	      this.intervalInSeconds = defaults.intervalInSeconds;
@@ -137,6 +151,11 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
         @CustomType.Setter
         public Builder branch(@Nullable String branch) {
             this.branch = branch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder caCertificateId(@Nullable String caCertificateId) {
+            this.caCertificateId = caCertificateId;
             return this;
         }
         @CustomType.Setter
@@ -168,6 +187,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
             final var o = new SpringCloudCustomizedAcceleratorGitRepository();
             o.basicAuth = basicAuth;
             o.branch = branch;
+            o.caCertificateId = caCertificateId;
             o.commit = commit;
             o.gitTag = gitTag;
             o.intervalInSeconds = intervalInSeconds;

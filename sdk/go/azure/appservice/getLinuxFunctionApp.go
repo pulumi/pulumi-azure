@@ -64,6 +64,8 @@ type LookupLinuxFunctionAppResult struct {
 	AuthSettings []GetLinuxFunctionAppAuthSetting `pulumi:"authSettings"`
 	// A `authSettingsV2` block as defined below.
 	AuthSettingsV2s []GetLinuxFunctionAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
+	// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+	Availability string `pulumi:"availability"`
 	// A `backup` block as defined below.
 	Backups []GetLinuxFunctionAppBackup `pulumi:"backups"`
 	// Is built in logging enabled?
@@ -129,6 +131,8 @@ type LookupLinuxFunctionAppResult struct {
 	StorageUsesManagedIdentity bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which are assigned to the Linux Function App.
 	Tags map[string]string `pulumi:"tags"`
+	// The current usage state. Possible values are `Normal` and `Exceeded`.
+	Usage string `pulumi:"usage"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -186,6 +190,11 @@ func (o LookupLinuxFunctionAppResultOutput) AuthSettings() GetLinuxFunctionAppAu
 // A `authSettingsV2` block as defined below.
 func (o LookupLinuxFunctionAppResultOutput) AuthSettingsV2s() GetLinuxFunctionAppAuthSettingsV2ArrayOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []GetLinuxFunctionAppAuthSettingsV2 { return v.AuthSettingsV2s }).(GetLinuxFunctionAppAuthSettingsV2ArrayOutput)
+}
+
+// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+func (o LookupLinuxFunctionAppResultOutput) Availability() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.Availability }).(pulumi.StringOutput)
 }
 
 // A `backup` block as defined below.
@@ -350,6 +359,11 @@ func (o LookupLinuxFunctionAppResultOutput) StorageUsesManagedIdentity() pulumi.
 // A mapping of tags which are assigned to the Linux Function App.
 func (o LookupLinuxFunctionAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The current usage state. Possible values are `Normal` and `Exceeded`.
+func (o LookupLinuxFunctionAppResultOutput) Usage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.Usage }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.

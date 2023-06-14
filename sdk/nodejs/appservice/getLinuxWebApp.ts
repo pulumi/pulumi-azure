@@ -66,6 +66,11 @@ export interface GetLinuxWebAppResult {
      */
     readonly authSettingsV2s: outputs.appservice.GetLinuxWebAppAuthSettingsV2[];
     /**
+     * The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+     * *
+     */
+    readonly availability: string;
+    /**
      * A `backup` block as defined below.
      */
     readonly backups: outputs.appservice.GetLinuxWebAppBackup[];
@@ -175,6 +180,10 @@ export interface GetLinuxWebAppResult {
      * A mapping of tags assigned to the Linux Web App.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The current usage state. Possible values are `Normal` and `Exceeded`.
+     */
+    readonly usage: string;
     /**
      * The subnet id which the Linux Web App is vNet Integrated with.
      */

@@ -13,6 +13,76 @@ import (
 
 // Manages a Managed Application.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/managedapplication"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				Name: pulumi.StringRef("Contributor"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := managedapplication.NewDefinition(ctx, "exampleDefinition", &managedapplication.DefinitionArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				LockLevel:         pulumi.String("ReadOnly"),
+//				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
+//				DisplayName:       pulumi.String("TestManagedAppDefinition"),
+//				Description:       pulumi.String("Test Managed App Definition"),
+//				Authorizations: managedapplication.DefinitionAuthorizationArray{
+//					&managedapplication.DefinitionAuthorizationArgs{
+//						ServicePrincipalId: *pulumi.String(current.ObjectId),
+//						RoleDefinitionId:   "TODO: call split"[len("TODO: call split")-1],
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = managedapplication.NewApplication(ctx, "exampleApplication", &managedapplication.ApplicationArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Kind:                     pulumi.String("ServiceCatalog"),
+//				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
+//				ApplicationDefinitionId:  exampleDefinition.ID(),
+//				Parameters: pulumi.StringMap{
+//					"location":                 exampleResourceGroup.Location,
+//					"storageAccountNamePrefix": pulumi.String("storeNamePrefix"),
+//					"storageAccountType":       pulumi.String("Standard_LRS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Managed Application can be imported using the `resource id`, e.g.

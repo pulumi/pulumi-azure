@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -39,8 +39,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleContactProfile = new azure.orbital.ContactProfile("exampleContactProfile", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     location: azurerm_resource_group.test.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     minimumVariableContactDuration: "PT1M",
  *     autoTracking: "disabled",
  *     links: [{

@@ -17,45 +17,61 @@ namespace Pulumi.Azure.Healthcare
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Healthcare.MedtechService("test", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         DeviceMappingJson = @"{
-    ///     ""templateType"": ""CollectionContent"",
-    ///     ""template"": [
-    ///                 {
-    ///                   ""templateType"": ""JsonPathContent"",
-    ///                   ""template"": {
-    ///                     ""typeName"": ""heartrate"",
-    ///                     ""typeMatchExpression"": ""$..[?(@heartrate)]"",
-    ///                     ""deviceIdExpression"": ""$.deviceid"",
-    ///                     ""timestampExpression"": ""$.measurementdatetime"",
-    ///                     ""values"": [
-    ///                       {
-    ///                         ""required"": ""true"",
-    ///                         ""valueExpression"": ""$.heartrate"",
-    ///                         ""valueName"": ""hr""
-    ///                       }
-    ///                     ]
-    ///                   }
-    ///                 }
-    ///               ]
-    /// }
+    ///         Location = "east us",
+    ///     });
     /// 
-    /// ",
-    ///         EventhubConsumerGroupName = "tfex-eventhub-consumer-group.name",
-    ///         EventhubName = "tfex-eventhub.name",
-    ///         EventhubNamespaceName = "tfex-eventhub-namespace.name",
+    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("exampleMedtechService", new()
+    ///     {
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         Location = "east us",
     ///         Identity = new Azure.Healthcare.Inputs.MedtechServiceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
-    ///         Location = "east us",
-    ///         WorkspaceId = "tfex-workspace_id",
+    ///         EventhubNamespaceName = "example-eventhub-namespace",
+    ///         EventhubName = "example-eventhub",
+    ///         EventhubConsumerGroupName = "$Default",
+    ///         DeviceMappingJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["templateType"] = "CollectionContent",
+    ///             ["template"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["templateType"] = "JsonPathContent",
+    ///                     ["template"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["typeName"] = "heartrate",
+    ///                         ["typeMatchExpression"] = "$..[?(@heartrate)]",
+    ///                         ["deviceIdExpression"] = "$.deviceid",
+    ///                         ["timestampExpression"] = "$.measurementdatetime",
+    ///                         ["values"] = new[]
+    ///                         {
+    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["required"] = "true",
+    ///                                 ["valueExpression"] = "$.heartrate",
+    ///                                 ["valueName"] = "hr",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });

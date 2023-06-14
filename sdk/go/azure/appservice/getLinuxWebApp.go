@@ -66,6 +66,9 @@ type LookupLinuxWebAppResult struct {
 	AuthSettings []GetLinuxWebAppAuthSetting `pulumi:"authSettings"`
 	// An `authSettingsV2` block as defined below.
 	AuthSettingsV2s []GetLinuxWebAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
+	// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+	// *
+	Availability string `pulumi:"availability"`
 	// A `backup` block as defined below.
 	Backups []GetLinuxWebAppBackup `pulumi:"backups"`
 	// Is Client Affinity enabled?
@@ -122,6 +125,8 @@ type LookupLinuxWebAppResult struct {
 	StorageAccounts []GetLinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
+	// The current usage state. Possible values are `Normal` and `Exceeded`.
+	Usage string `pulumi:"usage"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -184,6 +189,12 @@ func (o LookupLinuxWebAppResultOutput) AuthSettings() GetLinuxWebAppAuthSettingA
 // An `authSettingsV2` block as defined below.
 func (o LookupLinuxWebAppResultOutput) AuthSettingsV2s() GetLinuxWebAppAuthSettingsV2ArrayOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) []GetLinuxWebAppAuthSettingsV2 { return v.AuthSettingsV2s }).(GetLinuxWebAppAuthSettingsV2ArrayOutput)
+}
+
+// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+// *
+func (o LookupLinuxWebAppResultOutput) Availability() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.Availability }).(pulumi.StringOutput)
 }
 
 // A `backup` block as defined below.
@@ -327,6 +338,11 @@ func (o LookupLinuxWebAppResultOutput) StorageAccounts() GetLinuxWebAppStorageAc
 // A mapping of tags assigned to the Linux Web App.
 func (o LookupLinuxWebAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The current usage state. Possible values are `Normal` and `Exceeded`.
+func (o LookupLinuxWebAppResultOutput) Usage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.Usage }).(pulumi.StringOutput)
 }
 
 // The subnet id which the Linux Web App is vNet Integrated with.

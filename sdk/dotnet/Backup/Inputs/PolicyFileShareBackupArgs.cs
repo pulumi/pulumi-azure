@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyFileShareBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the backup frequency. Currently, only `Daily` is supported
+        /// Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
         /// 
         /// &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         /// </summary>
@@ -21,10 +21,18 @@ namespace Pulumi.Azure.Backup.Inputs
         public Input<string> Frequency { get; set; } = null!;
 
         /// <summary>
-        /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        /// A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
         /// </summary>
-        [Input("time", required: true)]
-        public Input<string> Time { get; set; } = null!;
+        [Input("hourly")]
+        public Input<Inputs.PolicyFileShareBackupHourlyArgs>? Hourly { get; set; }
+
+        /// <summary>
+        /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        /// 
+        /// &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+        /// </summary>
+        [Input("time")]
+        public Input<string>? Time { get; set; }
 
         public PolicyFileShareBackupArgs()
         {

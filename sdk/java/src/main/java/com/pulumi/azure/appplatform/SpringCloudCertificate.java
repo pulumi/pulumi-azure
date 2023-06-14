@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -63,7 +64,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;Azure Spring Cloud Domain-Management&#34;)
+ *             .displayName(&#34;Azure Spring Cloud Resource Provider&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
@@ -140,6 +141,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleSpringCloudService.resourceGroupName())
  *             .serviceName(exampleSpringCloudService.name())
  *             .keyVaultCertificateId(exampleCertificate.id())
+ *             .excludePrivateKey(true)
  *             .build());
  * 
  *     }
@@ -170,6 +172,20 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<String>> certificateContent() {
         return Codegen.optional(this.certificateContent);
+    }
+    /**
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * 
+     */
+    @Export(name="excludePrivateKey", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> excludePrivateKey;
+
+    /**
+     * @return Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> excludePrivateKey() {
+        return Codegen.optional(this.excludePrivateKey);
     }
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.

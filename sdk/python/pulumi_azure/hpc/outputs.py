@@ -657,6 +657,10 @@ class CacheIdentity(dict):
         suggest = None
         if key == "identityIds":
             suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CacheIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -670,30 +674,59 @@ class CacheIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_ids: Sequence[str],
-                 type: str):
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Sequence[str]:
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "identity_ids")
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

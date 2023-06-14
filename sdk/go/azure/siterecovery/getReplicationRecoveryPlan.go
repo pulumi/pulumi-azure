@@ -65,7 +65,8 @@ type LookupReplicationRecoveryPlanArgs struct {
 
 // A collection of values returned by getReplicationRecoveryPlan.
 type LookupReplicationRecoveryPlanResult struct {
-	FailoverDeploymentModel string `pulumi:"failoverDeploymentModel"`
+	AzureToAzureSettings    []GetReplicationRecoveryPlanAzureToAzureSetting `pulumi:"azureToAzureSettings"`
+	FailoverDeploymentModel string                                          `pulumi:"failoverDeploymentModel"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the Action.
@@ -118,6 +119,12 @@ func (o LookupReplicationRecoveryPlanResultOutput) ToLookupReplicationRecoveryPl
 
 func (o LookupReplicationRecoveryPlanResultOutput) ToLookupReplicationRecoveryPlanResultOutputWithContext(ctx context.Context) LookupReplicationRecoveryPlanResultOutput {
 	return o
+}
+
+func (o LookupReplicationRecoveryPlanResultOutput) AzureToAzureSettings() GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {
+	return o.ApplyT(func(v LookupReplicationRecoveryPlanResult) []GetReplicationRecoveryPlanAzureToAzureSetting {
+		return v.AzureToAzureSettings
+	}).(GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput)
 }
 
 func (o LookupReplicationRecoveryPlanResultOutput) FailoverDeploymentModel() pulumi.StringOutput {

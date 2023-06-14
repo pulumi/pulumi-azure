@@ -11,9 +11,15 @@ import (
 )
 
 type ProtectionContainerMappingAutomaticUpdate struct {
+	// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+	//
+	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+	//
+	// > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 	//
-	// > **Note:** `automationAccountId` is required when `enabled` is sepcified.
+	// > **Note:** `automationAccountId` is required when `enabled` is specified.
 	AutomationAccountId *string `pulumi:"automationAccountId"`
 	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 	//
@@ -33,9 +39,15 @@ type ProtectionContainerMappingAutomaticUpdateInput interface {
 }
 
 type ProtectionContainerMappingAutomaticUpdateArgs struct {
+	// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+	//
+	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+	//
+	// > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
+	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 	//
-	// > **Note:** `automationAccountId` is required when `enabled` is sepcified.
+	// > **Note:** `automationAccountId` is required when `enabled` is specified.
 	AutomationAccountId pulumi.StringPtrInput `pulumi:"automationAccountId"`
 	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 	//
@@ -120,9 +132,18 @@ func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMa
 	}).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
 }
 
+// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+//
+// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+//
+// > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
+func (o ProtectionContainerMappingAutomaticUpdateOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
 // The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 //
-// > **Note:** `automationAccountId` is required when `enabled` is sepcified.
+// > **Note:** `automationAccountId` is required when `enabled` is specified.
 func (o ProtectionContainerMappingAutomaticUpdateOutput) AutomationAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *string { return v.AutomationAccountId }).(pulumi.StringPtrOutput)
 }
@@ -158,9 +179,23 @@ func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Elem() ProtectionCon
 	}).(ProtectionContainerMappingAutomaticUpdateOutput)
 }
 
+// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+//
+// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+//
+// > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
+func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 //
-// > **Note:** `automationAccountId` is required when `enabled` is sepcified.
+// > **Note:** `automationAccountId` is required when `enabled` is specified.
 func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AutomationAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *string {
 		if v == nil {
@@ -1088,6 +1123,216 @@ func (o ReplicatedVMUnmanagedDiskArrayOutput) Index(i pulumi.IntInput) Replicate
 	}).(ReplicatedVMUnmanagedDiskOutput)
 }
 
+type ReplicationRecoveryPlanAzureToAzureSettings struct {
+	// The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	PrimaryEdgeZone *string `pulumi:"primaryEdgeZone"`
+	// The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	PrimaryZone *string `pulumi:"primaryZone"`
+	// The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	//
+	// > **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
+	RecoveryEdgeZone *string `pulumi:"recoveryEdgeZone"`
+	// The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	//
+	// > **Note:** `primaryZone` and `recoveryZone` must be specified together.
+	RecoveryZone *string `pulumi:"recoveryZone"`
+}
+
+// ReplicationRecoveryPlanAzureToAzureSettingsInput is an input type that accepts ReplicationRecoveryPlanAzureToAzureSettingsArgs and ReplicationRecoveryPlanAzureToAzureSettingsOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanAzureToAzureSettingsInput` via:
+//
+//	ReplicationRecoveryPlanAzureToAzureSettingsArgs{...}
+type ReplicationRecoveryPlanAzureToAzureSettingsInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanAzureToAzureSettingsOutput() ReplicationRecoveryPlanAzureToAzureSettingsOutput
+	ToReplicationRecoveryPlanAzureToAzureSettingsOutputWithContext(context.Context) ReplicationRecoveryPlanAzureToAzureSettingsOutput
+}
+
+type ReplicationRecoveryPlanAzureToAzureSettingsArgs struct {
+	// The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	PrimaryEdgeZone pulumi.StringPtrInput `pulumi:"primaryEdgeZone"`
+	// The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	PrimaryZone pulumi.StringPtrInput `pulumi:"primaryZone"`
+	// The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	//
+	// > **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
+	RecoveryEdgeZone pulumi.StringPtrInput `pulumi:"recoveryEdgeZone"`
+	// The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+	//
+	// > **Note:** `primaryZone` and `recoveryZone` must be specified together.
+	RecoveryZone pulumi.StringPtrInput `pulumi:"recoveryZone"`
+}
+
+func (ReplicationRecoveryPlanAzureToAzureSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanAzureToAzureSettings)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToReplicationRecoveryPlanAzureToAzureSettingsOutput() ReplicationRecoveryPlanAzureToAzureSettingsOutput {
+	return i.ToReplicationRecoveryPlanAzureToAzureSettingsOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToReplicationRecoveryPlanAzureToAzureSettingsOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanAzureToAzureSettingsOutput)
+}
+
+func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutput() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return i.ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanAzureToAzureSettingsOutput).ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx)
+}
+
+// ReplicationRecoveryPlanAzureToAzureSettingsPtrInput is an input type that accepts ReplicationRecoveryPlanAzureToAzureSettingsArgs, ReplicationRecoveryPlanAzureToAzureSettingsPtr and ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanAzureToAzureSettingsPtrInput` via:
+//
+//	        ReplicationRecoveryPlanAzureToAzureSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationRecoveryPlanAzureToAzureSettingsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutput() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput
+	ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(context.Context) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput
+}
+
+type replicationRecoveryPlanAzureToAzureSettingsPtrType ReplicationRecoveryPlanAzureToAzureSettingsArgs
+
+func ReplicationRecoveryPlanAzureToAzureSettingsPtr(v *ReplicationRecoveryPlanAzureToAzureSettingsArgs) ReplicationRecoveryPlanAzureToAzureSettingsPtrInput {
+	return (*replicationRecoveryPlanAzureToAzureSettingsPtrType)(v)
+}
+
+func (*replicationRecoveryPlanAzureToAzureSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationRecoveryPlanAzureToAzureSettings)(nil)).Elem()
+}
+
+func (i *replicationRecoveryPlanAzureToAzureSettingsPtrType) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutput() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return i.ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationRecoveryPlanAzureToAzureSettingsPtrType) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput)
+}
+
+type ReplicationRecoveryPlanAzureToAzureSettingsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanAzureToAzureSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanAzureToAzureSettings)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) ToReplicationRecoveryPlanAzureToAzureSettingsOutput() ReplicationRecoveryPlanAzureToAzureSettingsOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) ToReplicationRecoveryPlanAzureToAzureSettingsOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutput() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return o.ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationRecoveryPlanAzureToAzureSettings) *ReplicationRecoveryPlanAzureToAzureSettings {
+		return &v
+	}).(ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput)
+}
+
+// The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) PrimaryEdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanAzureToAzureSettings) *string { return v.PrimaryEdgeZone }).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) PrimaryZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanAzureToAzureSettings) *string { return v.PrimaryZone }).(pulumi.StringPtrOutput)
+}
+
+// The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+//
+// > **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) RecoveryEdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanAzureToAzureSettings) *string { return v.RecoveryEdgeZone }).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+//
+// > **Note:** `primaryZone` and `recoveryZone` must be specified together.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) RecoveryZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanAzureToAzureSettings) *string { return v.RecoveryZone }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationRecoveryPlanAzureToAzureSettings)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutput() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) Elem() ReplicationRecoveryPlanAzureToAzureSettingsOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlanAzureToAzureSettings) ReplicationRecoveryPlanAzureToAzureSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationRecoveryPlanAzureToAzureSettings
+		return ret
+	}).(ReplicationRecoveryPlanAzureToAzureSettingsOutput)
+}
+
+// The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) PrimaryEdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlanAzureToAzureSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryEdgeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) PrimaryZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlanAzureToAzureSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+//
+// > **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) RecoveryEdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlanAzureToAzureSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryEdgeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+//
+// > **Note:** `primaryZone` and `recoveryZone` must be specified together.
+func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) RecoveryZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlanAzureToAzureSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryZone
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReplicationRecoveryPlanRecoveryGroup struct {
 	// one or more `action` block as defined below. which will be executed after the group recovery.
 	PostActions []ReplicationRecoveryPlanRecoveryGroupPostAction `pulumi:"postActions"`
@@ -1582,6 +1827,118 @@ func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanRecoveryGroupPreAction {
 		return vs[0].([]ReplicationRecoveryPlanRecoveryGroupPreAction)[vs[1].(int)]
 	}).(ReplicationRecoveryPlanRecoveryGroupPreActionOutput)
+}
+
+type GetReplicationRecoveryPlanAzureToAzureSetting struct {
+	PrimaryEdgeZone  string `pulumi:"primaryEdgeZone"`
+	PrimaryZone      string `pulumi:"primaryZone"`
+	RecoveryEdgeZone string `pulumi:"recoveryEdgeZone"`
+	RecoveryZone     string `pulumi:"recoveryZone"`
+}
+
+// GetReplicationRecoveryPlanAzureToAzureSettingInput is an input type that accepts GetReplicationRecoveryPlanAzureToAzureSettingArgs and GetReplicationRecoveryPlanAzureToAzureSettingOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanAzureToAzureSettingInput` via:
+//
+//	GetReplicationRecoveryPlanAzureToAzureSettingArgs{...}
+type GetReplicationRecoveryPlanAzureToAzureSettingInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanAzureToAzureSettingOutput() GetReplicationRecoveryPlanAzureToAzureSettingOutput
+	ToGetReplicationRecoveryPlanAzureToAzureSettingOutputWithContext(context.Context) GetReplicationRecoveryPlanAzureToAzureSettingOutput
+}
+
+type GetReplicationRecoveryPlanAzureToAzureSettingArgs struct {
+	PrimaryEdgeZone  pulumi.StringInput `pulumi:"primaryEdgeZone"`
+	PrimaryZone      pulumi.StringInput `pulumi:"primaryZone"`
+	RecoveryEdgeZone pulumi.StringInput `pulumi:"recoveryEdgeZone"`
+	RecoveryZone     pulumi.StringInput `pulumi:"recoveryZone"`
+}
+
+func (GetReplicationRecoveryPlanAzureToAzureSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanAzureToAzureSetting)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanAzureToAzureSettingArgs) ToGetReplicationRecoveryPlanAzureToAzureSettingOutput() GetReplicationRecoveryPlanAzureToAzureSettingOutput {
+	return i.ToGetReplicationRecoveryPlanAzureToAzureSettingOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanAzureToAzureSettingArgs) ToGetReplicationRecoveryPlanAzureToAzureSettingOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanAzureToAzureSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanAzureToAzureSettingOutput)
+}
+
+// GetReplicationRecoveryPlanAzureToAzureSettingArrayInput is an input type that accepts GetReplicationRecoveryPlanAzureToAzureSettingArray and GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanAzureToAzureSettingArrayInput` via:
+//
+//	GetReplicationRecoveryPlanAzureToAzureSettingArray{ GetReplicationRecoveryPlanAzureToAzureSettingArgs{...} }
+type GetReplicationRecoveryPlanAzureToAzureSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutput() GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput
+	ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutputWithContext(context.Context) GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput
+}
+
+type GetReplicationRecoveryPlanAzureToAzureSettingArray []GetReplicationRecoveryPlanAzureToAzureSettingInput
+
+func (GetReplicationRecoveryPlanAzureToAzureSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanAzureToAzureSetting)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanAzureToAzureSettingArray) ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutput() GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {
+	return i.ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanAzureToAzureSettingArray) ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput)
+}
+
+type GetReplicationRecoveryPlanAzureToAzureSettingOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanAzureToAzureSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanAzureToAzureSetting)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) ToGetReplicationRecoveryPlanAzureToAzureSettingOutput() GetReplicationRecoveryPlanAzureToAzureSettingOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) ToGetReplicationRecoveryPlanAzureToAzureSettingOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanAzureToAzureSettingOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) PrimaryEdgeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanAzureToAzureSetting) string { return v.PrimaryEdgeZone }).(pulumi.StringOutput)
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) PrimaryZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanAzureToAzureSetting) string { return v.PrimaryZone }).(pulumi.StringOutput)
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) RecoveryEdgeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanAzureToAzureSetting) string { return v.RecoveryEdgeZone }).(pulumi.StringOutput)
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) RecoveryZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanAzureToAzureSetting) string { return v.RecoveryZone }).(pulumi.StringOutput)
+}
+
+type GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanAzureToAzureSetting)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutput() GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanAzureToAzureSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationRecoveryPlanAzureToAzureSetting {
+		return vs[0].([]GetReplicationRecoveryPlanAzureToAzureSetting)[vs[1].(int)]
+	}).(GetReplicationRecoveryPlanAzureToAzureSettingOutput)
 }
 
 type GetReplicationRecoveryPlanRecoveryGroup struct {
@@ -2137,12 +2494,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMUnmanagedDiskInput)(nil)).Elem(), ReplicatedVMUnmanagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMUnmanagedDiskArrayInput)(nil)).Elem(), ReplicatedVMUnmanagedDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanAzureToAzureSettingsInput)(nil)).Elem(), ReplicationRecoveryPlanAzureToAzureSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanAzureToAzureSettingsPtrInput)(nil)).Elem(), ReplicationRecoveryPlanAzureToAzureSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostActionInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPostActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPostActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPreActionInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPreActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPreActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanAzureToAzureSettingInput)(nil)).Elem(), GetReplicationRecoveryPlanAzureToAzureSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanAzureToAzureSettingArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanAzureToAzureSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostActionInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPostActionArgs{})
@@ -2165,12 +2526,16 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMUnmanagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMUnmanagedDiskArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanAzureToAzureSettingsOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPostActionOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPreActionOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanAzureToAzureSettingOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupOutput{})
 	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPostActionOutput{})

@@ -12,48 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Subnet Service Endpoint Storage Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "GRS",
-    ///     });
-    /// 
-    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Definition = new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
-    ///         {
-    ///             Name = "name1",
-    ///             Description = "definition1",
-    ///             ServiceResources = new[]
-    ///             {
-    ///                 exampleResourceGroup.Id,
-    ///                 exampleAccount.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Subnet Service Endpoint Policies can be imported using the `resource id`, e.g.

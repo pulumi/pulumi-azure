@@ -5593,9 +5593,9 @@ class ScaleSetIdentity(dict):
                    resource_group_name=azurerm_resource_group["example"]["name"],
                    location=azurerm_resource_group["example"]["location"],
                    sku=azure.compute.ScaleSetSkuArgs(
-                       name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                       name=var["vm_sku"],
                        tier="Standard",
-                       capacity=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                       capacity=var["instance_count"],
                    ),
                    identity=azure.compute.ScaleSetIdentityArgs(
                        type="SystemAssigned",
@@ -5639,9 +5639,9 @@ class ScaleSetIdentity(dict):
             resource_group_name=azurerm_resource_group["example"]["name"],
             location=azurerm_resource_group["example"]["location"],
             sku=azure.compute.ScaleSetSkuArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=var["vm_sku"],
                 tier="Standard",
-                capacity=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                capacity=var["instance_count"],
             ),
             identity=azure.compute.ScaleSetIdentityArgs(
                 type="SystemAssigned",
@@ -12083,6 +12083,7 @@ class GetSharedImageVersionTargetRegionResult(dict):
 class GetSharedImageVersionsImageResult(dict):
     def __init__(__self__, *,
                  exclude_from_latest: bool,
+                 id: str,
                  location: str,
                  managed_image_id: str,
                  name: str,
@@ -12090,6 +12091,7 @@ class GetSharedImageVersionsImageResult(dict):
                  target_regions: Sequence['outputs.GetSharedImageVersionsImageTargetRegionResult']):
         """
         :param bool exclude_from_latest: Is this Image Version excluded from the `latest` filter?
+        :param str id: The ID of this Shared Image Version.
         :param str location: The supported Azure location where the Shared Image Gallery exists.
         :param str managed_image_id: The ID of the Managed Image which was the source of this Shared Image Version.
         :param str name: The Azure Region in which this Image Version exists.
@@ -12097,6 +12099,7 @@ class GetSharedImageVersionsImageResult(dict):
         :param Sequence['GetSharedImageVersionsImageTargetRegionArgs'] target_regions: One or more `target_region` blocks as documented below.
         """
         pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "managed_image_id", managed_image_id)
         pulumi.set(__self__, "name", name)
@@ -12110,6 +12113,14 @@ class GetSharedImageVersionsImageResult(dict):
         Is this Image Version excluded from the `latest` filter?
         """
         return pulumi.get(self, "exclude_from_latest")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of this Shared Image Version.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -12365,6 +12376,7 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
                  instance_id: str,
                  latest_model_applied: bool,
                  name: str,
+                 power_state: str,
                  private_ip_address: str,
                  private_ip_addresses: Sequence[str],
                  public_ip_address: str,
@@ -12376,6 +12388,7 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
         :param str instance_id: The Instance ID of this Virtual Machine.
         :param bool latest_model_applied: Whether the latest model has been applied to this Virtual Machine.
         :param str name: The name of this Virtual Machine Scale Set.
+        :param str power_state: The power state of the virtual machine.
         :param str private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
         :param Sequence[str] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
         :param str public_ip_address: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
@@ -12387,6 +12400,7 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "latest_model_applied", latest_model_applied)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "power_state", power_state)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         pulumi.set(__self__, "public_ip_address", public_ip_address)
@@ -12425,6 +12439,14 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
         The name of this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        The power state of the virtual machine.
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="privateIpAddress")

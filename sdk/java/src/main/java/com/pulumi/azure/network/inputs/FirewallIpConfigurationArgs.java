@@ -45,11 +45,11 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.privateIpAddress);
     }
 
-    @Import(name="publicIpAddressId", required=true)
-    private Output<String> publicIpAddressId;
+    @Import(name="publicIpAddressId")
+    private @Nullable Output<String> publicIpAddressId;
 
-    public Output<String> publicIpAddressId() {
-        return this.publicIpAddressId;
+    public Optional<Output<String>> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
     }
 
     /**
@@ -144,7 +144,7 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
-        public Builder publicIpAddressId(Output<String> publicIpAddressId) {
+        public Builder publicIpAddressId(@Nullable Output<String> publicIpAddressId) {
             $.publicIpAddressId = publicIpAddressId;
             return this;
         }
@@ -184,7 +184,6 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
 
         public FirewallIpConfigurationArgs build() {
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.publicIpAddressId = Objects.requireNonNull($.publicIpAddressId, "expected parameter 'publicIpAddressId' to be non-null");
             return $;
         }
     }

@@ -292,6 +292,12 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolStorageImageReference> StorageImageReference { get; private set; } = null!;
 
         /// <summary>
+        /// The desired node communication mode for the pool.
+        /// </summary>
+        [Output("targetNodeCommunicationMode")]
+        public Output<string?> TargetNodeCommunicationMode { get; private set; } = null!;
+
+        /// <summary>
         /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         /// </summary>
         [Output("taskSchedulingPolicies")]
@@ -551,6 +557,12 @@ namespace Pulumi.Azure.Batch
         [Input("storageImageReference", required: true)]
         public Input<Inputs.PoolStorageImageReferenceArgs> StorageImageReference { get; set; } = null!;
 
+        /// <summary>
+        /// The desired node communication mode for the pool.
+        /// </summary>
+        [Input("targetNodeCommunicationMode")]
+        public Input<string>? TargetNodeCommunicationMode { get; set; }
+
         [Input("taskSchedulingPolicies")]
         private InputList<Inputs.PoolTaskSchedulingPolicyArgs>? _taskSchedulingPolicies;
 
@@ -790,6 +802,12 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.PoolStorageImageReferenceGetArgs>? StorageImageReference { get; set; }
+
+        /// <summary>
+        /// The desired node communication mode for the pool.
+        /// </summary>
+        [Input("targetNodeCommunicationMode")]
+        public Input<string>? TargetNodeCommunicationMode { get; set; }
 
         [Input("taskSchedulingPolicies")]
         private InputList<Inputs.PoolTaskSchedulingPolicyGetArgs>? _taskSchedulingPolicies;

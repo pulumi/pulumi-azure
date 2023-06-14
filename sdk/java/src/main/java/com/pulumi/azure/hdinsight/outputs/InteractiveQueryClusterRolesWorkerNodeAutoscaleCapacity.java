@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-    /**
-     * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     private Integer maxInstanceCount;
-    /**
-     * @return The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     private Integer minInstanceCount;
 
     private InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity() {}
-    /**
-     * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     public Integer maxInstanceCount() {
         return this.maxInstanceCount;
     }
-    /**
-     * @return The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
-     * 
-     */
     public Integer minInstanceCount() {
         return this.minInstanceCount;
     }

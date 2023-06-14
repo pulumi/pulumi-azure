@@ -120,7 +120,7 @@ class FlexibleServerCustomerManagedKey(dict):
         :param str key_vault_key_id: The ID of the Key Vault Key.
         :param str primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -141,7 +141,7 @@ class FlexibleServerCustomerManagedKey(dict):
         """
         Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -196,10 +196,6 @@ class FlexibleServerIdentity(dict):
         suggest = None
         if key == "identityIds":
             suggest = "identity_ids"
-        elif key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlexibleServerIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -213,63 +209,30 @@ class FlexibleServerIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: str,
-                 identity_ids: Optional[Sequence[str]] = None,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 identity_ids: Sequence[str],
+                 type: str):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-               
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        :param str tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
-               
-               > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-               
-               > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-        if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[Sequence[str]]:
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        return pulumi.get(self, "identity_ids")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
-
-        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-
-        > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
-        """
-        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

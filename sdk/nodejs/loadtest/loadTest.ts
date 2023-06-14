@@ -22,6 +22,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group.example.name,
  * });
  * ```
+ * ## Blocks Reference
+ *
+ * ### `identity` Block
+ *
+ * The `identity` block supports the following arguments:
+ *
+ * * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Load Test. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+ * * `identityIds` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+ *
+ * In addition to the arguments defined above, the `identity` block exports the following attributes:
+ *
+ * * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+ * * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
  *
  * ## Import
  *
@@ -70,7 +83,7 @@ export class LoadTest extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
     public readonly identity!: pulumi.Output<outputs.loadtest.LoadTestIdentity | undefined>;
     /**
@@ -141,7 +154,7 @@ export interface LoadTestState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
     identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity>;
     /**
@@ -171,7 +184,7 @@ export interface LoadTestArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
     identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity>;
     /**

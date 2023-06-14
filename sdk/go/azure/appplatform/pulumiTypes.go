@@ -2250,6 +2250,8 @@ type SpringCloudCustomizedAcceleratorGitRepository struct {
 	BasicAuth *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth `pulumi:"basicAuth"`
 	// Specifies the Git repository branch to be used.
 	Branch *string `pulumi:"branch"`
+	// Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+	CaCertificateId *string `pulumi:"caCertificateId"`
 	// Specifies the Git repository commit to be used.
 	Commit *string `pulumi:"commit"`
 	// Specifies the Git repository tag to be used.
@@ -2278,6 +2280,8 @@ type SpringCloudCustomizedAcceleratorGitRepositoryArgs struct {
 	BasicAuth SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput `pulumi:"basicAuth"`
 	// Specifies the Git repository branch to be used.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+	CaCertificateId pulumi.StringPtrInput `pulumi:"caCertificateId"`
 	// Specifies the Git repository commit to be used.
 	Commit pulumi.StringPtrInput `pulumi:"commit"`
 	// Specifies the Git repository tag to be used.
@@ -2379,6 +2383,11 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Branch() pulumi.Str
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) CaCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.CaCertificateId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the Git repository commit to be used.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Commit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.Commit }).(pulumi.StringPtrOutput)
@@ -2447,6 +2456,16 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Branch() pulumi.
 			return nil
 		}
 		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) CaCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificateId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3236,6 +3255,162 @@ func (o SpringCloudGatewayApiMetadataPtrOutput) Version() pulumi.StringPtrOutput
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayClientAuthorization struct {
+	// Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+	CertificateIds []string `pulumi:"certificateIds"`
+	// Specifies whether the client certificate verification is enabled.
+	VerificationEnabled *bool `pulumi:"verificationEnabled"`
+}
+
+// SpringCloudGatewayClientAuthorizationInput is an input type that accepts SpringCloudGatewayClientAuthorizationArgs and SpringCloudGatewayClientAuthorizationOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayClientAuthorizationInput` via:
+//
+//	SpringCloudGatewayClientAuthorizationArgs{...}
+type SpringCloudGatewayClientAuthorizationInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayClientAuthorizationOutput() SpringCloudGatewayClientAuthorizationOutput
+	ToSpringCloudGatewayClientAuthorizationOutputWithContext(context.Context) SpringCloudGatewayClientAuthorizationOutput
+}
+
+type SpringCloudGatewayClientAuthorizationArgs struct {
+	// Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+	CertificateIds pulumi.StringArrayInput `pulumi:"certificateIds"`
+	// Specifies whether the client certificate verification is enabled.
+	VerificationEnabled pulumi.BoolPtrInput `pulumi:"verificationEnabled"`
+}
+
+func (SpringCloudGatewayClientAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayClientAuthorization)(nil)).Elem()
+}
+
+func (i SpringCloudGatewayClientAuthorizationArgs) ToSpringCloudGatewayClientAuthorizationOutput() SpringCloudGatewayClientAuthorizationOutput {
+	return i.ToSpringCloudGatewayClientAuthorizationOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayClientAuthorizationArgs) ToSpringCloudGatewayClientAuthorizationOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayClientAuthorizationOutput)
+}
+
+func (i SpringCloudGatewayClientAuthorizationArgs) ToSpringCloudGatewayClientAuthorizationPtrOutput() SpringCloudGatewayClientAuthorizationPtrOutput {
+	return i.ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayClientAuthorizationArgs) ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayClientAuthorizationOutput).ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx)
+}
+
+// SpringCloudGatewayClientAuthorizationPtrInput is an input type that accepts SpringCloudGatewayClientAuthorizationArgs, SpringCloudGatewayClientAuthorizationPtr and SpringCloudGatewayClientAuthorizationPtrOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayClientAuthorizationPtrInput` via:
+//
+//	        SpringCloudGatewayClientAuthorizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudGatewayClientAuthorizationPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayClientAuthorizationPtrOutput() SpringCloudGatewayClientAuthorizationPtrOutput
+	ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(context.Context) SpringCloudGatewayClientAuthorizationPtrOutput
+}
+
+type springCloudGatewayClientAuthorizationPtrType SpringCloudGatewayClientAuthorizationArgs
+
+func SpringCloudGatewayClientAuthorizationPtr(v *SpringCloudGatewayClientAuthorizationArgs) SpringCloudGatewayClientAuthorizationPtrInput {
+	return (*springCloudGatewayClientAuthorizationPtrType)(v)
+}
+
+func (*springCloudGatewayClientAuthorizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayClientAuthorization)(nil)).Elem()
+}
+
+func (i *springCloudGatewayClientAuthorizationPtrType) ToSpringCloudGatewayClientAuthorizationPtrOutput() SpringCloudGatewayClientAuthorizationPtrOutput {
+	return i.ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudGatewayClientAuthorizationPtrType) ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayClientAuthorizationPtrOutput)
+}
+
+type SpringCloudGatewayClientAuthorizationOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayClientAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayClientAuthorization)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayClientAuthorizationOutput) ToSpringCloudGatewayClientAuthorizationOutput() SpringCloudGatewayClientAuthorizationOutput {
+	return o
+}
+
+func (o SpringCloudGatewayClientAuthorizationOutput) ToSpringCloudGatewayClientAuthorizationOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationOutput {
+	return o
+}
+
+func (o SpringCloudGatewayClientAuthorizationOutput) ToSpringCloudGatewayClientAuthorizationPtrOutput() SpringCloudGatewayClientAuthorizationPtrOutput {
+	return o.ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudGatewayClientAuthorizationOutput) ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayClientAuthorization) *SpringCloudGatewayClientAuthorization {
+		return &v
+	}).(SpringCloudGatewayClientAuthorizationPtrOutput)
+}
+
+// Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+func (o SpringCloudGatewayClientAuthorizationOutput) CertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudGatewayClientAuthorization) []string { return v.CertificateIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether the client certificate verification is enabled.
+func (o SpringCloudGatewayClientAuthorizationOutput) VerificationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayClientAuthorization) *bool { return v.VerificationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type SpringCloudGatewayClientAuthorizationPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayClientAuthorizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayClientAuthorization)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayClientAuthorizationPtrOutput) ToSpringCloudGatewayClientAuthorizationPtrOutput() SpringCloudGatewayClientAuthorizationPtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayClientAuthorizationPtrOutput) ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationPtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayClientAuthorizationPtrOutput) Elem() SpringCloudGatewayClientAuthorizationOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayClientAuthorization) SpringCloudGatewayClientAuthorization {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudGatewayClientAuthorization
+		return ret
+	}).(SpringCloudGatewayClientAuthorizationOutput)
+}
+
+// Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+func (o SpringCloudGatewayClientAuthorizationPtrOutput) CertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayClientAuthorization) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether the client certificate verification is enabled.
+func (o SpringCloudGatewayClientAuthorizationPtrOutput) VerificationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayClientAuthorization) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerificationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type SpringCloudGatewayCors struct {
@@ -5409,6 +5584,267 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) StrictHostKeyC
 	}).(pulumi.BoolPtrOutput)
 }
 
+type SpringCloudServiceContainerRegistry struct {
+	// Specifies the name of the container registry.
+	Name string `pulumi:"name"`
+	// Specifies the password of the container registry.
+	Password string `pulumi:"password"`
+	// Specifies the login server of the container registry.
+	Server string `pulumi:"server"`
+	// Specifies the username of the container registry.
+	Username string `pulumi:"username"`
+}
+
+// SpringCloudServiceContainerRegistryInput is an input type that accepts SpringCloudServiceContainerRegistryArgs and SpringCloudServiceContainerRegistryOutput values.
+// You can construct a concrete instance of `SpringCloudServiceContainerRegistryInput` via:
+//
+//	SpringCloudServiceContainerRegistryArgs{...}
+type SpringCloudServiceContainerRegistryInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceContainerRegistryOutput() SpringCloudServiceContainerRegistryOutput
+	ToSpringCloudServiceContainerRegistryOutputWithContext(context.Context) SpringCloudServiceContainerRegistryOutput
+}
+
+type SpringCloudServiceContainerRegistryArgs struct {
+	// Specifies the name of the container registry.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the password of the container registry.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Specifies the login server of the container registry.
+	Server pulumi.StringInput `pulumi:"server"`
+	// Specifies the username of the container registry.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (SpringCloudServiceContainerRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceContainerRegistry)(nil)).Elem()
+}
+
+func (i SpringCloudServiceContainerRegistryArgs) ToSpringCloudServiceContainerRegistryOutput() SpringCloudServiceContainerRegistryOutput {
+	return i.ToSpringCloudServiceContainerRegistryOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceContainerRegistryArgs) ToSpringCloudServiceContainerRegistryOutputWithContext(ctx context.Context) SpringCloudServiceContainerRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceContainerRegistryOutput)
+}
+
+// SpringCloudServiceContainerRegistryArrayInput is an input type that accepts SpringCloudServiceContainerRegistryArray and SpringCloudServiceContainerRegistryArrayOutput values.
+// You can construct a concrete instance of `SpringCloudServiceContainerRegistryArrayInput` via:
+//
+//	SpringCloudServiceContainerRegistryArray{ SpringCloudServiceContainerRegistryArgs{...} }
+type SpringCloudServiceContainerRegistryArrayInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceContainerRegistryArrayOutput() SpringCloudServiceContainerRegistryArrayOutput
+	ToSpringCloudServiceContainerRegistryArrayOutputWithContext(context.Context) SpringCloudServiceContainerRegistryArrayOutput
+}
+
+type SpringCloudServiceContainerRegistryArray []SpringCloudServiceContainerRegistryInput
+
+func (SpringCloudServiceContainerRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudServiceContainerRegistry)(nil)).Elem()
+}
+
+func (i SpringCloudServiceContainerRegistryArray) ToSpringCloudServiceContainerRegistryArrayOutput() SpringCloudServiceContainerRegistryArrayOutput {
+	return i.ToSpringCloudServiceContainerRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceContainerRegistryArray) ToSpringCloudServiceContainerRegistryArrayOutputWithContext(ctx context.Context) SpringCloudServiceContainerRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceContainerRegistryArrayOutput)
+}
+
+type SpringCloudServiceContainerRegistryOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceContainerRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceContainerRegistry)(nil)).Elem()
+}
+
+func (o SpringCloudServiceContainerRegistryOutput) ToSpringCloudServiceContainerRegistryOutput() SpringCloudServiceContainerRegistryOutput {
+	return o
+}
+
+func (o SpringCloudServiceContainerRegistryOutput) ToSpringCloudServiceContainerRegistryOutputWithContext(ctx context.Context) SpringCloudServiceContainerRegistryOutput {
+	return o
+}
+
+// Specifies the name of the container registry.
+func (o SpringCloudServiceContainerRegistryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceContainerRegistry) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the password of the container registry.
+func (o SpringCloudServiceContainerRegistryOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Specifies the login server of the container registry.
+func (o SpringCloudServiceContainerRegistryOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceContainerRegistry) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// Specifies the username of the container registry.
+func (o SpringCloudServiceContainerRegistryOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceContainerRegistry) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type SpringCloudServiceContainerRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceContainerRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudServiceContainerRegistry)(nil)).Elem()
+}
+
+func (o SpringCloudServiceContainerRegistryArrayOutput) ToSpringCloudServiceContainerRegistryArrayOutput() SpringCloudServiceContainerRegistryArrayOutput {
+	return o
+}
+
+func (o SpringCloudServiceContainerRegistryArrayOutput) ToSpringCloudServiceContainerRegistryArrayOutputWithContext(ctx context.Context) SpringCloudServiceContainerRegistryArrayOutput {
+	return o
+}
+
+func (o SpringCloudServiceContainerRegistryArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceContainerRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudServiceContainerRegistry {
+		return vs[0].([]SpringCloudServiceContainerRegistry)[vs[1].(int)]
+	}).(SpringCloudServiceContainerRegistryOutput)
+}
+
+type SpringCloudServiceDefaultBuildService struct {
+	// Specifies the name of the container registry used in the default build service.
+	ContainerRegistryName *string `pulumi:"containerRegistryName"`
+}
+
+// SpringCloudServiceDefaultBuildServiceInput is an input type that accepts SpringCloudServiceDefaultBuildServiceArgs and SpringCloudServiceDefaultBuildServiceOutput values.
+// You can construct a concrete instance of `SpringCloudServiceDefaultBuildServiceInput` via:
+//
+//	SpringCloudServiceDefaultBuildServiceArgs{...}
+type SpringCloudServiceDefaultBuildServiceInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceDefaultBuildServiceOutput() SpringCloudServiceDefaultBuildServiceOutput
+	ToSpringCloudServiceDefaultBuildServiceOutputWithContext(context.Context) SpringCloudServiceDefaultBuildServiceOutput
+}
+
+type SpringCloudServiceDefaultBuildServiceArgs struct {
+	// Specifies the name of the container registry used in the default build service.
+	ContainerRegistryName pulumi.StringPtrInput `pulumi:"containerRegistryName"`
+}
+
+func (SpringCloudServiceDefaultBuildServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceDefaultBuildService)(nil)).Elem()
+}
+
+func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBuildServiceOutput() SpringCloudServiceDefaultBuildServiceOutput {
+	return i.ToSpringCloudServiceDefaultBuildServiceOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBuildServiceOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceDefaultBuildServiceOutput)
+}
+
+func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBuildServicePtrOutput() SpringCloudServiceDefaultBuildServicePtrOutput {
+	return i.ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceDefaultBuildServiceOutput).ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx)
+}
+
+// SpringCloudServiceDefaultBuildServicePtrInput is an input type that accepts SpringCloudServiceDefaultBuildServiceArgs, SpringCloudServiceDefaultBuildServicePtr and SpringCloudServiceDefaultBuildServicePtrOutput values.
+// You can construct a concrete instance of `SpringCloudServiceDefaultBuildServicePtrInput` via:
+//
+//	        SpringCloudServiceDefaultBuildServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudServiceDefaultBuildServicePtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceDefaultBuildServicePtrOutput() SpringCloudServiceDefaultBuildServicePtrOutput
+	ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(context.Context) SpringCloudServiceDefaultBuildServicePtrOutput
+}
+
+type springCloudServiceDefaultBuildServicePtrType SpringCloudServiceDefaultBuildServiceArgs
+
+func SpringCloudServiceDefaultBuildServicePtr(v *SpringCloudServiceDefaultBuildServiceArgs) SpringCloudServiceDefaultBuildServicePtrInput {
+	return (*springCloudServiceDefaultBuildServicePtrType)(v)
+}
+
+func (*springCloudServiceDefaultBuildServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceDefaultBuildService)(nil)).Elem()
+}
+
+func (i *springCloudServiceDefaultBuildServicePtrType) ToSpringCloudServiceDefaultBuildServicePtrOutput() SpringCloudServiceDefaultBuildServicePtrOutput {
+	return i.ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudServiceDefaultBuildServicePtrType) ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceDefaultBuildServicePtrOutput)
+}
+
+type SpringCloudServiceDefaultBuildServiceOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceDefaultBuildServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceDefaultBuildService)(nil)).Elem()
+}
+
+func (o SpringCloudServiceDefaultBuildServiceOutput) ToSpringCloudServiceDefaultBuildServiceOutput() SpringCloudServiceDefaultBuildServiceOutput {
+	return o
+}
+
+func (o SpringCloudServiceDefaultBuildServiceOutput) ToSpringCloudServiceDefaultBuildServiceOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServiceOutput {
+	return o
+}
+
+func (o SpringCloudServiceDefaultBuildServiceOutput) ToSpringCloudServiceDefaultBuildServicePtrOutput() SpringCloudServiceDefaultBuildServicePtrOutput {
+	return o.ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudServiceDefaultBuildServiceOutput) ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceDefaultBuildService) *SpringCloudServiceDefaultBuildService {
+		return &v
+	}).(SpringCloudServiceDefaultBuildServicePtrOutput)
+}
+
+// Specifies the name of the container registry used in the default build service.
+func (o SpringCloudServiceDefaultBuildServiceOutput) ContainerRegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceDefaultBuildService) *string { return v.ContainerRegistryName }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudServiceDefaultBuildServicePtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceDefaultBuildServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceDefaultBuildService)(nil)).Elem()
+}
+
+func (o SpringCloudServiceDefaultBuildServicePtrOutput) ToSpringCloudServiceDefaultBuildServicePtrOutput() SpringCloudServiceDefaultBuildServicePtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceDefaultBuildServicePtrOutput) ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServicePtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceDefaultBuildServicePtrOutput) Elem() SpringCloudServiceDefaultBuildServiceOutput {
+	return o.ApplyT(func(v *SpringCloudServiceDefaultBuildService) SpringCloudServiceDefaultBuildService {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceDefaultBuildService
+		return ret
+	}).(SpringCloudServiceDefaultBuildServiceOutput)
+}
+
+// Specifies the name of the container registry used in the default build service.
+func (o SpringCloudServiceDefaultBuildServicePtrOutput) ContainerRegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceDefaultBuildService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerRegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudServiceNetwork struct {
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
@@ -7092,6 +7528,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudDevToolPortalSsoPtrInput)(nil)).Elem(), SpringCloudDevToolPortalSsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayApiMetadataInput)(nil)).Elem(), SpringCloudGatewayApiMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayApiMetadataPtrInput)(nil)).Elem(), SpringCloudGatewayApiMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayClientAuthorizationInput)(nil)).Elem(), SpringCloudGatewayClientAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayClientAuthorizationPtrInput)(nil)).Elem(), SpringCloudGatewayClientAuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsPtrInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
@@ -7116,6 +7554,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrInput)(nil)).Elem(), SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceConfigServerGitSettingSshAuthInput)(nil)).Elem(), SpringCloudServiceConfigServerGitSettingSshAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceConfigServerGitSettingSshAuthPtrInput)(nil)).Elem(), SpringCloudServiceConfigServerGitSettingSshAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceContainerRegistryInput)(nil)).Elem(), SpringCloudServiceContainerRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceContainerRegistryArrayInput)(nil)).Elem(), SpringCloudServiceContainerRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceDefaultBuildServiceInput)(nil)).Elem(), SpringCloudServiceDefaultBuildServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceDefaultBuildServicePtrInput)(nil)).Elem(), SpringCloudServiceDefaultBuildServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceNetworkInput)(nil)).Elem(), SpringCloudServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceNetworkPtrInput)(nil)).Elem(), SpringCloudServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceRequiredNetworkTrafficRuleInput)(nil)).Elem(), SpringCloudServiceRequiredNetworkTrafficRuleArgs{})
@@ -7176,6 +7618,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudDevToolPortalSsoPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayApiMetadataOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayApiMetadataPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayClientAuthorizationOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayClientAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaOutput{})
@@ -7200,6 +7644,10 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceContainerRegistryOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceContainerRegistryArrayOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceDefaultBuildServiceOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceDefaultBuildServicePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceRequiredNetworkTrafficRuleOutput{})

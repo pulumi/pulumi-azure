@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIPGroup = new IPGroup(&#34;exampleIPGroup&#34;, IPGroupArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleIPGroupCIDR = new IPGroupCIDR(&#34;exampleIPGroupCIDR&#34;, IPGroupCIDRArgs.builder()        

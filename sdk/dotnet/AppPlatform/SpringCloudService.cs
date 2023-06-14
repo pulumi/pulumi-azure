@@ -87,6 +87,18 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudServiceConfigServerGitSetting?> ConfigServerGitSetting { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// </summary>
+        [Output("containerRegistries")]
+        public Output<ImmutableArray<Outputs.SpringCloudServiceContainerRegistry>> ContainerRegistries { get; private set; } = null!;
+
+        /// <summary>
+        /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// </summary>
+        [Output("defaultBuildService")]
+        public Output<Outputs.SpringCloudServiceDefaultBuildService?> DefaultBuildService { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -222,6 +234,24 @@ namespace Pulumi.Azure.AppPlatform
         [Input("configServerGitSetting")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingArgs>? ConfigServerGitSetting { get; set; }
 
+        [Input("containerRegistries")]
+        private InputList<Inputs.SpringCloudServiceContainerRegistryArgs>? _containerRegistries;
+
+        /// <summary>
+        /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// </summary>
+        public InputList<Inputs.SpringCloudServiceContainerRegistryArgs> ContainerRegistries
+        {
+            get => _containerRegistries ?? (_containerRegistries = new InputList<Inputs.SpringCloudServiceContainerRegistryArgs>());
+            set => _containerRegistries = value;
+        }
+
+        /// <summary>
+        /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// </summary>
+        [Input("defaultBuildService")]
+        public Input<Inputs.SpringCloudServiceDefaultBuildServiceArgs>? DefaultBuildService { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -307,6 +337,24 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("configServerGitSetting")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingGetArgs>? ConfigServerGitSetting { get; set; }
+
+        [Input("containerRegistries")]
+        private InputList<Inputs.SpringCloudServiceContainerRegistryGetArgs>? _containerRegistries;
+
+        /// <summary>
+        /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// </summary>
+        public InputList<Inputs.SpringCloudServiceContainerRegistryGetArgs> ContainerRegistries
+        {
+            get => _containerRegistries ?? (_containerRegistries = new InputList<Inputs.SpringCloudServiceContainerRegistryGetArgs>());
+            set => _containerRegistries = value;
+        }
+
+        /// <summary>
+        /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// </summary>
+        [Input("defaultBuildService")]
+        public Input<Inputs.SpringCloudServiceDefaultBuildServiceGetArgs>? DefaultBuildService { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

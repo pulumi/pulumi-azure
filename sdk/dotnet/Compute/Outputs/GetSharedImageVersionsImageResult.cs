@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool ExcludeFromLatest;
         /// <summary>
+        /// The ID of this Shared Image Version.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The supported Azure location where the Shared Image Gallery exists.
         /// </summary>
         public readonly string Location;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.Compute.Outputs
         private GetSharedImageVersionsImageResult(
             bool excludeFromLatest,
 
+            string id,
+
             string location,
 
             string managedImageId,
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.Compute.Outputs
             ImmutableArray<Outputs.GetSharedImageVersionsImageTargetRegionResult> targetRegions)
         {
             ExcludeFromLatest = excludeFromLatest;
+            Id = id;
             Location = location;
             ManagedImageId = managedImageId;
             Name = name;

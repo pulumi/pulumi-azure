@@ -1432,8 +1432,14 @@ func (o CacheDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 
 type CacheIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -1450,8 +1456,14 @@ type CacheIdentityInput interface {
 
 type CacheIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1533,11 +1545,23 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+// The Principal ID associated with this Managed Service Identity.
+func (o CacheIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o CacheIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o CacheIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1567,6 +1591,8 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheIdentity) []string {
 		if v == nil {
@@ -1576,7 +1602,27 @@ func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+// The Principal ID associated with this Managed Service Identity.
+func (o CacheIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o CacheIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentity) *string {
 		if v == nil {

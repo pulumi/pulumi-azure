@@ -106,7 +106,7 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `route` block as defined below.
+     * One or more `route` blocks as defined below.
      */
     public readonly routes!: pulumi.Output<outputs.network.VirtualHubRouteTableRoute[]>;
     /**
@@ -159,7 +159,7 @@ export interface VirtualHubRouteTableState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `route` block as defined below.
+     * One or more `route` blocks as defined below.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableRoute>[]>;
     /**
@@ -181,7 +181,7 @@ export interface VirtualHubRouteTableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `route` block as defined below.
+     * One or more `route` blocks as defined below.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableRoute>[]>;
     /**

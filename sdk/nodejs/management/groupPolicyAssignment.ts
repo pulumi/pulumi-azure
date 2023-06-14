@@ -107,7 +107,7 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -225,7 +225,7 @@ export interface GroupPolicyAssignmentState {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -289,7 +289,7 @@ export interface GroupPolicyAssignmentArgs {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -211,7 +211,7 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryAccessKey;
     }
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      * 
      * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
      * 
@@ -222,7 +222,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Whether public network access is allowed for this server. Defaults to `true`.
      * 
      * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
      * 

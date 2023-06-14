@@ -24,6 +24,8 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
     ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
     ///         Location = "West Europe",
@@ -44,7 +46,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         {
     ///             ClientId = "example id",
     ///             ClientSecret = "example secret",
-    ///             MetadataUrl = "https://www.example.com/metadata",
+    ///             MetadataUrl = $"https://login.microsoftonline.com/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId)}/v2.0/.well-known/openid-configuration",
     ///             Scopes = new[]
     ///             {
     ///                 "openid",

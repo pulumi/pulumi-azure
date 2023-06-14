@@ -243,6 +243,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        current = azure.core.get_client_config()
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
             location=example_resource_group.location,
@@ -254,7 +255,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
                 client_id="example id",
                 client_secret="example secret",
-                metadata_url="https://www.example.com/metadata",
+                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
                 scopes=[
                     "openid",
                     "profile",
@@ -299,6 +300,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        current = azure.core.get_client_config()
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
             location=example_resource_group.location,
@@ -310,7 +312,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
                 client_id="example id",
                 client_secret="example secret",
-                metadata_url="https://www.example.com/metadata",
+                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
                 scopes=[
                     "openid",
                     "profile",

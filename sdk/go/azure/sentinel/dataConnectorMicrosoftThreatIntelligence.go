@@ -51,7 +51,6 @@ import (
 //			}
 //			_, err = sentinel.NewDataConnectorMicrosoftThreatIntelligence(ctx, "exampleDataConnectorMicrosoftThreatIntelligence", &sentinel.DataConnectorMicrosoftThreatIntelligenceArgs{
 //				LogAnalyticsWorkspaceId:                 exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-//				BingSafetyPhishingUrlLookbackDate:       pulumi.String("1970-01-01T00:00:00Z"),
 //				MicrosoftEmergingThreatFeedLookbackDate: pulumi.String("1970-01-01T00:00:00Z"),
 //			})
 //			if err != nil {
@@ -76,10 +75,16 @@ type DataConnectorMicrosoftThreatIntelligence struct {
 	pulumi.CustomResourceState
 
 	// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
 	BingSafetyPhishingUrlLookbackDate pulumi.StringPtrOutput `pulumi:"bingSafetyPhishingUrlLookbackDate"`
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
 	//
 	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrOutput `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
@@ -124,10 +129,16 @@ func GetDataConnectorMicrosoftThreatIntelligence(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DataConnectorMicrosoftThreatIntelligence resources.
 type dataConnectorMicrosoftThreatIntelligenceState struct {
 	// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
 	BingSafetyPhishingUrlLookbackDate *string `pulumi:"bingSafetyPhishingUrlLookbackDate"`
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
 	//
 	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate *string `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
@@ -141,10 +152,16 @@ type dataConnectorMicrosoftThreatIntelligenceState struct {
 
 type DataConnectorMicrosoftThreatIntelligenceState struct {
 	// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
 	BingSafetyPhishingUrlLookbackDate pulumi.StringPtrInput
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
 	//
 	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrInput
@@ -162,10 +179,16 @@ func (DataConnectorMicrosoftThreatIntelligenceState) ElementType() reflect.Type 
 
 type dataConnectorMicrosoftThreatIntelligenceArgs struct {
 	// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
 	BingSafetyPhishingUrlLookbackDate *string `pulumi:"bingSafetyPhishingUrlLookbackDate"`
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
 	//
 	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate *string `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
@@ -180,10 +203,16 @@ type dataConnectorMicrosoftThreatIntelligenceArgs struct {
 // The set of arguments for constructing a DataConnectorMicrosoftThreatIntelligence resource.
 type DataConnectorMicrosoftThreatIntelligenceArgs struct {
 	// The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
 	BingSafetyPhishingUrlLookbackDate pulumi.StringPtrInput
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
 	//
 	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrInput
@@ -283,6 +312,10 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) ToDataConnectorMicrosoft
 }
 
 // The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+//
+// > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) BingSafetyPhishingUrlLookbackDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftThreatIntelligence) pulumi.StringPtrOutput {
 		return v.BingSafetyPhishingUrlLookbackDate
@@ -297,6 +330,8 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) LogAnalyticsWorkspaceId(
 }
 
 // The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+//
+// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
 //
 // > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) MicrosoftEmergingThreatFeedLookbackDate() pulumi.StringPtrOutput {

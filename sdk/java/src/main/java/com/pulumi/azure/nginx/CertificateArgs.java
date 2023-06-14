@@ -16,14 +16,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertificateArgs Empty = new CertificateArgs();
 
     /**
-     * Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the cert file of this certificate.
      * 
      */
     @Import(name="certificateVirtualPath", required=true)
     private Output<String> certificateVirtualPath;
 
     /**
-     * @return Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return Specify the path to the cert file of this certificate.
      * 
      */
     public Output<String> certificateVirtualPath() {
@@ -31,14 +31,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the ID of the Key Vault Secret for this certificate.
      * 
      */
     @Import(name="keyVaultSecretId", required=true)
     private Output<String> keyVaultSecretId;
 
     /**
-     * @return Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return Specify the ID of the Key Vault Secret for this certificate.
      * 
      */
     public Output<String> keyVaultSecretId() {
@@ -46,14 +46,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * Specify the path to the key file of this certificate.
      * 
      */
     @Import(name="keyVirtualPath", required=true)
     private Output<String> keyVirtualPath;
 
     /**
-     * @return Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return Specify the path to the key file of this certificate.
      * 
      */
     public Output<String> keyVirtualPath() {
@@ -119,7 +119,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateVirtualPath Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param certificateVirtualPath Specify the path to the cert file of this certificate.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateVirtualPath Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param certificateVirtualPath Specify the path to the cert file of this certificate.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultSecretId Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param keyVaultSecretId Specify the ID of the Key Vault Secret for this certificate.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultSecretId Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param keyVaultSecretId Specify the ID of the Key Vault Secret for this certificate.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVirtualPath Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param keyVirtualPath Specify the path to the key file of this certificate.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVirtualPath Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param keyVirtualPath Specify the path to the key file of this certificate.
          * 
          * @return builder
          * 

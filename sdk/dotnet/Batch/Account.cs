@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether public network access is allowed for this server. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
         /// 
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? PoolAllocationMode { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether public network access is allowed for this server. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
         /// 
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether public network access is allowed for this server. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
         /// 

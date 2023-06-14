@@ -29,10 +29,6 @@ namespace Pulumi.Azure.ContainerService
     /// {
     ///     var example = new Azure.ContainerService.KubernetesFleetManager("example", new()
     ///     {
-    ///         HubProfile = new Azure.ContainerService.Inputs.KubernetesFleetManagerHubProfileArgs
-    ///         {
-    ///             DnsPrefix = "example",
-    ///         },
     ///         Location = azurerm_resource_group.Example.Location,
     ///         ResourceGroupName = azurerm_resource_group.Example.Name,
     ///     });
@@ -47,13 +43,10 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// * `dns_prefix` - (Required)
     /// 
-    /// The `hub_profile` block exports the following arguments:
+    /// In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
     /// 
     /// * `fqdn` -
-    /// 
     /// * `kubernetes_version` -
-    /// 
-    /// ***
     /// 
     /// ## Import
     /// 

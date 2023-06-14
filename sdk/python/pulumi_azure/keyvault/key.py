@@ -931,7 +931,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> pulumi.Output['outputs.KeyRotationPolicy']:
+    def rotation_policy(self) -> pulumi.Output[Optional['outputs.KeyRotationPolicy']]:
         """
         A `rotation_policy` block as defined below.
         """

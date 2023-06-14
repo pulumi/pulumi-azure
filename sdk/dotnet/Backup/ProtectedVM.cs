@@ -80,10 +80,10 @@ namespace Pulumi.Azure.Backup
     public partial class ProtectedVM : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the id of the backup policy to use.
+        /// Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         /// </summary>
         [Output("backupPolicyId")]
-        public Output<string> BackupPolicyId { get; private set; } = null!;
+        public Output<string?> BackupPolicyId { get; private set; } = null!;
 
         /// <summary>
         /// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
@@ -96,6 +96,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Output("includeDiskLuns")]
         public Output<ImmutableArray<int>> IncludeDiskLuns { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        /// </summary>
+        [Output("protectionState")]
+        public Output<string> ProtectionState { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -165,10 +171,10 @@ namespace Pulumi.Azure.Backup
     public sealed class ProtectedVMArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the id of the backup policy to use.
+        /// Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         /// </summary>
-        [Input("backupPolicyId", required: true)]
-        public Input<string> BackupPolicyId { get; set; } = null!;
+        [Input("backupPolicyId")]
+        public Input<string>? BackupPolicyId { get; set; }
 
         [Input("excludeDiskLuns")]
         private InputList<int>? _excludeDiskLuns;
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.Backup
             get => _includeDiskLuns ?? (_includeDiskLuns = new InputList<int>());
             set => _includeDiskLuns = value;
         }
+
+        /// <summary>
+        /// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        /// </summary>
+        [Input("protectionState")]
+        public Input<string>? ProtectionState { get; set; }
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -224,7 +236,7 @@ namespace Pulumi.Azure.Backup
     public sealed class ProtectedVMState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the id of the backup policy to use.
+        /// Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         /// </summary>
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
@@ -252,6 +264,12 @@ namespace Pulumi.Azure.Backup
             get => _includeDiskLuns ?? (_includeDiskLuns = new InputList<int>());
             set => _includeDiskLuns = value;
         }
+
+        /// <summary>
+        /// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        /// </summary>
+        [Input("protectionState")]
+        public Input<string>? ProtectionState { get; set; }
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.

@@ -45,6 +45,11 @@ export type HyperVSite = import("./hyperVSite").HyperVSite;
 export const HyperVSite: typeof import("./hyperVSite").HyperVSite = null as any;
 utilities.lazyLoad(exports, ["HyperVSite"], () => require("./hyperVSite"));
 
+export { HypervNetworkMappingArgs, HypervNetworkMappingState } from "./hypervNetworkMapping";
+export type HypervNetworkMapping = import("./hypervNetworkMapping").HypervNetworkMapping;
+export const HypervNetworkMapping: typeof import("./hypervNetworkMapping").HypervNetworkMapping = null as any;
+utilities.lazyLoad(exports, ["HypervNetworkMapping"], () => require("./hypervNetworkMapping"));
+
 export { NetworkMappingArgs, NetworkMappingState } from "./networkMapping";
 export type NetworkMapping = import("./networkMapping").NetworkMapping;
 export const NetworkMapping: typeof import("./networkMapping").NetworkMapping = null as any;
@@ -80,6 +85,11 @@ export type VMWareReplicationPolicy = import("./vmwareReplicationPolicy").VMWare
 export const VMWareReplicationPolicy: typeof import("./vmwareReplicationPolicy").VMWareReplicationPolicy = null as any;
 utilities.lazyLoad(exports, ["VMWareReplicationPolicy"], () => require("./vmwareReplicationPolicy"));
 
+export { VmwareReplicationPolicyAssociationArgs, VmwareReplicationPolicyAssociationState } from "./vmwareReplicationPolicyAssociation";
+export type VmwareReplicationPolicyAssociation = import("./vmwareReplicationPolicyAssociation").VmwareReplicationPolicyAssociation;
+export const VmwareReplicationPolicyAssociation: typeof import("./vmwareReplicationPolicyAssociation").VmwareReplicationPolicyAssociation = null as any;
+utilities.lazyLoad(exports, ["VmwareReplicationPolicyAssociation"], () => require("./vmwareReplicationPolicyAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -93,6 +103,8 @@ const _module = {
                 return new HyperVReplicationPolicyAssociation(name, <any>undefined, { urn })
             case "azure:siterecovery/hyperVSite:HyperVSite":
                 return new HyperVSite(name, <any>undefined, { urn })
+            case "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping":
+                return new HypervNetworkMapping(name, <any>undefined, { urn })
             case "azure:siterecovery/networkMapping:NetworkMapping":
                 return new NetworkMapping(name, <any>undefined, { urn })
             case "azure:siterecovery/protectionContainer:ProtectionContainer":
@@ -107,6 +119,8 @@ const _module = {
                 return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
             case "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy":
                 return new VMWareReplicationPolicy(name, <any>undefined, { urn })
+            case "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation":
+                return new VmwareReplicationPolicyAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -116,6 +130,7 @@ pulumi.runtime.registerResourceModule("azure", "siterecovery/fabric", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/hyperVReplicationPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/hyperVReplicationPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/hyperVSite", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/hypervNetworkMapping", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/networkMapping", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainerMapping", _module)
@@ -123,3 +138,4 @@ pulumi.runtime.registerResourceModule("azure", "siterecovery/replicatedVM", _mod
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationRecoveryPlan", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/vMWareReplicationPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/vmwareReplicationPolicyAssociation", _module)

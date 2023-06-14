@@ -32,6 +32,11 @@ public final class GetVirtualMachineScaleSetInstance {
      */
     private String name;
     /**
+     * @return The power state of the virtual machine.
+     * 
+     */
+    private String powerState;
+    /**
      * @return The Primary Private IP Address assigned to this Virtual Machine.
      * 
      */
@@ -92,6 +97,13 @@ public final class GetVirtualMachineScaleSetInstance {
         return this.name;
     }
     /**
+     * @return The power state of the virtual machine.
+     * 
+     */
+    public String powerState() {
+        return this.powerState;
+    }
+    /**
      * @return The Primary Private IP Address assigned to this Virtual Machine.
      * 
      */
@@ -147,6 +159,7 @@ public final class GetVirtualMachineScaleSetInstance {
         private String instanceId;
         private Boolean latestModelApplied;
         private String name;
+        private String powerState;
         private String privateIpAddress;
         private List<String> privateIpAddresses;
         private String publicIpAddress;
@@ -160,6 +173,7 @@ public final class GetVirtualMachineScaleSetInstance {
     	      this.instanceId = defaults.instanceId;
     	      this.latestModelApplied = defaults.latestModelApplied;
     	      this.name = defaults.name;
+    	      this.powerState = defaults.powerState;
     	      this.privateIpAddress = defaults.privateIpAddress;
     	      this.privateIpAddresses = defaults.privateIpAddresses;
     	      this.publicIpAddress = defaults.publicIpAddress;
@@ -186,6 +200,11 @@ public final class GetVirtualMachineScaleSetInstance {
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder powerState(String powerState) {
+            this.powerState = Objects.requireNonNull(powerState);
             return this;
         }
         @CustomType.Setter
@@ -230,6 +249,7 @@ public final class GetVirtualMachineScaleSetInstance {
             o.instanceId = instanceId;
             o.latestModelApplied = latestModelApplied;
             o.name = name;
+            o.powerState = powerState;
             o.privateIpAddress = privateIpAddress;
             o.privateIpAddresses = privateIpAddresses;
             o.publicIpAddress = publicIpAddress;

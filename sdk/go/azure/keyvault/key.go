@@ -142,7 +142,7 @@ type Key struct {
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
 	ResourceVersionlessId pulumi.StringOutput `pulumi:"resourceVersionlessId"`
 	// A `rotationPolicy` block as defined below.
-	RotationPolicy KeyRotationPolicyOutput `pulumi:"rotationPolicy"`
+	RotationPolicy KeyRotationPolicyPtrOutput `pulumi:"rotationPolicy"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -487,8 +487,8 @@ func (o KeyOutput) ResourceVersionlessId() pulumi.StringOutput {
 }
 
 // A `rotationPolicy` block as defined below.
-func (o KeyOutput) RotationPolicy() KeyRotationPolicyOutput {
-	return o.ApplyT(func(v *Key) KeyRotationPolicyOutput { return v.RotationPolicy }).(KeyRotationPolicyOutput)
+func (o KeyOutput) RotationPolicy() KeyRotationPolicyPtrOutput {
+	return o.ApplyT(func(v *Key) KeyRotationPolicyPtrOutput { return v.RotationPolicy }).(KeyRotationPolicyPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

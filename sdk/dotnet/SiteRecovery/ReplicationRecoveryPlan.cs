@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
-    /// Manages an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+    /// Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
     /// 
     /// ## Example Usage
     /// 
@@ -292,13 +292,19 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An `azure_to_azure_settings` block defined as block.
+        /// </summary>
+        [Output("azureToAzureSettings")]
+        public Output<Outputs.ReplicationRecoveryPlanAzureToAzureSettings?> AzureToAzureSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Three or more `recovery_group` block.
+        /// Three or more `recovery_group` block defined as below.
         /// </summary>
         [Output("recoveryGroups")]
         public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanRecoveryGroup>> RecoveryGroups { get; private set; } = null!;
@@ -368,6 +374,12 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `azure_to_azure_settings` block defined as block.
+        /// </summary>
+        [Input("azureToAzureSettings")]
+        public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs>? AzureToAzureSettings { get; set; }
+
+        /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -377,7 +389,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs>? _recoveryGroups;
 
         /// <summary>
-        /// Three or more `recovery_group` block.
+        /// Three or more `recovery_group` block defined as below.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs> RecoveryGroups
         {
@@ -412,6 +424,12 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `azure_to_azure_settings` block defined as block.
+        /// </summary>
+        [Input("azureToAzureSettings")]
+        public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsGetArgs>? AzureToAzureSettings { get; set; }
+
+        /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -421,7 +439,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs>? _recoveryGroups;
 
         /// <summary>
-        /// Three or more `recovery_group` block.
+        /// Three or more `recovery_group` block defined as below.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs> RecoveryGroups
         {

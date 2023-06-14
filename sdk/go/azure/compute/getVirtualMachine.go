@@ -61,10 +61,11 @@ type LookupVirtualMachineResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
-	// *
 	Identities []GetVirtualMachineIdentity `pulumi:"identities"`
 	Location   string                      `pulumi:"location"`
 	Name       string                      `pulumi:"name"`
+	// The power state of the virtual machine.
+	PowerState string `pulumi:"powerState"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -122,7 +123,6 @@ func (o LookupVirtualMachineResultOutput) Id() pulumi.StringOutput {
 }
 
 // A `identity` block as defined below.
-// *
 func (o LookupVirtualMachineResultOutput) Identities() GetVirtualMachineIdentityArrayOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) []GetVirtualMachineIdentity { return v.Identities }).(GetVirtualMachineIdentityArrayOutput)
 }
@@ -133,6 +133,11 @@ func (o LookupVirtualMachineResultOutput) Location() pulumi.StringOutput {
 
 func (o LookupVirtualMachineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The power state of the virtual machine.
+func (o LookupVirtualMachineResultOutput) PowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineResult) string { return v.PowerState }).(pulumi.StringOutput)
 }
 
 // The Primary Private IP Address assigned to this Virtual Machine.

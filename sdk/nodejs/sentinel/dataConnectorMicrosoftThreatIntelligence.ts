@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleDataConnectorMicrosoftThreatIntelligence = new azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", {
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     bingSafetyPhishingUrlLookbackDate: "1970-01-01T00:00:00Z",
  *     microsoftEmergingThreatFeedLookbackDate: "1970-01-01T00:00:00Z",
  * });
  * ```
@@ -65,6 +64,10 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
 
     /**
      * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     *
+     * @deprecated This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
      */
     public readonly bingSafetyPhishingUrlLookbackDate!: pulumi.Output<string | undefined>;
     /**
@@ -73,6 +76,8 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
      *
      * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
@@ -128,6 +133,10 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
 export interface DataConnectorMicrosoftThreatIntelligenceState {
     /**
      * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     *
+     * @deprecated This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
      */
     bingSafetyPhishingUrlLookbackDate?: pulumi.Input<string>;
     /**
@@ -136,6 +145,8 @@ export interface DataConnectorMicrosoftThreatIntelligenceState {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
      *
      * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
@@ -158,6 +169,10 @@ export interface DataConnectorMicrosoftThreatIntelligenceState {
 export interface DataConnectorMicrosoftThreatIntelligenceArgs {
     /**
      * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     *
+     * @deprecated This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
      */
     bingSafetyPhishingUrlLookbackDate?: pulumi.Input<string>;
     /**
@@ -166,6 +181,8 @@ export interface DataConnectorMicrosoftThreatIntelligenceArgs {
     logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
      *
      * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */

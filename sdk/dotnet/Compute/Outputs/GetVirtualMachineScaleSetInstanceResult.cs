@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The power state of the virtual machine.
+        /// </summary>
+        public readonly string PowerState;
+        /// <summary>
         /// The Primary Private IP Address assigned to this Virtual Machine.
         /// </summary>
         public readonly string PrivateIpAddress;
@@ -64,6 +68,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string name,
 
+            string powerState,
+
             string privateIpAddress,
 
             ImmutableArray<string> privateIpAddresses,
@@ -80,6 +86,7 @@ namespace Pulumi.Azure.Compute.Outputs
             InstanceId = instanceId;
             LatestModelApplied = latestModelApplied;
             Name = name;
+            PowerState = powerState;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddresses = privateIpAddresses;
             PublicIpAddress = publicIpAddress;

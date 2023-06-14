@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+import com.pulumi.azure.monitoring.inputs.AutoscaleSettingPredictiveArgs;
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -81,6 +82,21 @@ public final class AutoscaleSettingState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A `predictive` block as defined below.
+     * 
+     */
+    @Import(name="predictive")
+    private @Nullable Output<AutoscaleSettingPredictiveArgs> predictive;
+
+    /**
+     * @return A `predictive` block as defined below.
+     * 
+     */
+    public Optional<Output<AutoscaleSettingPredictiveArgs>> predictive() {
+        return Optional.ofNullable(this.predictive);
+    }
+
+    /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      * 
      */
@@ -147,6 +163,7 @@ public final class AutoscaleSettingState extends com.pulumi.resources.ResourceAr
         this.location = $.location;
         this.name = $.name;
         this.notification = $.notification;
+        this.predictive = $.predictive;
         this.profiles = $.profiles;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
@@ -253,6 +270,27 @@ public final class AutoscaleSettingState extends com.pulumi.resources.ResourceAr
          */
         public Builder notification(AutoscaleSettingNotificationArgs notification) {
             return notification(Output.of(notification));
+        }
+
+        /**
+         * @param predictive A `predictive` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predictive(@Nullable Output<AutoscaleSettingPredictiveArgs> predictive) {
+            $.predictive = predictive;
+            return this;
+        }
+
+        /**
+         * @param predictive A `predictive` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predictive(AutoscaleSettingPredictiveArgs predictive) {
+            return predictive(Output.of(predictive));
         }
 
         /**

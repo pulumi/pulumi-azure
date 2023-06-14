@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
  * Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -25,8 +24,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azuread.ServicePrincipal;
- * import com.pulumi.azuread.ServicePrincipalArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.postgresql.FlexibleServer;
@@ -34,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.postgresql.inputs.FlexibleServerAuthenticationArgs;
  * import com.pulumi.azure.postgresql.FlexibleServerActiveDirectoryAdministrator;
  * import com.pulumi.azure.postgresql.FlexibleServerActiveDirectoryAdministratorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,9 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var postgresql = new ServicePrincipal(&#34;postgresql&#34;, ServicePrincipalArgs.builder()        
- *             .applicationId(&#34;5657e26c-cc92-45d9-bc47-9da6cfdb4ed9&#34;)
- *             .useExisting(true)
+ *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
@@ -62,25 +59,24 @@ import javax.annotation.Nullable;
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
+ *             .administratorLogin(&#34;adminTerraform&#34;)
+ *             .administratorPassword(&#34;QAZwsx123&#34;)
+ *             .storageMb(32768)
  *             .version(&#34;12&#34;)
- *             .administratorLogin(&#34;4dm1n157r470r&#34;)
- *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .skuName(&#34;GP_Standard_D2s_v3&#34;)
  *             .zone(&#34;2&#34;)
  *             .authentication(FlexibleServerAuthenticationArgs.builder()
  *                 .activeDirectoryAuthEnabled(true)
  *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(postgresql)
- *                 .build());
+ *             .build());
  * 
  *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator(&#34;exampleFlexibleServerActiveDirectoryAdministrator&#34;, FlexibleServerActiveDirectoryAdministratorArgs.builder()        
- *             .serverName(azurerm_postgresql_server.example().name())
+ *             .serverName(exampleFlexibleServer.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .principalName(&#34;example-sp&#34;)
+ *             .objectId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .principalName(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.displayName()))
  *             .principalType(&#34;ServicePrincipal&#34;)
  *             .build());
  * 

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .custom_certificate import *
+from .custom_domain import *
 from .get_private_link_resource import *
 from .get_service import *
 from .hub import *

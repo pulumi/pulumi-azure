@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
@@ -80,8 +80,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContactProfile = new ContactProfile(&#34;exampleContactProfile&#34;, ContactProfileArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .location(azurerm_resource_group.test().location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .minimumVariableContactDuration(&#34;PT1M&#34;)
  *             .autoTracking(&#34;disabled&#34;)
  *             .links(ContactProfileLinkArgs.builder()

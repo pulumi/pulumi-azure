@@ -13,14 +13,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscale
     {
-        /// <summary>
-        /// A `capacity` block as defined below.
-        /// </summary>
         public readonly Outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity? Capacity;
         /// <summary>
         /// A `recurrence` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         /// </summary>
         public readonly Outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence? Recurrence;
 

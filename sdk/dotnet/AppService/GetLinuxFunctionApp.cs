@@ -136,6 +136,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingsV2Result> AuthSettingsV2s;
         /// <summary>
+        /// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+        /// </summary>
+        public readonly string Availability;
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppBackupResult> Backups;
@@ -265,6 +269,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The current usage state. Possible values are `Normal` and `Exceeded`.
+        /// </summary>
+        public readonly string Usage;
+        /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
@@ -276,6 +284,8 @@ namespace Pulumi.Azure.AppService
             ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingResult> authSettings,
 
             ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingsV2Result> authSettingsV2s,
+
+            string availability,
 
             ImmutableArray<Outputs.GetLinuxFunctionAppBackupResult> backups,
 
@@ -343,11 +353,14 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags,
 
+            string usage,
+
             string virtualNetworkSubnetId)
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
             AuthSettingsV2s = authSettingsV2s;
+            Availability = availability;
             Backups = backups;
             BuiltinLoggingEnabled = builtinLoggingEnabled;
             ClientCertificateEnabled = clientCertificateEnabled;
@@ -381,6 +394,7 @@ namespace Pulumi.Azure.AppService
             StorageKeyVaultSecretId = storageKeyVaultSecretId;
             StorageUsesManagedIdentity = storageUsesManagedIdentity;
             Tags = tags;
+            Usage = usage;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

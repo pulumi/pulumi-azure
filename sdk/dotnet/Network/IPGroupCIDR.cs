@@ -33,8 +33,8 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleIPGroup = new Azure.Network.IPGroup("exampleIPGroup", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleIPGroupCIDR = new Azure.Network.IPGroupCIDR("exampleIPGroupCIDR", new()

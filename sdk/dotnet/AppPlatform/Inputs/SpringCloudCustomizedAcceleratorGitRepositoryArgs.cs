@@ -25,6 +25,12 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public Input<string>? Branch { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+        /// </summary>
+        [Input("caCertificateId")]
+        public Input<string>? CaCertificateId { get; set; }
+
+        /// <summary>
         /// Specifies the Git repository commit to be used.
         /// </summary>
         [Input("commit")]

@@ -12,6 +12,7 @@ from .action_rule_suppression import *
 from .activity_log_alert import *
 from .alert_processing_rule_action_group import *
 from .alert_processing_rule_suppression import *
+from .alert_prometheus_rule_group import *
 from .autoscale_setting import *
 from .data_collection_endpoint import *
 from .data_collection_rule import *

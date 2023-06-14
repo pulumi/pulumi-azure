@@ -114,6 +114,9 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly string Name;
         public readonly ImmutableDictionary<string, string>? RequiredTags;
+        /// <summary>
+        /// The name of the Resource Group in which this Resource exists.
+        /// </summary>
         public readonly string ResourceGroupName;
         /// <summary>
         /// One or more `resource` blocks as defined below.

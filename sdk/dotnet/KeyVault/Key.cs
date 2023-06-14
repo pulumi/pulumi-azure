@@ -193,7 +193,7 @@ namespace Pulumi.Azure.KeyVault
         /// A `rotation_policy` block as defined below.
         /// </summary>
         [Output("rotationPolicy")]
-        public Output<Outputs.KeyRotationPolicy> RotationPolicy { get; private set; } = null!;
+        public Output<Outputs.KeyRotationPolicy?> RotationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.

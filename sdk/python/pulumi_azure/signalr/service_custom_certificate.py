@@ -205,7 +205,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
-                    object_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
                     certificate_permissions=[
                         "Create",
                         "Get",
@@ -296,7 +296,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
-                    object_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
                     certificate_permissions=[
                         "Create",
                         "Get",

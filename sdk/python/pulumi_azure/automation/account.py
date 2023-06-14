@@ -33,7 +33,7 @@ class AccountArgs:
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -138,7 +138,7 @@ class AccountArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is allowed for the container registry. Defaults to `true`.
+        Whether public network access is allowed for the automation account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -186,7 +186,7 @@ class _AccountState:
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -338,7 +338,7 @@ class _AccountState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is allowed for the container registry. Defaults to `true`.
+        Whether public network access is allowed for the automation account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -431,7 +431,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -561,7 +561,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -664,7 +664,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether public network access is allowed for the container registry. Defaults to `true`.
+        Whether public network access is allowed for the automation account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

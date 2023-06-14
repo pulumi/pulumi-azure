@@ -11,11 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Web Pubsub Custom Certificate.
+// Manages an Azure Web PubSub Custom Certificate.
 //
 // ## Import
 //
-// Custom Certificate for a Web Pubsub service can be imported using the `resource id`, e.g.
+// Custom Certificate for a Web PubSub service can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -25,17 +25,17 @@ import (
 type CustomCertificate struct {
 	pulumi.CustomResourceState
 
-	// The certificate version of the Web Pubsub Custom Certificate.
+	// The certificate version of the Web PubSub Custom Certificate.
 	CertificateVersion pulumi.StringOutput `pulumi:"certificateVersion"`
-	// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId pulumi.StringOutput `pulumi:"customCertificateId"`
-	// The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+	// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	WebPubsubId pulumi.StringOutput `pulumi:"webPubsubId"`
 }
 
@@ -74,32 +74,32 @@ func GetCustomCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomCertificate resources.
 type customCertificateState struct {
-	// The certificate version of the Web Pubsub Custom Certificate.
+	// The certificate version of the Web PubSub Custom Certificate.
 	CertificateVersion *string `pulumi:"certificateVersion"`
-	// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId *string `pulumi:"customCertificateId"`
-	// The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+	// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	WebPubsubId *string `pulumi:"webPubsubId"`
 }
 
 type CustomCertificateState struct {
-	// The certificate version of the Web Pubsub Custom Certificate.
+	// The certificate version of the Web PubSub Custom Certificate.
 	CertificateVersion pulumi.StringPtrInput
-	// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId pulumi.StringPtrInput
-	// The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+	// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	WebPubsubId pulumi.StringPtrInput
 }
 
@@ -108,29 +108,29 @@ func (CustomCertificateState) ElementType() reflect.Type {
 }
 
 type customCertificateArgs struct {
-	// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId string `pulumi:"customCertificateId"`
-	// The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+	// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	WebPubsubId string `pulumi:"webPubsubId"`
 }
 
 // The set of arguments for constructing a CustomCertificate resource.
 type CustomCertificateArgs struct {
-	// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId pulumi.StringInput
-	// The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+	// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+	// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	WebPubsubId pulumi.StringInput
 }
 
@@ -221,26 +221,26 @@ func (o CustomCertificateOutput) ToCustomCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// The certificate version of the Web Pubsub Custom Certificate.
+// The certificate version of the Web PubSub Custom Certificate.
 func (o CustomCertificateOutput) CertificateVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomCertificate) pulumi.StringOutput { return v.CertificateVersion }).(pulumi.StringOutput)
 }
 
-// The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 //
 // > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 func (o CustomCertificateOutput) CustomCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomCertificate) pulumi.StringOutput { return v.CustomCertificateId }).(pulumi.StringOutput)
 }
 
-// The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+// The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 func (o CustomCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+// The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 //
-// > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
+// > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 func (o CustomCertificateOutput) WebPubsubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomCertificate) pulumi.StringOutput { return v.WebPubsubId }).(pulumi.StringOutput)
 }

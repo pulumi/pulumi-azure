@@ -775,102 +775,12 @@ public final class KeyvaultFunctions {
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
-     *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
-     *             .algorithm(&#34;RSA1_5&#34;)
-     *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args) {
         return getEncryptedValue(args, InvokeOptions.Empty);
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
-     *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
-     *             .algorithm(&#34;RSA1_5&#34;)
-     *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptedValueResult> getEncryptedValuePlain(GetEncryptedValuePlainArgs args) {
@@ -879,102 +789,12 @@ public final class KeyvaultFunctions {
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
-     *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
-     *             .algorithm(&#34;RSA1_5&#34;)
-     *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", TypeShape.of(GetEncryptedValueResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
-     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(&#34;mykeyvault&#34;)
-     *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
-     *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
-     *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
-     *             .algorithm(&#34;RSA1_5&#34;)
-     *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptedValueResult> getEncryptedValuePlain(GetEncryptedValuePlainArgs args, InvokeOptions options) {

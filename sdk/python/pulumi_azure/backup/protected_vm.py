@@ -14,45 +14,38 @@ __all__ = ['ProtectedVMArgs', 'ProtectedVM']
 @pulumi.input_type
 class ProtectedVMArgs:
     def __init__(__self__, *,
-                 backup_policy_id: pulumi.Input[str],
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 backup_policy_id: Optional[pulumi.Input[str]] = None,
                  exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 protection_state: Optional[pulumi.Input[str]] = None,
                  source_vm_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProtectedVM resource.
-        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
                
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
                This allows the source vm to be deleted without having to remove the backup.
         """
-        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if backup_policy_id is not None:
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if exclude_disk_luns is not None:
             pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
         if include_disk_luns is not None:
             pulumi.set(__self__, "include_disk_luns", include_disk_luns)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
         if source_vm_id is not None:
             pulumi.set(__self__, "source_vm_id", source_vm_id)
-
-    @property
-    @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the id of the backup policy to use.
-        """
-        return pulumi.get(self, "backup_policy_id")
-
-    @backup_policy_id.setter
-    def backup_policy_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "backup_policy_id", value)
 
     @property
     @pulumi.getter(name="recoveryVaultName")
@@ -79,84 +72,10 @@ class ProtectedVMArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="excludeDiskLuns")
-    def exclude_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
-        """
-        return pulumi.get(self, "exclude_disk_luns")
-
-    @exclude_disk_luns.setter
-    def exclude_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "exclude_disk_luns", value)
-
-    @property
-    @pulumi.getter(name="includeDiskLuns")
-    def include_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
-        """
-        return pulumi.get(self, "include_disk_luns")
-
-    @include_disk_luns.setter
-    def include_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "include_disk_luns", value)
-
-    @property
-    @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-
-        > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-        This allows the source vm to be deleted without having to remove the backup.
-        """
-        return pulumi.get(self, "source_vm_id")
-
-    @source_vm_id.setter
-    def source_vm_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_vm_id", value)
-
-
-@pulumi.input_type
-class _ProtectedVMState:
-    def __init__(__self__, *,
-                 backup_policy_id: Optional[pulumi.Input[str]] = None,
-                 exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_vm_id: Optional[pulumi.Input[str]] = None):
-        """
-        Input properties used for looking up and filtering ProtectedVM resources.
-        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
-        :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-               
-               > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-               This allows the source vm to be deleted without having to remove the backup.
-        """
-        if backup_policy_id is not None:
-            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
-        if exclude_disk_luns is not None:
-            pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
-        if include_disk_luns is not None:
-            pulumi.set(__self__, "include_disk_luns", include_disk_luns)
-        if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if source_vm_id is not None:
-            pulumi.set(__self__, "source_vm_id", source_vm_id)
-
-    @property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the id of the backup policy to use.
+        Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         """
         return pulumi.get(self, "backup_policy_id")
 
@@ -187,6 +106,120 @@ class _ProtectedVMState:
     @include_disk_luns.setter
     def include_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "include_disk_luns", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="sourceVmId")
+    def source_vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+
+        > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+        This allows the source vm to be deleted without having to remove the backup.
+        """
+        return pulumi.get(self, "source_vm_id")
+
+    @source_vm_id.setter
+    def source_vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_vm_id", value)
+
+
+@pulumi.input_type
+class _ProtectedVMState:
+    def __init__(__self__, *,
+                 backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 protection_state: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_vm_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProtectedVM resources.
+        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+               This allows the source vm to be deleted without having to remove the backup.
+        """
+        if backup_policy_id is not None:
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        if exclude_disk_luns is not None:
+            pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
+        if include_disk_luns is not None:
+            pulumi.set(__self__, "include_disk_luns", include_disk_luns)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if recovery_vault_name is not None:
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if source_vm_id is not None:
+            pulumi.set(__self__, "source_vm_id", source_vm_id)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @backup_policy_id.setter
+    def backup_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_policy_id", value)
+
+    @property
+    @pulumi.getter(name="excludeDiskLuns")
+    def exclude_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+        """
+        return pulumi.get(self, "exclude_disk_luns")
+
+    @exclude_disk_luns.setter
+    def exclude_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "exclude_disk_luns", value)
+
+    @property
+    @pulumi.getter(name="includeDiskLuns")
+    def include_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        """
+        return pulumi.get(self, "include_disk_luns")
+
+    @include_disk_luns.setter
+    def include_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "include_disk_luns", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_state", value)
 
     @property
     @pulumi.getter(name="recoveryVaultName")
@@ -236,6 +269,7 @@ class ProtectedVM(pulumi.CustomResource):
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 protection_state: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_vm_id: Optional[pulumi.Input[str]] = None,
@@ -285,9 +319,10 @@ class ProtectedVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use.
+        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
@@ -362,6 +397,7 @@ class ProtectedVM(pulumi.CustomResource):
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 protection_state: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_vm_id: Optional[pulumi.Input[str]] = None,
@@ -374,11 +410,10 @@ class ProtectedVM(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProtectedVMArgs.__new__(ProtectedVMArgs)
 
-            if backup_policy_id is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_policy_id'")
             __props__.__dict__["backup_policy_id"] = backup_policy_id
             __props__.__dict__["exclude_disk_luns"] = exclude_disk_luns
             __props__.__dict__["include_disk_luns"] = include_disk_luns
+            __props__.__dict__["protection_state"] = protection_state
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__.__dict__["recovery_vault_name"] = recovery_vault_name
@@ -399,6 +434,7 @@ class ProtectedVM(pulumi.CustomResource):
             backup_policy_id: Optional[pulumi.Input[str]] = None,
             exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            protection_state: Optional[pulumi.Input[str]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             source_vm_id: Optional[pulumi.Input[str]] = None) -> 'ProtectedVM':
@@ -409,9 +445,10 @@ class ProtectedVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use.
+        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
@@ -426,6 +463,7 @@ class ProtectedVM(pulumi.CustomResource):
         __props__.__dict__["backup_policy_id"] = backup_policy_id
         __props__.__dict__["exclude_disk_luns"] = exclude_disk_luns
         __props__.__dict__["include_disk_luns"] = include_disk_luns
+        __props__.__dict__["protection_state"] = protection_state
         __props__.__dict__["recovery_vault_name"] = recovery_vault_name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["source_vm_id"] = source_vm_id
@@ -433,9 +471,9 @@ class ProtectedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> pulumi.Output[str]:
+    def backup_policy_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the id of the backup policy to use.
+        Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         """
         return pulumi.get(self, "backup_policy_id")
 
@@ -454,6 +492,14 @@ class ProtectedVM(pulumi.CustomResource):
         A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
         """
         return pulumi.get(self, "include_disk_luns")
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> pulumi.Output[str]:
+        """
+        Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+        """
+        return pulumi.get(self, "protection_state")
 
     @property
     @pulumi.getter(name="recoveryVaultName")

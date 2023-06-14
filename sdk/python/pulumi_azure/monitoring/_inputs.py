@@ -82,9 +82,13 @@ __all__ = [
     'AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs',
     'AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs',
     'AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs',
+    'AlertPrometheusRuleGroupRuleArgs',
+    'AlertPrometheusRuleGroupRuleActionArgs',
+    'AlertPrometheusRuleGroupRuleAlertResolutionArgs',
     'AutoscaleSettingNotificationArgs',
     'AutoscaleSettingNotificationEmailArgs',
     'AutoscaleSettingNotificationWebhookArgs',
+    'AutoscaleSettingPredictiveArgs',
     'AutoscaleSettingProfileArgs',
     'AutoscaleSettingProfileCapacityArgs',
     'AutoscaleSettingProfileFixedDateArgs',
@@ -2073,40 +2077,70 @@ class ActivityLogAlertCriteriaArgs:
                  category: pulumi.Input[str],
                  caller: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[str]] = None,
+                 levels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  recommendation_category: Optional[pulumi.Input[str]] = None,
                  recommendation_impact: Optional[pulumi.Input[str]] = None,
                  recommendation_type: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_provider: Optional[pulumi.Input[str]] = None,
+                 resource_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 sub_status: Optional[pulumi.Input[str]] = None):
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sub_status: Optional[pulumi.Input[str]] = None,
+                 sub_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] category: The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
         :param pulumi.Input[str] caller: The email address or Azure Active Directory identifier of the user who performed the operation.
         :param pulumi.Input[str] level: The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] levels: A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+               
+               > **NOTE:** `level` and `levels` are mutually exclusive.
         :param pulumi.Input[str] operation_name: The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
         :param pulumi.Input[str] recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
         :param pulumi.Input[str] recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
         :param pulumi.Input[str] recommendation_type: The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
         :param pulumi.Input[str] resource_group: The name of resource group monitored by the activity log alert.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_groups: A list of names of resource groups monitored by the activity log alert.
+               
+               > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]] resource_healths: A block to define fine grain resource health settings.
         :param pulumi.Input[str] resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+               
+               > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
         :param pulumi.Input[str] resource_provider: The name of the resource provider monitored by the activity log alert.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_providers: A list of names of resource providers monitored by the activity log alert.
+               
+               > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
         :param pulumi.Input[str] resource_type: The resource type monitored by the activity log alert.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types monitored by the activity log alert.
+               
+               > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]] service_healths: A block to define fine grain service health settings.
         :param pulumi.Input[str] status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] statuses: A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+               
+               > **NOTE:** `status` and `statuses` are mutually exclusive.
         :param pulumi.Input[str] sub_status: The sub status of the event.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_statuses: A list of sub status of the event.
+               
+               > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
         """
         pulumi.set(__self__, "category", category)
         if caller is not None:
             pulumi.set(__self__, "caller", caller)
         if level is not None:
             pulumi.set(__self__, "level", level)
+        if levels is not None:
+            pulumi.set(__self__, "levels", levels)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
         if recommendation_category is not None:
@@ -2117,20 +2151,32 @@ class ActivityLogAlertCriteriaArgs:
             pulumi.set(__self__, "recommendation_type", recommendation_type)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
         if resource_healths is not None:
             pulumi.set(__self__, "resource_healths", resource_healths)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if resource_ids is not None:
+            pulumi.set(__self__, "resource_ids", resource_ids)
         if resource_provider is not None:
             pulumi.set(__self__, "resource_provider", resource_provider)
+        if resource_providers is not None:
+            pulumi.set(__self__, "resource_providers", resource_providers)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
         if service_healths is not None:
             pulumi.set(__self__, "service_healths", service_healths)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
         if sub_status is not None:
             pulumi.set(__self__, "sub_status", sub_status)
+        if sub_statuses is not None:
+            pulumi.set(__self__, "sub_statuses", sub_statuses)
 
     @property
     @pulumi.getter
@@ -2167,6 +2213,20 @@ class ActivityLogAlertCriteriaArgs:
     @level.setter
     def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+
+        > **NOTE:** `level` and `levels` are mutually exclusive.
+        """
+        return pulumi.get(self, "levels")
+
+    @levels.setter
+    def levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "levels", value)
 
     @property
     @pulumi.getter(name="operationName")
@@ -2229,6 +2289,20 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_group", value)
 
     @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of names of resource groups monitored by the activity log alert.
+
+        > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @resource_groups.setter
+    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_groups", value)
+
+    @property
     @pulumi.getter(name="resourceHealths")
     def resource_healths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]]:
         """
@@ -2253,6 +2327,20 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_id", value)
 
     @property
+    @pulumi.getter(name="resourceIds")
+    def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+
+        > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_ids")
+
+    @resource_ids.setter
+    def resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_ids", value)
+
+    @property
     @pulumi.getter(name="resourceProvider")
     def resource_provider(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2265,6 +2353,20 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_provider", value)
 
     @property
+    @pulumi.getter(name="resourceProviders")
+    def resource_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of names of resource providers monitored by the activity log alert.
+
+        > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_providers")
+
+    @resource_providers.setter
+    def resource_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_providers", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2275,6 +2377,20 @@ class ActivityLogAlertCriteriaArgs:
     @resource_type.setter
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of resource types monitored by the activity log alert.
+
+        > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
 
     @property
     @pulumi.getter(name="serviceHealths")
@@ -2301,6 +2417,20 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "status", value)
 
     @property
+    @pulumi.getter
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+
+        > **NOTE:** `status` and `statuses` are mutually exclusive.
+        """
+        return pulumi.get(self, "statuses")
+
+    @statuses.setter
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "statuses", value)
+
+    @property
     @pulumi.getter(name="subStatus")
     def sub_status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2311,6 +2441,20 @@ class ActivityLogAlertCriteriaArgs:
     @sub_status.setter
     def sub_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sub_status", value)
+
+    @property
+    @pulumi.getter(name="subStatuses")
+    def sub_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of sub status of the event.
+
+        > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        """
+        return pulumi.get(self, "sub_statuses")
+
+    @sub_statuses.setter
+    def sub_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "sub_statuses", value)
 
 
 @pulumi.input_type
@@ -4150,6 +4294,249 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
 
 
 @pulumi.input_type
+class AlertPrometheusRuleGroupRuleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgs']]]] = None,
+                 alert: Optional[pulumi.Input[str]] = None,
+                 alert_resolution: Optional[pulumi.Input['AlertPrometheusRuleGroupRuleAlertResolutionArgs']] = None,
+                 annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 for_: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 record: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] expression: Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgs']]] actions: An `action` block as defined below.
+        :param pulumi.Input[str] alert: Specifies the Alert rule name.
+        :param pulumi.Input['AlertPrometheusRuleGroupRuleAlertResolutionArgs'] alert_resolution: An `alert_resolution` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] annotations: Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+        :param pulumi.Input[bool] enabled: Is this rule enabled? Possible values are `true` and `false`.
+        :param pulumi.Input[str] for_: Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Specifies the labels to add or overwrite before storing the result.
+        :param pulumi.Input[str] record: Specifies the recorded metrics name.
+        :param pulumi.Input[int] severity: Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+        """
+        pulumi.set(__self__, "expression", expression)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if alert is not None:
+            pulumi.set(__self__, "alert", alert)
+        if alert_resolution is not None:
+            pulumi.set(__self__, "alert_resolution", alert_resolution)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if for_ is not None:
+            pulumi.set(__self__, "for_", for_)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if record is not None:
+            pulumi.set(__self__, "record", record)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgs']]]]:
+        """
+        An `action` block as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def alert(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Alert rule name.
+        """
+        return pulumi.get(self, "alert")
+
+    @alert.setter
+    def alert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert", value)
+
+    @property
+    @pulumi.getter(name="alertResolution")
+    def alert_resolution(self) -> Optional[pulumi.Input['AlertPrometheusRuleGroupRuleAlertResolutionArgs']]:
+        """
+        An `alert_resolution` block as defined below.
+        """
+        return pulumi.get(self, "alert_resolution")
+
+    @alert_resolution.setter
+    def alert_resolution(self, value: Optional[pulumi.Input['AlertPrometheusRuleGroupRuleAlertResolutionArgs']]):
+        pulumi.set(self, "alert_resolution", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this rule enabled? Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="for")
+    def for_(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "for_")
+
+    @for_.setter
+    def for_(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "for_", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the labels to add or overwrite before storing the result.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def record(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recorded metrics name.
+        """
+        return pulumi.get(self, "record")
+
+    @record.setter
+    def record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "record", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "severity", value)
+
+
+@pulumi.input_type
+class AlertPrometheusRuleGroupRuleActionArgs:
+    def __init__(__self__, *,
+                 action_group_id: pulumi.Input[str],
+                 action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] action_group_id: Specifies the resource id of the monitor action group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: Specifies the properties of an action group object.
+        """
+        pulumi.set(__self__, "action_group_id", action_group_id)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource id of the monitor action group.
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @action_group_id.setter
+    def action_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_group_id", value)
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the properties of an action group object.
+        """
+        return pulumi.get(self, "action_properties")
+
+    @action_properties.setter
+    def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "action_properties", value)
+
+
+@pulumi.input_type
+class AlertPrometheusRuleGroupRuleAlertResolutionArgs:
+    def __init__(__self__, *,
+                 auto_resolved: Optional[pulumi.Input[bool]] = None,
+                 time_to_resolve: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] auto_resolved: Is the alert auto-resolution? Possible values are `true` and `false`.
+        :param pulumi.Input[str] time_to_resolve: Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the alert auto-resolution? Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @auto_resolved.setter
+    def auto_resolved(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_resolved", value)
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+    @time_to_resolve.setter
+    def time_to_resolve(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_resolve", value)
+
+
+@pulumi.input_type
 class AutoscaleSettingNotificationArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input['AutoscaleSettingNotificationEmailArgs']] = None,
@@ -4279,6 +4666,44 @@ class AutoscaleSettingNotificationWebhookArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class AutoscaleSettingPredictiveArgs:
+    def __init__(__self__, *,
+                 scale_mode: pulumi.Input[str],
+                 look_ahead_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] scale_mode: Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+        :param pulumi.Input[str] look_ahead_time: Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+        """
+        pulumi.set(__self__, "scale_mode", scale_mode)
+        if look_ahead_time is not None:
+            pulumi.set(__self__, "look_ahead_time", look_ahead_time)
+
+    @property
+    @pulumi.getter(name="scaleMode")
+    def scale_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+        """
+        return pulumi.get(self, "scale_mode")
+
+    @scale_mode.setter
+    def scale_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scale_mode", value)
+
+    @property
+    @pulumi.getter(name="lookAheadTime")
+    def look_ahead_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+        """
+        return pulumi.get(self, "look_ahead_time")
+
+    @look_ahead_time.setter
+    def look_ahead_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "look_ahead_time", value)
 
 
 @pulumi.input_type

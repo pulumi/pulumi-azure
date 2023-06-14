@@ -22,7 +22,7 @@ class GetLinuxWebAppResult:
     """
     A collection of values returned by getLinuxWebApp.
     """
-    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_subnet_id=None):
         if app_metadata and not isinstance(app_metadata, dict):
             raise TypeError("Expected argument 'app_metadata' to be a dict")
         pulumi.set(__self__, "app_metadata", app_metadata)
@@ -35,6 +35,9 @@ class GetLinuxWebAppResult:
         if auth_settings_v2s and not isinstance(auth_settings_v2s, list):
             raise TypeError("Expected argument 'auth_settings_v2s' to be a list")
         pulumi.set(__self__, "auth_settings_v2s", auth_settings_v2s)
+        if availability and not isinstance(availability, str):
+            raise TypeError("Expected argument 'availability' to be a str")
+        pulumi.set(__self__, "availability", availability)
         if backups and not isinstance(backups, list):
             raise TypeError("Expected argument 'backups' to be a list")
         pulumi.set(__self__, "backups", backups)
@@ -122,6 +125,9 @@ class GetLinuxWebAppResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if usage and not isinstance(usage, str):
+            raise TypeError("Expected argument 'usage' to be a str")
+        pulumi.set(__self__, "usage", usage)
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
@@ -157,6 +163,15 @@ class GetLinuxWebAppResult:
         An `auth_settings_v2` block as defined below.
         """
         return pulumi.get(self, "auth_settings_v2s")
+
+    @property
+    @pulumi.getter
+    def availability(self) -> str:
+        """
+        The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
+        *
+        """
+        return pulumi.get(self, "availability")
 
     @property
     @pulumi.getter
@@ -385,6 +400,14 @@ class GetLinuxWebAppResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter
+    def usage(self) -> str:
+        """
+        The current usage state. Possible values are `Normal` and `Exceeded`.
+        """
+        return pulumi.get(self, "usage")
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
         """
@@ -403,6 +426,7 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             app_settings=self.app_settings,
             auth_settings=self.auth_settings,
             auth_settings_v2s=self.auth_settings_v2s,
+            availability=self.availability,
             backups=self.backups,
             client_affinity_enabled=self.client_affinity_enabled,
             client_certificate_enabled=self.client_certificate_enabled,
@@ -432,6 +456,7 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             sticky_settings=self.sticky_settings,
             storage_accounts=self.storage_accounts,
             tags=self.tags,
+            usage=self.usage,
             virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
@@ -467,6 +492,7 @@ def get_linux_web_app(name: Optional[str] = None,
         app_settings=__ret__.app_settings,
         auth_settings=__ret__.auth_settings,
         auth_settings_v2s=__ret__.auth_settings_v2s,
+        availability=__ret__.availability,
         backups=__ret__.backups,
         client_affinity_enabled=__ret__.client_affinity_enabled,
         client_certificate_enabled=__ret__.client_certificate_enabled,
@@ -496,6 +522,7 @@ def get_linux_web_app(name: Optional[str] = None,
         sticky_settings=__ret__.sticky_settings,
         storage_accounts=__ret__.storage_accounts,
         tags=__ret__.tags,
+        usage=__ret__.usage,
         virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
 
 

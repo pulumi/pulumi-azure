@@ -102,7 +102,7 @@ export class SubscriptionPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -220,7 +220,7 @@ export interface SubscriptionPolicyAssignmentState {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface SubscriptionPolicyAssignmentArgs {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**

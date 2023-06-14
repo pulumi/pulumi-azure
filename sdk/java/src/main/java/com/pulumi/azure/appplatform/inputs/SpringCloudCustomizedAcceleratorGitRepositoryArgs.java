@@ -49,6 +49,21 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
     }
 
     /**
+     * Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+     * 
+     */
+    @Import(name="caCertificateId")
+    private @Nullable Output<String> caCertificateId;
+
+    /**
+     * @return Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+     * 
+     */
+    public Optional<Output<String>> caCertificateId() {
+        return Optional.ofNullable(this.caCertificateId);
+    }
+
+    /**
      * Specifies the Git repository commit to be used.
      * 
      */
@@ -128,6 +143,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
     private SpringCloudCustomizedAcceleratorGitRepositoryArgs(SpringCloudCustomizedAcceleratorGitRepositoryArgs $) {
         this.basicAuth = $.basicAuth;
         this.branch = $.branch;
+        this.caCertificateId = $.caCertificateId;
         this.commit = $.commit;
         this.gitTag = $.gitTag;
         this.intervalInSeconds = $.intervalInSeconds;
@@ -193,6 +209,27 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
          */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
+        }
+
+        /**
+         * @param caCertificateId Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateId(@Nullable Output<String> caCertificateId) {
+            $.caCertificateId = caCertificateId;
+            return this;
+        }
+
+        /**
+         * @param caCertificateId Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateId(String caCertificateId) {
+            return caCertificateId(Output.of(caCertificateId));
         }
 
         /**

@@ -22,7 +22,7 @@ class GetVirtualMachineResult:
     """
     A collection of values returned by getVirtualMachine.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, private_ip_address=None, private_ip_addresses=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, power_state=None, private_ip_address=None, private_ip_addresses=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,6 +35,9 @@ class GetVirtualMachineResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if power_state and not isinstance(power_state, str):
+            raise TypeError("Expected argument 'power_state' to be a str")
+        pulumi.set(__self__, "power_state", power_state)
         if private_ip_address and not isinstance(private_ip_address, str):
             raise TypeError("Expected argument 'private_ip_address' to be a str")
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -64,7 +67,6 @@ class GetVirtualMachineResult:
     def identities(self) -> Sequence['outputs.GetVirtualMachineIdentityResult']:
         """
         A `identity` block as defined below.
-        *
         """
         return pulumi.get(self, "identities")
 
@@ -77,6 +79,14 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        The power state of the virtual machine.
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -126,6 +136,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             identities=self.identities,
             location=self.location,
             name=self.name,
+            power_state=self.power_state,
             private_ip_address=self.private_ip_address,
             private_ip_addresses=self.private_ip_addresses,
             public_ip_address=self.public_ip_address,
@@ -165,6 +176,7 @@ def get_virtual_machine(name: Optional[str] = None,
         identities=__ret__.identities,
         location=__ret__.location,
         name=__ret__.name,
+        power_state=__ret__.power_state,
         private_ip_address=__ret__.private_ip_address,
         private_ip_addresses=__ret__.private_ip_addresses,
         public_ip_address=__ret__.public_ip_address,

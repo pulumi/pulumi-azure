@@ -22,7 +22,10 @@ class GetReplicationRecoveryPlanResult:
     """
     A collection of values returned by getReplicationRecoveryPlan.
     """
-    def __init__(__self__, failover_deployment_model=None, id=None, name=None, recovery_groups=None, recovery_vault_id=None, source_recovery_fabric_id=None, target_recovery_fabric_id=None):
+    def __init__(__self__, azure_to_azure_settings=None, failover_deployment_model=None, id=None, name=None, recovery_groups=None, recovery_vault_id=None, source_recovery_fabric_id=None, target_recovery_fabric_id=None):
+        if azure_to_azure_settings and not isinstance(azure_to_azure_settings, list):
+            raise TypeError("Expected argument 'azure_to_azure_settings' to be a list")
+        pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
         if failover_deployment_model and not isinstance(failover_deployment_model, str):
             raise TypeError("Expected argument 'failover_deployment_model' to be a str")
         pulumi.set(__self__, "failover_deployment_model", failover_deployment_model)
@@ -44,6 +47,11 @@ class GetReplicationRecoveryPlanResult:
         if target_recovery_fabric_id and not isinstance(target_recovery_fabric_id, str):
             raise TypeError("Expected argument 'target_recovery_fabric_id' to be a str")
         pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
+
+    @property
+    @pulumi.getter(name="azureToAzureSettings")
+    def azure_to_azure_settings(self) -> Sequence['outputs.GetReplicationRecoveryPlanAzureToAzureSettingResult']:
+        return pulumi.get(self, "azure_to_azure_settings")
 
     @property
     @pulumi.getter(name="failoverDeploymentModel")
@@ -103,6 +111,7 @@ class AwaitableGetReplicationRecoveryPlanResult(GetReplicationRecoveryPlanResult
         if False:
             yield self
         return GetReplicationRecoveryPlanResult(
+            azure_to_azure_settings=self.azure_to_azure_settings,
             failover_deployment_model=self.failover_deployment_model,
             id=self.id,
             name=self.name,
@@ -141,6 +150,7 @@ def get_replication_recovery_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan', __args__, opts=opts, typ=GetReplicationRecoveryPlanResult).value
 
     return AwaitableGetReplicationRecoveryPlanResult(
+        azure_to_azure_settings=__ret__.azure_to_azure_settings,
         failover_deployment_model=__ret__.failover_deployment_model,
         id=__ret__.id,
         name=__ret__.name,

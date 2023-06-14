@@ -17,6 +17,7 @@ class SpringCloudCertificateArgs:
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
                  certificate_content: Optional[pulumi.Input[str]] = None,
+                 exclude_private_key: Optional[pulumi.Input[bool]] = None,
                  key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -24,6 +25,7 @@ class SpringCloudCertificateArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         """
@@ -31,6 +33,8 @@ class SpringCloudCertificateArgs:
         pulumi.set(__self__, "service_name", service_name)
         if certificate_content is not None:
             pulumi.set(__self__, "certificate_content", certificate_content)
+        if exclude_private_key is not None:
+            pulumi.set(__self__, "exclude_private_key", exclude_private_key)
         if key_vault_certificate_id is not None:
             pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
         if name is not None:
@@ -73,6 +77,18 @@ class SpringCloudCertificateArgs:
         pulumi.set(self, "certificate_content", value)
 
     @property
+    @pulumi.getter(name="excludePrivateKey")
+    def exclude_private_key(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_private_key")
+
+    @exclude_private_key.setter
+    def exclude_private_key(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_private_key", value)
+
+    @property
     @pulumi.getter(name="keyVaultCertificateId")
     def key_vault_certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -101,6 +117,7 @@ class SpringCloudCertificateArgs:
 class _SpringCloudCertificateState:
     def __init__(__self__, *,
                  certificate_content: Optional[pulumi.Input[str]] = None,
+                 exclude_private_key: Optional[pulumi.Input[bool]] = None,
                  key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -109,6 +126,7 @@ class _SpringCloudCertificateState:
         """
         Input properties used for looking up and filtering SpringCloudCertificate resources.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -117,6 +135,8 @@ class _SpringCloudCertificateState:
         """
         if certificate_content is not None:
             pulumi.set(__self__, "certificate_content", certificate_content)
+        if exclude_private_key is not None:
+            pulumi.set(__self__, "exclude_private_key", exclude_private_key)
         if key_vault_certificate_id is not None:
             pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
         if name is not None:
@@ -139,6 +159,18 @@ class _SpringCloudCertificateState:
     @certificate_content.setter
     def certificate_content(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_content", value)
+
+    @property
+    @pulumi.getter(name="excludePrivateKey")
+    def exclude_private_key(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_private_key")
+
+    @exclude_private_key.setter
+    def exclude_private_key(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_private_key", value)
 
     @property
     @pulumi.getter(name="keyVaultCertificateId")
@@ -207,6 +239,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_content: Optional[pulumi.Input[str]] = None,
+                 exclude_private_key: Optional[pulumi.Input[bool]] = None,
                  key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -224,7 +257,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Domain-Management")
+        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -297,7 +330,8 @@ class SpringCloudCertificate(pulumi.CustomResource):
         example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate",
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name,
-            key_vault_certificate_id=example_certificate.id)
+            key_vault_certificate_id=example_certificate.id,
+            exclude_private_key=True)
         ```
 
         ## Import
@@ -311,6 +345,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -334,7 +369,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Domain-Management")
+        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -407,7 +442,8 @@ class SpringCloudCertificate(pulumi.CustomResource):
         example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate",
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name,
-            key_vault_certificate_id=example_certificate.id)
+            key_vault_certificate_id=example_certificate.id,
+            exclude_private_key=True)
         ```
 
         ## Import
@@ -434,6 +470,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_content: Optional[pulumi.Input[str]] = None,
+                 exclude_private_key: Optional[pulumi.Input[bool]] = None,
                  key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -448,6 +485,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             __props__ = SpringCloudCertificateArgs.__new__(SpringCloudCertificateArgs)
 
             __props__.__dict__["certificate_content"] = certificate_content
+            __props__.__dict__["exclude_private_key"] = exclude_private_key
             __props__.__dict__["key_vault_certificate_id"] = key_vault_certificate_id
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -468,6 +506,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_content: Optional[pulumi.Input[str]] = None,
+            exclude_private_key: Optional[pulumi.Input[bool]] = None,
             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -481,6 +520,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -492,6 +532,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         __props__ = _SpringCloudCertificateState.__new__(_SpringCloudCertificateState)
 
         __props__.__dict__["certificate_content"] = certificate_content
+        __props__.__dict__["exclude_private_key"] = exclude_private_key
         __props__.__dict__["key_vault_certificate_id"] = key_vault_certificate_id
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -506,6 +547,14 @@ class SpringCloudCertificate(pulumi.CustomResource):
         The content of uploaded certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_content")
+
+    @property
+    @pulumi.getter(name="excludePrivateKey")
+    def exclude_private_key(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_private_key")
 
     @property
     @pulumi.getter(name="keyVaultCertificateId")

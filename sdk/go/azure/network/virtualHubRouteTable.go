@@ -133,7 +133,7 @@ type VirtualHubRouteTable struct {
 	Labels pulumi.StringArrayOutput `pulumi:"labels"`
 	// The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `route` block as defined below.
+	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteTableRouteTypeArrayOutput `pulumi:"routes"`
 	// The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
@@ -175,7 +175,7 @@ type virtualHubRouteTableState struct {
 	Labels []string `pulumi:"labels"`
 	// The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `route` block as defined below.
+	// One or more `route` blocks as defined below.
 	Routes []VirtualHubRouteTableRouteType `pulumi:"routes"`
 	// The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
@@ -186,7 +186,7 @@ type VirtualHubRouteTableState struct {
 	Labels pulumi.StringArrayInput
 	// The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `route` block as defined below.
+	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteTableRouteTypeArrayInput
 	// The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type virtualHubRouteTableArgs struct {
 	Labels []string `pulumi:"labels"`
 	// The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `route` block as defined below.
+	// One or more `route` blocks as defined below.
 	Routes []VirtualHubRouteTableRouteType `pulumi:"routes"`
 	// The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
@@ -213,7 +213,7 @@ type VirtualHubRouteTableArgs struct {
 	Labels pulumi.StringArrayInput
 	// The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `route` block as defined below.
+	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteTableRouteTypeArrayInput
 	// The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
@@ -316,7 +316,7 @@ func (o VirtualHubRouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHubRouteTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `route` block as defined below.
+// One or more `route` blocks as defined below.
 func (o VirtualHubRouteTableOutput) Routes() VirtualHubRouteTableRouteTypeArrayOutput {
 	return o.ApplyT(func(v *VirtualHubRouteTable) VirtualHubRouteTableRouteTypeArrayOutput { return v.Routes }).(VirtualHubRouteTableRouteTypeArrayOutput)
 }

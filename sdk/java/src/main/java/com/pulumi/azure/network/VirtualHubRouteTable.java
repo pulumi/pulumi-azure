@@ -157,14 +157,14 @@ public class VirtualHubRouteTable extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `route` block as defined below.
+     * One or more `route` blocks as defined below.
      * 
      */
     @Export(name="routes", refs={List.class,VirtualHubRouteTableRoute.class}, tree="[0,1]")
     private Output<List<VirtualHubRouteTableRoute>> routes;
 
     /**
-     * @return A `route` block as defined below.
+     * @return One or more `route` blocks as defined below.
      * 
      */
     public Output<List<VirtualHubRouteTableRoute>> routes() {

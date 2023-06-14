@@ -198,14 +198,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.privateEndpointConnections;
     }
     /**
-     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     * Whether public network access is allowed for the automation account. Defaults to `true`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for the container registry. Defaults to `true`.
+     * @return Whether public network access is allowed for the automation account. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

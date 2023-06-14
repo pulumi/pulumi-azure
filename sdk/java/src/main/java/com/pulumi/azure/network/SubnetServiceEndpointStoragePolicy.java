@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * Manages a Subnet Service Endpoint Storage Policy.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -32,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.network.SubnetServiceEndpointStoragePolicy;
  * import com.pulumi.azure.network.SubnetServiceEndpointStoragePolicyArgs;
- * import com.pulumi.azure.network.inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,13 +60,27 @@ import javax.annotation.Nullable;
  *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy(&#34;exampleSubnetServiceEndpointStoragePolicy&#34;, SubnetServiceEndpointStoragePolicyArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .definition(SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
- *                 .name(&#34;name1&#34;)
- *                 .description(&#34;definition1&#34;)
- *                 .serviceResources(                
- *                     exampleResourceGroup.id(),
- *                     exampleAccount.id())
- *                 .build())
+ *             .definition(            
+ *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
+ *                     .name(&#34;name1&#34;)
+ *                     .description(&#34;definition1&#34;)
+ *                     .service(&#34;Microsoft.Storage&#34;)
+ *                     .serviceResources(                    
+ *                         exampleResourceGroup.id(),
+ *                         exampleAccount.id())
+ *                     .build(),
+ *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
+ *                     .name(&#34;name2&#34;)
+ *                     .description(&#34;definition2&#34;)
+ *                     .service(&#34;Global&#34;)
+ *                     .serviceResources(                    
+ *                         &#34;/services/Azure&#34;,
+ *                         &#34;/services/Azure/Batch&#34;,
+ *                         &#34;/services/Azure/DataFactory&#34;,
+ *                         &#34;/services/Azure/MachineLearning&#34;,
+ *                         &#34;/services/Azure/ManagedInstance&#34;,
+ *                         &#34;/services/Azure/WebPI&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }

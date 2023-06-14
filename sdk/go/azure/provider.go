@@ -27,8 +27,13 @@ type Provider struct {
 	ClientCertificatePath pulumi.StringPtrOutput `pulumi:"clientCertificatePath"`
 	// The Client ID which should be used.
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// The path to a file containing the Client ID which should be used.
+	ClientIdFilePath pulumi.StringPtrOutput `pulumi:"clientIdFilePath"`
 	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
+	// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+	// using a Client Secret.
+	ClientSecretFilePath pulumi.StringPtrOutput `pulumi:"clientSecretFilePath"`
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The Hostname which should be used for the Azure Metadata Service.
@@ -106,8 +111,13 @@ type providerArgs struct {
 	ClientCertificatePath *string `pulumi:"clientCertificatePath"`
 	// The Client ID which should be used.
 	ClientId *string `pulumi:"clientId"`
+	// The path to a file containing the Client ID which should be used.
+	ClientIdFilePath *string `pulumi:"clientIdFilePath"`
 	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 	ClientSecret *string `pulumi:"clientSecret"`
+	// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+	// using a Client Secret.
+	ClientSecretFilePath *string `pulumi:"clientSecretFilePath"`
 	// This will disable the x-ms-correlation-request-id header.
 	DisableCorrelationRequestId *bool `pulumi:"disableCorrelationRequestId"`
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
@@ -162,8 +172,13 @@ type ProviderArgs struct {
 	ClientCertificatePath pulumi.StringPtrInput
 	// The Client ID which should be used.
 	ClientId pulumi.StringPtrInput
+	// The path to a file containing the Client ID which should be used.
+	ClientIdFilePath pulumi.StringPtrInput
 	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 	ClientSecret pulumi.StringPtrInput
+	// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+	// using a Client Secret.
+	ClientSecretFilePath pulumi.StringPtrInput
 	// This will disable the x-ms-correlation-request-id header.
 	DisableCorrelationRequestId pulumi.BoolPtrInput
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
@@ -264,9 +279,20 @@ func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The path to a file containing the Client ID which should be used.
+func (o ProviderOutput) ClientIdFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIdFilePath }).(pulumi.StringPtrOutput)
+}
+
 // The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 func (o ProviderOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+// using a Client Secret.
+func (o ProviderOutput) ClientSecretFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecretFilePath }).(pulumi.StringPtrOutput)
 }
 
 // The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.

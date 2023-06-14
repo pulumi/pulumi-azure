@@ -46,9 +46,18 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly clientId!: pulumi.Output<string | undefined>;
     /**
+     * The path to a file containing the Client ID which should be used.
+     */
+    public readonly clientIdFilePath!: pulumi.Output<string | undefined>;
+    /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
     public readonly clientSecret!: pulumi.Output<string | undefined>;
+    /**
+     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+     * using a Client Secret.
+     */
+    public readonly clientSecretFilePath!: pulumi.Output<string | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
      */
@@ -109,7 +118,9 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
             resourceInputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientIdFilePath"] = args ? args.clientIdFilePath : undefined;
             resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecretFilePath"] = args ? args.clientSecretFilePath : undefined;
             resourceInputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
             resourceInputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
@@ -158,9 +169,18 @@ export interface ProviderArgs {
      */
     clientId?: pulumi.Input<string>;
     /**
+     * The path to a file containing the Client ID which should be used.
+     */
+    clientIdFilePath?: pulumi.Input<string>;
+    /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
+     * using a Client Secret.
+     */
+    clientSecretFilePath?: pulumi.Input<string>;
     /**
      * This will disable the x-ms-correlation-request-id header.
      */

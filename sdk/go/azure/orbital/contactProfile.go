@@ -39,8 +39,8 @@ import (
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -70,8 +70,8 @@ import (
 //				return err
 //			}
 //			_, err = orbital.NewContactProfile(ctx, "exampleContactProfile", &orbital.ContactProfileArgs{
-//				ResourceGroupName:              pulumi.Any(azurerm_resource_group.Test.Name),
-//				Location:                       pulumi.Any(azurerm_resource_group.Test.Location),
+//				ResourceGroupName:              exampleResourceGroup.Name,
+//				Location:                       exampleResourceGroup.Location,
 //				MinimumVariableContactDuration: pulumi.String("PT1M"),
 //				AutoTracking:                   pulumi.String("disabled"),
 //				Links: orbital.ContactProfileLinkArray{

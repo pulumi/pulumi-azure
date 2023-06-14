@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .cluster import *
 from .cluster_extension import *
+from .flux_configuration import *
 from ._inputs import *
 from . import outputs

@@ -55,11 +55,14 @@ export interface GetVirtualMachineResult {
     readonly id: string;
     /**
      * A `identity` block as defined below.
-     * *
      */
     readonly identities: outputs.compute.GetVirtualMachineIdentity[];
     readonly location: string;
     readonly name: string;
+    /**
+     * The power state of the virtual machine.
+     */
+    readonly powerState: string;
     /**
      * The Primary Private IP Address assigned to this Virtual Machine.
      */

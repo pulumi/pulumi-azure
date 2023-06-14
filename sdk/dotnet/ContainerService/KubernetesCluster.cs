@@ -314,7 +314,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         /// </summary>
@@ -517,7 +517,7 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
         /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+        /// &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         /// </summary>
         [Output("workloadIdentityEnabled")]
         public Output<bool?> WorkloadIdentityEnabled { get; private set; } = null!;
@@ -790,7 +790,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         /// </summary>
@@ -975,7 +975,7 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
         /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+        /// &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         /// </summary>
         [Input("workloadIdentityEnabled")]
         public Input<bool>? WorkloadIdentityEnabled { get; set; }
@@ -1279,7 +1279,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. 
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         /// </summary>
@@ -1488,7 +1488,7 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
         /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableWorkloadIdentityPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag) for more information.
+        /// &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         /// </summary>
         [Input("workloadIdentityEnabled")]
         public Input<bool>? WorkloadIdentityEnabled { get; set; }

@@ -57,6 +57,7 @@ import javax.annotation.Nullable;
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
  *             .policyType(&#34;Custom&#34;)
  *             .mode(&#34;All&#34;)
+ *             .displayName(&#34;my-policy-definition&#34;)
  *             .policyRule(&#34;&#34;&#34;
  *  {
  *     &#34;if&#34;: {
@@ -183,14 +184,14 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
         return this.metadata;
     }
     /**
-     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+     * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
+     * @return The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
     public Output<String> name() {

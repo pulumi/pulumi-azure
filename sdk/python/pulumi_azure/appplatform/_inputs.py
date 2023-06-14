@@ -28,6 +28,7 @@ __all__ = [
     'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs',
     'SpringCloudDevToolPortalSsoArgs',
     'SpringCloudGatewayApiMetadataArgs',
+    'SpringCloudGatewayClientAuthorizationArgs',
     'SpringCloudGatewayCorsArgs',
     'SpringCloudGatewayQuotaArgs',
     'SpringCloudGatewayRouteConfigOpenApiArgs',
@@ -40,6 +41,8 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs',
     'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs',
     'SpringCloudServiceConfigServerGitSettingSshAuthArgs',
+    'SpringCloudServiceContainerRegistryArgs',
+    'SpringCloudServiceDefaultBuildServiceArgs',
     'SpringCloudServiceNetworkArgs',
     'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
     'SpringCloudServiceTraceArgs',
@@ -932,6 +935,7 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
                  url: pulumi.Input[str],
                  basic_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']] = None,
                  branch: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_id: Optional[pulumi.Input[str]] = None,
                  commit: Optional[pulumi.Input[str]] = None,
                  git_tag: Optional[pulumi.Input[str]] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -940,6 +944,7 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
         :param pulumi.Input[str] url: Specifies Git repository URL for the accelerator.
         :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs'] basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[str] branch: Specifies the Git repository branch to be used.
+        :param pulumi.Input[str] ca_certificate_id: Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
         :param pulumi.Input[str] commit: Specifies the Git repository commit to be used.
         :param pulumi.Input[str] git_tag: Specifies the Git repository tag to be used.
         :param pulumi.Input[int] interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
@@ -950,6 +955,8 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
             pulumi.set(__self__, "basic_auth", basic_auth)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
+        if ca_certificate_id is not None:
+            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
         if commit is not None:
             pulumi.set(__self__, "commit", commit)
         if git_tag is not None:
@@ -994,6 +1001,18 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
     @branch.setter
     def branch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="caCertificateId")
+    def ca_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_certificate_id")
+
+    @ca_certificate_id.setter
+    def ca_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_id", value)
 
     @property
     @pulumi.getter
@@ -1291,6 +1310,45 @@ class SpringCloudGatewayApiMetadataArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayClientAuthorizationArgs:
+    def __init__(__self__, *,
+                 certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verification_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+        :param pulumi.Input[bool] verification_enabled: Specifies whether the client certificate verification is enabled.
+        """
+        if certificate_ids is not None:
+            pulumi.set(__self__, "certificate_ids", certificate_ids)
+        if verification_enabled is not None:
+            pulumi.set(__self__, "verification_enabled", verification_enabled)
+
+    @property
+    @pulumi.getter(name="certificateIds")
+    def certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+        """
+        return pulumi.get(self, "certificate_ids")
+
+    @certificate_ids.setter
+    def certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "certificate_ids", value)
+
+    @property
+    @pulumi.getter(name="verificationEnabled")
+    def verification_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the client certificate verification is enabled.
+        """
+        return pulumi.get(self, "verification_enabled")
+
+    @verification_enabled.setter
+    def verification_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verification_enabled", value)
 
 
 @pulumi.input_type
@@ -2165,6 +2223,96 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
     @strict_host_key_checking_enabled.setter
     def strict_host_key_checking_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "strict_host_key_checking_enabled", value)
+
+
+@pulumi.input_type
+class SpringCloudServiceContainerRegistryArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 server: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Specifies the name of the container registry.
+        :param pulumi.Input[str] password: Specifies the password of the container registry.
+        :param pulumi.Input[str] server: Specifies the login server of the container registry.
+        :param pulumi.Input[str] username: Specifies the username of the container registry.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the container registry.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Specifies the password of the container registry.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> pulumi.Input[str]:
+        """
+        Specifies the login server of the container registry.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        Specifies the username of the container registry.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class SpringCloudServiceDefaultBuildServiceArgs:
+    def __init__(__self__, *,
+                 container_registry_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] container_registry_name: Specifies the name of the container registry used in the default build service.
+        """
+        if container_registry_name is not None:
+            pulumi.set(__self__, "container_registry_name", container_registry_name)
+
+    @property
+    @pulumi.getter(name="containerRegistryName")
+    def container_registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the container registry used in the default build service.
+        """
+        return pulumi.get(self, "container_registry_name")
+
+    @container_registry_name.setter
+    def container_registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_name", value)
 
 
 @pulumi.input_type

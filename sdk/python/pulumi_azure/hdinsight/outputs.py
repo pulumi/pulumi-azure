@@ -4514,10 +4514,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
                  capacity: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity'] = None,
                  recurrence: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
         """
-        :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs' capacity: A `capacity` block as defined below.
         :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
-               
-               > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -4527,9 +4524,6 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
     @property
     @pulumi.getter
     def capacity(self) -> Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity']:
-        """
-        A `capacity` block as defined below.
-        """
         return pulumi.get(self, "capacity")
 
     @property
@@ -4537,8 +4531,6 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
     def recurrence(self) -> Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence']:
         """
         A `recurrence` block as defined below.
-
-        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
         return pulumi.get(self, "recurrence")
 
@@ -4567,27 +4559,17 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(dict):
     def __init__(__self__, *,
                  max_instance_count: int,
                  min_instance_count: int):
-        """
-        :param int max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
-        :param int min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
-        """
         pulumi.set(__self__, "max_instance_count", max_instance_count)
         pulumi.set(__self__, "min_instance_count", min_instance_count)
 
     @property
     @pulumi.getter(name="maxInstanceCount")
     def max_instance_count(self) -> int:
-        """
-        The maximum number of worker nodes to autoscale to based on the cluster's activity.
-        """
         return pulumi.get(self, "max_instance_count")
 
     @property
     @pulumi.getter(name="minInstanceCount")
     def min_instance_count(self) -> int:
-        """
-        The minimum number of worker nodes to autoscale to based on the cluster's activity.
-        """
         return pulumi.get(self, "min_instance_count")
 
 

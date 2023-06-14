@@ -147,8 +147,8 @@ def get_express_route_circuit(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_express_route_circuit(resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.network.get_express_route_circuit(resource_group_name=azurerm_resource_group["example"]["name"],
+        name=azurerm_express_route_circuit["example"]["name"])
     pulumi.export("expressRouteCircuitId", example.id)
     pulumi.export("serviceKey", example.service_key)
     ```
@@ -188,8 +188,8 @@ def get_express_route_circuit_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_express_route_circuit(resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = azure.network.get_express_route_circuit(resource_group_name=azurerm_resource_group["example"]["name"],
+        name=azurerm_express_route_circuit["example"]["name"])
     pulumi.export("expressRouteCircuitId", example.id)
     pulumi.export("serviceKey", example.service_key)
     ```

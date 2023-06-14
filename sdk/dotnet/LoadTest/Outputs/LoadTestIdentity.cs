@@ -13,18 +13,22 @@ namespace Pulumi.Azure.LoadTest.Outputs
     [OutputType]
     public sealed class LoadTestIdentity
     {
+        public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         public readonly string Type;
 
         [OutputConstructor]
         private LoadTestIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

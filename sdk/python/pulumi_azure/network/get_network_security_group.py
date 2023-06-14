@@ -115,7 +115,7 @@ def get_network_security_group(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.network.get_network_security_group(name="example",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("location", example.location)
     ```
 
@@ -152,7 +152,7 @@ def get_network_security_group_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.network.get_network_security_group(name="example",
-        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("location", example.location)
     ```
 

@@ -4,12 +4,15 @@
 package com.pulumi.azure.appplatform;
 
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceConfigServerGitSettingArgs;
+import com.pulumi.azure.appplatform.inputs.SpringCloudServiceContainerRegistryArgs;
+import com.pulumi.azure.appplatform.inputs.SpringCloudServiceDefaultBuildServiceArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceNetworkArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceTraceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,6 +51,36 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingArgs>> configServerGitSetting() {
         return Optional.ofNullable(this.configServerGitSetting);
+    }
+
+    /**
+     * One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    @Import(name="containerRegistries")
+    private @Nullable Output<List<SpringCloudServiceContainerRegistryArgs>> containerRegistries;
+
+    /**
+     * @return One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    public Optional<Output<List<SpringCloudServiceContainerRegistryArgs>>> containerRegistries() {
+        return Optional.ofNullable(this.containerRegistries);
+    }
+
+    /**
+     * A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    @Import(name="defaultBuildService")
+    private @Nullable Output<SpringCloudServiceDefaultBuildServiceArgs> defaultBuildService;
+
+    /**
+     * @return A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * 
+     */
+    public Optional<Output<SpringCloudServiceDefaultBuildServiceArgs>> defaultBuildService() {
+        return Optional.ofNullable(this.defaultBuildService);
     }
 
     /**
@@ -205,6 +238,8 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
     private SpringCloudServiceArgs(SpringCloudServiceArgs $) {
         this.buildAgentPoolSize = $.buildAgentPoolSize;
         this.configServerGitSetting = $.configServerGitSetting;
+        this.containerRegistries = $.containerRegistries;
+        this.defaultBuildService = $.defaultBuildService;
         this.location = $.location;
         this.logStreamPublicEndpointEnabled = $.logStreamPublicEndpointEnabled;
         this.name = $.name;
@@ -275,6 +310,58 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
          */
         public Builder configServerGitSetting(SpringCloudServiceConfigServerGitSettingArgs configServerGitSetting) {
             return configServerGitSetting(Output.of(configServerGitSetting));
+        }
+
+        /**
+         * @param containerRegistries One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerRegistries(@Nullable Output<List<SpringCloudServiceContainerRegistryArgs>> containerRegistries) {
+            $.containerRegistries = containerRegistries;
+            return this;
+        }
+
+        /**
+         * @param containerRegistries One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerRegistries(List<SpringCloudServiceContainerRegistryArgs> containerRegistries) {
+            return containerRegistries(Output.of(containerRegistries));
+        }
+
+        /**
+         * @param containerRegistries One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerRegistries(SpringCloudServiceContainerRegistryArgs... containerRegistries) {
+            return containerRegistries(List.of(containerRegistries));
+        }
+
+        /**
+         * @param defaultBuildService A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultBuildService(@Nullable Output<SpringCloudServiceDefaultBuildServiceArgs> defaultBuildService) {
+            $.defaultBuildService = defaultBuildService;
+            return this;
+        }
+
+        /**
+         * @param defaultBuildService A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultBuildService(SpringCloudServiceDefaultBuildServiceArgs defaultBuildService) {
+            return defaultBuildService(Output.of(defaultBuildService));
         }
 
         /**

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceUpstreamEndpointArgs extends com.pulumi.resources.ResourceArgs {
@@ -74,6 +76,21 @@ public final class ServiceUpstreamEndpointArgs extends com.pulumi.resources.Reso
         return this.urlTemplate;
     }
 
+    /**
+     * Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
     private ServiceUpstreamEndpointArgs() {}
 
     private ServiceUpstreamEndpointArgs(ServiceUpstreamEndpointArgs $) {
@@ -81,6 +98,7 @@ public final class ServiceUpstreamEndpointArgs extends com.pulumi.resources.Reso
         this.eventPatterns = $.eventPatterns;
         this.hubPatterns = $.hubPatterns;
         this.urlTemplate = $.urlTemplate;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -213,6 +231,27 @@ public final class ServiceUpstreamEndpointArgs extends com.pulumi.resources.Reso
          */
         public Builder urlTemplate(String urlTemplate) {
             return urlTemplate(Output.of(urlTemplate));
+        }
+
+        /**
+         * @param userAssignedIdentityId Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public ServiceUpstreamEndpointArgs build() {

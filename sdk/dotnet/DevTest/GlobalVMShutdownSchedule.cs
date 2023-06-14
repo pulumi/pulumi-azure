@@ -76,8 +76,8 @@ namespace Pulumi.Azure.DevTest
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "UbuntuServer",
-    ///             Sku = "20.04-LTS",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
     ///             Version = "latest",
     ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs

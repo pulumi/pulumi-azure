@@ -48,14 +48,14 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<LoadTestIdentityArgs> identity;
 
     /**
-     * @return Specifies the Managed Identity which should be assigned to this Load Test.
+     * @return An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      * 
      */
     public Optional<Output<LoadTestIdentityArgs>> identity() {
@@ -195,7 +195,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity Specifies the Managed Identity which should be assigned to this Load Test.
+         * @param identity An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity Specifies the Managed Identity which should be assigned to this Load Test.
+         * @param identity An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
          * 
          * @return builder
          * 

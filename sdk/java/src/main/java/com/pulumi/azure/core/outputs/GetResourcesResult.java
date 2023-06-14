@@ -24,6 +24,10 @@ public final class GetResourcesResult {
      */
     private String name;
     private @Nullable Map<String,String> requiredTags;
+    /**
+     * @return The name of the Resource Group in which this Resource exists.
+     * 
+     */
     private String resourceGroupName;
     /**
      * @return One or more `resource` blocks as defined below.
@@ -54,6 +58,10 @@ public final class GetResourcesResult {
     public Map<String,String> requiredTags() {
         return this.requiredTags == null ? Map.of() : this.requiredTags;
     }
+    /**
+     * @return The name of the Resource Group in which this Resource exists.
+     * 
+     */
     public String resourceGroupName() {
         return this.resourceGroupName;
     }

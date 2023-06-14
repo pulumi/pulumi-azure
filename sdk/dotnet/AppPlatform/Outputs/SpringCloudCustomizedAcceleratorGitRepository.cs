@@ -22,6 +22,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? Branch;
         /// <summary>
+        /// Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+        /// </summary>
+        public readonly string? CaCertificateId;
+        /// <summary>
         /// Specifies the Git repository commit to be used.
         /// </summary>
         public readonly string? Commit;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             string? branch,
 
+            string? caCertificateId,
+
             string? commit,
 
             string? gitTag,
@@ -60,6 +66,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         {
             BasicAuth = basicAuth;
             Branch = branch;
+            CaCertificateId = caCertificateId;
             Commit = commit;
             GitTag = gitTag;
             IntervalInSeconds = intervalInSeconds;

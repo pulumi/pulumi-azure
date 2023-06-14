@@ -3,10 +3,13 @@
 
 package com.pulumi.azure.backup.inputs;
 
+import com.pulumi.azure.backup.inputs.PolicyFileShareBackupHourlyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PolicyFileShareBackupArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,7 +17,7 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
     public static final PolicyFileShareBackupArgs Empty = new PolicyFileShareBackupArgs();
 
     /**
-     * Sets the backup frequency. Currently, only `Daily` is supported
+     * Sets the backup frequency. Possible values are `Daily` and `Hourly`.
      * 
      * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
      * 
@@ -23,7 +26,7 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
     private Output<String> frequency;
 
     /**
-     * @return Sets the backup frequency. Currently, only `Daily` is supported
+     * @return Sets the backup frequency. Possible values are `Daily` and `Hourly`.
      * 
      * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
      * 
@@ -33,24 +36,44 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
      * 
      */
-    @Import(name="time", required=true)
-    private Output<String> time;
+    @Import(name="hourly")
+    private @Nullable Output<PolicyFileShareBackupHourlyArgs> hourly;
+
+    /**
+     * @return A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+     * 
+     */
+    public Optional<Output<PolicyFileShareBackupHourlyArgs>> hourly() {
+        return Optional.ofNullable(this.hourly);
+    }
+
+    /**
+     * The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * 
+     * &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<String> time;
 
     /**
      * @return The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
      * 
+     * &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+     * 
      */
-    public Output<String> time() {
-        return this.time;
+    public Optional<Output<String>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     private PolicyFileShareBackupArgs() {}
 
     private PolicyFileShareBackupArgs(PolicyFileShareBackupArgs $) {
         this.frequency = $.frequency;
+        this.hourly = $.hourly;
         this.time = $.time;
     }
 
@@ -73,7 +96,7 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param frequency Sets the backup frequency. Currently, only `Daily` is supported
+         * @param frequency Sets the backup frequency. Possible values are `Daily` and `Hourly`.
          * 
          * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          * 
@@ -86,7 +109,7 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param frequency Sets the backup frequency. Currently, only `Daily` is supported
+         * @param frequency Sets the backup frequency. Possible values are `Daily` and `Hourly`.
          * 
          * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          * 
@@ -98,18 +121,43 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param time The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         * @param hourly A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
          * 
          * @return builder
          * 
          */
-        public Builder time(Output<String> time) {
+        public Builder hourly(@Nullable Output<PolicyFileShareBackupHourlyArgs> hourly) {
+            $.hourly = hourly;
+            return this;
+        }
+
+        /**
+         * @param hourly A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hourly(PolicyFileShareBackupHourlyArgs hourly) {
+            return hourly(Output.of(hourly));
+        }
+
+        /**
+         * @param time The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         * 
+         * &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<String> time) {
             $.time = time;
             return this;
         }
 
         /**
          * @param time The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         * 
+         * &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
          * 
          * @return builder
          * 
@@ -120,7 +168,6 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
 
         public PolicyFileShareBackupArgs build() {
             $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.time = Objects.requireNonNull($.time, "expected parameter 'time' to be non-null");
             return $;
         }
     }

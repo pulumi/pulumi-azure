@@ -23,6 +23,23 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.automation.Account;
+ * import com.pulumi.azure.automation.AccountArgs;
+ * import com.pulumi.azure.automation.HybridRunbookWorkerGroup;
+ * import com.pulumi.azure.automation.HybridRunbookWorkerGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachine;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.automation.HybridRunbookWorker;
  * import com.pulumi.azure.automation.HybridRunbookWorkerArgs;
  * import java.util.List;
@@ -38,11 +55,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HybridRunbookWorker(&#34;example&#34;, HybridRunbookWorkerArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .automationAccountName(azurerm_automation_account.test().name())
- *             .workerGroupName(azurerm_automation_hybrid_runbook_worker_group.test().name())
- *             .vmResourceId(azurerm_linux_virtual_machine.test().id())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Basic&#34;)
+ *             .build());
+ * 
+ *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup(&#34;exampleHybridRunbookWorkerGroup&#34;, HybridRunbookWorkerGroupArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .addressSpaces(&#34;192.168.1.0/24&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;192.168.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name(&#34;vm-example&#34;)
+ *                 .subnetId(exampleSubnet.id())
+ *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .size(&#34;Standard_B1s&#34;)
+ *             .adminUsername(&#34;testadmin&#34;)
+ *             .adminPassword(&#34;Password1234!&#34;)
+ *             .disablePasswordAuthentication(false)
+ *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
+ *                 .publisher(&#34;OpenLogic&#34;)
+ *                 .offer(&#34;CentOS&#34;)
+ *                 .sku(&#34;7.5&#34;)
+ *                 .version(&#34;latest&#34;)
+ *                 .build())
+ *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .build())
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .build());
+ * 
+ *         var exampleHybridRunbookWorker = new HybridRunbookWorker(&#34;exampleHybridRunbookWorker&#34;, HybridRunbookWorkerArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
+ *             .workerGroupName(exampleHybridRunbookWorkerGroup.name())
+ *             .vmResourceId(exampleLinuxVirtualMachine.id())
  *             .workerId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 

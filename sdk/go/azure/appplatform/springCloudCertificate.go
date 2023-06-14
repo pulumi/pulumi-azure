@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
-//				DisplayName: pulumi.StringRef("Azure Spring Cloud Domain-Management"),
+//				DisplayName: pulumi.StringRef("Azure Spring Cloud Resource Provider"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -135,6 +135,7 @@ import (
 //				ResourceGroupName:     exampleSpringCloudService.ResourceGroupName,
 //				ServiceName:           exampleSpringCloudService.Name,
 //				KeyVaultCertificateId: exampleCertificate.ID(),
+//				ExcludePrivateKey:     pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -159,6 +160,8 @@ type SpringCloudCertificate struct {
 
 	// The content of uploaded certificate. Changing this forces a new resource to be created.
 	CertificateContent pulumi.StringPtrOutput `pulumi:"certificateContent"`
+	// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+	ExcludePrivateKey pulumi.BoolPtrOutput `pulumi:"excludePrivateKey"`
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId pulumi.StringPtrOutput `pulumi:"keyVaultCertificateId"`
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -208,6 +211,8 @@ func GetSpringCloudCertificate(ctx *pulumi.Context,
 type springCloudCertificateState struct {
 	// The content of uploaded certificate. Changing this forces a new resource to be created.
 	CertificateContent *string `pulumi:"certificateContent"`
+	// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+	ExcludePrivateKey *bool `pulumi:"excludePrivateKey"`
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -223,6 +228,8 @@ type springCloudCertificateState struct {
 type SpringCloudCertificateState struct {
 	// The content of uploaded certificate. Changing this forces a new resource to be created.
 	CertificateContent pulumi.StringPtrInput
+	// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+	ExcludePrivateKey pulumi.BoolPtrInput
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -242,6 +249,8 @@ func (SpringCloudCertificateState) ElementType() reflect.Type {
 type springCloudCertificateArgs struct {
 	// The content of uploaded certificate. Changing this forces a new resource to be created.
 	CertificateContent *string `pulumi:"certificateContent"`
+	// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+	ExcludePrivateKey *bool `pulumi:"excludePrivateKey"`
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -256,6 +265,8 @@ type springCloudCertificateArgs struct {
 type SpringCloudCertificateArgs struct {
 	// The content of uploaded certificate. Changing this forces a new resource to be created.
 	CertificateContent pulumi.StringPtrInput
+	// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+	ExcludePrivateKey pulumi.BoolPtrInput
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -356,6 +367,11 @@ func (o SpringCloudCertificateOutput) ToSpringCloudCertificateOutputWithContext(
 // The content of uploaded certificate. Changing this forces a new resource to be created.
 func (o SpringCloudCertificateOutput) CertificateContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudCertificate) pulumi.StringPtrOutput { return v.CertificateContent }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+func (o SpringCloudCertificateOutput) ExcludePrivateKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCertificate) pulumi.BoolPtrOutput { return v.ExcludePrivateKey }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.

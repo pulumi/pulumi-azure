@@ -8303,7 +8303,7 @@ type FirewallIpConfiguration struct {
 	Name string `pulumi:"name"`
 	// The private IP address associated with the Firewall.
 	PrivateIpAddress  *string `pulumi:"privateIpAddress"`
-	PublicIpAddressId string  `pulumi:"publicIpAddressId"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 	//
 	// > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
@@ -8328,7 +8328,7 @@ type FirewallIpConfigurationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The private IP address associated with the Firewall.
 	PrivateIpAddress  pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	PublicIpAddressId pulumi.StringInput    `pulumi:"publicIpAddressId"`
+	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 	//
 	// > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
@@ -8398,8 +8398,8 @@ func (o FirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
 // Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
@@ -17268,7 +17268,7 @@ type SubnetDelegationServiceDelegation struct {
 	//
 	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions []string `pulumi:"actions"`
-	// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
 	Name string `pulumi:"name"`
 }
 
@@ -17288,7 +17288,7 @@ type SubnetDelegationServiceDelegationArgs struct {
 	//
 	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -17325,7 +17325,7 @@ func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOut
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17335,7 +17335,11 @@ type SubnetServiceEndpointStoragePolicyDefinition struct {
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
 	Name string `pulumi:"name"`
-	// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+	// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+	Service *string `pulumi:"service"`
+	// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+	//
+	// > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
 	ServiceResources []string `pulumi:"serviceResources"`
 }
 
@@ -17355,7 +17359,11 @@ type SubnetServiceEndpointStoragePolicyDefinitionArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+	// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+	Service pulumi.StringPtrInput `pulumi:"service"`
+	// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+	//
+	// > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
 	ServiceResources pulumi.StringArrayInput `pulumi:"serviceResources"`
 }
 
@@ -17446,7 +17454,14 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) Name() pulumi.String
 	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+//
+// > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
 func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ServiceResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) []string { return v.ServiceResources }).(pulumi.StringArrayOutput)
 }
@@ -17495,7 +17510,19 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+//
+// > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
 func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ServiceResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) []string {
 		if v == nil {

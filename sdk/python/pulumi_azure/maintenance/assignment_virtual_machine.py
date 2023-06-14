@@ -172,8 +172,8 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             ),
             source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         example_configuration = azure.maintenance.Configuration("exampleConfiguration",
@@ -248,8 +248,8 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             ),
             source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         example_configuration = azure.maintenance.Configuration("exampleConfiguration",

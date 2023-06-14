@@ -5,10 +5,13 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,6 +34,40 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
     }
 
     /**
+     * The days of the month to retain backups of. Must be between `1` and `31`.
+     * 
+     */
+    @Import(name="days")
+    private @Nullable Output<List<Integer>> days;
+
+    /**
+     * @return The days of the month to retain backups of. Must be between `1` and `31`.
+     * 
+     */
+    public Optional<Output<List<Integer>>> days() {
+        return Optional.ofNullable(this.days);
+    }
+
+    /**
+     * Including the last day of the month, default to `false`.
+     * 
+     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * 
+     */
+    @Import(name="includeLastDays")
+    private @Nullable Output<Boolean> includeLastDays;
+
+    /**
+     * @return Including the last day of the month, default to `false`.
+     * 
+     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * 
+     */
+    public Optional<Output<Boolean>> includeLastDays() {
+        return Optional.ofNullable(this.includeLastDays);
+    }
+
+    /**
      * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
      * 
      */
@@ -49,36 +86,38 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
      * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    @Import(name="weekdays", required=true)
-    private Output<List<String>> weekdays;
+    @Import(name="weekdays")
+    private @Nullable Output<List<String>> weekdays;
 
     /**
      * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    public Output<List<String>> weekdays() {
-        return this.weekdays;
+    public Optional<Output<List<String>>> weekdays() {
+        return Optional.ofNullable(this.weekdays);
     }
 
     /**
      * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
      * 
      */
-    @Import(name="weeks", required=true)
-    private Output<List<String>> weeks;
+    @Import(name="weeks")
+    private @Nullable Output<List<String>> weeks;
 
     /**
      * @return The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
      * 
      */
-    public Output<List<String>> weeks() {
-        return this.weeks;
+    public Optional<Output<List<String>>> weeks() {
+        return Optional.ofNullable(this.weeks);
     }
 
     private PolicyFileShareRetentionYearlyArgs() {}
 
     private PolicyFileShareRetentionYearlyArgs(PolicyFileShareRetentionYearlyArgs $) {
         this.count = $.count;
+        this.days = $.days;
+        this.includeLastDays = $.includeLastDays;
         this.months = $.months;
         this.weekdays = $.weekdays;
         this.weeks = $.weeks;
@@ -124,6 +163,62 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param days The days of the month to retain backups of. Must be between `1` and `31`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder days(@Nullable Output<List<Integer>> days) {
+            $.days = days;
+            return this;
+        }
+
+        /**
+         * @param days The days of the month to retain backups of. Must be between `1` and `31`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder days(List<Integer> days) {
+            return days(Output.of(days));
+        }
+
+        /**
+         * @param days The days of the month to retain backups of. Must be between `1` and `31`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder days(Integer... days) {
+            return days(List.of(days));
+        }
+
+        /**
+         * @param includeLastDays Including the last day of the month, default to `false`.
+         * 
+         * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeLastDays(@Nullable Output<Boolean> includeLastDays) {
+            $.includeLastDays = includeLastDays;
+            return this;
+        }
+
+        /**
+         * @param includeLastDays Including the last day of the month, default to `false`.
+         * 
+         * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeLastDays(Boolean includeLastDays) {
+            return includeLastDays(Output.of(includeLastDays));
+        }
+
+        /**
          * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
          * 
          * @return builder
@@ -160,7 +255,7 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder weekdays(Output<List<String>> weekdays) {
+        public Builder weekdays(@Nullable Output<List<String>> weekdays) {
             $.weekdays = weekdays;
             return this;
         }
@@ -191,7 +286,7 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder weeks(Output<List<String>> weeks) {
+        public Builder weeks(@Nullable Output<List<String>> weeks) {
             $.weeks = weeks;
             return this;
         }
@@ -219,8 +314,6 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
         public PolicyFileShareRetentionYearlyArgs build() {
             $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
             $.months = Objects.requireNonNull($.months, "expected parameter 'months' to be non-null");
-            $.weekdays = Objects.requireNonNull($.weekdays, "expected parameter 'weekdays' to be non-null");
-            $.weeks = Objects.requireNonNull($.weeks, "expected parameter 'weeks' to be non-null");
             return $;
         }
     }

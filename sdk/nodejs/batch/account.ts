@@ -107,7 +107,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      *
      * > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
      *
@@ -244,7 +244,7 @@ export interface AccountState {
      */
     primaryAccessKey?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      *
      * > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
      *
@@ -316,7 +316,7 @@ export interface AccountArgs {
      */
     poolAllocationMode?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this server. Defaults to `true`.
      *
      * > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
      *
