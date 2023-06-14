@@ -14667,6 +14667,13 @@
             },
             "azurerm_mysql_flexible_server_active_directory_administrator": {
                 "current": "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator",
+                "past": [
+                    {
+                        "name": "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
                 "majorVersion": 5
             },
             "azurerm_mysql_flexible_server_configuration": {
@@ -23426,7 +23433,8 @@
             "azure:mysql/firewallRule:FirewallRule": "azurerm_mysql_firewall_rule",
             "azure:mysql/flexibleDatabase:FlexibleDatabase": "azurerm_mysql_flexible_database",
             "azure:mysql/flexibleServer:FlexibleServer": "azurerm_mysql_flexible_server",
-            "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "azurerm_mysql_flexible_server_active_directory_administrator",
+            "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "azurerm_mysql_flexible_server_active_directory_administrator_legacy",
+            "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory": "azurerm_mysql_flexible_server_active_directory_administrator",
             "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration": "azurerm_mysql_flexible_server_configuration",
             "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule": "azurerm_mysql_flexible_server_firewall_rule",
             "azure:mysql/server:Server": "azurerm_mysql_server",
@@ -42811,6 +42819,12 @@
                 "sourceServerId": "source_server_id"
             },
             "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": {
+                "identityId": "identity_id",
+                "objectId": "object_id",
+                "serverId": "server_id",
+                "tenantId": "tenant_id"
+            },
+            "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory": {
                 "identityId": "identity_id",
                 "objectId": "object_id",
                 "serverId": "server_id",
