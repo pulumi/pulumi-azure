@@ -1007,6 +1007,7 @@
         "mysql/flexibleDatabase.ts",
         "mysql/flexibleServer.ts",
         "mysql/flexibleServerActiveDirectoryAdministrator.ts",
+        "mysql/flexibleServerActiveDirectoryAdministratory.ts",
         "mysql/flexibleServerConfiguration.ts",
         "mysql/flexibleServerFirewallRule.ts",
         "mysql/getFlexibleServer.ts",

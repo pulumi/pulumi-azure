@@ -9,9 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MySql
 {
-    [Obsolete(@"azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory")]
-    [AzureResourceType("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator")]
-    public partial class FlexibleServerActiveDirectoryAdministrator : global::Pulumi.CustomResource
+    [AzureResourceType("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory")]
+    public partial class FlexibleServerActiveDirectoryAdministratory : global::Pulumi.CustomResource
     {
         [Output("identityId")]
         public Output<string> IdentityId { get; private set; } = null!;
@@ -30,19 +29,19 @@ namespace Pulumi.Azure.MySql
 
 
         /// <summary>
-        /// Create a FlexibleServerActiveDirectoryAdministrator resource with the given unique name, arguments, and options.
+        /// Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public FlexibleServerActiveDirectoryAdministrator(string name, FlexibleServerActiveDirectoryAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, args ?? new FlexibleServerActiveDirectoryAdministratorArgs(), MakeResourceOptions(options, ""))
+        public FlexibleServerActiveDirectoryAdministratory(string name, FlexibleServerActiveDirectoryAdministratoryArgs args, CustomResourceOptions? options = null)
+            : base("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, args ?? new FlexibleServerActiveDirectoryAdministratoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private FlexibleServerActiveDirectoryAdministrator(string name, Input<string> id, FlexibleServerActiveDirectoryAdministratorState? state = null, CustomResourceOptions? options = null)
-            : base("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, state, MakeResourceOptions(options, id))
+        private FlexibleServerActiveDirectoryAdministratory(string name, Input<string> id, FlexibleServerActiveDirectoryAdministratoryState? state = null, CustomResourceOptions? options = null)
+            : base("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -51,6 +50,10 @@ namespace Pulumi.Azure.MySql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -58,7 +61,7 @@ namespace Pulumi.Azure.MySql
             return merged;
         }
         /// <summary>
-        /// Get an existing FlexibleServerActiveDirectoryAdministrator resource's state with the given name, ID, and optional extra
+        /// Get an existing FlexibleServerActiveDirectoryAdministratory resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -66,13 +69,13 @@ namespace Pulumi.Azure.MySql
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static FlexibleServerActiveDirectoryAdministrator Get(string name, Input<string> id, FlexibleServerActiveDirectoryAdministratorState? state = null, CustomResourceOptions? options = null)
+        public static FlexibleServerActiveDirectoryAdministratory Get(string name, Input<string> id, FlexibleServerActiveDirectoryAdministratoryState? state = null, CustomResourceOptions? options = null)
         {
-            return new FlexibleServerActiveDirectoryAdministrator(name, id, state, options);
+            return new FlexibleServerActiveDirectoryAdministratory(name, id, state, options);
         }
     }
 
-    public sealed class FlexibleServerActiveDirectoryAdministratorArgs : global::Pulumi.ResourceArgs
+    public sealed class FlexibleServerActiveDirectoryAdministratoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityId", required: true)]
         public Input<string> IdentityId { get; set; } = null!;
@@ -89,13 +92,13 @@ namespace Pulumi.Azure.MySql
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
 
-        public FlexibleServerActiveDirectoryAdministratorArgs()
+        public FlexibleServerActiveDirectoryAdministratoryArgs()
         {
         }
-        public static new FlexibleServerActiveDirectoryAdministratorArgs Empty => new FlexibleServerActiveDirectoryAdministratorArgs();
+        public static new FlexibleServerActiveDirectoryAdministratoryArgs Empty => new FlexibleServerActiveDirectoryAdministratoryArgs();
     }
 
-    public sealed class FlexibleServerActiveDirectoryAdministratorState : global::Pulumi.ResourceArgs
+    public sealed class FlexibleServerActiveDirectoryAdministratoryState : global::Pulumi.ResourceArgs
     {
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -112,9 +115,9 @@ namespace Pulumi.Azure.MySql
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
-        public FlexibleServerActiveDirectoryAdministratorState()
+        public FlexibleServerActiveDirectoryAdministratoryState()
         {
         }
-        public static new FlexibleServerActiveDirectoryAdministratorState Empty => new FlexibleServerActiveDirectoryAdministratorState();
+        public static new FlexibleServerActiveDirectoryAdministratoryState Empty => new FlexibleServerActiveDirectoryAdministratoryState();
     }
 }

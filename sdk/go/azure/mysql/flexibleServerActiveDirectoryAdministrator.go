@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory
 type FlexibleServerActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
 

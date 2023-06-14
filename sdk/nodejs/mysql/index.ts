@@ -40,6 +40,11 @@ export type FlexibleServerActiveDirectoryAdministrator = import("./flexibleServe
 export const FlexibleServerActiveDirectoryAdministrator: typeof import("./flexibleServerActiveDirectoryAdministrator").FlexibleServerActiveDirectoryAdministrator = null as any;
 utilities.lazyLoad(exports, ["FlexibleServerActiveDirectoryAdministrator"], () => require("./flexibleServerActiveDirectoryAdministrator"));
 
+export { FlexibleServerActiveDirectoryAdministratoryArgs, FlexibleServerActiveDirectoryAdministratoryState } from "./flexibleServerActiveDirectoryAdministratory";
+export type FlexibleServerActiveDirectoryAdministratory = import("./flexibleServerActiveDirectoryAdministratory").FlexibleServerActiveDirectoryAdministratory;
+export const FlexibleServerActiveDirectoryAdministratory: typeof import("./flexibleServerActiveDirectoryAdministratory").FlexibleServerActiveDirectoryAdministratory = null as any;
+utilities.lazyLoad(exports, ["FlexibleServerActiveDirectoryAdministratory"], () => require("./flexibleServerActiveDirectoryAdministratory"));
+
 export { FlexibleServerConfigurationArgs, FlexibleServerConfigurationState } from "./flexibleServerConfiguration";
 export type FlexibleServerConfiguration = import("./flexibleServerConfiguration").FlexibleServerConfiguration;
 export const FlexibleServerConfiguration: typeof import("./flexibleServerConfiguration").FlexibleServerConfiguration = null as any;
@@ -94,6 +99,8 @@ const _module = {
                 return new FlexibleServer(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
                 return new FlexibleServerActiveDirectoryAdministrator(name, <any>undefined, { urn })
+            case "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory":
+                return new FlexibleServerActiveDirectoryAdministratory(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration":
                 return new FlexibleServerConfiguration(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule":
@@ -116,6 +123,7 @@ pulumi.runtime.registerResourceModule("azure", "mysql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerActiveDirectoryAdministrator", _module)
+pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerActiveDirectoryAdministratory", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/server", _module)

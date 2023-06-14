@@ -4,23 +4,19 @@
 package com.pulumi.azure.mysql;
 
 import com.pulumi.azure.Utilities;
-import com.pulumi.azure.mysql.FlexibleServerActiveDirectoryAdministratorArgs;
-import com.pulumi.azure.mysql.inputs.FlexibleServerActiveDirectoryAdministratorState;
+import com.pulumi.azure.mysql.FlexibleServerActiveDirectoryAdministratoryArgs;
+import com.pulumi.azure.mysql.inputs.FlexibleServerActiveDirectoryAdministratoryState;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * @deprecated
- * azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory
- * 
- */
-@Deprecated /* azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory */
-@ResourceType(type="azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator")
-public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resources.CustomResource {
+@ResourceType(type="azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory")
+public class FlexibleServerActiveDirectoryAdministratory extends com.pulumi.resources.CustomResource {
     @Export(name="identityId", refs={String.class}, tree="[0]")
     private Output<String> identityId;
 
@@ -56,15 +52,15 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlexibleServerActiveDirectoryAdministrator(String name) {
-        this(name, FlexibleServerActiveDirectoryAdministratorArgs.Empty);
+    public FlexibleServerActiveDirectoryAdministratory(String name) {
+        this(name, FlexibleServerActiveDirectoryAdministratoryArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlexibleServerActiveDirectoryAdministrator(String name, FlexibleServerActiveDirectoryAdministratorArgs args) {
+    public FlexibleServerActiveDirectoryAdministratory(String name, FlexibleServerActiveDirectoryAdministratoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -73,17 +69,20 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlexibleServerActiveDirectoryAdministrator(String name, FlexibleServerActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, args == null ? FlexibleServerActiveDirectoryAdministratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FlexibleServerActiveDirectoryAdministratory(String name, FlexibleServerActiveDirectoryAdministratoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, args == null ? FlexibleServerActiveDirectoryAdministratoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
-    private FlexibleServerActiveDirectoryAdministrator(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id));
+    private FlexibleServerActiveDirectoryAdministratory(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, state, makeResourceOptions(options, id));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }
@@ -97,7 +96,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlexibleServerActiveDirectoryAdministrator get(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new FlexibleServerActiveDirectoryAdministrator(name, id, state, options);
+    public static FlexibleServerActiveDirectoryAdministratory get(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new FlexibleServerActiveDirectoryAdministratory(name, id, state, options);
     }
 }

@@ -5838,6 +5838,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mysql/flexibleServerActiveDirectoryAdministratory",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory": "FlexibleServerActiveDirectoryAdministratory"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mysql/flexibleServerConfiguration",
   "fqn": "pulumi_azure.mysql",
   "classes": {

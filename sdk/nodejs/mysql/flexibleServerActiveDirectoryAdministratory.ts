@@ -4,12 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * @deprecated azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory
- */
-export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomResource {
+export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomResource {
     /**
-     * Get an existing FlexibleServerActiveDirectoryAdministrator resource's state with the given name, ID, and optional extra
+     * Get an existing FlexibleServerActiveDirectoryAdministratory resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -17,23 +14,22 @@ export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomRes
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FlexibleServerActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions): FlexibleServerActiveDirectoryAdministrator {
-        pulumi.log.warn("FlexibleServerActiveDirectoryAdministrator is deprecated: azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory")
-        return new FlexibleServerActiveDirectoryAdministrator(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FlexibleServerActiveDirectoryAdministratoryState, opts?: pulumi.CustomResourceOptions): FlexibleServerActiveDirectoryAdministratory {
+        return new FlexibleServerActiveDirectoryAdministratory(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator';
+    public static readonly __pulumiType = 'azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory';
 
     /**
-     * Returns true if the given object is an instance of FlexibleServerActiveDirectoryAdministrator.  This is designed to work even
+     * Returns true if the given object is an instance of FlexibleServerActiveDirectoryAdministratory.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is FlexibleServerActiveDirectoryAdministrator {
+    public static isInstance(obj: any): obj is FlexibleServerActiveDirectoryAdministratory {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === FlexibleServerActiveDirectoryAdministrator.__pulumiType;
+        return obj['__pulumiType'] === FlexibleServerActiveDirectoryAdministratory.__pulumiType;
     }
 
     public readonly identityId!: pulumi.Output<string>;
@@ -43,28 +39,25 @@ export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomRes
     public readonly tenantId!: pulumi.Output<string>;
 
     /**
-     * Create a FlexibleServerActiveDirectoryAdministrator resource with the given unique name, arguments, and options.
+     * Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory */
-    constructor(name: string, args: FlexibleServerActiveDirectoryAdministratorArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory */
-    constructor(name: string, argsOrState?: FlexibleServerActiveDirectoryAdministratorArgs | FlexibleServerActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FlexibleServerActiveDirectoryAdministrator is deprecated: azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory")
+    constructor(name: string, args: FlexibleServerActiveDirectoryAdministratoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FlexibleServerActiveDirectoryAdministratoryArgs | FlexibleServerActiveDirectoryAdministratoryState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as FlexibleServerActiveDirectoryAdministratorState | undefined;
+            const state = argsOrState as FlexibleServerActiveDirectoryAdministratoryState | undefined;
             resourceInputs["identityId"] = state ? state.identityId : undefined;
             resourceInputs["login"] = state ? state.login : undefined;
             resourceInputs["objectId"] = state ? state.objectId : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
-            const args = argsOrState as FlexibleServerActiveDirectoryAdministratorArgs | undefined;
+            const args = argsOrState as FlexibleServerActiveDirectoryAdministratoryArgs | undefined;
             if ((!args || args.identityId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityId'");
             }
@@ -87,14 +80,16 @@ export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomRes
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlexibleServerActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);
+        const aliasOpts = { aliases: [{ type: "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
+        super(FlexibleServerActiveDirectoryAdministratory.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministrator resources.
+ * Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
  */
-export interface FlexibleServerActiveDirectoryAdministratorState {
+export interface FlexibleServerActiveDirectoryAdministratoryState {
     identityId?: pulumi.Input<string>;
     login?: pulumi.Input<string>;
     objectId?: pulumi.Input<string>;
@@ -103,9 +98,9 @@ export interface FlexibleServerActiveDirectoryAdministratorState {
 }
 
 /**
- * The set of arguments for constructing a FlexibleServerActiveDirectoryAdministrator resource.
+ * The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
  */
-export interface FlexibleServerActiveDirectoryAdministratorArgs {
+export interface FlexibleServerActiveDirectoryAdministratoryArgs {
     identityId: pulumi.Input<string>;
     login: pulumi.Input<string>;
     objectId: pulumi.Input<string>;

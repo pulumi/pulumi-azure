@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FlexibleServerActiveDirectoryAdministratorArgs', 'FlexibleServerActiveDirectoryAdministrator']
+__all__ = ['FlexibleServerActiveDirectoryAdministratoryArgs', 'FlexibleServerActiveDirectoryAdministratory']
 
 @pulumi.input_type
-class FlexibleServerActiveDirectoryAdministratorArgs:
+class FlexibleServerActiveDirectoryAdministratoryArgs:
     def __init__(__self__, *,
                  identity_id: pulumi.Input[str],
                  login: pulumi.Input[str],
@@ -20,7 +20,7 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
                  server_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str]):
         """
-        The set of arguments for constructing a FlexibleServerActiveDirectoryAdministrator resource.
+        The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
         """
         pulumi.set(__self__, "identity_id", identity_id)
         pulumi.set(__self__, "login", login)
@@ -75,7 +75,7 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
 
 
 @pulumi.input_type
-class _FlexibleServerActiveDirectoryAdministratorState:
+class _FlexibleServerActiveDirectoryAdministratoryState:
     def __init__(__self__, *,
                  identity_id: Optional[pulumi.Input[str]] = None,
                  login: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class _FlexibleServerActiveDirectoryAdministratorState:
                  server_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministrator resources.
+        Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
         """
         if identity_id is not None:
             pulumi.set(__self__, "identity_id", identity_id)
@@ -142,12 +142,7 @@ class _FlexibleServerActiveDirectoryAdministratorState:
         pulumi.set(self, "tenant_id", value)
 
 
-warnings.warn("""azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory""", DeprecationWarning)
-
-
-class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
-    warnings.warn("""azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory""", DeprecationWarning)
-
+class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -159,7 +154,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a FlexibleServerActiveDirectoryAdministrator resource with the given unique name, props, and options.
+        Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -167,17 +162,17 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlexibleServerActiveDirectoryAdministratorArgs,
+                 args: FlexibleServerActiveDirectoryAdministratoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FlexibleServerActiveDirectoryAdministrator resource with the given unique name, props, and options.
+        Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param FlexibleServerActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.
+        :param FlexibleServerActiveDirectoryAdministratoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerActiveDirectoryAdministratorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerActiveDirectoryAdministratoryArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -192,14 +187,13 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""FlexibleServerActiveDirectoryAdministrator is deprecated: azure.mysql/flexibleserveractivedirectoryadministrator.FlexibleServerActiveDirectoryAdministrator has been deprecated in favor of azure.mysql/flexibleserveractivedirectoryadministratory.FlexibleServerActiveDirectoryAdministratory""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlexibleServerActiveDirectoryAdministratorArgs.__new__(FlexibleServerActiveDirectoryAdministratorArgs)
+            __props__ = FlexibleServerActiveDirectoryAdministratoryArgs.__new__(FlexibleServerActiveDirectoryAdministratoryArgs)
 
             if identity_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_id'")
@@ -216,8 +210,10 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
-        super(FlexibleServerActiveDirectoryAdministrator, __self__).__init__(
-            'azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator',
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        super(FlexibleServerActiveDirectoryAdministratory, __self__).__init__(
+            'azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory',
             resource_name,
             __props__,
             opts)
@@ -230,9 +226,9 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             login: Optional[pulumi.Input[str]] = None,
             object_id: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
-            tenant_id: Optional[pulumi.Input[str]] = None) -> 'FlexibleServerActiveDirectoryAdministrator':
+            tenant_id: Optional[pulumi.Input[str]] = None) -> 'FlexibleServerActiveDirectoryAdministratory':
         """
-        Get an existing FlexibleServerActiveDirectoryAdministrator resource's state with the given name, id, and optional extra
+        Get an existing FlexibleServerActiveDirectoryAdministratory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -241,14 +237,14 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _FlexibleServerActiveDirectoryAdministratorState.__new__(_FlexibleServerActiveDirectoryAdministratorState)
+        __props__ = _FlexibleServerActiveDirectoryAdministratoryState.__new__(_FlexibleServerActiveDirectoryAdministratoryState)
 
         __props__.__dict__["identity_id"] = identity_id
         __props__.__dict__["login"] = login
         __props__.__dict__["object_id"] = object_id
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["tenant_id"] = tenant_id
-        return FlexibleServerActiveDirectoryAdministrator(resource_name, opts=opts, __props__=__props__)
+        return FlexibleServerActiveDirectoryAdministratory(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="identityId")
