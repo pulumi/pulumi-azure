@@ -1,4 +1,4 @@
-From 6940c6cfd6130acd737fd743d73866fade9dd432 Mon Sep 17 00:00:00 2001
+From e1c946ca9b9acb6fab6867ee4c45852339893f4f Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 7/8] Update-documentation
@@ -236,7 +236,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index d5d5705cca..dd2354836b 100644
+index e33f772984..73c379b18b 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -249,7 +249,7 @@ index d5d5705cca..dd2354836b 100644
  ## Example Usage
  
  ```hcl
-@@ -214,19 +211,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -216,19 +213,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -905,7 +905,7 @@ index 0000000000..067d552662
 +
 +-> **NOTE:** This ID format is unique to this provider and is composed of the Service Principal's Object ID and the Service Principal Password's Key ID in the format `{ServicePrincipalObjectId}/{ServicePrincipalPasswordKeyId}`.
 diff --git a/website/docs/r/batch_account.html.markdown b/website/docs/r/batch_account.html.markdown
-index 63c8d566be..9f15c668c6 100644
+index 38484c77a8..57e5349a30 100644
 --- a/website/docs/r/batch_account.html.markdown
 +++ b/website/docs/r/batch_account.html.markdown
 @@ -49,7 +49,7 @@ The following arguments are supported:
@@ -1169,7 +1169,7 @@ index c45421c25f..5ea881d4cc 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index 50864e1878..f3af7882b2 100644
+index a4dd884f8e..2abb90aa4f 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1242,17 +1242,19 @@ index e7c6f9951f..7abae0926e 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_gremlin_graph.html.markdown b/website/docs/r/cosmosdb_gremlin_graph.html.markdown
-index 5df3da82e6..d85b5653cf 100644
+index a9bb91fe1f..94e54243cd 100644
 --- a/website/docs/r/cosmosdb_gremlin_graph.html.markdown
 +++ b/website/docs/r/cosmosdb_gremlin_graph.html.markdown
-@@ -68,13 +68,13 @@ The following arguments are supported:
+@@ -68,7 +68,7 @@ The following arguments are supported:
  
  * `partition_key_version` - (Optional) Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
  
 -* `throughput` - (Optional) The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
 +* `throughput` - (Optional) The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
  
- * `default_ttl` - (Optional) The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+ * `analytical_storage_ttl` - (Optional) The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+ 
+@@ -78,7 +78,7 @@ The following arguments are supported:
  
  * `autoscale_settings` - (Optional) An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
  
@@ -1637,7 +1639,7 @@ index 88a38129b7..8b4f1f661c 100644
  ## Example Usage
  
 diff --git a/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown b/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
-index fc5d3047ee..9ae5b7c5c6 100644
+index 4a1d98e9ff..daedcc6700 100644
 --- a/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
 +++ b/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1745,7 +1747,7 @@ index 32ccf6503e..3b4c1493cf 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
-index 1af03b06fa..5733c684f4 100644
+index 028ed17fe5..d568e230e4 100644
 --- a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_interactive_query_cluster" "example" {
@@ -1801,10 +1803,10 @@ index bf47c3b7ca..373f58d791 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index 71e7e51642..c0467bad1b 100644
+index f8b4ac51ac..50922a310a 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
-@@ -156,6 +156,10 @@ The following arguments are supported:
+@@ -158,6 +158,10 @@ The following arguments are supported:
  
  * `network_rule_set` - (Optional) A `network_rule_set` block as defined below.
  
@@ -1815,7 +1817,7 @@ index 71e7e51642..c0467bad1b 100644
  * `route` - (Optional) A `route` block as defined below.
  
  * `enrichment` - (Optional) A `enrichment` block as defined below.
-@@ -244,6 +248,26 @@ A `ip_rule` block supports the following:
+@@ -246,6 +250,26 @@ A `ip_rule` block supports the following:
  
  ---
  
@@ -1949,7 +1951,7 @@ index d97d53b42d..d04a166153 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 3b1aa4b3db..34cd28967f 100644
+index 0c1b19732f..9c352f98da 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1969,16 +1971,16 @@ index 3b1aa4b3db..34cd28967f 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -374,7 +368,7 @@ A `default_node_pool` block supports the following:
+@@ -386,7 +380,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
 --> **Note:** If you're using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the `node_count` field.
 +-> **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
  
- * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+ * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -430,7 +424,7 @@ A `default_node_pool` block supports the following:
+@@ -442,7 +436,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1987,7 +1989,7 @@ index 3b1aa4b3db..34cd28967f 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
  
-@@ -456,7 +450,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -468,7 +462,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1996,7 +1998,7 @@ index 3b1aa4b3db..34cd28967f 100644
  
  If `enable_auto_scaling` is set to `false`, then the following fields can also be configured:
  
-@@ -636,8 +630,6 @@ A `network_profile` block supports the following:
+@@ -691,8 +685,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2005,7 +2007,7 @@ index 3b1aa4b3db..34cd28967f 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -962,19 +954,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1017,19 +1009,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2026,7 +2028,7 @@ index 3b1aa4b3db..34cd28967f 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 36094d36f7..330275c022 100644
+index 021b9dc1d3..b64eba8c95 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -2063,7 +2065,7 @@ index 36094d36f7..330275c022 100644
  If `enable_auto_scaling` is set to `false`, then the following fields can also be configured:
  
 diff --git a/website/docs/r/lighthouse_definition.html.markdown b/website/docs/r/lighthouse_definition.html.markdown
-index d33d3ca84c..4df5c79d74 100644
+index 36d2624bc0..a32b415063 100644
 --- a/website/docs/r/lighthouse_definition.html.markdown
 +++ b/website/docs/r/lighthouse_definition.html.markdown
 @@ -20,7 +20,7 @@ data "azurerm_role_definition" "contributor" {
@@ -2076,7 +2078,7 @@ index d33d3ca84c..4df5c79d74 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index b25e4069fe..a67f71220c 100644
+index d81c5a2c70..2c01a4bd9f 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2101,7 +2103,7 @@ index b25e4069fe..a67f71220c 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 2ef147658c..fae68177ac 100644
+index 436043cf87..c0e51c4f78 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -12,15 +12,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2265,7 +2267,7 @@ index 7c909a8c31..796cef0b18 100644
  ## Attributes Reference
  
 diff --git a/website/docs/r/monitor_activity_log_alert.html.markdown b/website/docs/r/monitor_activity_log_alert.html.markdown
-index 539ce7f40a..64cd4223c0 100644
+index d598d0034e..c039d43a56 100644
 --- a/website/docs/r/monitor_activity_log_alert.html.markdown
 +++ b/website/docs/r/monitor_activity_log_alert.html.markdown
 @@ -53,7 +53,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
@@ -2302,7 +2304,7 @@ index 36cac8d4a6..2682d8125d 100644
  
  ```hcl
 diff --git a/website/docs/r/mssql_virtual_machine.html.markdown b/website/docs/r/mssql_virtual_machine.html.markdown
-index 74b8959701..b64f16c3be 100644
+index 161e89aa0c..e9689e4899 100644
 --- a/website/docs/r/mssql_virtual_machine.html.markdown
 +++ b/website/docs/r/mssql_virtual_machine.html.markdown
 @@ -12,7 +12,7 @@ Manages a Microsoft SQL Virtual Machine
@@ -2854,7 +2856,7 @@ index e357935c61..a0b15a4745 100644
  -> **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
  
 diff --git a/website/docs/r/signalr_service.html.markdown b/website/docs/r/signalr_service.html.markdown
-index 9dbbdfaa22..73630c6397 100644
+index f2e1549d43..4836c3ef0a 100644
 --- a/website/docs/r/signalr_service.html.markdown
 +++ b/website/docs/r/signalr_service.html.markdown
 @@ -14,8 +14,8 @@ Manages an Azure SignalR service.
@@ -2923,7 +2925,7 @@ index 6786f8eb01..38823a0fd4 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 19e387dbad..a6003c17d6 100644
+index a4bd3ea4e8..a4edfe6db4 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -3262,5 +3264,5 @@ index e94d26bbb6..3b17a31535 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.39.1
+2.41.0
 

@@ -1,4 +1,4 @@
-From 5f07ae5e5e19342327111ac44baaacbe4aacc14f Mon Sep 17 00:00:00 2001
+From dc6f7c604b547c1a9ec01b7bc931401faa5e7904 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 2/8] Shared-features
@@ -9,10 +9,10 @@ Subject: [PATCH 2/8] Shared-features
  2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
-index 5b88169333..a57b9fac8e 100644
+index 423a527f65..8bd6f0c754 100644
 --- a/internal/features/four_point_oh.go
 +++ b/internal/features/four_point_oh.go
-@@ -35,3 +35,9 @@ func FourPointOh() bool {
+@@ -38,3 +38,9 @@ func FourPointOh() bool {
  func FourPointOhBeta() bool {
  	return FourPointOh() || false
  }
@@ -23,10 +23,10 @@ index 5b88169333..a57b9fac8e 100644
 +	return true
 +}
 diff --git a/internal/provider/features.go b/internal/provider/features.go
-index dbc70805a1..b62cb3141f 100644
+index bdb0cbfe3a..c4122bf0bc 100644
 --- a/internal/provider/features.go
 +++ b/internal/provider/features.go
-@@ -281,7 +281,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+@@ -284,7 +284,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
  
  	return &pluginsdk.Schema{
  		Type:     pluginsdk.TypeList,
@@ -36,5 +36,5 @@ index dbc70805a1..b62cb3141f 100644
  		MinItems: 1,
  		Elem: &pluginsdk.Resource{
 -- 
-2.39.1
+2.41.0
 

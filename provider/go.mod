@@ -4,11 +4,11 @@ go 1.19
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk v0.20230606.1092251
+	github.com/hashicorp/go-azure-sdk v0.20230623.1103505
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.50.1
-	github.com/pulumi/pulumi/sdk/v3 v3.71.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.53.0
+	github.com/pulumi/pulumi/sdk/v3 v3.74.0
 	github.com/stretchr/testify v1.8.3
 )
 
@@ -114,7 +114,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-helpers v0.56.0 // indirect
+	github.com/hashicorp/go-azure-helpers v0.57.0 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
@@ -123,7 +123,7 @@ require (
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-plugin v1.4.8 // indirect
-	github.com/hashicorp/go-retryablehttp v0.7.2 // indirect
+	github.com/hashicorp/go-retryablehttp v0.7.4 // indirect
 	github.com/hashicorp/go-rootcerts v1.0.2 // indirect
 	github.com/hashicorp/go-safetemp v1.0.0 // indirect
 	github.com/hashicorp/go-secure-stdlib/mlock v0.1.2 // indirect
@@ -191,9 +191,9 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.4 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.71.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.74.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
-	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
+	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
 	github.com/rickb777/plural v1.2.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
