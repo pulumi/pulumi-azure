@@ -215,19 +215,19 @@ def get_service_bus_namespace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getServiceBusNamespace:getServiceBusNamespace', __args__, opts=opts, typ=GetServiceBusNamespaceResult).value
 
     return AwaitableGetServiceBusNamespaceResult(
-        capacity=__ret__.capacity,
-        default_primary_connection_string=__ret__.default_primary_connection_string,
-        default_primary_key=__ret__.default_primary_key,
-        default_secondary_connection_string=__ret__.default_secondary_connection_string,
-        default_secondary_key=__ret__.default_secondary_key,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        zone_redundant=__ret__.zone_redundant)
+        capacity=pulumi.get(__ret__, 'capacity'),
+        default_primary_connection_string=pulumi.get(__ret__, 'default_primary_connection_string'),
+        default_primary_key=pulumi.get(__ret__, 'default_primary_key'),
+        default_secondary_connection_string=pulumi.get(__ret__, 'default_secondary_connection_string'),
+        default_secondary_key=pulumi.get(__ret__, 'default_secondary_key'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 
 @_utilities.lift_output_func(get_service_bus_namespace)

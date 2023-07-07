@@ -48,14 +48,14 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum number of rows per batch (must be between `0` and `10000`).
+     * The minimum number of rows per batch (must be between `0` and `1000000`).
      * 
      */
     @Import(name="batchMinRows")
     private @Nullable Output<Integer> batchMinRows;
 
     /**
-     * @return The minimum number of rows per batch (must be between `0` and `10000`).
+     * @return The minimum number of rows per batch (must be between `0` and `1000000`).
      * 
      */
     public Optional<Output<Integer>> batchMinRows() {
@@ -291,7 +291,7 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param batchMinRows The minimum number of rows per batch (must be between `0` and `10000`).
+         * @param batchMinRows The minimum number of rows per batch (must be between `0` and `1000000`).
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param batchMinRows The minimum number of rows per batch (must be between `0` and `10000`).
+         * @param batchMinRows The minimum number of rows per batch (must be between `0` and `1000000`).
          * 
          * @return builder
          * 

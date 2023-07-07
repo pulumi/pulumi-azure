@@ -127,12 +127,12 @@ def get_dedicated_host(dedicated_host_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult).value
 
     return AwaitableGetDedicatedHostResult(
-        dedicated_host_group_name=__ret__.dedicated_host_group_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        dedicated_host_group_name=pulumi.get(__ret__, 'dedicated_host_group_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dedicated_host)

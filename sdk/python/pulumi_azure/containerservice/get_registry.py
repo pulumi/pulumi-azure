@@ -186,17 +186,17 @@ def get_registry(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getRegistry:getRegistry', __args__, opts=opts, typ=GetRegistryResult).value
 
     return AwaitableGetRegistryResult(
-        admin_enabled=__ret__.admin_enabled,
-        admin_password=__ret__.admin_password,
-        admin_username=__ret__.admin_username,
-        data_endpoint_enabled=__ret__.data_endpoint_enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        login_server=__ret__.login_server,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags)
+        admin_enabled=pulumi.get(__ret__, 'admin_enabled'),
+        admin_password=pulumi.get(__ret__, 'admin_password'),
+        admin_username=pulumi.get(__ret__, 'admin_username'),
+        data_endpoint_enabled=pulumi.get(__ret__, 'data_endpoint_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        login_server=pulumi.get(__ret__, 'login_server'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_registry)

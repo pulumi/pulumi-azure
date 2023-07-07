@@ -78,6 +78,10 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
     }
 
     /**
+     * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     */
+    public readonly generation!: pulumi.Output<string | undefined>;
+    /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudConfigurationServiceState | undefined;
+            resourceInputs["generation"] = state ? state.generation : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
             resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
@@ -111,6 +116,7 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
             if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
+            resourceInputs["generation"] = args ? args.generation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
             resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
@@ -124,6 +130,10 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudConfigurationService resources.
  */
 export interface SpringCloudConfigurationServiceState {
+    /**
+     * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     */
+    generation?: pulumi.Input<string>;
     /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
@@ -142,6 +152,10 @@ export interface SpringCloudConfigurationServiceState {
  * The set of arguments for constructing a SpringCloudConfigurationService resource.
  */
 export interface SpringCloudConfigurationServiceArgs {
+    /**
+     * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     */
+    generation?: pulumi.Input<string>;
     /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */

@@ -22,7 +22,7 @@ class GetWindowsFunctionAppResult:
     """
     A collection of values returned by getWindowsFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -101,6 +101,9 @@ class GetWindowsFunctionAppResult:
         if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
             raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -344,6 +347,11 @@ class GetWindowsFunctionAppResult:
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> bool:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -461,6 +469,7 @@ class AwaitableGetWindowsFunctionAppResult(GetWindowsFunctionAppResult):
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_address_lists=self.possible_outbound_ip_address_lists,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
+            public_network_access_enabled=self.public_network_access_enabled,
             resource_group_name=self.resource_group_name,
             service_plan_id=self.service_plan_id,
             site_configs=self.site_configs,
@@ -502,43 +511,44 @@ def get_windows_function_app(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp', __args__, opts=opts, typ=GetWindowsFunctionAppResult).value
 
     return AwaitableGetWindowsFunctionAppResult(
-        app_settings=__ret__.app_settings,
-        auth_settings=__ret__.auth_settings,
-        auth_settings_v2s=__ret__.auth_settings_v2s,
-        backups=__ret__.backups,
-        builtin_logging_enabled=__ret__.builtin_logging_enabled,
-        client_certificate_enabled=__ret__.client_certificate_enabled,
-        client_certificate_exclusion_paths=__ret__.client_certificate_exclusion_paths,
-        client_certificate_mode=__ret__.client_certificate_mode,
-        connection_strings=__ret__.connection_strings,
-        content_share_force_disabled=__ret__.content_share_force_disabled,
-        custom_domain_verification_id=__ret__.custom_domain_verification_id,
-        daily_memory_time_quota=__ret__.daily_memory_time_quota,
-        default_hostname=__ret__.default_hostname,
-        enabled=__ret__.enabled,
-        functions_extension_version=__ret__.functions_extension_version,
-        hosting_environment_id=__ret__.hosting_environment_id,
-        https_only=__ret__.https_only,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_ip_address_lists=__ret__.outbound_ip_address_lists,
-        outbound_ip_addresses=__ret__.outbound_ip_addresses,
-        possible_outbound_ip_address_lists=__ret__.possible_outbound_ip_address_lists,
-        possible_outbound_ip_addresses=__ret__.possible_outbound_ip_addresses,
-        resource_group_name=__ret__.resource_group_name,
-        service_plan_id=__ret__.service_plan_id,
-        site_configs=__ret__.site_configs,
-        site_credentials=__ret__.site_credentials,
-        sticky_settings=__ret__.sticky_settings,
-        storage_account_access_key=__ret__.storage_account_access_key,
-        storage_account_name=__ret__.storage_account_name,
-        storage_key_vault_secret_id=__ret__.storage_key_vault_secret_id,
-        storage_uses_managed_identity=__ret__.storage_uses_managed_identity,
-        tags=__ret__.tags,
-        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+        app_settings=pulumi.get(__ret__, 'app_settings'),
+        auth_settings=pulumi.get(__ret__, 'auth_settings'),
+        auth_settings_v2s=pulumi.get(__ret__, 'auth_settings_v2s'),
+        backups=pulumi.get(__ret__, 'backups'),
+        builtin_logging_enabled=pulumi.get(__ret__, 'builtin_logging_enabled'),
+        client_certificate_enabled=pulumi.get(__ret__, 'client_certificate_enabled'),
+        client_certificate_exclusion_paths=pulumi.get(__ret__, 'client_certificate_exclusion_paths'),
+        client_certificate_mode=pulumi.get(__ret__, 'client_certificate_mode'),
+        connection_strings=pulumi.get(__ret__, 'connection_strings'),
+        content_share_force_disabled=pulumi.get(__ret__, 'content_share_force_disabled'),
+        custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
+        daily_memory_time_quota=pulumi.get(__ret__, 'daily_memory_time_quota'),
+        default_hostname=pulumi.get(__ret__, 'default_hostname'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        functions_extension_version=pulumi.get(__ret__, 'functions_extension_version'),
+        hosting_environment_id=pulumi.get(__ret__, 'hosting_environment_id'),
+        https_only=pulumi.get(__ret__, 'https_only'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_ip_address_lists=pulumi.get(__ret__, 'outbound_ip_address_lists'),
+        outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        possible_outbound_ip_address_lists=pulumi.get(__ret__, 'possible_outbound_ip_address_lists'),
+        possible_outbound_ip_addresses=pulumi.get(__ret__, 'possible_outbound_ip_addresses'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_plan_id=pulumi.get(__ret__, 'service_plan_id'),
+        site_configs=pulumi.get(__ret__, 'site_configs'),
+        site_credentials=pulumi.get(__ret__, 'site_credentials'),
+        sticky_settings=pulumi.get(__ret__, 'sticky_settings'),
+        storage_account_access_key=pulumi.get(__ret__, 'storage_account_access_key'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        storage_key_vault_secret_id=pulumi.get(__ret__, 'storage_key_vault_secret_id'),
+        storage_uses_managed_identity=pulumi.get(__ret__, 'storage_uses_managed_identity'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
 
 
 @_utilities.lift_output_func(get_windows_function_app)

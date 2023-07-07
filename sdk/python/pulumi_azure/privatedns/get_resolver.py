@@ -125,12 +125,12 @@ def get_resolver(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatedns/getResolver:getResolver', __args__, opts=opts, typ=GetResolverResult).value
 
     return AwaitableGetResolverResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        virtual_network_id=__ret__.virtual_network_id)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 
 
 @_utilities.lift_output_func(get_resolver)

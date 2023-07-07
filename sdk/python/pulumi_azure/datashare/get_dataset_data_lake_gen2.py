@@ -150,14 +150,14 @@ def get_dataset_data_lake_gen2(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2', __args__, opts=opts, typ=GetDatasetDataLakeGen2Result).value
 
     return AwaitableGetDatasetDataLakeGen2Result(
-        display_name=__ret__.display_name,
-        file_path=__ret__.file_path,
-        file_system_name=__ret__.file_system_name,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        name=__ret__.name,
-        share_id=__ret__.share_id,
-        storage_account_id=__ret__.storage_account_id)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        file_path=pulumi.get(__ret__, 'file_path'),
+        file_system_name=pulumi.get(__ret__, 'file_system_name'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        share_id=pulumi.get(__ret__, 'share_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 
 
 @_utilities.lift_output_func(get_dataset_data_lake_gen2)

@@ -42,7 +42,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+//	$ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
 //
 // ```
 type ResourceGroup struct {
@@ -50,6 +50,8 @@ type ResourceGroup struct {
 
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The ID of the resource or application that manages this Resource Group.
+	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A mapping of tags which should be assigned to the Resource Group.
@@ -87,6 +89,8 @@ func GetResourceGroup(ctx *pulumi.Context,
 type resourceGroupState struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`
+	// The ID of the resource or application that manages this Resource Group.
+	ManagedBy *string `pulumi:"managedBy"`
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name *string `pulumi:"name"`
 	// A mapping of tags which should be assigned to the Resource Group.
@@ -96,6 +100,8 @@ type resourceGroupState struct {
 type ResourceGroupState struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringPtrInput
+	// The ID of the resource or application that manages this Resource Group.
+	ManagedBy pulumi.StringPtrInput
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group.
@@ -109,6 +115,8 @@ func (ResourceGroupState) ElementType() reflect.Type {
 type resourceGroupArgs struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`
+	// The ID of the resource or application that manages this Resource Group.
+	ManagedBy *string `pulumi:"managedBy"`
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name *string `pulumi:"name"`
 	// A mapping of tags which should be assigned to the Resource Group.
@@ -119,6 +127,8 @@ type resourceGroupArgs struct {
 type ResourceGroupArgs struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringPtrInput
+	// The ID of the resource or application that manages this Resource Group.
+	ManagedBy pulumi.StringPtrInput
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group.
@@ -215,6 +225,11 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 // The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 func (o ResourceGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The ID of the resource or application that manages this Resource Group.
+func (o ResourceGroupOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
 }
 
 // The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.

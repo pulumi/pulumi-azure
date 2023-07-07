@@ -16,33 +16,105 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     public static final LinuxWebAppSlotSiteConfigApplicationStackArgs Empty = new LinuxWebAppSlotSiteConfigApplicationStackArgs();
 
     /**
-     * The Docker image reference, including repository host as needed.
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     @Import(name="dockerImage")
     private @Nullable Output<String> dockerImage;
 
     /**
-     * @return The Docker image reference, including repository host as needed.
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     public Optional<Output<String>> dockerImage() {
         return Optional.ofNullable(this.dockerImage);
     }
 
     /**
-     * The image Tag to use. e.g. `latest`.
+     * The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
      * 
      */
+    @Import(name="dockerImageName")
+    private @Nullable Output<String> dockerImageName;
+
+    /**
+     * @return The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+     * 
+     */
+    public Optional<Output<String>> dockerImageName() {
+        return Optional.ofNullable(this.dockerImageName);
+    }
+
+    /**
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
+     * 
+     */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     @Import(name="dockerImageTag")
     private @Nullable Output<String> dockerImageTag;
 
     /**
-     * @return The image Tag to use. e.g. `latest`.
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     public Optional<Output<String>> dockerImageTag() {
         return Optional.ofNullable(this.dockerImageTag);
+    }
+
+    /**
+     * The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    @Import(name="dockerRegistryPassword")
+    private @Nullable Output<String> dockerRegistryPassword;
+
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    public Optional<Output<String>> dockerRegistryPassword() {
+        return Optional.ofNullable(this.dockerRegistryPassword);
+    }
+
+    /**
+     * The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    @Import(name="dockerRegistryUrl")
+    private @Nullable Output<String> dockerRegistryUrl;
+
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    public Optional<Output<String>> dockerRegistryUrl() {
+        return Optional.ofNullable(this.dockerRegistryUrl);
+    }
+
+    /**
+     * The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    @Import(name="dockerRegistryUsername")
+    private @Nullable Output<String> dockerRegistryUsername;
+
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public Optional<Output<String>> dockerRegistryUsername() {
+        return Optional.ofNullable(this.dockerRegistryUsername);
     }
 
     /**
@@ -200,7 +272,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
 
     private LinuxWebAppSlotSiteConfigApplicationStackArgs(LinuxWebAppSlotSiteConfigApplicationStackArgs $) {
         this.dockerImage = $.dockerImage;
+        this.dockerImageName = $.dockerImageName;
         this.dockerImageTag = $.dockerImageTag;
+        this.dockerRegistryPassword = $.dockerRegistryPassword;
+        this.dockerRegistryUrl = $.dockerRegistryUrl;
+        this.dockerRegistryUsername = $.dockerRegistryUsername;
         this.dotnetVersion = $.dotnetVersion;
         this.goVersion = $.goVersion;
         this.javaServer = $.javaServer;
@@ -231,45 +307,141 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param dockerImage The Docker image reference, including repository host as needed.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated and will be removed in 4.0 of the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
         public Builder dockerImage(@Nullable Output<String> dockerImage) {
             $.dockerImage = dockerImage;
             return this;
         }
 
         /**
-         * @param dockerImage The Docker image reference, including repository host as needed.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated and will be removed in 4.0 of the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
         public Builder dockerImage(String dockerImage) {
             return dockerImage(Output.of(dockerImage));
         }
 
         /**
-         * @param dockerImageTag The image Tag to use. e.g. `latest`.
+         * @param dockerImageName The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
          * 
          * @return builder
          * 
          */
+        public Builder dockerImageName(@Nullable Output<String> dockerImageName) {
+            $.dockerImageName = dockerImageName;
+            return this;
+        }
+
+        /**
+         * @param dockerImageName The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerImageName(String dockerImageName) {
+            return dockerImageName(Output.of(dockerImageName));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This property has been deprecated and will be removed in 4.0 of the provider.
+         * 
+         */
+        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
         public Builder dockerImageTag(@Nullable Output<String> dockerImageTag) {
             $.dockerImageTag = dockerImageTag;
             return this;
         }
 
         /**
-         * @param dockerImageTag The image Tag to use. e.g. `latest`.
+         * @return builder
+         * 
+         * @deprecated
+         * This property has been deprecated and will be removed in 4.0 of the provider.
+         * 
+         */
+        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
+        public Builder dockerImageTag(String dockerImageTag) {
+            return dockerImageTag(Output.of(dockerImageTag));
+        }
+
+        /**
+         * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
+         * 
+         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
          * 
          * @return builder
          * 
          */
-        public Builder dockerImageTag(String dockerImageTag) {
-            return dockerImageTag(Output.of(dockerImageTag));
+        public Builder dockerRegistryPassword(@Nullable Output<String> dockerRegistryPassword) {
+            $.dockerRegistryPassword = dockerRegistryPassword;
+            return this;
+        }
+
+        /**
+         * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
+         * 
+         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryPassword(String dockerRegistryPassword) {
+            return dockerRegistryPassword(Output.of(dockerRegistryPassword));
+        }
+
+        /**
+         * @param dockerRegistryUrl The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUrl(@Nullable Output<String> dockerRegistryUrl) {
+            $.dockerRegistryUrl = dockerRegistryUrl;
+            return this;
+        }
+
+        /**
+         * @param dockerRegistryUrl The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUrl(String dockerRegistryUrl) {
+            return dockerRegistryUrl(Output.of(dockerRegistryUrl));
+        }
+
+        /**
+         * @param dockerRegistryUsername The User Name to use for authentication against the registry to pull the image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUsername(@Nullable Output<String> dockerRegistryUsername) {
+            $.dockerRegistryUsername = dockerRegistryUsername;
+            return this;
+        }
+
+        /**
+         * @param dockerRegistryUsername The User Name to use for authentication against the registry to pull the image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUsername(String dockerRegistryUsername) {
+            return dockerRegistryUsername(Output.of(dockerRegistryUsername));
         }
 
         /**

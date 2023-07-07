@@ -126,12 +126,12 @@ def get_disk_encryption_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getDiskEncryptionSet:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult).value
 
     return AwaitableGetDiskEncryptionSetResult(
-        auto_key_rotation_enabled=__ret__.auto_key_rotation_enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        auto_key_rotation_enabled=pulumi.get(__ret__, 'auto_key_rotation_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_disk_encryption_set)

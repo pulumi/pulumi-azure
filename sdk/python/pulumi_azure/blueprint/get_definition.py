@@ -165,15 +165,15 @@ def get_definition(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:blueprint/getDefinition:getDefinition', __args__, opts=opts, typ=GetDefinitionResult).value
 
     return AwaitableGetDefinitionResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        name=__ret__.name,
-        scope_id=__ret__.scope_id,
-        target_scope=__ret__.target_scope,
-        time_created=__ret__.time_created,
-        versions=__ret__.versions)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        name=pulumi.get(__ret__, 'name'),
+        scope_id=pulumi.get(__ret__, 'scope_id'),
+        target_scope=pulumi.get(__ret__, 'target_scope'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        versions=pulumi.get(__ret__, 'versions'))
 
 
 @_utilities.lift_output_func(get_definition)

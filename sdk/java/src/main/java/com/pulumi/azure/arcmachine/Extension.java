@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:arcmachine/extension:Extension example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
+ *  $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
  * ```
  * 
  */
@@ -45,9 +45,25 @@ public class Extension extends com.pulumi.resources.CustomResource {
     public Output<String> arcMachineId() {
         return this.arcMachineId;
     }
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+     * 
+     */
     @Export(name="automaticUpgradeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
+    /**
+     * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+     * 
+     */
     public Output<Optional<Boolean>> automaticUpgradeEnabled() {
         return Codegen.optional(this.automaticUpgradeEnabled);
     }

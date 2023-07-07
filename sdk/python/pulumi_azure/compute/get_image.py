@@ -178,16 +178,16 @@ def get_image(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        data_disks=__ret__.data_disks,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        name_regex=__ret__.name_regex,
-        os_disks=__ret__.os_disks,
-        resource_group_name=__ret__.resource_group_name,
-        sort_descending=__ret__.sort_descending,
-        tags=__ret__.tags,
-        zone_resilient=__ret__.zone_resilient)
+        data_disks=pulumi.get(__ret__, 'data_disks'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        name_regex=pulumi.get(__ret__, 'name_regex'),
+        os_disks=pulumi.get(__ret__, 'os_disks'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sort_descending=pulumi.get(__ret__, 'sort_descending'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zone_resilient=pulumi.get(__ret__, 'zone_resilient'))
 
 
 @_utilities.lift_output_func(get_image)

@@ -141,13 +141,13 @@ def get_snapshot(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        account_name=__ret__.account_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        pool_name=__ret__.pool_name,
-        resource_group_name=__ret__.resource_group_name,
-        volume_name=__ret__.volume_name)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        pool_name=pulumi.get(__ret__, 'pool_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        volume_name=pulumi.get(__ret__, 'volume_name'))
 
 
 @_utilities.lift_output_func(get_snapshot)

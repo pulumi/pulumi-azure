@@ -122,11 +122,11 @@ def get_configuration_keys(configuration_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appconfiguration/getConfigurationKeys:getConfigurationKeys', __args__, opts=opts, typ=GetConfigurationKeysResult).value
 
     return AwaitableGetConfigurationKeysResult(
-        configuration_store_id=__ret__.configuration_store_id,
-        id=__ret__.id,
-        items=__ret__.items,
-        key=__ret__.key,
-        label=__ret__.label)
+        configuration_store_id=pulumi.get(__ret__, 'configuration_store_id'),
+        id=pulumi.get(__ret__, 'id'),
+        items=pulumi.get(__ret__, 'items'),
+        key=pulumi.get(__ret__, 'key'),
+        label=pulumi.get(__ret__, 'label'))
 
 
 @_utilities.lift_output_func(get_configuration_keys)

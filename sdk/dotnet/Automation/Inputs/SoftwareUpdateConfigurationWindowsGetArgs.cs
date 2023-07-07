@@ -12,9 +12,6 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class SoftwareUpdateConfigurationWindowsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-        /// </summary>
         [Input("classificationIncluded")]
         public Input<string>? ClassificationIncluded { get; set; }
 
@@ -55,7 +52,7 @@ namespace Pulumi.Azure.Automation.Inputs
         }
 
         /// <summary>
-        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         /// </summary>
         [Input("reboot")]
         public Input<string>? Reboot { get; set; }

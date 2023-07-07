@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseHeaderExampleArgs>? _examples;
 
         /// <summary>
-        /// (Optional) One or more `example` blocks as defined above.
+        /// One or more `example` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseHeaderExampleArgs> Examples
         {

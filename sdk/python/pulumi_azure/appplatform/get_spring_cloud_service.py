@@ -154,14 +154,14 @@ def get_spring_cloud_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appplatform/getSpringCloudService:getSpringCloudService', __args__, opts=opts, typ=GetSpringCloudServiceResult).value
 
     return AwaitableGetSpringCloudServiceResult(
-        config_server_git_settings=__ret__.config_server_git_settings,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_public_ip_addresses=__ret__.outbound_public_ip_addresses,
-        required_network_traffic_rules=__ret__.required_network_traffic_rules,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        config_server_git_settings=pulumi.get(__ret__, 'config_server_git_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_public_ip_addresses=pulumi.get(__ret__, 'outbound_public_ip_addresses'),
+        required_network_traffic_rules=pulumi.get(__ret__, 'required_network_traffic_rules'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_spring_cloud_service)

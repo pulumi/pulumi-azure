@@ -17,18 +17,25 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Current Stack value of the Windows Web App.
         /// </summary>
         public readonly string CurrentStack;
-        /// <summary>
-        /// The name of the Docker Container in used.
-        /// </summary>
         public readonly string DockerContainerName;
-        /// <summary>
-        /// The Container Registry where the Docker Container is pulled from.
-        /// </summary>
         public readonly string DockerContainerRegistry;
-        /// <summary>
-        /// The Docker Container Tag of the Container in use.
-        /// </summary>
         public readonly string DockerContainerTag;
+        /// <summary>
+        /// The docker image, including tag, used by this Windows Web App.
+        /// </summary>
+        public readonly string DockerImageName;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        public readonly string DockerRegistryPassword;
+        /// <summary>
+        /// The URL of the container registry where the `docker_image_name` is located.
+        /// </summary>
+        public readonly string DockerRegistryUrl;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        public readonly string DockerRegistryUsername;
         public readonly string DotnetCoreVersion;
         /// <summary>
         /// The version of .NET in use.
@@ -72,6 +79,14 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string dockerContainerTag,
 
+            string dockerImageName,
+
+            string dockerRegistryPassword,
+
+            string dockerRegistryUrl,
+
+            string dockerRegistryUsername,
+
             string dotnetCoreVersion,
 
             string dotnetVersion,
@@ -98,6 +113,10 @@ namespace Pulumi.Azure.AppService.Outputs
             DockerContainerName = dockerContainerName;
             DockerContainerRegistry = dockerContainerRegistry;
             DockerContainerTag = dockerContainerTag;
+            DockerImageName = dockerImageName;
+            DockerRegistryPassword = dockerRegistryPassword;
+            DockerRegistryUrl = dockerRegistryUrl;
+            DockerRegistryUsername = dockerRegistryUsername;
             DotnetCoreVersion = dotnetCoreVersion;
             DotnetVersion = dotnetVersion;
             JavaContainer = javaContainer;

@@ -211,19 +211,19 @@ def get_policy_assignment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyAssignment:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult).value
 
     return AwaitableGetPolicyAssignmentResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enforce=__ret__.enforce,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        non_compliance_messages=__ret__.non_compliance_messages,
-        not_scopes=__ret__.not_scopes,
-        parameters=__ret__.parameters,
-        policy_definition_id=__ret__.policy_definition_id,
-        scope_id=__ret__.scope_id)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enforce=pulumi.get(__ret__, 'enforce'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        non_compliance_messages=pulumi.get(__ret__, 'non_compliance_messages'),
+        not_scopes=pulumi.get(__ret__, 'not_scopes'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
+        scope_id=pulumi.get(__ret__, 'scope_id'))
 
 
 @_utilities.lift_output_func(get_policy_assignment)

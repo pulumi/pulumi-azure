@@ -183,17 +183,17 @@ def get_analytics_workspace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace', __args__, opts=opts, typ=GetAnalyticsWorkspaceResult).value
 
     return AwaitableGetAnalyticsWorkspaceResult(
-        daily_quota_gb=__ret__.daily_quota_gb,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        primary_shared_key=__ret__.primary_shared_key,
-        resource_group_name=__ret__.resource_group_name,
-        retention_in_days=__ret__.retention_in_days,
-        secondary_shared_key=__ret__.secondary_shared_key,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        workspace_id=__ret__.workspace_id)
+        daily_quota_gb=pulumi.get(__ret__, 'daily_quota_gb'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
+        secondary_shared_key=pulumi.get(__ret__, 'secondary_shared_key'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_analytics_workspace)

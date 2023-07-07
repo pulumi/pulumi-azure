@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicationRecoveryPlanRecoveryGroupPostActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
         /// 
         /// &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         /// </summary>

@@ -1187,7 +1187,7 @@ class ApiOperationRequestHeader(dict):
         :param str type: The Type of this Header, such as a `string`.
         :param str default_value: The default value for this Header.
         :param str description: A description of this Header.
-        :param Sequence['ApiOperationRequestHeaderExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestHeaderExampleArgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
@@ -1252,7 +1252,7 @@ class ApiOperationRequestHeader(dict):
     @pulumi.getter
     def examples(self) -> Optional[Sequence['outputs.ApiOperationRequestHeaderExample']]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -1403,7 +1403,7 @@ class ApiOperationRequestQueryParameter(dict):
         :param str type: The Type of this Query Parameter, such as a `string`.
         :param str default_value: The default value for this Query Parameter.
         :param str description: A description of this Query Parameter.
-        :param Sequence['ApiOperationRequestQueryParameterExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestQueryParameterExampleArgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Query Parameter.
@@ -1468,7 +1468,7 @@ class ApiOperationRequestQueryParameter(dict):
     @pulumi.getter
     def examples(self) -> Optional[Sequence['outputs.ApiOperationRequestQueryParameterExample']]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -1803,7 +1803,7 @@ class ApiOperationRequestRepresentationFormParameter(dict):
         :param str type: The Type of this Form Parameter, such as a `string`.
         :param str default_value: The default value for this Form Parameter.
         :param str description: A description of this Form Parameter.
-        :param Sequence['ApiOperationRequestRepresentationFormParameterExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestRepresentationFormParameterExampleArgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
@@ -1868,7 +1868,7 @@ class ApiOperationRequestRepresentationFormParameter(dict):
     @pulumi.getter
     def examples(self) -> Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameterExample']]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -2090,7 +2090,7 @@ class ApiOperationResponseHeader(dict):
         :param str type: The Type of this Header, such as a `string`.
         :param str default_value: The default value for this Header.
         :param str description: A description of this Header.
-        :param Sequence['ApiOperationResponseHeaderExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationResponseHeaderExampleArgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
@@ -2155,7 +2155,7 @@ class ApiOperationResponseHeader(dict):
     @pulumi.getter
     def examples(self) -> Optional[Sequence['outputs.ApiOperationResponseHeaderExample']]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -2490,7 +2490,7 @@ class ApiOperationResponseRepresentationFormParameter(dict):
         :param str type: The Type of this Form Parameter, such as a `string`.
         :param str default_value: The default value for this Form Parameter.
         :param str description: A description of this Form Parameter.
-        :param Sequence['ApiOperationResponseRepresentationFormParameterExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationResponseRepresentationFormParameterExampleArgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
@@ -2555,7 +2555,7 @@ class ApiOperationResponseRepresentationFormParameter(dict):
     @pulumi.getter
     def examples(self) -> Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameterExample']]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -2706,7 +2706,7 @@ class ApiOperationTemplateParameter(dict):
         :param str type: The Type of this Template Parameter, such as a `string`.
         :param str default_value: The default value for this Template Parameter.
         :param str description: A description of this Template Parameter.
-        :param Sequence['ApiOperationTemplateParameterExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationTemplateParameterExampleArgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Template Parameter.
@@ -2771,7 +2771,7 @@ class ApiOperationTemplateParameter(dict):
     @pulumi.getter
     def examples(self) -> Optional[Sequence['outputs.ApiOperationTemplateParameterExample']]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 

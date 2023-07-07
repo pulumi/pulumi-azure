@@ -140,13 +140,13 @@ def get_network_sim_group(mobile_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkSimGroup:getNetworkSimGroup', __args__, opts=opts, typ=GetNetworkSimGroupResult).value
 
     return AwaitableGetNetworkSimGroupResult(
-        encryption_key_url=__ret__.encryption_key_url,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        mobile_network_id=__ret__.mobile_network_id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        encryption_key_url=pulumi.get(__ret__, 'encryption_key_url'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_sim_group)

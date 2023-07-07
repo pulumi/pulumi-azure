@@ -201,6 +201,9 @@ namespace Pulumi.Azure.AppService
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         /// </summary>
@@ -414,6 +417,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
@@ -661,6 +667,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.

@@ -244,22 +244,22 @@ def get_key_vault(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getKeyVault:getKeyVault', __args__, opts=opts, typ=GetKeyVaultResult).value
 
     return AwaitableGetKeyVaultResult(
-        access_policies=__ret__.access_policies,
-        enable_rbac_authorization=__ret__.enable_rbac_authorization,
-        enabled_for_deployment=__ret__.enabled_for_deployment,
-        enabled_for_disk_encryption=__ret__.enabled_for_disk_encryption,
-        enabled_for_template_deployment=__ret__.enabled_for_template_deployment,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_acls=__ret__.network_acls,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        purge_protection_enabled=__ret__.purge_protection_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        vault_uri=__ret__.vault_uri)
+        access_policies=pulumi.get(__ret__, 'access_policies'),
+        enable_rbac_authorization=pulumi.get(__ret__, 'enable_rbac_authorization'),
+        enabled_for_deployment=pulumi.get(__ret__, 'enabled_for_deployment'),
+        enabled_for_disk_encryption=pulumi.get(__ret__, 'enabled_for_disk_encryption'),
+        enabled_for_template_deployment=pulumi.get(__ret__, 'enabled_for_template_deployment'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_acls=pulumi.get(__ret__, 'network_acls'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        purge_protection_enabled=pulumi.get(__ret__, 'purge_protection_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        vault_uri=pulumi.get(__ret__, 'vault_uri'))
 
 
 @_utilities.lift_output_func(get_key_vault)

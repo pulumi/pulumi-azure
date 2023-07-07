@@ -126,12 +126,12 @@ def get_dataset_kusto_database(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase', __args__, opts=opts, typ=GetDatasetKustoDatabaseResult).value
 
     return AwaitableGetDatasetKustoDatabaseResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        kusto_cluster_location=__ret__.kusto_cluster_location,
-        kusto_database_id=__ret__.kusto_database_id,
-        name=__ret__.name,
-        share_id=__ret__.share_id)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kusto_cluster_location=pulumi.get(__ret__, 'kusto_cluster_location'),
+        kusto_database_id=pulumi.get(__ret__, 'kusto_database_id'),
+        name=pulumi.get(__ret__, 'name'),
+        share_id=pulumi.get(__ret__, 'share_id'))
 
 
 @_utilities.lift_output_func(get_dataset_kusto_database)

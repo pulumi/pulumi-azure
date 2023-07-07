@@ -94,10 +94,10 @@ def get_secrets(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult).value
 
     return AwaitableGetSecretsResult(
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        names=__ret__.names,
-        secrets=__ret__.secrets)
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        names=pulumi.get(__ret__, 'names'),
+        secrets=pulumi.get(__ret__, 'secrets'))
 
 
 @_utilities.lift_output_func(get_secrets)

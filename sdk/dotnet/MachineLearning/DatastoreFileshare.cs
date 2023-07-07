@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MachineLearning
     /// Machine Learning DataStores can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:machinelearning/datastoreFileshare:DatastoreFileshare example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+    ///  $ pulumi import azure:machinelearning/datastoreFileshare:DatastoreFileshare example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
     /// ```
     /// </summary>
     [AzureResourceType("azure:machinelearning/datastoreFileshare:DatastoreFileshare")]

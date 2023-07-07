@@ -16,19 +16,26 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
 
     public static final SoftwareUpdateConfigurationLinuxArgs Empty = new SoftwareUpdateConfigurationLinuxArgs();
 
-    /**
-     * Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-     * 
-     */
     @Import(name="classificationIncluded")
     private @Nullable Output<String> classificationIncluded;
 
-    /**
-     * @return Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-     * 
-     */
     public Optional<Output<String>> classificationIncluded() {
         return Optional.ofNullable(this.classificationIncluded);
+    }
+
+    /**
+     * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+     * 
+     */
+    @Import(name="classificationsIncludeds")
+    private @Nullable Output<List<String>> classificationsIncludeds;
+
+    /**
+     * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+     * 
+     */
+    public Optional<Output<List<String>>> classificationsIncludeds() {
+        return Optional.ofNullable(this.classificationsIncludeds);
     }
 
     /**
@@ -62,14 +69,14 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     @Import(name="reboot")
     private @Nullable Output<String> reboot;
 
     /**
-     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     public Optional<Output<String>> reboot() {
@@ -80,6 +87,7 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
 
     private SoftwareUpdateConfigurationLinuxArgs(SoftwareUpdateConfigurationLinuxArgs $) {
         this.classificationIncluded = $.classificationIncluded;
+        this.classificationsIncludeds = $.classificationsIncludeds;
         this.excludedPackages = $.excludedPackages;
         this.includedPackages = $.includedPackages;
         this.reboot = $.reboot;
@@ -103,25 +111,44 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
             $ = new SoftwareUpdateConfigurationLinuxArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param classificationIncluded Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classificationIncluded(@Nullable Output<String> classificationIncluded) {
             $.classificationIncluded = classificationIncluded;
             return this;
         }
 
+        public Builder classificationIncluded(String classificationIncluded) {
+            return classificationIncluded(Output.of(classificationIncluded));
+        }
+
         /**
-         * @param classificationIncluded Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         * @param classificationsIncludeds Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
          * 
          * @return builder
          * 
          */
-        public Builder classificationIncluded(String classificationIncluded) {
-            return classificationIncluded(Output.of(classificationIncluded));
+        public Builder classificationsIncludeds(@Nullable Output<List<String>> classificationsIncludeds) {
+            $.classificationsIncludeds = classificationsIncludeds;
+            return this;
+        }
+
+        /**
+         * @param classificationsIncludeds Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classificationsIncludeds(List<String> classificationsIncludeds) {
+            return classificationsIncludeds(Output.of(classificationsIncludeds));
+        }
+
+        /**
+         * @param classificationsIncludeds Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classificationsIncludeds(String... classificationsIncludeds) {
+            return classificationsIncludeds(List.of(classificationsIncludeds));
         }
 
         /**
@@ -187,7 +214,7 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
         }
 
         /**
-         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
          * 
          * @return builder
          * 
@@ -198,7 +225,7 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
         }
 
         /**
-         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
          * 
          * @return builder
          * 

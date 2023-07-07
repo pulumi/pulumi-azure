@@ -209,7 +209,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["172.0.0.0/16"],
+            address_spaces=["172.16.0.0/12"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
@@ -258,7 +258,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["172.0.0.0/16"],
+            address_spaces=["172.16.0.0/12"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",

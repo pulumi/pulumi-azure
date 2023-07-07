@@ -149,14 +149,14 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy', __args__, opts=opts, typ=GetFrontdoorFirewallPolicyResult).value
 
     return AwaitableGetFrontdoorFirewallPolicyResult(
-        enabled=__ret__.enabled,
-        frontend_endpoint_ids=__ret__.frontend_endpoint_ids,
-        id=__ret__.id,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        redirect_url=__ret__.redirect_url,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        frontend_endpoint_ids=pulumi.get(__ret__, 'frontend_endpoint_ids'),
+        id=pulumi.get(__ret__, 'id'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        redirect_url=pulumi.get(__ret__, 'redirect_url'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'))
 
 
 @_utilities.lift_output_func(get_frontdoor_firewall_policy)

@@ -141,13 +141,13 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificateIssuer:getCertificateIssuer', __args__, opts=opts, typ=GetCertificateIssuerResult).value
 
     return AwaitableGetCertificateIssuerResult(
-        account_id=__ret__.account_id,
-        admins=__ret__.admins,
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        name=__ret__.name,
-        org_id=__ret__.org_id,
-        provider_name=__ret__.provider_name)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        admins=pulumi.get(__ret__, 'admins'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        name=pulumi.get(__ret__, 'name'),
+        org_id=pulumi.get(__ret__, 'org_id'),
+        provider_name=pulumi.get(__ret__, 'provider_name'))
 
 
 @_utilities.lift_output_func(get_certificate_issuer)

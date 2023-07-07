@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.VirtualHubRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -139,6 +140,21 @@ public final class VirtualHubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * 
+     */
+    @Import(name="virtualRouterAutoScaleMinCapacity")
+    private @Nullable Output<Integer> virtualRouterAutoScaleMinCapacity;
+
+    /**
+     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * 
+     */
+    public Optional<Output<Integer>> virtualRouterAutoScaleMinCapacity() {
+        return Optional.ofNullable(this.virtualRouterAutoScaleMinCapacity);
+    }
+
+    /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      * 
      */
@@ -164,6 +180,7 @@ public final class VirtualHubArgs extends com.pulumi.resources.ResourceArgs {
         this.routes = $.routes;
         this.sku = $.sku;
         this.tags = $.tags;
+        this.virtualRouterAutoScaleMinCapacity = $.virtualRouterAutoScaleMinCapacity;
         this.virtualWanId = $.virtualWanId;
     }
 
@@ -361,6 +378,27 @@ public final class VirtualHubArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualRouterAutoScaleMinCapacity(@Nullable Output<Integer> virtualRouterAutoScaleMinCapacity) {
+            $.virtualRouterAutoScaleMinCapacity = virtualRouterAutoScaleMinCapacity;
+            return this;
+        }
+
+        /**
+         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualRouterAutoScaleMinCapacity(Integer virtualRouterAutoScaleMinCapacity) {
+            return virtualRouterAutoScaleMinCapacity(Output.of(virtualRouterAutoScaleMinCapacity));
         }
 
         /**

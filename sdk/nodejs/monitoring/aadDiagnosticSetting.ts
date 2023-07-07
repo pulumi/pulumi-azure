@@ -27,10 +27,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleAadDiagnosticSetting = new azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", {
  *     storageAccountId: exampleAccount.id,
- *     logs: [
+ *     enabledLogs: [
  *         {
  *             category: "SignInLogs",
- *             enabled: true,
  *             retentionPolicy: {
  *                 enabled: true,
  *                 days: 1,
@@ -38,7 +37,6 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             category: "AuditLogs",
- *             enabled: true,
  *             retentionPolicy: {
  *                 enabled: true,
  *                 days: 1,
@@ -46,7 +44,6 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             category: "NonInteractiveUserSignInLogs",
- *             enabled: true,
  *             retentionPolicy: {
  *                 enabled: true,
  *                 days: 1,
@@ -54,26 +51,10 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             category: "ServicePrincipalSignInLogs",
- *             enabled: true,
  *             retentionPolicy: {
  *                 enabled: true,
  *                 days: 1,
  *             },
- *         },
- *         {
- *             category: "ManagedIdentitySignInLogs",
- *             enabled: false,
- *             retentionPolicy: {},
- *         },
- *         {
- *             category: "ProvisioningLogs",
- *             enabled: false,
- *             retentionPolicy: {},
- *         },
- *         {
- *             category: "ADFSSignInLogs",
- *             enabled: false,
- *             retentionPolicy: {},
  *         },
  *     ],
  * });
@@ -116,6 +97,12 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     }
 
     /**
+     * One or more `enabledLog` blocks as defined below.
+     *
+     * > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
+     */
+    public readonly enabledLogs!: pulumi.Output<outputs.monitoring.AadDiagnosticSettingEnabledLog[]>;
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
@@ -132,7 +119,9 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     /**
      * One or more `log` blocks as defined below.
      *
-     * > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
+     *
+     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      */
     public readonly logs!: pulumi.Output<outputs.monitoring.AadDiagnosticSettingLog[]>;
     /**
@@ -153,12 +142,13 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AadDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: AadDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AadDiagnosticSettingArgs | AadDiagnosticSettingState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AadDiagnosticSettingState | undefined;
+            resourceInputs["enabledLogs"] = state ? state.enabledLogs : undefined;
             resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
@@ -167,9 +157,7 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as AadDiagnosticSettingArgs | undefined;
-            if ((!args || args.logs === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'logs'");
-            }
+            resourceInputs["enabledLogs"] = args ? args.enabledLogs : undefined;
             resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
             resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
@@ -187,6 +175,12 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
  */
 export interface AadDiagnosticSettingState {
     /**
+     * One or more `enabledLog` blocks as defined below.
+     *
+     * > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
+     */
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingEnabledLog>[]>;
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
@@ -203,7 +197,9 @@ export interface AadDiagnosticSettingState {
     /**
      * One or more `log` blocks as defined below.
      *
-     * > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
+     *
+     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
@@ -223,6 +219,12 @@ export interface AadDiagnosticSettingState {
  */
 export interface AadDiagnosticSettingArgs {
     /**
+     * One or more `enabledLog` blocks as defined below.
+     *
+     * > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
+     */
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingEnabledLog>[]>;
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
@@ -239,9 +241,11 @@ export interface AadDiagnosticSettingArgs {
     /**
      * One or more `log` blocks as defined below.
      *
-     * > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
+     *
+     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      */
-    logs: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      */

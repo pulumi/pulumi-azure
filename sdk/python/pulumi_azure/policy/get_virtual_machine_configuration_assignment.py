@@ -175,16 +175,16 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment', __args__, opts=opts, typ=GetVirtualMachineConfigurationAssignmentResult).value
 
     return AwaitableGetVirtualMachineConfigurationAssignmentResult(
-        assignment_hash=__ret__.assignment_hash,
-        compliance_status=__ret__.compliance_status,
-        content_hash=__ret__.content_hash,
-        content_uri=__ret__.content_uri,
-        id=__ret__.id,
-        last_compliance_status_checked=__ret__.last_compliance_status_checked,
-        latest_report_id=__ret__.latest_report_id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        virtual_machine_name=__ret__.virtual_machine_name)
+        assignment_hash=pulumi.get(__ret__, 'assignment_hash'),
+        compliance_status=pulumi.get(__ret__, 'compliance_status'),
+        content_hash=pulumi.get(__ret__, 'content_hash'),
+        content_uri=pulumi.get(__ret__, 'content_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        last_compliance_status_checked=pulumi.get(__ret__, 'last_compliance_status_checked'),
+        latest_report_id=pulumi.get(__ret__, 'latest_report_id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        virtual_machine_name=pulumi.get(__ret__, 'virtual_machine_name'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_configuration_assignment)

@@ -27,8 +27,6 @@ public final class KubernetesClusterDefaultNodePool {
     /**
      * @return Specifies whether to trust a Custom CA.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-     * 
      */
     private @Nullable Boolean customCaTrustEnabled;
     /**
@@ -154,7 +152,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String osDiskType;
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable String osSku;
@@ -239,8 +237,6 @@ public final class KubernetesClusterDefaultNodePool {
     }
     /**
      * @return Specifies whether to trust a Custom CA.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Optional<Boolean> customCaTrustEnabled() {
@@ -413,7 +409,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.osDiskType);
     }
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<String> osSku() {

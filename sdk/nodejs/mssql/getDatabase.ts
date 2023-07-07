@@ -46,7 +46,7 @@ export interface GetDatabaseArgs {
      */
     name: string;
     /**
-     * The id of the MS SQL Server on which to create the database.
+     * The id of the MS SQL Server on which to read the database.
      */
     serverId: string;
 }
@@ -139,7 +139,7 @@ export interface GetDatabaseOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The id of the MS SQL Server on which to create the database.
+     * The id of the MS SQL Server on which to read the database.
      */
     serverId: pulumi.Input<string>;
 }

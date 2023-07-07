@@ -142,13 +142,13 @@ def get_application(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:batch/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        account_name=__ret__.account_name,
-        allow_updates=__ret__.allow_updates,
-        default_version=__ret__.default_version,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        allow_updates=pulumi.get(__ret__, 'allow_updates'),
+        default_version=pulumi.get(__ret__, 'default_version'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_application)

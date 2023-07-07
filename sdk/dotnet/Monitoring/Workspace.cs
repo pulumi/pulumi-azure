@@ -64,6 +64,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Is public network access enabled? Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -134,6 +140,12 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Is public network access enabled? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -170,6 +182,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is public network access enabled? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.

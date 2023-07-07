@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Win32 Status Code of the Request.
         /// </summary>
-        public readonly string? Win32Status;
+        public readonly int? Win32Status;
 
         [OutputConstructor]
         private LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int? subStatus,
 
-            string? win32Status)
+            int? win32Status)
         {
             Count = count;
             Interval = interval;

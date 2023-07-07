@@ -107,7 +107,22 @@ import (
 //						},
 //					},
 //				},
-//				Script: pulumi.String("source(\n  allowSchemaDrift: true, \n  validateSchema: false, \n  limit: 100, \n  ignoreNoFilesFound: false, \n  documentForm: 'documentPerLine') ~> source1 \nsource1 sink(\n  allowSchemaDrift: true, \n  validateSchema: false, \n  skipDuplicateMapInputs: true, \n  skipDuplicateMapOutputs: true) ~> sink1\n"),
+//				Script: pulumi.String(`source(
+//	  allowSchemaDrift: true,
+//	  validateSchema: false,
+//	  limit: 100,
+//	  ignoreNoFilesFound: false,
+//	  documentForm: 'documentPerLine') ~> source1
+//
+// source1 sink(
+//
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	skipDuplicateMapInputs: true,
+//	skipDuplicateMapOutputs: true) ~> sink1
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -130,7 +145,22 @@ import (
 //						},
 //					},
 //				},
-//				Script: pulumi.String("source(\n  allowSchemaDrift: true, \n  validateSchema: false, \n  limit: 100, \n  ignoreNoFilesFound: false, \n  documentForm: 'documentPerLine') ~> source1 \nsource1 sink(\n  allowSchemaDrift: true, \n  validateSchema: false, \n  skipDuplicateMapInputs: true, \n  skipDuplicateMapOutputs: true) ~> sink1\n"),
+//				Script: pulumi.String(`source(
+//	  allowSchemaDrift: true,
+//	  validateSchema: false,
+//	  limit: 100,
+//	  ignoreNoFilesFound: false,
+//	  documentForm: 'documentPerLine') ~> source1
+//
+// source1 sink(
+//
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	skipDuplicateMapInputs: true,
+//	skipDuplicateMapOutputs: true) ~> sink1
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -159,7 +189,22 @@ import (
 //						},
 //					},
 //				},
-//				Script: pulumi.String("source(\n  allowSchemaDrift: true, \n  validateSchema: false, \n  limit: 100, \n  ignoreNoFilesFound: false, \n  documentForm: 'documentPerLine') ~> source1 \nsource1 sink(\n  allowSchemaDrift: true, \n  validateSchema: false, \n  skipDuplicateMapInputs: true, \n  skipDuplicateMapOutputs: true) ~> sink1\n"),
+//				Script: pulumi.String(`source(
+//	  allowSchemaDrift: true,
+//	  validateSchema: false,
+//	  limit: 100,
+//	  ignoreNoFilesFound: false,
+//	  documentForm: 'documentPerLine') ~> source1
+//
+// source1 sink(
+//
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	skipDuplicateMapInputs: true,
+//	skipDuplicateMapOutputs: true) ~> sink1
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

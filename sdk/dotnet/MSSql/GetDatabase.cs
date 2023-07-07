@@ -116,7 +116,7 @@ namespace Pulumi.Azure.MSSql
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the MS SQL Server on which to create the database.
+        /// The id of the MS SQL Server on which to read the database.
         /// </summary>
         [Input("serverId", required: true)]
         public string ServerId { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the MS SQL Server on which to create the database.
+        /// The id of the MS SQL Server on which to read the database.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;

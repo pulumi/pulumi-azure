@@ -266,24 +266,24 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:signalr/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        aad_auth_enabled=__ret__.aad_auth_enabled,
-        hostname=__ret__.hostname,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        local_auth_enabled=__ret__.local_auth_enabled,
-        location=__ret__.location,
-        name=__ret__.name,
-        primary_access_key=__ret__.primary_access_key,
-        primary_connection_string=__ret__.primary_connection_string,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        public_port=__ret__.public_port,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        server_port=__ret__.server_port,
-        serverless_connection_timeout_in_seconds=__ret__.serverless_connection_timeout_in_seconds,
-        tags=__ret__.tags,
-        tls_client_cert_enabled=__ret__.tls_client_cert_enabled)
+        aad_auth_enabled=pulumi.get(__ret__, 'aad_auth_enabled'),
+        hostname=pulumi.get(__ret__, 'hostname'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        local_auth_enabled=pulumi.get(__ret__, 'local_auth_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        public_port=pulumi.get(__ret__, 'public_port'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        server_port=pulumi.get(__ret__, 'server_port'),
+        serverless_connection_timeout_in_seconds=pulumi.get(__ret__, 'serverless_connection_timeout_in_seconds'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tls_client_cert_enabled=pulumi.get(__ret__, 'tls_client_cert_enabled'))
 
 
 @_utilities.lift_output_func(get_service)

@@ -17208,7 +17208,11 @@ class LinuxWebAppSiteConfigArgs:
 class LinuxWebAppSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
                  docker_image: Optional[pulumi.Input[str]] = None,
+                 docker_image_name: Optional[pulumi.Input[str]] = None,
                  docker_image_tag: Optional[pulumi.Input[str]] = None,
+                 docker_registry_password: Optional[pulumi.Input[str]] = None,
+                 docker_registry_url: Optional[pulumi.Input[str]] = None,
+                 docker_registry_username: Optional[pulumi.Input[str]] = None,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  go_version: Optional[pulumi.Input[str]] = None,
                  java_server: Optional[pulumi.Input[str]] = None,
@@ -17219,8 +17223,12 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                  python_version: Optional[pulumi.Input[str]] = None,
                  ruby_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] docker_image: The Docker image reference, including repository host as needed.
-        :param pulumi.Input[str] docker_image_tag: The image Tag to use. e.g. `latest`.
+        :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+        :param pulumi.Input[str] docker_registry_password: The User Name to use for authentication against the registry to pull the image.
+               
+               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        :param pulumi.Input[str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        :param pulumi.Input[str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         :param pulumi.Input[str] go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param pulumi.Input[str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
@@ -17240,9 +17248,23 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
+            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
+        if docker_image is not None:
             pulumi.set(__self__, "docker_image", docker_image)
+        if docker_image_name is not None:
+            pulumi.set(__self__, "docker_image_name", docker_image_name)
+        if docker_image_tag is not None:
+            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
         if docker_image_tag is not None:
             pulumi.set(__self__, "docker_image_tag", docker_image_tag)
+        if docker_registry_password is not None:
+            pulumi.set(__self__, "docker_registry_password", docker_registry_password)
+        if docker_registry_url is not None:
+            pulumi.set(__self__, "docker_registry_url", docker_registry_url)
+        if docker_registry_username is not None:
+            pulumi.set(__self__, "docker_registry_username", docker_registry_username)
         if dotnet_version is not None:
             pulumi.set(__self__, "dotnet_version", dotnet_version)
         if go_version is not None:
@@ -17265,9 +17287,9 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerImage")
     def docker_image(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Docker image reference, including repository host as needed.
-        """
+        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
+
         return pulumi.get(self, "docker_image")
 
     @docker_image.setter
@@ -17275,16 +17297,66 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         pulumi.set(self, "docker_image", value)
 
     @property
+    @pulumi.getter(name="dockerImageName")
+    def docker_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+        """
+        return pulumi.get(self, "docker_image_name")
+
+    @docker_image_name.setter
+    def docker_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image_name", value)
+
+    @property
     @pulumi.getter(name="dockerImageTag")
     def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The image Tag to use. e.g. `latest`.
-        """
+        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
+
         return pulumi.get(self, "docker_image_tag")
 
     @docker_image_tag.setter
     def docker_image_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_image_tag", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryPassword")
+    def docker_registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        return pulumi.get(self, "docker_registry_password")
+
+    @docker_registry_password.setter
+    def docker_registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_password", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUrl")
+    def docker_registry_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        return pulumi.get(self, "docker_registry_url")
+
+    @docker_registry_url.setter
+    def docker_registry_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_url", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUsername")
+    def docker_registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        return pulumi.get(self, "docker_registry_username")
+
+    @docker_registry_username.setter
+    def docker_registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_username", value)
 
     @property
     @pulumi.getter(name="dotnetVersion")
@@ -17648,14 +17720,14 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[str]] = None):
+                 win32_status: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -17729,14 +17801,14 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[str]]:
+    def win32_status(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
         return pulumi.get(self, "win32_status")
 
     @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[str]]):
+    def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
 
 
@@ -21527,7 +21599,11 @@ class LinuxWebAppSlotSiteConfigArgs:
 class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
                  docker_image: Optional[pulumi.Input[str]] = None,
+                 docker_image_name: Optional[pulumi.Input[str]] = None,
                  docker_image_tag: Optional[pulumi.Input[str]] = None,
+                 docker_registry_password: Optional[pulumi.Input[str]] = None,
+                 docker_registry_url: Optional[pulumi.Input[str]] = None,
+                 docker_registry_username: Optional[pulumi.Input[str]] = None,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  go_version: Optional[pulumi.Input[str]] = None,
                  java_server: Optional[pulumi.Input[str]] = None,
@@ -21538,8 +21614,12 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
                  python_version: Optional[pulumi.Input[str]] = None,
                  ruby_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] docker_image: The Docker image reference, including repository host as needed.
-        :param pulumi.Input[str] docker_image_tag: The image Tag to use. e.g. `latest`.
+        :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+        :param pulumi.Input[str] docker_registry_password: The User Name to use for authentication against the registry to pull the image.
+               
+               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        :param pulumi.Input[str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        :param pulumi.Input[str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         :param pulumi.Input[str] go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param pulumi.Input[str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
@@ -21559,9 +21639,23 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
+            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
+        if docker_image is not None:
             pulumi.set(__self__, "docker_image", docker_image)
+        if docker_image_name is not None:
+            pulumi.set(__self__, "docker_image_name", docker_image_name)
+        if docker_image_tag is not None:
+            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
         if docker_image_tag is not None:
             pulumi.set(__self__, "docker_image_tag", docker_image_tag)
+        if docker_registry_password is not None:
+            pulumi.set(__self__, "docker_registry_password", docker_registry_password)
+        if docker_registry_url is not None:
+            pulumi.set(__self__, "docker_registry_url", docker_registry_url)
+        if docker_registry_username is not None:
+            pulumi.set(__self__, "docker_registry_username", docker_registry_username)
         if dotnet_version is not None:
             pulumi.set(__self__, "dotnet_version", dotnet_version)
         if go_version is not None:
@@ -21584,9 +21678,9 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerImage")
     def docker_image(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Docker image reference, including repository host as needed.
-        """
+        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
+
         return pulumi.get(self, "docker_image")
 
     @docker_image.setter
@@ -21594,16 +21688,66 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         pulumi.set(self, "docker_image", value)
 
     @property
+    @pulumi.getter(name="dockerImageName")
+    def docker_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+        """
+        return pulumi.get(self, "docker_image_name")
+
+    @docker_image_name.setter
+    def docker_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image_name", value)
+
+    @property
     @pulumi.getter(name="dockerImageTag")
     def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The image Tag to use. e.g. `latest`.
-        """
+        warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
+
         return pulumi.get(self, "docker_image_tag")
 
     @docker_image_tag.setter
     def docker_image_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_image_tag", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryPassword")
+    def docker_registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        return pulumi.get(self, "docker_registry_password")
+
+    @docker_registry_password.setter
+    def docker_registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_password", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUrl")
+    def docker_registry_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        return pulumi.get(self, "docker_registry_url")
+
+    @docker_registry_url.setter
+    def docker_registry_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_url", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUsername")
+    def docker_registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        return pulumi.get(self, "docker_registry_username")
+
+    @docker_registry_username.setter
+    def docker_registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_username", value)
 
     @property
     @pulumi.getter(name="dotnetVersion")
@@ -21967,14 +22111,14 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[str]] = None):
+                 win32_status: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -22048,14 +22192,14 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[str]]:
+    def win32_status(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
         return pulumi.get(self, "win32_status")
 
     @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[str]]):
+    def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
 
 
@@ -36167,6 +36311,10 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
                  docker_container_name: Optional[pulumi.Input[str]] = None,
                  docker_container_registry: Optional[pulumi.Input[str]] = None,
                  docker_container_tag: Optional[pulumi.Input[str]] = None,
+                 docker_image_name: Optional[pulumi.Input[str]] = None,
+                 docker_registry_password: Optional[pulumi.Input[str]] = None,
+                 docker_registry_url: Optional[pulumi.Input[str]] = None,
+                 docker_registry_username: Optional[pulumi.Input[str]] = None,
                  dotnet_core_version: Optional[pulumi.Input[str]] = None,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
@@ -36182,9 +36330,12 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
-        :param pulumi.Input[str] docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-        :param pulumi.Input[str] docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-        :param pulumi.Input[str] docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
+        :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        :param pulumi.Input[str] docker_registry_password: The User Name to use for authentication against the registry to pull the image.
+               
+               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        :param pulumi.Input[str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        :param pulumi.Input[str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param pulumi.Input[str] dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
                
@@ -36215,9 +36366,20 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         if docker_container_name is not None:
             pulumi.set(__self__, "docker_container_name", docker_container_name)
         if docker_container_registry is not None:
+            warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
+        if docker_container_registry is not None:
             pulumi.set(__self__, "docker_container_registry", docker_container_registry)
         if docker_container_tag is not None:
             pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        if docker_image_name is not None:
+            pulumi.set(__self__, "docker_image_name", docker_image_name)
+        if docker_registry_password is not None:
+            pulumi.set(__self__, "docker_registry_password", docker_registry_password)
+        if docker_registry_url is not None:
+            pulumi.set(__self__, "docker_registry_url", docker_registry_url)
+        if docker_registry_username is not None:
+            pulumi.set(__self__, "docker_registry_username", docker_registry_username)
         if dotnet_core_version is not None:
             pulumi.set(__self__, "dotnet_core_version", dotnet_core_version)
         if dotnet_version is not None:
@@ -36267,9 +36429,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerContainerName")
     def docker_container_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-        """
         return pulumi.get(self, "docker_container_name")
 
     @docker_container_name.setter
@@ -36279,9 +36438,9 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerContainerRegistry")
     def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
-        """
-        The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-        """
+        warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
+
         return pulumi.get(self, "docker_container_registry")
 
     @docker_container_registry.setter
@@ -36291,14 +36450,61 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerContainerTag")
     def docker_container_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Image Tag of the specified Docker Container to use. For example `latest`
-        """
         return pulumi.get(self, "docker_container_tag")
 
     @docker_container_tag.setter
     def docker_container_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_container_tag", value)
+
+    @property
+    @pulumi.getter(name="dockerImageName")
+    def docker_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        """
+        return pulumi.get(self, "docker_image_name")
+
+    @docker_image_name.setter
+    def docker_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image_name", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryPassword")
+    def docker_registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        return pulumi.get(self, "docker_registry_password")
+
+    @docker_registry_password.setter
+    def docker_registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_password", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUrl")
+    def docker_registry_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        return pulumi.get(self, "docker_registry_url")
+
+    @docker_registry_url.setter
+    def docker_registry_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_url", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUsername")
+    def docker_registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        return pulumi.get(self, "docker_registry_username")
+
+    @docker_registry_username.setter
+    def docker_registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_username", value)
 
     @property
     @pulumi.getter(name="dotnetCoreVersion")
@@ -36335,6 +36541,9 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="javaContainer")
     def java_container(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
+        pulumi.log.warn("""java_container is deprecated: this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
+
         return pulumi.get(self, "java_container")
 
     @java_container.setter
@@ -36344,6 +36553,9 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="javaContainerVersion")
     def java_container_version(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
+        pulumi.log.warn("""java_container_version is deprecated: This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
+
         return pulumi.get(self, "java_container_version")
 
     @java_container_version.setter
@@ -36419,6 +36631,9 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This property is deprecated. Values set are not used by the service.""", DeprecationWarning)
+        pulumi.log.warn("""python_version is deprecated: This property is deprecated. Values set are not used by the service.""")
+
         return pulumi.get(self, "python_version")
 
     @python_version.setter
@@ -36753,14 +36968,14 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[str]] = None):
+                 win32_status: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -36834,14 +37049,14 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[str]]:
+    def win32_status(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
         return pulumi.get(self, "win32_status")
 
     @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[str]]):
+    def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
 
 
@@ -40758,6 +40973,10 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
                  docker_container_name: Optional[pulumi.Input[str]] = None,
                  docker_container_registry: Optional[pulumi.Input[str]] = None,
                  docker_container_tag: Optional[pulumi.Input[str]] = None,
+                 docker_image_name: Optional[pulumi.Input[str]] = None,
+                 docker_registry_password: Optional[pulumi.Input[str]] = None,
+                 docker_registry_url: Optional[pulumi.Input[str]] = None,
+                 docker_registry_username: Optional[pulumi.Input[str]] = None,
                  dotnet_core_version: Optional[pulumi.Input[str]] = None,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
@@ -40773,9 +40992,12 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
-        :param pulumi.Input[str] docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-        :param pulumi.Input[str] docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-        :param pulumi.Input[str] docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
+        :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        :param pulumi.Input[str] docker_registry_password: The User Name to use for authentication against the registry to pull the image.
+               
+               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        :param pulumi.Input[str] docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        :param pulumi.Input[str] docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param pulumi.Input[str] dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         :param pulumi.Input[bool] java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
@@ -40798,9 +41020,20 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         if docker_container_name is not None:
             pulumi.set(__self__, "docker_container_name", docker_container_name)
         if docker_container_registry is not None:
+            warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
+        if docker_container_registry is not None:
             pulumi.set(__self__, "docker_container_registry", docker_container_registry)
         if docker_container_tag is not None:
             pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        if docker_image_name is not None:
+            pulumi.set(__self__, "docker_image_name", docker_image_name)
+        if docker_registry_password is not None:
+            pulumi.set(__self__, "docker_registry_password", docker_registry_password)
+        if docker_registry_url is not None:
+            pulumi.set(__self__, "docker_registry_url", docker_registry_url)
+        if docker_registry_username is not None:
+            pulumi.set(__self__, "docker_registry_username", docker_registry_username)
         if dotnet_core_version is not None:
             pulumi.set(__self__, "dotnet_core_version", dotnet_core_version)
         if dotnet_version is not None:
@@ -40850,9 +41083,6 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerContainerName")
     def docker_container_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-        """
         return pulumi.get(self, "docker_container_name")
 
     @docker_container_name.setter
@@ -40862,9 +41092,9 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerContainerRegistry")
     def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
-        """
-        The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-        """
+        warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
+
         return pulumi.get(self, "docker_container_registry")
 
     @docker_container_registry.setter
@@ -40874,14 +41104,61 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="dockerContainerTag")
     def docker_container_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Image Tag of the specified Docker Container to use. For example `latest`
-        """
         return pulumi.get(self, "docker_container_tag")
 
     @docker_container_tag.setter
     def docker_container_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_container_tag", value)
+
+    @property
+    @pulumi.getter(name="dockerImageName")
+    def docker_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        """
+        return pulumi.get(self, "docker_image_name")
+
+    @docker_image_name.setter
+    def docker_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image_name", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryPassword")
+    def docker_registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        return pulumi.get(self, "docker_registry_password")
+
+    @docker_registry_password.setter
+    def docker_registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_password", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUrl")
+    def docker_registry_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        return pulumi.get(self, "docker_registry_url")
+
+    @docker_registry_url.setter
+    def docker_registry_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_url", value)
+
+    @property
+    @pulumi.getter(name="dockerRegistryUsername")
+    def docker_registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        return pulumi.get(self, "docker_registry_username")
+
+    @docker_registry_username.setter
+    def docker_registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_registry_username", value)
 
     @property
     @pulumi.getter(name="dotnetCoreVersion")
@@ -40910,6 +41187,9 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="javaContainer")
     def java_container(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
+        pulumi.log.warn("""java_container is deprecated: this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
+
         return pulumi.get(self, "java_container")
 
     @java_container.setter
@@ -40919,6 +41199,9 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="javaContainerVersion")
     def java_container_version(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""", DeprecationWarning)
+        pulumi.log.warn("""java_container_version is deprecated: This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`""")
+
         return pulumi.get(self, "java_container_version")
 
     @java_container_version.setter
@@ -40994,6 +41277,9 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @property
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This property is deprecated. Values set are not used by the service.""", DeprecationWarning)
+        pulumi.log.warn("""python_version is deprecated: This property is deprecated. Values set are not used by the service.""")
+
         return pulumi.get(self, "python_version")
 
     @python_version.setter
@@ -41328,14 +41614,14 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[str]] = None):
+                 win32_status: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -41409,14 +41695,14 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[str]]:
+    def win32_status(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
         return pulumi.get(self, "win32_status")
 
     @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[str]]):
+    def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
 
 

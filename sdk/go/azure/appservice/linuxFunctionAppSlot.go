@@ -140,7 +140,8 @@ type LinuxFunctionAppSlot struct {
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
-	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	PossibleOutboundIpAddresses pulumi.StringOutput  `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
 	// a `siteConfig` block as detailed below.
@@ -264,6 +265,7 @@ type linuxFunctionAppSlotState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// a `siteConfig` block as detailed below.
@@ -344,6 +346,7 @@ type LinuxFunctionAppSlotState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	PublicNetworkAccessEnabled  pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId pulumi.StringPtrInput
 	// a `siteConfig` block as detailed below.
@@ -411,7 +414,8 @@ type linuxFunctionAppSlotArgs struct {
 	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// a `siteConfig` block as detailed below.
@@ -474,7 +478,8 @@ type LinuxFunctionAppSlotArgs struct {
 	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId pulumi.StringPtrInput
 	// a `siteConfig` block as detailed below.
@@ -717,6 +722,10 @@ func (o LinuxFunctionAppSlotOutput) PossibleOutboundIpAddressLists() pulumi.Stri
 // A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
 func (o LinuxFunctionAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o LinuxFunctionAppSlotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.

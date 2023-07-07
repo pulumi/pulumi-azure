@@ -92,7 +92,7 @@ export class OutputBlob extends pulumi.CustomResource {
      */
     public readonly batchMaxWaitTime!: pulumi.Output<string | undefined>;
     /**
-     * The minimum number of rows per batch (must be between `0` and `10000`).
+     * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
     public readonly batchMinRows!: pulumi.Output<number | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface OutputBlobState {
      */
     batchMaxWaitTime?: pulumi.Input<string>;
     /**
-     * The minimum number of rows per batch (must be between `0` and `10000`).
+     * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
     batchMinRows?: pulumi.Input<number>;
     /**
@@ -280,7 +280,7 @@ export interface OutputBlobArgs {
      */
     batchMaxWaitTime?: pulumi.Input<string>;
     /**
-     * The minimum number of rows per batch (must be between `0` and `10000`).
+     * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
     batchMinRows?: pulumi.Input<number>;
     /**

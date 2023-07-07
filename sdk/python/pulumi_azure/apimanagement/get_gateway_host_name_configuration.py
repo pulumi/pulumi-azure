@@ -180,16 +180,16 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration', __args__, opts=opts, typ=GetGatewayHostNameConfigurationResult).value
 
     return AwaitableGetGatewayHostNameConfigurationResult(
-        api_management_id=__ret__.api_management_id,
-        certificate_id=__ret__.certificate_id,
-        gateway_name=__ret__.gateway_name,
-        host_name=__ret__.host_name,
-        http2_enabled=__ret__.http2_enabled,
-        id=__ret__.id,
-        name=__ret__.name,
-        request_client_certificate_enabled=__ret__.request_client_certificate_enabled,
-        tls10_enabled=__ret__.tls10_enabled,
-        tls11_enabled=__ret__.tls11_enabled)
+        api_management_id=pulumi.get(__ret__, 'api_management_id'),
+        certificate_id=pulumi.get(__ret__, 'certificate_id'),
+        gateway_name=pulumi.get(__ret__, 'gateway_name'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        http2_enabled=pulumi.get(__ret__, 'http2_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        request_client_certificate_enabled=pulumi.get(__ret__, 'request_client_certificate_enabled'),
+        tls10_enabled=pulumi.get(__ret__, 'tls10_enabled'),
+        tls11_enabled=pulumi.get(__ret__, 'tls11_enabled'))
 
 
 @_utilities.lift_output_func(get_gateway_host_name_configuration)

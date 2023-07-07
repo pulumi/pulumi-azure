@@ -175,17 +175,17 @@ def get_virtual_wan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualWan:getVirtualWan', __args__, opts=opts, typ=GetVirtualWanResult).value
 
     return AwaitableGetVirtualWanResult(
-        allow_branch_to_branch_traffic=__ret__.allow_branch_to_branch_traffic,
-        disable_vpn_encryption=__ret__.disable_vpn_encryption,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        office365_local_breakout_category=__ret__.office365_local_breakout_category,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        virtual_hub_ids=__ret__.virtual_hub_ids,
-        vpn_site_ids=__ret__.vpn_site_ids)
+        allow_branch_to_branch_traffic=pulumi.get(__ret__, 'allow_branch_to_branch_traffic'),
+        disable_vpn_encryption=pulumi.get(__ret__, 'disable_vpn_encryption'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        office365_local_breakout_category=pulumi.get(__ret__, 'office365_local_breakout_category'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_hub_ids=pulumi.get(__ret__, 'virtual_hub_ids'),
+        vpn_site_ids=pulumi.get(__ret__, 'vpn_site_ids'))
 
 
 @_utilities.lift_output_func(get_virtual_wan)

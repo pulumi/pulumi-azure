@@ -150,14 +150,14 @@ def get_dedicated_host_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getDedicatedHostGroup:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult).value
 
     return AwaitableGetDedicatedHostGroupResult(
-        automatic_placement_enabled=__ret__.automatic_placement_enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform_fault_domain_count=__ret__.platform_fault_domain_count,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        zones=__ret__.zones)
+        automatic_placement_enabled=pulumi.get(__ret__, 'automatic_placement_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_dedicated_host_group)

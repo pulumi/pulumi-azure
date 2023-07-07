@@ -250,22 +250,22 @@ def get_network_interface(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
-        applied_dns_servers=__ret__.applied_dns_servers,
-        dns_servers=__ret__.dns_servers,
-        enable_accelerated_networking=__ret__.enable_accelerated_networking,
-        enable_ip_forwarding=__ret__.enable_ip_forwarding,
-        id=__ret__.id,
-        internal_dns_name_label=__ret__.internal_dns_name_label,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        mac_address=__ret__.mac_address,
-        name=__ret__.name,
-        network_security_group_id=__ret__.network_security_group_id,
-        private_ip_address=__ret__.private_ip_address,
-        private_ip_addresses=__ret__.private_ip_addresses,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        virtual_machine_id=__ret__.virtual_machine_id)
+        applied_dns_servers=pulumi.get(__ret__, 'applied_dns_servers'),
+        dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        enable_accelerated_networking=pulumi.get(__ret__, 'enable_accelerated_networking'),
+        enable_ip_forwarding=pulumi.get(__ret__, 'enable_ip_forwarding'),
+        id=pulumi.get(__ret__, 'id'),
+        internal_dns_name_label=pulumi.get(__ret__, 'internal_dns_name_label'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        mac_address=pulumi.get(__ret__, 'mac_address'),
+        name=pulumi.get(__ret__, 'name'),
+        network_security_group_id=pulumi.get(__ret__, 'network_security_group_id'),
+        private_ip_address=pulumi.get(__ret__, 'private_ip_address'),
+        private_ip_addresses=pulumi.get(__ret__, 'private_ip_addresses'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_machine_id=pulumi.get(__ret__, 'virtual_machine_id'))
 
 
 @_utilities.lift_output_func(get_network_interface)

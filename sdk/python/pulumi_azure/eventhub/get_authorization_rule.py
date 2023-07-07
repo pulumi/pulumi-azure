@@ -220,20 +220,20 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getAuthorizationRule:getAuthorizationRule', __args__, opts=opts, typ=GetAuthorizationRuleResult).value
 
     return AwaitableGetAuthorizationRuleResult(
-        eventhub_name=__ret__.eventhub_name,
-        id=__ret__.id,
-        listen=__ret__.listen,
-        manage=__ret__.manage,
-        name=__ret__.name,
-        namespace_name=__ret__.namespace_name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_connection_string_alias=__ret__.primary_connection_string_alias,
-        primary_key=__ret__.primary_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
-        secondary_key=__ret__.secondary_key,
-        send=__ret__.send)
+        eventhub_name=pulumi.get(__ret__, 'eventhub_name'),
+        id=pulumi.get(__ret__, 'id'),
+        listen=pulumi.get(__ret__, 'listen'),
+        manage=pulumi.get(__ret__, 'manage'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        send=pulumi.get(__ret__, 'send'))
 
 
 @_utilities.lift_output_func(get_authorization_rule)

@@ -51,6 +51,48 @@ namespace Pulumi.Azure.Automation
     /// 
     /// });
     /// ```
+    /// ### Custom Content
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Local = Pulumi.Local;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleFile = Local.GetFile.Invoke(new()
+    ///     {
+    ///         Filename = $"{path.Module}/example.ps1",
+    ///     });
+    /// 
+    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         LogVerbose = true,
+    ///         LogProgress = true,
+    ///         Description = "This is an example runbook",
+    ///         RunbookType = "PowerShell",
+    ///         Content = exampleFile.Apply(getFileResult =&gt; getFileResult.Content),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

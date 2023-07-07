@@ -22,6 +22,7 @@ class ProviderArgs:
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
+                 sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
                  sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_policy_base64: Optional[pulumi.Input[str]] = None):
@@ -30,15 +31,16 @@ class ProviderArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
                > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
-        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
-        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
                > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
+        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -48,12 +50,14 @@ class ProviderArgs:
         if open_enclave_policy_base64 is not None:
             pulumi.set(__self__, "open_enclave_policy_base64", open_enclave_policy_base64)
         if policies is not None:
-            warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.""", DeprecationWarning)
-            pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.""")
+            warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
+            pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
         if policy_signing_certificate_data is not None:
             pulumi.set(__self__, "policy_signing_certificate_data", policy_signing_certificate_data)
+        if sev_snp_policy_base64 is not None:
+            pulumi.set(__self__, "sev_snp_policy_base64", sev_snp_policy_base64)
         if sgx_enclave_policy_base64 is not None:
             pulumi.set(__self__, "sgx_enclave_policy_base64", sgx_enclave_policy_base64)
         if tags is not None:
@@ -101,7 +105,7 @@ class ProviderArgs:
     @pulumi.getter(name="openEnclavePolicyBase64")
     def open_enclave_policy_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "open_enclave_policy_base64")
 
@@ -112,6 +116,9 @@ class ProviderArgs:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
+        warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
+        pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
+
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -133,10 +140,24 @@ class ProviderArgs:
         pulumi.set(self, "policy_signing_certificate_data", value)
 
     @property
+    @pulumi.getter(name="sevSnpPolicyBase64")
+    def sev_snp_policy_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+
+        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        """
+        return pulumi.get(self, "sev_snp_policy_base64")
+
+    @sev_snp_policy_base64.setter
+    def sev_snp_policy_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sev_snp_policy_base64", value)
+
+    @property
     @pulumi.getter(name="sgxEnclavePolicyBase64")
     def sgx_enclave_policy_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "sgx_enclave_policy_base64")
 
@@ -160,9 +181,7 @@ class ProviderArgs:
     @pulumi.getter(name="tpmPolicyBase64")
     def tpm_policy_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-
-        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "tpm_policy_base64")
 
@@ -181,6 +200,7 @@ class _ProviderState:
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
                  sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -190,16 +210,17 @@ class _ProviderState:
         :param pulumi.Input[str] attestation_uri: The URI of the Attestation Service.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
                > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
-        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
                > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
+        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[str] trust_model: Trust model used for the Attestation Service.
         """
         if attestation_uri is not None:
@@ -211,14 +232,16 @@ class _ProviderState:
         if open_enclave_policy_base64 is not None:
             pulumi.set(__self__, "open_enclave_policy_base64", open_enclave_policy_base64)
         if policies is not None:
-            warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.""", DeprecationWarning)
-            pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.""")
+            warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
+            pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
         if policy_signing_certificate_data is not None:
             pulumi.set(__self__, "policy_signing_certificate_data", policy_signing_certificate_data)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sev_snp_policy_base64 is not None:
+            pulumi.set(__self__, "sev_snp_policy_base64", sev_snp_policy_base64)
         if sgx_enclave_policy_base64 is not None:
             pulumi.set(__self__, "sgx_enclave_policy_base64", sgx_enclave_policy_base64)
         if tags is not None:
@@ -268,7 +291,7 @@ class _ProviderState:
     @pulumi.getter(name="openEnclavePolicyBase64")
     def open_enclave_policy_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "open_enclave_policy_base64")
 
@@ -279,6 +302,9 @@ class _ProviderState:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
+        warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
+        pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
+
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -312,10 +338,24 @@ class _ProviderState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="sevSnpPolicyBase64")
+    def sev_snp_policy_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+
+        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        """
+        return pulumi.get(self, "sev_snp_policy_base64")
+
+    @sev_snp_policy_base64.setter
+    def sev_snp_policy_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sev_snp_policy_base64", value)
+
+    @property
     @pulumi.getter(name="sgxEnclavePolicyBase64")
     def sgx_enclave_policy_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "sgx_enclave_policy_base64")
 
@@ -339,9 +379,7 @@ class _ProviderState:
     @pulumi.getter(name="tpmPolicyBase64")
     def tpm_policy_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-
-        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "tpm_policy_base64")
 
@@ -373,6 +411,7 @@ class Provider(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
                  sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -405,16 +444,17 @@ class Provider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
                > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
-        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
                > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
+        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         ...
     @overload
@@ -467,6 +507,7 @@ class Provider(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
                  sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -483,13 +524,14 @@ class Provider(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["open_enclave_policy_base64"] = open_enclave_policy_base64
             if policies is not None and not opts.urn:
-                warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.""", DeprecationWarning)
-                pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.""")
+                warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
+                pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
             __props__.__dict__["policies"] = policies
             __props__.__dict__["policy_signing_certificate_data"] = policy_signing_certificate_data
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sev_snp_policy_base64"] = sev_snp_policy_base64
             __props__.__dict__["sgx_enclave_policy_base64"] = sgx_enclave_policy_base64
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tpm_policy_base64"] = tpm_policy_base64
@@ -512,6 +554,7 @@ class Provider(pulumi.CustomResource):
             policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
             policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
             sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tpm_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -526,16 +569,17 @@ class Provider(pulumi.CustomResource):
         :param pulumi.Input[str] attestation_uri: The URI of the Attestation Service.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
                > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
-        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        :param pulumi.Input[str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
                > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        :param pulumi.Input[str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
+        :param pulumi.Input[str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[str] trust_model: Trust model used for the Attestation Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -549,6 +593,7 @@ class Provider(pulumi.CustomResource):
         __props__.__dict__["policies"] = policies
         __props__.__dict__["policy_signing_certificate_data"] = policy_signing_certificate_data
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sev_snp_policy_base64"] = sev_snp_policy_base64
         __props__.__dict__["sgx_enclave_policy_base64"] = sgx_enclave_policy_base64
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tpm_policy_base64"] = tpm_policy_base64
@@ -583,13 +628,16 @@ class Provider(pulumi.CustomResource):
     @pulumi.getter(name="openEnclavePolicyBase64")
     def open_enclave_policy_base64(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "open_enclave_policy_base64")
 
     @property
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional[Sequence['outputs.ProviderPolicy']]]:
+        warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
+        pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
+
         return pulumi.get(self, "policies")
 
     @property
@@ -611,10 +659,20 @@ class Provider(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="sevSnpPolicyBase64")
+    def sev_snp_policy_base64(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+
+        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        """
+        return pulumi.get(self, "sev_snp_policy_base64")
+
+    @property
     @pulumi.getter(name="sgxEnclavePolicyBase64")
     def sgx_enclave_policy_base64(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "sgx_enclave_policy_base64")
 
@@ -630,9 +688,7 @@ class Provider(pulumi.CustomResource):
     @pulumi.getter(name="tpmPolicyBase64")
     def tpm_policy_base64(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-
-        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         """
         return pulumi.get(self, "tpm_policy_base64")
 

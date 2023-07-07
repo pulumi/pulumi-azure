@@ -188,17 +188,17 @@ def get_service(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:healthcare/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        access_policy_object_ids=__ret__.access_policy_object_ids,
-        authentication_configurations=__ret__.authentication_configurations,
-        cors_configurations=__ret__.cors_configurations,
-        cosmosdb_key_vault_key_versionless_id=__ret__.cosmosdb_key_vault_key_versionless_id,
-        cosmosdb_throughput=__ret__.cosmosdb_throughput,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        access_policy_object_ids=pulumi.get(__ret__, 'access_policy_object_ids'),
+        authentication_configurations=pulumi.get(__ret__, 'authentication_configurations'),
+        cors_configurations=pulumi.get(__ret__, 'cors_configurations'),
+        cosmosdb_key_vault_key_versionless_id=pulumi.get(__ret__, 'cosmosdb_key_vault_key_versionless_id'),
+        cosmosdb_throughput=pulumi.get(__ret__, 'cosmosdb_throughput'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service)

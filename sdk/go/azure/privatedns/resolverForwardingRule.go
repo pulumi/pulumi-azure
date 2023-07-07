@@ -132,7 +132,7 @@ type ResolverForwardingRule struct {
 
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId pulumi.StringOutput `pulumi:"dnsForwardingRulesetId"`
-	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+	// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -184,7 +184,7 @@ func GetResolverForwardingRule(ctx *pulumi.Context,
 type resolverForwardingRuleState struct {
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId *string `pulumi:"dnsForwardingRulesetId"`
-	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+	// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DomainName *string `pulumi:"domainName"`
 	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -199,7 +199,7 @@ type resolverForwardingRuleState struct {
 type ResolverForwardingRuleState struct {
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId pulumi.StringPtrInput
-	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+	// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DomainName pulumi.StringPtrInput
 	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -218,7 +218,7 @@ func (ResolverForwardingRuleState) ElementType() reflect.Type {
 type resolverForwardingRuleArgs struct {
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId string `pulumi:"dnsForwardingRulesetId"`
-	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+	// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DomainName string `pulumi:"domainName"`
 	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -234,7 +234,7 @@ type resolverForwardingRuleArgs struct {
 type ResolverForwardingRuleArgs struct {
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId pulumi.StringInput
-	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+	// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DomainName pulumi.StringInput
 	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -338,7 +338,7 @@ func (o ResolverForwardingRuleOutput) DnsForwardingRulesetId() pulumi.StringOutp
 	return o.ApplyT(func(v *ResolverForwardingRule) pulumi.StringOutput { return v.DnsForwardingRulesetId }).(pulumi.StringOutput)
 }
 
-// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 func (o ResolverForwardingRuleOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverForwardingRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

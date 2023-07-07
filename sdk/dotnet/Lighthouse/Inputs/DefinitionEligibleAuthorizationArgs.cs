@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Lighthouse.Inputs
         public Input<string>? PrincipalDisplayName { get; set; }
 
         /// <summary>
-        /// The Principal ID of the Azure Active Directory.
+        /// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;

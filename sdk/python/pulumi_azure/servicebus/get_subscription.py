@@ -247,22 +247,22 @@ def get_subscription(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult).value
 
     return AwaitableGetSubscriptionResult(
-        auto_delete_on_idle=__ret__.auto_delete_on_idle,
-        dead_lettering_on_filter_evaluation_error=__ret__.dead_lettering_on_filter_evaluation_error,
-        dead_lettering_on_message_expiration=__ret__.dead_lettering_on_message_expiration,
-        default_message_ttl=__ret__.default_message_ttl,
-        enable_batched_operations=__ret__.enable_batched_operations,
-        forward_dead_lettered_messages_to=__ret__.forward_dead_lettered_messages_to,
-        forward_to=__ret__.forward_to,
-        id=__ret__.id,
-        lock_duration=__ret__.lock_duration,
-        max_delivery_count=__ret__.max_delivery_count,
-        name=__ret__.name,
-        namespace_name=__ret__.namespace_name,
-        requires_session=__ret__.requires_session,
-        resource_group_name=__ret__.resource_group_name,
-        topic_id=__ret__.topic_id,
-        topic_name=__ret__.topic_name)
+        auto_delete_on_idle=pulumi.get(__ret__, 'auto_delete_on_idle'),
+        dead_lettering_on_filter_evaluation_error=pulumi.get(__ret__, 'dead_lettering_on_filter_evaluation_error'),
+        dead_lettering_on_message_expiration=pulumi.get(__ret__, 'dead_lettering_on_message_expiration'),
+        default_message_ttl=pulumi.get(__ret__, 'default_message_ttl'),
+        enable_batched_operations=pulumi.get(__ret__, 'enable_batched_operations'),
+        forward_dead_lettered_messages_to=pulumi.get(__ret__, 'forward_dead_lettered_messages_to'),
+        forward_to=pulumi.get(__ret__, 'forward_to'),
+        id=pulumi.get(__ret__, 'id'),
+        lock_duration=pulumi.get(__ret__, 'lock_duration'),
+        max_delivery_count=pulumi.get(__ret__, 'max_delivery_count'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        requires_session=pulumi.get(__ret__, 'requires_session'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        topic_id=pulumi.get(__ret__, 'topic_id'),
+        topic_name=pulumi.get(__ret__, 'topic_name'))
 
 
 @_utilities.lift_output_func(get_subscription)

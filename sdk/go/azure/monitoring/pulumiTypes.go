@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AadDiagnosticSettingEnabledLog struct {
+	// The log category for the Azure Active Directory Diagnostic.
+	Category string `pulumi:"category"`
+	// A `retentionPolicy` block as defined below.
+	RetentionPolicy AadDiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
+}
+
+// AadDiagnosticSettingEnabledLogInput is an input type that accepts AadDiagnosticSettingEnabledLogArgs and AadDiagnosticSettingEnabledLogOutput values.
+// You can construct a concrete instance of `AadDiagnosticSettingEnabledLogInput` via:
+//
+//	AadDiagnosticSettingEnabledLogArgs{...}
+type AadDiagnosticSettingEnabledLogInput interface {
+	pulumi.Input
+
+	ToAadDiagnosticSettingEnabledLogOutput() AadDiagnosticSettingEnabledLogOutput
+	ToAadDiagnosticSettingEnabledLogOutputWithContext(context.Context) AadDiagnosticSettingEnabledLogOutput
+}
+
+type AadDiagnosticSettingEnabledLogArgs struct {
+	// The log category for the Azure Active Directory Diagnostic.
+	Category pulumi.StringInput `pulumi:"category"`
+	// A `retentionPolicy` block as defined below.
+	RetentionPolicy AadDiagnosticSettingEnabledLogRetentionPolicyInput `pulumi:"retentionPolicy"`
+}
+
+func (AadDiagnosticSettingEnabledLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AadDiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (i AadDiagnosticSettingEnabledLogArgs) ToAadDiagnosticSettingEnabledLogOutput() AadDiagnosticSettingEnabledLogOutput {
+	return i.ToAadDiagnosticSettingEnabledLogOutputWithContext(context.Background())
+}
+
+func (i AadDiagnosticSettingEnabledLogArgs) ToAadDiagnosticSettingEnabledLogOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogOutput)
+}
+
+// AadDiagnosticSettingEnabledLogArrayInput is an input type that accepts AadDiagnosticSettingEnabledLogArray and AadDiagnosticSettingEnabledLogArrayOutput values.
+// You can construct a concrete instance of `AadDiagnosticSettingEnabledLogArrayInput` via:
+//
+//	AadDiagnosticSettingEnabledLogArray{ AadDiagnosticSettingEnabledLogArgs{...} }
+type AadDiagnosticSettingEnabledLogArrayInput interface {
+	pulumi.Input
+
+	ToAadDiagnosticSettingEnabledLogArrayOutput() AadDiagnosticSettingEnabledLogArrayOutput
+	ToAadDiagnosticSettingEnabledLogArrayOutputWithContext(context.Context) AadDiagnosticSettingEnabledLogArrayOutput
+}
+
+type AadDiagnosticSettingEnabledLogArray []AadDiagnosticSettingEnabledLogInput
+
+func (AadDiagnosticSettingEnabledLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AadDiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (i AadDiagnosticSettingEnabledLogArray) ToAadDiagnosticSettingEnabledLogArrayOutput() AadDiagnosticSettingEnabledLogArrayOutput {
+	return i.ToAadDiagnosticSettingEnabledLogArrayOutputWithContext(context.Background())
+}
+
+func (i AadDiagnosticSettingEnabledLogArray) ToAadDiagnosticSettingEnabledLogArrayOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogArrayOutput)
+}
+
+type AadDiagnosticSettingEnabledLogOutput struct{ *pulumi.OutputState }
+
+func (AadDiagnosticSettingEnabledLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AadDiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (o AadDiagnosticSettingEnabledLogOutput) ToAadDiagnosticSettingEnabledLogOutput() AadDiagnosticSettingEnabledLogOutput {
+	return o
+}
+
+func (o AadDiagnosticSettingEnabledLogOutput) ToAadDiagnosticSettingEnabledLogOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogOutput {
+	return o
+}
+
+// The log category for the Azure Active Directory Diagnostic.
+func (o AadDiagnosticSettingEnabledLogOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v AadDiagnosticSettingEnabledLog) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// A `retentionPolicy` block as defined below.
+func (o AadDiagnosticSettingEnabledLogOutput) RetentionPolicy() AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return o.ApplyT(func(v AadDiagnosticSettingEnabledLog) AadDiagnosticSettingEnabledLogRetentionPolicy {
+		return v.RetentionPolicy
+	}).(AadDiagnosticSettingEnabledLogRetentionPolicyOutput)
+}
+
+type AadDiagnosticSettingEnabledLogArrayOutput struct{ *pulumi.OutputState }
+
+func (AadDiagnosticSettingEnabledLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AadDiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (o AadDiagnosticSettingEnabledLogArrayOutput) ToAadDiagnosticSettingEnabledLogArrayOutput() AadDiagnosticSettingEnabledLogArrayOutput {
+	return o
+}
+
+func (o AadDiagnosticSettingEnabledLogArrayOutput) ToAadDiagnosticSettingEnabledLogArrayOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogArrayOutput {
+	return o
+}
+
+func (o AadDiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) AadDiagnosticSettingEnabledLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AadDiagnosticSettingEnabledLog {
+		return vs[0].([]AadDiagnosticSettingEnabledLog)[vs[1].(int)]
+	}).(AadDiagnosticSettingEnabledLogOutput)
+}
+
+type AadDiagnosticSettingEnabledLogRetentionPolicy struct {
+	// The number of days for which this Retention Policy should apply. Defaults to `0`.
+	Days *int `pulumi:"days"`
+	// Is this Retention Policy enabled? Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// AadDiagnosticSettingEnabledLogRetentionPolicyInput is an input type that accepts AadDiagnosticSettingEnabledLogRetentionPolicyArgs and AadDiagnosticSettingEnabledLogRetentionPolicyOutput values.
+// You can construct a concrete instance of `AadDiagnosticSettingEnabledLogRetentionPolicyInput` via:
+//
+//	AadDiagnosticSettingEnabledLogRetentionPolicyArgs{...}
+type AadDiagnosticSettingEnabledLogRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToAadDiagnosticSettingEnabledLogRetentionPolicyOutput() AadDiagnosticSettingEnabledLogRetentionPolicyOutput
+	ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput
+}
+
+type AadDiagnosticSettingEnabledLogRetentionPolicyArgs struct {
+	// The number of days for which this Retention Policy should apply. Defaults to `0`.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Is this Retention Policy enabled? Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
+}
+
+func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutput() AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return i.ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogRetentionPolicyOutput)
+}
+
+type AadDiagnosticSettingEnabledLogRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
+}
+
+func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutput() AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return o
+}
+
+func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return o
+}
+
+// The number of days for which this Retention Policy should apply. Defaults to `0`.
+func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AadDiagnosticSettingEnabledLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Is this Retention Policy enabled? Defaults to `false`.
+func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AadDiagnosticSettingEnabledLogRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 type AadDiagnosticSettingLog struct {
 	// The log category for the Azure Active Directory Diagnostic.
 	Category string `pulumi:"category"`
@@ -27580,6 +27749,9 @@ func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.In
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogArrayInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicyInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingLogInput)(nil)).Elem(), AadDiagnosticSettingLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingLogArrayInput)(nil)).Elem(), AadDiagnosticSettingLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingLogRetentionPolicyInput)(nil)).Elem(), AadDiagnosticSettingLogRetentionPolicyArgs{})
@@ -27954,6 +28126,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaArrayInput)(nil)).Elem(), GetScheduledQueryRulesLogCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimensionInput)(nil)).Elem(), GetScheduledQueryRulesLogCriteriaDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimensionArrayInput)(nil)).Elem(), GetScheduledQueryRulesLogCriteriaDimensionArray{})
+	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogOutput{})
+	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogArrayOutput{})
+	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingLogOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingLogArrayOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingLogRetentionPolicyOutput{})

@@ -237,22 +237,22 @@ def get_topic_authorization_rule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule', __args__, opts=opts, typ=GetTopicAuthorizationRuleResult).value
 
     return AwaitableGetTopicAuthorizationRuleResult(
-        id=__ret__.id,
-        listen=__ret__.listen,
-        manage=__ret__.manage,
-        name=__ret__.name,
-        namespace_name=__ret__.namespace_name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_connection_string_alias=__ret__.primary_connection_string_alias,
-        primary_key=__ret__.primary_key,
-        queue_name=__ret__.queue_name,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
-        secondary_key=__ret__.secondary_key,
-        send=__ret__.send,
-        topic_id=__ret__.topic_id,
-        topic_name=__ret__.topic_name)
+        id=pulumi.get(__ret__, 'id'),
+        listen=pulumi.get(__ret__, 'listen'),
+        manage=pulumi.get(__ret__, 'manage'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        queue_name=pulumi.get(__ret__, 'queue_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        send=pulumi.get(__ret__, 'send'),
+        topic_id=pulumi.get(__ret__, 'topic_id'),
+        topic_name=pulumi.get(__ret__, 'topic_name'))
 
 
 @_utilities.lift_output_func(get_topic_authorization_rule)

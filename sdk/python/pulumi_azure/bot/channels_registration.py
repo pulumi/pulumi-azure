@@ -236,6 +236,9 @@ class ChannelsRegistrationArgs:
 
         > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "isolated_network_enabled")
 
     @isolated_network_enabled.setter
@@ -495,6 +498,9 @@ class _ChannelsRegistrationState:
 
         > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "isolated_network_enabled")
 
     @isolated_network_enabled.setter
@@ -931,6 +937,9 @@ class ChannelsRegistration(pulumi.CustomResource):
 
         > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "isolated_network_enabled")
 
     @property

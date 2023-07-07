@@ -134,13 +134,13 @@ def get_shared_image_gallery(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__, opts=opts, typ=GetSharedImageGalleryResult).value
 
     return AwaitableGetSharedImageGalleryResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        unique_name=__ret__.unique_name)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        unique_name=pulumi.get(__ret__, 'unique_name'))
 
 
 @_utilities.lift_output_func(get_shared_image_gallery)

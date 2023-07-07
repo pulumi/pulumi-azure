@@ -256,23 +256,23 @@ def get_scheduled_query_rules_alert(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert', __args__, opts=opts, typ=GetScheduledQueryRulesAlertResult).value
 
     return AwaitableGetScheduledQueryRulesAlertResult(
-        actions=__ret__.actions,
-        authorized_resource_ids=__ret__.authorized_resource_ids,
-        data_source_id=__ret__.data_source_id,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        frequency=__ret__.frequency,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        query=__ret__.query,
-        query_type=__ret__.query_type,
-        resource_group_name=__ret__.resource_group_name,
-        severity=__ret__.severity,
-        tags=__ret__.tags,
-        throttling=__ret__.throttling,
-        time_window=__ret__.time_window,
-        triggers=__ret__.triggers)
+        actions=pulumi.get(__ret__, 'actions'),
+        authorized_resource_ids=pulumi.get(__ret__, 'authorized_resource_ids'),
+        data_source_id=pulumi.get(__ret__, 'data_source_id'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        query=pulumi.get(__ret__, 'query'),
+        query_type=pulumi.get(__ret__, 'query_type'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        severity=pulumi.get(__ret__, 'severity'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throttling=pulumi.get(__ret__, 'throttling'),
+        time_window=pulumi.get(__ret__, 'time_window'),
+        triggers=pulumi.get(__ret__, 'triggers'))
 
 
 @_utilities.lift_output_func(get_scheduled_query_rules_alert)

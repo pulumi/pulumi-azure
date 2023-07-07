@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     },
  *     dockerStep: {
  *         dockerfilePath: "Dockerfile",
- *         contextPath: "https://github.com/<user name>/acr-build-helloworld-node#main",
+ *         contextPath: "https://github.com/<username>/<repository>#<branch>:<folder>",
  *         contextAccessToken: "<github personal access token>",
  *         imageNames: ["helloworld:{{.Run.ID}}"],
  *     },

@@ -178,16 +178,16 @@ def get_workspace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_disk_identities=__ret__.managed_disk_identities,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        storage_account_identities=__ret__.storage_account_identities,
-        tags=__ret__.tags,
-        workspace_id=__ret__.workspace_id,
-        workspace_url=__ret__.workspace_url)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_disk_identities=pulumi.get(__ret__, 'managed_disk_identities'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        storage_account_identities=pulumi.get(__ret__, 'storage_account_identities'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'),
+        workspace_url=pulumi.get(__ret__, 'workspace_url'))
 
 
 @_utilities.lift_output_func(get_workspace)

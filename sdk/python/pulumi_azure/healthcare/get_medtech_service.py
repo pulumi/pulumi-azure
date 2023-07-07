@@ -151,14 +151,14 @@ def get_medtech_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:healthcare/getMedtechService:getMedtechService', __args__, opts=opts, typ=GetMedtechServiceResult).value
 
     return AwaitableGetMedtechServiceResult(
-        device_mapping_json=__ret__.device_mapping_json,
-        eventhub_consumer_group_name=__ret__.eventhub_consumer_group_name,
-        eventhub_name=__ret__.eventhub_name,
-        eventhub_namespace_name=__ret__.eventhub_namespace_name,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        name=__ret__.name,
-        workspace_id=__ret__.workspace_id)
+        device_mapping_json=pulumi.get(__ret__, 'device_mapping_json'),
+        eventhub_consumer_group_name=pulumi.get(__ret__, 'eventhub_consumer_group_name'),
+        eventhub_name=pulumi.get(__ret__, 'eventhub_name'),
+        eventhub_namespace_name=pulumi.get(__ret__, 'eventhub_namespace_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        name=pulumi.get(__ret__, 'name'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_medtech_service)

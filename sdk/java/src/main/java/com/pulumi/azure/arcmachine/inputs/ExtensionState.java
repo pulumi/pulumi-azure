@@ -32,9 +32,25 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arcMachineId);
     }
 
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+     * 
+     */
     @Import(name="automaticUpgradeEnabled")
     private @Nullable Output<Boolean> automaticUpgradeEnabled;
 
+    /**
+     * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+     * 
+     */
     public Optional<Output<Boolean>> automaticUpgradeEnabled() {
         return Optional.ofNullable(this.automaticUpgradeEnabled);
     }
@@ -233,11 +249,31 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
             return arcMachineId(Output.of(arcMachineId));
         }
 
+        /**
+         * @param automaticUpgradeEnabled Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+         * 
+         * **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+         * 
+         * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticUpgradeEnabled(@Nullable Output<Boolean> automaticUpgradeEnabled) {
             $.automaticUpgradeEnabled = automaticUpgradeEnabled;
             return this;
         }
 
+        /**
+         * @param automaticUpgradeEnabled Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+         * 
+         * **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+         * 
+         * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticUpgradeEnabled(Boolean automaticUpgradeEnabled) {
             return automaticUpgradeEnabled(Output.of(automaticUpgradeEnabled));
         }

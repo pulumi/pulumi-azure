@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Compute
         /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipConfiguration")]
-        public Output<Outputs.BastionHostIpConfiguration?> IpConfiguration { get; private set; } = null!;
+        public Output<Outputs.BastionHostIpConfiguration> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -153,6 +153,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// 
+        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -234,8 +236,8 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ipConfiguration")]
-        public Input<Inputs.BastionHostIpConfigurationArgs>? IpConfiguration { get; set; }
+        [Input("ipConfiguration", required: true)]
+        public Input<Inputs.BastionHostIpConfigurationArgs> IpConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -281,6 +283,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// 
+        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -383,6 +387,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// 
+        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

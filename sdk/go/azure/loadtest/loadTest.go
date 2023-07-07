@@ -22,6 +22,8 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loadtest"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -29,9 +31,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := loadtest.NewLoadTest(ctx, "example", &loadtest.LoadTestArgs{
-//				Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loadtest.NewLoadTest(ctx, "exampleLoadTest", &loadtest.LoadTestArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err

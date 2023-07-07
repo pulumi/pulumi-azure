@@ -12,11 +12,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SoftwareUpdateConfigurationLinux {
+    private @Nullable String classificationIncluded;
     /**
-     * @return Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+     * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
      * 
      */
-    private @Nullable String classificationIncluded;
+    private @Nullable List<String> classificationsIncludeds;
     /**
      * @return Specifies a list of packages to excluded from the Software Update Configuration.
      * 
@@ -28,18 +29,21 @@ public final class SoftwareUpdateConfigurationLinux {
      */
     private @Nullable List<String> includedPackages;
     /**
-     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     private @Nullable String reboot;
 
     private SoftwareUpdateConfigurationLinux() {}
-    /**
-     * @return Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-     * 
-     */
     public Optional<String> classificationIncluded() {
         return Optional.ofNullable(this.classificationIncluded);
+    }
+    /**
+     * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+     * 
+     */
+    public List<String> classificationsIncludeds() {
+        return this.classificationsIncludeds == null ? List.of() : this.classificationsIncludeds;
     }
     /**
      * @return Specifies a list of packages to excluded from the Software Update Configuration.
@@ -56,7 +60,7 @@ public final class SoftwareUpdateConfigurationLinux {
         return this.includedPackages == null ? List.of() : this.includedPackages;
     }
     /**
-     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     public Optional<String> reboot() {
@@ -73,6 +77,7 @@ public final class SoftwareUpdateConfigurationLinux {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String classificationIncluded;
+        private @Nullable List<String> classificationsIncludeds;
         private @Nullable List<String> excludedPackages;
         private @Nullable List<String> includedPackages;
         private @Nullable String reboot;
@@ -80,6 +85,7 @@ public final class SoftwareUpdateConfigurationLinux {
         public Builder(SoftwareUpdateConfigurationLinux defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classificationIncluded = defaults.classificationIncluded;
+    	      this.classificationsIncludeds = defaults.classificationsIncludeds;
     	      this.excludedPackages = defaults.excludedPackages;
     	      this.includedPackages = defaults.includedPackages;
     	      this.reboot = defaults.reboot;
@@ -89,6 +95,14 @@ public final class SoftwareUpdateConfigurationLinux {
         public Builder classificationIncluded(@Nullable String classificationIncluded) {
             this.classificationIncluded = classificationIncluded;
             return this;
+        }
+        @CustomType.Setter
+        public Builder classificationsIncludeds(@Nullable List<String> classificationsIncludeds) {
+            this.classificationsIncludeds = classificationsIncludeds;
+            return this;
+        }
+        public Builder classificationsIncludeds(String... classificationsIncludeds) {
+            return classificationsIncludeds(List.of(classificationsIncludeds));
         }
         @CustomType.Setter
         public Builder excludedPackages(@Nullable List<String> excludedPackages) {
@@ -114,6 +128,7 @@ public final class SoftwareUpdateConfigurationLinux {
         public SoftwareUpdateConfigurationLinux build() {
             final var o = new SoftwareUpdateConfigurationLinux();
             o.classificationIncluded = classificationIncluded;
+            o.classificationsIncludeds = classificationsIncludeds;
             o.excludedPackages = excludedPackages;
             o.includedPackages = includedPackages;
             o.reboot = reboot;

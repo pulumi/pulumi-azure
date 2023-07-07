@@ -160,15 +160,15 @@ def get_account(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:automation/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        endpoint=__ret__.endpoint,
-        hybrid_service_url=__ret__.hybrid_service_url,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        name=__ret__.name,
-        primary_key=__ret__.primary_key,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_key=__ret__.secondary_key)
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        hybrid_service_url=pulumi.get(__ret__, 'hybrid_service_url'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(get_account)

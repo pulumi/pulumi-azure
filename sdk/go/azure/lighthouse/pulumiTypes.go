@@ -139,7 +139,7 @@ type DefinitionEligibleAuthorization struct {
 	JustInTimeAccessPolicy *DefinitionEligibleAuthorizationJustInTimeAccessPolicy `pulumi:"justInTimeAccessPolicy"`
 	// The display name of the Azure Active Directory Principal.
 	PrincipalDisplayName *string `pulumi:"principalDisplayName"`
-	// The Principal ID of the Azure Active Directory.
+	// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
 	PrincipalId string `pulumi:"principalId"`
 	// The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
@@ -161,7 +161,7 @@ type DefinitionEligibleAuthorizationArgs struct {
 	JustInTimeAccessPolicy DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput `pulumi:"justInTimeAccessPolicy"`
 	// The display name of the Azure Active Directory Principal.
 	PrincipalDisplayName pulumi.StringPtrInput `pulumi:"principalDisplayName"`
-	// The Principal ID of the Azure Active Directory.
+	// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
@@ -230,7 +230,7 @@ func (o DefinitionEligibleAuthorizationOutput) PrincipalDisplayName() pulumi.Str
 	return o.ApplyT(func(v DefinitionEligibleAuthorization) *string { return v.PrincipalDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The Principal ID of the Azure Active Directory.
+// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
 func (o DefinitionEligibleAuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v DefinitionEligibleAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

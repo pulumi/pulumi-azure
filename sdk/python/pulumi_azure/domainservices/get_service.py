@@ -263,24 +263,24 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:domainservices/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        deployment_id=__ret__.deployment_id,
-        domain_configuration_type=__ret__.domain_configuration_type,
-        domain_name=__ret__.domain_name,
-        filtered_sync_enabled=__ret__.filtered_sync_enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        notifications=__ret__.notifications,
-        replica_sets=__ret__.replica_sets,
-        resource_group_name=__ret__.resource_group_name,
-        resource_id=__ret__.resource_id,
-        secure_ldaps=__ret__.secure_ldaps,
-        securities=__ret__.securities,
-        sku=__ret__.sku,
-        sync_owner=__ret__.sync_owner,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        version=__ret__.version)
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        domain_configuration_type=pulumi.get(__ret__, 'domain_configuration_type'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        filtered_sync_enabled=pulumi.get(__ret__, 'filtered_sync_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        notifications=pulumi.get(__ret__, 'notifications'),
+        replica_sets=pulumi.get(__ret__, 'replica_sets'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        secure_ldaps=pulumi.get(__ret__, 'secure_ldaps'),
+        securities=pulumi.get(__ret__, 'securities'),
+        sku=pulumi.get(__ret__, 'sku'),
+        sync_owner=pulumi.get(__ret__, 'sync_owner'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_service)

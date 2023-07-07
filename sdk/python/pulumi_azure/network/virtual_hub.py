@@ -24,6 +24,7 @@ class VirtualHubArgs:
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualHub resource.
@@ -35,6 +36,7 @@ class VirtualHubArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -52,6 +54,8 @@ class VirtualHubArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_router_auto_scale_min_capacity is not None:
+            pulumi.set(__self__, "virtual_router_auto_scale_min_capacity", virtual_router_auto_scale_min_capacity)
         if virtual_wan_id is not None:
             pulumi.set(__self__, "virtual_wan_id", virtual_wan_id)
 
@@ -152,6 +156,18 @@ class VirtualHubArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
+    def virtual_router_auto_scale_min_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        """
+        return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
+
+    @virtual_router_auto_scale_min_capacity.setter
+    def virtual_router_auto_scale_min_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "virtual_router_auto_scale_min_capacity", value)
+
+    @property
     @pulumi.getter(name="virtualWanId")
     def virtual_wan_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -177,6 +193,7 @@ class _VirtualHubState:
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_router_asn: Optional[pulumi.Input[int]] = None,
+                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None):
         """
@@ -191,6 +208,7 @@ class _VirtualHubState:
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[int] virtual_router_asn: The Autonomous System Number of the Virtual Hub BGP router.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: The IP addresses of the Virtual Hub BGP router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -214,6 +232,8 @@ class _VirtualHubState:
             pulumi.set(__self__, "tags", tags)
         if virtual_router_asn is not None:
             pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+        if virtual_router_auto_scale_min_capacity is not None:
+            pulumi.set(__self__, "virtual_router_auto_scale_min_capacity", virtual_router_auto_scale_min_capacity)
         if virtual_router_ips is not None:
             pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
         if virtual_wan_id is not None:
@@ -340,6 +360,18 @@ class _VirtualHubState:
         pulumi.set(self, "virtual_router_asn", value)
 
     @property
+    @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
+    def virtual_router_auto_scale_min_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        """
+        return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
+
+    @virtual_router_auto_scale_min_capacity.setter
+    def virtual_router_auto_scale_min_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "virtual_router_auto_scale_min_capacity", value)
+
+    @property
     @pulumi.getter(name="virtualRouterIps")
     def virtual_router_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -377,6 +409,7 @@ class VirtualHub(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -417,6 +450,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -476,6 +510,7 @@ class VirtualHub(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -496,6 +531,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__.__dict__["routes"] = routes
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_router_auto_scale_min_capacity"] = virtual_router_auto_scale_min_capacity
             __props__.__dict__["virtual_wan_id"] = virtual_wan_id
             __props__.__dict__["default_route_table_id"] = None
             __props__.__dict__["virtual_router_asn"] = None
@@ -520,6 +556,7 @@ class VirtualHub(pulumi.CustomResource):
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_router_asn: Optional[pulumi.Input[int]] = None,
+            virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
             virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             virtual_wan_id: Optional[pulumi.Input[str]] = None) -> 'VirtualHub':
         """
@@ -539,6 +576,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[int] virtual_router_asn: The Autonomous System Number of the Virtual Hub BGP router.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: The IP addresses of the Virtual Hub BGP router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -556,6 +594,7 @@ class VirtualHub(pulumi.CustomResource):
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_router_asn"] = virtual_router_asn
+        __props__.__dict__["virtual_router_auto_scale_min_capacity"] = virtual_router_auto_scale_min_capacity
         __props__.__dict__["virtual_router_ips"] = virtual_router_ips
         __props__.__dict__["virtual_wan_id"] = virtual_wan_id
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
@@ -639,6 +678,14 @@ class VirtualHub(pulumi.CustomResource):
         The Autonomous System Number of the Virtual Hub BGP router.
         """
         return pulumi.get(self, "virtual_router_asn")
+
+    @property
+    @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
+    def virtual_router_auto_scale_min_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        """
+        return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
 
     @property
     @pulumi.getter(name="virtualRouterIps")

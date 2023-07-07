@@ -174,6 +174,9 @@ class ConnectionArgs:
 
         > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -349,6 +352,9 @@ class _ConnectionState:
 
         > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -654,5 +660,8 @@ class Connection(pulumi.CustomResource):
 
         > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "tags")
 

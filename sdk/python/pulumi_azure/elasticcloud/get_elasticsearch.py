@@ -243,21 +243,21 @@ def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearch
     __ret__ = pulumi.runtime.invoke('azure:elasticcloud/getElasticsearch:getElasticsearch', __args__, opts=opts, typ=GetElasticsearchResult).value
 
     return AwaitableGetElasticsearchResult(
-        elastic_cloud_deployment_id=__ret__.elastic_cloud_deployment_id,
-        elastic_cloud_email_address=__ret__.elastic_cloud_email_address,
-        elastic_cloud_sso_default_url=__ret__.elastic_cloud_sso_default_url,
-        elastic_cloud_user_id=__ret__.elastic_cloud_user_id,
-        elasticsearch_service_url=__ret__.elasticsearch_service_url,
-        id=__ret__.id,
-        kibana_service_url=__ret__.kibana_service_url,
-        kibana_sso_uri=__ret__.kibana_sso_uri,
-        location=__ret__.location,
-        logs=__ret__.logs,
-        monitoring_enabled=__ret__.monitoring_enabled,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags)
+        elastic_cloud_deployment_id=pulumi.get(__ret__, 'elastic_cloud_deployment_id'),
+        elastic_cloud_email_address=pulumi.get(__ret__, 'elastic_cloud_email_address'),
+        elastic_cloud_sso_default_url=pulumi.get(__ret__, 'elastic_cloud_sso_default_url'),
+        elastic_cloud_user_id=pulumi.get(__ret__, 'elastic_cloud_user_id'),
+        elasticsearch_service_url=pulumi.get(__ret__, 'elasticsearch_service_url'),
+        id=pulumi.get(__ret__, 'id'),
+        kibana_service_url=pulumi.get(__ret__, 'kibana_service_url'),
+        kibana_sso_uri=pulumi.get(__ret__, 'kibana_sso_uri'),
+        location=pulumi.get(__ret__, 'location'),
+        logs=pulumi.get(__ret__, 'logs'),
+        monitoring_enabled=pulumi.get(__ret__, 'monitoring_enabled'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_elasticsearch)

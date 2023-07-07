@@ -37,6 +37,7 @@ class WindowsFunctionAppArgs:
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sticky_settings: Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -126,6 +127,8 @@ class WindowsFunctionAppArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sticky_settings is not None:
             pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_account_access_key is not None:
@@ -399,6 +402,15 @@ class WindowsFunctionAppArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="stickySettings")
     def sticky_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']]:
         """
@@ -541,6 +553,7 @@ class _WindowsFunctionAppState:
                  outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['WindowsFunctionAppSiteConfigArgs']] = None,
@@ -656,6 +669,8 @@ class _WindowsFunctionAppState:
             pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses is not None:
             pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_plan_id is not None:
@@ -997,6 +1012,15 @@ class _WindowsFunctionAppState:
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1181,6 +1205,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']]] = None,
@@ -1348,6 +1373,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']]] = None,
@@ -1387,6 +1413,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1452,6 +1479,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']]] = None,
@@ -1550,6 +1578,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
         __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
@@ -1773,6 +1802,11 @@ class WindowsFunctionApp(pulumi.CustomResource):
         A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

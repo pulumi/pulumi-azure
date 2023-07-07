@@ -13,21 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppIdentity {
     /**
-     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     private String type;
 
     private AppIdentity() {}
     /**
-     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {
@@ -40,7 +40,7 @@ public final class AppIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public String type() {

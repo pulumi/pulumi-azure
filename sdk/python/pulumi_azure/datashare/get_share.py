@@ -144,13 +144,13 @@ def get_share(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:datashare/getShare:getShare', __args__, opts=opts, typ=GetShareResult).value
 
     return AwaitableGetShareResult(
-        account_id=__ret__.account_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        snapshot_schedules=__ret__.snapshot_schedules,
-        terms=__ret__.terms)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        snapshot_schedules=pulumi.get(__ret__, 'snapshot_schedules'),
+        terms=pulumi.get(__ret__, 'terms'))
 
 
 @_utilities.lift_output_func(get_share)

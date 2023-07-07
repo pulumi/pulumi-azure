@@ -154,14 +154,14 @@ def get_budget_subscription(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:consumption/getBudgetSubscription:getBudgetSubscription', __args__, opts=opts, typ=GetBudgetSubscriptionResult).value
 
     return AwaitableGetBudgetSubscriptionResult(
-        amount=__ret__.amount,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        notifications=__ret__.notifications,
-        subscription_id=__ret__.subscription_id,
-        time_grain=__ret__.time_grain,
-        time_periods=__ret__.time_periods)
+        amount=pulumi.get(__ret__, 'amount'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notifications=pulumi.get(__ret__, 'notifications'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        time_grain=pulumi.get(__ret__, 'time_grain'),
+        time_periods=pulumi.get(__ret__, 'time_periods'))
 
 
 @_utilities.lift_output_func(get_budget_subscription)

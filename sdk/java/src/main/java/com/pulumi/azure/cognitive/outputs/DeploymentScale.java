@@ -4,20 +4,71 @@
 package com.pulumi.azure.cognitive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentScale {
     /**
-     * @return Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+     * @return If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable Integer capacity;
+    /**
+     * @return If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String family;
+    /**
+     * @return The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String size;
+    /**
+     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String tier;
+    /**
+     * @return The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private DeploymentScale() {}
     /**
-     * @return Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+     * @return If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Integer> capacity() {
+        return Optional.ofNullable(this.capacity);
+    }
+    /**
+     * @return If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> family() {
+        return Optional.ofNullable(this.family);
+    }
+    /**
+     * @return The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> size() {
+        return Optional.ofNullable(this.size);
+    }
+    /**
+     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> tier() {
+        return Optional.ofNullable(this.tier);
+    }
+    /**
+     * @return The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
      * 
      */
     public String type() {
@@ -33,13 +84,41 @@ public final class DeploymentScale {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer capacity;
+        private @Nullable String family;
+        private @Nullable String size;
+        private @Nullable String tier;
         private String type;
         public Builder() {}
         public Builder(DeploymentScale defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.capacity = defaults.capacity;
+    	      this.family = defaults.family;
+    	      this.size = defaults.size;
+    	      this.tier = defaults.tier;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder capacity(@Nullable Integer capacity) {
+            this.capacity = capacity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder family(@Nullable String family) {
+            this.family = family;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder size(@Nullable String size) {
+            this.size = size;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tier(@Nullable String tier) {
+            this.tier = tier;
+            return this;
+        }
         @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
@@ -47,6 +126,10 @@ public final class DeploymentScale {
         }
         public DeploymentScale build() {
             final var o = new DeploymentScale();
+            o.capacity = capacity;
+            o.family = family;
+            o.size = size;
+            o.tier = tier;
             o.type = type;
             return o;
         }

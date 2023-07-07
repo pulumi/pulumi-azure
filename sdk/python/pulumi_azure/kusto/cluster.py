@@ -47,7 +47,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
@@ -200,7 +200,7 @@ class ClusterArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
 
         > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         """
@@ -418,7 +418,7 @@ class _ClusterState:
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
@@ -568,7 +568,7 @@ class _ClusterState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
 
         > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         """
@@ -852,7 +852,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
@@ -1033,7 +1033,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
@@ -1140,7 +1140,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
-        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
 
         > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         """

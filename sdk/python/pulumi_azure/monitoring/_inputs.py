@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AadDiagnosticSettingEnabledLogArgs',
+    'AadDiagnosticSettingEnabledLogRetentionPolicyArgs',
     'AadDiagnosticSettingLogArgs',
     'AadDiagnosticSettingLogRetentionPolicyArgs',
     'ActionGroupArmRoleReceiverArgs',
@@ -154,6 +156,82 @@ __all__ = [
     'ScheduledQueryRulesLogCriteriaDimensionArgs',
     'SmartDetectorAlertRuleActionGroupArgs',
 ]
+
+@pulumi.input_type
+class AadDiagnosticSettingEnabledLogArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 retention_policy: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']):
+        """
+        :param pulumi.Input[str] category: The log category for the Azure Active Directory Diagnostic.
+        :param pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        The log category for the Azure Active Directory Diagnostic.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']:
+        """
+        A `retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']):
+        pulumi.set(self, "retention_policy", value)
+
+
+@pulumi.input_type
+class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 days: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply. Defaults to `0`.
+        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled? Defaults to `false`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days for which this Retention Policy should apply. Defaults to `0`.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this Retention Policy enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
 
 @pulumi.input_type
 class AadDiagnosticSettingLogArgs:
@@ -642,6 +720,9 @@ class ActionGroupEventHubReceiverArgs:
         """
         The resource ID of the respective Event Hub.
         """
+        warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
+        pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
+
         return pulumi.get(self, "event_hub_id")
 
     @event_hub_id.setter

@@ -68,6 +68,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Is public network access enabled? Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -100,6 +105,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
@@ -120,6 +126,10 @@ export interface WorkspaceState {
      * Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is public network access enabled? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -142,6 +152,10 @@ export interface WorkspaceArgs {
      * Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is public network access enabled? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */

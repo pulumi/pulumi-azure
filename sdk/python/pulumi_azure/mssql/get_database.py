@@ -208,7 +208,7 @@ def get_database(name: Optional[str] = None,
 
 
     :param str name: The name of the MS SQL Database.
-    :param str server_id: The id of the MS SQL Server on which to create the database.
+    :param str server_id: The id of the MS SQL Server on which to read the database.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -217,19 +217,19 @@ def get_database(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mssql/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        collation=__ret__.collation,
-        elastic_pool_id=__ret__.elastic_pool_id,
-        id=__ret__.id,
-        license_type=__ret__.license_type,
-        max_size_gb=__ret__.max_size_gb,
-        name=__ret__.name,
-        read_replica_count=__ret__.read_replica_count,
-        read_scale=__ret__.read_scale,
-        server_id=__ret__.server_id,
-        sku_name=__ret__.sku_name,
-        storage_account_type=__ret__.storage_account_type,
-        tags=__ret__.tags,
-        zone_redundant=__ret__.zone_redundant)
+        collation=pulumi.get(__ret__, 'collation'),
+        elastic_pool_id=pulumi.get(__ret__, 'elastic_pool_id'),
+        id=pulumi.get(__ret__, 'id'),
+        license_type=pulumi.get(__ret__, 'license_type'),
+        max_size_gb=pulumi.get(__ret__, 'max_size_gb'),
+        name=pulumi.get(__ret__, 'name'),
+        read_replica_count=pulumi.get(__ret__, 'read_replica_count'),
+        read_scale=pulumi.get(__ret__, 'read_scale'),
+        server_id=pulumi.get(__ret__, 'server_id'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 
 @_utilities.lift_output_func(get_database)
@@ -259,6 +259,6 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of the MS SQL Database.
-    :param str server_id: The id of the MS SQL Server on which to create the database.
+    :param str server_id: The id of the MS SQL Server on which to read the database.
     """
     ...

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicationRecoveryPlanRecoveryGroupPreAction
     {
         /// <summary>
-        /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
         /// 
         /// &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         /// </summary>

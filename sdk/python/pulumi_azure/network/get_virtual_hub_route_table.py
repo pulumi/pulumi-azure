@@ -143,13 +143,13 @@ def get_virtual_hub_route_table(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable', __args__, opts=opts, typ=GetVirtualHubRouteTableResult).value
 
     return AwaitableGetVirtualHubRouteTableResult(
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        routes=__ret__.routes,
-        virtual_hub_id=__ret__.virtual_hub_id,
-        virtual_hub_name=__ret__.virtual_hub_name)
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        routes=pulumi.get(__ret__, 'routes'),
+        virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'),
+        virtual_hub_name=pulumi.get(__ret__, 'virtual_hub_name'))
 
 
 @_utilities.lift_output_func(get_virtual_hub_route_table)

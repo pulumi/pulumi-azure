@@ -703,7 +703,7 @@ class ImageOsDisk(dict):
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param str os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         :param str os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
-        :param int size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
+        :param int size_gb: Specifies the size of the image to be created. Changing this forces a new resource to be created.
         """
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
@@ -762,7 +762,7 @@ class ImageOsDisk(dict):
     @pulumi.getter(name="sizeGb")
     def size_gb(self) -> Optional[int]:
         """
-        Specifies the size of the image to be created. The target size can't be smaller than the source size.
+        Specifies the size of the image to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size_gb")
 
@@ -1931,11 +1931,17 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter(name="packageReferenceId")
     def package_reference_id(self) -> str:
+        warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
+        pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
+
         return pulumi.get(self, "package_reference_id")
 
     @property
     @pulumi.getter(name="configurationReferenceBlobUri")
     def configuration_reference_blob_uri(self) -> Optional[str]:
+        warnings.warn("""`configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""", DeprecationWarning)
+        pulumi.log.warn("""configuration_reference_blob_uri is deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""")
+
         return pulumi.get(self, "configuration_reference_blob_uri")
 
     @property
@@ -3247,6 +3253,9 @@ class ManagedDiskEncryptionSettings(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        warnings.warn("""Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""", DeprecationWarning)
+        pulumi.log.warn("""enabled is deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""")
+
         return pulumi.get(self, "enabled")
 
     @property
@@ -7330,6 +7339,9 @@ class SnapshotEncryptionSettings(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        warnings.warn("""Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""", DeprecationWarning)
+        pulumi.log.warn("""enabled is deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""")
+
         return pulumi.get(self, "enabled")
 
     @property
@@ -9703,11 +9715,17 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter(name="packageReferenceId")
     def package_reference_id(self) -> str:
+        warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
+        pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
+
         return pulumi.get(self, "package_reference_id")
 
     @property
     @pulumi.getter(name="configurationReferenceBlobUri")
     def configuration_reference_blob_uri(self) -> Optional[str]:
+        warnings.warn("""`configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""", DeprecationWarning)
+        pulumi.log.warn("""configuration_reference_blob_uri is deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""")
+
         return pulumi.get(self, "configuration_reference_blob_uri")
 
     @property

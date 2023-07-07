@@ -226,20 +226,20 @@ def get_bastion_host(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getBastionHost:getBastionHost', __args__, opts=opts, typ=GetBastionHostResult).value
 
     return AwaitableGetBastionHostResult(
-        copy_paste_enabled=__ret__.copy_paste_enabled,
-        dns_name=__ret__.dns_name,
-        file_copy_enabled=__ret__.file_copy_enabled,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        ip_connect_enabled=__ret__.ip_connect_enabled,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        scale_units=__ret__.scale_units,
-        shareable_link_enabled=__ret__.shareable_link_enabled,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        tunneling_enabled=__ret__.tunneling_enabled)
+        copy_paste_enabled=pulumi.get(__ret__, 'copy_paste_enabled'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        file_copy_enabled=pulumi.get(__ret__, 'file_copy_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        ip_connect_enabled=pulumi.get(__ret__, 'ip_connect_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        scale_units=pulumi.get(__ret__, 'scale_units'),
+        shareable_link_enabled=pulumi.get(__ret__, 'shareable_link_enabled'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tunneling_enabled=pulumi.get(__ret__, 'tunneling_enabled'))
 
 
 @_utilities.lift_output_func(get_bastion_host)

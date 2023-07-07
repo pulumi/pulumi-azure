@@ -200,17 +200,17 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getSnapshotPolicy:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult).value
 
     return AwaitableGetSnapshotPolicyResult(
-        account_name=__ret__.account_name,
-        daily_schedules=__ret__.daily_schedules,
-        enabled=__ret__.enabled,
-        hourly_schedules=__ret__.hourly_schedules,
-        id=__ret__.id,
-        location=__ret__.location,
-        monthly_schedules=__ret__.monthly_schedules,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        weekly_schedules=__ret__.weekly_schedules)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        daily_schedules=pulumi.get(__ret__, 'daily_schedules'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        hourly_schedules=pulumi.get(__ret__, 'hourly_schedules'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        monthly_schedules=pulumi.get(__ret__, 'monthly_schedules'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        weekly_schedules=pulumi.get(__ret__, 'weekly_schedules'))
 
 
 @_utilities.lift_output_func(get_snapshot_policy)

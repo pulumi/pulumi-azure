@@ -150,14 +150,14 @@ def get_txt_record(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatedns/getTxtRecord:getTxtRecord', __args__, opts=opts, typ=GetTxtRecordResult).value
 
     return AwaitableGetTxtRecordResult(
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        name=__ret__.name,
-        records=__ret__.records,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        ttl=__ret__.ttl,
-        zone_name=__ret__.zone_name)
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        records=pulumi.get(__ret__, 'records'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        zone_name=pulumi.get(__ret__, 'zone_name'))
 
 
 @_utilities.lift_output_func(get_txt_record)

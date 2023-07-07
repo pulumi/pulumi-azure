@@ -137,13 +137,13 @@ def get_frontdoor_profile(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorProfile:getFrontdoorProfile', __args__, opts=opts, typ=GetFrontdoorProfileResult).value
 
     return AwaitableGetFrontdoorProfileResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        resource_guid=__ret__.resource_guid,
-        response_timeout_seconds=__ret__.response_timeout_seconds,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        response_timeout_seconds=pulumi.get(__ret__, 'response_timeout_seconds'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_frontdoor_profile)

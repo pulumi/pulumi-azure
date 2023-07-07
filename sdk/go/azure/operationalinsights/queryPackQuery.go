@@ -44,7 +44,21 @@ import (
 //			}
 //			_, err = operationalinsights.NewQueryPackQuery(ctx, "exampleQueryPackQuery", &operationalinsights.QueryPackQueryArgs{
 //				QueryPackId: exampleQueryPack.ID(),
-//				Body:        pulumi.String("let newExceptionsTimeRange = 1d;\nlet timeRangeToCheckBefore = 7d;\nexceptions\n| where timestamp < ago(timeRangeToCheckBefore)\n| summarize count() by problemId\n| join kind= rightanti (\nexceptions\n| where timestamp >= ago(newExceptionsTimeRange)\n| extend stack = tostring(details[0].rawStack)\n| summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  \n) on problemId \n| order by  count_ desc\n"),
+//				Body: pulumi.String(`let newExceptionsTimeRange = 1d;
+//
+// let timeRangeToCheckBefore = 7d;
+// exceptions
+// | where timestamp < ago(timeRangeToCheckBefore)
+// | summarize count() by problemId
+// | join kind= rightanti (
+// exceptions
+// | where timestamp >= ago(newExceptionsTimeRange)
+// | extend stack = tostring(details[0].rawStack)
+// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId
+// ) on problemId
+// | order by  count_ desc
+// `),
+//
 //				DisplayName: pulumi.String("Exceptions - New in the last 24 hours"),
 //			})
 //			if err != nil {

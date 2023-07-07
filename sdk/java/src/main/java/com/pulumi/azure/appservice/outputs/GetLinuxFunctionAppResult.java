@@ -156,6 +156,7 @@ public final class GetLinuxFunctionAppResult {
      * 
      */
     private String possibleOutboundIpAddresses;
+    private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
      * @return The ID of the App Service Plan within which this Function App has been created.
@@ -403,6 +404,9 @@ public final class GetLinuxFunctionAppResult {
     public String possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -520,6 +524,7 @@ public final class GetLinuxFunctionAppResult {
         private String outboundIpAddresses;
         private List<String> possibleOutboundIpAddressLists;
         private String possibleOutboundIpAddresses;
+        private Boolean publicNetworkAccessEnabled;
         private String resourceGroupName;
         private String servicePlanId;
         private List<GetLinuxFunctionAppSiteConfig> siteConfigs;
@@ -562,6 +567,7 @@ public final class GetLinuxFunctionAppResult {
     	      this.outboundIpAddresses = defaults.outboundIpAddresses;
     	      this.possibleOutboundIpAddressLists = defaults.possibleOutboundIpAddressLists;
     	      this.possibleOutboundIpAddresses = defaults.possibleOutboundIpAddresses;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.servicePlanId = defaults.servicePlanId;
     	      this.siteConfigs = defaults.siteConfigs;
@@ -733,6 +739,11 @@ public final class GetLinuxFunctionAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -830,6 +841,7 @@ public final class GetLinuxFunctionAppResult {
             o.outboundIpAddresses = outboundIpAddresses;
             o.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             o.resourceGroupName = resourceGroupName;
             o.servicePlanId = servicePlanId;
             o.siteConfigs = siteConfigs;

@@ -217,19 +217,19 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts, typ=GetSharedImageVersionResult).value
 
     return AwaitableGetSharedImageVersionResult(
-        exclude_from_latest=__ret__.exclude_from_latest,
-        gallery_name=__ret__.gallery_name,
-        id=__ret__.id,
-        image_name=__ret__.image_name,
-        location=__ret__.location,
-        managed_image_id=__ret__.managed_image_id,
-        name=__ret__.name,
-        os_disk_image_size_gb=__ret__.os_disk_image_size_gb,
-        os_disk_snapshot_id=__ret__.os_disk_snapshot_id,
-        resource_group_name=__ret__.resource_group_name,
-        sort_versions_by_semver=__ret__.sort_versions_by_semver,
-        tags=__ret__.tags,
-        target_regions=__ret__.target_regions)
+        exclude_from_latest=pulumi.get(__ret__, 'exclude_from_latest'),
+        gallery_name=pulumi.get(__ret__, 'gallery_name'),
+        id=pulumi.get(__ret__, 'id'),
+        image_name=pulumi.get(__ret__, 'image_name'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_image_id=pulumi.get(__ret__, 'managed_image_id'),
+        name=pulumi.get(__ret__, 'name'),
+        os_disk_image_size_gb=pulumi.get(__ret__, 'os_disk_image_size_gb'),
+        os_disk_snapshot_id=pulumi.get(__ret__, 'os_disk_snapshot_id'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sort_versions_by_semver=pulumi.get(__ret__, 'sort_versions_by_semver'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_regions=pulumi.get(__ret__, 'target_regions'))
 
 
 @_utilities.lift_output_func(get_shared_image_version)

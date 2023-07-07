@@ -190,17 +190,17 @@ def get_app_service_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult).value
 
     return AwaitableGetAppServiceEnvironmentResult(
-        cluster_settings=__ret__.cluster_settings,
-        front_end_scale_factor=__ret__.front_end_scale_factor,
-        id=__ret__.id,
-        internal_ip_address=__ret__.internal_ip_address,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_ip_addresses=__ret__.outbound_ip_addresses,
-        pricing_tier=__ret__.pricing_tier,
-        resource_group_name=__ret__.resource_group_name,
-        service_ip_address=__ret__.service_ip_address,
-        tags=__ret__.tags)
+        cluster_settings=pulumi.get(__ret__, 'cluster_settings'),
+        front_end_scale_factor=pulumi.get(__ret__, 'front_end_scale_factor'),
+        id=pulumi.get(__ret__, 'id'),
+        internal_ip_address=pulumi.get(__ret__, 'internal_ip_address'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        pricing_tier=pulumi.get(__ret__, 'pricing_tier'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_ip_address=pulumi.get(__ret__, 'service_ip_address'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_app_service_environment)

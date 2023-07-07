@@ -176,16 +176,16 @@ def get_network_sim_policy(mobile_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy', __args__, opts=opts, typ=GetNetworkSimPolicyResult).value
 
     return AwaitableGetNetworkSimPolicyResult(
-        default_slice_id=__ret__.default_slice_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        mobile_network_id=__ret__.mobile_network_id,
-        name=__ret__.name,
-        rat_frequency_selection_priority_index=__ret__.rat_frequency_selection_priority_index,
-        registration_timer_in_seconds=__ret__.registration_timer_in_seconds,
-        slices=__ret__.slices,
-        tags=__ret__.tags,
-        user_equipment_aggregate_maximum_bit_rates=__ret__.user_equipment_aggregate_maximum_bit_rates)
+        default_slice_id=pulumi.get(__ret__, 'default_slice_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
+        name=pulumi.get(__ret__, 'name'),
+        rat_frequency_selection_priority_index=pulumi.get(__ret__, 'rat_frequency_selection_priority_index'),
+        registration_timer_in_seconds=pulumi.get(__ret__, 'registration_timer_in_seconds'),
+        slices=pulumi.get(__ret__, 'slices'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_equipment_aggregate_maximum_bit_rates=pulumi.get(__ret__, 'user_equipment_aggregate_maximum_bit_rates'))
 
 
 @_utilities.lift_output_func(get_network_sim_policy)

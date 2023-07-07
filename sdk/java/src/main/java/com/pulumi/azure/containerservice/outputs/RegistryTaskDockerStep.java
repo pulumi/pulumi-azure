@@ -30,7 +30,7 @@ public final class RegistryTaskDockerStep {
      */
     private String contextAccessToken;
     /**
-     * @return The URL (absolute or relative) of the source context for this step.
+     * @return The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
      * 
      */
     private String contextPath;
@@ -83,7 +83,7 @@ public final class RegistryTaskDockerStep {
         return this.contextAccessToken;
     }
     /**
-     * @return The URL (absolute or relative) of the source context for this step.
+     * @return The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
      * 
      */
     public String contextPath() {

@@ -163,15 +163,15 @@ def get_namespace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:notificationhub/getNamespace:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        namespace_type=__ret__.namespace_type,
-        resource_group_name=__ret__.resource_group_name,
-        servicebus_endpoint=__ret__.servicebus_endpoint,
-        sku=__ret__.sku,
-        tags=__ret__.tags)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_type=pulumi.get(__ret__, 'namespace_type'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        servicebus_endpoint=pulumi.get(__ret__, 'servicebus_endpoint'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_namespace)

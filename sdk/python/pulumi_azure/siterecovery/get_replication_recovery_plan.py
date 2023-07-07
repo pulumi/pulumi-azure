@@ -150,14 +150,14 @@ def get_replication_recovery_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan', __args__, opts=opts, typ=GetReplicationRecoveryPlanResult).value
 
     return AwaitableGetReplicationRecoveryPlanResult(
-        azure_to_azure_settings=__ret__.azure_to_azure_settings,
-        failover_deployment_model=__ret__.failover_deployment_model,
-        id=__ret__.id,
-        name=__ret__.name,
-        recovery_groups=__ret__.recovery_groups,
-        recovery_vault_id=__ret__.recovery_vault_id,
-        source_recovery_fabric_id=__ret__.source_recovery_fabric_id,
-        target_recovery_fabric_id=__ret__.target_recovery_fabric_id)
+        azure_to_azure_settings=pulumi.get(__ret__, 'azure_to_azure_settings'),
+        failover_deployment_model=pulumi.get(__ret__, 'failover_deployment_model'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        recovery_groups=pulumi.get(__ret__, 'recovery_groups'),
+        recovery_vault_id=pulumi.get(__ret__, 'recovery_vault_id'),
+        source_recovery_fabric_id=pulumi.get(__ret__, 'source_recovery_fabric_id'),
+        target_recovery_fabric_id=pulumi.get(__ret__, 'target_recovery_fabric_id'))
 
 
 @_utilities.lift_output_func(get_replication_recovery_plan)

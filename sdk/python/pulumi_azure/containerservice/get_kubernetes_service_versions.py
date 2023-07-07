@@ -126,12 +126,12 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts, typ=GetKubernetesServiceVersionsResult).value
 
     return AwaitableGetKubernetesServiceVersionsResult(
-        id=__ret__.id,
-        include_preview=__ret__.include_preview,
-        latest_version=__ret__.latest_version,
-        location=__ret__.location,
-        version_prefix=__ret__.version_prefix,
-        versions=__ret__.versions)
+        id=pulumi.get(__ret__, 'id'),
+        include_preview=pulumi.get(__ret__, 'include_preview'),
+        latest_version=pulumi.get(__ret__, 'latest_version'),
+        location=pulumi.get(__ret__, 'location'),
+        version_prefix=pulumi.get(__ret__, 'version_prefix'),
+        versions=pulumi.get(__ret__, 'versions'))
 
 
 @_utilities.lift_output_func(get_kubernetes_service_versions)

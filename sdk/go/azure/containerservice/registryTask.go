@@ -49,7 +49,7 @@ import (
 //				},
 //				DockerStep: &containerservice.RegistryTaskDockerStepArgs{
 //					DockerfilePath:     pulumi.String("Dockerfile"),
-//					ContextPath:        pulumi.String("https://github.com/<user name>/acr-build-helloworld-node#main"),
+//					ContextPath:        pulumi.String("https://github.com/<username>/<repository>#<branch>:<folder>"),
 //					ContextAccessToken: pulumi.String("<github personal access token>"),
 //					ImageNames: pulumi.StringArray{
 //						pulumi.String("helloworld:{{.Run.ID}}"),

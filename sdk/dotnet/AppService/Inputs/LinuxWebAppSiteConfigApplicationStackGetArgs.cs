@@ -12,17 +12,47 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class LinuxWebAppSiteConfigApplicationStackGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Docker image reference, including repository host as needed.
-        /// </summary>
         [Input("dockerImage")]
         public Input<string>? DockerImage { get; set; }
 
         /// <summary>
-        /// The image Tag to use. e.g. `latest`.
+        /// The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         /// </summary>
+        [Input("dockerImageName")]
+        public Input<string>? DockerImageName { get; set; }
+
         [Input("dockerImageTag")]
         public Input<string>? DockerImageTag { get; set; }
+
+        [Input("dockerRegistryPassword")]
+        private Input<string>? _dockerRegistryPassword;
+
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// 
+        /// &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// </summary>
+        public Input<string>? DockerRegistryPassword
+        {
+            get => _dockerRegistryPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dockerRegistryPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        /// </summary>
+        [Input("dockerRegistryUrl")]
+        public Input<string>? DockerRegistryUrl { get; set; }
+
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        [Input("dockerRegistryUsername")]
+        public Input<string>? DockerRegistryUsername { get; set; }
 
         /// <summary>
         /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.

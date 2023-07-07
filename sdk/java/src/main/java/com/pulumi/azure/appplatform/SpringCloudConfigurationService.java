@@ -90,6 +90,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService")
 public class SpringCloudConfigurationService extends com.pulumi.resources.CustomResource {
     /**
+     * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     * 
+     */
+    @Export(name="generation", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> generation;
+
+    /**
+     * @return The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     * 
+     */
+    public Output<Optional<String>> generation() {
+        return Codegen.optional(this.generation);
+    }
+    /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */

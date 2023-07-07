@@ -188,17 +188,17 @@ def get_spring_cloud_app(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appplatform/getSpringCloudApp:getSpringCloudApp', __args__, opts=opts, typ=GetSpringCloudAppResult).value
 
     return AwaitableGetSpringCloudAppResult(
-        fqdn=__ret__.fqdn,
-        https_only=__ret__.https_only,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        is_public=__ret__.is_public,
-        name=__ret__.name,
-        persistent_disks=__ret__.persistent_disks,
-        resource_group_name=__ret__.resource_group_name,
-        service_name=__ret__.service_name,
-        tls_enabled=__ret__.tls_enabled,
-        url=__ret__.url)
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        https_only=pulumi.get(__ret__, 'https_only'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        is_public=pulumi.get(__ret__, 'is_public'),
+        name=pulumi.get(__ret__, 'name'),
+        persistent_disks=pulumi.get(__ret__, 'persistent_disks'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        tls_enabled=pulumi.get(__ret__, 'tls_enabled'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_spring_cloud_app)

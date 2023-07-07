@@ -20,6 +20,7 @@ public final class GetResourceGroupResult {
      * 
      */
     private String location;
+    private String managedBy;
     private String name;
     /**
      * @return A mapping of tags assigned to the Resource Group.
@@ -41,6 +42,9 @@ public final class GetResourceGroupResult {
      */
     public String location() {
         return this.location;
+    }
+    public String managedBy() {
+        return this.managedBy;
     }
     public String name() {
         return this.name;
@@ -64,6 +68,7 @@ public final class GetResourceGroupResult {
     public static final class Builder {
         private String id;
         private String location;
+        private String managedBy;
         private String name;
         private Map<String,String> tags;
         public Builder() {}
@@ -71,6 +76,7 @@ public final class GetResourceGroupResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.location = defaults.location;
+    	      this.managedBy = defaults.managedBy;
     	      this.name = defaults.name;
     	      this.tags = defaults.tags;
         }
@@ -83,6 +89,11 @@ public final class GetResourceGroupResult {
         @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedBy(String managedBy) {
+            this.managedBy = Objects.requireNonNull(managedBy);
             return this;
         }
         @CustomType.Setter
@@ -99,6 +110,7 @@ public final class GetResourceGroupResult {
             final var o = new GetResourceGroupResult();
             o.id = id;
             o.location = location;
+            o.managedBy = managedBy;
             o.name = name;
             o.tags = tags;
             return o;

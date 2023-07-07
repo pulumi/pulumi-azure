@@ -1374,6 +1374,8 @@ class SpringCloudGatewayCors(dict):
             suggest = "allowed_headers"
         elif key == "allowedMethods":
             suggest = "allowed_methods"
+        elif key == "allowedOriginPatterns":
+            suggest = "allowed_origin_patterns"
         elif key == "allowedOrigins":
             suggest = "allowed_origins"
         elif key == "credentialsAllowed":
@@ -1397,6 +1399,7 @@ class SpringCloudGatewayCors(dict):
     def __init__(__self__, *,
                  allowed_headers: Optional[Sequence[str]] = None,
                  allowed_methods: Optional[Sequence[str]] = None,
+                 allowed_origin_patterns: Optional[Sequence[str]] = None,
                  allowed_origins: Optional[Sequence[str]] = None,
                  credentials_allowed: Optional[bool] = None,
                  exposed_headers: Optional[Sequence[str]] = None,
@@ -1404,6 +1407,7 @@ class SpringCloudGatewayCors(dict):
         """
         :param Sequence[str] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
         :param Sequence[str] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        :param Sequence[str] allowed_origin_patterns: Allowed origin patterns to make cross-site requests.
         :param Sequence[str] allowed_origins: Allowed origins to make cross-site requests. The special value `*` allows all domains.
         :param bool credentials_allowed: is user credentials are supported on cross-site requests?
         :param Sequence[str] exposed_headers: HTTP response headers to expose for cross-site requests.
@@ -1413,6 +1417,8 @@ class SpringCloudGatewayCors(dict):
             pulumi.set(__self__, "allowed_headers", allowed_headers)
         if allowed_methods is not None:
             pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origin_patterns is not None:
+            pulumi.set(__self__, "allowed_origin_patterns", allowed_origin_patterns)
         if allowed_origins is not None:
             pulumi.set(__self__, "allowed_origins", allowed_origins)
         if credentials_allowed is not None:
@@ -1437,6 +1443,14 @@ class SpringCloudGatewayCors(dict):
         Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOriginPatterns")
+    def allowed_origin_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Allowed origin patterns to make cross-site requests.
+        """
+        return pulumi.get(self, "allowed_origin_patterns")
 
     @property
     @pulumi.getter(name="allowedOrigins")

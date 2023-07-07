@@ -70,14 +70,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (Optional) An `key_vault_credential` block as defined below.
+     * An `key_vault_credential` block as defined below.
      * 
      */
     @Import(name="keyVaultCredential")
     private @Nullable Output<VirtualMachineKeyVaultCredentialArgs> keyVaultCredential;
 
     /**
-     * @return (Optional) An `key_vault_credential` block as defined below.
+     * @return An `key_vault_credential` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineKeyVaultCredentialArgs>> keyVaultCredential() {
@@ -335,7 +335,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyVaultCredential (Optional) An `key_vault_credential` block as defined below.
+         * @param keyVaultCredential An `key_vault_credential` block as defined below.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyVaultCredential (Optional) An `key_vault_credential` block as defined below.
+         * @param keyVaultCredential An `key_vault_credential` block as defined below.
          * 
          * @return builder
          * 

@@ -166,15 +166,15 @@ def get_public_ip_prefix(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts, typ=GetPublicIpPrefixResult).value
 
     return AwaitableGetPublicIpPrefixResult(
-        id=__ret__.id,
-        ip_prefix=__ret__.ip_prefix,
-        location=__ret__.location,
-        name=__ret__.name,
-        prefix_length=__ret__.prefix_length,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        zones=__ret__.zones)
+        id=pulumi.get(__ret__, 'id'),
+        ip_prefix=pulumi.get(__ret__, 'ip_prefix'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        prefix_length=pulumi.get(__ret__, 'prefix_length'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_public_ip_prefix)

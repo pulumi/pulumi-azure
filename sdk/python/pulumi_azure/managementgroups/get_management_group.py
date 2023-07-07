@@ -154,14 +154,14 @@ def get_management_group(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts, typ=GetManagementGroupResult).value
 
     return AwaitableGetManagementGroupResult(
-        all_management_group_ids=__ret__.all_management_group_ids,
-        all_subscription_ids=__ret__.all_subscription_ids,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        management_group_ids=__ret__.management_group_ids,
-        name=__ret__.name,
-        parent_management_group_id=__ret__.parent_management_group_id,
-        subscription_ids=__ret__.subscription_ids)
+        all_management_group_ids=pulumi.get(__ret__, 'all_management_group_ids'),
+        all_subscription_ids=pulumi.get(__ret__, 'all_subscription_ids'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        management_group_ids=pulumi.get(__ret__, 'management_group_ids'),
+        name=pulumi.get(__ret__, 'name'),
+        parent_management_group_id=pulumi.get(__ret__, 'parent_management_group_id'),
+        subscription_ids=pulumi.get(__ret__, 'subscription_ids'))
 
 
 @_utilities.lift_output_func(get_management_group)

@@ -13,8 +13,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SoftwareUpdateConfigurationWindows {
     /**
-     * @return (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-     * 
      * @deprecated
      * windows classification can be set as a list, use `classifications_included` instead.
      * 
@@ -37,15 +35,13 @@ public final class SoftwareUpdateConfigurationWindows {
      */
     private @Nullable List<String> includedKnowledgeBaseNumbers;
     /**
-     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     private @Nullable String reboot;
 
     private SoftwareUpdateConfigurationWindows() {}
     /**
-     * @return (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-     * 
      * @deprecated
      * windows classification can be set as a list, use `classifications_included` instead.
      * 
@@ -76,7 +72,7 @@ public final class SoftwareUpdateConfigurationWindows {
         return this.includedKnowledgeBaseNumbers == null ? List.of() : this.includedKnowledgeBaseNumbers;
     }
     /**
-     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     public Optional<String> reboot() {

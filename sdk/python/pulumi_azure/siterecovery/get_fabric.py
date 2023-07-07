@@ -114,11 +114,11 @@ def get_fabric(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:siterecovery/getFabric:getFabric', __args__, opts=opts, typ=GetFabricResult).value
 
     return AwaitableGetFabricResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        recovery_vault_name=__ret__.recovery_vault_name,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_fabric)

@@ -33,6 +33,7 @@ class LinuxWebAppSlotArgs:
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input['LinuxWebAppSlotLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -96,6 +97,8 @@ class LinuxWebAppSlotArgs:
             pulumi.set(__self__, "logs", logs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if service_plan_id is not None:
             pulumi.set(__self__, "service_plan_id", service_plan_id)
         if storage_accounts is not None:
@@ -312,6 +315,15 @@ class LinuxWebAppSlotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="servicePlanId")
     def service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -399,6 +411,7 @@ class _LinuxWebAppSlotState:
                  outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]]] = None,
@@ -492,6 +505,8 @@ class _LinuxWebAppSlotState:
             pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses is not None:
             pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if service_plan_id is not None:
             pulumi.set(__self__, "service_plan_id", service_plan_id)
         if site_config is not None:
@@ -808,6 +823,15 @@ class _LinuxWebAppSlotState:
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="servicePlanId")
     def service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -912,6 +936,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotLogsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
@@ -1048,6 +1073,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotLogsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
@@ -1081,6 +1107,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["service_plan_id"] = service_plan_id
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
@@ -1136,6 +1163,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]]] = None,
@@ -1213,6 +1241,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
         __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
@@ -1421,6 +1450,11 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="servicePlanId")

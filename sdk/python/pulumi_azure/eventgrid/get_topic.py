@@ -145,14 +145,14 @@ def get_topic(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventgrid/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        primary_access_key=__ret__.primary_access_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key,
-        tags=__ret__.tags)
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_topic)

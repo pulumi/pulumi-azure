@@ -124,7 +124,8 @@ type WindowsWebAppSlot struct {
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	PossibleOutboundIpAddresses pulumi.StringOutput  `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -230,6 +231,7 @@ type windowsWebAppSlotState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -296,6 +298,7 @@ type WindowsWebAppSlotState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	PublicNetworkAccessEnabled  pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
@@ -349,7 +352,8 @@ type windowsWebAppSlotArgs struct {
 	// A `logs` block as defined below.
 	Logs *WindowsWebAppSlotLogs `pulumi:"logs"`
 	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -398,7 +402,8 @@ type WindowsWebAppSlotArgs struct {
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrInput
 	// The Site Credentials Username used for publishing.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
@@ -619,6 +624,10 @@ func (o WindowsWebAppSlotOutput) PossibleOutboundIpAddressLists() pulumi.StringA
 // A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o WindowsWebAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o WindowsWebAppSlotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.

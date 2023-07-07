@@ -134,7 +134,8 @@ type WindowsFunctionApp struct {
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	PossibleOutboundIpAddresses pulumi.StringOutput  `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan within which to create this Function App.
@@ -270,6 +271,7 @@ type windowsFunctionAppState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan within which to create this Function App.
@@ -359,6 +361,7 @@ type WindowsFunctionAppState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	PublicNetworkAccessEnabled  pulumi.BoolPtrInput
 	// The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the App Service Plan within which to create this Function App.
@@ -435,7 +438,8 @@ type windowsFunctionAppArgs struct {
 	// The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan within which to create this Function App.
@@ -507,7 +511,8 @@ type WindowsFunctionAppArgs struct {
 	// The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the App Service Plan within which to create this Function App.
@@ -757,6 +762,10 @@ func (o WindowsFunctionAppOutput) PossibleOutboundIpAddressLists() pulumi.String
 // A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 func (o WindowsFunctionAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o WindowsFunctionAppOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.

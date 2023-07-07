@@ -114,11 +114,11 @@ def get_ssh_public_key(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSshPublicKey:getSshPublicKey', __args__, opts=opts, typ=GetSshPublicKeyResult).value
 
     return AwaitableGetSshPublicKeyResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        public_key=__ret__.public_key,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ssh_public_key)

@@ -150,14 +150,14 @@ def get_availability_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getAvailabilitySet:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult).value
 
     return AwaitableGetAvailabilitySetResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        managed=__ret__.managed,
-        name=__ret__.name,
-        platform_fault_domain_count=__ret__.platform_fault_domain_count,
-        platform_update_domain_count=__ret__.platform_update_domain_count,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed=pulumi.get(__ret__, 'managed'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
+        platform_update_domain_count=pulumi.get(__ret__, 'platform_update_domain_count'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_availability_set)

@@ -278,6 +278,9 @@ class WorkspaceArgs:
         """
         Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         """
+        warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "public_access_behind_virtual_network_enabled")
 
     @public_access_behind_virtual_network_enabled.setter
@@ -599,6 +602,9 @@ class _WorkspaceState:
         """
         Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         """
+        warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "public_access_behind_virtual_network_enabled")
 
     @public_access_behind_virtual_network_enabled.setter
@@ -1515,6 +1521,9 @@ class Workspace(pulumi.CustomResource):
         """
         Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         """
+        warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "public_access_behind_virtual_network_enabled")
 
     @property

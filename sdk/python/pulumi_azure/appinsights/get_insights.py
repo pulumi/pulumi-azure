@@ -186,17 +186,17 @@ def get_insights(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appinsights/getInsights:getInsights', __args__, opts=opts, typ=GetInsightsResult).value
 
     return AwaitableGetInsightsResult(
-        app_id=__ret__.app_id,
-        application_type=__ret__.application_type,
-        connection_string=__ret__.connection_string,
-        id=__ret__.id,
-        instrumentation_key=__ret__.instrumentation_key,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        retention_in_days=__ret__.retention_in_days,
-        tags=__ret__.tags,
-        workspace_id=__ret__.workspace_id)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        application_type=pulumi.get(__ret__, 'application_type'),
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        id=pulumi.get(__ret__, 'id'),
+        instrumentation_key=pulumi.get(__ret__, 'instrumentation_key'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_insights)

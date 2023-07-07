@@ -36,6 +36,25 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         return this.accountName;
     }
 
+    /**
+     * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     * 
+     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * 
+     */
+    @Import(name="analyticalStorageTtl")
+    private @Nullable Output<Integer> analyticalStorageTtl;
+
+    /**
+     * @return The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     * 
+     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * 
+     */
+    public Optional<Output<Integer>> analyticalStorageTtl() {
+        return Optional.ofNullable(this.analyticalStorageTtl);
+    }
+
     @Import(name="autoscaleSettings")
     private @Nullable Output<GremlinGraphAutoscaleSettingsArgs> autoscaleSettings;
 
@@ -197,6 +216,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
 
     private GremlinGraphArgs(GremlinGraphArgs $) {
         this.accountName = $.accountName;
+        this.analyticalStorageTtl = $.analyticalStorageTtl;
         this.autoscaleSettings = $.autoscaleSettings;
         this.conflictResolutionPolicy = $.conflictResolutionPolicy;
         this.databaseName = $.databaseName;
@@ -247,6 +267,31 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountName(String accountName) {
             return accountName(Output.of(accountName));
+        }
+
+        /**
+         * @param analyticalStorageTtl The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+         * 
+         * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analyticalStorageTtl(@Nullable Output<Integer> analyticalStorageTtl) {
+            $.analyticalStorageTtl = analyticalStorageTtl;
+            return this;
+        }
+
+        /**
+         * @param analyticalStorageTtl The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+         * 
+         * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analyticalStorageTtl(Integer analyticalStorageTtl) {
+            return analyticalStorageTtl(Output.of(analyticalStorageTtl));
         }
 
         public Builder autoscaleSettings(@Nullable Output<GremlinGraphAutoscaleSettingsArgs> autoscaleSettings) {

@@ -213,20 +213,20 @@ def get_soa_record(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:dns/getSoaRecord:getSoaRecord', __args__, opts=opts, typ=GetSoaRecordResult).value
 
     return AwaitableGetSoaRecordResult(
-        email=__ret__.email,
-        expire_time=__ret__.expire_time,
-        fqdn=__ret__.fqdn,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        minimum_ttl=__ret__.minimum_ttl,
-        name=__ret__.name,
-        refresh_time=__ret__.refresh_time,
-        resource_group_name=__ret__.resource_group_name,
-        retry_time=__ret__.retry_time,
-        serial_number=__ret__.serial_number,
-        tags=__ret__.tags,
-        ttl=__ret__.ttl,
-        zone_name=__ret__.zone_name)
+        email=pulumi.get(__ret__, 'email'),
+        expire_time=pulumi.get(__ret__, 'expire_time'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        minimum_ttl=pulumi.get(__ret__, 'minimum_ttl'),
+        name=pulumi.get(__ret__, 'name'),
+        refresh_time=pulumi.get(__ret__, 'refresh_time'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        retry_time=pulumi.get(__ret__, 'retry_time'),
+        serial_number=pulumi.get(__ret__, 'serial_number'),
+        tags=pulumi.get(__ret__, 'tags'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        zone_name=pulumi.get(__ret__, 'zone_name'))
 
 
 @_utilities.lift_output_func(get_soa_record)

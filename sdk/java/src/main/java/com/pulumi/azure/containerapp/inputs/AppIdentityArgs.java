@@ -17,14 +17,14 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppIdentityArgs Empty = new AppIdentityArgs();
 
     /**
-     * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -46,14 +46,14 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -88,7 +88,7 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * @param type The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * @param type The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

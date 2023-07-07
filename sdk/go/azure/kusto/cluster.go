@@ -78,7 +78,7 @@ type Cluster struct {
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
@@ -169,7 +169,7 @@ type clusterState struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine *string `pulumi:"engine"`
@@ -226,7 +226,7 @@ type ClusterState struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine pulumi.StringPtrInput
@@ -285,7 +285,7 @@ type clusterArgs struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine *string `pulumi:"engine"`
@@ -339,7 +339,7 @@ type ClusterArgs struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine pulumi.StringPtrInput
@@ -498,7 +498,7 @@ func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
 //
 // > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {

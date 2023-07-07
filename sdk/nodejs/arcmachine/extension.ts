@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:arcmachine/extension:Extension example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
+ *  $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
  * ```
  */
 export class Extension extends pulumi.CustomResource {
@@ -47,6 +47,13 @@ export class Extension extends pulumi.CustomResource {
      * The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
     public readonly arcMachineId!: pulumi.Output<string>;
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     *
+     * **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+     *
+     * **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+     */
     public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
@@ -149,6 +156,13 @@ export interface ExtensionState {
      * The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
     arcMachineId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     *
+     * **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+     *
+     * **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+     */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
@@ -198,6 +212,13 @@ export interface ExtensionArgs {
      * The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
     arcMachineId: pulumi.Input<string>;
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     *
+     * **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+     *
+     * **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+     */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.

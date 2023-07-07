@@ -24,10 +24,15 @@ namespace Pulumi.Azure.Authorization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         Location = azurerm_resource_group.Example.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     /// });

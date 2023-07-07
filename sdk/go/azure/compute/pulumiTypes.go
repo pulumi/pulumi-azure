@@ -1297,7 +1297,7 @@ type ImageOsDisk struct {
 	OsState *string `pulumi:"osState"`
 	// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
 	OsType *string `pulumi:"osType"`
-	// Specifies the size of the image to be created. The target size can't be smaller than the source size.
+	// Specifies the size of the image to be created. Changing this forces a new resource to be created.
 	SizeGb *int `pulumi:"sizeGb"`
 }
 
@@ -1323,7 +1323,7 @@ type ImageOsDiskArgs struct {
 	OsState pulumi.StringPtrInput `pulumi:"osState"`
 	// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Specifies the size of the image to be created. The target size can't be smaller than the source size.
+	// Specifies the size of the image to be created. Changing this forces a new resource to be created.
 	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
 }
 
@@ -1429,7 +1429,7 @@ func (o ImageOsDiskOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the size of the image to be created. The target size can't be smaller than the source size.
+// Specifies the size of the image to be created. Changing this forces a new resource to be created.
 func (o ImageOsDiskOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
@@ -1508,7 +1508,7 @@ func (o ImageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the size of the image to be created. The target size can't be smaller than the source size.
+// Specifies the size of the image to be created. Changing this forces a new resource to be created.
 func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageOsDisk) *int {
 		if v == nil {

@@ -141,13 +141,13 @@ def get_alert_rule_template(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate', __args__, opts=opts, typ=GetAlertRuleTemplateResult).value
 
     return AwaitableGetAlertRuleTemplateResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        log_analytics_workspace_id=__ret__.log_analytics_workspace_id,
-        name=__ret__.name,
-        nrt_templates=__ret__.nrt_templates,
-        scheduled_templates=__ret__.scheduled_templates,
-        security_incident_templates=__ret__.security_incident_templates)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        log_analytics_workspace_id=pulumi.get(__ret__, 'log_analytics_workspace_id'),
+        name=pulumi.get(__ret__, 'name'),
+        nrt_templates=pulumi.get(__ret__, 'nrt_templates'),
+        scheduled_templates=pulumi.get(__ret__, 'scheduled_templates'),
+        security_incident_templates=pulumi.get(__ret__, 'security_incident_templates'))
 
 
 @_utilities.lift_output_func(get_alert_rule_template)

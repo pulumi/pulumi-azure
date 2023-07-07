@@ -86,7 +86,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly autoPatching!: pulumi.Output<outputs.mssql.VirtualMachineAutoPatching | undefined>;
     /**
-     * (Optional) An `keyVaultCredential` block as defined below.
+     * An `keyVaultCredential` block as defined below.
      */
     public readonly keyVaultCredential!: pulumi.Output<outputs.mssql.VirtualMachineKeyVaultCredential | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface VirtualMachineState {
      */
     autoPatching?: pulumi.Input<inputs.mssql.VirtualMachineAutoPatching>;
     /**
-     * (Optional) An `keyVaultCredential` block as defined below.
+     * An `keyVaultCredential` block as defined below.
      */
     keyVaultCredential?: pulumi.Input<inputs.mssql.VirtualMachineKeyVaultCredential>;
     /**
@@ -263,7 +263,7 @@ export interface VirtualMachineArgs {
      */
     autoPatching?: pulumi.Input<inputs.mssql.VirtualMachineAutoPatching>;
     /**
-     * (Optional) An `keyVaultCredential` block as defined below.
+     * An `keyVaultCredential` block as defined below.
      */
     keyVaultCredential?: pulumi.Input<inputs.mssql.VirtualMachineKeyVaultCredential>;
     /**

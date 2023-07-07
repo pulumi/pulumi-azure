@@ -247,22 +247,22 @@ def get_shared_image(gallery_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__, opts=opts, typ=GetSharedImageResult).value
 
     return AwaitableGetSharedImageResult(
-        architecture=__ret__.architecture,
-        description=__ret__.description,
-        eula=__ret__.eula,
-        gallery_name=__ret__.gallery_name,
-        hyper_v_generation=__ret__.hyper_v_generation,
-        id=__ret__.id,
-        identifiers=__ret__.identifiers,
-        location=__ret__.location,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        privacy_statement_uri=__ret__.privacy_statement_uri,
-        purchase_plans=__ret__.purchase_plans,
-        release_note_uri=__ret__.release_note_uri,
-        resource_group_name=__ret__.resource_group_name,
-        specialized=__ret__.specialized,
-        tags=__ret__.tags)
+        architecture=pulumi.get(__ret__, 'architecture'),
+        description=pulumi.get(__ret__, 'description'),
+        eula=pulumi.get(__ret__, 'eula'),
+        gallery_name=pulumi.get(__ret__, 'gallery_name'),
+        hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
+        id=pulumi.get(__ret__, 'id'),
+        identifiers=pulumi.get(__ret__, 'identifiers'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        privacy_statement_uri=pulumi.get(__ret__, 'privacy_statement_uri'),
+        purchase_plans=pulumi.get(__ret__, 'purchase_plans'),
+        release_note_uri=pulumi.get(__ret__, 'release_note_uri'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        specialized=pulumi.get(__ret__, 'specialized'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_shared_image)

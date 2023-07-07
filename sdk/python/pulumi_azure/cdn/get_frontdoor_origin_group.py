@@ -160,15 +160,15 @@ def get_frontdoor_origin_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup', __args__, opts=opts, typ=GetFrontdoorOriginGroupResult).value
 
     return AwaitableGetFrontdoorOriginGroupResult(
-        cdn_frontdoor_profile_id=__ret__.cdn_frontdoor_profile_id,
-        health_probes=__ret__.health_probes,
-        id=__ret__.id,
-        load_balancings=__ret__.load_balancings,
-        name=__ret__.name,
-        profile_name=__ret__.profile_name,
-        resource_group_name=__ret__.resource_group_name,
-        restore_traffic_time_to_healed_or_new_endpoint_in_minutes=__ret__.restore_traffic_time_to_healed_or_new_endpoint_in_minutes,
-        session_affinity_enabled=__ret__.session_affinity_enabled)
+        cdn_frontdoor_profile_id=pulumi.get(__ret__, 'cdn_frontdoor_profile_id'),
+        health_probes=pulumi.get(__ret__, 'health_probes'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancings=pulumi.get(__ret__, 'load_balancings'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        restore_traffic_time_to_healed_or_new_endpoint_in_minutes=pulumi.get(__ret__, 'restore_traffic_time_to_healed_or_new_endpoint_in_minutes'),
+        session_affinity_enabled=pulumi.get(__ret__, 'session_affinity_enabled'))
 
 
 @_utilities.lift_output_func(get_frontdoor_origin_group)

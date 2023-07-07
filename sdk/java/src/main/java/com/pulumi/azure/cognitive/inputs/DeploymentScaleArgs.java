@@ -5,8 +5,11 @@ package com.pulumi.azure.cognitive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DeploymentScaleArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,14 +17,74 @@ public final class DeploymentScaleArgs extends com.pulumi.resources.ResourceArgs
     public static final DeploymentScaleArgs Empty = new DeploymentScaleArgs();
 
     /**
-     * Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+     * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="capacity")
+    private @Nullable Output<Integer> capacity;
+
+    /**
+     * @return If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Integer>> capacity() {
+        return Optional.ofNullable(this.capacity);
+    }
+
+    /**
+     * If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="family")
+    private @Nullable Output<String> family;
+
+    /**
+     * @return If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> family() {
+        return Optional.ofNullable(this.family);
+    }
+
+    /**
+     * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="size")
+    private @Nullable Output<String> size;
+
+    /**
+     * @return The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> size() {
+        return Optional.ofNullable(this.size);
+    }
+
+    /**
+     * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="tier")
+    private @Nullable Output<String> tier;
+
+    /**
+     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> tier() {
+        return Optional.ofNullable(this.tier);
+    }
+
+    /**
+     * The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+     * @return The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -31,6 +94,10 @@ public final class DeploymentScaleArgs extends com.pulumi.resources.ResourceArgs
     private DeploymentScaleArgs() {}
 
     private DeploymentScaleArgs(DeploymentScaleArgs $) {
+        this.capacity = $.capacity;
+        this.family = $.family;
+        this.size = $.size;
+        this.tier = $.tier;
         this.type = $.type;
     }
 
@@ -53,7 +120,91 @@ public final class DeploymentScaleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+         * @param capacity If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacity(@Nullable Output<Integer> capacity) {
+            $.capacity = capacity;
+            return this;
+        }
+
+        /**
+         * @param capacity If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacity(Integer capacity) {
+            return capacity(Output.of(capacity));
+        }
+
+        /**
+         * @param family If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder family(@Nullable Output<String> family) {
+            $.family = family;
+            return this;
+        }
+
+        /**
+         * @param family If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder family(String family) {
+            return family(Output.of(family));
+        }
+
+        /**
+         * @param size The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder size(@Nullable Output<String> size) {
+            $.size = size;
+            return this;
+        }
+
+        /**
+         * @param size The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder size(String size) {
+            return size(Output.of(size));
+        }
+
+        /**
+         * @param tier Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tier(@Nullable Output<String> tier) {
+            $.tier = tier;
+            return this;
+        }
+
+        /**
+         * @param tier Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tier(String tier) {
+            return tier(Output.of(tier));
+        }
+
+        /**
+         * @param type The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -64,7 +215,7 @@ public final class DeploymentScaleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+         * @param type The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

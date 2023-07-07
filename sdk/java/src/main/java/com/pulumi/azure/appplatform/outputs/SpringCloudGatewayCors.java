@@ -25,6 +25,11 @@ public final class SpringCloudGatewayCors {
      */
     private @Nullable List<String> allowedMethods;
     /**
+     * @return Allowed origin patterns to make cross-site requests.
+     * 
+     */
+    private @Nullable List<String> allowedOriginPatterns;
+    /**
      * @return Allowed origins to make cross-site requests. The special value `*` allows all domains.
      * 
      */
@@ -59,6 +64,13 @@ public final class SpringCloudGatewayCors {
      */
     public List<String> allowedMethods() {
         return this.allowedMethods == null ? List.of() : this.allowedMethods;
+    }
+    /**
+     * @return Allowed origin patterns to make cross-site requests.
+     * 
+     */
+    public List<String> allowedOriginPatterns() {
+        return this.allowedOriginPatterns == null ? List.of() : this.allowedOriginPatterns;
     }
     /**
      * @return Allowed origins to make cross-site requests. The special value `*` allows all domains.
@@ -100,6 +112,7 @@ public final class SpringCloudGatewayCors {
     public static final class Builder {
         private @Nullable List<String> allowedHeaders;
         private @Nullable List<String> allowedMethods;
+        private @Nullable List<String> allowedOriginPatterns;
         private @Nullable List<String> allowedOrigins;
         private @Nullable Boolean credentialsAllowed;
         private @Nullable List<String> exposedHeaders;
@@ -109,6 +122,7 @@ public final class SpringCloudGatewayCors {
     	      Objects.requireNonNull(defaults);
     	      this.allowedHeaders = defaults.allowedHeaders;
     	      this.allowedMethods = defaults.allowedMethods;
+    	      this.allowedOriginPatterns = defaults.allowedOriginPatterns;
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.credentialsAllowed = defaults.credentialsAllowed;
     	      this.exposedHeaders = defaults.exposedHeaders;
@@ -130,6 +144,14 @@ public final class SpringCloudGatewayCors {
         }
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
+        }
+        @CustomType.Setter
+        public Builder allowedOriginPatterns(@Nullable List<String> allowedOriginPatterns) {
+            this.allowedOriginPatterns = allowedOriginPatterns;
+            return this;
+        }
+        public Builder allowedOriginPatterns(String... allowedOriginPatterns) {
+            return allowedOriginPatterns(List.of(allowedOriginPatterns));
         }
         @CustomType.Setter
         public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
@@ -161,6 +183,7 @@ public final class SpringCloudGatewayCors {
             final var o = new SpringCloudGatewayCors();
             o.allowedHeaders = allowedHeaders;
             o.allowedMethods = allowedMethods;
+            o.allowedOriginPatterns = allowedOriginPatterns;
             o.allowedOrigins = allowedOrigins;
             o.credentialsAllowed = credentialsAllowed;
             o.exposedHeaders = exposedHeaders;

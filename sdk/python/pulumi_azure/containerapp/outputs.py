@@ -143,8 +143,8 @@ class AppIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
-        :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        :param str type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -158,7 +158,7 @@ class AppIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -166,7 +166,7 @@ class AppIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -921,7 +921,7 @@ class AppTemplateContainerLivenessProbe(dict):
         :param Sequence['AppTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
-        :param int interval_seconds: (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -997,7 +997,7 @@ class AppTemplateContainerLivenessProbe(dict):
     @pulumi.getter(name="intervalSeconds")
     def interval_seconds(self) -> Optional[int]:
         """
-        (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+        How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         """
         return pulumi.get(self, "interval_seconds")
 

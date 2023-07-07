@@ -31,7 +31,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
 //				DisplayName: pulumi.String("Test Policy Set"),
-//				Parameters:  pulumi.String("    {\n        \"allowedLocations\": {\n            \"type\": \"Array\",\n            \"metadata\": {\n                \"description\": \"The list of allowed locations for resources.\",\n                \"displayName\": \"Allowed locations\",\n                \"strongType\": \"location\"\n            }\n        }\n    }\n\n"),
+//				Parameters: pulumi.String(`    {
+//	        "allowedLocations": {
+//	            "type": "Array",
+//	            "metadata": {
+//	                "description": "The list of allowed locations for resources.",
+//	                "displayName": "Allowed locations",
+//	                "strongType": "location"
+//	            }
+//	        }
+//	    }
+//
+// `),
+//
 //				PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
 //					&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
 //						ParameterValues:    pulumi.String("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n    \n"),

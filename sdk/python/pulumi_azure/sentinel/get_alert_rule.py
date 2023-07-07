@@ -92,9 +92,9 @@ def get_alert_rule(log_analytics_workspace_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:sentinel/getAlertRule:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult).value
 
     return AwaitableGetAlertRuleResult(
-        id=__ret__.id,
-        log_analytics_workspace_id=__ret__.log_analytics_workspace_id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        log_analytics_workspace_id=pulumi.get(__ret__, 'log_analytics_workspace_id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_alert_rule)

@@ -230,17 +230,17 @@ def get_account_sas(connection_string: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts, typ=GetAccountSASResult).value
 
     return AwaitableGetAccountSASResult(
-        connection_string=__ret__.connection_string,
-        expiry=__ret__.expiry,
-        https_only=__ret__.https_only,
-        id=__ret__.id,
-        ip_addresses=__ret__.ip_addresses,
-        permissions=__ret__.permissions,
-        resource_types=__ret__.resource_types,
-        sas=__ret__.sas,
-        services=__ret__.services,
-        signed_version=__ret__.signed_version,
-        start=__ret__.start)
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        expiry=pulumi.get(__ret__, 'expiry'),
+        https_only=pulumi.get(__ret__, 'https_only'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        resource_types=pulumi.get(__ret__, 'resource_types'),
+        sas=pulumi.get(__ret__, 'sas'),
+        services=pulumi.get(__ret__, 'services'),
+        signed_version=pulumi.get(__ret__, 'signed_version'),
+        start=pulumi.get(__ret__, 'start'))
 
 
 @_utilities.lift_output_func(get_account_sas)

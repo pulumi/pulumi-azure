@@ -130,6 +130,9 @@ class FrontdoorOriginArgs:
     @property
     @pulumi.getter(name="healthProbesEnabled")
     def health_probes_enabled(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "health_probes_enabled")
 
     @health_probes_enabled.setter
@@ -331,6 +334,9 @@ class _FrontdoorOriginState:
     @property
     @pulumi.getter(name="healthProbesEnabled")
     def health_probes_enabled(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "health_probes_enabled")
 
     @health_probes_enabled.setter
@@ -657,6 +663,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
     @property
     @pulumi.getter(name="healthProbesEnabled")
     def health_probes_enabled(self) -> pulumi.Output[bool]:
+        warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "health_probes_enabled")
 
     @property

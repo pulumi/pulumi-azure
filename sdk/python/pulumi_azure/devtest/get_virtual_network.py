@@ -140,13 +140,13 @@ def get_virtual_network(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:devtest/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        allowed_subnets=__ret__.allowed_subnets,
-        id=__ret__.id,
-        lab_name=__ret__.lab_name,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        subnet_overrides=__ret__.subnet_overrides,
-        unique_identifier=__ret__.unique_identifier)
+        allowed_subnets=pulumi.get(__ret__, 'allowed_subnets'),
+        id=pulumi.get(__ret__, 'id'),
+        lab_name=pulumi.get(__ret__, 'lab_name'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        subnet_overrides=pulumi.get(__ret__, 'subnet_overrides'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_virtual_network)

@@ -175,18 +175,18 @@ def get_firewall_policy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getFirewallPolicy:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
 
     return AwaitableGetFirewallPolicyResult(
-        base_policy_id=__ret__.base_policy_id,
-        child_policies=__ret__.child_policies,
-        dns=__ret__.dns,
-        firewalls=__ret__.firewalls,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        rule_collection_groups=__ret__.rule_collection_groups,
-        tags=__ret__.tags,
-        threat_intelligence_allowlists=__ret__.threat_intelligence_allowlists,
-        threat_intelligence_mode=__ret__.threat_intelligence_mode)
+        base_policy_id=pulumi.get(__ret__, 'base_policy_id'),
+        child_policies=pulumi.get(__ret__, 'child_policies'),
+        dns=pulumi.get(__ret__, 'dns'),
+        firewalls=pulumi.get(__ret__, 'firewalls'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        rule_collection_groups=pulumi.get(__ret__, 'rule_collection_groups'),
+        tags=pulumi.get(__ret__, 'tags'),
+        threat_intelligence_allowlists=pulumi.get(__ret__, 'threat_intelligence_allowlists'),
+        threat_intelligence_mode=pulumi.get(__ret__, 'threat_intelligence_mode'))
 
 
 @_utilities.lift_output_func(get_firewall_policy)

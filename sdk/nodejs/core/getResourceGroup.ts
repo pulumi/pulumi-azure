@@ -49,6 +49,7 @@ export interface GetResourceGroupResult {
      * The Azure Region where the Resource Group exists.
      */
     readonly location: string;
+    readonly managedBy: string;
     readonly name: string;
     /**
      * A mapping of tags assigned to the Resource Group.

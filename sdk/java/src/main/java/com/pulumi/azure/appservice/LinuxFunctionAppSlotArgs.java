@@ -296,6 +296,13 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
      * 
@@ -456,6 +463,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         this.identity = $.identity;
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
@@ -871,6 +879,15 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

@@ -96,10 +96,10 @@ def get_source_control_token(type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getSourceControlToken:getSourceControlToken', __args__, opts=opts, typ=GetSourceControlTokenResult).value
 
     return AwaitableGetSourceControlTokenResult(
-        id=__ret__.id,
-        token=__ret__.token,
-        token_secret=__ret__.token_secret,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        token=pulumi.get(__ret__, 'token'),
+        token_secret=pulumi.get(__ret__, 'token_secret'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_source_control_token)

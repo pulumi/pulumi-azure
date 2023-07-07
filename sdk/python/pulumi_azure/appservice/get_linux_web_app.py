@@ -22,7 +22,7 @@ class GetLinuxWebAppResult:
     """
     A collection of values returned by getLinuxWebApp.
     """
-    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_subnet_id=None):
         if app_metadata and not isinstance(app_metadata, dict):
             raise TypeError("Expected argument 'app_metadata' to be a dict")
         pulumi.set(__self__, "app_metadata", app_metadata)
@@ -104,6 +104,9 @@ class GetLinuxWebAppResult:
         if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
             raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -347,6 +350,11 @@ class GetLinuxWebAppResult:
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> bool:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -449,6 +457,7 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_address_lists=self.possible_outbound_ip_address_lists,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
+            public_network_access_enabled=self.public_network_access_enabled,
             resource_group_name=self.resource_group_name,
             service_plan_id=self.service_plan_id,
             site_configs=self.site_configs,
@@ -488,42 +497,43 @@ def get_linux_web_app(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getLinuxWebApp:getLinuxWebApp', __args__, opts=opts, typ=GetLinuxWebAppResult).value
 
     return AwaitableGetLinuxWebAppResult(
-        app_metadata=__ret__.app_metadata,
-        app_settings=__ret__.app_settings,
-        auth_settings=__ret__.auth_settings,
-        auth_settings_v2s=__ret__.auth_settings_v2s,
-        availability=__ret__.availability,
-        backups=__ret__.backups,
-        client_affinity_enabled=__ret__.client_affinity_enabled,
-        client_certificate_enabled=__ret__.client_certificate_enabled,
-        client_certificate_exclusion_paths=__ret__.client_certificate_exclusion_paths,
-        client_certificate_mode=__ret__.client_certificate_mode,
-        connection_strings=__ret__.connection_strings,
-        custom_domain_verification_id=__ret__.custom_domain_verification_id,
-        default_hostname=__ret__.default_hostname,
-        enabled=__ret__.enabled,
-        hosting_environment_id=__ret__.hosting_environment_id,
-        https_only=__ret__.https_only,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        key_vault_reference_identity_id=__ret__.key_vault_reference_identity_id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        logs=__ret__.logs,
-        name=__ret__.name,
-        outbound_ip_address_lists=__ret__.outbound_ip_address_lists,
-        outbound_ip_addresses=__ret__.outbound_ip_addresses,
-        possible_outbound_ip_address_lists=__ret__.possible_outbound_ip_address_lists,
-        possible_outbound_ip_addresses=__ret__.possible_outbound_ip_addresses,
-        resource_group_name=__ret__.resource_group_name,
-        service_plan_id=__ret__.service_plan_id,
-        site_configs=__ret__.site_configs,
-        site_credentials=__ret__.site_credentials,
-        sticky_settings=__ret__.sticky_settings,
-        storage_accounts=__ret__.storage_accounts,
-        tags=__ret__.tags,
-        usage=__ret__.usage,
-        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+        app_metadata=pulumi.get(__ret__, 'app_metadata'),
+        app_settings=pulumi.get(__ret__, 'app_settings'),
+        auth_settings=pulumi.get(__ret__, 'auth_settings'),
+        auth_settings_v2s=pulumi.get(__ret__, 'auth_settings_v2s'),
+        availability=pulumi.get(__ret__, 'availability'),
+        backups=pulumi.get(__ret__, 'backups'),
+        client_affinity_enabled=pulumi.get(__ret__, 'client_affinity_enabled'),
+        client_certificate_enabled=pulumi.get(__ret__, 'client_certificate_enabled'),
+        client_certificate_exclusion_paths=pulumi.get(__ret__, 'client_certificate_exclusion_paths'),
+        client_certificate_mode=pulumi.get(__ret__, 'client_certificate_mode'),
+        connection_strings=pulumi.get(__ret__, 'connection_strings'),
+        custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
+        default_hostname=pulumi.get(__ret__, 'default_hostname'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        hosting_environment_id=pulumi.get(__ret__, 'hosting_environment_id'),
+        https_only=pulumi.get(__ret__, 'https_only'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        key_vault_reference_identity_id=pulumi.get(__ret__, 'key_vault_reference_identity_id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        logs=pulumi.get(__ret__, 'logs'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_ip_address_lists=pulumi.get(__ret__, 'outbound_ip_address_lists'),
+        outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        possible_outbound_ip_address_lists=pulumi.get(__ret__, 'possible_outbound_ip_address_lists'),
+        possible_outbound_ip_addresses=pulumi.get(__ret__, 'possible_outbound_ip_addresses'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_plan_id=pulumi.get(__ret__, 'service_plan_id'),
+        site_configs=pulumi.get(__ret__, 'site_configs'),
+        site_credentials=pulumi.get(__ret__, 'site_credentials'),
+        sticky_settings=pulumi.get(__ret__, 'sticky_settings'),
+        storage_accounts=pulumi.get(__ret__, 'storage_accounts'),
+        tags=pulumi.get(__ret__, 'tags'),
+        usage=pulumi.get(__ret__, 'usage'),
+        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
 
 
 @_utilities.lift_output_func(get_linux_web_app)

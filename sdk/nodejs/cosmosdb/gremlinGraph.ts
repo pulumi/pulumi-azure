@@ -90,6 +90,12 @@ export class GremlinGraph extends pulumi.CustomResource {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     *
+     * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+     */
+    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -146,6 +152,7 @@ export class GremlinGraph extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GremlinGraphState | undefined;
             resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
             resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             resourceInputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
@@ -172,6 +179,7 @@ export class GremlinGraph extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
             resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
@@ -197,6 +205,12 @@ export interface GremlinGraphState {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     accountName?: pulumi.Input<string>;
+    /**
+     * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     *
+     * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+     */
+    analyticalStorageTtl?: pulumi.Input<number>;
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -248,6 +262,12 @@ export interface GremlinGraphArgs {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     accountName: pulumi.Input<string>;
+    /**
+     * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     *
+     * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+     */
+    analyticalStorageTtl?: pulumi.Input<number>;
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.

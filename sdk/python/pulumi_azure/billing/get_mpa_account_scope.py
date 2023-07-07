@@ -90,9 +90,9 @@ def get_mpa_account_scope(billing_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:billing/getMpaAccountScope:getMpaAccountScope', __args__, opts=opts, typ=GetMpaAccountScopeResult).value
 
     return AwaitableGetMpaAccountScopeResult(
-        billing_account_name=__ret__.billing_account_name,
-        customer_name=__ret__.customer_name,
-        id=__ret__.id)
+        billing_account_name=pulumi.get(__ret__, 'billing_account_name'),
+        customer_name=pulumi.get(__ret__, 'customer_name'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_mpa_account_scope)

@@ -151,14 +151,14 @@ def get_certificate(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:batch/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        account_name=__ret__.account_name,
-        format=__ret__.format,
-        id=__ret__.id,
-        name=__ret__.name,
-        public_data=__ret__.public_data,
-        resource_group_name=__ret__.resource_group_name,
-        thumbprint=__ret__.thumbprint,
-        thumbprint_algorithm=__ret__.thumbprint_algorithm)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        public_data=pulumi.get(__ret__, 'public_data'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        thumbprint_algorithm=pulumi.get(__ret__, 'thumbprint_algorithm'))
 
 
 @_utilities.lift_output_func(get_certificate)

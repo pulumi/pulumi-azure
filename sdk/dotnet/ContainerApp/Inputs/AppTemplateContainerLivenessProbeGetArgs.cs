@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<int>? InitialDelay { get; set; }
 
         /// <summary>
-        /// (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+        /// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         /// </summary>
         [Input("intervalSeconds")]
         public Input<int>? IntervalSeconds { get; set; }

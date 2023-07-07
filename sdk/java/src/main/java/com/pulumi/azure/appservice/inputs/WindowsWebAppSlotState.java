@@ -387,6 +387,13 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.possibleOutboundIpAddresses);
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      * 
@@ -515,6 +522,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         this.outboundIpAddresses = $.outboundIpAddresses;
         this.possibleOutboundIpAddressLists = $.possibleOutboundIpAddressLists;
         this.possibleOutboundIpAddresses = $.possibleOutboundIpAddresses;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.siteCredentials = $.siteCredentials;
@@ -1074,6 +1082,15 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
          */
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             return possibleOutboundIpAddresses(Output.of(possibleOutboundIpAddresses));
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

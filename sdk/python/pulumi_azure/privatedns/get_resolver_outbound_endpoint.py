@@ -125,12 +125,12 @@ def get_resolver_outbound_endpoint(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint', __args__, opts=opts, typ=GetResolverOutboundEndpointResult).value
 
     return AwaitableGetResolverOutboundEndpointResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_dns_resolver_id=__ret__.private_dns_resolver_id,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_dns_resolver_id=pulumi.get(__ret__, 'private_dns_resolver_id'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resolver_outbound_endpoint)

@@ -150,6 +150,11 @@ export const getNetworkInterface: typeof import("./getNetworkInterface").getNetw
 export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
 
+export { GetNetworkManagerNetworkGroupArgs, GetNetworkManagerNetworkGroupResult, GetNetworkManagerNetworkGroupOutputArgs } from "./getNetworkManagerNetworkGroup";
+export const getNetworkManagerNetworkGroup: typeof import("./getNetworkManagerNetworkGroup").getNetworkManagerNetworkGroup = null as any;
+export const getNetworkManagerNetworkGroupOutput: typeof import("./getNetworkManagerNetworkGroup").getNetworkManagerNetworkGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkManagerNetworkGroup","getNetworkManagerNetworkGroupOutput"], () => require("./getNetworkManagerNetworkGroup"));
+
 export { GetNetworkSecurityGroupArgs, GetNetworkSecurityGroupResult, GetNetworkSecurityGroupOutputArgs } from "./getNetworkSecurityGroup";
 export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroup = null as any;
 export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;

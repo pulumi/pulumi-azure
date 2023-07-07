@@ -25,7 +25,7 @@ class ResolverForwardingRuleArgs:
         """
         The set of arguments for constructing a ResolverForwardingRule resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]] target_dns_servers: Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
@@ -57,7 +57,7 @@ class ResolverForwardingRuleArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         """
         return pulumi.get(self, "domain_name")
 
@@ -126,7 +126,7 @@ class _ResolverForwardingRuleState:
         """
         Input properties used for looking up and filtering ResolverForwardingRule resources.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
@@ -161,7 +161,7 @@ class _ResolverForwardingRuleState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         """
         return pulumi.get(self, "domain_name")
 
@@ -294,7 +294,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
@@ -433,7 +433,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
@@ -463,7 +463,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         """
         return pulumi.get(self, "domain_name")
 

@@ -105,6 +105,10 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualRouterAsn!: pulumi.Output<number>;
     /**
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     */
+    public readonly virtualRouterAutoScaleMinCapacity!: pulumi.Output<number | undefined>;
+    /**
      * The IP addresses of the Virtual Hub BGP router.
      */
     public /*out*/ readonly virtualRouterIps!: pulumi.Output<string[]>;
@@ -136,6 +140,7 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualRouterAsn"] = state ? state.virtualRouterAsn : undefined;
+            resourceInputs["virtualRouterAutoScaleMinCapacity"] = state ? state.virtualRouterAutoScaleMinCapacity : undefined;
             resourceInputs["virtualRouterIps"] = state ? state.virtualRouterIps : undefined;
             resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
@@ -151,6 +156,7 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualRouterAutoScaleMinCapacity"] = args ? args.virtualRouterAutoScaleMinCapacity : undefined;
             resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
             resourceInputs["defaultRouteTableId"] = undefined /*out*/;
             resourceInputs["virtualRouterAsn"] = undefined /*out*/;
@@ -206,6 +212,10 @@ export interface VirtualHubState {
      */
     virtualRouterAsn?: pulumi.Input<number>;
     /**
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     */
+    virtualRouterAutoScaleMinCapacity?: pulumi.Input<number>;
+    /**
      * The IP addresses of the Virtual Hub BGP router.
      */
     virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
@@ -251,6 +261,10 @@ export interface VirtualHubArgs {
      * A mapping of tags to assign to the Virtual Hub.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     */
+    virtualRouterAutoScaleMinCapacity?: pulumi.Input<number>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */

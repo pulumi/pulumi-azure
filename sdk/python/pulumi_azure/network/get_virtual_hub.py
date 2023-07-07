@@ -174,16 +174,16 @@ def get_virtual_hub(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualHub:getVirtualHub', __args__, opts=opts, typ=GetVirtualHubResult).value
 
     return AwaitableGetVirtualHubResult(
-        address_prefix=__ret__.address_prefix,
-        default_route_table_id=__ret__.default_route_table_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        virtual_router_asn=__ret__.virtual_router_asn,
-        virtual_router_ips=__ret__.virtual_router_ips,
-        virtual_wan_id=__ret__.virtual_wan_id)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        default_route_table_id=pulumi.get(__ret__, 'default_route_table_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_router_asn=pulumi.get(__ret__, 'virtual_router_asn'),
+        virtual_router_ips=pulumi.get(__ret__, 'virtual_router_ips'),
+        virtual_wan_id=pulumi.get(__ret__, 'virtual_wan_id'))
 
 
 @_utilities.lift_output_func(get_virtual_hub)

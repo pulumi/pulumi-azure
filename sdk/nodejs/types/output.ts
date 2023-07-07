@@ -361,7 +361,7 @@ export namespace apimanagement {
          */
         description?: string;
         /**
-         * (Optional) One or more `example` blocks as defined above.
+         * One or more `example` blocks as defined above.
          */
         examples?: outputs.apimanagement.ApiOperationRequestHeaderExample[];
         /**
@@ -423,7 +423,7 @@ export namespace apimanagement {
          */
         description?: string;
         /**
-         * (Optional) One or more `example` blocks as defined above.
+         * One or more `example` blocks as defined above.
          */
         examples?: outputs.apimanagement.ApiOperationRequestQueryParameterExample[];
         /**
@@ -537,7 +537,7 @@ export namespace apimanagement {
          */
         description?: string;
         /**
-         * (Optional) One or more `example` blocks as defined above.
+         * One or more `example` blocks as defined above.
          */
         examples?: outputs.apimanagement.ApiOperationRequestRepresentationFormParameterExample[];
         /**
@@ -618,7 +618,7 @@ export namespace apimanagement {
          */
         description?: string;
         /**
-         * (Optional) One or more `example` blocks as defined above.
+         * One or more `example` blocks as defined above.
          */
         examples?: outputs.apimanagement.ApiOperationResponseHeaderExample[];
         /**
@@ -732,7 +732,7 @@ export namespace apimanagement {
          */
         description?: string;
         /**
-         * (Optional) One or more `example` blocks as defined above.
+         * One or more `example` blocks as defined above.
          */
         examples?: outputs.apimanagement.ApiOperationResponseRepresentationFormParameterExample[];
         /**
@@ -794,7 +794,7 @@ export namespace apimanagement {
          */
         description?: string;
         /**
-         * (Optional) One or more `example` blocks as defined above.
+         * One or more `example` blocks as defined above.
          */
         examples?: outputs.apimanagement.ApiOperationTemplateParameterExample[];
         /**
@@ -3095,6 +3095,10 @@ export namespace appplatform {
          * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          */
         allowedMethods?: string[];
+        /**
+         * Allowed origin patterns to make cross-site requests.
+         */
+        allowedOriginPatterns?: string[];
         /**
          * Allowed origins to make cross-site requests. The special value `*` allows all domains.
          */
@@ -7198,14 +7202,24 @@ export namespace appservice {
     }
 
     export interface GetLinuxWebAppSiteConfigApplicationStack {
-        /**
-         * The Docker image reference, including repository.
-         */
         dockerImage: string;
         /**
-         * The image Tag.
+         * The docker image, including tag, used by this Linux Web App.
          */
+        dockerImageName: string;
         dockerImageTag: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryPassword: string;
+        /**
+         * The URL of the container registry where the `dockerImageName` is located.
+         */
+        dockerRegistryUrl: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryUsername: string;
         /**
          * The version of .NET in use.
          */
@@ -7332,7 +7346,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status: string;
+        win32Status: number;
     }
 
     export interface GetLinuxWebAppSiteConfigCor {
@@ -9100,18 +9114,25 @@ export namespace appservice {
          * The Current Stack value of the Windows Web App.
          */
         currentStack: string;
-        /**
-         * The name of the Docker Container in used.
-         */
         dockerContainerName: string;
-        /**
-         * The Container Registry where the Docker Container is pulled from.
-         */
         dockerContainerRegistry: string;
-        /**
-         * The Docker Container Tag of the Container in use.
-         */
         dockerContainerTag: string;
+        /**
+         * The docker image, including tag, used by this Windows Web App.
+         */
+        dockerImageName: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryPassword: string;
+        /**
+         * The URL of the container registry where the `dockerImageName` is located.
+         */
+        dockerRegistryUrl: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryUsername: string;
         dotnetCoreVersion: string;
         /**
          * The version of .NET in use.
@@ -9256,7 +9277,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status: string;
+        win32Status: number;
     }
 
     export interface GetWindowsWebAppSiteConfigCor {
@@ -12580,13 +12601,31 @@ export namespace appservice {
 
     export interface LinuxWebAppSiteConfigApplicationStack {
         /**
-         * The Docker image reference, including repository host as needed.
+         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
          */
         dockerImage?: string;
         /**
-         * The image Tag to use. e.g. `latest`.
+         * The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+         */
+        dockerImageName?: string;
+        /**
+         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
          */
         dockerImageTag?: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         *
+         * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
+         */
+        dockerRegistryPassword: string;
+        /**
+         * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
+         */
+        dockerRegistryUrl: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryUsername: string;
         /**
          * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
          */
@@ -12724,7 +12763,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: string;
+        win32Status?: number;
     }
 
     export interface LinuxWebAppSiteConfigCors {
@@ -13795,13 +13834,31 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotSiteConfigApplicationStack {
         /**
-         * The Docker image reference, including repository host as needed.
+         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
          */
         dockerImage?: string;
         /**
-         * The image Tag to use. e.g. `latest`.
+         * The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+         */
+        dockerImageName?: string;
+        /**
+         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
          */
         dockerImageTag?: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         *
+         * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
+         */
+        dockerRegistryPassword: string;
+        /**
+         * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
+         */
+        dockerRegistryUrl: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryUsername: string;
         /**
          * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
          */
@@ -13939,7 +13996,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: string;
+        win32Status?: number;
     }
 
     export interface LinuxWebAppSlotSiteConfigCors {
@@ -17900,18 +17957,30 @@ export namespace appservice {
          * > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          */
         currentStack: string;
-        /**
-         * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-         */
         dockerContainerName?: string;
         /**
-         * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+         * @deprecated This property has been deprecated and will be removed in a future release of the provider.
          */
         dockerContainerRegistry?: string;
-        /**
-         * The Image Tag of the specified Docker Container to use. For example `latest`
-         */
         dockerContainerTag?: string;
+        /**
+         * The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+         */
+        dockerImageName?: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         *
+         * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
+         */
+        dockerRegistryPassword: string;
+        /**
+         * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
+         */
+        dockerRegistryUrl: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryUsername: string;
         /**
          * The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
          */
@@ -18084,7 +18153,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: string;
+        win32Status?: number;
     }
 
     export interface WindowsWebAppSiteConfigCors {
@@ -19194,18 +19263,30 @@ export namespace appservice {
          * > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          */
         currentStack: string;
-        /**
-         * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-         */
         dockerContainerName?: string;
         /**
-         * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+         * @deprecated This property has been deprecated and will be removed in a future release of the provider.
          */
         dockerContainerRegistry?: string;
-        /**
-         * The Image Tag of the specified Docker Container to use. For example `latest`
-         */
         dockerContainerTag?: string;
+        /**
+         * The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+         */
+        dockerImageName?: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         *
+         * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
+         */
+        dockerRegistryPassword: string;
+        /**
+         * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
+         */
+        dockerRegistryUrl: string;
+        /**
+         * The User Name to use for authentication against the registry to pull the image.
+         */
+        dockerRegistryUsername: string;
         /**
          * The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
          */
@@ -19370,7 +19451,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: string;
+        win32Status?: number;
     }
 
     export interface WindowsWebAppSlotSiteConfigCors {
@@ -20278,6 +20359,120 @@ export namespace automation {
         name: string;
     }
 
+    export interface GetVariablesBool {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: boolean;
+    }
+
+    export interface GetVariablesDatetime {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: string;
+    }
+
+    export interface GetVariablesEncrypted {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: string;
+    }
+
+    export interface GetVariablesInt {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: number;
+    }
+
+    export interface GetVariablesNull {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: string;
+    }
+
+    export interface GetVariablesString {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: string;
+    }
+
     export interface ModuleModuleLink {
         /**
          * A `hash` block as defined below.
@@ -20418,10 +20613,11 @@ export namespace automation {
     }
 
     export interface SoftwareUpdateConfigurationLinux {
+        classificationIncluded: string;
         /**
-         * Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
          */
-        classificationIncluded?: string;
+        classificationsIncludeds: string[];
         /**
          * Specifies a list of packages to excluded from the Software Update Configuration.
          */
@@ -20431,7 +20627,7 @@ export namespace automation {
          */
         includedPackages?: string[];
         /**
-         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
          */
         reboot?: string;
     }
@@ -20464,7 +20660,7 @@ export namespace automation {
          */
         advancedMonthDays?: number[];
         /**
-         * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
          */
         advancedWeekDays?: string[];
         creationTime: string;
@@ -20480,7 +20676,7 @@ export namespace automation {
         /**
          * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
          */
-        frequency?: string;
+        frequency: string;
         /**
          * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
          */
@@ -20499,7 +20695,7 @@ export namespace automation {
         /**
          * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
          */
-        startTime?: string;
+        startTime: string;
         startTimeOffsetMinutes: number;
         /**
          * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
@@ -20572,8 +20768,6 @@ export namespace automation {
 
     export interface SoftwareUpdateConfigurationWindows {
         /**
-         * (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-         *
          * @deprecated windows classification can be set as a list, use `classifications_included` instead.
          */
         classificationIncluded: string;
@@ -20590,7 +20784,7 @@ export namespace automation {
          */
         includedKnowledgeBaseNumbers?: string[];
         /**
-         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
          */
         reboot?: string;
     }
@@ -23959,7 +24153,23 @@ export namespace cognitive {
 
     export interface DeploymentScale {
         /**
-         * Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+         */
+        capacity?: number;
+        /**
+         * If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+         */
+        family?: string;
+        /**
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+         */
+        size?: string;
+        /**
+         * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+         */
+        tier?: string;
+        /**
+         * The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -24736,7 +24946,7 @@ export namespace compute {
          */
         osType?: string;
         /**
-         * Specifies the size of the image to be created. The target size can't be smaller than the source size.
+         * Specifies the size of the image to be created. Changing this forces a new resource to be created.
          */
         sizeGb: number;
     }
@@ -28442,13 +28652,13 @@ export namespace containerapp {
 
     export interface AppIdentity {
         /**
-         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
-         * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -28671,7 +28881,7 @@ export namespace containerapp {
          */
         initialDelay?: number;
         /**
-         * (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+         * How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
          */
         intervalSeconds?: number;
         /**
@@ -30512,8 +30722,6 @@ export namespace containerservice {
         capacityReservationGroupId?: string;
         /**
          * Specifies whether to trust a Custom CA.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
          */
         customCaTrustEnabled?: boolean;
         /**
@@ -30618,7 +30826,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
          */
         osSku: string;
         /**
@@ -31157,6 +31365,109 @@ export namespace containerservice {
          * An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
          */
         hours: number[];
+    }
+
+    export interface KubernetesClusterMaintenanceWindowAutoUpgrade {
+        dayOfMonth?: number;
+        /**
+         * The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+         */
+        dayOfWeek?: string;
+        /**
+         * The duration of the window for maintenance to run in hours.
+         */
+        duration: number;
+        /**
+         * Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+         */
+        frequency: string;
+        /**
+         * The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+         */
+        interval: number;
+        /**
+         * One or more `notAllowed` block as defined below.
+         */
+        notAlloweds?: outputs.containerservice.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed[];
+        /**
+         * The date on which the maintenance window begins to take effect.
+         */
+        startDate: string;
+        /**
+         * The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+         */
+        startTime?: string;
+        /**
+         * Used to determine the timezone for cluster maintenance.
+         */
+        utcOffset?: string;
+        /**
+         * The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         * Required in combination with relative monthly frequency.
+         */
+        weekIndex?: string;
+    }
+
+    export interface KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed {
+        /**
+         * The end of a time span, formatted as an RFC3339 string.
+         */
+        end: string;
+        /**
+         * The start of a time span, formatted as an RFC3339 string.
+         */
+        start: string;
+    }
+
+    export interface KubernetesClusterMaintenanceWindowNodeOs {
+        dayOfMonth?: number;
+        /**
+         * The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+         */
+        dayOfWeek?: string;
+        /**
+         * The duration of the window for maintenance to run in hours.
+         */
+        duration: number;
+        /**
+         * Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+         */
+        frequency: string;
+        /**
+         * The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+         */
+        interval: number;
+        /**
+         * One or more `notAllowed` block as defined below.
+         */
+        notAlloweds?: outputs.containerservice.KubernetesClusterMaintenanceWindowNodeOsNotAllowed[];
+        /**
+         * The date on which the maintenance window begins to take effect.
+         */
+        startDate: string;
+        /**
+         * The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+         */
+        startTime?: string;
+        /**
+         * Used to determine the timezone for cluster maintenance.
+         */
+        utcOffset?: string;
+        /**
+         * The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         */
+        weekIndex?: string;
+    }
+
+    export interface KubernetesClusterMaintenanceWindowNodeOsNotAllowed {
+        /**
+         * The end of a time span, formatted as an RFC3339 string.
+         */
+        end: string;
+        /**
+         * The start of a time span, formatted as an RFC3339 string.
+         */
+        start: string;
     }
 
     export interface KubernetesClusterMaintenanceWindowNotAllowed {
@@ -31837,7 +32148,7 @@ export namespace containerservice {
          */
         contextAccessToken: string;
         /**
-         * The URL (absolute or relative) of the source context for this step.
+         * The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
          */
         contextPath: string;
         /**
@@ -43894,7 +44205,7 @@ export namespace lighthouse {
          */
         principalDisplayName?: string;
         /**
-         * The Principal ID of the Azure Active Directory.
+         * Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
          */
         principalId: string;
         /**
@@ -47571,6 +47882,28 @@ export namespace mobile {
 }
 
 export namespace monitoring {
+    export interface AadDiagnosticSettingEnabledLog {
+        /**
+         * The log category for the Azure Active Directory Diagnostic.
+         */
+        category: string;
+        /**
+         * A `retentionPolicy` block as defined below.
+         */
+        retentionPolicy: outputs.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicy;
+    }
+
+    export interface AadDiagnosticSettingEnabledLogRetentionPolicy {
+        /**
+         * The number of days for which this Retention Policy should apply. Defaults to `0`.
+         */
+        days?: number;
+        /**
+         * Is this Retention Policy enabled? Defaults to `false`.
+         */
+        enabled?: boolean;
+    }
+
     export interface AadDiagnosticSettingLog {
         /**
          * The log category for the Azure Active Directory Diagnostic.
@@ -50821,11 +51154,11 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, or `HS_Gen5`.
          */
         name: string;
         /**
-         * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+         * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
          */
         tier: string;
     }
@@ -56003,6 +56336,47 @@ export namespace network {
 
 }
 
+export namespace newrelic {
+    export interface MonitorPlan {
+        /**
+         * Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        billingCycle?: string;
+        /**
+         * Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        effectiveDate: string;
+        /**
+         * Specifies the plan id published by NewRelic. The only possible value is `newrelic-pay-as-you-go-free-live`. Defaults to `newrelic-pay-as-you-go-free-live`. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        planId?: string;
+        /**
+         * Specifies the usage type. Possible values are `COMMITTED` and `PAYG`. Defaults to `PAYG`. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        usageType?: string;
+    }
+
+    export interface MonitorUser {
+        /**
+         * Specifies the user Email. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        email: string;
+        /**
+         * Specifies the first name. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        firstName: string;
+        /**
+         * Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        lastName: string;
+        /**
+         * Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
+         */
+        phoneNumber: string;
+    }
+
+}
+
 export namespace nginx {
     export interface ConfigurationConfigFile {
         /**
@@ -56257,6 +56631,83 @@ export namespace orbital {
          * Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
          */
         polarization: string;
+    }
+
+}
+
+export namespace pim {
+    export interface ActiveRoleAssignmentSchedule {
+        /**
+         * A `expiration` block as defined above.
+         */
+        expiration?: outputs.pim.ActiveRoleAssignmentScheduleExpiration;
+        /**
+         * The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
+         */
+        startDateTime: string;
+    }
+
+    export interface ActiveRoleAssignmentScheduleExpiration {
+        /**
+         * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         */
+        durationDays: number;
+        /**
+         * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         */
+        durationHours: number;
+        /**
+         * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+         */
+        endDateTime: string;
+    }
+
+    export interface ActiveRoleAssignmentTicket {
+        /**
+         * The ticket number.
+         */
+        number?: string;
+        /**
+         * The ticket system.
+         */
+        system?: string;
+    }
+
+    export interface EligibleRoleAssignmentSchedule {
+        /**
+         * A `expiration` block as defined above.
+         */
+        expiration?: outputs.pim.EligibleRoleAssignmentScheduleExpiration;
+        /**
+         * The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+         */
+        startDateTime: string;
+    }
+
+    export interface EligibleRoleAssignmentScheduleExpiration {
+        /**
+         * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         */
+        durationDays: number;
+        /**
+         * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         */
+        durationHours: number;
+        /**
+         * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+         */
+        endDateTime: string;
+    }
+
+    export interface EligibleRoleAssignmentTicket {
+        /**
+         * The ticket number.
+         */
+        number?: string;
+        /**
+         * The ticket system.
+         */
+        system?: string;
     }
 
 }
@@ -59247,7 +59698,7 @@ export namespace siterecovery {
          */
         preActions?: outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPreAction[];
         /**
-         * (required) one or more id of protected VM.
+         * One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
          */
         replicatedProtectedItems?: string[];
         /**
@@ -59258,7 +59709,7 @@ export namespace siterecovery {
 
     export interface ReplicationRecoveryPlanRecoveryGroupPostAction {
         /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
          *
          * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
          */
@@ -59301,7 +59752,7 @@ export namespace siterecovery {
 
     export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
         /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
          *
          * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
          */

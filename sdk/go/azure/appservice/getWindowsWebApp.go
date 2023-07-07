@@ -106,6 +106,7 @@ type LookupWindowsWebAppResult struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  bool   `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan in which this Windows Web App resides.
 	ServicePlanId string `pulumi:"servicePlanId"`
@@ -281,6 +282,10 @@ func (o LookupWindowsWebAppResultOutput) PossibleOutboundIpAddressLists() pulumi
 // The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
 func (o LookupWindowsWebAppResultOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o LookupWindowsWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupWindowsWebAppResultOutput) ResourceGroupName() pulumi.StringOutput {

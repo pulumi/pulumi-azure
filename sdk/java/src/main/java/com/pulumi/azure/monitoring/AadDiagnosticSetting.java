@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.AadDiagnosticSettingArgs;
 import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingState;
+import com.pulumi.azure.monitoring.outputs.AadDiagnosticSettingEnabledLog;
 import com.pulumi.azure.monitoring.outputs.AadDiagnosticSettingLog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -34,8 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.monitoring.AadDiagnosticSetting;
  * import com.pulumi.azure.monitoring.AadDiagnosticSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingLogArgs;
- * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingLogRetentionPolicyArgs;
+ * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogArgs;
+ * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,53 +64,34 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAadDiagnosticSetting = new AadDiagnosticSetting(&#34;exampleAadDiagnosticSetting&#34;, AadDiagnosticSettingArgs.builder()        
  *             .storageAccountId(exampleAccount.id())
- *             .logs(            
- *                 AadDiagnosticSettingLogArgs.builder()
+ *             .enabledLogs(            
+ *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category(&#34;SignInLogs&#34;)
- *                     .enabled(true)
- *                     .retentionPolicy(AadDiagnosticSettingLogRetentionPolicyArgs.builder()
+ *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
  *                     .build(),
- *                 AadDiagnosticSettingLogArgs.builder()
+ *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category(&#34;AuditLogs&#34;)
- *                     .enabled(true)
- *                     .retentionPolicy(AadDiagnosticSettingLogRetentionPolicyArgs.builder()
+ *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
  *                     .build(),
- *                 AadDiagnosticSettingLogArgs.builder()
+ *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category(&#34;NonInteractiveUserSignInLogs&#34;)
- *                     .enabled(true)
- *                     .retentionPolicy(AadDiagnosticSettingLogRetentionPolicyArgs.builder()
+ *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
  *                     .build(),
- *                 AadDiagnosticSettingLogArgs.builder()
+ *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category(&#34;ServicePrincipalSignInLogs&#34;)
- *                     .enabled(true)
- *                     .retentionPolicy(AadDiagnosticSettingLogRetentionPolicyArgs.builder()
+ *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                         .enabled(true)
  *                         .days(1)
  *                         .build())
- *                     .build(),
- *                 AadDiagnosticSettingLogArgs.builder()
- *                     .category(&#34;ManagedIdentitySignInLogs&#34;)
- *                     .enabled(false)
- *                     .retentionPolicy()
- *                     .build(),
- *                 AadDiagnosticSettingLogArgs.builder()
- *                     .category(&#34;ProvisioningLogs&#34;)
- *                     .enabled(false)
- *                     .retentionPolicy()
- *                     .build(),
- *                 AadDiagnosticSettingLogArgs.builder()
- *                     .category(&#34;ADFSSignInLogs&#34;)
- *                     .enabled(false)
- *                     .retentionPolicy()
  *                     .build())
  *             .build());
  * 
@@ -128,6 +110,24 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting")
 public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
+    /**
+     * One or more `enabled_log` blocks as defined below.
+     * 
+     * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
+     * 
+     */
+    @Export(name="enabledLogs", refs={List.class,AadDiagnosticSettingEnabledLog.class}, tree="[0,1]")
+    private Output<List<AadDiagnosticSettingEnabledLog>> enabledLogs;
+
+    /**
+     * @return One or more `enabled_log` blocks as defined below.
+     * 
+     * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
+     * 
+     */
+    public Output<List<AadDiagnosticSettingEnabledLog>> enabledLogs() {
+        return this.enabledLogs;
+    }
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      * 
@@ -177,16 +177,20 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `log` blocks as defined below.
      * 
-     * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
     @Export(name="logs", refs={List.class,AadDiagnosticSettingLog.class}, tree="[0,1]")
     private Output<List<AadDiagnosticSettingLog>> logs;
 
     /**
      * @return One or more `log` blocks as defined below.
      * 
-     * &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
      * 
      */
     public Output<List<AadDiagnosticSettingLog>> logs() {
@@ -237,7 +241,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AadDiagnosticSetting(String name, AadDiagnosticSettingArgs args) {
+    public AadDiagnosticSetting(String name, @Nullable AadDiagnosticSettingArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,7 +250,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AadDiagnosticSetting(String name, AadDiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public AadDiagnosticSetting(String name, @Nullable AadDiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", name, args == null ? AadDiagnosticSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

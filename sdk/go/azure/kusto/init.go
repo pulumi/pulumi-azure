@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterManagedPrivateEndpoint{}
 	case "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment":
 		r = &ClusterPrincipalAssignment{}
+	case "azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection":
+		r = &CosmosdbDataConnection{}
 	case "azure:kusto/database:Database":
 		r = &Database{}
 	case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
@@ -79,6 +81,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"kusto/clusterPrincipalAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"kusto/cosmosdbDataConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -191,18 +191,18 @@ def get_fhir_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:healthcare/getFhirService:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult).value
 
     return AwaitableGetFhirServiceResult(
-        access_policy_object_ids=__ret__.access_policy_object_ids,
-        authentications=__ret__.authentications,
-        configuration_export_storage_account_name=__ret__.configuration_export_storage_account_name,
-        container_registry_login_server_urls=__ret__.container_registry_login_server_urls,
-        cors=__ret__.cors,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        workspace_id=__ret__.workspace_id)
+        access_policy_object_ids=pulumi.get(__ret__, 'access_policy_object_ids'),
+        authentications=pulumi.get(__ret__, 'authentications'),
+        configuration_export_storage_account_name=pulumi.get(__ret__, 'configuration_export_storage_account_name'),
+        container_registry_login_server_urls=pulumi.get(__ret__, 'container_registry_login_server_urls'),
+        cors=pulumi.get(__ret__, 'cors'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_fhir_service)

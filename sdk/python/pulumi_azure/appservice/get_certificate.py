@@ -194,18 +194,18 @@ def get_certificate(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        expiration_date=__ret__.expiration_date,
-        friendly_name=__ret__.friendly_name,
-        host_names=__ret__.host_names,
-        id=__ret__.id,
-        issue_date=__ret__.issue_date,
-        issuer=__ret__.issuer,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        subject_name=__ret__.subject_name,
-        tags=__ret__.tags,
-        thumbprint=__ret__.thumbprint)
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        host_names=pulumi.get(__ret__, 'host_names'),
+        id=pulumi.get(__ret__, 'id'),
+        issue_date=pulumi.get(__ret__, 'issue_date'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        subject_name=pulumi.get(__ret__, 'subject_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'))
 
 
 @_utilities.lift_output_func(get_certificate)

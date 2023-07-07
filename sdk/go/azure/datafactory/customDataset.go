@@ -112,7 +112,28 @@ import (
 //					"foo": pulumi.String("test1"),
 //					"bar": pulumi.String("test2"),
 //				},
-//				SchemaJson: pulumi.String("{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"firstName\": {\n          \"type\": \"string\"\n        },\n        \"lastName\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  }\n}\n"),
+//				SchemaJson: pulumi.String(`{
+//	  "type": "object",
+//	  "properties": {
+//	    "name": {
+//	      "type": "object",
+//	      "properties": {
+//	        "firstName": {
+//	          "type": "string"
+//	        },
+//	        "lastName": {
+//	          "type": "string"
+//	        }
+//	      }
+//	    },
+//	    "age": {
+//	      "type": "integer"
+//	    }
+//	  }
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

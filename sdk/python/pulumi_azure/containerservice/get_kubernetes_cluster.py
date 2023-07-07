@@ -22,7 +22,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, node_resource_group_id=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, custom_ca_trust_certificates_base64s=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, node_resource_group_id=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
@@ -38,6 +38,9 @@ class GetKubernetesClusterResult:
         if azure_policy_enabled and not isinstance(azure_policy_enabled, bool):
             raise TypeError("Expected argument 'azure_policy_enabled' to be a bool")
         pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
+        if custom_ca_trust_certificates_base64s and not isinstance(custom_ca_trust_certificates_base64s, list):
+            raise TypeError("Expected argument 'custom_ca_trust_certificates_base64s' to be a list")
+        pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -183,6 +186,14 @@ class GetKubernetesClusterResult:
         Is Azure Policy enabled on this managed Kubernetes Cluster?
         """
         return pulumi.get(self, "azure_policy_enabled")
+
+    @property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> Sequence[str]:
+        """
+        A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -473,6 +484,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             api_server_authorized_ip_ranges=self.api_server_authorized_ip_ranges,
             azure_active_directory_role_based_access_controls=self.azure_active_directory_role_based_access_controls,
             azure_policy_enabled=self.azure_policy_enabled,
+            custom_ca_trust_certificates_base64s=self.custom_ca_trust_certificates_base64s,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
@@ -537,46 +549,47 @@ def get_kubernetes_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterResult).value
 
     return AwaitableGetKubernetesClusterResult(
-        aci_connector_linuxes=__ret__.aci_connector_linuxes,
-        agent_pool_profiles=__ret__.agent_pool_profiles,
-        api_server_authorized_ip_ranges=__ret__.api_server_authorized_ip_ranges,
-        azure_active_directory_role_based_access_controls=__ret__.azure_active_directory_role_based_access_controls,
-        azure_policy_enabled=__ret__.azure_policy_enabled,
-        disk_encryption_set_id=__ret__.disk_encryption_set_id,
-        dns_prefix=__ret__.dns_prefix,
-        fqdn=__ret__.fqdn,
-        http_application_routing_enabled=__ret__.http_application_routing_enabled,
-        http_application_routing_zone_name=__ret__.http_application_routing_zone_name,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        ingress_application_gateways=__ret__.ingress_application_gateways,
-        key_management_services=__ret__.key_management_services,
-        key_vault_secrets_providers=__ret__.key_vault_secrets_providers,
-        kube_admin_config_raw=__ret__.kube_admin_config_raw,
-        kube_admin_configs=__ret__.kube_admin_configs,
-        kube_config_raw=__ret__.kube_config_raw,
-        kube_configs=__ret__.kube_configs,
-        kubelet_identities=__ret__.kubelet_identities,
-        kubernetes_version=__ret__.kubernetes_version,
-        linux_profiles=__ret__.linux_profiles,
-        location=__ret__.location,
-        microsoft_defenders=__ret__.microsoft_defenders,
-        name=__ret__.name,
-        network_profiles=__ret__.network_profiles,
-        node_resource_group=__ret__.node_resource_group,
-        node_resource_group_id=__ret__.node_resource_group_id,
-        oidc_issuer_enabled=__ret__.oidc_issuer_enabled,
-        oidc_issuer_url=__ret__.oidc_issuer_url,
-        oms_agents=__ret__.oms_agents,
-        open_service_mesh_enabled=__ret__.open_service_mesh_enabled,
-        private_cluster_enabled=__ret__.private_cluster_enabled,
-        private_fqdn=__ret__.private_fqdn,
-        resource_group_name=__ret__.resource_group_name,
-        role_based_access_control_enabled=__ret__.role_based_access_control_enabled,
-        service_principals=__ret__.service_principals,
-        storage_profiles=__ret__.storage_profiles,
-        tags=__ret__.tags,
-        windows_profiles=__ret__.windows_profiles)
+        aci_connector_linuxes=pulumi.get(__ret__, 'aci_connector_linuxes'),
+        agent_pool_profiles=pulumi.get(__ret__, 'agent_pool_profiles'),
+        api_server_authorized_ip_ranges=pulumi.get(__ret__, 'api_server_authorized_ip_ranges'),
+        azure_active_directory_role_based_access_controls=pulumi.get(__ret__, 'azure_active_directory_role_based_access_controls'),
+        azure_policy_enabled=pulumi.get(__ret__, 'azure_policy_enabled'),
+        custom_ca_trust_certificates_base64s=pulumi.get(__ret__, 'custom_ca_trust_certificates_base64s'),
+        disk_encryption_set_id=pulumi.get(__ret__, 'disk_encryption_set_id'),
+        dns_prefix=pulumi.get(__ret__, 'dns_prefix'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        http_application_routing_enabled=pulumi.get(__ret__, 'http_application_routing_enabled'),
+        http_application_routing_zone_name=pulumi.get(__ret__, 'http_application_routing_zone_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        ingress_application_gateways=pulumi.get(__ret__, 'ingress_application_gateways'),
+        key_management_services=pulumi.get(__ret__, 'key_management_services'),
+        key_vault_secrets_providers=pulumi.get(__ret__, 'key_vault_secrets_providers'),
+        kube_admin_config_raw=pulumi.get(__ret__, 'kube_admin_config_raw'),
+        kube_admin_configs=pulumi.get(__ret__, 'kube_admin_configs'),
+        kube_config_raw=pulumi.get(__ret__, 'kube_config_raw'),
+        kube_configs=pulumi.get(__ret__, 'kube_configs'),
+        kubelet_identities=pulumi.get(__ret__, 'kubelet_identities'),
+        kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
+        linux_profiles=pulumi.get(__ret__, 'linux_profiles'),
+        location=pulumi.get(__ret__, 'location'),
+        microsoft_defenders=pulumi.get(__ret__, 'microsoft_defenders'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profiles=pulumi.get(__ret__, 'network_profiles'),
+        node_resource_group=pulumi.get(__ret__, 'node_resource_group'),
+        node_resource_group_id=pulumi.get(__ret__, 'node_resource_group_id'),
+        oidc_issuer_enabled=pulumi.get(__ret__, 'oidc_issuer_enabled'),
+        oidc_issuer_url=pulumi.get(__ret__, 'oidc_issuer_url'),
+        oms_agents=pulumi.get(__ret__, 'oms_agents'),
+        open_service_mesh_enabled=pulumi.get(__ret__, 'open_service_mesh_enabled'),
+        private_cluster_enabled=pulumi.get(__ret__, 'private_cluster_enabled'),
+        private_fqdn=pulumi.get(__ret__, 'private_fqdn'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        role_based_access_control_enabled=pulumi.get(__ret__, 'role_based_access_control_enabled'),
+        service_principals=pulumi.get(__ret__, 'service_principals'),
+        storage_profiles=pulumi.get(__ret__, 'storage_profiles'),
+        tags=pulumi.get(__ret__, 'tags'),
+        windows_profiles=pulumi.get(__ret__, 'windows_profiles'))
 
 
 @_utilities.lift_output_func(get_kubernetes_cluster)

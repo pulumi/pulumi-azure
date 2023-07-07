@@ -79,14 +79,14 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
     }
 
     /**
-     * (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+     * How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
      * 
      */
     @Import(name="intervalSeconds")
     private @Nullable Output<Integer> intervalSeconds;
 
     /**
-     * @return (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+     * @return How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
      * 
      */
     public Optional<Output<Integer>> intervalSeconds() {
@@ -296,7 +296,7 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param intervalSeconds (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+         * @param intervalSeconds How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param intervalSeconds (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+         * @param intervalSeconds How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
          * 
          * @return builder
          * 

@@ -103,10 +103,10 @@ def get_mca_account_scope(billing_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:billing/getMcaAccountScope:getMcaAccountScope', __args__, opts=opts, typ=GetMcaAccountScopeResult).value
 
     return AwaitableGetMcaAccountScopeResult(
-        billing_account_name=__ret__.billing_account_name,
-        billing_profile_name=__ret__.billing_profile_name,
-        id=__ret__.id,
-        invoice_section_name=__ret__.invoice_section_name)
+        billing_account_name=pulumi.get(__ret__, 'billing_account_name'),
+        billing_profile_name=pulumi.get(__ret__, 'billing_profile_name'),
+        id=pulumi.get(__ret__, 'id'),
+        invoice_section_name=pulumi.get(__ret__, 'invoice_section_name'))
 
 
 @_utilities.lift_output_func(get_mca_account_scope)

@@ -117,7 +117,8 @@ type LinuxWebApp struct {
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	PossibleOutboundIpAddresses pulumi.StringOutput  `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Linux App Service will be created in.
@@ -230,6 +231,7 @@ type linuxWebAppState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Linux App Service will be created in.
@@ -300,6 +302,7 @@ type LinuxWebAppState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	PublicNetworkAccessEnabled  pulumi.BoolPtrInput
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Service Plan that this Linux App Service will be created in.
@@ -357,7 +360,8 @@ type linuxWebAppArgs struct {
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppLogs `pulumi:"logs"`
 	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Linux App Service will be created in.
@@ -410,7 +414,8 @@ type LinuxWebAppArgs struct {
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrInput
 	// The Site Credentials Username used for publishing.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Service Plan that this Linux App Service will be created in.
@@ -635,6 +640,10 @@ func (o LinuxWebAppOutput) PossibleOutboundIpAddressLists() pulumi.StringArrayOu
 // A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o LinuxWebAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o LinuxWebAppOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.

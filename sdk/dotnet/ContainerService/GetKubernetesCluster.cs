@@ -136,6 +136,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly bool AzurePolicyEnabled;
         /// <summary>
+        /// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+        /// </summary>
+        public readonly ImmutableArray<string> CustomCaTrustCertificatesBase64s;
+        /// <summary>
         /// The ID of the Disk Encryption Set used for the Nodes and Volumes.
         /// </summary>
         public readonly string DiskEncryptionSetId;
@@ -285,6 +289,8 @@ namespace Pulumi.Azure.ContainerService
 
             bool azurePolicyEnabled,
 
+            ImmutableArray<string> customCaTrustCertificatesBase64s,
+
             string diskEncryptionSetId,
 
             string dnsPrefix,
@@ -360,6 +366,7 @@ namespace Pulumi.Azure.ContainerService
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             AzureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             AzurePolicyEnabled = azurePolicyEnabled;
+            CustomCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
             DiskEncryptionSetId = diskEncryptionSetId;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;

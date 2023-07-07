@@ -41,7 +41,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    private @Nullable String win32Status;
+    private @Nullable Integer win32Status;
 
     private LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode() {}
     /**
@@ -83,7 +83,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    public Optional<String> win32Status() {
+    public Optional<Integer> win32Status() {
         return Optional.ofNullable(this.win32Status);
     }
 
@@ -101,7 +101,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
         private @Nullable String path;
         private String statusCodeRange;
         private @Nullable Integer subStatus;
-        private @Nullable String win32Status;
+        private @Nullable Integer win32Status;
         public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,7 +139,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
             return this;
         }
         @CustomType.Setter
-        public Builder win32Status(@Nullable String win32Status) {
+        public Builder win32Status(@Nullable Integer win32Status) {
             this.win32Status = win32Status;
             return this;
         }

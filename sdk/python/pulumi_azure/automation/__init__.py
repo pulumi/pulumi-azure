@@ -22,6 +22,7 @@ from .get_bool_variable import *
 from .get_date_time_variable import *
 from .get_int_variable import *
 from .get_string_variable import *
+from .get_variables import *
 from .hybrid_runbook_worker import *
 from .hybrid_runbook_worker_group import *
 from .int_variable import *

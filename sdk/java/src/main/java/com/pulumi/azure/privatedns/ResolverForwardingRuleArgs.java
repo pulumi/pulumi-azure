@@ -35,14 +35,14 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * @return Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      * 
      */
     public Output<String> domainName() {
@@ -160,7 +160,7 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param domainName Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+         * @param domainName Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param domainName Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+         * @param domainName Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
          * 
          * @return builder
          * 

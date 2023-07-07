@@ -139,13 +139,13 @@ def get_string_variable(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:automation/getStringVariable:getStringVariable', __args__, opts=opts, typ=GetStringVariableResult).value
 
     return AwaitableGetStringVariableResult(
-        automation_account_name=__ret__.automation_account_name,
-        description=__ret__.description,
-        encrypted=__ret__.encrypted,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        value=__ret__.value)
+        automation_account_name=pulumi.get(__ret__, 'automation_account_name'),
+        description=pulumi.get(__ret__, 'description'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_string_variable)

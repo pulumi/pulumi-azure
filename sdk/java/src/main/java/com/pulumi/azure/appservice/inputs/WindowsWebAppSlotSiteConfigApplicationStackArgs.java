@@ -35,49 +35,101 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         return Optional.ofNullable(this.currentStack);
     }
 
-    /**
-     * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-     * 
-     */
     @Import(name="dockerContainerName")
     private @Nullable Output<String> dockerContainerName;
 
-    /**
-     * @return The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-     * 
-     */
     public Optional<Output<String>> dockerContainerName() {
         return Optional.ofNullable(this.dockerContainerName);
     }
 
     /**
-     * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
     @Import(name="dockerContainerRegistry")
     private @Nullable Output<String> dockerContainerRegistry;
 
     /**
-     * @return The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
     public Optional<Output<String>> dockerContainerRegistry() {
         return Optional.ofNullable(this.dockerContainerRegistry);
     }
 
-    /**
-     * The Image Tag of the specified Docker Container to use. For example `latest`
-     * 
-     */
     @Import(name="dockerContainerTag")
     private @Nullable Output<String> dockerContainerTag;
 
-    /**
-     * @return The Image Tag of the specified Docker Container to use. For example `latest`
-     * 
-     */
     public Optional<Output<String>> dockerContainerTag() {
         return Optional.ofNullable(this.dockerContainerTag);
+    }
+
+    /**
+     * The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+     * 
+     */
+    @Import(name="dockerImageName")
+    private @Nullable Output<String> dockerImageName;
+
+    /**
+     * @return The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+     * 
+     */
+    public Optional<Output<String>> dockerImageName() {
+        return Optional.ofNullable(this.dockerImageName);
+    }
+
+    /**
+     * The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    @Import(name="dockerRegistryPassword")
+    private @Nullable Output<String> dockerRegistryPassword;
+
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    public Optional<Output<String>> dockerRegistryPassword() {
+        return Optional.ofNullable(this.dockerRegistryPassword);
+    }
+
+    /**
+     * The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    @Import(name="dockerRegistryUrl")
+    private @Nullable Output<String> dockerRegistryUrl;
+
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    public Optional<Output<String>> dockerRegistryUrl() {
+        return Optional.ofNullable(this.dockerRegistryUrl);
+    }
+
+    /**
+     * The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    @Import(name="dockerRegistryUsername")
+    private @Nullable Output<String> dockerRegistryUsername;
+
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public Optional<Output<String>> dockerRegistryUsername() {
+        return Optional.ofNullable(this.dockerRegistryUsername);
     }
 
     /**
@@ -280,6 +332,10 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         this.dockerContainerName = $.dockerContainerName;
         this.dockerContainerRegistry = $.dockerContainerRegistry;
         this.dockerContainerTag = $.dockerContainerTag;
+        this.dockerImageName = $.dockerImageName;
+        this.dockerRegistryPassword = $.dockerRegistryPassword;
+        this.dockerRegistryUrl = $.dockerRegistryUrl;
+        this.dockerRegistryUsername = $.dockerRegistryUsername;
         this.dotnetCoreVersion = $.dotnetCoreVersion;
         this.dotnetVersion = $.dotnetVersion;
         this.javaContainer = $.javaContainer;
@@ -336,67 +392,135 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
             return currentStack(Output.of(currentStack));
         }
 
-        /**
-         * @param dockerContainerName The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerContainerName(@Nullable Output<String> dockerContainerName) {
             $.dockerContainerName = dockerContainerName;
             return this;
         }
 
-        /**
-         * @param dockerContainerName The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerContainerName(String dockerContainerName) {
             return dockerContainerName(Output.of(dockerContainerName));
         }
 
         /**
-         * @param dockerContainerRegistry The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated and will be removed in a future release of the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
         public Builder dockerContainerRegistry(@Nullable Output<String> dockerContainerRegistry) {
             $.dockerContainerRegistry = dockerContainerRegistry;
             return this;
         }
 
         /**
-         * @param dockerContainerRegistry The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated and will be removed in a future release of the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
         public Builder dockerContainerRegistry(String dockerContainerRegistry) {
             return dockerContainerRegistry(Output.of(dockerContainerRegistry));
         }
 
-        /**
-         * @param dockerContainerTag The Image Tag of the specified Docker Container to use. For example `latest`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerContainerTag(@Nullable Output<String> dockerContainerTag) {
             $.dockerContainerTag = dockerContainerTag;
             return this;
         }
 
+        public Builder dockerContainerTag(String dockerContainerTag) {
+            return dockerContainerTag(Output.of(dockerContainerTag));
+        }
+
         /**
-         * @param dockerContainerTag The Image Tag of the specified Docker Container to use. For example `latest`
+         * @param dockerImageName The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
          * 
          * @return builder
          * 
          */
-        public Builder dockerContainerTag(String dockerContainerTag) {
-            return dockerContainerTag(Output.of(dockerContainerTag));
+        public Builder dockerImageName(@Nullable Output<String> dockerImageName) {
+            $.dockerImageName = dockerImageName;
+            return this;
+        }
+
+        /**
+         * @param dockerImageName The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerImageName(String dockerImageName) {
+            return dockerImageName(Output.of(dockerImageName));
+        }
+
+        /**
+         * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
+         * 
+         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryPassword(@Nullable Output<String> dockerRegistryPassword) {
+            $.dockerRegistryPassword = dockerRegistryPassword;
+            return this;
+        }
+
+        /**
+         * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
+         * 
+         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryPassword(String dockerRegistryPassword) {
+            return dockerRegistryPassword(Output.of(dockerRegistryPassword));
+        }
+
+        /**
+         * @param dockerRegistryUrl The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUrl(@Nullable Output<String> dockerRegistryUrl) {
+            $.dockerRegistryUrl = dockerRegistryUrl;
+            return this;
+        }
+
+        /**
+         * @param dockerRegistryUrl The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUrl(String dockerRegistryUrl) {
+            return dockerRegistryUrl(Output.of(dockerRegistryUrl));
+        }
+
+        /**
+         * @param dockerRegistryUsername The User Name to use for authentication against the registry to pull the image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUsername(@Nullable Output<String> dockerRegistryUsername) {
+            $.dockerRegistryUsername = dockerRegistryUsername;
+            return this;
+        }
+
+        /**
+         * @param dockerRegistryUsername The User Name to use for authentication against the registry to pull the image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerRegistryUsername(String dockerRegistryUsername) {
+            return dockerRegistryUsername(Output.of(dockerRegistryUsername));
         }
 
         /**

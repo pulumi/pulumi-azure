@@ -69,7 +69,14 @@ import (
 //				ApiManagementName: exampleApiOperation.ApiManagementName,
 //				ResourceGroupName: exampleApiOperation.ResourceGroupName,
 //				OperationId:       exampleApiOperation.OperationId,
-//				XmlContent:        pulumi.String("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n"),
+//				XmlContent: pulumi.String(`<policies>
+//	  <inbound>
+//	    <find-and-replace from="xyz" to="abc" />
+//	  </inbound>
+//
+// </policies>
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

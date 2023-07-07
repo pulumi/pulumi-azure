@@ -36,14 +36,14 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
     }
 
     /**
-     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
      * 
      */
     @Import(name="advancedWeekDays")
     private @Nullable Output<List<String>> advancedWeekDays;
 
     /**
-     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
      * 
      */
     public Optional<Output<List<String>>> advancedWeekDays() {
@@ -98,15 +98,15 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
      * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
-    @Import(name="frequency")
-    private @Nullable Output<String> frequency;
+    @Import(name="frequency", required=true)
+    private Output<String> frequency;
 
     /**
      * @return The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
-    public Optional<Output<String>> frequency() {
-        return Optional.ofNullable(this.frequency);
+    public Output<String> frequency() {
+        return this.frequency;
     }
 
     /**
@@ -283,7 +283,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param advancedWeekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * @param advancedWeekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param advancedWeekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * @param advancedWeekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param advancedWeekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * @param advancedWeekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder frequency(@Nullable Output<String> frequency) {
+        public Builder frequency(Output<String> frequency) {
             $.frequency = frequency;
             return this;
         }
@@ -546,6 +546,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         public SoftwareUpdateConfigurationScheduleArgs build() {
+            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
             return $;
         }
     }

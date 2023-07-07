@@ -30,6 +30,11 @@ export type ClusterPrincipalAssignment = import("./clusterPrincipalAssignment").
 export const ClusterPrincipalAssignment: typeof import("./clusterPrincipalAssignment").ClusterPrincipalAssignment = null as any;
 utilities.lazyLoad(exports, ["ClusterPrincipalAssignment"], () => require("./clusterPrincipalAssignment"));
 
+export { CosmosdbDataConnectionArgs, CosmosdbDataConnectionState } from "./cosmosdbDataConnection";
+export type CosmosdbDataConnection = import("./cosmosdbDataConnection").CosmosdbDataConnection;
+export const CosmosdbDataConnection: typeof import("./cosmosdbDataConnection").CosmosdbDataConnection = null as any;
+utilities.lazyLoad(exports, ["CosmosdbDataConnection"], () => require("./cosmosdbDataConnection"));
+
 export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -85,6 +90,8 @@ const _module = {
                 return new ClusterManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment":
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
+            case "azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection":
+                return new CosmosdbDataConnection(name, <any>undefined, { urn })
             case "azure:kusto/database:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
@@ -107,6 +114,7 @@ pulumi.runtime.registerResourceModule("azure", "kusto/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterManagedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterPrincipalAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "kusto/cosmosdbDataConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/database", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipalAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/eventGridDataConnection", _module)

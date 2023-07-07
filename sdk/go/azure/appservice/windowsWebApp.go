@@ -117,7 +117,8 @@ type WindowsWebApp struct {
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	PossibleOutboundIpAddresses pulumi.StringOutput  `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Windows App Service will be created in.
@@ -232,6 +233,7 @@ type windowsWebAppState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Windows App Service will be created in.
@@ -304,6 +306,7 @@ type WindowsWebAppState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	PublicNetworkAccessEnabled  pulumi.BoolPtrInput
 	// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Service Plan that this Windows App Service will be created in.
@@ -363,7 +366,8 @@ type windowsWebAppArgs struct {
 	// A `logs` block as defined below.
 	Logs *WindowsWebAppLogs `pulumi:"logs"`
 	// The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Windows App Service will be created in.
@@ -418,7 +422,8 @@ type WindowsWebAppArgs struct {
 	// A `logs` block as defined below.
 	Logs WindowsWebAppLogsPtrInput
 	// The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Service Plan that this Windows App Service will be created in.
@@ -645,6 +650,10 @@ func (o WindowsWebAppOutput) PossibleOutboundIpAddressLists() pulumi.StringArray
 // A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o WindowsWebAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o WindowsWebAppOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.

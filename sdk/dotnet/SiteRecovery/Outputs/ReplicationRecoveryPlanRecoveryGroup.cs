@@ -22,7 +22,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationRecoveryPlanRecoveryGroupPreAction> PreActions;
         /// <summary>
-        /// (required) one or more id of protected VM.
+        /// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         /// </summary>
         public readonly ImmutableArray<string> ReplicatedProtectedItems;
         /// <summary>

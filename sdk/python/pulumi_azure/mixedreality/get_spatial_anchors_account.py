@@ -135,13 +135,13 @@ def get_spatial_anchors_account(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount', __args__, opts=opts, typ=GetSpatialAnchorsAccountResult).value
 
     return AwaitableGetSpatialAnchorsAccountResult(
-        account_domain=__ret__.account_domain,
-        account_id=__ret__.account_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        account_domain=pulumi.get(__ret__, 'account_domain'),
+        account_id=pulumi.get(__ret__, 'account_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_spatial_anchors_account)

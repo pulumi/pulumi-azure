@@ -96,13 +96,13 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs e
      * 
      */
     @Import(name="win32Status")
-    private @Nullable Output<String> win32Status;
+    private @Nullable Output<Integer> win32Status;
 
     /**
      * @return The Win32 Status Code of the Request.
      * 
      */
-    public Optional<Output<String>> win32Status() {
+    public Optional<Output<Integer>> win32Status() {
         return Optional.ofNullable(this.win32Status);
     }
 
@@ -246,7 +246,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs e
          * @return builder
          * 
          */
-        public Builder win32Status(@Nullable Output<String> win32Status) {
+        public Builder win32Status(@Nullable Output<Integer> win32Status) {
             $.win32Status = win32Status;
             return this;
         }
@@ -257,7 +257,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs e
          * @return builder
          * 
          */
-        public Builder win32Status(String win32Status) {
+        public Builder win32Status(Integer win32Status) {
             return win32Status(Output.of(win32Status));
         }
 

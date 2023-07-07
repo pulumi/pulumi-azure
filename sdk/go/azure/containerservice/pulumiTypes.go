@@ -6212,8 +6212,6 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
@@ -6271,7 +6269,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId *string `pulumi:"podSubnetId"`
@@ -6324,8 +6322,6 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
@@ -6383,7 +6379,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
@@ -6504,8 +6500,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 }
 
 // Specifies whether to trust a Custom CA.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6638,7 +6632,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
@@ -6750,8 +6744,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 }
 
 // Specifies whether to trust a Custom CA.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -6993,7 +6985,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -11211,6 +11203,834 @@ func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterMaintenanceWindowAllowed {
 		return vs[0].([]KubernetesClusterMaintenanceWindowAllowed)[vs[1].(int)]
 	}).(KubernetesClusterMaintenanceWindowAllowedOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgrade struct {
+	DayOfMonth *int `pulumi:"dayOfMonth"`
+	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	DayOfWeek *string `pulumi:"dayOfWeek"`
+	// The duration of the window for maintenance to run in hours.
+	Duration int `pulumi:"duration"`
+	// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+	Frequency string `pulumi:"frequency"`
+	// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+	Interval int `pulumi:"interval"`
+	// One or more `notAllowed` block as defined below.
+	NotAlloweds []KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed `pulumi:"notAlloweds"`
+	// The date on which the maintenance window begins to take effect.
+	StartDate *string `pulumi:"startDate"`
+	// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+	StartTime *string `pulumi:"startTime"`
+	// Used to determine the timezone for cluster maintenance.
+	UtcOffset *string `pulumi:"utcOffset"`
+	// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+	// Required in combination with relative monthly frequency.
+	WeekIndex *string `pulumi:"weekIndex"`
+}
+
+// KubernetesClusterMaintenanceWindowAutoUpgradeInput is an input type that accepts KubernetesClusterMaintenanceWindowAutoUpgradeArgs and KubernetesClusterMaintenanceWindowAutoUpgradeOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAutoUpgradeInput` via:
+//
+//	KubernetesClusterMaintenanceWindowAutoUpgradeArgs{...}
+type KubernetesClusterMaintenanceWindowAutoUpgradeInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowAutoUpgradeOutput() KubernetesClusterMaintenanceWindowAutoUpgradeOutput
+	ToKubernetesClusterMaintenanceWindowAutoUpgradeOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeOutput
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeArgs struct {
+	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
+	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+	// The duration of the window for maintenance to run in hours.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// One or more `notAllowed` block as defined below.
+	NotAlloweds KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput `pulumi:"notAlloweds"`
+	// The date on which the maintenance window begins to take effect.
+	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
+	// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Used to determine the timezone for cluster maintenance.
+	UtcOffset pulumi.StringPtrInput `pulumi:"utcOffset"`
+	// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+	// Required in combination with relative monthly frequency.
+	WeekIndex pulumi.StringPtrInput `pulumi:"weekIndex"`
+}
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgrade)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradeOutput() KubernetesClusterMaintenanceWindowAutoUpgradeOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAutoUpgradeOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradeOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeOutput)
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutput() KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeOutput).ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterMaintenanceWindowAutoUpgradePtrInput is an input type that accepts KubernetesClusterMaintenanceWindowAutoUpgradeArgs, KubernetesClusterMaintenanceWindowAutoUpgradePtr and KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAutoUpgradePtrInput` via:
+//
+//	        KubernetesClusterMaintenanceWindowAutoUpgradeArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterMaintenanceWindowAutoUpgradePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutput() KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput
+	ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput
+}
+
+type kubernetesClusterMaintenanceWindowAutoUpgradePtrType KubernetesClusterMaintenanceWindowAutoUpgradeArgs
+
+func KubernetesClusterMaintenanceWindowAutoUpgradePtr(v *KubernetesClusterMaintenanceWindowAutoUpgradeArgs) KubernetesClusterMaintenanceWindowAutoUpgradePtrInput {
+	return (*kubernetesClusterMaintenanceWindowAutoUpgradePtrType)(v)
+}
+
+func (*kubernetesClusterMaintenanceWindowAutoUpgradePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMaintenanceWindowAutoUpgrade)(nil)).Elem()
+}
+
+func (i *kubernetesClusterMaintenanceWindowAutoUpgradePtrType) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutput() KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterMaintenanceWindowAutoUpgradePtrType) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgrade)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeOutput() KubernetesClusterMaintenanceWindowAutoUpgradeOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutput() KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return o.ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMaintenanceWindowAutoUpgrade) *KubernetesClusterMaintenanceWindowAutoUpgrade {
+		return &v
+	}).(KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfMonth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
+}
+
+// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// The duration of the window for maintenance to run in hours.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// One or more `notAllowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) NotAlloweds() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) []KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed {
+		return v.NotAlloweds
+	}).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput)
+}
+
+// The date on which the maintenance window begins to take effect.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Used to determine the timezone for cluster maintenance.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) UtcOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.UtcOffset }).(pulumi.StringPtrOutput)
+}
+
+// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+// Required in combination with relative monthly frequency.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) WeekIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.WeekIndex }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMaintenanceWindowAutoUpgrade)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutput() KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Elem() KubernetesClusterMaintenanceWindowAutoUpgradeOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) KubernetesClusterMaintenanceWindowAutoUpgrade {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterMaintenanceWindowAutoUpgrade
+		return ret
+	}).(KubernetesClusterMaintenanceWindowAutoUpgradeOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfMonth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfMonth
+	}).(pulumi.IntPtrOutput)
+}
+
+// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration of the window for maintenance to run in hours.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more `notAllowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) NotAlloweds() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) []KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed {
+		if v == nil {
+			return nil
+		}
+		return v.NotAlloweds
+	}).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput)
+}
+
+// The date on which the maintenance window begins to take effect.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to determine the timezone for cluster maintenance.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) UtcOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UtcOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+// Required in combination with relative monthly frequency.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) WeekIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekIndex
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed struct {
+	// The end of a time span, formatted as an RFC3339 string.
+	End string `pulumi:"end"`
+	// The start of a time span, formatted as an RFC3339 string.
+	Start string `pulumi:"start"`
+}
+
+// KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedInput is an input type that accepts KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs and KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedInput` via:
+//
+//	KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs{...}
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput
+	ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs struct {
+	// The end of a time span, formatted as an RFC3339 string.
+	End pulumi.StringInput `pulumi:"end"`
+	// The start of a time span, formatted as an RFC3339 string.
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput)
+}
+
+// KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray and KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput` via:
+//
+//	KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray{ KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs{...} }
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput
+	ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray []KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedInput
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
+	return i.ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
+	return o
+}
+
+// The end of a time span, formatted as an RFC3339 string.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) End() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed) string { return v.End }).(pulumi.StringOutput)
+}
+
+// The start of a time span, formatted as an RFC3339 string.
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed {
+		return vs[0].([]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed)[vs[1].(int)]
+	}).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNodeOs struct {
+	DayOfMonth *int `pulumi:"dayOfMonth"`
+	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	DayOfWeek *string `pulumi:"dayOfWeek"`
+	// The duration of the window for maintenance to run in hours.
+	Duration int `pulumi:"duration"`
+	// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+	Frequency string `pulumi:"frequency"`
+	// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+	Interval int `pulumi:"interval"`
+	// One or more `notAllowed` block as defined below.
+	NotAlloweds []KubernetesClusterMaintenanceWindowNodeOsNotAllowed `pulumi:"notAlloweds"`
+	// The date on which the maintenance window begins to take effect.
+	StartDate *string `pulumi:"startDate"`
+	// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+	StartTime *string `pulumi:"startTime"`
+	// Used to determine the timezone for cluster maintenance.
+	UtcOffset *string `pulumi:"utcOffset"`
+	// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+	WeekIndex *string `pulumi:"weekIndex"`
+}
+
+// KubernetesClusterMaintenanceWindowNodeOsInput is an input type that accepts KubernetesClusterMaintenanceWindowNodeOsArgs and KubernetesClusterMaintenanceWindowNodeOsOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNodeOsInput` via:
+//
+//	KubernetesClusterMaintenanceWindowNodeOsArgs{...}
+type KubernetesClusterMaintenanceWindowNodeOsInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowNodeOsOutput() KubernetesClusterMaintenanceWindowNodeOsOutput
+	ToKubernetesClusterMaintenanceWindowNodeOsOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowNodeOsOutput
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsArgs struct {
+	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
+	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+	// The duration of the window for maintenance to run in hours.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// One or more `notAllowed` block as defined below.
+	NotAlloweds KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput `pulumi:"notAlloweds"`
+	// The date on which the maintenance window begins to take effect.
+	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
+	// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Used to determine the timezone for cluster maintenance.
+	UtcOffset pulumi.StringPtrInput `pulumi:"utcOffset"`
+	// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+	WeekIndex pulumi.StringPtrInput `pulumi:"weekIndex"`
+}
+
+func (KubernetesClusterMaintenanceWindowNodeOsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOs)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToKubernetesClusterMaintenanceWindowNodeOsOutput() KubernetesClusterMaintenanceWindowNodeOsOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNodeOsOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToKubernetesClusterMaintenanceWindowNodeOsOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsOutput)
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutput() KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsOutput).ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterMaintenanceWindowNodeOsPtrInput is an input type that accepts KubernetesClusterMaintenanceWindowNodeOsArgs, KubernetesClusterMaintenanceWindowNodeOsPtr and KubernetesClusterMaintenanceWindowNodeOsPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNodeOsPtrInput` via:
+//
+//	        KubernetesClusterMaintenanceWindowNodeOsArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterMaintenanceWindowNodeOsPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowNodeOsPtrOutput() KubernetesClusterMaintenanceWindowNodeOsPtrOutput
+	ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowNodeOsPtrOutput
+}
+
+type kubernetesClusterMaintenanceWindowNodeOsPtrType KubernetesClusterMaintenanceWindowNodeOsArgs
+
+func KubernetesClusterMaintenanceWindowNodeOsPtr(v *KubernetesClusterMaintenanceWindowNodeOsArgs) KubernetesClusterMaintenanceWindowNodeOsPtrInput {
+	return (*kubernetesClusterMaintenanceWindowNodeOsPtrType)(v)
+}
+
+func (*kubernetesClusterMaintenanceWindowNodeOsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMaintenanceWindowNodeOs)(nil)).Elem()
+}
+
+func (i *kubernetesClusterMaintenanceWindowNodeOsPtrType) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutput() KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterMaintenanceWindowNodeOsPtrType) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsPtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowNodeOsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOs)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToKubernetesClusterMaintenanceWindowNodeOsOutput() KubernetesClusterMaintenanceWindowNodeOsOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToKubernetesClusterMaintenanceWindowNodeOsOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutput() KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return o.ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMaintenanceWindowNodeOs) *KubernetesClusterMaintenanceWindowNodeOs {
+		return &v
+	}).(KubernetesClusterMaintenanceWindowNodeOsPtrOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfMonth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
+}
+
+// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// The duration of the window for maintenance to run in hours.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// One or more `notAllowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) NotAlloweds() KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) []KubernetesClusterMaintenanceWindowNodeOsNotAllowed {
+		return v.NotAlloweds
+	}).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput)
+}
+
+// The date on which the maintenance window begins to take effect.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Used to determine the timezone for cluster maintenance.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) UtcOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.UtcOffset }).(pulumi.StringPtrOutput)
+}
+
+// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) WeekIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.WeekIndex }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowNodeOsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMaintenanceWindowNodeOs)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutput() KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Elem() KubernetesClusterMaintenanceWindowNodeOsOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) KubernetesClusterMaintenanceWindowNodeOs {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterMaintenanceWindowNodeOs
+		return ret
+	}).(KubernetesClusterMaintenanceWindowNodeOsOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfMonth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfMonth
+	}).(pulumi.IntPtrOutput)
+}
+
+// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration of the window for maintenance to run in hours.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more `notAllowed` block as defined below.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) NotAlloweds() KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) []KubernetesClusterMaintenanceWindowNodeOsNotAllowed {
+		if v == nil {
+			return nil
+		}
+		return v.NotAlloweds
+	}).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput)
+}
+
+// The date on which the maintenance window begins to take effect.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to determine the timezone for cluster maintenance.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) UtcOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UtcOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) WeekIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekIndex
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowed struct {
+	// The end of a time span, formatted as an RFC3339 string.
+	End string `pulumi:"end"`
+	// The start of a time span, formatted as an RFC3339 string.
+	Start string `pulumi:"start"`
+}
+
+// KubernetesClusterMaintenanceWindowNodeOsNotAllowedInput is an input type that accepts KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs and KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNodeOsNotAllowedInput` via:
+//
+//	KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs{...}
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowedInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput() KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput
+	ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs struct {
+	// The end of a time span, formatted as an RFC3339 string.
+	End pulumi.StringInput `pulumi:"end"`
+	// The start of a time span, formatted as an RFC3339 string.
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOsNotAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput() KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput)
+}
+
+// KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray and KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput` via:
+//
+//	KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray{ KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs{...} }
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput
+	ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutputWithContext(context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray []KubernetesClusterMaintenanceWindowNodeOsNotAllowedInput
+
+func (KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowNodeOsNotAllowed)(nil)).Elem()
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
+	return i.ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOsNotAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput() KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
+	return o
+}
+
+// The end of a time span, formatted as an RFC3339 string.
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) End() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOsNotAllowed) string { return v.End }).(pulumi.StringOutput)
+}
+
+// The start of a time span, formatted as an RFC3339 string.
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOsNotAllowed) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterMaintenanceWindowNodeOsNotAllowed)(nil)).Elem()
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput() KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterMaintenanceWindowNodeOsNotAllowed {
+		return vs[0].([]KubernetesClusterMaintenanceWindowNodeOsNotAllowed)[vs[1].(int)]
+	}).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput)
 }
 
 type KubernetesClusterMaintenanceWindowNotAllowed struct {
@@ -17307,7 +18127,7 @@ type RegistryTaskDockerStep struct {
 	CacheEnabled *bool `pulumi:"cacheEnabled"`
 	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
 	ContextAccessToken string `pulumi:"contextAccessToken"`
-	// The URL (absolute or relative) of the source context for this step.
+	// The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
 	ContextPath string `pulumi:"contextPath"`
 	// The Dockerfile path relative to the source context.
 	DockerfilePath string `pulumi:"dockerfilePath"`
@@ -17339,7 +18159,7 @@ type RegistryTaskDockerStepArgs struct {
 	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
 	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
 	ContextAccessToken pulumi.StringInput `pulumi:"contextAccessToken"`
-	// The URL (absolute or relative) of the source context for this step.
+	// The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
 	ContextPath pulumi.StringInput `pulumi:"contextPath"`
 	// The Dockerfile path relative to the source context.
 	DockerfilePath pulumi.StringInput `pulumi:"dockerfilePath"`
@@ -17445,7 +18265,7 @@ func (o RegistryTaskDockerStepOutput) ContextAccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.ContextAccessToken }).(pulumi.StringOutput)
 }
 
-// The URL (absolute or relative) of the source context for this step.
+// The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
 func (o RegistryTaskDockerStepOutput) ContextPath() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.ContextPath }).(pulumi.StringOutput)
 }
@@ -17529,7 +18349,7 @@ func (o RegistryTaskDockerStepPtrOutput) ContextAccessToken() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL (absolute or relative) of the source context for this step.
+// The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
 func (o RegistryTaskDockerStepPtrOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryTaskDockerStep) *string {
 		if v == nil {
@@ -22830,6 +23650,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowPtrInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAllowedInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAllowedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAllowedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgradeInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAutoUpgradeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgradePtrInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAutoUpgradeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOsInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNodeOsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOsPtrInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNodeOsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOsNotAllowedInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowedInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNotAllowedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNotAllowedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMicrosoftDefenderInput)(nil)).Elem(), KubernetesClusterMicrosoftDefenderArgs{})
@@ -23076,6 +23904,14 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAllowedOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAllowedArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAutoUpgradeOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNodeOsOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNodeOsPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMicrosoftDefenderOutput{})

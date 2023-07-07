@@ -151,14 +151,14 @@ def get_vpn_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVpnGateway:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult).value
 
     return AwaitableGetVpnGatewayResult(
-        bgp_settings=__ret__.bgp_settings,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        scale_unit=__ret__.scale_unit,
-        tags=__ret__.tags,
-        virtual_hub_id=__ret__.virtual_hub_id)
+        bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        scale_unit=pulumi.get(__ret__, 'scale_unit'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'))
 
 
 @_utilities.lift_output_func(get_vpn_gateway)

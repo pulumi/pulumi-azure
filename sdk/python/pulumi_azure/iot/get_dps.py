@@ -160,15 +160,15 @@ def get_dps(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:iot/getDps:getDps', __args__, opts=opts, typ=GetDpsResult).value
 
     return AwaitableGetDpsResult(
-        allocation_policy=__ret__.allocation_policy,
-        device_provisioning_host_name=__ret__.device_provisioning_host_name,
-        id=__ret__.id,
-        id_scope=__ret__.id_scope,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        service_operations_host_name=__ret__.service_operations_host_name,
-        tags=__ret__.tags)
+        allocation_policy=pulumi.get(__ret__, 'allocation_policy'),
+        device_provisioning_host_name=pulumi.get(__ret__, 'device_provisioning_host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        id_scope=pulumi.get(__ret__, 'id_scope'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_operations_host_name=pulumi.get(__ret__, 'service_operations_host_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dps)

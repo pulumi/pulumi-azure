@@ -126,12 +126,12 @@ def get_sync(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getSync:getSync', __args__, opts=opts, typ=GetSyncResult).value
 
     return AwaitableGetSyncResult(
-        id=__ret__.id,
-        incoming_traffic_policy=__ret__.incoming_traffic_policy,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        incoming_traffic_policy=pulumi.get(__ret__, 'incoming_traffic_policy'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_sync)

@@ -140,13 +140,13 @@ def get_zone(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__, opts=opts, typ=GetZoneResult).value
 
     return AwaitableGetZoneResult(
-        id=__ret__.id,
-        max_number_of_record_sets=__ret__.max_number_of_record_sets,
-        name=__ret__.name,
-        name_servers=__ret__.name_servers,
-        number_of_record_sets=__ret__.number_of_record_sets,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        max_number_of_record_sets=pulumi.get(__ret__, 'max_number_of_record_sets'),
+        name=pulumi.get(__ret__, 'name'),
+        name_servers=pulumi.get(__ret__, 'name_servers'),
+        number_of_record_sets=pulumi.get(__ret__, 'number_of_record_sets'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_zone)

@@ -79,9 +79,9 @@ def get_tenant_template_deployment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment', __args__, opts=opts, typ=GetTenantTemplateDeploymentResult).value
 
     return AwaitableGetTenantTemplateDeploymentResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        output_content=__ret__.output_content)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        output_content=pulumi.get(__ret__, 'output_content'))
 
 
 @_utilities.lift_output_func(get_tenant_template_deployment)

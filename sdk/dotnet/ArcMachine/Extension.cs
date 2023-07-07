@@ -17,7 +17,7 @@ namespace Pulumi.Azure.ArcMachine
     /// Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:arcmachine/extension:Extension example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
+    ///  $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
     /// ```
     /// </summary>
     [AzureResourceType("azure:arcmachine/extension:Extension")]
@@ -29,6 +29,13 @@ namespace Pulumi.Azure.ArcMachine
         [Output("arcMachineId")]
         public Output<string> ArcMachineId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        /// </summary>
         [Output("automaticUpgradeEnabled")]
         public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
 
@@ -144,6 +151,13 @@ namespace Pulumi.Azure.ArcMachine
         [Input("arcMachineId", required: true)]
         public Input<string> ArcMachineId { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 
@@ -233,6 +247,13 @@ namespace Pulumi.Azure.ArcMachine
         [Input("arcMachineId")]
         public Input<string>? ArcMachineId { get; set; }
 
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 

@@ -223,20 +223,20 @@ def get_firewall(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
 
     return AwaitableGetFirewallResult(
-        dns_servers=__ret__.dns_servers,
-        firewall_policy_id=__ret__.firewall_policy_id,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        management_ip_configurations=__ret__.management_ip_configurations,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        sku_tier=__ret__.sku_tier,
-        tags=__ret__.tags,
-        threat_intel_mode=__ret__.threat_intel_mode,
-        virtual_hubs=__ret__.virtual_hubs,
-        zones=__ret__.zones)
+        dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        firewall_policy_id=pulumi.get(__ret__, 'firewall_policy_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        management_ip_configurations=pulumi.get(__ret__, 'management_ip_configurations'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        sku_tier=pulumi.get(__ret__, 'sku_tier'),
+        tags=pulumi.get(__ret__, 'tags'),
+        threat_intel_mode=pulumi.get(__ret__, 'threat_intel_mode'),
+        virtual_hubs=pulumi.get(__ret__, 'virtual_hubs'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_firewall)

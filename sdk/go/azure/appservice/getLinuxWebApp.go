@@ -112,6 +112,7 @@ type LookupLinuxWebAppResult struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
+	PublicNetworkAccessEnabled  bool   `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Linux Web App exists in.
 	ServicePlanId string `pulumi:"servicePlanId"`
@@ -304,6 +305,10 @@ func (o LookupLinuxWebAppResultOutput) PossibleOutboundIpAddressLists() pulumi.S
 // A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o LookupLinuxWebAppResultOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+func (o LookupLinuxWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupLinuxWebAppResultOutput) ResourceGroupName() pulumi.StringOutput {

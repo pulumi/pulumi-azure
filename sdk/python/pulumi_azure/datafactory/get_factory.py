@@ -151,14 +151,14 @@ def get_factory(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:datafactory/getFactory:getFactory', __args__, opts=opts, typ=GetFactoryResult).value
 
     return AwaitableGetFactoryResult(
-        github_configurations=__ret__.github_configurations,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        vsts_configurations=__ret__.vsts_configurations)
+        github_configurations=pulumi.get(__ret__, 'github_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vsts_configurations=pulumi.get(__ret__, 'vsts_configurations'))
 
 
 @_utilities.lift_output_func(get_factory)

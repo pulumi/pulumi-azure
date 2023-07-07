@@ -213,18 +213,18 @@ def get_database(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:sql/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        collation=__ret__.collation,
-        default_secondary_location=__ret__.default_secondary_location,
-        edition=__ret__.edition,
-        elastic_pool_name=__ret__.elastic_pool_name,
-        failover_group_id=__ret__.failover_group_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        read_scale=__ret__.read_scale,
-        resource_group_name=__ret__.resource_group_name,
-        server_name=__ret__.server_name,
-        tags=__ret__.tags)
+        collation=pulumi.get(__ret__, 'collation'),
+        default_secondary_location=pulumi.get(__ret__, 'default_secondary_location'),
+        edition=pulumi.get(__ret__, 'edition'),
+        elastic_pool_name=pulumi.get(__ret__, 'elastic_pool_name'),
+        failover_group_id=pulumi.get(__ret__, 'failover_group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        read_scale=pulumi.get(__ret__, 'read_scale'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        server_name=pulumi.get(__ret__, 'server_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_database)

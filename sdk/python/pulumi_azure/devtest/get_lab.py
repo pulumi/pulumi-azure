@@ -198,18 +198,18 @@ def get_lab(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:devtest/getLab:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
-        artifacts_storage_account_id=__ret__.artifacts_storage_account_id,
-        default_premium_storage_account_id=__ret__.default_premium_storage_account_id,
-        default_storage_account_id=__ret__.default_storage_account_id,
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        premium_data_disk_storage_account_id=__ret__.premium_data_disk_storage_account_id,
-        resource_group_name=__ret__.resource_group_name,
-        storage_type=__ret__.storage_type,
-        tags=__ret__.tags,
-        unique_identifier=__ret__.unique_identifier)
+        artifacts_storage_account_id=pulumi.get(__ret__, 'artifacts_storage_account_id'),
+        default_premium_storage_account_id=pulumi.get(__ret__, 'default_premium_storage_account_id'),
+        default_storage_account_id=pulumi.get(__ret__, 'default_storage_account_id'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        premium_data_disk_storage_account_id=pulumi.get(__ret__, 'premium_data_disk_storage_account_id'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_lab)

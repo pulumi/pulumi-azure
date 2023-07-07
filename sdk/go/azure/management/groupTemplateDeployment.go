@@ -40,8 +40,51 @@ import (
 //			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
 //				Location:          pulumi.String("West Europe"),
 //				ManagementGroupId: *pulumi.String(exampleGroup.Id),
-//				TemplateContent:   pulumi.String("{\n  \"$schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"1.0.0.0\",\n  \"parameters\": {\n    \"policyAssignmentName\": {\n      \"type\": \"string\",\n      \"defaultValue\": \"[guid(parameters('policyDefinitionID'), resourceGroup().name)]\",\n      \"metadata\": {\n        \"description\": \"Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.\"\n      }\n    },\n    \"policyDefinitionID\": {\n      \"type\": \"string\",\n      \"metadata\": {\n        \"description\": \"Specifies the ID of the policy definition or policy set definition being assigned.\"\n      }\n    }\n  },\n  \"resources\": [\n    {\n      \"type\": \"Microsoft.Authorization/policyAssignments\",\n      \"name\": \"[parameters('policyAssignmentName')]\",\n      \"apiVersion\": \"2019-09-01\",\n      \"properties\": {\n        \"scope\": \"[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]\",\n        \"policyDefinitionId\": \"[parameters('policyDefinitionID')]\"\n      }\n    }\n  ]\n}\n"),
-//				ParametersContent: pulumi.String("{\n  \"$schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#\",\n  \"contentVersion\": \"1.0.0.0\",\n  \"parameters\": {\n    \"policyDefinitionID\": {\n      \"value\": \"/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a\"\n    }\n  }\n}\n"),
+//				TemplateContent: pulumi.String(`{
+//	  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+//	  "contentVersion": "1.0.0.0",
+//	  "parameters": {
+//	    "policyAssignmentName": {
+//	      "type": "string",
+//	      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+//	      "metadata": {
+//	        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+//	      }
+//	    },
+//	    "policyDefinitionID": {
+//	      "type": "string",
+//	      "metadata": {
+//	        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+//	      }
+//	    }
+//	  },
+//	  "resources": [
+//	    {
+//	      "type": "Microsoft.Authorization/policyAssignments",
+//	      "name": "[parameters('policyAssignmentName')]",
+//	      "apiVersion": "2019-09-01",
+//	      "properties": {
+//	        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+//	        "policyDefinitionId": "[parameters('policyDefinitionID')]"
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `),
+//
+//				ParametersContent: pulumi.String(`{
+//	  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+//	  "contentVersion": "1.0.0.0",
+//	  "parameters": {
+//	    "policyDefinitionID": {
+//	      "value": "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a"
+//	    }
+//	  }
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

@@ -121,12 +121,12 @@ def get_service_endpoint_connections(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections', __args__, opts=opts, typ=GetServiceEndpointConnectionsResult).value
 
     return AwaitableGetServiceEndpointConnectionsResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        resource_group_name=__ret__.resource_group_name,
-        service_id=__ret__.service_id,
-        service_name=__ret__.service_name)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        service_name=pulumi.get(__ret__, 'service_name'))
 
 
 @_utilities.lift_output_func(get_service_endpoint_connections)

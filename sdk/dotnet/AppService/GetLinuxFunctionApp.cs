@@ -231,6 +231,7 @@ namespace Pulumi.Azure.AppService
         /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
+        public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The ID of the App Service Plan within which this Function App has been created.
@@ -333,6 +334,8 @@ namespace Pulumi.Azure.AppService
 
             string possibleOutboundIpAddresses,
 
+            bool publicNetworkAccessEnabled,
+
             string resourceGroupName,
 
             string servicePlanId,
@@ -384,6 +387,7 @@ namespace Pulumi.Azure.AppService
             OutboundIpAddresses = outboundIpAddresses;
             PossibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             ResourceGroupName = resourceGroupName;
             ServicePlanId = servicePlanId;
             SiteConfigs = siteConfigs;

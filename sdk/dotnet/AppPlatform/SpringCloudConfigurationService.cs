@@ -77,6 +77,12 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudConfigurationService : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+        /// </summary>
+        [Output("generation")]
+        public Output<string?> Generation { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Output("name")]
@@ -141,6 +147,12 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConfigurationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Input("name")]
@@ -172,6 +184,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudConfigurationServiceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
         /// <summary>
         /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>

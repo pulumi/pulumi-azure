@@ -90,7 +90,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
      *
      * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
      */
@@ -272,7 +272,7 @@ export interface ClusterState {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
      *
      * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
      */
@@ -376,7 +376,7 @@ export interface ClusterArgs {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
      *
      * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
      */

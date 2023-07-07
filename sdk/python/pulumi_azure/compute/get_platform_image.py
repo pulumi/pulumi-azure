@@ -128,12 +128,12 @@ def get_platform_image(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts, typ=GetPlatformImageResult).value
 
     return AwaitableGetPlatformImageResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        offer=__ret__.offer,
-        publisher=__ret__.publisher,
-        sku=__ret__.sku,
-        version=__ret__.version)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        offer=pulumi.get(__ret__, 'offer'),
+        publisher=pulumi.get(__ret__, 'publisher'),
+        sku=pulumi.get(__ret__, 'sku'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_platform_image)

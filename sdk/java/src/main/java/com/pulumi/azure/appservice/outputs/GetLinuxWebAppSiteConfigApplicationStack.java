@@ -9,16 +9,28 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinuxWebAppSiteConfigApplicationStack {
-    /**
-     * @return The Docker image reference, including repository.
-     * 
-     */
     private String dockerImage;
     /**
-     * @return The image Tag.
+     * @return The docker image, including tag, used by this Linux Web App.
      * 
      */
+    private String dockerImageName;
     private String dockerImageTag;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    private String dockerRegistryPassword;
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located.
+     * 
+     */
+    private String dockerRegistryUrl;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    private String dockerRegistryUsername;
     /**
      * @return The version of .NET in use.
      * 
@@ -62,19 +74,39 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     private String rubyVersion;
 
     private GetLinuxWebAppSiteConfigApplicationStack() {}
-    /**
-     * @return The Docker image reference, including repository.
-     * 
-     */
     public String dockerImage() {
         return this.dockerImage;
     }
     /**
-     * @return The image Tag.
+     * @return The docker image, including tag, used by this Linux Web App.
      * 
      */
+    public String dockerImageName() {
+        return this.dockerImageName;
+    }
     public String dockerImageTag() {
         return this.dockerImageTag;
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public String dockerRegistryPassword() {
+        return this.dockerRegistryPassword;
+    }
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located.
+     * 
+     */
+    public String dockerRegistryUrl() {
+        return this.dockerRegistryUrl;
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public String dockerRegistryUsername() {
+        return this.dockerRegistryUsername;
     }
     /**
      * @return The version of .NET in use.
@@ -146,7 +178,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     @CustomType.Builder
     public static final class Builder {
         private String dockerImage;
+        private String dockerImageName;
         private String dockerImageTag;
+        private String dockerRegistryPassword;
+        private String dockerRegistryUrl;
+        private String dockerRegistryUsername;
         private String dotnetVersion;
         private String goVersion;
         private String javaServer;
@@ -160,7 +196,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         public Builder(GetLinuxWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dockerImage = defaults.dockerImage;
+    	      this.dockerImageName = defaults.dockerImageName;
     	      this.dockerImageTag = defaults.dockerImageTag;
+    	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
+    	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
+    	      this.dockerRegistryUsername = defaults.dockerRegistryUsername;
     	      this.dotnetVersion = defaults.dotnetVersion;
     	      this.goVersion = defaults.goVersion;
     	      this.javaServer = defaults.javaServer;
@@ -178,8 +218,28 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
             return this;
         }
         @CustomType.Setter
+        public Builder dockerImageName(String dockerImageName) {
+            this.dockerImageName = Objects.requireNonNull(dockerImageName);
+            return this;
+        }
+        @CustomType.Setter
         public Builder dockerImageTag(String dockerImageTag) {
             this.dockerImageTag = Objects.requireNonNull(dockerImageTag);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryPassword(String dockerRegistryPassword) {
+            this.dockerRegistryPassword = Objects.requireNonNull(dockerRegistryPassword);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUrl(String dockerRegistryUrl) {
+            this.dockerRegistryUrl = Objects.requireNonNull(dockerRegistryUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUsername(String dockerRegistryUsername) {
+            this.dockerRegistryUsername = Objects.requireNonNull(dockerRegistryUsername);
             return this;
         }
         @CustomType.Setter
@@ -230,7 +290,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         public GetLinuxWebAppSiteConfigApplicationStack build() {
             final var o = new GetLinuxWebAppSiteConfigApplicationStack();
             o.dockerImage = dockerImage;
+            o.dockerImageName = dockerImageName;
             o.dockerImageTag = dockerImageTag;
+            o.dockerRegistryPassword = dockerRegistryPassword;
+            o.dockerRegistryUrl = dockerRegistryUrl;
+            o.dockerRegistryUsername = dockerRegistryUsername;
             o.dotnetVersion = dotnetVersion;
             o.goVersion = goVersion;
             o.javaServer = javaServer;

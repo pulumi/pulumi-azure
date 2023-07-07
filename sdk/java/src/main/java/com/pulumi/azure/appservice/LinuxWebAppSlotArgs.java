@@ -266,6 +266,13 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      * 
@@ -371,6 +378,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
         this.logs = $.logs;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.storageAccounts = $.storageAccounts;
@@ -741,6 +749,15 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

@@ -164,15 +164,15 @@ def get_subscription(subscription_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult).value
 
     return AwaitableGetSubscriptionResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        location_placement_id=__ret__.location_placement_id,
-        quota_id=__ret__.quota_id,
-        spending_limit=__ret__.spending_limit,
-        state=__ret__.state,
-        subscription_id=__ret__.subscription_id,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location_placement_id=pulumi.get(__ret__, 'location_placement_id'),
+        quota_id=pulumi.get(__ret__, 'quota_id'),
+        spending_limit=pulumi.get(__ret__, 'spending_limit'),
+        state=pulumi.get(__ret__, 'state'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'))
 
 
 @_utilities.lift_output_func(get_subscription)

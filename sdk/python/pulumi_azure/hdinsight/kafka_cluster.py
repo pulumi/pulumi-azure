@@ -157,6 +157,9 @@ class KafkaClusterArgs:
         """
         A `roles` block as defined below.
         """
+        warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
+        pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
+
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -666,6 +669,9 @@ class _KafkaClusterState:
         """
         A `roles` block as defined below.
         """
+        warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
+        pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
+
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -1262,6 +1268,9 @@ class KafkaCluster(pulumi.CustomResource):
         """
         A `roles` block as defined below.
         """
+        warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
+        pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
+
         return pulumi.get(self, "roles")
 
     @property

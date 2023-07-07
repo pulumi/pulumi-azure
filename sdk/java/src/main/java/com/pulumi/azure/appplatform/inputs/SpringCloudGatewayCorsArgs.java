@@ -49,6 +49,21 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Allowed origin patterns to make cross-site requests.
+     * 
+     */
+    @Import(name="allowedOriginPatterns")
+    private @Nullable Output<List<String>> allowedOriginPatterns;
+
+    /**
+     * @return Allowed origin patterns to make cross-site requests.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedOriginPatterns() {
+        return Optional.ofNullable(this.allowedOriginPatterns);
+    }
+
+    /**
      * Allowed origins to make cross-site requests. The special value `*` allows all domains.
      * 
      */
@@ -113,6 +128,7 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
     private SpringCloudGatewayCorsArgs(SpringCloudGatewayCorsArgs $) {
         this.allowedHeaders = $.allowedHeaders;
         this.allowedMethods = $.allowedMethods;
+        this.allowedOriginPatterns = $.allowedOriginPatterns;
         this.allowedOrigins = $.allowedOrigins;
         this.credentialsAllowed = $.credentialsAllowed;
         this.exposedHeaders = $.exposedHeaders;
@@ -197,6 +213,37 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
          */
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
+        }
+
+        /**
+         * @param allowedOriginPatterns Allowed origin patterns to make cross-site requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedOriginPatterns(@Nullable Output<List<String>> allowedOriginPatterns) {
+            $.allowedOriginPatterns = allowedOriginPatterns;
+            return this;
+        }
+
+        /**
+         * @param allowedOriginPatterns Allowed origin patterns to make cross-site requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedOriginPatterns(List<String> allowedOriginPatterns) {
+            return allowedOriginPatterns(Output.of(allowedOriginPatterns));
+        }
+
+        /**
+         * @param allowedOriginPatterns Allowed origin patterns to make cross-site requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedOriginPatterns(String... allowedOriginPatterns) {
+            return allowedOriginPatterns(List.of(allowedOriginPatterns));
         }
 
         /**

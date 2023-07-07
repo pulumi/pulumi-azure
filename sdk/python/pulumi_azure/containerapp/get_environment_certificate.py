@@ -163,15 +163,15 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate', __args__, opts=opts, typ=GetEnvironmentCertificateResult).value
 
     return AwaitableGetEnvironmentCertificateResult(
-        container_app_environment_id=__ret__.container_app_environment_id,
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        issue_date=__ret__.issue_date,
-        issuer=__ret__.issuer,
-        name=__ret__.name,
-        subject_name=__ret__.subject_name,
-        tags=__ret__.tags,
-        thumbprint=__ret__.thumbprint)
+        container_app_environment_id=pulumi.get(__ret__, 'container_app_environment_id'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        issue_date=pulumi.get(__ret__, 'issue_date'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        name=pulumi.get(__ret__, 'name'),
+        subject_name=pulumi.get(__ret__, 'subject_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'))
 
 
 @_utilities.lift_output_func(get_environment_certificate)

@@ -14,13 +14,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppIdentity
     {
         /// <summary>
-        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        /// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

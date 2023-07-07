@@ -117,12 +117,12 @@ def get_encrypted_value(algorithm: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getEncryptedValue:getEncryptedValue', __args__, opts=opts, typ=GetEncryptedValueResult).value
 
     return AwaitableGetEncryptedValueResult(
-        algorithm=__ret__.algorithm,
-        decoded_plain_text_value=__ret__.decoded_plain_text_value,
-        encrypted_data=__ret__.encrypted_data,
-        id=__ret__.id,
-        key_vault_key_id=__ret__.key_vault_key_id,
-        plain_text_value=__ret__.plain_text_value)
+        algorithm=pulumi.get(__ret__, 'algorithm'),
+        decoded_plain_text_value=pulumi.get(__ret__, 'decoded_plain_text_value'),
+        encrypted_data=pulumi.get(__ret__, 'encrypted_data'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_key_id=pulumi.get(__ret__, 'key_vault_key_id'),
+        plain_text_value=pulumi.get(__ret__, 'plain_text_value'))
 
 
 @_utilities.lift_output_func(get_encrypted_value)

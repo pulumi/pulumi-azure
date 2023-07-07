@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Automation.Inputs
         private InputList<string>? _advancedWeekDays;
 
         /// <summary>
-        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         /// </summary>
         public InputList<string> AdvancedWeekDays
         {
@@ -57,8 +57,8 @@ namespace Pulumi.Azure.Automation.Inputs
         /// <summary>
         /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
-        [Input("frequency")]
-        public Input<string>? Frequency { get; set; }
+        [Input("frequency", required: true)]
+        public Input<string> Frequency { get; set; } = null!;
 
         /// <summary>
         /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.

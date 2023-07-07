@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Lighthouse.Outputs
         /// </summary>
         public readonly string? PrincipalDisplayName;
         /// <summary>
-        /// The Principal ID of the Azure Active Directory.
+        /// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>

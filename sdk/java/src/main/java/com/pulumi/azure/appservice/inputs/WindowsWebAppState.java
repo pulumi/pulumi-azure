@@ -388,6 +388,13 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.possibleOutboundIpAddresses);
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     /**
      * The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
      * 
@@ -550,6 +557,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         this.outboundIpAddresses = $.outboundIpAddresses;
         this.possibleOutboundIpAddressLists = $.possibleOutboundIpAddressLists;
         this.possibleOutboundIpAddresses = $.possibleOutboundIpAddresses;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
@@ -1111,6 +1119,15 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             return possibleOutboundIpAddresses(Output.of(possibleOutboundIpAddresses));
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

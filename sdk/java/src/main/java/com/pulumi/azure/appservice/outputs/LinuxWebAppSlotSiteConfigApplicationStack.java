@@ -12,15 +12,41 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
-     * @return The Docker image reference, including repository host as needed.
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     private @Nullable String dockerImage;
     /**
-     * @return The image Tag to use. e.g. `latest`.
+     * @return The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
      * 
      */
+    private @Nullable String dockerImageName;
+    /**
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
+     * 
+     */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     private @Nullable String dockerImageTag;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    private @Nullable String dockerRegistryPassword;
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    private @Nullable String dockerRegistryUrl;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    private @Nullable String dockerRegistryUsername;
     /**
      * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
      * 
@@ -77,18 +103,52 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
 
     private LinuxWebAppSlotSiteConfigApplicationStack() {}
     /**
-     * @return The Docker image reference, including repository host as needed.
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     public Optional<String> dockerImage() {
         return Optional.ofNullable(this.dockerImage);
     }
     /**
-     * @return The image Tag to use. e.g. `latest`.
+     * @return The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
      * 
      */
+    public Optional<String> dockerImageName() {
+        return Optional.ofNullable(this.dockerImageName);
+    }
+    /**
+     * @deprecated
+     * This property has been deprecated and will be removed in 4.0 of the provider.
+     * 
+     */
+    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
     public Optional<String> dockerImageTag() {
         return Optional.ofNullable(this.dockerImageTag);
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    public Optional<String> dockerRegistryPassword() {
+        return Optional.ofNullable(this.dockerRegistryPassword);
+    }
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    public Optional<String> dockerRegistryUrl() {
+        return Optional.ofNullable(this.dockerRegistryUrl);
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public Optional<String> dockerRegistryUsername() {
+        return Optional.ofNullable(this.dockerRegistryUsername);
     }
     /**
      * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
@@ -172,7 +232,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String dockerImage;
+        private @Nullable String dockerImageName;
         private @Nullable String dockerImageTag;
+        private @Nullable String dockerRegistryPassword;
+        private @Nullable String dockerRegistryUrl;
+        private @Nullable String dockerRegistryUsername;
         private @Nullable String dotnetVersion;
         private @Nullable String goVersion;
         private @Nullable String javaServer;
@@ -186,7 +250,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         public Builder(LinuxWebAppSlotSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dockerImage = defaults.dockerImage;
+    	      this.dockerImageName = defaults.dockerImageName;
     	      this.dockerImageTag = defaults.dockerImageTag;
+    	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
+    	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
+    	      this.dockerRegistryUsername = defaults.dockerRegistryUsername;
     	      this.dotnetVersion = defaults.dotnetVersion;
     	      this.goVersion = defaults.goVersion;
     	      this.javaServer = defaults.javaServer;
@@ -204,8 +272,28 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
             return this;
         }
         @CustomType.Setter
+        public Builder dockerImageName(@Nullable String dockerImageName) {
+            this.dockerImageName = dockerImageName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dockerImageTag(@Nullable String dockerImageTag) {
             this.dockerImageTag = dockerImageTag;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryPassword(@Nullable String dockerRegistryPassword) {
+            this.dockerRegistryPassword = dockerRegistryPassword;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUrl(@Nullable String dockerRegistryUrl) {
+            this.dockerRegistryUrl = dockerRegistryUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUsername(@Nullable String dockerRegistryUsername) {
+            this.dockerRegistryUsername = dockerRegistryUsername;
             return this;
         }
         @CustomType.Setter
@@ -256,7 +344,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         public LinuxWebAppSlotSiteConfigApplicationStack build() {
             final var o = new LinuxWebAppSlotSiteConfigApplicationStack();
             o.dockerImage = dockerImage;
+            o.dockerImageName = dockerImageName;
             o.dockerImageTag = dockerImageTag;
+            o.dockerRegistryPassword = dockerRegistryPassword;
+            o.dockerRegistryUrl = dockerRegistryUrl;
+            o.dockerRegistryUsername = dockerRegistryUsername;
             o.dotnetVersion = dotnetVersion;
             o.goVersion = goVersion;
             o.javaServer = javaServer;

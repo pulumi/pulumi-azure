@@ -140,13 +140,13 @@ def get_network_slice(mobile_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkSlice:getNetworkSlice', __args__, opts=opts, typ=GetNetworkSliceResult).value
 
     return AwaitableGetNetworkSliceResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        mobile_network_id=__ret__.mobile_network_id,
-        name=__ret__.name,
-        single_network_slice_selection_assistance_informations=__ret__.single_network_slice_selection_assistance_informations,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
+        name=pulumi.get(__ret__, 'name'),
+        single_network_slice_selection_assistance_informations=pulumi.get(__ret__, 'single_network_slice_selection_assistance_informations'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_slice)

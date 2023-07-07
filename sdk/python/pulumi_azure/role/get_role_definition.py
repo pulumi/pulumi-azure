@@ -147,14 +147,14 @@ def get_role_definition(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult).value
 
     return AwaitableGetRoleDefinitionResult(
-        assignable_scopes=__ret__.assignable_scopes,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        role_definition_id=__ret__.role_definition_id,
-        scope=__ret__.scope,
-        type=__ret__.type)
+        assignable_scopes=pulumi.get(__ret__, 'assignable_scopes'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_role_definition)

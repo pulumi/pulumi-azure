@@ -187,17 +187,17 @@ def get_product(api_management_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult).value
 
     return AwaitableGetProductResult(
-        api_management_name=__ret__.api_management_name,
-        approval_required=__ret__.approval_required,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        product_id=__ret__.product_id,
-        published=__ret__.published,
-        resource_group_name=__ret__.resource_group_name,
-        subscription_required=__ret__.subscription_required,
-        subscriptions_limit=__ret__.subscriptions_limit,
-        terms=__ret__.terms)
+        api_management_name=pulumi.get(__ret__, 'api_management_name'),
+        approval_required=pulumi.get(__ret__, 'approval_required'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        published=pulumi.get(__ret__, 'published'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        subscription_required=pulumi.get(__ret__, 'subscription_required'),
+        subscriptions_limit=pulumi.get(__ret__, 'subscriptions_limit'),
+        terms=pulumi.get(__ret__, 'terms'))
 
 
 @_utilities.lift_output_func(get_product)

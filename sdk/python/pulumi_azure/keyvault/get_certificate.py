@@ -257,22 +257,22 @@ def get_certificate(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate_data=__ret__.certificate_data,
-        certificate_data_base64=__ret__.certificate_data_base64,
-        certificate_policies=__ret__.certificate_policies,
-        expires=__ret__.expires,
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        name=__ret__.name,
-        not_before=__ret__.not_before,
-        resource_manager_id=__ret__.resource_manager_id,
-        resource_manager_versionless_id=__ret__.resource_manager_versionless_id,
-        secret_id=__ret__.secret_id,
-        tags=__ret__.tags,
-        thumbprint=__ret__.thumbprint,
-        version=__ret__.version,
-        versionless_id=__ret__.versionless_id,
-        versionless_secret_id=__ret__.versionless_secret_id)
+        certificate_data=pulumi.get(__ret__, 'certificate_data'),
+        certificate_data_base64=pulumi.get(__ret__, 'certificate_data_base64'),
+        certificate_policies=pulumi.get(__ret__, 'certificate_policies'),
+        expires=pulumi.get(__ret__, 'expires'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        name=pulumi.get(__ret__, 'name'),
+        not_before=pulumi.get(__ret__, 'not_before'),
+        resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
+        resource_manager_versionless_id=pulumi.get(__ret__, 'resource_manager_versionless_id'),
+        secret_id=pulumi.get(__ret__, 'secret_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        version=pulumi.get(__ret__, 'version'),
+        versionless_id=pulumi.get(__ret__, 'versionless_id'),
+        versionless_secret_id=pulumi.get(__ret__, 'versionless_secret_id'))
 
 
 @_utilities.lift_output_func(get_certificate)

@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+        /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         /// </summary>
         [Output("duration")]
         public Output<string?> Duration { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `linux` blocks as defined below.
+        /// A `linux` block as defined below.
         /// </summary>
         [Output("linuxes")]
         public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationLinux>> Linuxes { get; private set; } = null!;
@@ -140,49 +140,48 @@ namespace Pulumi.Azure.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of names of non-azure machines for the software update configuration.
+        /// Specifies a list of names of non-Azure machines for the software update configuration.
         /// </summary>
         [Output("nonAzureComputerNames")]
         public Output<ImmutableArray<string>> NonAzureComputerNames { get; private set; } = null!;
 
-        /// <summary>
-        /// The Operating system of target machines. Possible values are `Windows` and `Linux`.
-        /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `post_task` blocks as defined below.
+        /// A `post_task` blocks as defined below.
         /// </summary>
         [Output("postTasks")]
         public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationPostTask>> PostTasks { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `pre_task` blocks as defined below.
+        /// A `pre_task` blocks as defined below.
         /// </summary>
         [Output("preTasks")]
         public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationPreTask>> PreTasks { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `schedule` blocks as defined below.
+        /// A `schedule` blocks as defined below.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationSchedule>> Schedules { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `target` blocks as defined below.
+        /// A `target` blocks as defined below.
         /// </summary>
         [Output("target")]
         public Output<Outputs.SoftwareUpdateConfigurationTarget?> Target { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of azure resource Ids of azure virtual machines.
+        /// Specifies a list of Azure Resource IDs of azure virtual machines.
         /// </summary>
         [Output("virtualMachineIds")]
         public Output<ImmutableArray<string>> VirtualMachineIds { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `windows` blocks as defined below.
+        /// A `windows` block as defined below.
+        /// 
+        /// &gt; **NOTE:** One of `linux` or `windows` must be specified.
         /// </summary>
         [Output("windows")]
         public Output<Outputs.SoftwareUpdateConfigurationWindows?> Windows { get; private set; } = null!;
@@ -240,7 +239,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+        /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
@@ -249,7 +248,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.SoftwareUpdateConfigurationLinuxArgs>? _linuxes;
 
         /// <summary>
-        /// One or more `linux` blocks as defined below.
+        /// A `linux` block as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationLinuxArgs> Linuxes
         {
@@ -267,7 +266,7 @@ namespace Pulumi.Azure.Automation
         private InputList<string>? _nonAzureComputerNames;
 
         /// <summary>
-        /// Specifies a list of names of non-azure machines for the software update configuration.
+        /// Specifies a list of names of non-Azure machines for the software update configuration.
         /// </summary>
         public InputList<string> NonAzureComputerNames
         {
@@ -275,17 +274,14 @@ namespace Pulumi.Azure.Automation
             set => _nonAzureComputerNames = value;
         }
 
-        /// <summary>
-        /// The Operating system of target machines. Possible values are `Windows` and `Linux`.
-        /// </summary>
-        [Input("operatingSystem", required: true)]
-        public Input<string> OperatingSystem { get; set; } = null!;
+        [Input("operatingSystem")]
+        public Input<string>? OperatingSystem { get; set; }
 
         [Input("postTasks")]
         private InputList<Inputs.SoftwareUpdateConfigurationPostTaskArgs>? _postTasks;
 
         /// <summary>
-        /// One or more `post_task` blocks as defined below.
+        /// A `post_task` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationPostTaskArgs> PostTasks
         {
@@ -297,7 +293,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.SoftwareUpdateConfigurationPreTaskArgs>? _preTasks;
 
         /// <summary>
-        /// One or more `pre_task` blocks as defined below.
+        /// A `pre_task` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationPreTaskArgs> PreTasks
         {
@@ -305,11 +301,11 @@ namespace Pulumi.Azure.Automation
             set => _preTasks = value;
         }
 
-        [Input("schedules")]
+        [Input("schedules", required: true)]
         private InputList<Inputs.SoftwareUpdateConfigurationScheduleArgs>? _schedules;
 
         /// <summary>
-        /// One or more `schedule` blocks as defined below.
+        /// A `schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationScheduleArgs> Schedules
         {
@@ -318,7 +314,7 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// One or more `target` blocks as defined below.
+        /// A `target` blocks as defined below.
         /// </summary>
         [Input("target")]
         public Input<Inputs.SoftwareUpdateConfigurationTargetArgs>? Target { get; set; }
@@ -327,7 +323,7 @@ namespace Pulumi.Azure.Automation
         private InputList<string>? _virtualMachineIds;
 
         /// <summary>
-        /// Specifies a list of azure resource Ids of azure virtual machines.
+        /// Specifies a list of Azure Resource IDs of azure virtual machines.
         /// </summary>
         public InputList<string> VirtualMachineIds
         {
@@ -336,7 +332,9 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// One or more `windows` blocks as defined below.
+        /// A `windows` block as defined below.
+        /// 
+        /// &gt; **NOTE:** One of `linux` or `windows` must be specified.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.SoftwareUpdateConfigurationWindowsArgs>? Windows { get; set; }
@@ -356,7 +354,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountId { get; set; }
 
         /// <summary>
-        /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+        /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
@@ -380,7 +378,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.SoftwareUpdateConfigurationLinuxGetArgs>? _linuxes;
 
         /// <summary>
-        /// One or more `linux` blocks as defined below.
+        /// A `linux` block as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationLinuxGetArgs> Linuxes
         {
@@ -398,7 +396,7 @@ namespace Pulumi.Azure.Automation
         private InputList<string>? _nonAzureComputerNames;
 
         /// <summary>
-        /// Specifies a list of names of non-azure machines for the software update configuration.
+        /// Specifies a list of names of non-Azure machines for the software update configuration.
         /// </summary>
         public InputList<string> NonAzureComputerNames
         {
@@ -406,9 +404,6 @@ namespace Pulumi.Azure.Automation
             set => _nonAzureComputerNames = value;
         }
 
-        /// <summary>
-        /// The Operating system of target machines. Possible values are `Windows` and `Linux`.
-        /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
 
@@ -416,7 +411,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs>? _postTasks;
 
         /// <summary>
-        /// One or more `post_task` blocks as defined below.
+        /// A `post_task` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs> PostTasks
         {
@@ -428,7 +423,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs>? _preTasks;
 
         /// <summary>
-        /// One or more `pre_task` blocks as defined below.
+        /// A `pre_task` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs> PreTasks
         {
@@ -440,7 +435,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.SoftwareUpdateConfigurationScheduleGetArgs>? _schedules;
 
         /// <summary>
-        /// One or more `schedule` blocks as defined below.
+        /// A `schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationScheduleGetArgs> Schedules
         {
@@ -449,7 +444,7 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// One or more `target` blocks as defined below.
+        /// A `target` blocks as defined below.
         /// </summary>
         [Input("target")]
         public Input<Inputs.SoftwareUpdateConfigurationTargetGetArgs>? Target { get; set; }
@@ -458,7 +453,7 @@ namespace Pulumi.Azure.Automation
         private InputList<string>? _virtualMachineIds;
 
         /// <summary>
-        /// Specifies a list of azure resource Ids of azure virtual machines.
+        /// Specifies a list of Azure Resource IDs of azure virtual machines.
         /// </summary>
         public InputList<string> VirtualMachineIds
         {
@@ -467,7 +462,9 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// One or more `windows` blocks as defined below.
+        /// A `windows` block as defined below.
+        /// 
+        /// &gt; **NOTE:** One of `linux` or `windows` must be specified.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.SoftwareUpdateConfigurationWindowsGetArgs>? Windows { get; set; }

@@ -246,22 +246,22 @@ def get_host_pool(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:desktopvirtualization/getHostPool:getHostPool', __args__, opts=opts, typ=GetHostPoolResult).value
 
     return AwaitableGetHostPoolResult(
-        custom_rdp_properties=__ret__.custom_rdp_properties,
-        description=__ret__.description,
-        friendly_name=__ret__.friendly_name,
-        id=__ret__.id,
-        load_balancer_type=__ret__.load_balancer_type,
-        location=__ret__.location,
-        maximum_sessions_allowed=__ret__.maximum_sessions_allowed,
-        name=__ret__.name,
-        personal_desktop_assignment_type=__ret__.personal_desktop_assignment_type,
-        preferred_app_group_type=__ret__.preferred_app_group_type,
-        resource_group_name=__ret__.resource_group_name,
-        scheduled_agent_updates=__ret__.scheduled_agent_updates,
-        start_vm_on_connect=__ret__.start_vm_on_connect,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        validate_environment=__ret__.validate_environment)
+        custom_rdp_properties=pulumi.get(__ret__, 'custom_rdp_properties'),
+        description=pulumi.get(__ret__, 'description'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
+        location=pulumi.get(__ret__, 'location'),
+        maximum_sessions_allowed=pulumi.get(__ret__, 'maximum_sessions_allowed'),
+        name=pulumi.get(__ret__, 'name'),
+        personal_desktop_assignment_type=pulumi.get(__ret__, 'personal_desktop_assignment_type'),
+        preferred_app_group_type=pulumi.get(__ret__, 'preferred_app_group_type'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        scheduled_agent_updates=pulumi.get(__ret__, 'scheduled_agent_updates'),
+        start_vm_on_connect=pulumi.get(__ret__, 'start_vm_on_connect'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        validate_environment=pulumi.get(__ret__, 'validate_environment'))
 
 
 @_utilities.lift_output_func(get_host_pool)

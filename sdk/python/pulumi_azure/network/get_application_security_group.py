@@ -114,11 +114,11 @@ def get_application_security_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup', __args__, opts=opts, typ=GetApplicationSecurityGroupResult).value
 
     return AwaitableGetApplicationSecurityGroupResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application_security_group)

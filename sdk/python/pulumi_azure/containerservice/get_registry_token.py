@@ -127,12 +127,12 @@ def get_registry_token(container_registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getRegistryToken:getRegistryToken', __args__, opts=opts, typ=GetRegistryTokenResult).value
 
     return AwaitableGetRegistryTokenResult(
-        container_registry_name=__ret__.container_registry_name,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        scope_map_id=__ret__.scope_map_id)
+        container_registry_name=pulumi.get(__ret__, 'container_registry_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        scope_map_id=pulumi.get(__ret__, 'scope_map_id'))
 
 
 @_utilities.lift_output_func(get_registry_token)

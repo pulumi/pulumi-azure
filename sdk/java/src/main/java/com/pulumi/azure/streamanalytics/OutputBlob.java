@@ -132,14 +132,14 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.batchMaxWaitTime);
     }
     /**
-     * The minimum number of rows per batch (must be between `0` and `10000`).
+     * The minimum number of rows per batch (must be between `0` and `1000000`).
      * 
      */
     @Export(name="batchMinRows", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> batchMinRows;
 
     /**
-     * @return The minimum number of rows per batch (must be between `0` and `10000`).
+     * @return The minimum number of rows per batch (must be between `0` and `1000000`).
      * 
      */
     public Output<Optional<Integer>> batchMinRows() {

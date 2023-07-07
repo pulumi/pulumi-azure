@@ -210,19 +210,19 @@ def get_flexible_server(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:postgresql/getFlexibleServer:getFlexibleServer', __args__, opts=opts, typ=GetFlexibleServerResult).value
 
     return AwaitableGetFlexibleServerResult(
-        administrator_login=__ret__.administrator_login,
-        backup_retention_days=__ret__.backup_retention_days,
-        delegated_subnet_id=__ret__.delegated_subnet_id,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        storage_mb=__ret__.storage_mb,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        backup_retention_days=pulumi.get(__ret__, 'backup_retention_days'),
+        delegated_subnet_id=pulumi.get(__ret__, 'delegated_subnet_id'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        storage_mb=pulumi.get(__ret__, 'storage_mb'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_flexible_server)

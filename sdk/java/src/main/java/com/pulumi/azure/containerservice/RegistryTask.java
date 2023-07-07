@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .dockerStep(RegistryTaskDockerStepArgs.builder()
  *                 .dockerfilePath(&#34;Dockerfile&#34;)
- *                 .contextPath(&#34;https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main&#34;)
+ *                 .contextPath(&#34;https://github.com/&lt;username&gt;/&lt;repository&gt;#&lt;branch&gt;:&lt;folder&gt;&#34;)
  *                 .contextAccessToken(&#34;&lt;github personal access token&gt;&#34;)
  *                 .imageNames(&#34;helloworld:{{.Run.ID}}&#34;)
  *                 .build())

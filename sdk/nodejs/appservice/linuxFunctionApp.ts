@@ -179,6 +179,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */
@@ -276,6 +277,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
             resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
             resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
@@ -318,6 +320,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
@@ -456,6 +459,7 @@ export interface LinuxFunctionAppState {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */
@@ -592,6 +596,7 @@ export interface LinuxFunctionAppArgs {
      * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
     name?: pulumi.Input<string>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */

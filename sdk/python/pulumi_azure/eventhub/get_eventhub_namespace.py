@@ -274,24 +274,24 @@ def get_eventhub_namespace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__, opts=opts, typ=GetEventhubNamespaceResult).value
 
     return AwaitableGetEventhubNamespaceResult(
-        auto_inflate_enabled=__ret__.auto_inflate_enabled,
-        capacity=__ret__.capacity,
-        dedicated_cluster_id=__ret__.dedicated_cluster_id,
-        default_primary_connection_string=__ret__.default_primary_connection_string,
-        default_primary_connection_string_alias=__ret__.default_primary_connection_string_alias,
-        default_primary_key=__ret__.default_primary_key,
-        default_secondary_connection_string=__ret__.default_secondary_connection_string,
-        default_secondary_connection_string_alias=__ret__.default_secondary_connection_string_alias,
-        default_secondary_key=__ret__.default_secondary_key,
-        id=__ret__.id,
-        kafka_enabled=__ret__.kafka_enabled,
-        location=__ret__.location,
-        maximum_throughput_units=__ret__.maximum_throughput_units,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        zone_redundant=__ret__.zone_redundant)
+        auto_inflate_enabled=pulumi.get(__ret__, 'auto_inflate_enabled'),
+        capacity=pulumi.get(__ret__, 'capacity'),
+        dedicated_cluster_id=pulumi.get(__ret__, 'dedicated_cluster_id'),
+        default_primary_connection_string=pulumi.get(__ret__, 'default_primary_connection_string'),
+        default_primary_connection_string_alias=pulumi.get(__ret__, 'default_primary_connection_string_alias'),
+        default_primary_key=pulumi.get(__ret__, 'default_primary_key'),
+        default_secondary_connection_string=pulumi.get(__ret__, 'default_secondary_connection_string'),
+        default_secondary_connection_string_alias=pulumi.get(__ret__, 'default_secondary_connection_string_alias'),
+        default_secondary_key=pulumi.get(__ret__, 'default_secondary_key'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_enabled=pulumi.get(__ret__, 'kafka_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        maximum_throughput_units=pulumi.get(__ret__, 'maximum_throughput_units'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 
 @_utilities.lift_output_func(get_eventhub_namespace)

@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AadDiagnosticSettingEnabledLog',
+    'AadDiagnosticSettingEnabledLogRetentionPolicy',
     'AadDiagnosticSettingLog',
     'AadDiagnosticSettingLogRetentionPolicy',
     'ActionGroupArmRoleReceiver',
@@ -201,6 +203,83 @@ __all__ = [
     'GetScheduledQueryRulesLogCriteriaResult',
     'GetScheduledQueryRulesLogCriteriaDimensionResult',
 ]
+
+@pulumi.output_type
+class AadDiagnosticSettingEnabledLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AadDiagnosticSettingEnabledLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AadDiagnosticSettingEnabledLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AadDiagnosticSettingEnabledLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: str,
+                 retention_policy: 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy'):
+        """
+        :param str category: The log category for the Azure Active Directory Diagnostic.
+        :param 'AadDiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The log category for the Azure Active Directory Diagnostic.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy':
+        """
+        A `retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+
+@pulumi.output_type
+class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 days: Optional[int] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param int days: The number of days for which this Retention Policy should apply. Defaults to `0`.
+        :param bool enabled: Is this Retention Policy enabled? Defaults to `false`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        The number of days for which this Retention Policy should apply. Defaults to `0`.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is this Retention Policy enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class AadDiagnosticSettingLog(dict):
@@ -731,6 +810,9 @@ class ActionGroupEventHubReceiver(dict):
         """
         The resource ID of the respective Event Hub.
         """
+        warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
+        pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
+
         return pulumi.get(self, "event_hub_id")
 
     @property
@@ -8689,6 +8771,9 @@ class GetActionGroupEventHubReceiverResult(dict):
         """
         The resource ID of the respective Event Hub.
         """
+        warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
+        pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
+
         return pulumi.get(self, "event_hub_id")
 
     @property

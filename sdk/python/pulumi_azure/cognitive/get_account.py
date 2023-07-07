@@ -189,17 +189,17 @@ def get_account(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cognitive/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        primary_access_key=__ret__.primary_access_key,
-        qna_runtime_endpoint=__ret__.qna_runtime_endpoint,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags)
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        qna_runtime_endpoint=pulumi.get(__ret__, 'qna_runtime_endpoint'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_account)

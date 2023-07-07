@@ -215,19 +215,19 @@ def get_elastic_pool(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
-        id=__ret__.id,
-        license_type=__ret__.license_type,
-        location=__ret__.location,
-        max_size_bytes=__ret__.max_size_bytes,
-        max_size_gb=__ret__.max_size_gb,
-        name=__ret__.name,
-        per_db_max_capacity=__ret__.per_db_max_capacity,
-        per_db_min_capacity=__ret__.per_db_min_capacity,
-        resource_group_name=__ret__.resource_group_name,
-        server_name=__ret__.server_name,
-        skus=__ret__.skus,
-        tags=__ret__.tags,
-        zone_redundant=__ret__.zone_redundant)
+        id=pulumi.get(__ret__, 'id'),
+        license_type=pulumi.get(__ret__, 'license_type'),
+        location=pulumi.get(__ret__, 'location'),
+        max_size_bytes=pulumi.get(__ret__, 'max_size_bytes'),
+        max_size_gb=pulumi.get(__ret__, 'max_size_gb'),
+        name=pulumi.get(__ret__, 'name'),
+        per_db_max_capacity=pulumi.get(__ret__, 'per_db_max_capacity'),
+        per_db_min_capacity=pulumi.get(__ret__, 'per_db_min_capacity'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        server_name=pulumi.get(__ret__, 'server_name'),
+        skus=pulumi.get(__ret__, 'skus'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 
 @_utilities.lift_output_func(get_elastic_pool)

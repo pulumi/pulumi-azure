@@ -49,14 +49,14 @@ public final class ApiOperationResponseRepresentationFormParameterArgs extends c
     }
 
     /**
-     * (Optional) One or more `example` blocks as defined above.
+     * One or more `example` blocks as defined above.
      * 
      */
     @Import(name="examples")
     private @Nullable Output<List<ApiOperationResponseRepresentationFormParameterExampleArgs>> examples;
 
     /**
-     * @return (Optional) One or more `example` blocks as defined above.
+     * @return One or more `example` blocks as defined above.
      * 
      */
     public Optional<Output<List<ApiOperationResponseRepresentationFormParameterExampleArgs>>> examples() {
@@ -228,7 +228,7 @@ public final class ApiOperationResponseRepresentationFormParameterArgs extends c
         }
 
         /**
-         * @param examples (Optional) One or more `example` blocks as defined above.
+         * @param examples One or more `example` blocks as defined above.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ApiOperationResponseRepresentationFormParameterArgs extends c
         }
 
         /**
-         * @param examples (Optional) One or more `example` blocks as defined above.
+         * @param examples One or more `example` blocks as defined above.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ApiOperationResponseRepresentationFormParameterArgs extends c
         }
 
         /**
-         * @param examples (Optional) One or more `example` blocks as defined above.
+         * @param examples One or more `example` blocks as defined above.
          * 
          * @return builder
          * 

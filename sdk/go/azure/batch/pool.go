@@ -87,7 +87,14 @@ import (
 //				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
 //				AutoScale: &batch.PoolAutoScaleArgs{
 //					EvaluationInterval: pulumi.String("PT15M"),
-//					Formula:            pulumi.String("      startingNumberOfVMs = 1;\n      maxNumberofVMs = 25;\n      pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));\n      $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n"),
+//					Formula: pulumi.String(`      startingNumberOfVMs = 1;
+//	      maxNumberofVMs = 25;
+//	      pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+//	      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
+//	      $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+//
+// `),
+//
 //				},
 //				StorageImageReference: &batch.PoolStorageImageReferenceArgs{
 //					Publisher: pulumi.String("microsoft-azure-batch"),

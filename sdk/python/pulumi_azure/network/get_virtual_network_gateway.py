@@ -260,23 +260,23 @@ def get_virtual_network_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__, opts=opts, typ=GetVirtualNetworkGatewayResult).value
 
     return AwaitableGetVirtualNetworkGatewayResult(
-        active_active=__ret__.active_active,
-        bgp_settings=__ret__.bgp_settings,
-        custom_routes=__ret__.custom_routes,
-        default_local_network_gateway_id=__ret__.default_local_network_gateway_id,
-        enable_bgp=__ret__.enable_bgp,
-        generation=__ret__.generation,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_ip_address_enabled=__ret__.private_ip_address_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vpn_client_configurations=__ret__.vpn_client_configurations,
-        vpn_type=__ret__.vpn_type)
+        active_active=pulumi.get(__ret__, 'active_active'),
+        bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
+        custom_routes=pulumi.get(__ret__, 'custom_routes'),
+        default_local_network_gateway_id=pulumi.get(__ret__, 'default_local_network_gateway_id'),
+        enable_bgp=pulumi.get(__ret__, 'enable_bgp'),
+        generation=pulumi.get(__ret__, 'generation'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_ip_address_enabled=pulumi.get(__ret__, 'private_ip_address_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vpn_client_configurations=pulumi.get(__ret__, 'vpn_client_configurations'),
+        vpn_type=pulumi.get(__ret__, 'vpn_type'))
 
 
 @_utilities.lift_output_func(get_virtual_network_gateway)

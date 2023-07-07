@@ -122,11 +122,11 @@ def get_public_configurations(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:maintenance/getPublicConfigurations:getPublicConfigurations', __args__, opts=opts, typ=GetPublicConfigurationsResult).value
 
     return AwaitableGetPublicConfigurationsResult(
-        configs=__ret__.configs,
-        id=__ret__.id,
-        location=__ret__.location,
-        recur_every=__ret__.recur_every,
-        scope=__ret__.scope)
+        configs=pulumi.get(__ret__, 'configs'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        recur_every=pulumi.get(__ret__, 'recur_every'),
+        scope=pulumi.get(__ret__, 'scope'))
 
 
 @_utilities.lift_output_func(get_public_configurations)

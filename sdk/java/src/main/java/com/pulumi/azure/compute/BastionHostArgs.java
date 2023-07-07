@@ -57,15 +57,15 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
      * A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="ipConfiguration")
-    private @Nullable Output<BastionHostIpConfigurationArgs> ipConfiguration;
+    @Import(name="ipConfiguration", required=true)
+    private Output<BastionHostIpConfigurationArgs> ipConfiguration;
 
     /**
      * @return A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<BastionHostIpConfigurationArgs>> ipConfiguration() {
-        return Optional.ofNullable(this.ipConfiguration);
+    public Output<BastionHostIpConfigurationArgs> ipConfiguration() {
+        return this.ipConfiguration;
     }
 
     /**
@@ -173,12 +173,16 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      * 
+     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
      * @return The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * 
+     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -306,7 +310,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipConfiguration(@Nullable Output<BastionHostIpConfigurationArgs> ipConfiguration) {
+        public Builder ipConfiguration(Output<BastionHostIpConfigurationArgs> ipConfiguration) {
             $.ipConfiguration = ipConfiguration;
             return this;
         }
@@ -462,6 +466,8 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
          * 
+         * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -472,6 +478,8 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sku The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * 
+         * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -527,6 +535,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BastionHostArgs build() {
+            $.ipConfiguration = Objects.requireNonNull($.ipConfiguration, "expected parameter 'ipConfiguration' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             return $;
         }

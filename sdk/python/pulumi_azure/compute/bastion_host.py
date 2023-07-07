@@ -16,10 +16,10 @@ __all__ = ['BastionHostArgs', 'BastionHost']
 @pulumi.input_type
 class BastionHostArgs:
     def __init__(__self__, *,
+                 ip_configuration: pulumi.Input['BastionHostIpConfigurationArgs'],
                  resource_group_name: pulumi.Input[str],
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -30,12 +30,12 @@ class BastionHostArgs:
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
+        :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
@@ -48,18 +48,19 @@ class BastionHostArgs:
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         """
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if copy_paste_enabled is not None:
             pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
         if file_copy_enabled is not None:
             pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
-        if ip_configuration is not None:
-            pulumi.set(__self__, "ip_configuration", ip_configuration)
         if ip_connect_enabled is not None:
             pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
         if location is not None:
@@ -76,6 +77,18 @@ class BastionHostArgs:
             pulumi.set(__self__, "tags", tags)
         if tunneling_enabled is not None:
             pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> pulumi.Input['BastionHostIpConfigurationArgs']:
+        """
+        A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ip_configuration")
+
+    @ip_configuration.setter
+    def ip_configuration(self, value: pulumi.Input['BastionHostIpConfigurationArgs']):
+        pulumi.set(self, "ip_configuration", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -114,18 +127,6 @@ class BastionHostArgs:
     @file_copy_enabled.setter
     def file_copy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "file_copy_enabled", value)
-
-    @property
-    @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional[pulumi.Input['BastionHostIpConfigurationArgs']]:
-        """
-        A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ip_configuration")
-
-    @ip_configuration.setter
-    def ip_configuration(self, value: Optional[pulumi.Input['BastionHostIpConfigurationArgs']]):
-        pulumi.set(self, "ip_configuration", value)
 
     @property
     @pulumi.getter(name="ipConnectEnabled")
@@ -198,6 +199,8 @@ class BastionHostArgs:
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+
+        > **Note** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -269,6 +272,8 @@ class _BastionHostState:
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -434,6 +439,8 @@ class _BastionHostState:
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+
+        > **Note** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -549,6 +556,8 @@ class BastionHost(pulumi.CustomResource):
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -641,6 +650,8 @@ class BastionHost(pulumi.CustomResource):
 
             __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
             __props__.__dict__["file_copy_enabled"] = file_copy_enabled
+            if ip_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'ip_configuration'")
             __props__.__dict__["ip_configuration"] = ip_configuration
             __props__.__dict__["ip_connect_enabled"] = ip_connect_enabled
             __props__.__dict__["location"] = location
@@ -703,6 +714,8 @@ class BastionHost(pulumi.CustomResource):
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -755,7 +768,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> pulumi.Output[Optional['outputs.BastionHostIpConfiguration']]:
+    def ip_configuration(self) -> pulumi.Output['outputs.BastionHostIpConfiguration']:
         """
         A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         """
@@ -820,6 +833,8 @@ class BastionHost(pulumi.CustomResource):
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+
+        > **Note** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

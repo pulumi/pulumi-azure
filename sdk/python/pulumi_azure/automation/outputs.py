@@ -38,6 +38,12 @@ __all__ = [
     'SourceControlSecurity',
     'GetAccountIdentityResult',
     'GetAccountPrivateEndpointConnectionResult',
+    'GetVariablesBoolResult',
+    'GetVariablesDatetimeResult',
+    'GetVariablesEncryptedResult',
+    'GetVariablesIntResult',
+    'GetVariablesNullResult',
+    'GetVariablesStringResult',
 ]
 
 @pulumi.output_type
@@ -88,6 +94,9 @@ class AccountEncryption(dict):
     @property
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[str]:
+        warnings.warn("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""", DeprecationWarning)
+        pulumi.log.warn("""key_source is deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
+
         return pulumi.get(self, "key_source")
 
     @property
@@ -759,6 +768,8 @@ class SoftwareUpdateConfigurationLinux(dict):
         suggest = None
         if key == "classificationIncluded":
             suggest = "classification_included"
+        elif key == "classificationsIncludeds":
+            suggest = "classifications_includeds"
         elif key == "excludedPackages":
             suggest = "excluded_packages"
         elif key == "includedPackages":
@@ -777,17 +788,20 @@ class SoftwareUpdateConfigurationLinux(dict):
 
     def __init__(__self__, *,
                  classification_included: Optional[str] = None,
+                 classifications_includeds: Optional[Sequence[str]] = None,
                  excluded_packages: Optional[Sequence[str]] = None,
                  included_packages: Optional[Sequence[str]] = None,
                  reboot: Optional[str] = None):
         """
-        :param str classification_included: Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+        :param Sequence[str] classifications_includeds: Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
         :param Sequence[str] excluded_packages: Specifies a list of packages to excluded from the Software Update Configuration.
         :param Sequence[str] included_packages: Specifies a list of packages to included from the Software Update Configuration.
-        :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
         if classification_included is not None:
             pulumi.set(__self__, "classification_included", classification_included)
+        if classifications_includeds is not None:
+            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
         if excluded_packages is not None:
             pulumi.set(__self__, "excluded_packages", excluded_packages)
         if included_packages is not None:
@@ -798,10 +812,15 @@ class SoftwareUpdateConfigurationLinux(dict):
     @property
     @pulumi.getter(name="classificationIncluded")
     def classification_included(self) -> Optional[str]:
-        """
-        Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-        """
         return pulumi.get(self, "classification_included")
+
+    @property
+    @pulumi.getter(name="classificationsIncludeds")
+    def classifications_includeds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+        """
+        return pulumi.get(self, "classifications_includeds")
 
     @property
     @pulumi.getter(name="excludedPackages")
@@ -823,7 +842,7 @@ class SoftwareUpdateConfigurationLinux(dict):
     @pulumi.getter
     def reboot(self) -> Optional[str]:
         """
-        Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
         return pulumi.get(self, "reboot")
 
@@ -934,13 +953,13 @@ class SoftwareUpdateConfigurationSchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 frequency: str,
                  advanced_month_days: Optional[Sequence[int]] = None,
                  advanced_week_days: Optional[Sequence[str]] = None,
                  creation_time: Optional[str] = None,
                  description: Optional[str] = None,
                  expiry_time: Optional[str] = None,
                  expiry_time_offset_minutes: Optional[float] = None,
-                 frequency: Optional[str] = None,
                  interval: Optional[int] = None,
                  is_enabled: Optional[bool] = None,
                  last_modified_time: Optional[str] = None,
@@ -951,17 +970,18 @@ class SoftwareUpdateConfigurationSchedule(dict):
                  start_time_offset_minutes: Optional[float] = None,
                  time_zone: Optional[str] = None):
         """
+        :param str frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         :param Sequence[int] advanced_month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-        :param Sequence[str] advanced_week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        :param Sequence[str] advanced_week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         :param str description: A description for this Schedule.
         :param str expiry_time: The end time of the schedule.
-        :param str frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param bool is_enabled: Whether the schedule is enabled.
         :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param str time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
+        pulumi.set(__self__, "frequency", frequency)
         if advanced_month_days is not None:
             pulumi.set(__self__, "advanced_month_days", advanced_month_days)
         if advanced_week_days is not None:
@@ -974,8 +994,6 @@ class SoftwareUpdateConfigurationSchedule(dict):
             pulumi.set(__self__, "expiry_time", expiry_time)
         if expiry_time_offset_minutes is not None:
             pulumi.set(__self__, "expiry_time_offset_minutes", expiry_time_offset_minutes)
-        if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if is_enabled is not None:
@@ -996,6 +1014,14 @@ class SoftwareUpdateConfigurationSchedule(dict):
             pulumi.set(__self__, "time_zone", time_zone)
 
     @property
+    @pulumi.getter
+    def frequency(self) -> str:
+        """
+        The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
     @pulumi.getter(name="advancedMonthDays")
     def advanced_month_days(self) -> Optional[Sequence[int]]:
         """
@@ -1007,7 +1033,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @pulumi.getter(name="advancedWeekDays")
     def advanced_week_days(self) -> Optional[Sequence[str]]:
         """
-        List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         """
         return pulumi.get(self, "advanced_week_days")
 
@@ -1036,14 +1062,6 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @pulumi.getter(name="expiryTimeOffsetMinutes")
     def expiry_time_offset_minutes(self) -> Optional[float]:
         return pulumi.get(self, "expiry_time_offset_minutes")
-
-    @property
-    @pulumi.getter
-    def frequency(self) -> Optional[str]:
-        """
-        The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-        """
-        return pulumi.get(self, "frequency")
 
     @property
     @pulumi.getter
@@ -1368,11 +1386,10 @@ class SoftwareUpdateConfigurationWindows(dict):
                  included_knowledge_base_numbers: Optional[Sequence[str]] = None,
                  reboot: Optional[str] = None):
         """
-        :param str classification_included: (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param Sequence[str] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param Sequence[str] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
         :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
-        :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
         if classification_included is not None:
             pulumi.set(__self__, "classification_included", classification_included)
@@ -1388,9 +1405,9 @@ class SoftwareUpdateConfigurationWindows(dict):
     @property
     @pulumi.getter(name="classificationIncluded")
     def classification_included(self) -> Optional[str]:
-        """
-        (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-        """
+        warnings.warn("""windows classification can be set as a list, use `classifications_included` instead.""", DeprecationWarning)
+        pulumi.log.warn("""classification_included is deprecated: windows classification can be set as a list, use `classifications_included` instead.""")
+
         return pulumi.get(self, "classification_included")
 
     @property
@@ -1421,7 +1438,7 @@ class SoftwareUpdateConfigurationWindows(dict):
     @pulumi.getter
     def reboot(self) -> Optional[str]:
         """
-        Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
         return pulumi.get(self, "reboot")
 
@@ -1564,5 +1581,311 @@ class GetAccountPrivateEndpointConnectionResult(dict):
         The name of the Automation Account.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetVariablesBoolResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 name: str,
+                 value: bool):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param bool value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> bool:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVariablesDatetimeResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 name: str,
+                 value: str):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param str value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVariablesEncryptedResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 name: str,
+                 value: str):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param str value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVariablesIntResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 name: str,
+                 value: int):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param int value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVariablesNullResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 name: str,
+                 value: str):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param str value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVariablesStringResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 name: str,
+                 value: str):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param str value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
 
 

@@ -91,6 +91,12 @@ type ManagedHardwareSecurityModule struct {
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+	SecurityDomainEncryptedData pulumi.StringOutput `pulumi:"securityDomainEncryptedData"`
+	// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+	SecurityDomainKeyVaultCertificateIds pulumi.StringArrayOutput `pulumi:"securityDomainKeyVaultCertificateIds"`
+	// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+	SecurityDomainQuorum pulumi.IntPtrOutput `pulumi:"securityDomainQuorum"`
 	// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
@@ -120,6 +126,10 @@ func NewManagedHardwareSecurityModule(ctx *pulumi.Context,
 	if args.TenantId == nil {
 		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"securityDomainEncryptedData",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedHardwareSecurityModule
 	err := ctx.RegisterResource("azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule", name, args, &resource, opts...)
 	if err != nil {
@@ -158,6 +168,12 @@ type managedHardwareSecurityModuleState struct {
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+	SecurityDomainEncryptedData *string `pulumi:"securityDomainEncryptedData"`
+	// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+	SecurityDomainKeyVaultCertificateIds []string `pulumi:"securityDomainKeyVaultCertificateIds"`
+	// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+	SecurityDomainQuorum *int `pulumi:"securityDomainQuorum"`
 	// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
@@ -185,6 +201,12 @@ type ManagedHardwareSecurityModuleState struct {
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+	SecurityDomainEncryptedData pulumi.StringPtrInput
+	// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+	SecurityDomainKeyVaultCertificateIds pulumi.StringArrayInput
+	// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+	SecurityDomainQuorum pulumi.IntPtrInput
 	// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
@@ -214,6 +236,10 @@ type managedHardwareSecurityModuleArgs struct {
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+	SecurityDomainKeyVaultCertificateIds []string `pulumi:"securityDomainKeyVaultCertificateIds"`
+	// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+	SecurityDomainQuorum *int `pulumi:"securityDomainQuorum"`
 	// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
@@ -240,6 +266,10 @@ type ManagedHardwareSecurityModuleArgs struct {
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+	SecurityDomainKeyVaultCertificateIds pulumi.StringArrayInput
+	// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+	SecurityDomainQuorum pulumi.IntPtrInput
 	// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
@@ -377,6 +407,23 @@ func (o ManagedHardwareSecurityModuleOutput) PurgeProtectionEnabled() pulumi.Boo
 // The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 func (o ManagedHardwareSecurityModuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+func (o ManagedHardwareSecurityModuleOutput) SecurityDomainEncryptedData() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.StringOutput { return v.SecurityDomainEncryptedData }).(pulumi.StringOutput)
+}
+
+// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+func (o ManagedHardwareSecurityModuleOutput) SecurityDomainKeyVaultCertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.StringArrayOutput {
+		return v.SecurityDomainKeyVaultCertificateIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+func (o ManagedHardwareSecurityModuleOutput) SecurityDomainQuorum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.IntPtrOutput { return v.SecurityDomainQuorum }).(pulumi.IntPtrOutput)
 }
 
 // The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.

@@ -154,6 +154,7 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private String possibleOutboundIpAddresses;
+    private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
      * @return The ID of the Service Plan that this Linux Web App exists in.
@@ -383,6 +384,9 @@ public final class GetLinuxWebAppResult {
     public String possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -479,6 +483,7 @@ public final class GetLinuxWebAppResult {
         private String outboundIpAddresses;
         private List<String> possibleOutboundIpAddressLists;
         private String possibleOutboundIpAddresses;
+        private Boolean publicNetworkAccessEnabled;
         private String resourceGroupName;
         private String servicePlanId;
         private List<GetLinuxWebAppSiteConfig> siteConfigs;
@@ -518,6 +523,7 @@ public final class GetLinuxWebAppResult {
     	      this.outboundIpAddresses = defaults.outboundIpAddresses;
     	      this.possibleOutboundIpAddressLists = defaults.possibleOutboundIpAddressLists;
     	      this.possibleOutboundIpAddresses = defaults.possibleOutboundIpAddresses;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.servicePlanId = defaults.servicePlanId;
     	      this.siteConfigs = defaults.siteConfigs;
@@ -689,6 +695,11 @@ public final class GetLinuxWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -774,6 +785,7 @@ public final class GetLinuxWebAppResult {
             o.outboundIpAddresses = outboundIpAddresses;
             o.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             o.resourceGroupName = resourceGroupName;
             o.servicePlanId = servicePlanId;
             o.siteConfigs = siteConfigs;

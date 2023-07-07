@@ -17,8 +17,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
     public static final SoftwareUpdateConfigurationWindowsArgs Empty = new SoftwareUpdateConfigurationWindowsArgs();
 
     /**
-     * (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-     * 
      * @deprecated
      * windows classification can be set as a list, use `classifications_included` instead.
      * 
@@ -28,8 +26,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
     private @Nullable Output<String> classificationIncluded;
 
     /**
-     * @return (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-     * 
      * @deprecated
      * windows classification can be set as a list, use `classifications_included` instead.
      * 
@@ -85,14 +81,14 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     @Import(name="reboot")
     private @Nullable Output<String> reboot;
 
     /**
-     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+     * @return Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
      * 
      */
     public Optional<Output<String>> reboot() {
@@ -128,8 +124,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         }
 
         /**
-         * @param classificationIncluded (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -143,8 +137,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         }
 
         /**
-         * @param classificationIncluded (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -250,7 +242,7 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         }
 
         /**
-         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
          * 
          * @return builder
          * 
@@ -261,7 +253,7 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         }
 
         /**
-         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         * @param reboot Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
          * 
          * @return builder
          * 

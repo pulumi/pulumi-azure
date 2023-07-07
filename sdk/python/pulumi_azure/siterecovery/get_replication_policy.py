@@ -126,12 +126,12 @@ def get_replication_policy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:siterecovery/getReplicationPolicy:getReplicationPolicy', __args__, opts=opts, typ=GetReplicationPolicyResult).value
 
     return AwaitableGetReplicationPolicyResult(
-        application_consistent_snapshot_frequency_in_minutes=__ret__.application_consistent_snapshot_frequency_in_minutes,
-        id=__ret__.id,
-        name=__ret__.name,
-        recovery_point_retention_in_minutes=__ret__.recovery_point_retention_in_minutes,
-        recovery_vault_name=__ret__.recovery_vault_name,
-        resource_group_name=__ret__.resource_group_name)
+        application_consistent_snapshot_frequency_in_minutes=pulumi.get(__ret__, 'application_consistent_snapshot_frequency_in_minutes'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        recovery_point_retention_in_minutes=pulumi.get(__ret__, 'recovery_point_retention_in_minutes'),
+        recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_replication_policy)

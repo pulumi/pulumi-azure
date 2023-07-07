@@ -175,16 +175,16 @@ def get_scheduled_query_rules_log(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog', __args__, opts=opts, typ=GetScheduledQueryRulesLogResult).value
 
     return AwaitableGetScheduledQueryRulesLogResult(
-        authorized_resource_ids=__ret__.authorized_resource_ids,
-        criterias=__ret__.criterias,
-        data_source_id=__ret__.data_source_id,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        authorized_resource_ids=pulumi.get(__ret__, 'authorized_resource_ids'),
+        criterias=pulumi.get(__ret__, 'criterias'),
+        data_source_id=pulumi.get(__ret__, 'data_source_id'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_scheduled_query_rules_log)

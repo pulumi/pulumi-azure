@@ -180,6 +180,9 @@ class DiagnosticSettingArgs:
 
         > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "logs")
 
     @logs.setter
@@ -399,6 +402,9 @@ class _DiagnosticSettingState:
 
         > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "logs")
 
     @logs.setter
@@ -819,6 +825,9 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "logs")
 
     @property

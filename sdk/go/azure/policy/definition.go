@@ -33,9 +33,34 @@ import (
 //				DisplayName: pulumi.String("acceptance test policy definition"),
 //				Metadata:    pulumi.String("    {\n    \"category\": \"General\"\n    }\n\n\n"),
 //				Mode:        pulumi.String("Indexed"),
-//				Parameters:  pulumi.String(" {\n    \"allowedLocations\": {\n      \"type\": \"Array\",\n      \"metadata\": {\n        \"description\": \"The list of allowed locations for resources.\",\n        \"displayName\": \"Allowed locations\",\n        \"strongType\": \"location\"\n      }\n    }\n  }\n\n"),
-//				PolicyRule:  pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"in\": \"[parameters('allowedLocations')]\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"audit\"\n    }\n  }\n\n"),
-//				PolicyType:  pulumi.String("Custom"),
+//				Parameters: pulumi.String(` {
+//	    "allowedLocations": {
+//	      "type": "Array",
+//	      "metadata": {
+//	        "description": "The list of allowed locations for resources.",
+//	        "displayName": "Allowed locations",
+//	        "strongType": "location"
+//	      }
+//	    }
+//	  }
+//
+// `),
+//
+//				PolicyRule: pulumi.String(` {
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "in": "[parameters('allowedLocations')]"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "audit"
+//	    }
+//	  }
+//
+// `),
+//
+//				PolicyType: pulumi.String("Custom"),
 //			})
 //			if err != nil {
 //				return err

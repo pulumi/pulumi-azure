@@ -17,12 +17,14 @@ class WorkspaceArgs:
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -30,6 +32,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +74,18 @@ class WorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public network access enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -87,12 +103,14 @@ class _WorkspaceState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Workspace.
         """
@@ -100,6 +118,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -128,6 +148,18 @@ class _WorkspaceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public network access enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -161,6 +193,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -194,6 +227,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Workspace.
         """
@@ -246,6 +280,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -259,6 +294,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -275,6 +311,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workspace':
         """
@@ -286,6 +323,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Workspace.
         """
@@ -295,6 +333,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
@@ -314,6 +353,14 @@ class Workspace(pulumi.CustomResource):
         Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is public network access enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ContainerService
     ///         DockerStep = new Azure.ContainerService.Inputs.RegistryTaskDockerStepArgs
     ///         {
     ///             DockerfilePath = "Dockerfile",
-    ///             ContextPath = "https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main",
+    ///             ContextPath = "https://github.com/&lt;username&gt;/&lt;repository&gt;#&lt;branch&gt;:&lt;folder&gt;",
     ///             ContextAccessToken = "&lt;github personal access token&gt;",
     ///             ImageNames = new[]
     ///             {

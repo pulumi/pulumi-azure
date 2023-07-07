@@ -19,18 +19,27 @@ namespace Pulumi.Azure.AppService.Outputs
         /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
         public readonly string? CurrentStack;
-        /// <summary>
-        /// The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-        /// </summary>
         public readonly string? DockerContainerName;
-        /// <summary>
-        /// The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-        /// </summary>
         public readonly string? DockerContainerRegistry;
-        /// <summary>
-        /// The Image Tag of the specified Docker Container to use. For example `latest`
-        /// </summary>
         public readonly string? DockerContainerTag;
+        /// <summary>
+        /// The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        /// </summary>
+        public readonly string? DockerImageName;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// 
+        /// &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// </summary>
+        public readonly string? DockerRegistryPassword;
+        /// <summary>
+        /// The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        /// </summary>
+        public readonly string? DockerRegistryUrl;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        public readonly string? DockerRegistryUsername;
         /// <summary>
         /// The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
         /// </summary>
@@ -93,6 +102,14 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? dockerContainerTag,
 
+            string? dockerImageName,
+
+            string? dockerRegistryPassword,
+
+            string? dockerRegistryUrl,
+
+            string? dockerRegistryUsername,
+
             string? dotnetCoreVersion,
 
             string? dotnetVersion,
@@ -119,6 +136,10 @@ namespace Pulumi.Azure.AppService.Outputs
             DockerContainerName = dockerContainerName;
             DockerContainerRegistry = dockerContainerRegistry;
             DockerContainerTag = dockerContainerTag;
+            DockerImageName = dockerImageName;
+            DockerRegistryPassword = dockerRegistryPassword;
+            DockerRegistryUrl = dockerRegistryUrl;
+            DockerRegistryUsername = dockerRegistryUsername;
             DotnetCoreVersion = dotnetCoreVersion;
             DotnetVersion = dotnetVersion;
             JavaContainer = javaContainer;

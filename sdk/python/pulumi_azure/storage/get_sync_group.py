@@ -90,9 +90,9 @@ def get_sync_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getSyncGroup:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        storage_sync_id=__ret__.storage_sync_id)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_sync_id=pulumi.get(__ret__, 'storage_sync_id'))
 
 
 @_utilities.lift_output_func(get_sync_group)

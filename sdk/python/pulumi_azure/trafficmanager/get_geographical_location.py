@@ -81,8 +81,8 @@ def get_geographical_location(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__, opts=opts, typ=GetGeographicalLocationResult).value
 
     return AwaitableGetGeographicalLocationResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_geographical_location)

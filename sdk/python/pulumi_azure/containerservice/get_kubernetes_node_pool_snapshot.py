@@ -110,11 +110,11 @@ def get_kubernetes_node_pool_snapshot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot', __args__, opts=opts, typ=GetKubernetesNodePoolSnapshotResult).value
 
     return AwaitableGetKubernetesNodePoolSnapshotResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        source_node_pool_id=__ret__.source_node_pool_id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        source_node_pool_id=pulumi.get(__ret__, 'source_node_pool_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_kubernetes_node_pool_snapshot)

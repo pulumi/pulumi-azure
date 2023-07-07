@@ -393,7 +393,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         Machine Learning DataStores can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
         ```
 
         :param str resource_name: The name of the resource.
@@ -467,7 +467,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         Machine Learning DataStores can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
         ```
 
         :param str resource_name: The name of the resource.

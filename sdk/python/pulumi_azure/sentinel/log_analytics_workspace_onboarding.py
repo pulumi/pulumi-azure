@@ -65,6 +65,9 @@ class LogAnalyticsWorkspaceOnboardingArgs:
         """
         Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         """
+        warnings.warn("""this property has been deprecated in favour of `workspace_id`""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: this property has been deprecated in favour of `workspace_id`""")
+
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -86,6 +89,9 @@ class LogAnalyticsWorkspaceOnboardingArgs:
         """
         Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
+        warnings.warn("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""workspace_name is deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
@@ -147,6 +153,9 @@ class _LogAnalyticsWorkspaceOnboardingState:
         """
         Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         """
+        warnings.warn("""this property has been deprecated in favour of `workspace_id`""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: this property has been deprecated in favour of `workspace_id`""")
+
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -168,6 +177,9 @@ class _LogAnalyticsWorkspaceOnboardingState:
         """
         Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
+        warnings.warn("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""workspace_name is deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
@@ -352,6 +364,9 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         """
         Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         """
+        warnings.warn("""this property has been deprecated in favour of `workspace_id`""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: this property has been deprecated in favour of `workspace_id`""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -365,5 +380,8 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         """
         Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
+        warnings.warn("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""workspace_name is deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "workspace_name")
 

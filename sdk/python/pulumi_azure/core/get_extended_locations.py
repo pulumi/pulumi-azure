@@ -88,9 +88,9 @@ def get_extended_locations(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getExtendedLocations:getExtendedLocations', __args__, opts=opts, typ=GetExtendedLocationsResult).value
 
     return AwaitableGetExtendedLocationsResult(
-        extended_locations=__ret__.extended_locations,
-        id=__ret__.id,
-        location=__ret__.location)
+        extended_locations=pulumi.get(__ret__, 'extended_locations'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'))
 
 
 @_utilities.lift_output_func(get_extended_locations)

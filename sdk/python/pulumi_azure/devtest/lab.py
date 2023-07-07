@@ -86,6 +86,9 @@ class LabArgs:
 
         > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         """
+        warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
+        pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
+
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -265,6 +268,9 @@ class _LabState:
 
         > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         """
+        warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
+        pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
+
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -551,6 +557,9 @@ class Lab(pulumi.CustomResource):
 
         > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         """
+        warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
+        pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
+
         return pulumi.get(self, "storage_type")
 
     @property

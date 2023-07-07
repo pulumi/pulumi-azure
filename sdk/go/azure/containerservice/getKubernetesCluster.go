@@ -67,6 +67,8 @@ type LookupKubernetesClusterResult struct {
 	AzureActiveDirectoryRoleBasedAccessControls []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControls"`
 	// Is Azure Policy enabled on this managed Kubernetes Cluster?
 	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
+	// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The DNS Prefix of the managed Kubernetes cluster.
@@ -207,6 +209,11 @@ func (o LookupKubernetesClusterResultOutput) AzureActiveDirectoryRoleBasedAccess
 // Is Azure Policy enabled on this managed Kubernetes Cluster?
 func (o LookupKubernetesClusterResultOutput) AzurePolicyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.AzurePolicyEnabled }).(pulumi.BoolOutput)
+}
+
+// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+func (o LookupKubernetesClusterResultOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []string { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Disk Encryption Set used for the Nodes and Volumes.
