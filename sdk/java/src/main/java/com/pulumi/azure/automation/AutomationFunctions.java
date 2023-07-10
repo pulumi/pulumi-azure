@@ -14,11 +14,14 @@ import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
 import com.pulumi.azure.automation.inputs.GetIntVariablePlainArgs;
 import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
 import com.pulumi.azure.automation.inputs.GetStringVariablePlainArgs;
+import com.pulumi.azure.automation.inputs.GetVariablesArgs;
+import com.pulumi.azure.automation.inputs.GetVariablesPlainArgs;
 import com.pulumi.azure.automation.outputs.GetAccountResult;
 import com.pulumi.azure.automation.outputs.GetBoolVariableResult;
 import com.pulumi.azure.automation.outputs.GetDateTimeVariableResult;
 import com.pulumi.azure.automation.outputs.GetIntVariableResult;
 import com.pulumi.azure.automation.outputs.GetStringVariableResult;
+import com.pulumi.azure.automation.outputs.GetVariablesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -821,5 +824,165 @@ public final class AutomationFunctions {
      */
     public static CompletableFuture<GetStringVariableResult> getStringVariablePlain(GetStringVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:automation/getStringVariable:getStringVariable", TypeShape.of(GetStringVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get all variables in an Automation Account.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
+     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVariablesResult> getVariables(GetVariablesArgs args) {
+        return getVariables(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get all variables in an Automation Account.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
+     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args) {
+        return getVariablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get all variables in an Automation Account.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
+     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getVariables:getVariables", TypeShape.of(GetVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get all variables in an Automation Account.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
+     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:automation/getVariables:getVariables", TypeShape.of(GetVariablesResult.class), args, Utilities.withVersion(options));
     }
 }

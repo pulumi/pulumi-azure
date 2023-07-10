@@ -465,6 +465,9 @@ class ReplicatedVMNetworkInterface(dict):
     @property
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> Optional[bool]:
+        warnings.warn("""this property is not used and will be removed in version 4.0 of the provider""", DeprecationWarning)
+        pulumi.log.warn("""is_primary is deprecated: this property is not used and will be removed in version 4.0 of the provider""")
+
         return pulumi.get(self, "is_primary")
 
     @property
@@ -679,7 +682,7 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
         :param Sequence['ReplicationRecoveryPlanRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param Sequence['ReplicationRecoveryPlanRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
-        :param Sequence[str] replicated_protected_items: (required) one or more id of protected VM.
+        :param Sequence[str] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
         pulumi.set(__self__, "type", type)
         if post_actions is not None:
@@ -717,7 +720,7 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
     @pulumi.getter(name="replicatedProtectedItems")
     def replicated_protected_items(self) -> Optional[Sequence[str]]:
         """
-        (required) one or more id of protected VM.
+        One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
         return pulumi.get(self, "replicated_protected_items")
 
@@ -765,7 +768,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
         :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
-        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param str manual_action_instruction: Instructions of manual action.
@@ -827,7 +830,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
     @pulumi.getter(name="fabricLocation")
     def fabric_location(self) -> Optional[str]:
         """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
         > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
@@ -907,7 +910,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
         :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
-        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param str manual_action_instruction: Instructions of manual action.
@@ -969,7 +972,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
     @pulumi.getter(name="fabricLocation")
     def fabric_location(self) -> Optional[str]:
         """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
         > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """

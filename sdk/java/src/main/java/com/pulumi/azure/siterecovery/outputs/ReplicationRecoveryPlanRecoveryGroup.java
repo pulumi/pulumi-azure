@@ -24,7 +24,7 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
      */
     private @Nullable List<ReplicationRecoveryPlanRecoveryGroupPreAction> preActions;
     /**
-     * @return (required) one or more id of protected VM.
+     * @return One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
      * 
      */
     private @Nullable List<String> replicatedProtectedItems;
@@ -50,7 +50,7 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
         return this.preActions == null ? List.of() : this.preActions;
     }
     /**
-     * @return (required) one or more id of protected VM.
+     * @return One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
      * 
      */
     public List<String> replicatedProtectedItems() {

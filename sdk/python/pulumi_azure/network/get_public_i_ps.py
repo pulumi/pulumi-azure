@@ -126,12 +126,12 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts, typ=GetPublicIPsResult).value
 
     return AwaitableGetPublicIPsResult(
-        allocation_type=__ret__.allocation_type,
-        attachment_status=__ret__.attachment_status,
-        id=__ret__.id,
-        name_prefix=__ret__.name_prefix,
-        public_ips=__ret__.public_ips,
-        resource_group_name=__ret__.resource_group_name)
+        allocation_type=pulumi.get(__ret__, 'allocation_type'),
+        attachment_status=pulumi.get(__ret__, 'attachment_status'),
+        id=pulumi.get(__ret__, 'id'),
+        name_prefix=pulumi.get(__ret__, 'name_prefix'),
+        public_ips=pulumi.get(__ret__, 'public_ips'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_public_i_ps)

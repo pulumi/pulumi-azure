@@ -1125,7 +1125,7 @@ class ApiOperationRequestHeaderArgs:
         :param pulumi.Input[str] type: The Type of this Header, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Header.
         :param pulumi.Input[str] description: A description of this Header.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
@@ -1210,7 +1210,7 @@ class ApiOperationRequestHeaderArgs:
     @pulumi.getter
     def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]]]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -1359,7 +1359,7 @@ class ApiOperationRequestQueryParameterArgs:
         :param pulumi.Input[str] type: The Type of this Query Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Query Parameter.
         :param pulumi.Input[str] description: A description of this Query Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Query Parameter.
@@ -1444,7 +1444,7 @@ class ApiOperationRequestQueryParameterArgs:
     @pulumi.getter
     def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]]]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -1777,7 +1777,7 @@ class ApiOperationRequestRepresentationFormParameterArgs:
         :param pulumi.Input[str] type: The Type of this Form Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Form Parameter.
         :param pulumi.Input[str] description: A description of this Form Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
@@ -1862,7 +1862,7 @@ class ApiOperationRequestRepresentationFormParameterArgs:
     @pulumi.getter
     def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]]]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -2081,7 +2081,7 @@ class ApiOperationResponseHeaderArgs:
         :param pulumi.Input[str] type: The Type of this Header, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Header.
         :param pulumi.Input[str] description: A description of this Header.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
@@ -2166,7 +2166,7 @@ class ApiOperationResponseHeaderArgs:
     @pulumi.getter
     def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]]]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -2499,7 +2499,7 @@ class ApiOperationResponseRepresentationFormParameterArgs:
         :param pulumi.Input[str] type: The Type of this Form Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Form Parameter.
         :param pulumi.Input[str] description: A description of this Form Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
@@ -2584,7 +2584,7 @@ class ApiOperationResponseRepresentationFormParameterArgs:
     @pulumi.getter
     def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]]]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
@@ -2733,7 +2733,7 @@ class ApiOperationTemplateParameterArgs:
         :param pulumi.Input[str] type: The Type of this Template Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Template Parameter.
         :param pulumi.Input[str] description: A description of this Template Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Template Parameter.
@@ -2818,7 +2818,7 @@ class ApiOperationTemplateParameterArgs:
     @pulumi.getter
     def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]]]:
         """
-        (Optional) One or more `example` blocks as defined above.
+        One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 

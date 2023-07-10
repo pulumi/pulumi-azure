@@ -162,15 +162,15 @@ def get_directory(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:aadb2c/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
 
     return AwaitableGetDirectoryResult(
-        billing_type=__ret__.billing_type,
-        data_residency_location=__ret__.data_residency_location,
-        domain_name=__ret__.domain_name,
-        effective_start_date=__ret__.effective_start_date,
-        id=__ret__.id,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id)
+        billing_type=pulumi.get(__ret__, 'billing_type'),
+        data_residency_location=pulumi.get(__ret__, 'data_residency_location'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        effective_start_date=pulumi.get(__ret__, 'effective_start_date'),
+        id=pulumi.get(__ret__, 'id'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'))
 
 
 @_utilities.lift_output_func(get_directory)

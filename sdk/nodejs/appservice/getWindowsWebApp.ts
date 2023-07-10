@@ -145,6 +145,7 @@ export interface GetWindowsWebAppResult {
      * The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
      */
     readonly possibleOutboundIpAddresses: string;
+    readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The ID of the Service Plan in which this Windows Web App resides.

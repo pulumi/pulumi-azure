@@ -18,6 +18,21 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
     public static final SpringCloudConfigurationServiceArgs Empty = new SpringCloudConfigurationServiceArgs();
 
     /**
+     * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     * 
+     */
+    @Import(name="generation")
+    private @Nullable Output<String> generation;
+
+    /**
+     * @return The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+     * 
+     */
+    public Optional<Output<String>> generation() {
+        return Optional.ofNullable(this.generation);
+    }
+
+    /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
@@ -65,6 +80,7 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
     private SpringCloudConfigurationServiceArgs() {}
 
     private SpringCloudConfigurationServiceArgs(SpringCloudConfigurationServiceArgs $) {
+        this.generation = $.generation;
         this.name = $.name;
         this.repositories = $.repositories;
         this.springCloudServiceId = $.springCloudServiceId;
@@ -86,6 +102,27 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
 
         public Builder(SpringCloudConfigurationServiceArgs defaults) {
             $ = new SpringCloudConfigurationServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param generation The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generation(@Nullable Output<String> generation) {
+            $.generation = generation;
+            return this;
+        }
+
+        /**
+         * @param generation The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generation(String generation) {
+            return generation(Output.of(generation));
         }
 
         /**

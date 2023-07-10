@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ContextAccessToken;
         /// <summary>
-        /// The URL (absolute or relative) of the source context for this step.
+        /// The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
         /// </summary>
         public readonly string ContextPath;
         /// <summary>

@@ -172,16 +172,16 @@ def get_virtual_machine(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getVirtualMachine:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult).value
 
     return AwaitableGetVirtualMachineResult(
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        power_state=__ret__.power_state,
-        private_ip_address=__ret__.private_ip_address,
-        private_ip_addresses=__ret__.private_ip_addresses,
-        public_ip_address=__ret__.public_ip_address,
-        public_ip_addresses=__ret__.public_ip_addresses,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        power_state=pulumi.get(__ret__, 'power_state'),
+        private_ip_address=pulumi.get(__ret__, 'private_ip_address'),
+        private_ip_addresses=pulumi.get(__ret__, 'private_ip_addresses'),
+        public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
+        public_ip_addresses=pulumi.get(__ret__, 'public_ip_addresses'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_virtual_machine)

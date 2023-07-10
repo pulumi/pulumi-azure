@@ -25,6 +25,8 @@ class ManagedHardwareSecurityModuleArgs:
                  network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_domain_quorum: Optional[pulumi.Input[int]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -38,6 +40,8 @@ class ManagedHardwareSecurityModuleArgs:
         :param pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_domain_key_vault_certificate_ids: A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        :param pulumi.Input[int] security_domain_quorum: Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -55,6 +59,10 @@ class ManagedHardwareSecurityModuleArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if security_domain_key_vault_certificate_ids is not None:
+            pulumi.set(__self__, "security_domain_key_vault_certificate_ids", security_domain_key_vault_certificate_ids)
+        if security_domain_quorum is not None:
+            pulumi.set(__self__, "security_domain_quorum", security_domain_quorum)
         if soft_delete_retention_days is not None:
             pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
@@ -169,6 +177,30 @@ class ManagedHardwareSecurityModuleArgs:
         pulumi.set(self, "purge_protection_enabled", value)
 
     @property
+    @pulumi.getter(name="securityDomainKeyVaultCertificateIds")
+    def security_domain_key_vault_certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        """
+        return pulumi.get(self, "security_domain_key_vault_certificate_ids")
+
+    @security_domain_key_vault_certificate_ids.setter
+    def security_domain_key_vault_certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_domain_key_vault_certificate_ids", value)
+
+    @property
+    @pulumi.getter(name="securityDomainQuorum")
+    def security_domain_quorum(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        """
+        return pulumi.get(self, "security_domain_quorum")
+
+    @security_domain_quorum.setter
+    def security_domain_quorum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "security_domain_quorum", value)
+
+    @property
     @pulumi.getter(name="softDeleteRetentionDays")
     def soft_delete_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -204,6 +236,9 @@ class _ManagedHardwareSecurityModuleState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_domain_encrypted_data: Optional[pulumi.Input[str]] = None,
+                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_domain_quorum: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -218,6 +253,9 @@ class _ManagedHardwareSecurityModuleState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_domain_encrypted_data: This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_domain_key_vault_certificate_ids: A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        :param pulumi.Input[int] security_domain_quorum: Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -239,6 +277,12 @@ class _ManagedHardwareSecurityModuleState:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if security_domain_encrypted_data is not None:
+            pulumi.set(__self__, "security_domain_encrypted_data", security_domain_encrypted_data)
+        if security_domain_key_vault_certificate_ids is not None:
+            pulumi.set(__self__, "security_domain_key_vault_certificate_ids", security_domain_key_vault_certificate_ids)
+        if security_domain_quorum is not None:
+            pulumi.set(__self__, "security_domain_quorum", security_domain_quorum)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if soft_delete_retention_days is not None:
@@ -345,6 +389,42 @@ class _ManagedHardwareSecurityModuleState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="securityDomainEncryptedData")
+    def security_domain_encrypted_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+        """
+        return pulumi.get(self, "security_domain_encrypted_data")
+
+    @security_domain_encrypted_data.setter
+    def security_domain_encrypted_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_domain_encrypted_data", value)
+
+    @property
+    @pulumi.getter(name="securityDomainKeyVaultCertificateIds")
+    def security_domain_key_vault_certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        """
+        return pulumi.get(self, "security_domain_key_vault_certificate_ids")
+
+    @security_domain_key_vault_certificate_ids.setter
+    def security_domain_key_vault_certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_domain_key_vault_certificate_ids", value)
+
+    @property
+    @pulumi.getter(name="securityDomainQuorum")
+    def security_domain_quorum(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        """
+        return pulumi.get(self, "security_domain_quorum")
+
+    @security_domain_quorum.setter
+    def security_domain_quorum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "security_domain_quorum", value)
+
+    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -405,6 +485,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_domain_quorum: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -453,6 +535,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_domain_key_vault_certificate_ids: A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        :param pulumi.Input[int] security_domain_quorum: Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -520,6 +604,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_domain_quorum: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -544,6 +630,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_domain_key_vault_certificate_ids"] = security_domain_key_vault_certificate_ids
+            __props__.__dict__["security_domain_quorum"] = security_domain_quorum
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
@@ -553,6 +641,9 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["hsm_uri"] = None
+            __props__.__dict__["security_domain_encrypted_data"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["securityDomainEncryptedData"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedHardwareSecurityModule, __self__).__init__(
             'azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule',
             resource_name,
@@ -571,6 +662,9 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            security_domain_encrypted_data: Optional[pulumi.Input[str]] = None,
+            security_domain_key_vault_certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            security_domain_quorum: Optional[pulumi.Input[int]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -590,6 +684,9 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_domain_encrypted_data: This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_domain_key_vault_certificate_ids: A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        :param pulumi.Input[int] security_domain_quorum: Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -607,6 +704,9 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["security_domain_encrypted_data"] = security_domain_encrypted_data
+        __props__.__dict__["security_domain_key_vault_certificate_ids"] = security_domain_key_vault_certificate_ids
+        __props__.__dict__["security_domain_quorum"] = security_domain_quorum
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["soft_delete_retention_days"] = soft_delete_retention_days
         __props__.__dict__["tags"] = tags
@@ -676,6 +776,30 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="securityDomainEncryptedData")
+    def security_domain_encrypted_data(self) -> pulumi.Output[str]:
+        """
+        This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+        """
+        return pulumi.get(self, "security_domain_encrypted_data")
+
+    @property
+    @pulumi.getter(name="securityDomainKeyVaultCertificateIds")
+    def security_domain_key_vault_certificate_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        """
+        return pulumi.get(self, "security_domain_key_vault_certificate_ids")
+
+    @property
+    @pulumi.getter(name="securityDomainQuorum")
+    def security_domain_quorum(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        """
+        return pulumi.get(self, "security_domain_quorum")
 
     @property
     @pulumi.getter(name="skuName")

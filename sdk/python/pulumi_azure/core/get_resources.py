@@ -125,12 +125,12 @@ def get_resources(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getResources:getResources', __args__, opts=opts, typ=GetResourcesResult).value
 
     return AwaitableGetResourcesResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        required_tags=__ret__.required_tags,
-        resource_group_name=__ret__.resource_group_name,
-        resources=__ret__.resources,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        required_tags=pulumi.get(__ret__, 'required_tags'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        resources=pulumi.get(__ret__, 'resources'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_resources)

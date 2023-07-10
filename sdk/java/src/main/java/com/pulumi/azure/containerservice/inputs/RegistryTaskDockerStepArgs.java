@@ -64,14 +64,14 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The URL (absolute or relative) of the source context for this step.
+     * The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
      * 
      */
     @Import(name="contextPath", required=true)
     private Output<String> contextPath;
 
     /**
-     * @return The URL (absolute or relative) of the source context for this step.
+     * @return The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
      * 
      */
     public Output<String> contextPath() {
@@ -249,7 +249,7 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param contextPath The URL (absolute or relative) of the source context for this step.
+         * @param contextPath The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param contextPath The URL (absolute or relative) of the source context for this step.
+         * @param contextPath The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
          * 
          * @return builder
          * 

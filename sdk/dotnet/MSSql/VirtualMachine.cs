@@ -80,7 +80,7 @@ namespace Pulumi.Azure.MSSql
         public Output<Outputs.VirtualMachineAutoPatching?> AutoPatching { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) An `key_vault_credential` block as defined below.
+        /// An `key_vault_credential` block as defined below.
         /// </summary>
         [Output("keyVaultCredential")]
         public Output<Outputs.VirtualMachineKeyVaultCredential?> KeyVaultCredential { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.VirtualMachineAutoPatchingArgs>? AutoPatching { get; set; }
 
         /// <summary>
-        /// (Optional) An `key_vault_credential` block as defined below.
+        /// An `key_vault_credential` block as defined below.
         /// </summary>
         [Input("keyVaultCredential")]
         public Input<Inputs.VirtualMachineKeyVaultCredentialArgs>? KeyVaultCredential { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.VirtualMachineAutoPatchingGetArgs>? AutoPatching { get; set; }
 
         /// <summary>
-        /// (Optional) An `key_vault_credential` block as defined below.
+        /// An `key_vault_credential` block as defined below.
         /// </summary>
         [Input("keyVaultCredential")]
         public Input<Inputs.VirtualMachineKeyVaultCredentialGetArgs>? KeyVaultCredential { get; set; }

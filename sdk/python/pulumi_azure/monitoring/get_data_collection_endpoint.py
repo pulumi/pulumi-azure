@@ -174,16 +174,16 @@ def get_data_collection_endpoint(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint', __args__, opts=opts, typ=GetDataCollectionEndpointResult).value
 
     return AwaitableGetDataCollectionEndpointResult(
-        configuration_access_endpoint=__ret__.configuration_access_endpoint,
-        description=__ret__.description,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        logs_ingestion_endpoint=__ret__.logs_ingestion_endpoint,
-        name=__ret__.name,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        configuration_access_endpoint=pulumi.get(__ret__, 'configuration_access_endpoint'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        logs_ingestion_endpoint=pulumi.get(__ret__, 'logs_ingestion_endpoint'),
+        name=pulumi.get(__ret__, 'name'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_data_collection_endpoint)

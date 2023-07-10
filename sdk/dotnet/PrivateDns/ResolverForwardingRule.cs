@@ -130,7 +130,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> DnsForwardingRulesetId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        /// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string> DnsForwardingRulesetId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        /// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? DnsForwardingRulesetId { get; set; }
 
         /// <summary>
-        /// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        /// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

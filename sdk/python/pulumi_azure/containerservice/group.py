@@ -298,6 +298,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="networkProfileId")
     def network_profile_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
+        pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
+
         return pulumi.get(self, "network_profile_id")
 
     @network_profile_id.setter
@@ -647,6 +650,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="networkProfileId")
     def network_profile_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
+        pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
+
         return pulumi.get(self, "network_profile_id")
 
     @network_profile_id.setter
@@ -1193,6 +1199,9 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkProfileId")
     def network_profile_id(self) -> pulumi.Output[str]:
+        warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
+        pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
+
         return pulumi.get(self, "network_profile_id")
 
     @property

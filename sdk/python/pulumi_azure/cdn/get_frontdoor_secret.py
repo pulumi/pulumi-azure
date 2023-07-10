@@ -127,12 +127,12 @@ def get_frontdoor_secret(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorSecret:getFrontdoorSecret', __args__, opts=opts, typ=GetFrontdoorSecretResult).value
 
     return AwaitableGetFrontdoorSecretResult(
-        cdn_frontdoor_profile_id=__ret__.cdn_frontdoor_profile_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        profile_name=__ret__.profile_name,
-        resource_group_name=__ret__.resource_group_name,
-        secrets=__ret__.secrets)
+        cdn_frontdoor_profile_id=pulumi.get(__ret__, 'cdn_frontdoor_profile_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secrets=pulumi.get(__ret__, 'secrets'))
 
 
 @_utilities.lift_output_func(get_frontdoor_secret)

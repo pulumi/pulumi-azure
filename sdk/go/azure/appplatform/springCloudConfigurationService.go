@@ -85,6 +85,8 @@ import (
 type SpringCloudConfigurationService struct {
 	pulumi.CustomResourceState
 
+	// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+	Generation pulumi.StringPtrOutput `pulumi:"generation"`
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `repository` blocks as defined below.
@@ -125,6 +127,8 @@ func GetSpringCloudConfigurationService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudConfigurationService resources.
 type springCloudConfigurationServiceState struct {
+	// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+	Generation *string `pulumi:"generation"`
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name *string `pulumi:"name"`
 	// One or more `repository` blocks as defined below.
@@ -134,6 +138,8 @@ type springCloudConfigurationServiceState struct {
 }
 
 type SpringCloudConfigurationServiceState struct {
+	// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+	Generation pulumi.StringPtrInput
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringPtrInput
 	// One or more `repository` blocks as defined below.
@@ -147,6 +153,8 @@ func (SpringCloudConfigurationServiceState) ElementType() reflect.Type {
 }
 
 type springCloudConfigurationServiceArgs struct {
+	// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+	Generation *string `pulumi:"generation"`
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name *string `pulumi:"name"`
 	// One or more `repository` blocks as defined below.
@@ -157,6 +165,8 @@ type springCloudConfigurationServiceArgs struct {
 
 // The set of arguments for constructing a SpringCloudConfigurationService resource.
 type SpringCloudConfigurationServiceArgs struct {
+	// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+	Generation pulumi.StringPtrInput
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringPtrInput
 	// One or more `repository` blocks as defined below.
@@ -250,6 +260,11 @@ func (o SpringCloudConfigurationServiceOutput) ToSpringCloudConfigurationService
 
 func (o SpringCloudConfigurationServiceOutput) ToSpringCloudConfigurationServiceOutputWithContext(ctx context.Context) SpringCloudConfigurationServiceOutput {
 	return o
+}
+
+// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
+func (o SpringCloudConfigurationServiceOutput) Generation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConfigurationService) pulumi.StringPtrOutput { return v.Generation }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.

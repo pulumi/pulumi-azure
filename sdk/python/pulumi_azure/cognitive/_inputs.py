@@ -316,22 +316,86 @@ class DeploymentModelArgs:
 @pulumi.input_type
 class DeploymentScaleArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tier: Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "type", type)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
 
 

@@ -153,17 +153,17 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult).value
 
     return AwaitableGetNamespaceDisasterRecoveryConfigResult(
-        alias_authorization_rule_id=__ret__.alias_authorization_rule_id,
-        default_primary_key=__ret__.default_primary_key,
-        default_secondary_key=__ret__.default_secondary_key,
-        id=__ret__.id,
-        name=__ret__.name,
-        namespace_id=__ret__.namespace_id,
-        namespace_name=__ret__.namespace_name,
-        partner_namespace_id=__ret__.partner_namespace_id,
-        primary_connection_string_alias=__ret__.primary_connection_string_alias,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_connection_string_alias=__ret__.secondary_connection_string_alias)
+        alias_authorization_rule_id=pulumi.get(__ret__, 'alias_authorization_rule_id'),
+        default_primary_key=pulumi.get(__ret__, 'default_primary_key'),
+        default_secondary_key=pulumi.get(__ret__, 'default_secondary_key'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_id=pulumi.get(__ret__, 'namespace_id'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        partner_namespace_id=pulumi.get(__ret__, 'partner_namespace_id'),
+        primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'))
 
 
 @_utilities.lift_output_func(get_namespace_disaster_recovery_config)

@@ -259,23 +259,23 @@ def get_job(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:streamanalytics/getJob:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        compatibility_level=__ret__.compatibility_level,
-        data_locale=__ret__.data_locale,
-        events_late_arrival_max_delay_in_seconds=__ret__.events_late_arrival_max_delay_in_seconds,
-        events_out_of_order_max_delay_in_seconds=__ret__.events_out_of_order_max_delay_in_seconds,
-        events_out_of_order_policy=__ret__.events_out_of_order_policy,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        job_id=__ret__.job_id,
-        last_output_time=__ret__.last_output_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        output_error_policy=__ret__.output_error_policy,
-        resource_group_name=__ret__.resource_group_name,
-        start_mode=__ret__.start_mode,
-        start_time=__ret__.start_time,
-        streaming_units=__ret__.streaming_units,
-        transformation_query=__ret__.transformation_query)
+        compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
+        data_locale=pulumi.get(__ret__, 'data_locale'),
+        events_late_arrival_max_delay_in_seconds=pulumi.get(__ret__, 'events_late_arrival_max_delay_in_seconds'),
+        events_out_of_order_max_delay_in_seconds=pulumi.get(__ret__, 'events_out_of_order_max_delay_in_seconds'),
+        events_out_of_order_policy=pulumi.get(__ret__, 'events_out_of_order_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        job_id=pulumi.get(__ret__, 'job_id'),
+        last_output_time=pulumi.get(__ret__, 'last_output_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        output_error_policy=pulumi.get(__ret__, 'output_error_policy'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        start_mode=pulumi.get(__ret__, 'start_mode'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        streaming_units=pulumi.get(__ret__, 'streaming_units'),
+        transformation_query=pulumi.get(__ret__, 'transformation_query'))
 
 
 @_utilities.lift_output_func(get_job)

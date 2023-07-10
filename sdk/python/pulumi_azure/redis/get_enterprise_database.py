@@ -42,10 +42,6 @@ class GetEnterpriseDatabaseResult:
         pulumi.set(__self__, "primary_access_key", primary_access_key)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
-        if resource_group_name is not None:
-            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key and not isinstance(secondary_access_key, str):
             raise TypeError("Expected argument 'secondary_access_key' to be a str")
@@ -102,6 +98,9 @@ class GetEnterpriseDatabaseResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
+        warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -162,14 +161,14 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:redis/getEnterpriseDatabase:getEnterpriseDatabase', __args__, opts=opts, typ=GetEnterpriseDatabaseResult).value
 
     return AwaitableGetEnterpriseDatabaseResult(
-        cluster_id=__ret__.cluster_id,
-        id=__ret__.id,
-        linked_database_group_nickname=__ret__.linked_database_group_nickname,
-        linked_database_ids=__ret__.linked_database_ids,
-        name=__ret__.name,
-        primary_access_key=__ret__.primary_access_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key)
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        id=pulumi.get(__ret__, 'id'),
+        linked_database_group_nickname=pulumi.get(__ret__, 'linked_database_group_nickname'),
+        linked_database_ids=pulumi.get(__ret__, 'linked_database_ids'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
 
 
 @_utilities.lift_output_func(get_enterprise_database)

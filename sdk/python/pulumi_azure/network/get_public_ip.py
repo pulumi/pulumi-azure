@@ -293,23 +293,23 @@ def get_public_ip(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__, opts=opts, typ=GetPublicIPResult).value
 
     return AwaitableGetPublicIPResult(
-        allocation_method=__ret__.allocation_method,
-        ddos_protection_mode=__ret__.ddos_protection_mode,
-        ddos_protection_plan_id=__ret__.ddos_protection_plan_id,
-        domain_name_label=__ret__.domain_name_label,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
-        ip_address=__ret__.ip_address,
-        ip_tags=__ret__.ip_tags,
-        ip_version=__ret__.ip_version,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        reverse_fqdn=__ret__.reverse_fqdn,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        zones=__ret__.zones)
+        allocation_method=pulumi.get(__ret__, 'allocation_method'),
+        ddos_protection_mode=pulumi.get(__ret__, 'ddos_protection_mode'),
+        ddos_protection_plan_id=pulumi.get(__ret__, 'ddos_protection_plan_id'),
+        domain_name_label=pulumi.get(__ret__, 'domain_name_label'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        ip_tags=pulumi.get(__ret__, 'ip_tags'),
+        ip_version=pulumi.get(__ret__, 'ip_version'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        reverse_fqdn=pulumi.get(__ret__, 'reverse_fqdn'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_public_ip)

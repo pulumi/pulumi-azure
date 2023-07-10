@@ -106,7 +106,7 @@ export class ResolverForwardingRule extends pulumi.CustomResource {
      */
     public readonly dnsForwardingRulesetId!: pulumi.Output<string>;
     /**
-     * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface ResolverForwardingRuleState {
      */
     dnsForwardingRulesetId?: pulumi.Input<string>;
     /**
-     * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface ResolverForwardingRuleArgs {
      */
     dnsForwardingRulesetId: pulumi.Input<string>;
     /**
-     * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
     domainName: pulumi.Input<string>;
     /**

@@ -102,10 +102,10 @@ def get_policy_fileshare(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:backup/getPolicyFileshare:getPolicyFileshare', __args__, opts=opts, typ=GetPolicyFileshareResult).value
 
     return AwaitableGetPolicyFileshareResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        recovery_vault_name=__ret__.recovery_vault_name,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_policy_fileshare)

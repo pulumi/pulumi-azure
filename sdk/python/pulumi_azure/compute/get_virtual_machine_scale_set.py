@@ -142,13 +142,13 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult).value
 
     return AwaitableGetVirtualMachineScaleSetResult(
-        id=__ret__.id,
-        identities=__ret__.identities,
-        instances=__ret__.instances,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        instances=pulumi.get(__ret__, 'instances'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_scale_set)

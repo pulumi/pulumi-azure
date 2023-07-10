@@ -127,12 +127,12 @@ def get_shared_image_versions(gallery_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageVersions:getSharedImageVersions', __args__, opts=opts, typ=GetSharedImageVersionsResult).value
 
     return AwaitableGetSharedImageVersionsResult(
-        gallery_name=__ret__.gallery_name,
-        id=__ret__.id,
-        image_name=__ret__.image_name,
-        images=__ret__.images,
-        resource_group_name=__ret__.resource_group_name,
-        tags_filter=__ret__.tags_filter)
+        gallery_name=pulumi.get(__ret__, 'gallery_name'),
+        id=pulumi.get(__ret__, 'id'),
+        image_name=pulumi.get(__ret__, 'image_name'),
+        images=pulumi.get(__ret__, 'images'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags_filter=pulumi.get(__ret__, 'tags_filter'))
 
 
 @_utilities.lift_output_func(get_shared_image_versions)

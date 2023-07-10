@@ -182,6 +182,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
      */
@@ -265,6 +266,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
             resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
             resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
@@ -301,6 +303,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
@@ -435,6 +438,7 @@ export interface LinuxFunctionAppSlotState {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
      */
@@ -556,6 +560,7 @@ export interface LinuxFunctionAppSlotArgs {
      * Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
      */

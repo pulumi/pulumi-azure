@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network
     ///     {
     ///         AddressSpaces = new[]
     ///         {
-    ///             "172.0.0.0/16",
+    ///             "172.16.0.0/12",
     ///         },
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,

@@ -181,17 +181,17 @@ def get_nat_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getNatGateway:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
-        id=__ret__.id,
-        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
-        location=__ret__.location,
-        name=__ret__.name,
-        public_ip_address_ids=__ret__.public_ip_address_ids,
-        public_ip_prefix_ids=__ret__.public_ip_prefix_ids,
-        resource_group_name=__ret__.resource_group_name,
-        resource_guid=__ret__.resource_guid,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags,
-        zones=__ret__.zones)
+        id=pulumi.get(__ret__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        public_ip_address_ids=pulumi.get(__ret__, 'public_ip_address_ids'),
+        public_ip_prefix_ids=pulumi.get(__ret__, 'public_ip_prefix_ids'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_nat_gateway)

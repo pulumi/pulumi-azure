@@ -50,7 +50,14 @@ import (
 //				CleanupPreference: pulumi.String("OnSuccess"),
 //				ForceUpdateTag:    pulumi.String("1"),
 //				Timeout:           pulumi.String("PT30M"),
-//				ScriptContent:     pulumi.String("          param([string] $name)\n            $output = 'Hello {0}.' -f $name\n            Write-Output $output\n            $DeploymentScriptOutputs = @{}\n            $DeploymentScriptOutputs['text'] = $output\n"),
+//				ScriptContent: pulumi.String(`          param([string] $name)
+//	            $output = 'Hello {0}.' -f $name
+//	            Write-Output $output
+//	            $DeploymentScriptOutputs = @{}
+//	            $DeploymentScriptOutputs['text'] = $output
+//
+// `),
+//
 //				Identity: &core.ResourceDeploymentScriptPowerShellIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{

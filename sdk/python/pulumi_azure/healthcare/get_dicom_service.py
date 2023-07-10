@@ -157,15 +157,15 @@ def get_dicom_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:healthcare/getDicomService:getDicomService', __args__, opts=opts, typ=GetDicomServiceResult).value
 
     return AwaitableGetDicomServiceResult(
-        authentications=__ret__.authentications,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoints=__ret__.private_endpoints,
-        service_url=__ret__.service_url,
-        tags=__ret__.tags,
-        workspace_id=__ret__.workspace_id)
+        authentications=pulumi.get(__ret__, 'authentications'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoints=pulumi.get(__ret__, 'private_endpoints'),
+        service_url=pulumi.get(__ret__, 'service_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_dicom_service)

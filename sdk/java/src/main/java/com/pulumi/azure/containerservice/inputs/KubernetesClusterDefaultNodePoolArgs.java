@@ -41,16 +41,12 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Specifies whether to trust a Custom CA.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-     * 
      */
     @Import(name="customCaTrustEnabled")
     private @Nullable Output<Boolean> customCaTrustEnabled;
 
     /**
      * @return Specifies whether to trust a Custom CA.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Optional<Output<Boolean>> customCaTrustEnabled() {
@@ -412,14 +408,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     @Import(name="osSku")
     private @Nullable Output<String> osSku;
 
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<Output<String>> osSku() {
@@ -710,8 +706,6 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-         * 
          * @return builder
          * 
          */
@@ -722,8 +716,6 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
          * 
          * @return builder
          * 
@@ -1229,7 +1221,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param osSku Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+         * @param osSku Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
          * 
          * @return builder
          * 
@@ -1240,7 +1232,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param osSku Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+         * @param osSku Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
          * 
          * @return builder
          * 

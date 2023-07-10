@@ -139,13 +139,13 @@ def get_zone_virtual_network_link(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink', __args__, opts=opts, typ=GetZoneVirtualNetworkLinkResult).value
 
     return AwaitableGetZoneVirtualNetworkLinkResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        private_dns_zone_name=__ret__.private_dns_zone_name,
-        registration_enabled=__ret__.registration_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        virtual_network_id=__ret__.virtual_network_id)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_dns_zone_name=pulumi.get(__ret__, 'private_dns_zone_name'),
+        registration_enabled=pulumi.get(__ret__, 'registration_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 
 
 @_utilities.lift_output_func(get_zone_virtual_network_link)

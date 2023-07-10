@@ -186,18 +186,18 @@ def get_snapshot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        creation_option=__ret__.creation_option,
-        disk_size_gb=__ret__.disk_size_gb,
-        encryption_settings=__ret__.encryption_settings,
-        id=__ret__.id,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        resource_group_name=__ret__.resource_group_name,
-        source_resource_id=__ret__.source_resource_id,
-        source_uri=__ret__.source_uri,
-        storage_account_id=__ret__.storage_account_id,
-        time_created=__ret__.time_created,
-        trusted_launch_enabled=__ret__.trusted_launch_enabled)
+        creation_option=pulumi.get(__ret__, 'creation_option'),
+        disk_size_gb=pulumi.get(__ret__, 'disk_size_gb'),
+        encryption_settings=pulumi.get(__ret__, 'encryption_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
+        source_uri=pulumi.get(__ret__, 'source_uri'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        trusted_launch_enabled=pulumi.get(__ret__, 'trusted_launch_enabled'))
 
 
 @_utilities.lift_output_func(get_snapshot)

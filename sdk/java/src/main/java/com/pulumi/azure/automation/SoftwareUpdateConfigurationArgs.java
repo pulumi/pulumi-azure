@@ -38,14 +38,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      * 
      */
     @Import(name="duration")
     private @Nullable Output<String> duration;
 
     /**
-     * @return Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * @return Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      * 
      */
     public Optional<Output<String>> duration() {
@@ -53,14 +53,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `linux` blocks as defined below.
+     * A `linux` block as defined below.
      * 
      */
     @Import(name="linuxes")
     private @Nullable Output<List<SoftwareUpdateConfigurationLinuxArgs>> linuxes;
 
     /**
-     * @return One or more `linux` blocks as defined below.
+     * @return A `linux` block as defined below.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationLinuxArgs>>> linuxes() {
@@ -83,14 +83,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies a list of names of non-azure machines for the software update configuration.
+     * Specifies a list of names of non-Azure machines for the software update configuration.
      * 
      */
     @Import(name="nonAzureComputerNames")
     private @Nullable Output<List<String>> nonAzureComputerNames;
 
     /**
-     * @return Specifies a list of names of non-azure machines for the software update configuration.
+     * @return Specifies a list of names of non-Azure machines for the software update configuration.
      * 
      */
     public Optional<Output<List<String>>> nonAzureComputerNames() {
@@ -98,29 +98,33 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Operating system of target machines. Possible values are `Windows` and `Linux`.
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
      * 
      */
-    @Import(name="operatingSystem", required=true)
-    private Output<String> operatingSystem;
+    @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
+    @Import(name="operatingSystem")
+    private @Nullable Output<String> operatingSystem;
 
     /**
-     * @return The Operating system of target machines. Possible values are `Windows` and `Linux`.
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
      * 
      */
-    public Output<String> operatingSystem() {
-        return this.operatingSystem;
+    @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
+    public Optional<Output<String>> operatingSystem() {
+        return Optional.ofNullable(this.operatingSystem);
     }
 
     /**
-     * One or more `post_task` blocks as defined below.
+     * A `post_task` blocks as defined below.
      * 
      */
     @Import(name="postTasks")
     private @Nullable Output<List<SoftwareUpdateConfigurationPostTaskArgs>> postTasks;
 
     /**
-     * @return One or more `post_task` blocks as defined below.
+     * @return A `post_task` blocks as defined below.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationPostTaskArgs>>> postTasks() {
@@ -128,14 +132,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `pre_task` blocks as defined below.
+     * A `pre_task` blocks as defined below.
      * 
      */
     @Import(name="preTasks")
     private @Nullable Output<List<SoftwareUpdateConfigurationPreTaskArgs>> preTasks;
 
     /**
-     * @return One or more `pre_task` blocks as defined below.
+     * @return A `pre_task` blocks as defined below.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationPreTaskArgs>>> preTasks() {
@@ -143,29 +147,29 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `schedule` blocks as defined below.
+     * A `schedule` blocks as defined below.
      * 
      */
-    @Import(name="schedules")
-    private @Nullable Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules;
+    @Import(name="schedules", required=true)
+    private Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules;
 
     /**
-     * @return One or more `schedule` blocks as defined below.
+     * @return A `schedule` blocks as defined below.
      * 
      */
-    public Optional<Output<List<SoftwareUpdateConfigurationScheduleArgs>>> schedules() {
-        return Optional.ofNullable(this.schedules);
+    public Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules() {
+        return this.schedules;
     }
 
     /**
-     * One or more `target` blocks as defined below.
+     * A `target` blocks as defined below.
      * 
      */
     @Import(name="target")
     private @Nullable Output<SoftwareUpdateConfigurationTargetArgs> target;
 
     /**
-     * @return One or more `target` blocks as defined below.
+     * @return A `target` blocks as defined below.
      * 
      */
     public Optional<Output<SoftwareUpdateConfigurationTargetArgs>> target() {
@@ -173,14 +177,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies a list of azure resource Ids of azure virtual machines.
+     * Specifies a list of Azure Resource IDs of azure virtual machines.
      * 
      */
     @Import(name="virtualMachineIds")
     private @Nullable Output<List<String>> virtualMachineIds;
 
     /**
-     * @return Specifies a list of azure resource Ids of azure virtual machines.
+     * @return Specifies a list of Azure Resource IDs of azure virtual machines.
      * 
      */
     public Optional<Output<List<String>>> virtualMachineIds() {
@@ -188,14 +192,18 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `windows` blocks as defined below.
+     * A `windows` block as defined below.
+     * 
+     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
      * 
      */
     @Import(name="windows")
     private @Nullable Output<SoftwareUpdateConfigurationWindowsArgs> windows;
 
     /**
-     * @return One or more `windows` blocks as defined below.
+     * @return A `windows` block as defined below.
+     * 
+     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
      * 
      */
     public Optional<Output<SoftwareUpdateConfigurationWindowsArgs>> windows() {
@@ -259,7 +267,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param duration Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+         * @param duration Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
          * 
          * @return builder
          * 
@@ -270,7 +278,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param duration Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+         * @param duration Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
          * 
          * @return builder
          * 
@@ -280,7 +288,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param linuxes One or more `linux` blocks as defined below.
+         * @param linuxes A `linux` block as defined below.
          * 
          * @return builder
          * 
@@ -291,7 +299,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param linuxes One or more `linux` blocks as defined below.
+         * @param linuxes A `linux` block as defined below.
          * 
          * @return builder
          * 
@@ -301,7 +309,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param linuxes One or more `linux` blocks as defined below.
+         * @param linuxes A `linux` block as defined below.
          * 
          * @return builder
          * 
@@ -332,7 +340,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param nonAzureComputerNames Specifies a list of names of non-azure machines for the software update configuration.
+         * @param nonAzureComputerNames Specifies a list of names of non-Azure machines for the software update configuration.
          * 
          * @return builder
          * 
@@ -343,7 +351,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param nonAzureComputerNames Specifies a list of names of non-azure machines for the software update configuration.
+         * @param nonAzureComputerNames Specifies a list of names of non-Azure machines for the software update configuration.
          * 
          * @return builder
          * 
@@ -353,7 +361,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param nonAzureComputerNames Specifies a list of names of non-azure machines for the software update configuration.
+         * @param nonAzureComputerNames Specifies a list of names of non-Azure machines for the software update configuration.
          * 
          * @return builder
          * 
@@ -363,28 +371,32 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param operatingSystem The Operating system of target machines. Possible values are `Windows` and `Linux`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
+         * 
          */
-        public Builder operatingSystem(Output<String> operatingSystem) {
+        @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
+        public Builder operatingSystem(@Nullable Output<String> operatingSystem) {
             $.operatingSystem = operatingSystem;
             return this;
         }
 
         /**
-         * @param operatingSystem The Operating system of target machines. Possible values are `Windows` and `Linux`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
         public Builder operatingSystem(String operatingSystem) {
             return operatingSystem(Output.of(operatingSystem));
         }
 
         /**
-         * @param postTasks One or more `post_task` blocks as defined below.
+         * @param postTasks A `post_task` blocks as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +407,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param postTasks One or more `post_task` blocks as defined below.
+         * @param postTasks A `post_task` blocks as defined below.
          * 
          * @return builder
          * 
@@ -405,7 +417,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param postTasks One or more `post_task` blocks as defined below.
+         * @param postTasks A `post_task` blocks as defined below.
          * 
          * @return builder
          * 
@@ -415,7 +427,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preTasks One or more `pre_task` blocks as defined below.
+         * @param preTasks A `pre_task` blocks as defined below.
          * 
          * @return builder
          * 
@@ -426,7 +438,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preTasks One or more `pre_task` blocks as defined below.
+         * @param preTasks A `pre_task` blocks as defined below.
          * 
          * @return builder
          * 
@@ -436,7 +448,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preTasks One or more `pre_task` blocks as defined below.
+         * @param preTasks A `pre_task` blocks as defined below.
          * 
          * @return builder
          * 
@@ -446,18 +458,18 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param schedules One or more `schedule` blocks as defined below.
+         * @param schedules A `schedule` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder schedules(@Nullable Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules) {
+        public Builder schedules(Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules) {
             $.schedules = schedules;
             return this;
         }
 
         /**
-         * @param schedules One or more `schedule` blocks as defined below.
+         * @param schedules A `schedule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -467,7 +479,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param schedules One or more `schedule` blocks as defined below.
+         * @param schedules A `schedule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -477,7 +489,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param target One or more `target` blocks as defined below.
+         * @param target A `target` blocks as defined below.
          * 
          * @return builder
          * 
@@ -488,7 +500,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param target One or more `target` blocks as defined below.
+         * @param target A `target` blocks as defined below.
          * 
          * @return builder
          * 
@@ -498,7 +510,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param virtualMachineIds Specifies a list of azure resource Ids of azure virtual machines.
+         * @param virtualMachineIds Specifies a list of Azure Resource IDs of azure virtual machines.
          * 
          * @return builder
          * 
@@ -509,7 +521,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param virtualMachineIds Specifies a list of azure resource Ids of azure virtual machines.
+         * @param virtualMachineIds Specifies a list of Azure Resource IDs of azure virtual machines.
          * 
          * @return builder
          * 
@@ -519,7 +531,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param virtualMachineIds Specifies a list of azure resource Ids of azure virtual machines.
+         * @param virtualMachineIds Specifies a list of Azure Resource IDs of azure virtual machines.
          * 
          * @return builder
          * 
@@ -529,7 +541,9 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param windows One or more `windows` blocks as defined below.
+         * @param windows A `windows` block as defined below.
+         * 
+         * &gt; **NOTE:** One of `linux` or `windows` must be specified.
          * 
          * @return builder
          * 
@@ -540,7 +554,9 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param windows One or more `windows` blocks as defined below.
+         * @param windows A `windows` block as defined below.
+         * 
+         * &gt; **NOTE:** One of `linux` or `windows` must be specified.
          * 
          * @return builder
          * 
@@ -551,7 +567,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
 
         public SoftwareUpdateConfigurationArgs build() {
             $.automationAccountId = Objects.requireNonNull($.automationAccountId, "expected parameter 'automationAccountId' to be non-null");
-            $.operatingSystem = Objects.requireNonNull($.operatingSystem, "expected parameter 'operatingSystem' to be non-null");
+            $.schedules = Objects.requireNonNull($.schedules, "expected parameter 'schedules' to be non-null");
             return $;
         }
     }

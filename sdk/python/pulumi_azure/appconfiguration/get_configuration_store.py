@@ -265,24 +265,24 @@ def get_configuration_store(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appconfiguration/getConfigurationStore:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult).value
 
     return AwaitableGetConfigurationStoreResult(
-        encryptions=__ret__.encryptions,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        local_auth_enabled=__ret__.local_auth_enabled,
-        location=__ret__.location,
-        name=__ret__.name,
-        primary_read_keys=__ret__.primary_read_keys,
-        primary_write_keys=__ret__.primary_write_keys,
-        public_network_access=__ret__.public_network_access,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        purge_protection_enabled=__ret__.purge_protection_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_read_keys=__ret__.secondary_read_keys,
-        secondary_write_keys=__ret__.secondary_write_keys,
-        sku=__ret__.sku,
-        soft_delete_retention_days=__ret__.soft_delete_retention_days,
-        tags=__ret__.tags)
+        encryptions=pulumi.get(__ret__, 'encryptions'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        local_auth_enabled=pulumi.get(__ret__, 'local_auth_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_read_keys=pulumi.get(__ret__, 'primary_read_keys'),
+        primary_write_keys=pulumi.get(__ret__, 'primary_write_keys'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        purge_protection_enabled=pulumi.get(__ret__, 'purge_protection_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_read_keys=pulumi.get(__ret__, 'secondary_read_keys'),
+        secondary_write_keys=pulumi.get(__ret__, 'secondary_write_keys'),
+        sku=pulumi.get(__ret__, 'sku'),
+        soft_delete_retention_days=pulumi.get(__ret__, 'soft_delete_retention_days'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_configuration_store)

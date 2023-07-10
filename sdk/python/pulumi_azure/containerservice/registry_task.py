@@ -665,7 +665,7 @@ class RegistryTask(pulumi.CustomResource):
             ),
             docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
                 dockerfile_path="Dockerfile",
-                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
+                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
                 context_access_token="<github personal access token>",
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
@@ -731,7 +731,7 @@ class RegistryTask(pulumi.CustomResource):
             ),
             docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
                 dockerfile_path="Dockerfile",
-                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
+                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
                 context_access_token="<github personal access token>",
                 image_names=["helloworld:{{.Run.ID}}"],
             ))

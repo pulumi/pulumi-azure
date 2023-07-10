@@ -90,6 +90,11 @@ export const getStringVariable: typeof import("./getStringVariable").getStringVa
 export const getStringVariableOutput: typeof import("./getStringVariable").getStringVariableOutput = null as any;
 utilities.lazyLoad(exports, ["getStringVariable","getStringVariableOutput"], () => require("./getStringVariable"));
 
+export { GetVariablesArgs, GetVariablesResult, GetVariablesOutputArgs } from "./getVariables";
+export const getVariables: typeof import("./getVariables").getVariables = null as any;
+export const getVariablesOutput: typeof import("./getVariables").getVariablesOutput = null as any;
+utilities.lazyLoad(exports, ["getVariables","getVariablesOutput"], () => require("./getVariables"));
+
 export { HybridRunbookWorkerArgs, HybridRunbookWorkerState } from "./hybridRunbookWorker";
 export type HybridRunbookWorker = import("./hybridRunbookWorker").HybridRunbookWorker;
 export const HybridRunbookWorker: typeof import("./hybridRunbookWorker").HybridRunbookWorker = null as any;

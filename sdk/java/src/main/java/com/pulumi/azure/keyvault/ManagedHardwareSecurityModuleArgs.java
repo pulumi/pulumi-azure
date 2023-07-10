@@ -126,6 +126,36 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
     }
 
     /**
+     * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     * 
+     */
+    @Import(name="securityDomainKeyVaultCertificateIds")
+    private @Nullable Output<List<String>> securityDomainKeyVaultCertificateIds;
+
+    /**
+     * @return A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     * 
+     */
+    public Optional<Output<List<String>>> securityDomainKeyVaultCertificateIds() {
+        return Optional.ofNullable(this.securityDomainKeyVaultCertificateIds);
+    }
+
+    /**
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * 
+     */
+    @Import(name="securityDomainQuorum")
+    private @Nullable Output<Integer> securityDomainQuorum;
+
+    /**
+     * @return Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * 
+     */
+    public Optional<Output<Integer>> securityDomainQuorum() {
+        return Optional.ofNullable(this.securityDomainQuorum);
+    }
+
+    /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      * 
      */
@@ -195,6 +225,8 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purgeProtectionEnabled = $.purgeProtectionEnabled;
         this.resourceGroupName = $.resourceGroupName;
+        this.securityDomainKeyVaultCertificateIds = $.securityDomainKeyVaultCertificateIds;
+        this.securityDomainQuorum = $.securityDomainQuorum;
         this.skuName = $.skuName;
         this.softDeleteRetentionDays = $.softDeleteRetentionDays;
         this.tags = $.tags;
@@ -374,6 +406,58 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param securityDomainKeyVaultCertificateIds A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDomainKeyVaultCertificateIds(@Nullable Output<List<String>> securityDomainKeyVaultCertificateIds) {
+            $.securityDomainKeyVaultCertificateIds = securityDomainKeyVaultCertificateIds;
+            return this;
+        }
+
+        /**
+         * @param securityDomainKeyVaultCertificateIds A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDomainKeyVaultCertificateIds(List<String> securityDomainKeyVaultCertificateIds) {
+            return securityDomainKeyVaultCertificateIds(Output.of(securityDomainKeyVaultCertificateIds));
+        }
+
+        /**
+         * @param securityDomainKeyVaultCertificateIds A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDomainKeyVaultCertificateIds(String... securityDomainKeyVaultCertificateIds) {
+            return securityDomainKeyVaultCertificateIds(List.of(securityDomainKeyVaultCertificateIds));
+        }
+
+        /**
+         * @param securityDomainQuorum Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDomainQuorum(@Nullable Output<Integer> securityDomainQuorum) {
+            $.securityDomainQuorum = securityDomainQuorum;
+            return this;
+        }
+
+        /**
+         * @param securityDomainQuorum Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDomainQuorum(Integer securityDomainQuorum) {
+            return securityDomainQuorum(Output.of(securityDomainQuorum));
         }
 
         /**

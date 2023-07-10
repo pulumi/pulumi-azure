@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
+        /// Specifies the size of the image to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sizeGb")]
         public Input<int>? SizeGb { get; set; }

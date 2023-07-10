@@ -151,14 +151,14 @@ def get_group(api_management_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        api_management_name=__ret__.api_management_name,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        external_id=__ret__.external_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        type=__ret__.type)
+        api_management_name=pulumi.get(__ret__, 'api_management_name'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        external_id=pulumi.get(__ret__, 'external_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_group)

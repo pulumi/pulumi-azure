@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesFleetManager;
  * import com.pulumi.azure.containerservice.KubernetesFleetManagerArgs;
  * import java.util.List;
@@ -46,9 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KubernetesFleetManager(&#34;example&#34;, KubernetesFleetManagerArgs.builder()        
- *             .location(azurerm_resource_group.example().location())
- *             .resourceGroupName(azurerm_resource_group.example().name())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleKubernetesFleetManager = new KubernetesFleetManager(&#34;exampleKubernetesFleetManager&#34;, KubernetesFleetManagerArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *     }

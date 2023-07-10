@@ -219,6 +219,20 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
         return this.virtualRouterAsn;
     }
     /**
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * 
+     */
+    @Export(name="virtualRouterAutoScaleMinCapacity", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> virtualRouterAutoScaleMinCapacity;
+
+    /**
+     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * 
+     */
+    public Output<Optional<Integer>> virtualRouterAutoScaleMinCapacity() {
+        return Codegen.optional(this.virtualRouterAutoScaleMinCapacity);
+    }
+    /**
      * The IP addresses of the Virtual Hub BGP router.
      * 
      */

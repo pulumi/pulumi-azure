@@ -91,10 +91,10 @@ def get_resource_group_template_deployment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment', __args__, opts=opts, typ=GetResourceGroupTemplateDeploymentResult).value
 
     return AwaitableGetResourceGroupTemplateDeploymentResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        output_content=__ret__.output_content,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        output_content=pulumi.get(__ret__, 'output_content'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_resource_group_template_deployment)

@@ -58,8 +58,9 @@ type LookupResourceGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Resource Group exists.
-	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	Location  string `pulumi:"location"`
+	ManagedBy string `pulumi:"managedBy"`
+	Name      string `pulumi:"name"`
 	// A mapping of tags assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,6 +111,10 @@ func (o LookupResourceGroupResultOutput) Id() pulumi.StringOutput {
 // The Azure Region where the Resource Group exists.
 func (o LookupResourceGroupResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceGroupResultOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceGroupResult) string { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
 func (o LookupResourceGroupResultOutput) Name() pulumi.StringOutput {

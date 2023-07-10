@@ -127,12 +127,12 @@ def get_event_hub(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventHub:getEventHub', __args__, opts=opts, typ=GetEventHubResult).value
 
     return AwaitableGetEventHubResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        namespace_name=__ret__.namespace_name,
-        partition_count=__ret__.partition_count,
-        partition_ids=__ret__.partition_ids,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        partition_count=pulumi.get(__ret__, 'partition_count'),
+        partition_ids=pulumi.get(__ret__, 'partition_ids'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_event_hub)

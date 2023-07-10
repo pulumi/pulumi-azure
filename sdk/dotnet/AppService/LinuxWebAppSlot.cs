@@ -213,6 +213,9 @@ namespace Pulumi.Azure.AppService
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
         /// </summary>
@@ -412,6 +415,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
@@ -657,6 +663,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.

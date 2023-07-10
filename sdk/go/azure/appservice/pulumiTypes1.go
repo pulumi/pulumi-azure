@@ -9546,14 +9546,19 @@ func (o GetWindowsWebAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetWindo
 
 type GetWindowsWebAppSiteConfigApplicationStack struct {
 	// The Current Stack value of the Windows Web App.
-	CurrentStack string `pulumi:"currentStack"`
-	// The name of the Docker Container in used.
-	DockerContainerName string `pulumi:"dockerContainerName"`
-	// The Container Registry where the Docker Container is pulled from.
+	CurrentStack            string `pulumi:"currentStack"`
+	DockerContainerName     string `pulumi:"dockerContainerName"`
 	DockerContainerRegistry string `pulumi:"dockerContainerRegistry"`
-	// The Docker Container Tag of the Container in use.
-	DockerContainerTag string `pulumi:"dockerContainerTag"`
-	DotnetCoreVersion  string `pulumi:"dotnetCoreVersion"`
+	DockerContainerTag      string `pulumi:"dockerContainerTag"`
+	// The docker image, including tag, used by this Windows Web App.
+	DockerImageName string `pulumi:"dockerImageName"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryPassword string `pulumi:"dockerRegistryPassword"`
+	// The URL of the container registry where the `dockerImageName` is located.
+	DockerRegistryUrl string `pulumi:"dockerRegistryUrl"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryUsername string `pulumi:"dockerRegistryUsername"`
+	DotnetCoreVersion      string `pulumi:"dotnetCoreVersion"`
 	// The version of .NET in use.
 	DotnetVersion string `pulumi:"dotnetVersion"`
 	// The Java Container in use.
@@ -9586,14 +9591,19 @@ type GetWindowsWebAppSiteConfigApplicationStackInput interface {
 
 type GetWindowsWebAppSiteConfigApplicationStackArgs struct {
 	// The Current Stack value of the Windows Web App.
-	CurrentStack pulumi.StringInput `pulumi:"currentStack"`
-	// The name of the Docker Container in used.
-	DockerContainerName pulumi.StringInput `pulumi:"dockerContainerName"`
-	// The Container Registry where the Docker Container is pulled from.
+	CurrentStack            pulumi.StringInput `pulumi:"currentStack"`
+	DockerContainerName     pulumi.StringInput `pulumi:"dockerContainerName"`
 	DockerContainerRegistry pulumi.StringInput `pulumi:"dockerContainerRegistry"`
-	// The Docker Container Tag of the Container in use.
-	DockerContainerTag pulumi.StringInput `pulumi:"dockerContainerTag"`
-	DotnetCoreVersion  pulumi.StringInput `pulumi:"dotnetCoreVersion"`
+	DockerContainerTag      pulumi.StringInput `pulumi:"dockerContainerTag"`
+	// The docker image, including tag, used by this Windows Web App.
+	DockerImageName pulumi.StringInput `pulumi:"dockerImageName"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryPassword pulumi.StringInput `pulumi:"dockerRegistryPassword"`
+	// The URL of the container registry where the `dockerImageName` is located.
+	DockerRegistryUrl pulumi.StringInput `pulumi:"dockerRegistryUrl"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryUsername pulumi.StringInput `pulumi:"dockerRegistryUsername"`
+	DotnetCoreVersion      pulumi.StringInput `pulumi:"dotnetCoreVersion"`
 	// The version of .NET in use.
 	DotnetVersion pulumi.StringInput `pulumi:"dotnetVersion"`
 	// The Java Container in use.
@@ -9669,19 +9679,36 @@ func (o GetWindowsWebAppSiteConfigApplicationStackOutput) CurrentStack() pulumi.
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.CurrentStack }).(pulumi.StringOutput)
 }
 
-// The name of the Docker Container in used.
 func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerContainerName }).(pulumi.StringOutput)
 }
 
-// The Container Registry where the Docker Container is pulled from.
 func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerContainerRegistry() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerContainerRegistry }).(pulumi.StringOutput)
 }
 
-// The Docker Container Tag of the Container in use.
 func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerContainerTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerContainerTag }).(pulumi.StringOutput)
+}
+
+// The docker image, including tag, used by this Windows Web App.
+func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerImageName }).(pulumi.StringOutput)
+}
+
+// The User Name to use for authentication against the registry to pull the image.
+func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerRegistryPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerRegistryPassword }).(pulumi.StringOutput)
+}
+
+// The URL of the container registry where the `dockerImageName` is located.
+func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerRegistryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerRegistryUrl }).(pulumi.StringOutput)
+}
+
+// The User Name to use for authentication against the registry to pull the image.
+func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerRegistryUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerRegistryUsername }).(pulumi.StringOutput)
 }
 
 func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DotnetCoreVersion() pulumi.StringOutput {
@@ -10460,7 +10487,7 @@ type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode struct {
 	// The Request Sub Status of the Status Code.
 	SubStatus int `pulumi:"subStatus"`
 	// The Win32 Status Code of the Request.
-	Win32Status string `pulumi:"win32Status"`
+	Win32Status int `pulumi:"win32Status"`
 }
 
 // GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs and GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput values.
@@ -10486,7 +10513,7 @@ type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs struct {
 	// The Request Sub Status of the Status Code.
 	SubStatus pulumi.IntInput `pulumi:"subStatus"`
 	// The Win32 Status Code of the Request.
-	Win32Status pulumi.StringInput `pulumi:"win32Status"`
+	Win32Status pulumi.IntInput `pulumi:"win32Status"`
 }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ElementType() reflect.Type {
@@ -10566,8 +10593,8 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) SubSta
 }
 
 // The Win32 Status Code of the Request.
-func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Win32Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode) string { return v.Win32Status }).(pulumi.StringOutput)
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Win32Status() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode) int { return v.Win32Status }).(pulumi.IntOutput)
 }
 
 type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput struct{ *pulumi.OutputState }

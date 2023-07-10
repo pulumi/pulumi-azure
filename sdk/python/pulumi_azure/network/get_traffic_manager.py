@@ -78,8 +78,8 @@ def get_traffic_manager(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts, typ=GetTrafficManagerResult).value
 
     return AwaitableGetTrafficManagerResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_traffic_manager)

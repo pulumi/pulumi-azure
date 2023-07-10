@@ -68,7 +68,7 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 type LookupDatabaseArgs struct {
 	// The name of the MS SQL Database.
 	Name string `pulumi:"name"`
-	// The id of the MS SQL Server on which to create the database.
+	// The id of the MS SQL Server on which to read the database.
 	ServerId string `pulumi:"serverId"`
 }
 
@@ -117,7 +117,7 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 type LookupDatabaseOutputArgs struct {
 	// The name of the MS SQL Database.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The id of the MS SQL Server on which to create the database.
+	// The id of the MS SQL Server on which to read the database.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
 }
 

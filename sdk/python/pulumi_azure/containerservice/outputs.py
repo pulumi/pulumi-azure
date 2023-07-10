@@ -65,6 +65,10 @@ __all__ = [
     'KubernetesClusterLinuxProfileSshKey',
     'KubernetesClusterMaintenanceWindow',
     'KubernetesClusterMaintenanceWindowAllowed',
+    'KubernetesClusterMaintenanceWindowAutoUpgrade',
+    'KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed',
+    'KubernetesClusterMaintenanceWindowNodeOs',
+    'KubernetesClusterMaintenanceWindowNodeOsNotAllowed',
     'KubernetesClusterMaintenanceWindowNotAllowed',
     'KubernetesClusterMicrosoftDefender',
     'KubernetesClusterMonitorMetrics',
@@ -3193,8 +3197,6 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -3229,7 +3231,7 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
-        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
@@ -3354,8 +3356,6 @@ class KubernetesClusterDefaultNodePool(dict):
     def custom_ca_trust_enabled(self) -> Optional[bool]:
         """
         Specifies whether to trust a Custom CA.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -3544,7 +3544,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_sku")
 
@@ -5486,6 +5486,364 @@ class KubernetesClusterMaintenanceWindowAllowed(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "notAlloweds":
+            suggest = "not_alloweds"
+        elif key == "startDate":
+            suggest = "start_date"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "utcOffset":
+            suggest = "utc_offset"
+        elif key == "weekIndex":
+            suggest = "week_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterMaintenanceWindowAutoUpgrade. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterMaintenanceWindowAutoUpgrade.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterMaintenanceWindowAutoUpgrade.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: int,
+                 frequency: str,
+                 interval: int,
+                 day_of_month: Optional[int] = None,
+                 day_of_week: Optional[str] = None,
+                 not_alloweds: Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed']] = None,
+                 start_date: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 utc_offset: Optional[str] = None,
+                 week_index: Optional[str] = None):
+        """
+        :param int duration: The duration of the window for maintenance to run in hours.
+        :param str frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+        :param str day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        :param Sequence['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
+        :param str start_date: The date on which the maintenance window begins to take effect.
+        :param str start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+        :param str utc_offset: Used to determine the timezone for cluster maintenance.
+        :param str week_index: The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+               Required in combination with relative monthly frequency.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "interval", interval)
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if not_alloweds is not None:
+            pulumi.set(__self__, "not_alloweds", not_alloweds)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if utc_offset is not None:
+            pulumi.set(__self__, "utc_offset", utc_offset)
+        if week_index is not None:
+            pulumi.set(__self__, "week_index", week_index)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> int:
+        """
+        The duration of the window for maintenance to run in hours.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> str:
+        """
+        Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> int:
+        """
+        The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[int]:
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="notAlloweds")
+    def not_alloweds(self) -> Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed']]:
+        """
+        One or more `not_allowed` block as defined below.
+        """
+        return pulumi.get(self, "not_alloweds")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        The date on which the maintenance window begins to take effect.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="utcOffset")
+    def utc_offset(self) -> Optional[str]:
+        """
+        Used to determine the timezone for cluster maintenance.
+        """
+        return pulumi.get(self, "utc_offset")
+
+    @property
+    @pulumi.getter(name="weekIndex")
+    def week_index(self) -> Optional[str]:
+        """
+        The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        Required in combination with relative monthly frequency.
+        """
+        return pulumi.get(self, "week_index")
+
+
+@pulumi.output_type
+class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed(dict):
+    def __init__(__self__, *,
+                 end: str,
+                 start: str):
+        """
+        :param str end: The end of a time span, formatted as an RFC3339 string.
+        :param str start: The start of a time span, formatted as an RFC3339 string.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> str:
+        """
+        The end of a time span, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The start of a time span, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class KubernetesClusterMaintenanceWindowNodeOs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "notAlloweds":
+            suggest = "not_alloweds"
+        elif key == "startDate":
+            suggest = "start_date"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "utcOffset":
+            suggest = "utc_offset"
+        elif key == "weekIndex":
+            suggest = "week_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterMaintenanceWindowNodeOs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterMaintenanceWindowNodeOs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterMaintenanceWindowNodeOs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: int,
+                 frequency: str,
+                 interval: int,
+                 day_of_month: Optional[int] = None,
+                 day_of_week: Optional[str] = None,
+                 not_alloweds: Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowNodeOsNotAllowed']] = None,
+                 start_date: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 utc_offset: Optional[str] = None,
+                 week_index: Optional[str] = None):
+        """
+        :param int duration: The duration of the window for maintenance to run in hours.
+        :param str frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+        :param str day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        :param Sequence['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
+        :param str start_date: The date on which the maintenance window begins to take effect.
+        :param str start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+        :param str utc_offset: Used to determine the timezone for cluster maintenance.
+        :param str week_index: The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "interval", interval)
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if not_alloweds is not None:
+            pulumi.set(__self__, "not_alloweds", not_alloweds)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if utc_offset is not None:
+            pulumi.set(__self__, "utc_offset", utc_offset)
+        if week_index is not None:
+            pulumi.set(__self__, "week_index", week_index)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> int:
+        """
+        The duration of the window for maintenance to run in hours.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> str:
+        """
+        Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> int:
+        """
+        The interval for maintenance runs. Depending on the frequency this interval is week or month based.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[int]:
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="notAlloweds")
+    def not_alloweds(self) -> Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowNodeOsNotAllowed']]:
+        """
+        One or more `not_allowed` block as defined below.
+        """
+        return pulumi.get(self, "not_alloweds")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        The date on which the maintenance window begins to take effect.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="utcOffset")
+    def utc_offset(self) -> Optional[str]:
+        """
+        Used to determine the timezone for cluster maintenance.
+        """
+        return pulumi.get(self, "utc_offset")
+
+    @property
+    @pulumi.getter(name="weekIndex")
+    def week_index(self) -> Optional[str]:
+        """
+        The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        """
+        return pulumi.get(self, "week_index")
+
+
+@pulumi.output_type
+class KubernetesClusterMaintenanceWindowNodeOsNotAllowed(dict):
+    def __init__(__self__, *,
+                 end: str,
+                 start: str):
+        """
+        :param str end: The end of a time span, formatted as an RFC3339 string.
+        :param str start: The start of a time span, formatted as an RFC3339 string.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> str:
+        """
+        The end of a time span, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The start of a time span, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
 class KubernetesClusterMaintenanceWindowNotAllowed(dict):
     def __init__(__self__, *,
                  end: str,
@@ -5765,6 +6123,9 @@ class KubernetesClusterNetworkProfile(dict):
 
         > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""`docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""docker_bridge_cidr is deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "docker_bridge_cidr")
 
     @property
@@ -8017,7 +8378,7 @@ class RegistryTaskDockerStep(dict):
                  target: Optional[str] = None):
         """
         :param str context_access_token: The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
-        :param str context_path: The URL (absolute or relative) of the source context for this step.
+        :param str context_path: The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
         :param str dockerfile_path: The Dockerfile path relative to the source context.
         :param Mapping[str, str] arguments: Specifies a map of arguments to be used when executing this step.
         :param bool cache_enabled: Should the image cache be enabled? Defaults to `true`.
@@ -8054,7 +8415,7 @@ class RegistryTaskDockerStep(dict):
     @pulumi.getter(name="contextPath")
     def context_path(self) -> str:
         """
-        The URL (absolute or relative) of the source context for this step.
+        The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
         """
         return pulumi.get(self, "context_path")
 

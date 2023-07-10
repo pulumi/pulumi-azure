@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Core
     /// Resource Groups can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+    ///  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceGroup:ResourceGroup")]
@@ -44,6 +44,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the resource or application that manages this Resource Group.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
         /// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
@@ -110,6 +116,12 @@ namespace Pulumi.Azure.Core
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The ID of the resource or application that manages this Resource Group.
+        /// </summary>
+        [Input("managedBy")]
+        public Input<string>? ManagedBy { get; set; }
+
+        /// <summary>
         /// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("name")]
@@ -140,6 +152,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The ID of the resource or application that manages this Resource Group.
+        /// </summary>
+        [Input("managedBy")]
+        public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
         /// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly ImmutableArray<int> AdvancedMonthDays;
         /// <summary>
-        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         /// </summary>
         public readonly ImmutableArray<string> AdvancedWeekDays;
         public readonly string? CreationTime;
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// <summary>
         /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
-        public readonly string? Frequency;
+        public readonly string Frequency;
         /// <summary>
         /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Automation.Outputs
 
             double? expiryTimeOffsetMinutes,
 
-            string? frequency,
+            string frequency,
 
             int? interval,
 

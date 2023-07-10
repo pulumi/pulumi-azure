@@ -931,7 +931,15 @@ func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type DeploymentScale struct {
-	// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+	Family *string `pulumi:"family"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+	Size *string `pulumi:"size"`
+	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+	Tier *string `pulumi:"tier"`
+	// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -947,7 +955,15 @@ type DeploymentScaleInput interface {
 }
 
 type DeploymentScaleArgs struct {
-	// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1028,7 +1044,27 @@ func (o DeploymentScaleOutput) ToDeploymentScalePtrOutputWithContext(ctx context
 	}).(DeploymentScalePtrOutput)
 }
 
-// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+func (o DeploymentScaleOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentScale) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+func (o DeploymentScaleOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentScale) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+func (o DeploymentScaleOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentScale) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+func (o DeploymentScaleOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentScale) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
 func (o DeploymentScaleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentScale) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1057,7 +1093,47 @@ func (o DeploymentScalePtrOutput) Elem() DeploymentScaleOutput {
 	}).(DeploymentScaleOutput)
 }
 
-// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+func (o DeploymentScalePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+func (o DeploymentScalePtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+func (o DeploymentScalePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+func (o DeploymentScalePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
 func (o DeploymentScalePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentScale) *string {
 		if v == nil {

@@ -129,12 +129,12 @@ def get_network_ddos_protection_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan', __args__, opts=opts, typ=GetNetworkDdosProtectionPlanResult).value
 
     return AwaitableGetNetworkDdosProtectionPlanResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        virtual_network_ids=__ret__.virtual_network_ids)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_network_ids=pulumi.get(__ret__, 'virtual_network_ids'))
 
 
 @_utilities.lift_output_func(get_network_ddos_protection_plan)

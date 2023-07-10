@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Manages anAutomation Connection Type.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -35,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.ConnectionType;
  * import com.pulumi.azure.automation.ConnectionTypeArgs;
+ * import com.pulumi.azure.automation.inputs.ConnectionTypeFieldArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,7 +63,10 @@ import javax.annotation.Nullable;
  *         var exampleConnectionType = new ConnectionType(&#34;exampleConnectionType&#34;, ConnectionTypeArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
- *             .fieldDefinitions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .fields(ConnectionTypeFieldArgs.builder()
+ *                 .name(&#34;example&#34;)
+ *                 .type(&#34;string&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }

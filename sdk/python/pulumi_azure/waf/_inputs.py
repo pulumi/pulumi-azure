@@ -516,6 +516,9 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
     @property
     @pulumi.getter(name="disabledRules")
     def disabled_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        warnings.warn("""`disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""disabled_rules is deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "disabled_rules")
 
     @disabled_rules.setter

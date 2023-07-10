@@ -26,6 +26,7 @@ class KubernetesClusterArgs:
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
@@ -45,10 +46,13 @@ class KubernetesClusterArgs:
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']] = None,
                  microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
                  monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
+                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
@@ -85,6 +89,9 @@ class KubernetesClusterArgs:
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -117,12 +124,19 @@ class KubernetesClusterArgs:
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs'] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs'] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+               
+               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -202,6 +216,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
+        if custom_ca_trust_certificates_base64s is not None:
+            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
@@ -243,6 +259,10 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if maintenance_window_auto_upgrade is not None:
+            pulumi.set(__self__, "maintenance_window_auto_upgrade", maintenance_window_auto_upgrade)
+        if maintenance_window_node_os is not None:
+            pulumi.set(__self__, "maintenance_window_node_os", maintenance_window_node_os)
         if microsoft_defender is not None:
             pulumi.set(__self__, "microsoft_defender", microsoft_defender)
         if monitor_metrics is not None:
@@ -251,6 +271,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if node_os_channel_upgrade is not None:
+            pulumi.set(__self__, "node_os_channel_upgrade", node_os_channel_upgrade)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if oidc_issuer_enabled is not None:
@@ -341,6 +363,9 @@ class KubernetesClusterArgs:
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
+        pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
+
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @api_server_authorized_ip_ranges.setter
@@ -414,6 +439,20 @@ class KubernetesClusterArgs:
         pulumi.set(self, "confidential_computing", value)
 
     @property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
+
+    @custom_ca_trust_certificates_base64s.setter
+    def custom_ca_trust_certificates_base64s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_ca_trust_certificates_base64s", value)
+
+    @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -468,6 +507,9 @@ class KubernetesClusterArgs:
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
+        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+
         return pulumi.get(self, "enable_pod_security_policy")
 
     @enable_pod_security_policy.setter
@@ -653,6 +695,30 @@ class KubernetesClusterArgs:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="maintenanceWindowAutoUpgrade")
+    def maintenance_window_auto_upgrade(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]:
+        """
+        A `maintenance_window_auto_upgrade` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window_auto_upgrade")
+
+    @maintenance_window_auto_upgrade.setter
+    def maintenance_window_auto_upgrade(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]):
+        pulumi.set(self, "maintenance_window_auto_upgrade", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindowNodeOs")
+    def maintenance_window_node_os(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]:
+        """
+        A `maintenance_window_node_os` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window_node_os")
+
+    @maintenance_window_node_os.setter
+    def maintenance_window_node_os(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]):
+        pulumi.set(self, "maintenance_window_node_os", value)
+
+    @property
     @pulumi.getter(name="microsoftDefender")
     def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]:
         """
@@ -701,6 +767,22 @@ class KubernetesClusterArgs:
     @network_profile.setter
     def network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="nodeOsChannelUpgrade")
+    def node_os_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+
+        > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+        """
+        return pulumi.get(self, "node_os_channel_upgrade")
+
+    @node_os_channel_upgrade.setter
+    def node_os_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_os_channel_upgrade", value)
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
@@ -980,6 +1062,7 @@ class _KubernetesClusterState:
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -1006,10 +1089,13 @@ class _KubernetesClusterState:
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']] = None,
                  microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
                  monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
+                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  node_resource_group_id: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1049,6 +1135,9 @@ class _KubernetesClusterState:
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -1088,12 +1177,19 @@ class _KubernetesClusterState:
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs'] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs'] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+               
+               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1176,6 +1272,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
+        if custom_ca_trust_certificates_base64s is not None:
+            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if default_node_pool is not None:
             pulumi.set(__self__, "default_node_pool", default_node_pool)
         if disk_encryption_set_id is not None:
@@ -1231,6 +1329,10 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if maintenance_window_auto_upgrade is not None:
+            pulumi.set(__self__, "maintenance_window_auto_upgrade", maintenance_window_auto_upgrade)
+        if maintenance_window_node_os is not None:
+            pulumi.set(__self__, "maintenance_window_node_os", maintenance_window_node_os)
         if microsoft_defender is not None:
             pulumi.set(__self__, "microsoft_defender", microsoft_defender)
         if monitor_metrics is not None:
@@ -1239,6 +1341,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if node_os_channel_upgrade is not None:
+            pulumi.set(__self__, "node_os_channel_upgrade", node_os_channel_upgrade)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if node_resource_group_id is not None:
@@ -1315,6 +1419,9 @@ class _KubernetesClusterState:
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
+        pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
+
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @api_server_authorized_ip_ranges.setter
@@ -1388,6 +1495,20 @@ class _KubernetesClusterState:
         pulumi.set(self, "confidential_computing", value)
 
     @property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
+
+    @custom_ca_trust_certificates_base64s.setter
+    def custom_ca_trust_certificates_base64s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_ca_trust_certificates_base64s", value)
+
+    @property
     @pulumi.getter(name="defaultNodePool")
     def default_node_pool(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']]:
         """
@@ -1454,6 +1575,9 @@ class _KubernetesClusterState:
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
+        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+
         return pulumi.get(self, "enable_pod_security_policy")
 
     @enable_pod_security_policy.setter
@@ -1711,6 +1835,30 @@ class _KubernetesClusterState:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="maintenanceWindowAutoUpgrade")
+    def maintenance_window_auto_upgrade(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]:
+        """
+        A `maintenance_window_auto_upgrade` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window_auto_upgrade")
+
+    @maintenance_window_auto_upgrade.setter
+    def maintenance_window_auto_upgrade(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]):
+        pulumi.set(self, "maintenance_window_auto_upgrade", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindowNodeOs")
+    def maintenance_window_node_os(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]:
+        """
+        A `maintenance_window_node_os` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window_node_os")
+
+    @maintenance_window_node_os.setter
+    def maintenance_window_node_os(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]):
+        pulumi.set(self, "maintenance_window_node_os", value)
+
+    @property
     @pulumi.getter(name="microsoftDefender")
     def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]:
         """
@@ -1759,6 +1907,22 @@ class _KubernetesClusterState:
     @network_profile.setter
     def network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="nodeOsChannelUpgrade")
+    def node_os_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+
+        > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+        """
+        return pulumi.get(self, "node_os_channel_upgrade")
+
+    @node_os_channel_upgrade.setter
+    def node_os_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_os_channel_upgrade", value)
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
@@ -2100,6 +2264,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -2120,10 +2285,13 @@ class KubernetesCluster(pulumi.CustomResource):
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']]] = None,
                  microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
                  monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
+                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
@@ -2199,6 +2367,9 @@ class KubernetesCluster(pulumi.CustomResource):
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2232,12 +2403,19 @@ class KubernetesCluster(pulumi.CustomResource):
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+               
+               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -2365,6 +2543,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -2385,10 +2564,13 @@ class KubernetesCluster(pulumi.CustomResource):
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']]] = None,
                  microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
                  monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
+                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
@@ -2429,6 +2611,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
             __props__.__dict__["confidential_computing"] = confidential_computing
+            __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -2454,10 +2637,13 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["local_account_disabled"] = local_account_disabled
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["maintenance_window_auto_upgrade"] = maintenance_window_auto_upgrade
+            __props__.__dict__["maintenance_window_node_os"] = maintenance_window_node_os
             __props__.__dict__["microsoft_defender"] = microsoft_defender
             __props__.__dict__["monitor_metrics"] = monitor_metrics
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
+            __props__.__dict__["node_os_channel_upgrade"] = node_os_channel_upgrade
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
             __props__.__dict__["oms_agent"] = oms_agent
@@ -2510,6 +2696,7 @@ class KubernetesCluster(pulumi.CustomResource):
             azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
             confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+            custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -2536,10 +2723,13 @@ class KubernetesCluster(pulumi.CustomResource):
             local_account_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
+            maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]] = None,
+            maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']]] = None,
             microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
             monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
+            node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
             node_resource_group_id: Optional[pulumi.Input[str]] = None,
             oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2584,6 +2774,9 @@ class KubernetesCluster(pulumi.CustomResource):
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2623,12 +2816,19 @@ class KubernetesCluster(pulumi.CustomResource):
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+               
+               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -2704,6 +2904,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
         __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
         __props__.__dict__["confidential_computing"] = confidential_computing
+        __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
@@ -2730,10 +2931,13 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["local_account_disabled"] = local_account_disabled
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["maintenance_window_auto_upgrade"] = maintenance_window_auto_upgrade
+        __props__.__dict__["maintenance_window_node_os"] = maintenance_window_node_os
         __props__.__dict__["microsoft_defender"] = microsoft_defender
         __props__.__dict__["monitor_metrics"] = monitor_metrics
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
+        __props__.__dict__["node_os_channel_upgrade"] = node_os_channel_upgrade
         __props__.__dict__["node_resource_group"] = node_resource_group
         __props__.__dict__["node_resource_group_id"] = node_resource_group_id
         __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
@@ -2779,6 +2983,9 @@ class KubernetesCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> pulumi.Output[Sequence[str]]:
+        warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
+        pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
+
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @property
@@ -2828,6 +3035,16 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "confidential_computing")
 
     @property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
+
+    @property
     @pulumi.getter(name="defaultNodePool")
     def default_node_pool(self) -> pulumi.Output['outputs.KubernetesClusterDefaultNodePool']:
         """
@@ -2874,6 +3091,9 @@ class KubernetesCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
+        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
+        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+
         return pulumi.get(self, "enable_pod_security_policy")
 
     @property
@@ -3047,6 +3267,22 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "maintenance_window")
 
     @property
+    @pulumi.getter(name="maintenanceWindowAutoUpgrade")
+    def maintenance_window_auto_upgrade(self) -> pulumi.Output[Optional['outputs.KubernetesClusterMaintenanceWindowAutoUpgrade']]:
+        """
+        A `maintenance_window_auto_upgrade` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window_auto_upgrade")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowNodeOs")
+    def maintenance_window_node_os(self) -> pulumi.Output[Optional['outputs.KubernetesClusterMaintenanceWindowNodeOs']]:
+        """
+        A `maintenance_window_node_os` block as defined below.
+        """
+        return pulumi.get(self, "maintenance_window_node_os")
+
+    @property
     @pulumi.getter(name="microsoftDefender")
     def microsoft_defender(self) -> pulumi.Output[Optional['outputs.KubernetesClusterMicrosoftDefender']]:
         """
@@ -3079,6 +3315,18 @@ class KubernetesCluster(pulumi.CustomResource):
         > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         """
         return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="nodeOsChannelUpgrade")
+    def node_os_channel_upgrade(self) -> pulumi.Output[Optional[str]]:
+        """
+        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+
+        > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+        """
+        return pulumi.get(self, "node_os_channel_upgrade")
 
     @property
     @pulumi.getter(name="nodeResourceGroup")

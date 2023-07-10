@@ -21,13 +21,16 @@ class GetResourceGroupResult:
     """
     A collection of values returned by getResourceGroup.
     """
-    def __init__(__self__, id=None, location=None, name=None, tags=None):
+    def __init__(__self__, id=None, location=None, managed_by=None, name=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -52,6 +55,11 @@ class GetResourceGroupResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -73,6 +81,7 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
         return GetResourceGroupResult(
             id=self.id,
             location=self.location,
+            managed_by=self.managed_by,
             name=self.name,
             tags=self.tags)
 
@@ -101,10 +110,11 @@ def get_resource_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult).value
 
     return AwaitableGetResourceGroupResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resource_group)

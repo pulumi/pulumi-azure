@@ -62,6 +62,62 @@ import (
 //	}
 //
 // ```
+// ### Custom Content
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFile, err := local.LookupFile(ctx, &local.LookupFileArgs{
+//				Filename: fmt.Sprintf("%v/example.ps1", path.Module),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				LogVerbose:            pulumi.Bool(true),
+//				LogProgress:           pulumi.Bool(true),
+//				Description:           pulumi.String("This is an example runbook"),
+//				RunbookType:           pulumi.String("PowerShell"),
+//				Content:               *pulumi.String(exampleFile.Content),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

@@ -190,17 +190,17 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatelink/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        alias=__ret__.alias,
-        auto_approval_subscription_ids=__ret__.auto_approval_subscription_ids,
-        enable_proxy_protocol=__ret__.enable_proxy_protocol,
-        id=__ret__.id,
-        load_balancer_frontend_ip_configuration_ids=__ret__.load_balancer_frontend_ip_configuration_ids,
-        location=__ret__.location,
-        name=__ret__.name,
-        nat_ip_configurations=__ret__.nat_ip_configurations,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        visibility_subscription_ids=__ret__.visibility_subscription_ids)
+        alias=pulumi.get(__ret__, 'alias'),
+        auto_approval_subscription_ids=pulumi.get(__ret__, 'auto_approval_subscription_ids'),
+        enable_proxy_protocol=pulumi.get(__ret__, 'enable_proxy_protocol'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancer_frontend_ip_configuration_ids=pulumi.get(__ret__, 'load_balancer_frontend_ip_configuration_ids'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        nat_ip_configurations=pulumi.get(__ret__, 'nat_ip_configurations'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        visibility_subscription_ids=pulumi.get(__ret__, 'visibility_subscription_ids'))
 
 
 @_utilities.lift_output_func(get_service)

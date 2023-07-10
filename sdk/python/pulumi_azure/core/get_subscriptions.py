@@ -103,10 +103,10 @@ def get_subscriptions(display_name_contains: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts, typ=GetSubscriptionsResult).value
 
     return AwaitableGetSubscriptionsResult(
-        display_name_contains=__ret__.display_name_contains,
-        display_name_prefix=__ret__.display_name_prefix,
-        id=__ret__.id,
-        subscriptions=__ret__.subscriptions)
+        display_name_contains=pulumi.get(__ret__, 'display_name_contains'),
+        display_name_prefix=pulumi.get(__ret__, 'display_name_prefix'),
+        id=pulumi.get(__ret__, 'id'),
+        subscriptions=pulumi.get(__ret__, 'subscriptions'))
 
 
 @_utilities.lift_output_func(get_subscriptions)

@@ -20,23 +20,50 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("currentStack")]
         public Input<string>? CurrentStack { get; set; }
 
-        /// <summary>
-        /// The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-        /// </summary>
         [Input("dockerContainerName")]
         public Input<string>? DockerContainerName { get; set; }
 
-        /// <summary>
-        /// The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
-        /// </summary>
         [Input("dockerContainerRegistry")]
         public Input<string>? DockerContainerRegistry { get; set; }
 
-        /// <summary>
-        /// The Image Tag of the specified Docker Container to use. For example `latest`
-        /// </summary>
         [Input("dockerContainerTag")]
         public Input<string>? DockerContainerTag { get; set; }
+
+        /// <summary>
+        /// The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        /// </summary>
+        [Input("dockerImageName")]
+        public Input<string>? DockerImageName { get; set; }
+
+        [Input("dockerRegistryPassword")]
+        private Input<string>? _dockerRegistryPassword;
+
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// 
+        /// &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// </summary>
+        public Input<string>? DockerRegistryPassword
+        {
+            get => _dockerRegistryPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dockerRegistryPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        /// </summary>
+        [Input("dockerRegistryUrl")]
+        public Input<string>? DockerRegistryUrl { get; set; }
+
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        [Input("dockerRegistryUsername")]
+        public Input<string>? DockerRegistryUsername { get; set; }
 
         /// <summary>
         /// The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.

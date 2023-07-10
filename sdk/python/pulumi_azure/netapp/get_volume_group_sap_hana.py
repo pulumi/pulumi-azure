@@ -155,14 +155,14 @@ def get_volume_group_sap_hana(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana', __args__, opts=opts, typ=GetVolumeGroupSapHanaResult).value
 
     return AwaitableGetVolumeGroupSapHanaResult(
-        account_name=__ret__.account_name,
-        application_identifier=__ret__.application_identifier,
-        group_description=__ret__.group_description,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        volumes=__ret__.volumes)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        application_identifier=pulumi.get(__ret__, 'application_identifier'),
+        group_description=pulumi.get(__ret__, 'group_description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        volumes=pulumi.get(__ret__, 'volumes'))
 
 
 @_utilities.lift_output_func(get_volume_group_sap_hana)

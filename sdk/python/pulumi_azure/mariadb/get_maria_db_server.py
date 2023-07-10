@@ -187,17 +187,17 @@ def get_maria_db_server(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mariadb/getMariaDbServer:getMariaDbServer', __args__, opts=opts, typ=GetMariaDbServerResult).value
 
     return AwaitableGetMariaDbServerResult(
-        administrator_login=__ret__.administrator_login,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        ssl_enforcement=__ret__.ssl_enforcement,
-        storage_profiles=__ret__.storage_profiles,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        ssl_enforcement=pulumi.get(__ret__, 'ssl_enforcement'),
+        storage_profiles=pulumi.get(__ret__, 'storage_profiles'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_maria_db_server)

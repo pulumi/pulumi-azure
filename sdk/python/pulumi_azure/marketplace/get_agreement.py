@@ -121,12 +121,12 @@ def get_agreement(offer: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:marketplace/getAgreement:getAgreement', __args__, opts=opts, typ=GetAgreementResult).value
 
     return AwaitableGetAgreementResult(
-        id=__ret__.id,
-        license_text_link=__ret__.license_text_link,
-        offer=__ret__.offer,
-        plan=__ret__.plan,
-        privacy_policy_link=__ret__.privacy_policy_link,
-        publisher=__ret__.publisher)
+        id=pulumi.get(__ret__, 'id'),
+        license_text_link=pulumi.get(__ret__, 'license_text_link'),
+        offer=pulumi.get(__ret__, 'offer'),
+        plan=pulumi.get(__ret__, 'plan'),
+        privacy_policy_link=pulumi.get(__ret__, 'privacy_policy_link'),
+        publisher=pulumi.get(__ret__, 'publisher'))
 
 
 @_utilities.lift_output_func(get_agreement)

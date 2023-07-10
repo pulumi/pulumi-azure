@@ -155,6 +155,7 @@ export interface GetLinuxWebAppResult {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses: string;
+    readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The ID of the Service Plan that this Linux Web App exists in.

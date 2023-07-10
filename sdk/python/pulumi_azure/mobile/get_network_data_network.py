@@ -127,12 +127,12 @@ def get_network_data_network(mobile_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork', __args__, opts=opts, typ=GetNetworkDataNetworkResult).value
 
     return AwaitableGetNetworkDataNetworkResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        mobile_network_id=__ret__.mobile_network_id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_data_network)

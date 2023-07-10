@@ -234,21 +234,21 @@ def get_topic(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
-        auto_delete_on_idle=__ret__.auto_delete_on_idle,
-        default_message_ttl=__ret__.default_message_ttl,
-        duplicate_detection_history_time_window=__ret__.duplicate_detection_history_time_window,
-        enable_batched_operations=__ret__.enable_batched_operations,
-        enable_express=__ret__.enable_express,
-        enable_partitioning=__ret__.enable_partitioning,
-        id=__ret__.id,
-        max_size_in_megabytes=__ret__.max_size_in_megabytes,
-        name=__ret__.name,
-        namespace_id=__ret__.namespace_id,
-        namespace_name=__ret__.namespace_name,
-        requires_duplicate_detection=__ret__.requires_duplicate_detection,
-        resource_group_name=__ret__.resource_group_name,
-        status=__ret__.status,
-        support_ordering=__ret__.support_ordering)
+        auto_delete_on_idle=pulumi.get(__ret__, 'auto_delete_on_idle'),
+        default_message_ttl=pulumi.get(__ret__, 'default_message_ttl'),
+        duplicate_detection_history_time_window=pulumi.get(__ret__, 'duplicate_detection_history_time_window'),
+        enable_batched_operations=pulumi.get(__ret__, 'enable_batched_operations'),
+        enable_express=pulumi.get(__ret__, 'enable_express'),
+        enable_partitioning=pulumi.get(__ret__, 'enable_partitioning'),
+        id=pulumi.get(__ret__, 'id'),
+        max_size_in_megabytes=pulumi.get(__ret__, 'max_size_in_megabytes'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_id=pulumi.get(__ret__, 'namespace_id'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        requires_duplicate_detection=pulumi.get(__ret__, 'requires_duplicate_detection'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        status=pulumi.get(__ret__, 'status'),
+        support_ordering=pulumi.get(__ret__, 'support_ordering'))
 
 
 @_utilities.lift_output_func(get_topic)

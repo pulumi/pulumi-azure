@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int? InitialDelay;
         /// <summary>
-        /// (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+        /// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         /// </summary>
         public readonly int? IntervalSeconds;
         /// <summary>

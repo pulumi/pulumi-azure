@@ -15,21 +15,29 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      * 
      */
     private String currentStack;
-    /**
-     * @return The name of the Docker Container in used.
-     * 
-     */
     private String dockerContainerName;
-    /**
-     * @return The Container Registry where the Docker Container is pulled from.
-     * 
-     */
     private String dockerContainerRegistry;
+    private String dockerContainerTag;
     /**
-     * @return The Docker Container Tag of the Container in use.
+     * @return The docker image, including tag, used by this Windows Web App.
      * 
      */
-    private String dockerContainerTag;
+    private String dockerImageName;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    private String dockerRegistryPassword;
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located.
+     * 
+     */
+    private String dockerRegistryUrl;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    private String dockerRegistryUsername;
     private String dotnetCoreVersion;
     /**
      * @return The version of .NET in use.
@@ -78,26 +86,42 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     public String currentStack() {
         return this.currentStack;
     }
-    /**
-     * @return The name of the Docker Container in used.
-     * 
-     */
     public String dockerContainerName() {
         return this.dockerContainerName;
     }
-    /**
-     * @return The Container Registry where the Docker Container is pulled from.
-     * 
-     */
     public String dockerContainerRegistry() {
         return this.dockerContainerRegistry;
     }
-    /**
-     * @return The Docker Container Tag of the Container in use.
-     * 
-     */
     public String dockerContainerTag() {
         return this.dockerContainerTag;
+    }
+    /**
+     * @return The docker image, including tag, used by this Windows Web App.
+     * 
+     */
+    public String dockerImageName() {
+        return this.dockerImageName;
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public String dockerRegistryPassword() {
+        return this.dockerRegistryPassword;
+    }
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located.
+     * 
+     */
+    public String dockerRegistryUrl() {
+        return this.dockerRegistryUrl;
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public String dockerRegistryUsername() {
+        return this.dockerRegistryUsername;
     }
     public String dotnetCoreVersion() {
         return this.dotnetCoreVersion;
@@ -174,6 +198,10 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         private String dockerContainerName;
         private String dockerContainerRegistry;
         private String dockerContainerTag;
+        private String dockerImageName;
+        private String dockerRegistryPassword;
+        private String dockerRegistryUrl;
+        private String dockerRegistryUsername;
         private String dotnetCoreVersion;
         private String dotnetVersion;
         private String javaContainer;
@@ -192,6 +220,10 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     	      this.dockerContainerName = defaults.dockerContainerName;
     	      this.dockerContainerRegistry = defaults.dockerContainerRegistry;
     	      this.dockerContainerTag = defaults.dockerContainerTag;
+    	      this.dockerImageName = defaults.dockerImageName;
+    	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
+    	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
+    	      this.dockerRegistryUsername = defaults.dockerRegistryUsername;
     	      this.dotnetCoreVersion = defaults.dotnetCoreVersion;
     	      this.dotnetVersion = defaults.dotnetVersion;
     	      this.javaContainer = defaults.javaContainer;
@@ -223,6 +255,26 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         @CustomType.Setter
         public Builder dockerContainerTag(String dockerContainerTag) {
             this.dockerContainerTag = Objects.requireNonNull(dockerContainerTag);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerImageName(String dockerImageName) {
+            this.dockerImageName = Objects.requireNonNull(dockerImageName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryPassword(String dockerRegistryPassword) {
+            this.dockerRegistryPassword = Objects.requireNonNull(dockerRegistryPassword);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUrl(String dockerRegistryUrl) {
+            this.dockerRegistryUrl = Objects.requireNonNull(dockerRegistryUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUsername(String dockerRegistryUsername) {
+            this.dockerRegistryUsername = Objects.requireNonNull(dockerRegistryUsername);
             return this;
         }
         @CustomType.Setter
@@ -286,6 +338,10 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
             o.dockerContainerName = dockerContainerName;
             o.dockerContainerRegistry = dockerContainerRegistry;
             o.dockerContainerTag = dockerContainerTag;
+            o.dockerImageName = dockerImageName;
+            o.dockerRegistryPassword = dockerRegistryPassword;
+            o.dockerRegistryUrl = dockerRegistryUrl;
+            o.dockerRegistryUsername = dockerRegistryUsername;
             o.dotnetCoreVersion = dotnetCoreVersion;
             o.dotnetVersion = dotnetVersion;
             o.javaContainer = javaContainer;

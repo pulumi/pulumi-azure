@@ -25,7 +25,7 @@ public final class ApiOperationRequestRepresentationFormParameter {
      */
     private @Nullable String description;
     /**
-     * @return (Optional) One or more `example` blocks as defined above.
+     * @return One or more `example` blocks as defined above.
      * 
      */
     private @Nullable List<ApiOperationRequestRepresentationFormParameterExample> examples;
@@ -76,7 +76,7 @@ public final class ApiOperationRequestRepresentationFormParameter {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return (Optional) One or more `example` blocks as defined above.
+     * @return One or more `example` blocks as defined above.
      * 
      */
     public List<ApiOperationRequestRepresentationFormParameterExample> examples() {

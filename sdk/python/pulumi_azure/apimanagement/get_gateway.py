@@ -119,11 +119,11 @@ def get_gateway(api_management_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
-        api_management_id=__ret__.api_management_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        location_datas=__ret__.location_datas,
-        name=__ret__.name)
+        api_management_id=pulumi.get(__ret__, 'api_management_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location_datas=pulumi.get(__ret__, 'location_datas'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_gateway)

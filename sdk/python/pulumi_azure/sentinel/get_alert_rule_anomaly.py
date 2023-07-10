@@ -281,24 +281,24 @@ def get_alert_rule_anomaly(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly', __args__, opts=opts, typ=GetAlertRuleAnomalyResult).value
 
     return AwaitableGetAlertRuleAnomalyResult(
-        anomaly_settings_version=__ret__.anomaly_settings_version,
-        anomaly_version=__ret__.anomaly_version,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enabled=__ret__.enabled,
-        frequency=__ret__.frequency,
-        id=__ret__.id,
-        log_analytics_workspace_id=__ret__.log_analytics_workspace_id,
-        mode=__ret__.mode,
-        multi_select_observations=__ret__.multi_select_observations,
-        name=__ret__.name,
-        prioritized_exclude_observations=__ret__.prioritized_exclude_observations,
-        required_data_connectors=__ret__.required_data_connectors,
-        settings_definition_id=__ret__.settings_definition_id,
-        single_select_observations=__ret__.single_select_observations,
-        tactics=__ret__.tactics,
-        techniques=__ret__.techniques,
-        threshold_observations=__ret__.threshold_observations)
+        anomaly_settings_version=pulumi.get(__ret__, 'anomaly_settings_version'),
+        anomaly_version=pulumi.get(__ret__, 'anomaly_version'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        log_analytics_workspace_id=pulumi.get(__ret__, 'log_analytics_workspace_id'),
+        mode=pulumi.get(__ret__, 'mode'),
+        multi_select_observations=pulumi.get(__ret__, 'multi_select_observations'),
+        name=pulumi.get(__ret__, 'name'),
+        prioritized_exclude_observations=pulumi.get(__ret__, 'prioritized_exclude_observations'),
+        required_data_connectors=pulumi.get(__ret__, 'required_data_connectors'),
+        settings_definition_id=pulumi.get(__ret__, 'settings_definition_id'),
+        single_select_observations=pulumi.get(__ret__, 'single_select_observations'),
+        tactics=pulumi.get(__ret__, 'tactics'),
+        techniques=pulumi.get(__ret__, 'techniques'),
+        threshold_observations=pulumi.get(__ret__, 'threshold_observations'))
 
 
 @_utilities.lift_output_func(get_alert_rule_anomaly)

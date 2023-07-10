@@ -34,6 +34,33 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Custom Content
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as local from "@pulumi/local";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const exampleFile = local.getFile({
+ *     filename: `${path.module}/example.ps1`,
+ * });
+ * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     logVerbose: true,
+ *     logProgress: true,
+ *     description: "This is an example runbook",
+ *     runbookType: "PowerShell",
+ *     content: exampleFile.then(exampleFile => exampleFile.content),
+ * });
+ * ```
  *
  * ## Import
  *

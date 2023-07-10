@@ -1338,7 +1338,7 @@ type ReplicationRecoveryPlanRecoveryGroup struct {
 	PostActions []ReplicationRecoveryPlanRecoveryGroupPostAction `pulumi:"postActions"`
 	// one or more `action` block as defined below. which will be executed before the group recovery.
 	PreActions []ReplicationRecoveryPlanRecoveryGroupPreAction `pulumi:"preActions"`
-	// (required) one or more id of protected VM.
+	// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
 	ReplicatedProtectedItems []string `pulumi:"replicatedProtectedItems"`
 	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
 	Type string `pulumi:"type"`
@@ -1360,7 +1360,7 @@ type ReplicationRecoveryPlanRecoveryGroupArgs struct {
 	PostActions ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput `pulumi:"postActions"`
 	// one or more `action` block as defined below. which will be executed before the group recovery.
 	PreActions ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput `pulumi:"preActions"`
-	// (required) one or more id of protected VM.
+	// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
 	ReplicatedProtectedItems pulumi.StringArrayInput `pulumi:"replicatedProtectedItems"`
 	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1431,7 +1431,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupOutput) PreActions() ReplicationReco
 	}).(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
 }
 
-// (required) one or more id of protected VM.
+// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
 func (o ReplicationRecoveryPlanRecoveryGroupOutput) ReplicatedProtectedItems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []string { return v.ReplicatedProtectedItems }).(pulumi.StringArrayOutput)
 }
@@ -1462,7 +1462,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) Index(i pulumi.IntInput
 }
 
 type ReplicationRecoveryPlanRecoveryGroupPostAction struct {
-	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
 	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
@@ -1500,7 +1500,7 @@ type ReplicationRecoveryPlanRecoveryGroupPostActionInput interface {
 }
 
 type ReplicationRecoveryPlanRecoveryGroupPostActionArgs struct {
-	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
 	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
@@ -1577,7 +1577,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToReplicationRecov
 	return o
 }
 
-// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
 // > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) FabricLocation() pulumi.StringPtrOutput {
@@ -1646,7 +1646,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) Index(i pulum
 }
 
 type ReplicationRecoveryPlanRecoveryGroupPreAction struct {
-	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
 	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
@@ -1684,7 +1684,7 @@ type ReplicationRecoveryPlanRecoveryGroupPreActionInput interface {
 }
 
 type ReplicationRecoveryPlanRecoveryGroupPreActionArgs struct {
-	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
 	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
@@ -1761,7 +1761,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToReplicationRecove
 	return o
 }
 
-// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
 // > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) FabricLocation() pulumi.StringPtrOutput {

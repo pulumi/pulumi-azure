@@ -13,14 +13,24 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class GetLinuxWebAppSiteConfigApplicationStackResult
     {
-        /// <summary>
-        /// The Docker image reference, including repository.
-        /// </summary>
         public readonly string DockerImage;
         /// <summary>
-        /// The image Tag.
+        /// The docker image, including tag, used by this Linux Web App.
         /// </summary>
+        public readonly string DockerImageName;
         public readonly string DockerImageTag;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        public readonly string DockerRegistryPassword;
+        /// <summary>
+        /// The URL of the container registry where the `docker_image_name` is located.
+        /// </summary>
+        public readonly string DockerRegistryUrl;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        public readonly string DockerRegistryUsername;
         /// <summary>
         /// The version of .NET in use.
         /// </summary>
@@ -59,7 +69,15 @@ namespace Pulumi.Azure.AppService.Outputs
         private GetLinuxWebAppSiteConfigApplicationStackResult(
             string dockerImage,
 
+            string dockerImageName,
+
             string dockerImageTag,
+
+            string dockerRegistryPassword,
+
+            string dockerRegistryUrl,
+
+            string dockerRegistryUsername,
 
             string dotnetVersion,
 
@@ -80,7 +98,11 @@ namespace Pulumi.Azure.AppService.Outputs
             string rubyVersion)
         {
             DockerImage = dockerImage;
+            DockerImageName = dockerImageName;
             DockerImageTag = dockerImageTag;
+            DockerRegistryPassword = dockerRegistryPassword;
+            DockerRegistryUrl = dockerRegistryUrl;
+            DockerRegistryUsername = dockerRegistryUsername;
             DotnetVersion = dotnetVersion;
             GoVersion = goVersion;
             JavaServer = javaServer;

@@ -43,7 +43,16 @@ import (
 //			}
 //			_, err = logicapps.NewTriggerCustom(ctx, "exampleTriggerCustom", &logicapps.TriggerCustomArgs{
 //				LogicAppId: exampleWorkflow.ID(),
-//				Body:       pulumi.String("{\n  \"recurrence\": {\n    \"frequency\": \"Day\",\n    \"interval\": 1\n  },\n  \"type\": \"Recurrence\"\n}\n"),
+//				Body: pulumi.String(`{
+//	  "recurrence": {
+//	    "frequency": "Day",
+//	    "interval": 1
+//	  },
+//	  "type": "Recurrence"
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

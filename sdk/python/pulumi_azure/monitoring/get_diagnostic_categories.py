@@ -33,10 +33,6 @@ class GetDiagnosticCategoriesResult:
         pulumi.set(__self__, "log_category_types", log_category_types)
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
-        if logs is not None:
-            warnings.warn("""`logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""logs is deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""")
-
         pulumi.set(__self__, "logs", logs)
         if metrics and not isinstance(metrics, list):
             raise TypeError("Expected argument 'metrics' to be a list")
@@ -75,6 +71,9 @@ class GetDiagnosticCategoriesResult:
         """
         A list of the Log Categories supported for this Resource.
         """
+        warnings.warn("""`logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""logs is deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "logs")
 
     @property
@@ -130,12 +129,12 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts, typ=GetDiagnosticCategoriesResult).value
 
     return AwaitableGetDiagnosticCategoriesResult(
-        id=__ret__.id,
-        log_category_groups=__ret__.log_category_groups,
-        log_category_types=__ret__.log_category_types,
-        logs=__ret__.logs,
-        metrics=__ret__.metrics,
-        resource_id=__ret__.resource_id)
+        id=pulumi.get(__ret__, 'id'),
+        log_category_groups=pulumi.get(__ret__, 'log_category_groups'),
+        log_category_types=pulumi.get(__ret__, 'log_category_types'),
+        logs=pulumi.get(__ret__, 'logs'),
+        metrics=pulumi.get(__ret__, 'metrics'),
+        resource_id=pulumi.get(__ret__, 'resource_id'))
 
 
 @_utilities.lift_output_func(get_diagnostic_categories)

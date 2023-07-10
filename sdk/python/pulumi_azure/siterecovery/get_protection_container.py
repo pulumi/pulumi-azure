@@ -115,11 +115,11 @@ def get_protection_container(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:siterecovery/getProtectionContainer:getProtectionContainer', __args__, opts=opts, typ=GetProtectionContainerResult).value
 
     return AwaitableGetProtectionContainerResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        recovery_fabric_name=__ret__.recovery_fabric_name,
-        recovery_vault_name=__ret__.recovery_vault_name,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        recovery_fabric_name=pulumi.get(__ret__, 'recovery_fabric_name'),
+        recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_protection_container)

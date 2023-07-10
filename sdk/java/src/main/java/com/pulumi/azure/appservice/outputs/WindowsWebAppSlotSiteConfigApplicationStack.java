@@ -19,21 +19,37 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      * 
      */
     private @Nullable String currentStack;
-    /**
-     * @return The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-     * 
-     */
     private @Nullable String dockerContainerName;
     /**
-     * @return The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
     private @Nullable String dockerContainerRegistry;
+    private @Nullable String dockerContainerTag;
     /**
-     * @return The Image Tag of the specified Docker Container to use. For example `latest`
+     * @return The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
      * 
      */
-    private @Nullable String dockerContainerTag;
+    private @Nullable String dockerImageName;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    private @Nullable String dockerRegistryPassword;
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    private @Nullable String dockerRegistryUrl;
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    private @Nullable String dockerRegistryUsername;
     /**
      * @return The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
      * 
@@ -114,26 +130,50 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     public Optional<String> currentStack() {
         return Optional.ofNullable(this.currentStack);
     }
-    /**
-     * @return The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
-     * 
-     */
     public Optional<String> dockerContainerName() {
         return Optional.ofNullable(this.dockerContainerName);
     }
     /**
-     * @return The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
     public Optional<String> dockerContainerRegistry() {
         return Optional.ofNullable(this.dockerContainerRegistry);
     }
-    /**
-     * @return The Image Tag of the specified Docker Container to use. For example `latest`
-     * 
-     */
     public Optional<String> dockerContainerTag() {
         return Optional.ofNullable(this.dockerContainerTag);
+    }
+    /**
+     * @return The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+     * 
+     */
+    public Optional<String> dockerImageName() {
+        return Optional.ofNullable(this.dockerImageName);
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * 
+     */
+    public Optional<String> dockerRegistryPassword() {
+        return Optional.ofNullable(this.dockerRegistryPassword);
+    }
+    /**
+     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * 
+     */
+    public Optional<String> dockerRegistryUrl() {
+        return Optional.ofNullable(this.dockerRegistryUrl);
+    }
+    /**
+     * @return The User Name to use for authentication against the registry to pull the image.
+     * 
+     */
+    public Optional<String> dockerRegistryUsername() {
+        return Optional.ofNullable(this.dockerRegistryUsername);
     }
     /**
      * @return The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
@@ -240,6 +280,10 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         private @Nullable String dockerContainerName;
         private @Nullable String dockerContainerRegistry;
         private @Nullable String dockerContainerTag;
+        private @Nullable String dockerImageName;
+        private @Nullable String dockerRegistryPassword;
+        private @Nullable String dockerRegistryUrl;
+        private @Nullable String dockerRegistryUsername;
         private @Nullable String dotnetCoreVersion;
         private @Nullable String dotnetVersion;
         private @Nullable String javaContainer;
@@ -258,6 +302,10 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     	      this.dockerContainerName = defaults.dockerContainerName;
     	      this.dockerContainerRegistry = defaults.dockerContainerRegistry;
     	      this.dockerContainerTag = defaults.dockerContainerTag;
+    	      this.dockerImageName = defaults.dockerImageName;
+    	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
+    	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
+    	      this.dockerRegistryUsername = defaults.dockerRegistryUsername;
     	      this.dotnetCoreVersion = defaults.dotnetCoreVersion;
     	      this.dotnetVersion = defaults.dotnetVersion;
     	      this.javaContainer = defaults.javaContainer;
@@ -289,6 +337,26 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         @CustomType.Setter
         public Builder dockerContainerTag(@Nullable String dockerContainerTag) {
             this.dockerContainerTag = dockerContainerTag;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerImageName(@Nullable String dockerImageName) {
+            this.dockerImageName = dockerImageName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryPassword(@Nullable String dockerRegistryPassword) {
+            this.dockerRegistryPassword = dockerRegistryPassword;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUrl(@Nullable String dockerRegistryUrl) {
+            this.dockerRegistryUrl = dockerRegistryUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerRegistryUsername(@Nullable String dockerRegistryUsername) {
+            this.dockerRegistryUsername = dockerRegistryUsername;
             return this;
         }
         @CustomType.Setter
@@ -352,6 +420,10 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
             o.dockerContainerName = dockerContainerName;
             o.dockerContainerRegistry = dockerContainerRegistry;
             o.dockerContainerTag = dockerContainerTag;
+            o.dockerImageName = dockerImageName;
+            o.dockerRegistryPassword = dockerRegistryPassword;
+            o.dockerRegistryUrl = dockerRegistryUrl;
+            o.dockerRegistryUsername = dockerRegistryUsername;
             o.dotnetCoreVersion = dotnetCoreVersion;
             o.dotnetVersion = dotnetVersion;
             o.javaContainer = javaContainer;

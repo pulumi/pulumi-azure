@@ -149,14 +149,14 @@ def get_account(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:maps/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        primary_access_key=__ret__.primary_access_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags,
-        x_ms_client_id=__ret__.x_ms_client_id)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        x_ms_client_id=pulumi.get(__ret__, 'x_ms_client_id'))
 
 
 @_utilities.lift_output_func(get_account)

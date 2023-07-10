@@ -109,10 +109,10 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection', __args__, opts=opts, typ=GetWorkspacePrivateEndpointConnectionResult).value
 
     return AwaitableGetWorkspacePrivateEndpointConnectionResult(
-        connections=__ret__.connections,
-        id=__ret__.id,
-        private_endpoint_id=__ret__.private_endpoint_id,
-        workspace_id=__ret__.workspace_id)
+        connections=pulumi.get(__ret__, 'connections'),
+        id=pulumi.get(__ret__, 'id'),
+        private_endpoint_id=pulumi.get(__ret__, 'private_endpoint_id'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_workspace_private_endpoint_connection)

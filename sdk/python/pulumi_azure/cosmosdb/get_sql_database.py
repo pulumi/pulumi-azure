@@ -127,12 +127,12 @@ def get_sql_database(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getSqlDatabase:getSqlDatabase', __args__, opts=opts, typ=GetSqlDatabaseResult).value
 
     return AwaitableGetSqlDatabaseResult(
-        account_name=__ret__.account_name,
-        autoscale_settings=__ret__.autoscale_settings,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        throughput=__ret__.throughput)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        autoscale_settings=pulumi.get(__ret__, 'autoscale_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        throughput=pulumi.get(__ret__, 'throughput'))
 
 
 @_utilities.lift_output_func(get_sql_database)

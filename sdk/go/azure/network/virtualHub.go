@@ -88,6 +88,8 @@ type VirtualHub struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Autonomous System Number of the Virtual Hub BGP router.
 	VirtualRouterAsn pulumi.IntOutput `pulumi:"virtualRouterAsn"`
+	// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+	VirtualRouterAutoScaleMinCapacity pulumi.IntPtrOutput `pulumi:"virtualRouterAutoScaleMinCapacity"`
 	// The IP addresses of the Virtual Hub BGP router.
 	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
@@ -146,6 +148,8 @@ type virtualHubState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Autonomous System Number of the Virtual Hub BGP router.
 	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+	VirtualRouterAutoScaleMinCapacity *int `pulumi:"virtualRouterAutoScaleMinCapacity"`
 	// The IP addresses of the Virtual Hub BGP router.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
@@ -173,6 +177,8 @@ type VirtualHubState struct {
 	Tags pulumi.StringMapInput
 	// The Autonomous System Number of the Virtual Hub BGP router.
 	VirtualRouterAsn pulumi.IntPtrInput
+	// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+	VirtualRouterAutoScaleMinCapacity pulumi.IntPtrInput
 	// The IP addresses of the Virtual Hub BGP router.
 	VirtualRouterIps pulumi.StringArrayInput
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
@@ -200,6 +206,8 @@ type virtualHubArgs struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
+	// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+	VirtualRouterAutoScaleMinCapacity *int `pulumi:"virtualRouterAutoScaleMinCapacity"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId *string `pulumi:"virtualWanId"`
 }
@@ -222,6 +230,8 @@ type VirtualHubArgs struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
+	// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+	VirtualRouterAutoScaleMinCapacity pulumi.IntPtrInput
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId pulumi.StringPtrInput
 }
@@ -361,6 +371,11 @@ func (o VirtualHubOutput) Tags() pulumi.StringMapOutput {
 // The Autonomous System Number of the Virtual Hub BGP router.
 func (o VirtualHubOutput) VirtualRouterAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v *VirtualHub) pulumi.IntOutput { return v.VirtualRouterAsn }).(pulumi.IntOutput)
+}
+
+// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+func (o VirtualHubOutput) VirtualRouterAutoScaleMinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.IntPtrOutput { return v.VirtualRouterAutoScaleMinCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The IP addresses of the Virtual Hub BGP router.

@@ -32,6 +32,21 @@ public final class ResourceGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The ID of the resource or application that manages this Resource Group.
+     * 
+     */
+    @Import(name="managedBy")
+    private @Nullable Output<String> managedBy;
+
+    /**
+     * @return The ID of the resource or application that manages this Resource Group.
+     * 
+     */
+    public Optional<Output<String>> managedBy() {
+        return Optional.ofNullable(this.managedBy);
+    }
+
+    /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
@@ -65,6 +80,7 @@ public final class ResourceGroupState extends com.pulumi.resources.ResourceArgs 
 
     private ResourceGroupState(ResourceGroupState $) {
         this.location = $.location;
+        this.managedBy = $.managedBy;
         this.name = $.name;
         this.tags = $.tags;
     }
@@ -106,6 +122,27 @@ public final class ResourceGroupState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param managedBy The ID of the resource or application that manages this Resource Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedBy(@Nullable Output<String> managedBy) {
+            $.managedBy = managedBy;
+            return this;
+        }
+
+        /**
+         * @param managedBy The ID of the resource or application that manages this Resource Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedBy(String managedBy) {
+            return managedBy(Output.of(managedBy));
         }
 
         /**

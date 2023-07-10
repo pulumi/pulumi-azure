@@ -194,6 +194,48 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
+     * This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+     * 
+     */
+    @Export(name="securityDomainEncryptedData", refs={String.class}, tree="[0]")
+    private Output<String> securityDomainEncryptedData;
+
+    /**
+     * @return This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+     * 
+     */
+    public Output<String> securityDomainEncryptedData() {
+        return this.securityDomainEncryptedData;
+    }
+    /**
+     * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     * 
+     */
+    @Export(name="securityDomainKeyVaultCertificateIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> securityDomainKeyVaultCertificateIds;
+
+    /**
+     * @return A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     * 
+     */
+    public Output<Optional<List<String>>> securityDomainKeyVaultCertificateIds() {
+        return Codegen.optional(this.securityDomainKeyVaultCertificateIds);
+    }
+    /**
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * 
+     */
+    @Export(name="securityDomainQuorum", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> securityDomainQuorum;
+
+    /**
+     * @return Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * 
+     */
+    public Output<Optional<Integer>> securityDomainQuorum() {
+        return Codegen.optional(this.securityDomainQuorum);
+    }
+    /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      * 
      */
@@ -282,6 +324,9 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "securityDomainEncryptedData"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

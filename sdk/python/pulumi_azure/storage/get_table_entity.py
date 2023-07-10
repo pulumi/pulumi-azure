@@ -127,12 +127,12 @@ def get_table_entity(partition_key: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getTableEntity:getTableEntity', __args__, opts=opts, typ=GetTableEntityResult).value
 
     return AwaitableGetTableEntityResult(
-        entity=__ret__.entity,
-        id=__ret__.id,
-        partition_key=__ret__.partition_key,
-        row_key=__ret__.row_key,
-        storage_account_name=__ret__.storage_account_name,
-        table_name=__ret__.table_name)
+        entity=pulumi.get(__ret__, 'entity'),
+        id=pulumi.get(__ret__, 'id'),
+        partition_key=pulumi.get(__ret__, 'partition_key'),
+        row_key=pulumi.get(__ret__, 'row_key'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        table_name=pulumi.get(__ret__, 'table_name'))
 
 
 @_utilities.lift_output_func(get_table_entity)

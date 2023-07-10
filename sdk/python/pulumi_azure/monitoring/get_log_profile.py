@@ -138,13 +138,13 @@ def get_log_profile(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getLogProfile:getLogProfile', __args__, opts=opts, typ=GetLogProfileResult).value
 
     return AwaitableGetLogProfileResult(
-        categories=__ret__.categories,
-        id=__ret__.id,
-        locations=__ret__.locations,
-        name=__ret__.name,
-        retention_policies=__ret__.retention_policies,
-        servicebus_rule_id=__ret__.servicebus_rule_id,
-        storage_account_id=__ret__.storage_account_id)
+        categories=pulumi.get(__ret__, 'categories'),
+        id=pulumi.get(__ret__, 'id'),
+        locations=pulumi.get(__ret__, 'locations'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_policies=pulumi.get(__ret__, 'retention_policies'),
+        servicebus_rule_id=pulumi.get(__ret__, 'servicebus_rule_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 
 
 @_utilities.lift_output_func(get_log_profile)

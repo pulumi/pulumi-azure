@@ -272,24 +272,24 @@ def get_key(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        curve=__ret__.curve,
-        e=__ret__.e,
-        id=__ret__.id,
-        key_opts=__ret__.key_opts,
-        key_size=__ret__.key_size,
-        key_type=__ret__.key_type,
-        key_vault_id=__ret__.key_vault_id,
-        n=__ret__.n,
-        name=__ret__.name,
-        public_key_openssh=__ret__.public_key_openssh,
-        public_key_pem=__ret__.public_key_pem,
-        resource_id=__ret__.resource_id,
-        resource_versionless_id=__ret__.resource_versionless_id,
-        tags=__ret__.tags,
-        version=__ret__.version,
-        versionless_id=__ret__.versionless_id,
-        x=__ret__.x,
-        y=__ret__.y)
+        curve=pulumi.get(__ret__, 'curve'),
+        e=pulumi.get(__ret__, 'e'),
+        id=pulumi.get(__ret__, 'id'),
+        key_opts=pulumi.get(__ret__, 'key_opts'),
+        key_size=pulumi.get(__ret__, 'key_size'),
+        key_type=pulumi.get(__ret__, 'key_type'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        n=pulumi.get(__ret__, 'n'),
+        name=pulumi.get(__ret__, 'name'),
+        public_key_openssh=pulumi.get(__ret__, 'public_key_openssh'),
+        public_key_pem=pulumi.get(__ret__, 'public_key_pem'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        resource_versionless_id=pulumi.get(__ret__, 'resource_versionless_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'),
+        versionless_id=pulumi.get(__ret__, 'versionless_id'),
+        x=pulumi.get(__ret__, 'x'),
+        y=pulumi.get(__ret__, 'y'))
 
 
 @_utilities.lift_output_func(get_key)

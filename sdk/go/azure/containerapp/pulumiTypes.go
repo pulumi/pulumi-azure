@@ -186,11 +186,11 @@ func (o AppDaprPtrOutput) AppProtocol() pulumi.StringPtrOutput {
 }
 
 type AppIdentity struct {
-	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -206,11 +206,11 @@ type AppIdentityInput interface {
 }
 
 type AppIdentityArgs struct {
-	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -291,7 +291,7 @@ func (o AppIdentityOutput) ToAppIdentityPtrOutputWithContext(ctx context.Context
 	}).(AppIdentityPtrOutput)
 }
 
-// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -304,7 +304,7 @@ func (o AppIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 func (o AppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -333,7 +333,7 @@ func (o AppIdentityPtrOutput) Elem() AppIdentityOutput {
 	}).(AppIdentityOutput)
 }
 
-// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppIdentity) []string {
 		if v == nil {
@@ -361,7 +361,7 @@ func (o AppIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 func (o AppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIdentity) *string {
 		if v == nil {
@@ -1734,7 +1734,7 @@ type AppTemplateContainerLivenessProbe struct {
 	Host *string `pulumi:"host"`
 	// The time in seconds to wait after the container has started before the probe is started.
 	InitialDelay *int `pulumi:"initialDelay"`
-	// (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+	// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
 	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
 	Path *string `pulumi:"path"`
@@ -1768,7 +1768,7 @@ type AppTemplateContainerLivenessProbeArgs struct {
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The time in seconds to wait after the container has started before the probe is started.
 	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
-	// (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+	// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
 	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -1853,7 +1853,7 @@ func (o AppTemplateContainerLivenessProbeOutput) InitialDelay() pulumi.IntPtrOut
 	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
 func (o AppTemplateContainerLivenessProbeOutput) IntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
 }

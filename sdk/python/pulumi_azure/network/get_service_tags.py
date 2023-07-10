@@ -140,13 +140,13 @@ def get_service_tags(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getServiceTags:getServiceTags', __args__, opts=opts, typ=GetServiceTagsResult).value
 
     return AwaitableGetServiceTagsResult(
-        address_prefixes=__ret__.address_prefixes,
-        id=__ret__.id,
-        ipv4_cidrs=__ret__.ipv4_cidrs,
-        ipv6_cidrs=__ret__.ipv6_cidrs,
-        location=__ret__.location,
-        location_filter=__ret__.location_filter,
-        service=__ret__.service)
+        address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv4_cidrs=pulumi.get(__ret__, 'ipv4_cidrs'),
+        ipv6_cidrs=pulumi.get(__ret__, 'ipv6_cidrs'),
+        location=pulumi.get(__ret__, 'location'),
+        location_filter=pulumi.get(__ret__, 'location_filter'),
+        service=pulumi.get(__ret__, 'service'))
 
 
 @_utilities.lift_output_func(get_service_tags)

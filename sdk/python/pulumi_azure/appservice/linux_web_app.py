@@ -35,6 +35,7 @@ class LinuxWebAppArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input['LinuxWebAppLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -103,6 +104,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "logs", logs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sticky_settings is not None:
             pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_accounts is not None:
@@ -343,6 +346,15 @@ class LinuxWebAppArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="stickySettings")
     def sticky_settings(self) -> Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]:
         """
@@ -429,6 +441,7 @@ class _LinuxWebAppState:
                  outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['LinuxWebAppSiteConfigArgs']] = None,
@@ -523,6 +536,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses is not None:
             pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_plan_id is not None:
@@ -831,6 +846,15 @@ class _LinuxWebAppState:
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -959,6 +983,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']]] = None,
@@ -1093,6 +1118,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']]] = None,
@@ -1126,6 +1152,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1185,6 +1212,7 @@ class LinuxWebApp(pulumi.CustomResource):
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']]] = None,
@@ -1264,6 +1292,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
         __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
@@ -1466,6 +1495,11 @@ class LinuxWebApp(pulumi.CustomResource):
         A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

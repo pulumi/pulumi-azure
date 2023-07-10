@@ -163,15 +163,15 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane', __args__, opts=opts, typ=GetNetworkPacketCoreDataPlaneResult).value
 
     return AwaitableGetNetworkPacketCoreDataPlaneResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        mobile_network_packet_core_control_plane_id=__ret__.mobile_network_packet_core_control_plane_id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        user_plane_access_ipv4_address=__ret__.user_plane_access_ipv4_address,
-        user_plane_access_ipv4_gateway=__ret__.user_plane_access_ipv4_gateway,
-        user_plane_access_ipv4_subnet=__ret__.user_plane_access_ipv4_subnet,
-        user_plane_access_name=__ret__.user_plane_access_name)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_packet_core_control_plane_id=pulumi.get(__ret__, 'mobile_network_packet_core_control_plane_id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_plane_access_ipv4_address=pulumi.get(__ret__, 'user_plane_access_ipv4_address'),
+        user_plane_access_ipv4_gateway=pulumi.get(__ret__, 'user_plane_access_ipv4_gateway'),
+        user_plane_access_ipv4_subnet=pulumi.get(__ret__, 'user_plane_access_ipv4_subnet'),
+        user_plane_access_name=pulumi.get(__ret__, 'user_plane_access_name'))
 
 
 @_utilities.lift_output_func(get_network_packet_core_data_plane)

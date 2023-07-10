@@ -155,14 +155,14 @@ def get_virtual_hub_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualHubConnection:getVirtualHubConnection', __args__, opts=opts, typ=GetVirtualHubConnectionResult).value
 
     return AwaitableGetVirtualHubConnectionResult(
-        id=__ret__.id,
-        internet_security_enabled=__ret__.internet_security_enabled,
-        name=__ret__.name,
-        remote_virtual_network_id=__ret__.remote_virtual_network_id,
-        resource_group_name=__ret__.resource_group_name,
-        routings=__ret__.routings,
-        virtual_hub_id=__ret__.virtual_hub_id,
-        virtual_hub_name=__ret__.virtual_hub_name)
+        id=pulumi.get(__ret__, 'id'),
+        internet_security_enabled=pulumi.get(__ret__, 'internet_security_enabled'),
+        name=pulumi.get(__ret__, 'name'),
+        remote_virtual_network_id=pulumi.get(__ret__, 'remote_virtual_network_id'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        routings=pulumi.get(__ret__, 'routings'),
+        virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'),
+        virtual_hub_name=pulumi.get(__ret__, 'virtual_hub_name'))
 
 
 @_utilities.lift_output_func(get_virtual_hub_connection)

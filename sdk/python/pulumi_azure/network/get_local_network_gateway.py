@@ -163,15 +163,15 @@ def get_local_network_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getLocalNetworkGateway:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult).value
 
     return AwaitableGetLocalNetworkGatewayResult(
-        address_spaces=__ret__.address_spaces,
-        bgp_settings=__ret__.bgp_settings,
-        gateway_address=__ret__.gateway_address,
-        gateway_fqdn=__ret__.gateway_fqdn,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        address_spaces=pulumi.get(__ret__, 'address_spaces'),
+        bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
+        gateway_address=pulumi.get(__ret__, 'gateway_address'),
+        gateway_fqdn=pulumi.get(__ret__, 'gateway_fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_local_network_gateway)

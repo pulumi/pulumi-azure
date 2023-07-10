@@ -467,6 +467,12 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
     public Output<String> possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
     /**
      * The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
      * 

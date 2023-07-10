@@ -36,7 +36,7 @@ import (
 //			}
 //			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
 //				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("172.0.0.0/16"),
+//					pulumi.String("172.16.0.0/12"),
 //				},
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,

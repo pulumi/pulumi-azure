@@ -19,6 +19,8 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterKubeConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterKubeletIdentityArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterLinuxProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMaintenanceWindowArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterMaintenanceWindowAutoUpgradeArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterMaintenanceWindowNodeOsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMicrosoftDefenderArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMonitorMetricsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileArgs;
@@ -179,6 +181,25 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<KubernetesClusterConfidentialComputingArgs>> confidentialComputing() {
         return Optional.ofNullable(this.confidentialComputing);
+    }
+
+    /**
+     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
+     */
+    @Import(name="customCaTrustCertificatesBase64s")
+    private @Nullable Output<List<String>> customCaTrustCertificatesBase64s;
+
+    /**
+     * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
+     */
+    public Optional<Output<List<String>>> customCaTrustCertificatesBase64s() {
+        return Optional.ofNullable(this.customCaTrustCertificatesBase64s);
     }
 
     /**
@@ -604,6 +625,36 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `maintenance_window_auto_upgrade` block as defined below.
+     * 
+     */
+    @Import(name="maintenanceWindowAutoUpgrade")
+    private @Nullable Output<KubernetesClusterMaintenanceWindowAutoUpgradeArgs> maintenanceWindowAutoUpgrade;
+
+    /**
+     * @return A `maintenance_window_auto_upgrade` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterMaintenanceWindowAutoUpgradeArgs>> maintenanceWindowAutoUpgrade() {
+        return Optional.ofNullable(this.maintenanceWindowAutoUpgrade);
+    }
+
+    /**
+     * A `maintenance_window_node_os` block as defined below.
+     * 
+     */
+    @Import(name="maintenanceWindowNodeOs")
+    private @Nullable Output<KubernetesClusterMaintenanceWindowNodeOsArgs> maintenanceWindowNodeOs;
+
+    /**
+     * @return A `maintenance_window_node_os` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterMaintenanceWindowNodeOsArgs>> maintenanceWindowNodeOs() {
+        return Optional.ofNullable(this.maintenanceWindowNodeOs);
+    }
+
+    /**
      * A `microsoft_defender` block as defined below.
      * 
      */
@@ -665,6 +716,29 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<KubernetesClusterNetworkProfileArgs>> networkProfile() {
         return Optional.ofNullable(this.networkProfile);
+    }
+
+    /**
+     * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * 
+     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     * 
+     */
+    @Import(name="nodeOsChannelUpgrade")
+    private @Nullable Output<String> nodeOsChannelUpgrade;
+
+    /**
+     * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * 
+     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     * 
+     */
+    public Optional<Output<String>> nodeOsChannelUpgrade() {
+        return Optional.ofNullable(this.nodeOsChannelUpgrade);
     }
 
     /**
@@ -1194,6 +1268,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
         this.confidentialComputing = $.confidentialComputing;
+        this.customCaTrustCertificatesBase64s = $.customCaTrustCertificatesBase64s;
         this.defaultNodePool = $.defaultNodePool;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.dnsPrefix = $.dnsPrefix;
@@ -1220,10 +1295,13 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.localAccountDisabled = $.localAccountDisabled;
         this.location = $.location;
         this.maintenanceWindow = $.maintenanceWindow;
+        this.maintenanceWindowAutoUpgrade = $.maintenanceWindowAutoUpgrade;
+        this.maintenanceWindowNodeOs = $.maintenanceWindowNodeOs;
         this.microsoftDefender = $.microsoftDefender;
         this.monitorMetrics = $.monitorMetrics;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
+        this.nodeOsChannelUpgrade = $.nodeOsChannelUpgrade;
         this.nodeResourceGroup = $.nodeResourceGroup;
         this.nodeResourceGroupId = $.nodeResourceGroupId;
         this.oidcIssuerEnabled = $.oidcIssuerEnabled;
@@ -1462,6 +1540,43 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder confidentialComputing(KubernetesClusterConfidentialComputingArgs confidentialComputing) {
             return confidentialComputing(Output.of(confidentialComputing));
+        }
+
+        /**
+         * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustCertificatesBase64s(@Nullable Output<List<String>> customCaTrustCertificatesBase64s) {
+            $.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
+            return this;
+        }
+
+        /**
+         * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustCertificatesBase64s(List<String> customCaTrustCertificatesBase64s) {
+            return customCaTrustCertificatesBase64s(Output.of(customCaTrustCertificatesBase64s));
+        }
+
+        /**
+         * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustCertificatesBase64s(String... customCaTrustCertificatesBase64s) {
+            return customCaTrustCertificatesBase64s(List.of(customCaTrustCertificatesBase64s));
         }
 
         /**
@@ -2063,6 +2178,48 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param maintenanceWindowAutoUpgrade A `maintenance_window_auto_upgrade` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceWindowAutoUpgrade(@Nullable Output<KubernetesClusterMaintenanceWindowAutoUpgradeArgs> maintenanceWindowAutoUpgrade) {
+            $.maintenanceWindowAutoUpgrade = maintenanceWindowAutoUpgrade;
+            return this;
+        }
+
+        /**
+         * @param maintenanceWindowAutoUpgrade A `maintenance_window_auto_upgrade` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceWindowAutoUpgrade(KubernetesClusterMaintenanceWindowAutoUpgradeArgs maintenanceWindowAutoUpgrade) {
+            return maintenanceWindowAutoUpgrade(Output.of(maintenanceWindowAutoUpgrade));
+        }
+
+        /**
+         * @param maintenanceWindowNodeOs A `maintenance_window_node_os` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceWindowNodeOs(@Nullable Output<KubernetesClusterMaintenanceWindowNodeOsArgs> maintenanceWindowNodeOs) {
+            $.maintenanceWindowNodeOs = maintenanceWindowNodeOs;
+            return this;
+        }
+
+        /**
+         * @param maintenanceWindowNodeOs A `maintenance_window_node_os` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceWindowNodeOs(KubernetesClusterMaintenanceWindowNodeOsArgs maintenanceWindowNodeOs) {
+            return maintenanceWindowNodeOs(Output.of(maintenanceWindowNodeOs));
+        }
+
+        /**
          * @param microsoftDefender A `microsoft_defender` block as defined below.
          * 
          * @return builder
@@ -2148,6 +2305,35 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder networkProfile(KubernetesClusterNetworkProfileArgs networkProfile) {
             return networkProfile(Output.of(networkProfile));
+        }
+
+        /**
+         * @param nodeOsChannelUpgrade The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+         * 
+         * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeOsChannelUpgrade(@Nullable Output<String> nodeOsChannelUpgrade) {
+            $.nodeOsChannelUpgrade = nodeOsChannelUpgrade;
+            return this;
+        }
+
+        /**
+         * @param nodeOsChannelUpgrade The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+         * 
+         * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeOsChannelUpgrade(String nodeOsChannelUpgrade) {
+            return nodeOsChannelUpgrade(Output.of(nodeOsChannelUpgrade));
         }
 
         /**

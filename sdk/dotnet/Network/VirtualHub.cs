@@ -116,6 +116,12 @@ namespace Pulumi.Azure.Network
         public Output<int> VirtualRouterAsn { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        /// </summary>
+        [Output("virtualRouterAutoScaleMinCapacity")]
+        public Output<int?> VirtualRouterAutoScaleMinCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// The IP addresses of the Virtual Hub BGP router.
         /// </summary>
         [Output("virtualRouterIps")]
@@ -234,6 +240,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        /// </summary>
+        [Input("virtualRouterAutoScaleMinCapacity")]
+        public Input<int>? VirtualRouterAutoScaleMinCapacity { get; set; }
+
+        /// <summary>
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualWanId")]
@@ -318,6 +330,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("virtualRouterAsn")]
         public Input<int>? VirtualRouterAsn { get; set; }
+
+        /// <summary>
+        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        /// </summary>
+        [Input("virtualRouterAutoScaleMinCapacity")]
+        public Input<int>? VirtualRouterAutoScaleMinCapacity { get; set; }
 
         [Input("virtualRouterIps")]
         private InputList<string>? _virtualRouterIps;

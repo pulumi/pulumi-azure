@@ -172,16 +172,16 @@ def get_frontdoor_custom_domain(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain', __args__, opts=opts, typ=GetFrontdoorCustomDomainResult).value
 
     return AwaitableGetFrontdoorCustomDomainResult(
-        cdn_frontdoor_profile_id=__ret__.cdn_frontdoor_profile_id,
-        dns_zone_id=__ret__.dns_zone_id,
-        expiration_date=__ret__.expiration_date,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        profile_name=__ret__.profile_name,
-        resource_group_name=__ret__.resource_group_name,
-        tls=__ret__.tls,
-        validation_token=__ret__.validation_token)
+        cdn_frontdoor_profile_id=pulumi.get(__ret__, 'cdn_frontdoor_profile_id'),
+        dns_zone_id=pulumi.get(__ret__, 'dns_zone_id'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tls=pulumi.get(__ret__, 'tls'),
+        validation_token=pulumi.get(__ret__, 'validation_token'))
 
 
 @_utilities.lift_output_func(get_frontdoor_custom_domain)

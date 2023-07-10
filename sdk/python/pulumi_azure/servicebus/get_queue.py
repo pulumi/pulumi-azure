@@ -69,10 +69,6 @@ class GetQueueResult:
         pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
-        if namespace_name is not None:
-            warnings.warn("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
-
         pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection and not isinstance(requires_duplicate_detection, bool):
             raise TypeError("Expected argument 'requires_duplicate_detection' to be a bool")
@@ -82,10 +78,6 @@ class GetQueueResult:
         pulumi.set(__self__, "requires_session", requires_session)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
-        if resource_group_name is not None:
-            warnings.warn("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
-
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -208,6 +200,9 @@ class GetQueueResult:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[str]:
+        warnings.warn("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -229,6 +224,9 @@ class GetQueueResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[str]:
+        warnings.warn("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -302,26 +300,26 @@ def get_queue(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        auto_delete_on_idle=__ret__.auto_delete_on_idle,
-        dead_lettering_on_message_expiration=__ret__.dead_lettering_on_message_expiration,
-        default_message_ttl=__ret__.default_message_ttl,
-        duplicate_detection_history_time_window=__ret__.duplicate_detection_history_time_window,
-        enable_batched_operations=__ret__.enable_batched_operations,
-        enable_express=__ret__.enable_express,
-        enable_partitioning=__ret__.enable_partitioning,
-        forward_dead_lettered_messages_to=__ret__.forward_dead_lettered_messages_to,
-        forward_to=__ret__.forward_to,
-        id=__ret__.id,
-        lock_duration=__ret__.lock_duration,
-        max_delivery_count=__ret__.max_delivery_count,
-        max_size_in_megabytes=__ret__.max_size_in_megabytes,
-        name=__ret__.name,
-        namespace_id=__ret__.namespace_id,
-        namespace_name=__ret__.namespace_name,
-        requires_duplicate_detection=__ret__.requires_duplicate_detection,
-        requires_session=__ret__.requires_session,
-        resource_group_name=__ret__.resource_group_name,
-        status=__ret__.status)
+        auto_delete_on_idle=pulumi.get(__ret__, 'auto_delete_on_idle'),
+        dead_lettering_on_message_expiration=pulumi.get(__ret__, 'dead_lettering_on_message_expiration'),
+        default_message_ttl=pulumi.get(__ret__, 'default_message_ttl'),
+        duplicate_detection_history_time_window=pulumi.get(__ret__, 'duplicate_detection_history_time_window'),
+        enable_batched_operations=pulumi.get(__ret__, 'enable_batched_operations'),
+        enable_express=pulumi.get(__ret__, 'enable_express'),
+        enable_partitioning=pulumi.get(__ret__, 'enable_partitioning'),
+        forward_dead_lettered_messages_to=pulumi.get(__ret__, 'forward_dead_lettered_messages_to'),
+        forward_to=pulumi.get(__ret__, 'forward_to'),
+        id=pulumi.get(__ret__, 'id'),
+        lock_duration=pulumi.get(__ret__, 'lock_duration'),
+        max_delivery_count=pulumi.get(__ret__, 'max_delivery_count'),
+        max_size_in_megabytes=pulumi.get(__ret__, 'max_size_in_megabytes'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_id=pulumi.get(__ret__, 'namespace_id'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        requires_duplicate_detection=pulumi.get(__ret__, 'requires_duplicate_detection'),
+        requires_session=pulumi.get(__ret__, 'requires_session'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_queue)

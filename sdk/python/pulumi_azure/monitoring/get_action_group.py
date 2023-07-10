@@ -250,22 +250,22 @@ def get_action_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getActionGroup:getActionGroup', __args__, opts=opts, typ=GetActionGroupResult).value
 
     return AwaitableGetActionGroupResult(
-        arm_role_receivers=__ret__.arm_role_receivers,
-        automation_runbook_receivers=__ret__.automation_runbook_receivers,
-        azure_app_push_receivers=__ret__.azure_app_push_receivers,
-        azure_function_receivers=__ret__.azure_function_receivers,
-        email_receivers=__ret__.email_receivers,
-        enabled=__ret__.enabled,
-        event_hub_receivers=__ret__.event_hub_receivers,
-        id=__ret__.id,
-        itsm_receivers=__ret__.itsm_receivers,
-        logic_app_receivers=__ret__.logic_app_receivers,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        short_name=__ret__.short_name,
-        sms_receivers=__ret__.sms_receivers,
-        voice_receivers=__ret__.voice_receivers,
-        webhook_receivers=__ret__.webhook_receivers)
+        arm_role_receivers=pulumi.get(__ret__, 'arm_role_receivers'),
+        automation_runbook_receivers=pulumi.get(__ret__, 'automation_runbook_receivers'),
+        azure_app_push_receivers=pulumi.get(__ret__, 'azure_app_push_receivers'),
+        azure_function_receivers=pulumi.get(__ret__, 'azure_function_receivers'),
+        email_receivers=pulumi.get(__ret__, 'email_receivers'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        event_hub_receivers=pulumi.get(__ret__, 'event_hub_receivers'),
+        id=pulumi.get(__ret__, 'id'),
+        itsm_receivers=pulumi.get(__ret__, 'itsm_receivers'),
+        logic_app_receivers=pulumi.get(__ret__, 'logic_app_receivers'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        short_name=pulumi.get(__ret__, 'short_name'),
+        sms_receivers=pulumi.get(__ret__, 'sms_receivers'),
+        voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
+        webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
 
 
 @_utilities.lift_output_func(get_action_group)

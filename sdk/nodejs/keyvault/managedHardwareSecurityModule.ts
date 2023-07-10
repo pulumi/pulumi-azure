@@ -102,6 +102,18 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+     */
+    public /*out*/ readonly securityDomainEncryptedData!: pulumi.Output<string>;
+    /**
+     * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     */
+    public readonly securityDomainKeyVaultCertificateIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+     */
+    public readonly securityDomainQuorum!: pulumi.Output<number | undefined>;
+    /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
@@ -139,6 +151,9 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["securityDomainEncryptedData"] = state ? state.securityDomainEncryptedData : undefined;
+            resourceInputs["securityDomainKeyVaultCertificateIds"] = state ? state.securityDomainKeyVaultCertificateIds : undefined;
+            resourceInputs["securityDomainQuorum"] = state ? state.securityDomainQuorum : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -164,13 +179,18 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityDomainKeyVaultCertificateIds"] = args ? args.securityDomainKeyVaultCertificateIds : undefined;
+            resourceInputs["securityDomainQuorum"] = args ? args.securityDomainQuorum : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["hsmUri"] = undefined /*out*/;
+            resourceInputs["securityDomainEncryptedData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["securityDomainEncryptedData"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedHardwareSecurityModule.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -211,6 +231,18 @@ export interface ManagedHardwareSecurityModuleState {
      * The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+     */
+    securityDomainEncryptedData?: pulumi.Input<string>;
+    /**
+     * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     */
+    securityDomainKeyVaultCertificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+     */
+    securityDomainQuorum?: pulumi.Input<number>;
     /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      */
@@ -261,6 +293,14 @@ export interface ManagedHardwareSecurityModuleArgs {
      * The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+     */
+    securityDomainKeyVaultCertificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
+     */
+    securityDomainQuorum?: pulumi.Input<number>;
     /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      */

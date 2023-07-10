@@ -17,7 +17,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     public static final ReplicationRecoveryPlanRecoveryGroupPreActionArgs Empty = new ReplicationRecoveryPlanRecoveryGroupPreActionArgs();
 
     /**
-     * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+     * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
@@ -26,7 +26,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     private @Nullable Output<String> fabricLocation;
 
     /**
-     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
@@ -184,7 +184,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         }
 
         /**
-         * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
          * 
          * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
          * 
@@ -197,7 +197,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         }
 
         /**
-         * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
          * 
          * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
          * 

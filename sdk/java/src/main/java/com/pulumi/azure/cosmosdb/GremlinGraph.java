@@ -116,6 +116,24 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
     public Output<String> accountName() {
         return this.accountName;
     }
+    /**
+     * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     * 
+     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * 
+     */
+    @Export(name="analyticalStorageTtl", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> analyticalStorageTtl;
+
+    /**
+     * @return The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+     * 
+     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * 
+     */
+    public Output<Optional<Integer>> analyticalStorageTtl() {
+        return Codegen.optional(this.analyticalStorageTtl);
+    }
     @Export(name="autoscaleSettings", refs={GremlinGraphAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ GremlinGraphAutoscaleSettings> autoscaleSettings;
 

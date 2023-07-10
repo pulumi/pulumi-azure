@@ -261,24 +261,24 @@ def get_network_packet_core_control_plane(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane', __args__, opts=opts, typ=GetNetworkPacketCoreControlPlaneResult).value
 
     return AwaitableGetNetworkPacketCoreControlPlaneResult(
-        control_plane_access_ipv4_address=__ret__.control_plane_access_ipv4_address,
-        control_plane_access_ipv4_gateway=__ret__.control_plane_access_ipv4_gateway,
-        control_plane_access_ipv4_subnet=__ret__.control_plane_access_ipv4_subnet,
-        control_plane_access_name=__ret__.control_plane_access_name,
-        core_network_technology=__ret__.core_network_technology,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        interoperability_settings_json=__ret__.interoperability_settings_json,
-        local_diagnostics_accesses=__ret__.local_diagnostics_accesses,
-        location=__ret__.location,
-        name=__ret__.name,
-        platforms=__ret__.platforms,
-        resource_group_name=__ret__.resource_group_name,
-        site_ids=__ret__.site_ids,
-        sku=__ret__.sku,
-        software_version=__ret__.software_version,
-        tags=__ret__.tags,
-        user_equipment_mtu_in_bytes=__ret__.user_equipment_mtu_in_bytes)
+        control_plane_access_ipv4_address=pulumi.get(__ret__, 'control_plane_access_ipv4_address'),
+        control_plane_access_ipv4_gateway=pulumi.get(__ret__, 'control_plane_access_ipv4_gateway'),
+        control_plane_access_ipv4_subnet=pulumi.get(__ret__, 'control_plane_access_ipv4_subnet'),
+        control_plane_access_name=pulumi.get(__ret__, 'control_plane_access_name'),
+        core_network_technology=pulumi.get(__ret__, 'core_network_technology'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        interoperability_settings_json=pulumi.get(__ret__, 'interoperability_settings_json'),
+        local_diagnostics_accesses=pulumi.get(__ret__, 'local_diagnostics_accesses'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platforms=pulumi.get(__ret__, 'platforms'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        site_ids=pulumi.get(__ret__, 'site_ids'),
+        sku=pulumi.get(__ret__, 'sku'),
+        software_version=pulumi.get(__ret__, 'software_version'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_equipment_mtu_in_bytes=pulumi.get(__ret__, 'user_equipment_mtu_in_bytes'))
 
 
 @_utilities.lift_output_func(get_network_packet_core_control_plane)

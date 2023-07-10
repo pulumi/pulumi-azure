@@ -186,17 +186,17 @@ def get_virtual_network(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        address_spaces=__ret__.address_spaces,
-        dns_servers=__ret__.dns_servers,
-        guid=__ret__.guid,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        subnets=__ret__.subnets,
-        tags=__ret__.tags,
-        vnet_peerings=__ret__.vnet_peerings,
-        vnet_peerings_addresses=__ret__.vnet_peerings_addresses)
+        address_spaces=pulumi.get(__ret__, 'address_spaces'),
+        dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        guid=pulumi.get(__ret__, 'guid'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vnet_peerings=pulumi.get(__ret__, 'vnet_peerings'),
+        vnet_peerings_addresses=pulumi.get(__ret__, 'vnet_peerings_addresses'))
 
 
 @_utilities.lift_output_func(get_virtual_network)

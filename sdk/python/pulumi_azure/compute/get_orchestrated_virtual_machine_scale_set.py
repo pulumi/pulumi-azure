@@ -130,12 +130,12 @@ def get_orchestrated_virtual_machine_scale_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet', __args__, opts=opts, typ=GetOrchestratedVirtualMachineScaleSetResult).value
 
     return AwaitableGetOrchestratedVirtualMachineScaleSetResult(
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        resource_group_name=__ret__.resource_group_name)
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_orchestrated_virtual_machine_scale_set)

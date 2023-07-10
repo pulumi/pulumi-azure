@@ -47,14 +47,14 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
     }
 
     /**
-     * The Principal ID of the Azure Active Directory.
+     * Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
      * 
      */
     @Import(name="principalId", required=true)
     private Output<String> principalId;
 
     /**
-     * @return The Principal ID of the Azure Active Directory.
+     * @return Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
      * 
      */
     public Output<String> principalId() {
@@ -146,7 +146,7 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param principalId The Principal ID of the Azure Active Directory.
+         * @param principalId Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param principalId The Principal ID of the Azure Active Directory.
+         * @param principalId Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
          * 
          * @return builder
          * 

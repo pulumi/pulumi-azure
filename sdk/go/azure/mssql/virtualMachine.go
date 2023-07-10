@@ -78,7 +78,7 @@ type VirtualMachine struct {
 	AutoBackup VirtualMachineAutoBackupPtrOutput `pulumi:"autoBackup"`
 	// An `autoPatching` block as defined below.
 	AutoPatching VirtualMachineAutoPatchingPtrOutput `pulumi:"autoPatching"`
-	// (Optional) An `keyVaultCredential` block as defined below.
+	// An `keyVaultCredential` block as defined below.
 	KeyVaultCredential VirtualMachineKeyVaultCredentialPtrOutput `pulumi:"keyVaultCredential"`
 	// Should R Services be enabled?
 	RServicesEnabled pulumi.BoolPtrOutput `pulumi:"rServicesEnabled"`
@@ -151,7 +151,7 @@ type virtualMachineState struct {
 	AutoBackup *VirtualMachineAutoBackup `pulumi:"autoBackup"`
 	// An `autoPatching` block as defined below.
 	AutoPatching *VirtualMachineAutoPatching `pulumi:"autoPatching"`
-	// (Optional) An `keyVaultCredential` block as defined below.
+	// An `keyVaultCredential` block as defined below.
 	KeyVaultCredential *VirtualMachineKeyVaultCredential `pulumi:"keyVaultCredential"`
 	// Should R Services be enabled?
 	RServicesEnabled *bool `pulumi:"rServicesEnabled"`
@@ -182,7 +182,7 @@ type VirtualMachineState struct {
 	AutoBackup VirtualMachineAutoBackupPtrInput
 	// An `autoPatching` block as defined below.
 	AutoPatching VirtualMachineAutoPatchingPtrInput
-	// (Optional) An `keyVaultCredential` block as defined below.
+	// An `keyVaultCredential` block as defined below.
 	KeyVaultCredential VirtualMachineKeyVaultCredentialPtrInput
 	// Should R Services be enabled?
 	RServicesEnabled pulumi.BoolPtrInput
@@ -217,7 +217,7 @@ type virtualMachineArgs struct {
 	AutoBackup *VirtualMachineAutoBackup `pulumi:"autoBackup"`
 	// An `autoPatching` block as defined below.
 	AutoPatching *VirtualMachineAutoPatching `pulumi:"autoPatching"`
-	// (Optional) An `keyVaultCredential` block as defined below.
+	// An `keyVaultCredential` block as defined below.
 	KeyVaultCredential *VirtualMachineKeyVaultCredential `pulumi:"keyVaultCredential"`
 	// Should R Services be enabled?
 	RServicesEnabled *bool `pulumi:"rServicesEnabled"`
@@ -249,7 +249,7 @@ type VirtualMachineArgs struct {
 	AutoBackup VirtualMachineAutoBackupPtrInput
 	// An `autoPatching` block as defined below.
 	AutoPatching VirtualMachineAutoPatchingPtrInput
-	// (Optional) An `keyVaultCredential` block as defined below.
+	// An `keyVaultCredential` block as defined below.
 	KeyVaultCredential VirtualMachineKeyVaultCredentialPtrInput
 	// Should R Services be enabled?
 	RServicesEnabled pulumi.BoolPtrInput
@@ -375,7 +375,7 @@ func (o VirtualMachineOutput) AutoPatching() VirtualMachineAutoPatchingPtrOutput
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineAutoPatchingPtrOutput { return v.AutoPatching }).(VirtualMachineAutoPatchingPtrOutput)
 }
 
-// (Optional) An `keyVaultCredential` block as defined below.
+// An `keyVaultCredential` block as defined below.
 func (o VirtualMachineOutput) KeyVaultCredential() VirtualMachineKeyVaultCredentialPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineKeyVaultCredentialPtrOutput { return v.KeyVaultCredential }).(VirtualMachineKeyVaultCredentialPtrOutput)
 }

@@ -106,10 +106,10 @@ def get_restorable_database_accounts(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts', __args__, opts=opts, typ=GetRestorableDatabaseAccountsResult).value
 
     return AwaitableGetRestorableDatabaseAccountsResult(
-        accounts=__ret__.accounts,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name)
+        accounts=pulumi.get(__ret__, 'accounts'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_restorable_database_accounts)

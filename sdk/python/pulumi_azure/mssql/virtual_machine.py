@@ -36,7 +36,7 @@ class VirtualMachineArgs:
         :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAutoPatchingArgs'] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
+        :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
@@ -127,7 +127,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="keyVaultCredential")
     def key_vault_credential(self) -> Optional[pulumi.Input['VirtualMachineKeyVaultCredentialArgs']]:
         """
-        (Optional) An `key_vault_credential` block as defined below.
+        An `key_vault_credential` block as defined below.
         """
         return pulumi.get(self, "key_vault_credential")
 
@@ -266,7 +266,7 @@ class _VirtualMachineState:
         :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAutoPatchingArgs'] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
+        :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
@@ -347,7 +347,7 @@ class _VirtualMachineState:
     @pulumi.getter(name="keyVaultCredential")
     def key_vault_credential(self) -> Optional[pulumi.Input['VirtualMachineKeyVaultCredentialArgs']]:
         """
-        (Optional) An `key_vault_credential` block as defined below.
+        An `key_vault_credential` block as defined below.
         """
         return pulumi.get(self, "key_vault_credential")
 
@@ -537,7 +537,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']] assessment: An `assessment` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
@@ -681,7 +681,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']] assessment: An `assessment` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
@@ -741,7 +741,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultCredential")
     def key_vault_credential(self) -> pulumi.Output[Optional['outputs.VirtualMachineKeyVaultCredential']]:
         """
-        (Optional) An `key_vault_credential` block as defined below.
+        An `key_vault_credential` block as defined below.
         """
         return pulumi.get(self, "key_vault_credential")
 

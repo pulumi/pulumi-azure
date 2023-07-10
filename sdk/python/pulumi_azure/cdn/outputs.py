@@ -204,6 +204,9 @@ class EndpointCustomDomainUserManagedHttps(dict):
         """
         The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
         """
+        warnings.warn("""This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate""", DeprecationWarning)
+        pulumi.log.warn("""key_vault_certificate_id is deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate""")
+
         return pulumi.get(self, "key_vault_certificate_id")
 
     @property

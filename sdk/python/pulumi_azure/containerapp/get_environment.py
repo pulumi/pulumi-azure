@@ -209,19 +209,19 @@ def get_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerapp/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        default_domain=__ret__.default_domain,
-        docker_bridge_cidr=__ret__.docker_bridge_cidr,
-        id=__ret__.id,
-        infrastructure_subnet_id=__ret__.infrastructure_subnet_id,
-        internal_load_balancer_enabled=__ret__.internal_load_balancer_enabled,
-        location=__ret__.location,
-        log_analytics_workspace_name=__ret__.log_analytics_workspace_name,
-        name=__ret__.name,
-        platform_reserved_cidr=__ret__.platform_reserved_cidr,
-        platform_reserved_dns_ip_address=__ret__.platform_reserved_dns_ip_address,
-        resource_group_name=__ret__.resource_group_name,
-        static_ip_address=__ret__.static_ip_address,
-        tags=__ret__.tags)
+        default_domain=pulumi.get(__ret__, 'default_domain'),
+        docker_bridge_cidr=pulumi.get(__ret__, 'docker_bridge_cidr'),
+        id=pulumi.get(__ret__, 'id'),
+        infrastructure_subnet_id=pulumi.get(__ret__, 'infrastructure_subnet_id'),
+        internal_load_balancer_enabled=pulumi.get(__ret__, 'internal_load_balancer_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        log_analytics_workspace_name=pulumi.get(__ret__, 'log_analytics_workspace_name'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_reserved_cidr=pulumi.get(__ret__, 'platform_reserved_cidr'),
+        platform_reserved_dns_ip_address=pulumi.get(__ret__, 'platform_reserved_dns_ip_address'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        static_ip_address=pulumi.get(__ret__, 'static_ip_address'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_environment)

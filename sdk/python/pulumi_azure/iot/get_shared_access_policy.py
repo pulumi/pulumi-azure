@@ -150,14 +150,14 @@ def get_shared_access_policy(iothub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:iot/getSharedAccessPolicy:getSharedAccessPolicy', __args__, opts=opts, typ=GetSharedAccessPolicyResult).value
 
     return AwaitableGetSharedAccessPolicyResult(
-        id=__ret__.id,
-        iothub_name=__ret__.iothub_name,
-        name=__ret__.name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_key=__ret__.primary_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_key=__ret__.secondary_key)
+        id=pulumi.get(__ret__, 'id'),
+        iothub_name=pulumi.get(__ret__, 'iothub_name'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(get_shared_access_policy)

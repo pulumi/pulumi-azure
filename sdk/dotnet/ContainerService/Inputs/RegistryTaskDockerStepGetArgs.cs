@@ -47,7 +47,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// The URL (absolute or relative) of the source context for this step.
+        /// The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via `#branch:folder`.
         /// </summary>
         [Input("contextPath", required: true)]
         public Input<string> ContextPath { get; set; } = null!;

@@ -221,19 +221,19 @@ def get_domain(inbound_ip_rules: Optional[Sequence[pulumi.InputType['GetDomainIn
     __ret__ = pulumi.runtime.invoke('azure:eventgrid/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        inbound_ip_rules=__ret__.inbound_ip_rules,
-        input_mapping_default_values=__ret__.input_mapping_default_values,
-        input_mapping_fields=__ret__.input_mapping_fields,
-        input_schema=__ret__.input_schema,
-        location=__ret__.location,
-        name=__ret__.name,
-        primary_access_key=__ret__.primary_access_key,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key,
-        tags=__ret__.tags)
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
+        input_mapping_default_values=pulumi.get(__ret__, 'input_mapping_default_values'),
+        input_mapping_fields=pulumi.get(__ret__, 'input_mapping_fields'),
+        input_schema=pulumi.get(__ret__, 'input_schema'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain)

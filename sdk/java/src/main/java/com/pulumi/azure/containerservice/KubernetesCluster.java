@@ -22,6 +22,8 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterKubeConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterKubeletIdentity;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterLinuxProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMaintenanceWindow;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterMaintenanceWindowAutoUpgrade;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterMaintenanceWindowNodeOs;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMicrosoftDefender;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMonitorMetrics;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile;
@@ -232,6 +234,24 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<KubernetesClusterConfidentialComputing>> confidentialComputing() {
         return Codegen.optional(this.confidentialComputing);
+    }
+    /**
+     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
+     */
+    @Export(name="customCaTrustCertificatesBase64s", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> customCaTrustCertificatesBase64s;
+
+    /**
+     * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
+     */
+    public Output<Optional<List<String>>> customCaTrustCertificatesBase64s() {
+        return Codegen.optional(this.customCaTrustCertificatesBase64s);
     }
     /**
      * A `default_node_pool` block as defined below.
@@ -624,6 +644,34 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceWindow);
     }
     /**
+     * A `maintenance_window_auto_upgrade` block as defined below.
+     * 
+     */
+    @Export(name="maintenanceWindowAutoUpgrade", refs={KubernetesClusterMaintenanceWindowAutoUpgrade.class}, tree="[0]")
+    private Output</* @Nullable */ KubernetesClusterMaintenanceWindowAutoUpgrade> maintenanceWindowAutoUpgrade;
+
+    /**
+     * @return A `maintenance_window_auto_upgrade` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterMaintenanceWindowAutoUpgrade>> maintenanceWindowAutoUpgrade() {
+        return Codegen.optional(this.maintenanceWindowAutoUpgrade);
+    }
+    /**
+     * A `maintenance_window_node_os` block as defined below.
+     * 
+     */
+    @Export(name="maintenanceWindowNodeOs", refs={KubernetesClusterMaintenanceWindowNodeOs.class}, tree="[0]")
+    private Output</* @Nullable */ KubernetesClusterMaintenanceWindowNodeOs> maintenanceWindowNodeOs;
+
+    /**
+     * @return A `maintenance_window_node_os` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterMaintenanceWindowNodeOs>> maintenanceWindowNodeOs() {
+        return Codegen.optional(this.maintenanceWindowNodeOs);
+    }
+    /**
      * A `microsoft_defender` block as defined below.
      * 
      */
@@ -682,6 +730,28 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<KubernetesClusterNetworkProfile> networkProfile() {
         return this.networkProfile;
+    }
+    /**
+     * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * 
+     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     * 
+     */
+    @Export(name="nodeOsChannelUpgrade", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> nodeOsChannelUpgrade;
+
+    /**
+     * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * 
+     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     * 
+     */
+    public Output<Optional<String>> nodeOsChannelUpgrade() {
+        return Codegen.optional(this.nodeOsChannelUpgrade);
     }
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.

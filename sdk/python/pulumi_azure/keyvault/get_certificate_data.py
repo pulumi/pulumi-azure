@@ -192,17 +192,17 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificateData:getCertificateData', __args__, opts=opts, typ=GetCertificateDataResult).value
 
     return AwaitableGetCertificateDataResult(
-        certificates_count=__ret__.certificates_count,
-        expires=__ret__.expires,
-        hex=__ret__.hex,
-        id=__ret__.id,
-        key=__ret__.key,
-        key_vault_id=__ret__.key_vault_id,
-        name=__ret__.name,
-        not_before=__ret__.not_before,
-        pem=__ret__.pem,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        certificates_count=pulumi.get(__ret__, 'certificates_count'),
+        expires=pulumi.get(__ret__, 'expires'),
+        hex=pulumi.get(__ret__, 'hex'),
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        name=pulumi.get(__ret__, 'name'),
+        not_before=pulumi.get(__ret__, 'not_before'),
+        pem=pulumi.get(__ret__, 'pem'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_certificate_data)

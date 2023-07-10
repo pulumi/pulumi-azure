@@ -151,14 +151,14 @@ def get_sql_role_definition(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition', __args__, opts=opts, typ=GetSqlRoleDefinitionResult).value
 
     return AwaitableGetSqlRoleDefinitionResult(
-        account_name=__ret__.account_name,
-        assignable_scopes=__ret__.assignable_scopes,
-        id=__ret__.id,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        resource_group_name=__ret__.resource_group_name,
-        role_definition_id=__ret__.role_definition_id,
-        type=__ret__.type)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        assignable_scopes=pulumi.get(__ret__, 'assignable_scopes'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_role_definition)

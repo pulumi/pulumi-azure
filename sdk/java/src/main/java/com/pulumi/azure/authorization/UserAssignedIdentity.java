@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.authorization.UserAssignedIdentity;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import java.util.List;
@@ -44,9 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserAssignedIdentity(&#34;example&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(azurerm_resource_group.example().location())
- *             .resourceGroupName(azurerm_resource_group.example().name())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *     }

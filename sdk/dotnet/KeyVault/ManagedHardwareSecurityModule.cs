@@ -112,6 +112,24 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+        /// </summary>
+        [Output("securityDomainEncryptedData")]
+        public Output<string> SecurityDomainEncryptedData { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        /// </summary>
+        [Output("securityDomainKeyVaultCertificateIds")]
+        public Output<ImmutableArray<string>> SecurityDomainKeyVaultCertificateIds { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        /// </summary>
+        [Output("securityDomainQuorum")]
+        public Output<int?> SecurityDomainQuorum { get; private set; } = null!;
+
+        /// <summary>
         /// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
@@ -158,6 +176,10 @@ namespace Pulumi.Azure.KeyVault
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "securityDomainEncryptedData",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -228,6 +250,24 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("securityDomainKeyVaultCertificateIds")]
+        private InputList<string>? _securityDomainKeyVaultCertificateIds;
+
+        /// <summary>
+        /// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        /// </summary>
+        public InputList<string> SecurityDomainKeyVaultCertificateIds
+        {
+            get => _securityDomainKeyVaultCertificateIds ?? (_securityDomainKeyVaultCertificateIds = new InputList<string>());
+            set => _securityDomainKeyVaultCertificateIds = value;
+        }
+
+        /// <summary>
+        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        /// </summary>
+        [Input("securityDomainQuorum")]
+        public Input<int>? SecurityDomainQuorum { get; set; }
 
         /// <summary>
         /// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
@@ -320,6 +360,40 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("securityDomainEncryptedData")]
+        private Input<string>? _securityDomainEncryptedData;
+
+        /// <summary>
+        /// This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
+        /// </summary>
+        public Input<string>? SecurityDomainEncryptedData
+        {
+            get => _securityDomainEncryptedData;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _securityDomainEncryptedData = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("securityDomainKeyVaultCertificateIds")]
+        private InputList<string>? _securityDomainKeyVaultCertificateIds;
+
+        /// <summary>
+        /// A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+        /// </summary>
+        public InputList<string> SecurityDomainKeyVaultCertificateIds
+        {
+            get => _securityDomainKeyVaultCertificateIds ?? (_securityDomainKeyVaultCertificateIds = new InputList<string>());
+            set => _securityDomainKeyVaultCertificateIds = value;
+        }
+
+        /// <summary>
+        /// Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+        /// </summary>
+        [Input("securityDomainQuorum")]
+        public Input<int>? SecurityDomainQuorum { get; set; }
 
         /// <summary>
         /// The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.

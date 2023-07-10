@@ -235,21 +235,21 @@ def get_workflow(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        access_endpoint=__ret__.access_endpoint,
-        connector_endpoint_ip_addresses=__ret__.connector_endpoint_ip_addresses,
-        connector_outbound_ip_addresses=__ret__.connector_outbound_ip_addresses,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        logic_app_integration_account_id=__ret__.logic_app_integration_account_id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        workflow_endpoint_ip_addresses=__ret__.workflow_endpoint_ip_addresses,
-        workflow_outbound_ip_addresses=__ret__.workflow_outbound_ip_addresses,
-        workflow_schema=__ret__.workflow_schema,
-        workflow_version=__ret__.workflow_version)
+        access_endpoint=pulumi.get(__ret__, 'access_endpoint'),
+        connector_endpoint_ip_addresses=pulumi.get(__ret__, 'connector_endpoint_ip_addresses'),
+        connector_outbound_ip_addresses=pulumi.get(__ret__, 'connector_outbound_ip_addresses'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        logic_app_integration_account_id=pulumi.get(__ret__, 'logic_app_integration_account_id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workflow_endpoint_ip_addresses=pulumi.get(__ret__, 'workflow_endpoint_ip_addresses'),
+        workflow_outbound_ip_addresses=pulumi.get(__ret__, 'workflow_outbound_ip_addresses'),
+        workflow_schema=pulumi.get(__ret__, 'workflow_schema'),
+        workflow_version=pulumi.get(__ret__, 'workflow_version'))
 
 
 @_utilities.lift_output_func(get_workflow)

@@ -124,12 +124,12 @@ def get_registry_scope_map(container_registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getRegistryScopeMap:getRegistryScopeMap', __args__, opts=opts, typ=GetRegistryScopeMapResult).value
 
     return AwaitableGetRegistryScopeMapResult(
-        actions=__ret__.actions,
-        container_registry_name=__ret__.container_registry_name,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name)
+        actions=pulumi.get(__ret__, 'actions'),
+        container_registry_name=pulumi.get(__ret__, 'container_registry_name'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 
 
 @_utilities.lift_output_func(get_registry_scope_map)

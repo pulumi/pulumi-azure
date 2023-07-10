@@ -113,6 +113,12 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
+     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+     *
+     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     */
+    public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -231,6 +237,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindow | undefined>;
     /**
+     * A `maintenanceWindowAutoUpgrade` block as defined below.
+     */
+    public readonly maintenanceWindowAutoUpgrade!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindowAutoUpgrade | undefined>;
+    /**
+     * A `maintenanceWindowNodeOs` block as defined below.
+     */
+    public readonly maintenanceWindowNodeOs!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindowNodeOs | undefined>;
+    /**
      * A `microsoftDefender` block as defined below.
      */
     public readonly microsoftDefender!: pulumi.Output<outputs.containerservice.KubernetesClusterMicrosoftDefender | undefined>;
@@ -248,6 +262,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      */
     public readonly networkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNetworkProfile>;
+    /**
+     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     *
+     * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
+     *
+     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     */
+    public readonly nodeOsChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -408,6 +430,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
+            resourceInputs["customCaTrustCertificatesBase64s"] = state ? state.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
@@ -434,10 +457,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["localAccountDisabled"] = state ? state.localAccountDisabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["maintenanceWindowAutoUpgrade"] = state ? state.maintenanceWindowAutoUpgrade : undefined;
+            resourceInputs["maintenanceWindowNodeOs"] = state ? state.maintenanceWindowNodeOs : undefined;
             resourceInputs["microsoftDefender"] = state ? state.microsoftDefender : undefined;
             resourceInputs["monitorMetrics"] = state ? state.monitorMetrics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
+            resourceInputs["nodeOsChannelUpgrade"] = state ? state.nodeOsChannelUpgrade : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
             resourceInputs["nodeResourceGroupId"] = state ? state.nodeResourceGroupId : undefined;
             resourceInputs["oidcIssuerEnabled"] = state ? state.oidcIssuerEnabled : undefined;
@@ -478,6 +504,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args ? args.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = args ? args.confidentialComputing : undefined;
+            resourceInputs["customCaTrustCertificatesBase64s"] = args ? args.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
@@ -498,10 +525,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["localAccountDisabled"] = args ? args.localAccountDisabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["maintenanceWindowAutoUpgrade"] = args ? args.maintenanceWindowAutoUpgrade : undefined;
+            resourceInputs["maintenanceWindowNodeOs"] = args ? args.maintenanceWindowNodeOs : undefined;
             resourceInputs["microsoftDefender"] = args ? args.microsoftDefender : undefined;
             resourceInputs["monitorMetrics"] = args ? args.monitorMetrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["nodeOsChannelUpgrade"] = args ? args.nodeOsChannelUpgrade : undefined;
             resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
             resourceInputs["oidcIssuerEnabled"] = args ? args.oidcIssuerEnabled : undefined;
             resourceInputs["omsAgent"] = args ? args.omsAgent : undefined;
@@ -582,6 +612,12 @@ export interface KubernetesClusterState {
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
+    /**
+     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+     *
+     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     */
+    customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -701,6 +737,14 @@ export interface KubernetesClusterState {
      */
     maintenanceWindow?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindow>;
     /**
+     * A `maintenanceWindowAutoUpgrade` block as defined below.
+     */
+    maintenanceWindowAutoUpgrade?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindowAutoUpgrade>;
+    /**
+     * A `maintenanceWindowNodeOs` block as defined below.
+     */
+    maintenanceWindowNodeOs?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindowNodeOs>;
+    /**
      * A `microsoftDefender` block as defined below.
      */
     microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
@@ -718,6 +762,14 @@ export interface KubernetesClusterState {
      * > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
+    /**
+     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     *
+     * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
+     *
+     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     */
+    nodeOsChannelUpgrade?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -901,6 +953,12 @@ export interface KubernetesClusterArgs {
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
+     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+     *
+     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     */
+    customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -995,6 +1053,14 @@ export interface KubernetesClusterArgs {
      */
     maintenanceWindow?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindow>;
     /**
+     * A `maintenanceWindowAutoUpgrade` block as defined below.
+     */
+    maintenanceWindowAutoUpgrade?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindowAutoUpgrade>;
+    /**
+     * A `maintenanceWindowNodeOs` block as defined below.
+     */
+    maintenanceWindowNodeOs?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindowNodeOs>;
+    /**
      * A `microsoftDefender` block as defined below.
      */
     microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
@@ -1012,6 +1078,14 @@ export interface KubernetesClusterArgs {
      * > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
+    /**
+     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     *
+     * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
+     *
+     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
+     */
+    nodeOsChannelUpgrade?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *

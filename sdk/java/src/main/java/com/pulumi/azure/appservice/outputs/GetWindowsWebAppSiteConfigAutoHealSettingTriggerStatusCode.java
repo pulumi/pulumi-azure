@@ -39,7 +39,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    private String win32Status;
+    private Integer win32Status;
 
     private GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode() {}
     /**
@@ -81,7 +81,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    public String win32Status() {
+    public Integer win32Status() {
         return this.win32Status;
     }
 
@@ -99,7 +99,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
         private String path;
         private String statusCodeRange;
         private Integer subStatus;
-        private String win32Status;
+        private Integer win32Status;
         public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -137,7 +137,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
             return this;
         }
         @CustomType.Setter
-        public Builder win32Status(String win32Status) {
+        public Builder win32Status(Integer win32Status) {
             this.win32Status = Objects.requireNonNull(win32Status);
             return this;
         }

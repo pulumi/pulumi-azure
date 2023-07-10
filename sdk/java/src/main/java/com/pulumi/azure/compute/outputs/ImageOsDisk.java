@@ -38,7 +38,7 @@ public final class ImageOsDisk {
      */
     private @Nullable String osType;
     /**
-     * @return Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
+     * @return Specifies the size of the image to be created. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer sizeGb;
@@ -80,7 +80,7 @@ public final class ImageOsDisk {
         return Optional.ofNullable(this.osType);
     }
     /**
-     * @return Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
+     * @return Specifies the size of the image to be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> sizeGb() {

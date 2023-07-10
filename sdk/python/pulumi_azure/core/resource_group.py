@@ -15,16 +15,20 @@ __all__ = ['ResourceGroupArgs', 'ResourceGroup']
 class ResourceGroupArgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResourceGroup resource.
         :param pulumi.Input[str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] managed_by: The ID of the resource or application that manages this Resource Group.
         :param pulumi.Input[str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -41,6 +45,18 @@ class ResourceGroupArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the resource or application that manages this Resource Group.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_by", value)
 
     @property
     @pulumi.getter
@@ -71,16 +87,20 @@ class ResourceGroupArgs:
 class _ResourceGroupState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceGroup resources.
         :param pulumi.Input[str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] managed_by: The ID of the resource or application that manages this Resource Group.
         :param pulumi.Input[str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -97,6 +117,18 @@ class _ResourceGroupState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the resource or application that manages this Resource Group.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_by", value)
 
     @property
     @pulumi.getter
@@ -129,6 +161,7 @@ class ResourceGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -147,12 +180,13 @@ class ResourceGroup(pulumi.CustomResource):
         Resource Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+         $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] managed_by: The ID of the resource or application that manages this Resource Group.
         :param pulumi.Input[str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
@@ -177,7 +211,7 @@ class ResourceGroup(pulumi.CustomResource):
         Resource Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+         $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,6 +230,7 @@ class ResourceGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -208,6 +243,7 @@ class ResourceGroup(pulumi.CustomResource):
             __props__ = ResourceGroupArgs.__new__(ResourceGroupArgs)
 
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
         super(ResourceGroup, __self__).__init__(
@@ -221,6 +257,7 @@ class ResourceGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
+            managed_by: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ResourceGroup':
         """
@@ -231,6 +268,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] managed_by: The ID of the resource or application that manages this Resource Group.
         :param pulumi.Input[str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
@@ -239,6 +277,7 @@ class ResourceGroup(pulumi.CustomResource):
         __props__ = _ResourceGroupState.__new__(_ResourceGroupState)
 
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_by"] = managed_by
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
         return ResourceGroup(resource_name, opts=opts, __props__=__props__)
@@ -250,6 +289,14 @@ class ResourceGroup(pulumi.CustomResource):
         The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the resource or application that manages this Resource Group.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter

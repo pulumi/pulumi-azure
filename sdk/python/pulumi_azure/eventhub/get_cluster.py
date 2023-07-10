@@ -114,11 +114,11 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'))
 
 
 @_utilities.lift_output_func(get_cluster)

@@ -3418,6 +3418,8 @@ type SpringCloudGatewayCors struct {
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
 	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Allowed origin patterns to make cross-site requests.
+	AllowedOriginPatterns []string `pulumi:"allowedOriginPatterns"`
 	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 	// is user credentials are supported on cross-site requests?
@@ -3444,6 +3446,8 @@ type SpringCloudGatewayCorsArgs struct {
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
 	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Allowed origin patterns to make cross-site requests.
+	AllowedOriginPatterns pulumi.StringArrayInput `pulumi:"allowedOriginPatterns"`
 	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 	// is user credentials are supported on cross-site requests?
@@ -3541,6 +3545,11 @@ func (o SpringCloudGatewayCorsOutput) AllowedMethods() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v SpringCloudGatewayCors) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// Allowed origin patterns to make cross-site requests.
+func (o SpringCloudGatewayCorsOutput) AllowedOriginPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudGatewayCors) []string { return v.AllowedOriginPatterns }).(pulumi.StringArrayOutput)
+}
+
 // Allowed origins to make cross-site requests. The special value `*` allows all domains.
 func (o SpringCloudGatewayCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudGatewayCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
@@ -3602,6 +3611,16 @@ func (o SpringCloudGatewayCorsPtrOutput) AllowedMethods() pulumi.StringArrayOutp
 			return nil
 		}
 		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// Allowed origin patterns to make cross-site requests.
+func (o SpringCloudGatewayCorsPtrOutput) AllowedOriginPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOriginPatterns
 	}).(pulumi.StringArrayOutput)
 }
 

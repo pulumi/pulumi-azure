@@ -151,15 +151,15 @@ def get_user(api_management_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        api_management_name=__ret__.api_management_name,
-        email=__ret__.email,
-        first_name=__ret__.first_name,
-        id=__ret__.id,
-        last_name=__ret__.last_name,
-        note=__ret__.note,
-        resource_group_name=__ret__.resource_group_name,
-        state=__ret__.state,
-        user_id=__ret__.user_id)
+        api_management_name=pulumi.get(__ret__, 'api_management_name'),
+        email=pulumi.get(__ret__, 'email'),
+        first_name=pulumi.get(__ret__, 'first_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_name=pulumi.get(__ret__, 'last_name'),
+        note=pulumi.get(__ret__, 'note'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        state=pulumi.get(__ret__, 'state'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_user)

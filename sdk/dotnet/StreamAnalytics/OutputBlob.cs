@@ -92,7 +92,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> BatchMaxWaitTime { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum number of rows per batch (must be between `0` and `10000`).
+        /// The minimum number of rows per batch (must be between `0` and `1000000`).
         /// </summary>
         [Output("batchMinRows")]
         public Output<int?> BatchMinRows { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? BatchMaxWaitTime { get; set; }
 
         /// <summary>
-        /// The minimum number of rows per batch (must be between `0` and `10000`).
+        /// The minimum number of rows per batch (must be between `0` and `1000000`).
         /// </summary>
         [Input("batchMinRows")]
         public Input<int>? BatchMinRows { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? BatchMaxWaitTime { get; set; }
 
         /// <summary>
-        /// The minimum number of rows per batch (must be between `0` and `10000`).
+        /// The minimum number of rows per batch (must be between `0` and `1000000`).
         /// </summary>
         [Input("batchMinRows")]
         public Input<int>? BatchMinRows { get; set; }

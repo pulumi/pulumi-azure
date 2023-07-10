@@ -20,6 +20,7 @@ class GremlinGraphArgs:
                  database_name: pulumi.Input[str],
                  partition_key_path: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
@@ -34,6 +35,9 @@ class GremlinGraphArgs:
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+               
+               > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
         :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         :param pulumi.Input['GremlinGraphIndexPolicyArgs'] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
@@ -46,6 +50,8 @@ class GremlinGraphArgs:
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "partition_key_path", partition_key_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if conflict_resolution_policy is not None:
@@ -110,6 +116,20 @@ class GremlinGraphArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+
+        > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -209,6 +229,7 @@ class GremlinGraphArgs:
 class _GremlinGraphState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -223,6 +244,9 @@ class _GremlinGraphState:
         """
         Input properties used for looking up and filtering GremlinGraph resources.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+               
+               > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
         :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
@@ -236,6 +260,8 @@ class _GremlinGraphState:
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if conflict_resolution_policy is not None:
@@ -270,6 +296,20 @@ class _GremlinGraphState:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+
+        > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -407,6 +447,7 @@ class GremlinGraph(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -470,6 +511,9 @@ class GremlinGraph(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+               
+               > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
         :param pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
@@ -551,6 +595,7 @@ class GremlinGraph(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -574,6 +619,7 @@ class GremlinGraph(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
             if database_name is None and not opts.urn:
@@ -602,6 +648,7 @@ class GremlinGraph(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
             autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']]] = None,
             conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
@@ -621,6 +668,9 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+               
+               > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
         :param pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
@@ -637,6 +687,7 @@ class GremlinGraph(pulumi.CustomResource):
         __props__ = _GremlinGraphState.__new__(_GremlinGraphState)
 
         __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
         __props__.__dict__["autoscale_settings"] = autoscale_settings
         __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
         __props__.__dict__["database_name"] = database_name
@@ -657,6 +708,16 @@ class GremlinGraph(pulumi.CustomResource):
         The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> pulumi.Output[Optional[int]]:
+        """
+        The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+
+        > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
 
     @property
     @pulumi.getter(name="autoscaleSettings")

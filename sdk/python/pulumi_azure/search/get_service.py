@@ -178,16 +178,16 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:search/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        id=__ret__.id,
-        identities=__ret__.identities,
-        name=__ret__.name,
-        partition_count=__ret__.partition_count,
-        primary_key=__ret__.primary_key,
-        public_network_access_enabled=__ret__.public_network_access_enabled,
-        query_keys=__ret__.query_keys,
-        replica_count=__ret__.replica_count,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_key=__ret__.secondary_key)
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        name=pulumi.get(__ret__, 'name'),
+        partition_count=pulumi.get(__ret__, 'partition_count'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        query_keys=pulumi.get(__ret__, 'query_keys'),
+        replica_count=pulumi.get(__ret__, 'replica_count'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(get_service)

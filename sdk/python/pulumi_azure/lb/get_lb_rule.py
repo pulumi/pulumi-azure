@@ -211,20 +211,20 @@ def get_lb_rule(loadbalancer_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:lb/getLBRule:getLBRule', __args__, opts=opts, typ=GetLBRuleResult).value
 
     return AwaitableGetLBRuleResult(
-        backend_address_pool_id=__ret__.backend_address_pool_id,
-        backend_port=__ret__.backend_port,
-        disable_outbound_snat=__ret__.disable_outbound_snat,
-        enable_floating_ip=__ret__.enable_floating_ip,
-        enable_tcp_reset=__ret__.enable_tcp_reset,
-        frontend_ip_configuration_name=__ret__.frontend_ip_configuration_name,
-        frontend_port=__ret__.frontend_port,
-        id=__ret__.id,
-        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
-        load_distribution=__ret__.load_distribution,
-        loadbalancer_id=__ret__.loadbalancer_id,
-        name=__ret__.name,
-        probe_id=__ret__.probe_id,
-        protocol=__ret__.protocol)
+        backend_address_pool_id=pulumi.get(__ret__, 'backend_address_pool_id'),
+        backend_port=pulumi.get(__ret__, 'backend_port'),
+        disable_outbound_snat=pulumi.get(__ret__, 'disable_outbound_snat'),
+        enable_floating_ip=pulumi.get(__ret__, 'enable_floating_ip'),
+        enable_tcp_reset=pulumi.get(__ret__, 'enable_tcp_reset'),
+        frontend_ip_configuration_name=pulumi.get(__ret__, 'frontend_ip_configuration_name'),
+        frontend_port=pulumi.get(__ret__, 'frontend_port'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
+        load_distribution=pulumi.get(__ret__, 'load_distribution'),
+        loadbalancer_id=pulumi.get(__ret__, 'loadbalancer_id'),
+        name=pulumi.get(__ret__, 'name'),
+        probe_id=pulumi.get(__ret__, 'probe_id'),
+        protocol=pulumi.get(__ret__, 'protocol'))
 
 
 @_utilities.lift_output_func(get_lb_rule)

@@ -273,24 +273,24 @@ def get_private_cloud(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:avs/getPrivateCloud:getPrivateCloud', __args__, opts=opts, typ=GetPrivateCloudResult).value
 
     return AwaitableGetPrivateCloudResult(
-        circuits=__ret__.circuits,
-        hcx_cloud_manager_endpoint=__ret__.hcx_cloud_manager_endpoint,
-        id=__ret__.id,
-        internet_connection_enabled=__ret__.internet_connection_enabled,
-        location=__ret__.location,
-        management_clusters=__ret__.management_clusters,
-        management_subnet_cidr=__ret__.management_subnet_cidr,
-        name=__ret__.name,
-        network_subnet_cidr=__ret__.network_subnet_cidr,
-        nsxt_certificate_thumbprint=__ret__.nsxt_certificate_thumbprint,
-        nsxt_manager_endpoint=__ret__.nsxt_manager_endpoint,
-        provisioning_subnet_cidr=__ret__.provisioning_subnet_cidr,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags,
-        vcenter_certificate_thumbprint=__ret__.vcenter_certificate_thumbprint,
-        vcsa_endpoint=__ret__.vcsa_endpoint,
-        vmotion_subnet_cidr=__ret__.vmotion_subnet_cidr)
+        circuits=pulumi.get(__ret__, 'circuits'),
+        hcx_cloud_manager_endpoint=pulumi.get(__ret__, 'hcx_cloud_manager_endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        internet_connection_enabled=pulumi.get(__ret__, 'internet_connection_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        management_clusters=pulumi.get(__ret__, 'management_clusters'),
+        management_subnet_cidr=pulumi.get(__ret__, 'management_subnet_cidr'),
+        name=pulumi.get(__ret__, 'name'),
+        network_subnet_cidr=pulumi.get(__ret__, 'network_subnet_cidr'),
+        nsxt_certificate_thumbprint=pulumi.get(__ret__, 'nsxt_certificate_thumbprint'),
+        nsxt_manager_endpoint=pulumi.get(__ret__, 'nsxt_manager_endpoint'),
+        provisioning_subnet_cidr=pulumi.get(__ret__, 'provisioning_subnet_cidr'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vcenter_certificate_thumbprint=pulumi.get(__ret__, 'vcenter_certificate_thumbprint'),
+        vcsa_endpoint=pulumi.get(__ret__, 'vcsa_endpoint'),
+        vmotion_subnet_cidr=pulumi.get(__ret__, 'vmotion_subnet_cidr'))
 
 
 @_utilities.lift_output_func(get_private_cloud)

@@ -158,15 +158,15 @@ def get_cname_record(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:privatedns/getCnameRecord:getCnameRecord', __args__, opts=opts, typ=GetCnameRecordResult).value
 
     return AwaitableGetCnameRecordResult(
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        name=__ret__.name,
-        record=__ret__.record,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        target_resource_id=__ret__.target_resource_id,
-        ttl=__ret__.ttl,
-        zone_name=__ret__.zone_name)
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        record=pulumi.get(__ret__, 'record'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        zone_name=pulumi.get(__ret__, 'zone_name'))
 
 
 @_utilities.lift_output_func(get_cname_record)

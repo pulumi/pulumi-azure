@@ -159,15 +159,15 @@ def get_system_topic(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventgrid/getSystemTopic:getSystemTopic', __args__, opts=opts, typ=GetSystemTopicResult).value
 
     return AwaitableGetSystemTopicResult(
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        metric_arm_resource_id=__ret__.metric_arm_resource_id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        source_arm_resource_id=__ret__.source_arm_resource_id,
-        tags=__ret__.tags,
-        topic_type=__ret__.topic_type)
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        metric_arm_resource_id=pulumi.get(__ret__, 'metric_arm_resource_id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        source_arm_resource_id=pulumi.get(__ret__, 'source_arm_resource_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        topic_type=pulumi.get(__ret__, 'topic_type'))
 
 
 @_utilities.lift_output_func(get_system_topic)

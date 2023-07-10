@@ -139,13 +139,13 @@ def get_pool(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getPool:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        account_name=__ret__.account_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        service_level=__ret__.service_level,
-        size_in_tb=__ret__.size_in_tb)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_level=pulumi.get(__ret__, 'service_level'),
+        size_in_tb=pulumi.get(__ret__, 'size_in_tb'))
 
 
 @_utilities.lift_output_func(get_pool)

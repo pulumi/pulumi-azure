@@ -24,10 +24,21 @@ namespace Pulumi.Azure.LoadTest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.LoadTest.LoadTest("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         Location = azurerm_resource_group.Example.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleLoadTest = new Azure.LoadTest.LoadTest("exampleLoadTest", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     /// });

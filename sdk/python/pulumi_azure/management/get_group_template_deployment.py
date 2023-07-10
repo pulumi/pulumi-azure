@@ -91,10 +91,10 @@ def get_group_template_deployment(management_group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment', __args__, opts=opts, typ=GetGroupTemplateDeploymentResult).value
 
     return AwaitableGetGroupTemplateDeploymentResult(
-        id=__ret__.id,
-        management_group_id=__ret__.management_group_id,
-        name=__ret__.name,
-        output_content=__ret__.output_content)
+        id=pulumi.get(__ret__, 'id'),
+        management_group_id=pulumi.get(__ret__, 'management_group_id'),
+        name=pulumi.get(__ret__, 'name'),
+        output_content=pulumi.get(__ret__, 'output_content'))
 
 
 @_utilities.lift_output_func(get_group_template_deployment)

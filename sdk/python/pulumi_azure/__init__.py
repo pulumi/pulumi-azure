@@ -26,6 +26,8 @@ if typing.TYPE_CHECKING:
     appplatform = __appplatform
     import pulumi_azure.appservice as __appservice
     appservice = __appservice
+    import pulumi_azure.arc as __arc
+    arc = __arc
     import pulumi_azure.arckubernetes as __arckubernetes
     arckubernetes = __arckubernetes
     import pulumi_azure.arcmachine as __arcmachine
@@ -182,6 +184,8 @@ if typing.TYPE_CHECKING:
     netapp = __netapp
     import pulumi_azure.network as __network
     network = __network
+    import pulumi_azure.newrelic as __newrelic
+    newrelic = __newrelic
     import pulumi_azure.nginx as __nginx
     nginx = __nginx
     import pulumi_azure.notificationhub as __notificationhub
@@ -190,6 +194,8 @@ if typing.TYPE_CHECKING:
     operationalinsights = __operationalinsights
     import pulumi_azure.orbital as __orbital
     orbital = __orbital
+    import pulumi_azure.pim as __pim
+    pim = __pim
     import pulumi_azure.policy as __policy
     policy = __policy
     import pulumi_azure.portal as __portal
@@ -257,6 +263,7 @@ else:
     appinsights = _utilities.lazy_import('pulumi_azure.appinsights')
     appplatform = _utilities.lazy_import('pulumi_azure.appplatform')
     appservice = _utilities.lazy_import('pulumi_azure.appservice')
+    arc = _utilities.lazy_import('pulumi_azure.arc')
     arckubernetes = _utilities.lazy_import('pulumi_azure.arckubernetes')
     arcmachine = _utilities.lazy_import('pulumi_azure.arcmachine')
     armmsi = _utilities.lazy_import('pulumi_azure.armmsi')
@@ -335,10 +342,12 @@ else:
     mysql = _utilities.lazy_import('pulumi_azure.mysql')
     netapp = _utilities.lazy_import('pulumi_azure.netapp')
     network = _utilities.lazy_import('pulumi_azure.network')
+    newrelic = _utilities.lazy_import('pulumi_azure.newrelic')
     nginx = _utilities.lazy_import('pulumi_azure.nginx')
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
     operationalinsights = _utilities.lazy_import('pulumi_azure.operationalinsights')
     orbital = _utilities.lazy_import('pulumi_azure.orbital')
+    pim = _utilities.lazy_import('pulumi_azure.pim')
     policy = _utilities.lazy_import('pulumi_azure.policy')
     portal = _utilities.lazy_import('pulumi_azure.portal')
     postgresql = _utilities.lazy_import('pulumi_azure.postgresql')
@@ -1354,6 +1363,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot": "WindowsWebAppSlot"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "arc/privateLinkScope",
+  "fqn": "pulumi_azure.arc",
+  "classes": {
+   "azure:arc/privateLinkScope:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {
@@ -4550,6 +4567,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "kusto/cosmosdbDataConnection",
+  "fqn": "pulumi_azure.kusto",
+  "classes": {
+   "azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection": "CosmosdbDataConnection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "kusto/database",
   "fqn": "pulumi_azure.kusto",
   "classes": {
@@ -6614,6 +6639,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "newrelic/monitor",
+  "fqn": "pulumi_azure.newrelic",
+  "classes": {
+   "azure:newrelic/monitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "nginx/certificate",
   "fqn": "pulumi_azure.nginx",
   "classes": {
@@ -6706,6 +6739,22 @@ _utilities.register(
   "fqn": "pulumi_azure.orbital",
   "classes": {
    "azure:orbital/spacecraft:Spacecraft": "Spacecraft"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "pim/activeRoleAssignment",
+  "fqn": "pulumi_azure.pim",
+  "classes": {
+   "azure:pim/activeRoleAssignment:ActiveRoleAssignment": "ActiveRoleAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "pim/eligibleRoleAssignment",
+  "fqn": "pulumi_azure.pim",
+  "classes": {
+   "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment": "EligibleRoleAssignment"
   }
  },
  {

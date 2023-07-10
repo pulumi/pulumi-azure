@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// (Optional) One or more `example` blocks as defined above.
+        /// One or more `example` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameterExample> Examples;
         /// <summary>

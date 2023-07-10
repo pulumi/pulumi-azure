@@ -186,17 +186,17 @@ def get_managed_hardware_security_module(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule', __args__, opts=opts, typ=GetManagedHardwareSecurityModuleResult).value
 
     return AwaitableGetManagedHardwareSecurityModuleResult(
-        admin_object_ids=__ret__.admin_object_ids,
-        hsm_uri=__ret__.hsm_uri,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        purge_protection_enabled=__ret__.purge_protection_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        soft_delete_retention_days=__ret__.soft_delete_retention_days,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id)
+        admin_object_ids=pulumi.get(__ret__, 'admin_object_ids'),
+        hsm_uri=pulumi.get(__ret__, 'hsm_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        purge_protection_enabled=pulumi.get(__ret__, 'purge_protection_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        soft_delete_retention_days=pulumi.get(__ret__, 'soft_delete_retention_days'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'))
 
 
 @_utilities.lift_output_func(get_managed_hardware_security_module)

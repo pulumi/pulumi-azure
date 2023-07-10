@@ -113,11 +113,11 @@ def get_resolver_virtual_network_link(dns_forwarding_ruleset_id: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink', __args__, opts=opts, typ=GetResolverVirtualNetworkLinkResult).value
 
     return AwaitableGetResolverVirtualNetworkLinkResult(
-        dns_forwarding_ruleset_id=__ret__.dns_forwarding_ruleset_id,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        virtual_network_id=__ret__.virtual_network_id)
+        dns_forwarding_ruleset_id=pulumi.get(__ret__, 'dns_forwarding_ruleset_id'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 
 
 @_utilities.lift_output_func(get_resolver_virtual_network_link)

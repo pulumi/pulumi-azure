@@ -127,12 +127,12 @@ def get_template_spec_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:core/getTemplateSpecVersion:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        template_body=__ret__.template_body,
-        version=__ret__.version)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_body=pulumi.get(__ret__, 'template_body'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_template_spec_version)

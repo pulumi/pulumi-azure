@@ -173,16 +173,16 @@ def get_function_app_host_keys(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys', __args__, opts=opts, typ=GetFunctionAppHostKeysResult).value
 
     return AwaitableGetFunctionAppHostKeysResult(
-        blobs_extension_key=__ret__.blobs_extension_key,
-        default_function_key=__ret__.default_function_key,
-        durabletask_extension_key=__ret__.durabletask_extension_key,
-        event_grid_extension_config_key=__ret__.event_grid_extension_config_key,
-        id=__ret__.id,
-        name=__ret__.name,
-        primary_key=__ret__.primary_key,
-        resource_group_name=__ret__.resource_group_name,
-        signalr_extension_key=__ret__.signalr_extension_key,
-        webpubsub_extension_key=__ret__.webpubsub_extension_key)
+        blobs_extension_key=pulumi.get(__ret__, 'blobs_extension_key'),
+        default_function_key=pulumi.get(__ret__, 'default_function_key'),
+        durabletask_extension_key=pulumi.get(__ret__, 'durabletask_extension_key'),
+        event_grid_extension_config_key=pulumi.get(__ret__, 'event_grid_extension_config_key'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        signalr_extension_key=pulumi.get(__ret__, 'signalr_extension_key'),
+        webpubsub_extension_key=pulumi.get(__ret__, 'webpubsub_extension_key'))
 
 
 @_utilities.lift_output_func(get_function_app_host_keys)

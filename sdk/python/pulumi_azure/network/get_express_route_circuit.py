@@ -164,15 +164,15 @@ def get_express_route_circuit(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getExpressRouteCircuit:getExpressRouteCircuit', __args__, opts=opts, typ=GetExpressRouteCircuitResult).value
 
     return AwaitableGetExpressRouteCircuitResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        peerings=__ret__.peerings,
-        resource_group_name=__ret__.resource_group_name,
-        service_key=__ret__.service_key,
-        service_provider_properties=__ret__.service_provider_properties,
-        service_provider_provisioning_state=__ret__.service_provider_provisioning_state,
-        sku=__ret__.sku)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        peerings=pulumi.get(__ret__, 'peerings'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        service_key=pulumi.get(__ret__, 'service_key'),
+        service_provider_properties=pulumi.get(__ret__, 'service_provider_properties'),
+        service_provider_provisioning_state=pulumi.get(__ret__, 'service_provider_provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'))
 
 
 @_utilities.lift_output_func(get_express_route_circuit)

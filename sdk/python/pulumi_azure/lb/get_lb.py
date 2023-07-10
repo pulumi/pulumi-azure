@@ -166,15 +166,15 @@ def get_lb(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:lb/getLB:getLB', __args__, opts=opts, typ=GetLBResult).value
 
     return AwaitableGetLBResult(
-        frontend_ip_configurations=__ret__.frontend_ip_configurations,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_ip_address=__ret__.private_ip_address,
-        private_ip_addresses=__ret__.private_ip_addresses,
-        resource_group_name=__ret__.resource_group_name,
-        sku=__ret__.sku,
-        tags=__ret__.tags)
+        frontend_ip_configurations=pulumi.get(__ret__, 'frontend_ip_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_ip_address=pulumi.get(__ret__, 'private_ip_address'),
+        private_ip_addresses=pulumi.get(__ret__, 'private_ip_addresses'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_lb)

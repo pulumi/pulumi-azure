@@ -186,17 +186,17 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule', __args__, opts=opts, typ=GetNamespaceAuthorizationRuleResult).value
 
     return AwaitableGetNamespaceAuthorizationRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        namespace_id=__ret__.namespace_id,
-        namespace_name=__ret__.namespace_name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_connection_string_alias=__ret__.primary_connection_string_alias,
-        primary_key=__ret__.primary_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
-        secondary_key=__ret__.secondary_key)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_id=pulumi.get(__ret__, 'namespace_id'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(get_namespace_authorization_rule)

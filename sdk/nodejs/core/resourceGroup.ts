@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * Resource Groups can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+ *  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
  * ```
  */
 export class ResourceGroup extends pulumi.CustomResource {
@@ -55,6 +55,10 @@ export class ResourceGroup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The ID of the resource or application that manages this Resource Group.
+     */
+    public readonly managedBy!: pulumi.Output<string | undefined>;
+    /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -77,11 +81,13 @@ export class ResourceGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceGroupState | undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedBy"] = state ? state.managedBy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ResourceGroupArgs | undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
@@ -98,6 +104,10 @@ export interface ResourceGroupState {
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The ID of the resource or application that manages this Resource Group.
+     */
+    managedBy?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
@@ -116,6 +126,10 @@ export interface ResourceGroupArgs {
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The ID of the resource or application that manages this Resource Group.
+     */
+    managedBy?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */

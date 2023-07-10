@@ -191,6 +191,7 @@ var moduleMap = map[string]string{
 	"app_service":    azureAppService,
 	"arc_kubernetes": azureArcKubernetes,
 	"arc_machine":    azureArcMachine,
+	"arc":            "Arc",
 	//Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
 	"attestation": azureAttestation,
 	"automation":  azureAutomation,
@@ -264,6 +265,7 @@ var moduleMap = map[string]string{
 	// token.
 	"logic_app": azureLogicApps,
 	"lb":        azureLB,
+	"new_relic": "NewRelic",
 	// Ignored: azureLoadTest. The only token is "azurerm_load_test".
 	"mariadb":             azureMariaDB,
 	"eventgrid":           azureEventGrid,
@@ -290,6 +292,7 @@ var moduleMap = map[string]string{
 	// azureOperationalInsights or azureLogInsights. Its not clear which from the
 	// token.
 	"orbital":    azureOrbital,
+	"pim":        "Pim",
 	"postgresql": azurePostgresql,
 	"policy":     azurePolicy,
 	// Ignored: azurePortal. The token prefix is included in the output.
@@ -2911,6 +2914,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_route_filter":                       {Tok: azureDataSource(azureNetwork, "getRouteFilter")},
 			"azurerm_network_ddos_protection_plan":       {Tok: azureDataSource(azureNetwork, "getNetworkDdosProtectionPlan")},
 			"azurerm_network_service_tags":               {Tok: azureDataSource(azureNetwork, "getServiceTags")},
+			"azurerm_network_manager_network_group":      {Tok: azureDataSource(azureNetwork, "getNetworkManagerNetworkGroup")},
 			"azurerm_express_route_circuit": {
 				Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit"),
 				Fields: map[string]*tfbridge.SchemaInfo{

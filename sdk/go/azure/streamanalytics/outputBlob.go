@@ -99,7 +99,7 @@ type OutputBlob struct {
 	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrOutput `pulumi:"batchMaxWaitTime"`
-	// The minimum number of rows per batch (must be between `0` and `10000`).
+	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows pulumi.IntPtrOutput `pulumi:"batchMinRows"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringOutput `pulumi:"dateFormat"`
@@ -187,7 +187,7 @@ type outputBlobState struct {
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
-	// The minimum number of rows per batch (must be between `0` and `10000`).
+	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows *int `pulumi:"batchMinRows"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat *string `pulumi:"dateFormat"`
@@ -216,7 +216,7 @@ type OutputBlobState struct {
 	AuthenticationMode pulumi.StringPtrInput
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrInput
-	// The minimum number of rows per batch (must be between `0` and `10000`).
+	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows pulumi.IntPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringPtrInput
@@ -249,7 +249,7 @@ type outputBlobArgs struct {
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
-	// The minimum number of rows per batch (must be between `0` and `10000`).
+	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows *int `pulumi:"batchMinRows"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat string `pulumi:"dateFormat"`
@@ -279,7 +279,7 @@ type OutputBlobArgs struct {
 	AuthenticationMode pulumi.StringPtrInput
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrInput
-	// The minimum number of rows per batch (must be between `0` and `10000`).
+	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows pulumi.IntPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringInput
@@ -400,7 +400,7 @@ func (o OutputBlobOutput) BatchMaxWaitTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutputBlob) pulumi.StringPtrOutput { return v.BatchMaxWaitTime }).(pulumi.StringPtrOutput)
 }
 
-// The minimum number of rows per batch (must be between `0` and `10000`).
+// The minimum number of rows per batch (must be between `0` and `1000000`).
 func (o OutputBlobOutput) BatchMinRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OutputBlob) pulumi.IntPtrOutput { return v.BatchMinRows }).(pulumi.IntPtrOutput)
 }

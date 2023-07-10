@@ -71,7 +71,21 @@ import (
 //				Variables: pulumi.StringMap{
 //					"bob": pulumi.String("item1"),
 //				},
-//				ActivitiesJson: pulumi.String("[\n    {\n        \"name\": \"Append variable1\",\n        \"type\": \"AppendVariable\",\n        \"dependsOn\": [],\n        \"userProperties\": [],\n        \"typeProperties\": {\n          \"variableName\": \"bob\",\n          \"value\": \"something\"\n        }\n    }\n]\n"),
+//				ActivitiesJson: pulumi.String(`[
+//	    {
+//	        "name": "Append variable1",
+//	        "type": "AppendVariable",
+//	        "dependsOn": [],
+//	        "userProperties": [],
+//	        "typeProperties": {
+//	          "variableName": "bob",
+//	          "value": "something"
+//	        }
+//	    }
+//
+// ]
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

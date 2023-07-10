@@ -138,13 +138,13 @@ def get_frontdoor_endpoint(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint', __args__, opts=opts, typ=GetFrontdoorEndpointResult).value
 
     return AwaitableGetFrontdoorEndpointResult(
-        enabled=__ret__.enabled,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        profile_name=__ret__.profile_name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_frontdoor_endpoint)

@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .addressSpaces(&#34;172.0.0.0/16&#34;)
+ *             .addressSpaces(&#34;172.16.0.0/12&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());

@@ -154,14 +154,14 @@ def get_dataset_blob_storage(data_share_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage', __args__, opts=opts, typ=GetDatasetBlobStorageResult).value
 
     return AwaitableGetDatasetBlobStorageResult(
-        container_name=__ret__.container_name,
-        data_share_id=__ret__.data_share_id,
-        display_name=__ret__.display_name,
-        file_path=__ret__.file_path,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        name=__ret__.name,
-        storage_accounts=__ret__.storage_accounts)
+        container_name=pulumi.get(__ret__, 'container_name'),
+        data_share_id=pulumi.get(__ret__, 'data_share_id'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        file_path=pulumi.get(__ret__, 'file_path'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_accounts=pulumi.get(__ret__, 'storage_accounts'))
 
 
 @_utilities.lift_output_func(get_dataset_blob_storage)

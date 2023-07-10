@@ -324,6 +324,9 @@ class ApiArgs:
 
         > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "soap_pass_through")
 
     @soap_pass_through.setter
@@ -763,6 +766,9 @@ class _ApiState:
 
         > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "soap_pass_through")
 
     @soap_pass_through.setter
@@ -1344,6 +1350,9 @@ class Api(pulumi.CustomResource):
 
         > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "soap_pass_through")
 
     @property

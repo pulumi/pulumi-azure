@@ -223,20 +223,20 @@ def get_data_collection_rule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getDataCollectionRule:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult).value
 
     return AwaitableGetDataCollectionRuleResult(
-        data_collection_endpoint_id=__ret__.data_collection_endpoint_id,
-        data_flows=__ret__.data_flows,
-        data_sources=__ret__.data_sources,
-        description=__ret__.description,
-        destinations=__ret__.destinations,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        immutable_id=__ret__.immutable_id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        stream_declarations=__ret__.stream_declarations,
-        tags=__ret__.tags)
+        data_collection_endpoint_id=pulumi.get(__ret__, 'data_collection_endpoint_id'),
+        data_flows=pulumi.get(__ret__, 'data_flows'),
+        data_sources=pulumi.get(__ret__, 'data_sources'),
+        description=pulumi.get(__ret__, 'description'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        immutable_id=pulumi.get(__ret__, 'immutable_id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        stream_declarations=pulumi.get(__ret__, 'stream_declarations'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_data_collection_rule)

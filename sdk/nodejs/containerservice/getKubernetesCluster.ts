@@ -69,6 +69,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly azurePolicyEnabled: boolean;
     /**
+     * A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+     */
+    readonly customCaTrustCertificatesBase64s: string[];
+    /**
      * The ID of the Disk Encryption Set used for the Nodes and Volumes.
      */
     readonly diskEncryptionSetId: string;

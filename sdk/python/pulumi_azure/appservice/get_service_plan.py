@@ -222,20 +222,20 @@ def get_service_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getServicePlan:getServicePlan', __args__, opts=opts, typ=GetServicePlanResult).value
 
     return AwaitableGetServicePlanResult(
-        app_service_environment_id=__ret__.app_service_environment_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        maximum_elastic_worker_count=__ret__.maximum_elastic_worker_count,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        per_site_scaling_enabled=__ret__.per_site_scaling_enabled,
-        reserved=__ret__.reserved,
-        resource_group_name=__ret__.resource_group_name,
-        sku_name=__ret__.sku_name,
-        tags=__ret__.tags,
-        worker_count=__ret__.worker_count,
-        zone_balancing_enabled=__ret__.zone_balancing_enabled)
+        app_service_environment_id=pulumi.get(__ret__, 'app_service_environment_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        maximum_elastic_worker_count=pulumi.get(__ret__, 'maximum_elastic_worker_count'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        per_site_scaling_enabled=pulumi.get(__ret__, 'per_site_scaling_enabled'),
+        reserved=pulumi.get(__ret__, 'reserved'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        worker_count=pulumi.get(__ret__, 'worker_count'),
+        zone_balancing_enabled=pulumi.get(__ret__, 'zone_balancing_enabled'))
 
 
 @_utilities.lift_output_func(get_service_plan)

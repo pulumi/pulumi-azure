@@ -13,14 +13,26 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class LinuxWebAppSiteConfigApplicationStack
     {
-        /// <summary>
-        /// The Docker image reference, including repository host as needed.
-        /// </summary>
         public readonly string? DockerImage;
         /// <summary>
-        /// The image Tag to use. e.g. `latest`.
+        /// The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         /// </summary>
+        public readonly string? DockerImageName;
         public readonly string? DockerImageTag;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// 
+        /// &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// </summary>
+        public readonly string? DockerRegistryPassword;
+        /// <summary>
+        /// The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        /// </summary>
+        public readonly string? DockerRegistryUrl;
+        /// <summary>
+        /// The User Name to use for authentication against the registry to pull the image.
+        /// </summary>
+        public readonly string? DockerRegistryUsername;
         /// <summary>
         /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         /// </summary>
@@ -70,7 +82,15 @@ namespace Pulumi.Azure.AppService.Outputs
         private LinuxWebAppSiteConfigApplicationStack(
             string? dockerImage,
 
+            string? dockerImageName,
+
             string? dockerImageTag,
+
+            string? dockerRegistryPassword,
+
+            string? dockerRegistryUrl,
+
+            string? dockerRegistryUsername,
 
             string? dotnetVersion,
 
@@ -91,7 +111,11 @@ namespace Pulumi.Azure.AppService.Outputs
             string? rubyVersion)
         {
             DockerImage = dockerImage;
+            DockerImageName = dockerImageName;
             DockerImageTag = dockerImageTag;
+            DockerRegistryPassword = dockerRegistryPassword;
+            DockerRegistryUrl = dockerRegistryUrl;
+            DockerRegistryUsername = dockerRegistryUsername;
             DotnetVersion = dotnetVersion;
             GoVersion = goVersion;
             JavaServer = javaServer;

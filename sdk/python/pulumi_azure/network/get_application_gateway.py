@@ -142,13 +142,13 @@ def get_application_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationGateway:getApplicationGateway', __args__, opts=opts, typ=GetApplicationGatewayResult).value
 
     return AwaitableGetApplicationGatewayResult(
-        backend_address_pools=__ret__.backend_address_pools,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        backend_address_pools=pulumi.get(__ret__, 'backend_address_pools'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application_gateway)

@@ -166,15 +166,15 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:lb/getLBOutboundRule:getLBOutboundRule', __args__, opts=opts, typ=GetLBOutboundRuleResult).value
 
     return AwaitableGetLBOutboundRuleResult(
-        allocated_outbound_ports=__ret__.allocated_outbound_ports,
-        backend_address_pool_id=__ret__.backend_address_pool_id,
-        frontend_ip_configurations=__ret__.frontend_ip_configurations,
-        id=__ret__.id,
-        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
-        loadbalancer_id=__ret__.loadbalancer_id,
-        name=__ret__.name,
-        protocol=__ret__.protocol,
-        tcp_reset_enabled=__ret__.tcp_reset_enabled)
+        allocated_outbound_ports=pulumi.get(__ret__, 'allocated_outbound_ports'),
+        backend_address_pool_id=pulumi.get(__ret__, 'backend_address_pool_id'),
+        frontend_ip_configurations=pulumi.get(__ret__, 'frontend_ip_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
+        loadbalancer_id=pulumi.get(__ret__, 'loadbalancer_id'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        tcp_reset_enabled=pulumi.get(__ret__, 'tcp_reset_enabled'))
 
 
 @_utilities.lift_output_func(get_lb_outbound_rule)

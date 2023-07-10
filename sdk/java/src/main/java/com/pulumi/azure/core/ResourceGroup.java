@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * Resource Groups can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+ *  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
  * ```
  * 
  */
@@ -70,6 +70,20 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The ID of the resource or application that manages this Resource Group.
+     * 
+     */
+    @Export(name="managedBy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedBy;
+
+    /**
+     * @return The ID of the resource or application that manages this Resource Group.
+     * 
+     */
+    public Output<Optional<String>> managedBy() {
+        return Codegen.optional(this.managedBy);
     }
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.

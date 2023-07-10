@@ -154,14 +154,14 @@ def get_network_service(mobile_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkService:getNetworkService', __args__, opts=opts, typ=GetNetworkServiceResult).value
 
     return AwaitableGetNetworkServiceResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        mobile_network_id=__ret__.mobile_network_id,
-        name=__ret__.name,
-        pcc_rules=__ret__.pcc_rules,
-        service_precedence=__ret__.service_precedence,
-        service_qos_policies=__ret__.service_qos_policies,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
+        name=pulumi.get(__ret__, 'name'),
+        pcc_rules=pulumi.get(__ret__, 'pcc_rules'),
+        service_precedence=pulumi.get(__ret__, 'service_precedence'),
+        service_qos_policies=pulumi.get(__ret__, 'service_qos_policies'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_service)

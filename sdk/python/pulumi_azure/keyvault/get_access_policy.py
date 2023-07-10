@@ -115,11 +115,11 @@ def get_access_policy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        certificate_permissions=__ret__.certificate_permissions,
-        id=__ret__.id,
-        key_permissions=__ret__.key_permissions,
-        name=__ret__.name,
-        secret_permissions=__ret__.secret_permissions)
+        certificate_permissions=pulumi.get(__ret__, 'certificate_permissions'),
+        id=pulumi.get(__ret__, 'id'),
+        key_permissions=pulumi.get(__ret__, 'key_permissions'),
+        name=pulumi.get(__ret__, 'name'),
+        secret_permissions=pulumi.get(__ret__, 'secret_permissions'))
 
 
 @_utilities.lift_output_func(get_access_policy)

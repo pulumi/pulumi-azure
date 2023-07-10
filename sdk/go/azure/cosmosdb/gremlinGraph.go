@@ -94,8 +94,12 @@ type GremlinGraph struct {
 	pulumi.CustomResourceState
 
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringOutput                    `pulumi:"accountName"`
-	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+	//
+	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+	AnalyticalStorageTtl pulumi.IntPtrOutput                    `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -160,8 +164,12 @@ func GetGremlinGraph(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GremlinGraph resources.
 type gremlinGraphState struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-	AccountName       *string                        `pulumi:"accountName"`
-	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AccountName *string `pulumi:"accountName"`
+	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+	//
+	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+	AnalyticalStorageTtl *int                           `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -186,8 +194,12 @@ type gremlinGraphState struct {
 
 type GremlinGraphState struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringPtrInput
-	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
+	AccountName pulumi.StringPtrInput
+	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+	//
+	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+	AnalyticalStorageTtl pulumi.IntPtrInput
+	AutoscaleSettings    GremlinGraphAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -216,8 +228,12 @@ func (GremlinGraphState) ElementType() reflect.Type {
 
 type gremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-	AccountName       string                         `pulumi:"accountName"`
-	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AccountName string `pulumi:"accountName"`
+	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+	//
+	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+	AnalyticalStorageTtl *int                           `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -243,8 +259,12 @@ type gremlinGraphArgs struct {
 // The set of arguments for constructing a GremlinGraph resource.
 type GremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringInput
-	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
+	AccountName pulumi.StringInput
+	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+	//
+	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+	AnalyticalStorageTtl pulumi.IntPtrInput
+	AutoscaleSettings    GremlinGraphAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -357,6 +377,13 @@ func (o GremlinGraphOutput) ToGremlinGraphOutputWithContext(ctx context.Context)
 // The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 func (o GremlinGraphOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GremlinGraph) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+//
+// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
+func (o GremlinGraphOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GremlinGraph) pulumi.IntPtrOutput { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
 func (o GremlinGraphOutput) AutoscaleSettings() GremlinGraphAutoscaleSettingsPtrOutput {

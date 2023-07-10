@@ -92,14 +92,14 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
+     * Specifies the size of the image to be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sizeGb")
     private @Nullable Output<Integer> sizeGb;
 
     /**
-     * @return Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
+     * @return Specifies the size of the image to be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> sizeGb() {
@@ -241,7 +241,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeGb Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
+         * @param sizeGb Specifies the size of the image to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeGb Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
+         * @param sizeGb Specifies the size of the image to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

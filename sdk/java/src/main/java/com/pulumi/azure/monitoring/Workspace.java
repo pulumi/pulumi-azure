@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -94,6 +95,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Is public network access enabled? Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.

@@ -22,6 +22,7 @@ import * as appconfiguration from "./appconfiguration";
 import * as appinsights from "./appinsights";
 import * as appplatform from "./appplatform";
 import * as appservice from "./appservice";
+import * as arc from "./arc";
 import * as arckubernetes from "./arckubernetes";
 import * as arcmachine from "./arcmachine";
 import * as armmsi from "./armmsi";
@@ -100,10 +101,12 @@ import * as mssql from "./mssql";
 import * as mysql from "./mysql";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as newrelic from "./newrelic";
 import * as nginx from "./nginx";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
 import * as orbital from "./orbital";
+import * as pim from "./pim";
 import * as policy from "./policy";
 import * as portal from "./portal";
 import * as postgresql from "./postgresql";
@@ -144,6 +147,7 @@ export {
     appinsights,
     appplatform,
     appservice,
+    arc,
     arckubernetes,
     arcmachine,
     armmsi,
@@ -222,10 +226,12 @@ export {
     mysql,
     netapp,
     network,
+    newrelic,
     nginx,
     notificationhub,
     operationalinsights,
     orbital,
+    pim,
     policy,
     portal,
     postgresql,

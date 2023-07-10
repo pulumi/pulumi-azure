@@ -219,6 +219,7 @@ namespace Pulumi.Azure.AppService
         /// The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
+        public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The ID of the Service Plan in which this Windows Web App resides.
@@ -299,6 +300,8 @@ namespace Pulumi.Azure.AppService
 
             string possibleOutboundIpAddresses,
 
+            bool publicNetworkAccessEnabled,
+
             string resourceGroupName,
 
             string servicePlanId,
@@ -339,6 +342,7 @@ namespace Pulumi.Azure.AppService
             OutboundIpAddresses = outboundIpAddresses;
             PossibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             ResourceGroupName = resourceGroupName;
             ServicePlanId = servicePlanId;
             SiteConfigs = siteConfigs;

@@ -112,14 +112,14 @@ public class Provider extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     @Export(name="openEnclavePolicyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> openEnclavePolicyBase64;
 
     /**
-     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     public Output<Optional<String>> openEnclavePolicyBase64() {
@@ -127,10 +127,10 @@ public class Provider extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
      * 
      */
-    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
+    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
     @Export(name="policies", refs={List.class,ProviderPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProviderPolicy>> policies;
 
@@ -170,14 +170,32 @@ public class Provider extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * 
+     */
+    @Export(name="sevSnpPolicyBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sevSnpPolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * 
+     */
+    public Output<Optional<String>> sevSnpPolicyBase64() {
+        return Codegen.optional(this.sevSnpPolicyBase64);
+    }
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     @Export(name="sgxEnclavePolicyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sgxEnclavePolicyBase64;
 
     /**
-     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     public Output<Optional<String>> sgxEnclavePolicyBase64() {
@@ -198,18 +216,14 @@ public class Provider extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-     * 
-     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     @Export(name="tpmPolicyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tpmPolicyBase64;
 
     /**
-     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-     * 
-     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     public Output<Optional<String>> tpmPolicyBase64() {

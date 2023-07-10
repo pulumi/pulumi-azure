@@ -116,11 +116,11 @@ def get_encryption_scope(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getEncryptionScope:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult).value
 
     return AwaitableGetEncryptionScopeResult(
-        id=__ret__.id,
-        key_vault_key_id=__ret__.key_vault_key_id,
-        name=__ret__.name,
-        source=__ret__.source,
-        storage_account_id=__ret__.storage_account_id)
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_key_id=pulumi.get(__ret__, 'key_vault_key_id'),
+        name=pulumi.get(__ret__, 'name'),
+        source=pulumi.get(__ret__, 'source'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 
 
 @_utilities.lift_output_func(get_encryption_scope)

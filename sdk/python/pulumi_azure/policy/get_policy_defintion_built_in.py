@@ -199,18 +199,18 @@ def get_policy_defintion_built_in(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn', __args__, opts=opts, typ=GetPolicyDefintionBuiltInResult).value
 
     return AwaitableGetPolicyDefintionBuiltInResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        management_group_name=__ret__.management_group_name,
-        metadata=__ret__.metadata,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        policy_rule=__ret__.policy_rule,
-        policy_type=__ret__.policy_type,
-        role_definition_ids=__ret__.role_definition_ids,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        management_group_name=pulumi.get(__ret__, 'management_group_name'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_rule=pulumi.get(__ret__, 'policy_rule'),
+        policy_type=pulumi.get(__ret__, 'policy_type'),
+        role_definition_ids=pulumi.get(__ret__, 'role_definition_ids'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_defintion_built_in)

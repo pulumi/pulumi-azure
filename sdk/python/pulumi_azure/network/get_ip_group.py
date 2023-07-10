@@ -126,12 +126,12 @@ def get_ip_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getIpGroup:getIpGroup', __args__, opts=opts, typ=GetIpGroupResult).value
 
     return AwaitableGetIpGroupResult(
-        cidrs=__ret__.cidrs,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        cidrs=pulumi.get(__ret__, 'cidrs'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ip_group)

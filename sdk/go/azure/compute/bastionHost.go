@@ -105,7 +105,7 @@ type BastionHost struct {
 	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrOutput `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-	IpConfiguration BastionHostIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
+	IpConfiguration BastionHostIpConfigurationOutput `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
@@ -125,6 +125,8 @@ type BastionHost struct {
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrOutput `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -141,6 +143,9 @@ func NewBastionHost(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.IpConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'IpConfiguration'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -195,6 +200,8 @@ type bastionHostState struct {
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -234,6 +241,8 @@ type BastionHostState struct {
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -255,7 +264,7 @@ type bastionHostArgs struct {
 	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled *bool `pulumi:"fileCopyEnabled"`
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
+	IpConfiguration BastionHostIpConfiguration `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
@@ -275,6 +284,8 @@ type bastionHostArgs struct {
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -293,7 +304,7 @@ type BastionHostArgs struct {
 	// > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
 	FileCopyEnabled pulumi.BoolPtrInput
 	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-	IpConfiguration BastionHostIpConfigurationPtrInput
+	IpConfiguration BastionHostIpConfigurationInput
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
@@ -313,6 +324,8 @@ type BastionHostArgs struct {
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
 	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	//
+	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -427,8 +440,8 @@ func (o BastionHostOutput) FileCopyEnabled() pulumi.BoolPtrOutput {
 }
 
 // A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
-func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationPtrOutput {
-	return o.ApplyT(func(v *BastionHost) BastionHostIpConfigurationPtrOutput { return v.IpConfiguration }).(BastionHostIpConfigurationPtrOutput)
+func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationOutput {
+	return o.ApplyT(func(v *BastionHost) BastionHostIpConfigurationOutput { return v.IpConfiguration }).(BastionHostIpConfigurationOutput)
 }
 
 // Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -468,6 +481,8 @@ func (o BastionHostOutput) ShareableLinkEnabled() pulumi.BoolPtrOutput {
 }
 
 // The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+//
+// > **Note** Downgrading the SKU will force a new resource to be created.
 func (o BastionHostOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

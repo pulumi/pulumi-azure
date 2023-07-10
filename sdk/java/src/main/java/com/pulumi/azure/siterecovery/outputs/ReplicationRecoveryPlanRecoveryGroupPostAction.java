@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicationRecoveryPlanRecoveryGroupPostAction {
     /**
-     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
@@ -63,7 +63,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPostAction {
 
     private ReplicationRecoveryPlanRecoveryGroupPostAction() {}
     /**
-     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 

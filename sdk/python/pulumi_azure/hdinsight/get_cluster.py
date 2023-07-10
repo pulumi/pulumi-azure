@@ -235,21 +235,21 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:hdinsight/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_version=__ret__.cluster_version,
-        component_versions=__ret__.component_versions,
-        edge_ssh_endpoint=__ret__.edge_ssh_endpoint,
-        gateways=__ret__.gateways,
-        https_endpoint=__ret__.https_endpoint,
-        id=__ret__.id,
-        kafka_rest_proxy_endpoint=__ret__.kafka_rest_proxy_endpoint,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        ssh_endpoint=__ret__.ssh_endpoint,
-        tags=__ret__.tags,
-        tier=__ret__.tier,
-        tls_min_version=__ret__.tls_min_version)
+        cluster_version=pulumi.get(__ret__, 'cluster_version'),
+        component_versions=pulumi.get(__ret__, 'component_versions'),
+        edge_ssh_endpoint=pulumi.get(__ret__, 'edge_ssh_endpoint'),
+        gateways=pulumi.get(__ret__, 'gateways'),
+        https_endpoint=pulumi.get(__ret__, 'https_endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_rest_proxy_endpoint=pulumi.get(__ret__, 'kafka_rest_proxy_endpoint'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        ssh_endpoint=pulumi.get(__ret__, 'ssh_endpoint'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'),
+        tls_min_version=pulumi.get(__ret__, 'tls_min_version'))
 
 
 @_utilities.lift_output_func(get_cluster)

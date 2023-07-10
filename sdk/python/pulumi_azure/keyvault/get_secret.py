@@ -200,18 +200,18 @@ def get_secret(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
-        content_type=__ret__.content_type,
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        name=__ret__.name,
-        not_before_date=__ret__.not_before_date,
-        resource_id=__ret__.resource_id,
-        resource_versionless_id=__ret__.resource_versionless_id,
-        tags=__ret__.tags,
-        value=__ret__.value,
-        version=__ret__.version,
-        versionless_id=__ret__.versionless_id)
+        content_type=pulumi.get(__ret__, 'content_type'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        name=pulumi.get(__ret__, 'name'),
+        not_before_date=pulumi.get(__ret__, 'not_before_date'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        resource_versionless_id=pulumi.get(__ret__, 'resource_versionless_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        value=pulumi.get(__ret__, 'value'),
+        version=pulumi.get(__ret__, 'version'),
+        versionless_id=pulumi.get(__ret__, 'versionless_id'))
 
 
 @_utilities.lift_output_func(get_secret)

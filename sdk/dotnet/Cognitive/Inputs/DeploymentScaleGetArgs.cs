@@ -13,7 +13,31 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class DeploymentScaleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("family")]
+        public Input<string>? Family { get; set; }
+
+        /// <summary>
+        /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("size")]
+        public Input<string>? Size { get; set; }
+
+        /// <summary>
+        /// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
+
+        /// <summary>
+        /// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

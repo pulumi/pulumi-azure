@@ -23,7 +23,7 @@ public final class DefinitionEligibleAuthorization {
      */
     private @Nullable String principalDisplayName;
     /**
-     * @return The Principal ID of the Azure Active Directory.
+     * @return Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
      * 
      */
     private String principalId;
@@ -49,7 +49,7 @@ public final class DefinitionEligibleAuthorization {
         return Optional.ofNullable(this.principalDisplayName);
     }
     /**
-     * @return The Principal ID of the Azure Active Directory.
+     * @return Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
      * 
      */
     public String principalId() {

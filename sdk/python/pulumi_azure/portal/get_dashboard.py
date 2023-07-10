@@ -141,13 +141,13 @@ def get_dashboard(dashboard_properties: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:portal/getDashboard:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
-        dashboard_properties=__ret__.dashboard_properties,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        dashboard_properties=pulumi.get(__ret__, 'dashboard_properties'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dashboard)

@@ -28,14 +28,14 @@ public final class GetDatabasePlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The id of the MS SQL Server on which to create the database.
+     * The id of the MS SQL Server on which to read the database.
      * 
      */
     @Import(name="serverId", required=true)
     private String serverId;
 
     /**
-     * @return The id of the MS SQL Server on which to create the database.
+     * @return The id of the MS SQL Server on which to read the database.
      * 
      */
     public String serverId() {
@@ -79,7 +79,7 @@ public final class GetDatabasePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param serverId The id of the MS SQL Server on which to create the database.
+         * @param serverId The id of the MS SQL Server on which to read the database.
          * 
          * @return builder
          * 

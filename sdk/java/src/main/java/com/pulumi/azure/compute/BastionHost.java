@@ -153,14 +153,14 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipConfiguration", refs={BastionHostIpConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ BastionHostIpConfiguration> ipConfiguration;
+    private Output<BastionHostIpConfiguration> ipConfiguration;
 
     /**
      * @return A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<BastionHostIpConfiguration>> ipConfiguration() {
-        return Codegen.optional(this.ipConfiguration);
+    public Output<BastionHostIpConfiguration> ipConfiguration() {
+        return this.ipConfiguration;
     }
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
@@ -261,12 +261,16 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      * 
+     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
      * @return The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * 
+     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {

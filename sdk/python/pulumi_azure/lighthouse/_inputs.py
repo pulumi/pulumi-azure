@@ -94,7 +94,7 @@ class DefinitionEligibleAuthorizationArgs:
                  just_in_time_access_policy: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']] = None,
                  principal_display_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] principal_id: The Principal ID of the Azure Active Directory.
+        :param pulumi.Input[str] principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param pulumi.Input[str] role_definition_id: The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
         :param pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs'] just_in_time_access_policy: A `just_in_time_access_policy` block as defined below.
         :param pulumi.Input[str] principal_display_name: The display name of the Azure Active Directory Principal.
@@ -110,7 +110,7 @@ class DefinitionEligibleAuthorizationArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        The Principal ID of the Azure Active Directory.
+        Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
         return pulumi.get(self, "principal_id")
 

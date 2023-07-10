@@ -252,22 +252,22 @@ def get_volume(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        account_name=__ret__.account_name,
-        data_protection_replications=__ret__.data_protection_replications,
-        id=__ret__.id,
-        location=__ret__.location,
-        mount_ip_addresses=__ret__.mount_ip_addresses,
-        name=__ret__.name,
-        network_features=__ret__.network_features,
-        pool_name=__ret__.pool_name,
-        protocols=__ret__.protocols,
-        resource_group_name=__ret__.resource_group_name,
-        security_style=__ret__.security_style,
-        service_level=__ret__.service_level,
-        storage_quota_in_gb=__ret__.storage_quota_in_gb,
-        subnet_id=__ret__.subnet_id,
-        volume_path=__ret__.volume_path,
-        zone=__ret__.zone)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        data_protection_replications=pulumi.get(__ret__, 'data_protection_replications'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mount_ip_addresses=pulumi.get(__ret__, 'mount_ip_addresses'),
+        name=pulumi.get(__ret__, 'name'),
+        network_features=pulumi.get(__ret__, 'network_features'),
+        pool_name=pulumi.get(__ret__, 'pool_name'),
+        protocols=pulumi.get(__ret__, 'protocols'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        security_style=pulumi.get(__ret__, 'security_style'),
+        service_level=pulumi.get(__ret__, 'service_level'),
+        storage_quota_in_gb=pulumi.get(__ret__, 'storage_quota_in_gb'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        volume_path=pulumi.get(__ret__, 'volume_path'),
+        zone=pulumi.get(__ret__, 'zone'))
 
 
 @_utilities.lift_output_func(get_volume)

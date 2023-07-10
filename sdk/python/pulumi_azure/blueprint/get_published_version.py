@@ -171,16 +171,16 @@ def get_published_version(blueprint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:blueprint/getPublishedVersion:getPublishedVersion', __args__, opts=opts, typ=GetPublishedVersionResult).value
 
     return AwaitableGetPublishedVersionResult(
-        blueprint_name=__ret__.blueprint_name,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        scope_id=__ret__.scope_id,
-        target_scope=__ret__.target_scope,
-        time_created=__ret__.time_created,
-        type=__ret__.type,
-        version=__ret__.version)
+        blueprint_name=pulumi.get(__ret__, 'blueprint_name'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        scope_id=pulumi.get(__ret__, 'scope_id'),
+        target_scope=pulumi.get(__ret__, 'target_scope'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_published_version)

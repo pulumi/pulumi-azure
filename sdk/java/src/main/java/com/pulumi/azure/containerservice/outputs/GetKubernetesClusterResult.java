@@ -55,6 +55,11 @@ public final class GetKubernetesClusterResult {
      */
     private Boolean azurePolicyEnabled;
     /**
+     * @return A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+     * 
+     */
+    private List<String> customCaTrustCertificatesBase64s;
+    /**
      * @return The ID of the Disk Encryption Set used for the Nodes and Volumes.
      * 
      */
@@ -261,6 +266,13 @@ public final class GetKubernetesClusterResult {
      */
     public Boolean azurePolicyEnabled() {
         return this.azurePolicyEnabled;
+    }
+    /**
+     * @return A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+     * 
+     */
+    public List<String> customCaTrustCertificatesBase64s() {
+        return this.customCaTrustCertificatesBase64s;
     }
     /**
      * @return The ID of the Disk Encryption Set used for the Nodes and Volumes.
@@ -518,6 +530,7 @@ public final class GetKubernetesClusterResult {
         private List<String> apiServerAuthorizedIpRanges;
         private List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls;
         private Boolean azurePolicyEnabled;
+        private List<String> customCaTrustCertificatesBase64s;
         private String diskEncryptionSetId;
         private String dnsPrefix;
         private String fqdn;
@@ -561,6 +574,7 @@ public final class GetKubernetesClusterResult {
     	      this.apiServerAuthorizedIpRanges = defaults.apiServerAuthorizedIpRanges;
     	      this.azureActiveDirectoryRoleBasedAccessControls = defaults.azureActiveDirectoryRoleBasedAccessControls;
     	      this.azurePolicyEnabled = defaults.azurePolicyEnabled;
+    	      this.customCaTrustCertificatesBase64s = defaults.customCaTrustCertificatesBase64s;
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.dnsPrefix = defaults.dnsPrefix;
     	      this.fqdn = defaults.fqdn;
@@ -634,6 +648,14 @@ public final class GetKubernetesClusterResult {
         public Builder azurePolicyEnabled(Boolean azurePolicyEnabled) {
             this.azurePolicyEnabled = Objects.requireNonNull(azurePolicyEnabled);
             return this;
+        }
+        @CustomType.Setter
+        public Builder customCaTrustCertificatesBase64s(List<String> customCaTrustCertificatesBase64s) {
+            this.customCaTrustCertificatesBase64s = Objects.requireNonNull(customCaTrustCertificatesBase64s);
+            return this;
+        }
+        public Builder customCaTrustCertificatesBase64s(String... customCaTrustCertificatesBase64s) {
+            return customCaTrustCertificatesBase64s(List.of(customCaTrustCertificatesBase64s));
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
@@ -859,6 +881,7 @@ public final class GetKubernetesClusterResult {
             o.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             o.azureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             o.azurePolicyEnabled = azurePolicyEnabled;
+            o.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
             o.diskEncryptionSetId = diskEncryptionSetId;
             o.dnsPrefix = dnsPrefix;
             o.fqdn = fqdn;

@@ -39,7 +39,20 @@ import (
 //				Mode:              pulumi.String("All"),
 //				DisplayName:       pulumi.String("my-policy-definition"),
 //				ManagementGroupId: exampleGroup.ID(),
-//				PolicyRule:        pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"equals\": \"westeurope\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"Deny\"\n    }\n  }\n"),
+//				PolicyRule: pulumi.String(` {
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

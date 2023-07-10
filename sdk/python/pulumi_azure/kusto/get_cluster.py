@@ -131,13 +131,13 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:kusto/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        data_ingestion_uri=__ret__.data_ingestion_uri,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        uri=__ret__.uri)
+        data_ingestion_uri=pulumi.get(__ret__, 'data_ingestion_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        uri=pulumi.get(__ret__, 'uri'))
 
 
 @_utilities.lift_output_func(get_cluster)

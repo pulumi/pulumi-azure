@@ -109,11 +109,11 @@ def get_certificates(include_pending: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult).value
 
     return AwaitableGetCertificatesResult(
-        certificates=__ret__.certificates,
-        id=__ret__.id,
-        include_pending=__ret__.include_pending,
-        key_vault_id=__ret__.key_vault_id,
-        names=__ret__.names)
+        certificates=pulumi.get(__ret__, 'certificates'),
+        id=pulumi.get(__ret__, 'id'),
+        include_pending=pulumi.get(__ret__, 'include_pending'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_certificates)

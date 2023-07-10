@@ -49,14 +49,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     @Import(name="openEnclavePolicyBase64")
     private @Nullable Output<String> openEnclavePolicyBase64;
 
     /**
-     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     public Optional<Output<String>> openEnclavePolicyBase64() {
@@ -65,19 +65,19 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
      * 
      */
-    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
+    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
     @Import(name="policies")
     private @Nullable Output<List<ProviderPolicyArgs>> policies;
 
     /**
      * @deprecated
-     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
      * 
      */
-    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
+    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
     public Optional<Output<List<ProviderPolicyArgs>>> policies() {
         return Optional.ofNullable(this.policies);
     }
@@ -117,14 +117,33 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * 
+     */
+    @Import(name="sevSnpPolicyBase64")
+    private @Nullable Output<String> sevSnpPolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * 
+     */
+    public Optional<Output<String>> sevSnpPolicyBase64() {
+        return Optional.ofNullable(this.sevSnpPolicyBase64);
+    }
+
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     @Import(name="sgxEnclavePolicyBase64")
     private @Nullable Output<String> sgxEnclavePolicyBase64;
 
     /**
-     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     public Optional<Output<String>> sgxEnclavePolicyBase64() {
@@ -147,18 +166,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-     * 
-     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     @Import(name="tpmPolicyBase64")
     private @Nullable Output<String> tpmPolicyBase64;
 
     /**
-     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-     * 
-     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
      */
     public Optional<Output<String>> tpmPolicyBase64() {
@@ -174,6 +189,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.policies = $.policies;
         this.policySigningCertificateData = $.policySigningCertificateData;
         this.resourceGroupName = $.resourceGroupName;
+        this.sevSnpPolicyBase64 = $.sevSnpPolicyBase64;
         this.sgxEnclavePolicyBase64 = $.sgxEnclavePolicyBase64;
         this.tags = $.tags;
         this.tpmPolicyBase64 = $.tpmPolicyBase64;
@@ -240,7 +256,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * @param openEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
          * 
          * @return builder
          * 
@@ -251,7 +267,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * @param openEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
          * 
          * @return builder
          * 
@@ -264,10 +280,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
          * 
          */
-        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
+        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
         public Builder policies(@Nullable Output<List<ProviderPolicyArgs>> policies) {
             $.policies = policies;
             return this;
@@ -277,10 +293,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
          * 
          */
-        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
+        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
         public Builder policies(List<ProviderPolicyArgs> policies) {
             return policies(Output.of(policies));
         }
@@ -289,10 +305,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
          * 
          */
-        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
+        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
         public Builder policies(ProviderPolicyArgs... policies) {
             return policies(List.of(policies));
         }
@@ -344,7 +360,32 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sgxEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * @param sevSnpPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+         * 
+         * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sevSnpPolicyBase64(@Nullable Output<String> sevSnpPolicyBase64) {
+            $.sevSnpPolicyBase64 = sevSnpPolicyBase64;
+            return this;
+        }
+
+        /**
+         * @param sevSnpPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+         * 
+         * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sevSnpPolicyBase64(String sevSnpPolicyBase64) {
+            return sevSnpPolicyBase64(Output.of(sevSnpPolicyBase64));
+        }
+
+        /**
+         * @param sgxEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
          * 
          * @return builder
          * 
@@ -355,7 +396,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sgxEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * @param sgxEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
          * 
          * @return builder
          * 
@@ -386,9 +427,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-         * 
-         * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+         * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
          * 
          * @return builder
          * 
@@ -399,9 +438,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-         * 
-         * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+         * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
          * 
          * @return builder
          * 

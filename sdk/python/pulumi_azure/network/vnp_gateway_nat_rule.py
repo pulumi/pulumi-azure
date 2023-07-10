@@ -100,6 +100,9 @@ class VnpGatewayNatRuleArgs:
 
         > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "external_address_space_mappings")
 
     @external_address_space_mappings.setter
@@ -126,6 +129,9 @@ class VnpGatewayNatRuleArgs:
 
         > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "internal_address_space_mappings")
 
     @internal_address_space_mappings.setter
@@ -258,6 +264,9 @@ class _VnpGatewayNatRuleState:
 
         > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "external_address_space_mappings")
 
     @external_address_space_mappings.setter
@@ -284,6 +293,9 @@ class _VnpGatewayNatRuleState:
 
         > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "internal_address_space_mappings")
 
     @internal_address_space_mappings.setter
@@ -616,6 +628,9 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "external_address_space_mappings")
 
     @property
@@ -634,6 +649,9 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         """
+        warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "internal_address_space_mappings")
 
     @property

@@ -132,14 +132,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoPatching);
     }
     /**
-     * (Optional) An `key_vault_credential` block as defined below.
+     * An `key_vault_credential` block as defined below.
      * 
      */
     @Export(name="keyVaultCredential", refs={VirtualMachineKeyVaultCredential.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineKeyVaultCredential> keyVaultCredential;
 
     /**
-     * @return (Optional) An `key_vault_credential` block as defined below.
+     * @return An `key_vault_credential` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineKeyVaultCredential>> keyVaultCredential() {

@@ -125,14 +125,14 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
         return this.automationAccountId;
     }
     /**
-     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      * 
      */
     @Export(name="duration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> duration;
 
     /**
-     * @return Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * @return Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      * 
      */
     public Output<Optional<String>> duration() {
@@ -177,14 +177,14 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
         return this.errorMessage;
     }
     /**
-     * One or more `linux` blocks as defined below.
+     * A `linux` block as defined below.
      * 
      */
     @Export(name="linuxes", refs={List.class,SoftwareUpdateConfigurationLinux.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SoftwareUpdateConfigurationLinux>> linuxes;
 
     /**
-     * @return One or more `linux` blocks as defined below.
+     * @return A `linux` block as defined below.
      * 
      */
     public Output<Optional<List<SoftwareUpdateConfigurationLinux>>> linuxes() {
@@ -205,112 +205,114 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * Specifies a list of names of non-azure machines for the software update configuration.
+     * Specifies a list of names of non-Azure machines for the software update configuration.
      * 
      */
     @Export(name="nonAzureComputerNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> nonAzureComputerNames;
 
     /**
-     * @return Specifies a list of names of non-azure machines for the software update configuration.
+     * @return Specifies a list of names of non-Azure machines for the software update configuration.
      * 
      */
     public Output<Optional<List<String>>> nonAzureComputerNames() {
         return Codegen.optional(this.nonAzureComputerNames);
     }
     /**
-     * The Operating system of target machines. Possible values are `Windows` and `Linux`.
+     * @deprecated
+     * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
-    /**
-     * @return The Operating system of target machines. Possible values are `Windows` and `Linux`.
-     * 
-     */
     public Output<String> operatingSystem() {
         return this.operatingSystem;
     }
     /**
-     * One or more `post_task` blocks as defined below.
+     * A `post_task` blocks as defined below.
      * 
      */
     @Export(name="postTasks", refs={List.class,SoftwareUpdateConfigurationPostTask.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SoftwareUpdateConfigurationPostTask>> postTasks;
 
     /**
-     * @return One or more `post_task` blocks as defined below.
+     * @return A `post_task` blocks as defined below.
      * 
      */
     public Output<Optional<List<SoftwareUpdateConfigurationPostTask>>> postTasks() {
         return Codegen.optional(this.postTasks);
     }
     /**
-     * One or more `pre_task` blocks as defined below.
+     * A `pre_task` blocks as defined below.
      * 
      */
     @Export(name="preTasks", refs={List.class,SoftwareUpdateConfigurationPreTask.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SoftwareUpdateConfigurationPreTask>> preTasks;
 
     /**
-     * @return One or more `pre_task` blocks as defined below.
+     * @return A `pre_task` blocks as defined below.
      * 
      */
     public Output<Optional<List<SoftwareUpdateConfigurationPreTask>>> preTasks() {
         return Codegen.optional(this.preTasks);
     }
     /**
-     * One or more `schedule` blocks as defined below.
+     * A `schedule` blocks as defined below.
      * 
      */
     @Export(name="schedules", refs={List.class,SoftwareUpdateConfigurationSchedule.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SoftwareUpdateConfigurationSchedule>> schedules;
+    private Output<List<SoftwareUpdateConfigurationSchedule>> schedules;
 
     /**
-     * @return One or more `schedule` blocks as defined below.
+     * @return A `schedule` blocks as defined below.
      * 
      */
-    public Output<Optional<List<SoftwareUpdateConfigurationSchedule>>> schedules() {
-        return Codegen.optional(this.schedules);
+    public Output<List<SoftwareUpdateConfigurationSchedule>> schedules() {
+        return this.schedules;
     }
     /**
-     * One or more `target` blocks as defined below.
+     * A `target` blocks as defined below.
      * 
      */
     @Export(name="target", refs={SoftwareUpdateConfigurationTarget.class}, tree="[0]")
     private Output</* @Nullable */ SoftwareUpdateConfigurationTarget> target;
 
     /**
-     * @return One or more `target` blocks as defined below.
+     * @return A `target` blocks as defined below.
      * 
      */
     public Output<Optional<SoftwareUpdateConfigurationTarget>> target() {
         return Codegen.optional(this.target);
     }
     /**
-     * Specifies a list of azure resource Ids of azure virtual machines.
+     * Specifies a list of Azure Resource IDs of azure virtual machines.
      * 
      */
     @Export(name="virtualMachineIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> virtualMachineIds;
 
     /**
-     * @return Specifies a list of azure resource Ids of azure virtual machines.
+     * @return Specifies a list of Azure Resource IDs of azure virtual machines.
      * 
      */
     public Output<Optional<List<String>>> virtualMachineIds() {
         return Codegen.optional(this.virtualMachineIds);
     }
     /**
-     * One or more `windows` blocks as defined below.
+     * A `windows` block as defined below.
+     * 
+     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
      * 
      */
     @Export(name="windows", refs={SoftwareUpdateConfigurationWindows.class}, tree="[0]")
     private Output</* @Nullable */ SoftwareUpdateConfigurationWindows> windows;
 
     /**
-     * @return One or more `windows` blocks as defined below.
+     * @return A `windows` block as defined below.
+     * 
+     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
      * 
      */
     public Output<Optional<SoftwareUpdateConfigurationWindows>> windows() {

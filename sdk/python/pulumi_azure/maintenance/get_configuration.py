@@ -187,17 +187,17 @@ def get_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:maintenance/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
     return AwaitableGetConfigurationResult(
-        id=__ret__.id,
-        in_guest_user_patch_mode=__ret__.in_guest_user_patch_mode,
-        install_patches=__ret__.install_patches,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        resource_group_name=__ret__.resource_group_name,
-        scope=__ret__.scope,
-        tags=__ret__.tags,
-        visibility=__ret__.visibility,
-        windows=__ret__.windows)
+        id=pulumi.get(__ret__, 'id'),
+        in_guest_user_patch_mode=pulumi.get(__ret__, 'in_guest_user_patch_mode'),
+        install_patches=pulumi.get(__ret__, 'install_patches'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        scope=pulumi.get(__ret__, 'scope'),
+        tags=pulumi.get(__ret__, 'tags'),
+        visibility=pulumi.get(__ret__, 'visibility'),
+        windows=pulumi.get(__ret__, 'windows'))
 
 
 @_utilities.lift_output_func(get_configuration)

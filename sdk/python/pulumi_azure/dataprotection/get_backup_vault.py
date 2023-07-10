@@ -152,14 +152,14 @@ def get_backup_vault(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:dataprotection/getBackupVault:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult).value
 
     return AwaitableGetBackupVaultResult(
-        datastore_type=__ret__.datastore_type,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        redundancy=__ret__.redundancy,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        datastore_type=pulumi.get(__ret__, 'datastore_type'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        redundancy=pulumi.get(__ret__, 'redundancy'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_backup_vault)

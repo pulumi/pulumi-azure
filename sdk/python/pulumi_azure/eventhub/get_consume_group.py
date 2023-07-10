@@ -127,12 +127,12 @@ def get_consume_group(eventhub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getConsumeGroup:getConsumeGroup', __args__, opts=opts, typ=GetConsumeGroupResult).value
 
     return AwaitableGetConsumeGroupResult(
-        eventhub_name=__ret__.eventhub_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        namespace_name=__ret__.namespace_name,
-        resource_group_name=__ret__.resource_group_name,
-        user_metadata=__ret__.user_metadata)
+        eventhub_name=pulumi.get(__ret__, 'eventhub_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 
 
 @_utilities.lift_output_func(get_consume_group)

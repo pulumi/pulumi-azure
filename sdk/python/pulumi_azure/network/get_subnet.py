@@ -202,19 +202,19 @@ def get_subnet(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts, typ=GetSubnetResult).value
 
     return AwaitableGetSubnetResult(
-        address_prefix=__ret__.address_prefix,
-        address_prefixes=__ret__.address_prefixes,
-        enforce_private_link_endpoint_network_policies=__ret__.enforce_private_link_endpoint_network_policies,
-        enforce_private_link_service_network_policies=__ret__.enforce_private_link_service_network_policies,
-        id=__ret__.id,
-        name=__ret__.name,
-        network_security_group_id=__ret__.network_security_group_id,
-        private_endpoint_network_policies_enabled=__ret__.private_endpoint_network_policies_enabled,
-        private_link_service_network_policies_enabled=__ret__.private_link_service_network_policies_enabled,
-        resource_group_name=__ret__.resource_group_name,
-        route_table_id=__ret__.route_table_id,
-        service_endpoints=__ret__.service_endpoints,
-        virtual_network_name=__ret__.virtual_network_name)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
+        enforce_private_link_endpoint_network_policies=pulumi.get(__ret__, 'enforce_private_link_endpoint_network_policies'),
+        enforce_private_link_service_network_policies=pulumi.get(__ret__, 'enforce_private_link_service_network_policies'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_security_group_id=pulumi.get(__ret__, 'network_security_group_id'),
+        private_endpoint_network_policies_enabled=pulumi.get(__ret__, 'private_endpoint_network_policies_enabled'),
+        private_link_service_network_policies_enabled=pulumi.get(__ret__, 'private_link_service_network_policies_enabled'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        route_table_id=pulumi.get(__ret__, 'route_table_id'),
+        service_endpoints=pulumi.get(__ret__, 'service_endpoints'),
+        virtual_network_name=pulumi.get(__ret__, 'virtual_network_name'))
 
 
 @_utilities.lift_output_func(get_subnet)

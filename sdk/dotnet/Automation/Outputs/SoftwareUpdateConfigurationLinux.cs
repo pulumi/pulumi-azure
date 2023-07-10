@@ -13,10 +13,11 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class SoftwareUpdateConfigurationLinux
     {
-        /// <summary>
-        /// Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-        /// </summary>
         public readonly string? ClassificationIncluded;
+        /// <summary>
+        /// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+        /// </summary>
+        public readonly ImmutableArray<string> ClassificationsIncludeds;
         /// <summary>
         /// Specifies a list of packages to excluded from the Software Update Configuration.
         /// </summary>
@@ -26,13 +27,15 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IncludedPackages;
         /// <summary>
-        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         /// </summary>
         public readonly string? Reboot;
 
         [OutputConstructor]
         private SoftwareUpdateConfigurationLinux(
             string? classificationIncluded,
+
+            ImmutableArray<string> classificationsIncludeds,
 
             ImmutableArray<string> excludedPackages,
 
@@ -41,6 +44,7 @@ namespace Pulumi.Azure.Automation.Outputs
             string? reboot)
         {
             ClassificationIncluded = classificationIncluded;
+            ClassificationsIncludeds = classificationsIncludeds;
             ExcludedPackages = excludedPackages;
             IncludedPackages = includedPackages;
             Reboot = reboot;

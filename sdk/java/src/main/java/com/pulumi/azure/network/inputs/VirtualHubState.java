@@ -170,6 +170,21 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * 
+     */
+    @Import(name="virtualRouterAutoScaleMinCapacity")
+    private @Nullable Output<Integer> virtualRouterAutoScaleMinCapacity;
+
+    /**
+     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * 
+     */
+    public Optional<Output<Integer>> virtualRouterAutoScaleMinCapacity() {
+        return Optional.ofNullable(this.virtualRouterAutoScaleMinCapacity);
+    }
+
+    /**
      * The IP addresses of the Virtual Hub BGP router.
      * 
      */
@@ -212,6 +227,7 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
         this.sku = $.sku;
         this.tags = $.tags;
         this.virtualRouterAsn = $.virtualRouterAsn;
+        this.virtualRouterAutoScaleMinCapacity = $.virtualRouterAutoScaleMinCapacity;
         this.virtualRouterIps = $.virtualRouterIps;
         this.virtualWanId = $.virtualWanId;
     }
@@ -452,6 +468,27 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder virtualRouterAsn(Integer virtualRouterAsn) {
             return virtualRouterAsn(Output.of(virtualRouterAsn));
+        }
+
+        /**
+         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualRouterAutoScaleMinCapacity(@Nullable Output<Integer> virtualRouterAutoScaleMinCapacity) {
+            $.virtualRouterAutoScaleMinCapacity = virtualRouterAutoScaleMinCapacity;
+            return this;
+        }
+
+        /**
+         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualRouterAutoScaleMinCapacity(Integer virtualRouterAutoScaleMinCapacity) {
+            return virtualRouterAutoScaleMinCapacity(Output.of(virtualRouterAutoScaleMinCapacity));
         }
 
         /**

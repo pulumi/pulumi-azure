@@ -95,6 +95,8 @@ install_plugins:
 	[ -x "$(shell command -v pulumi 2>/dev/null)" ] || curl -fsSL https://get.pulumi.com | sh
 	pulumi plugin install resource random 4.8.2
 	pulumi plugin install resource azuread 5.33.0
+	pulumi plugin install resource time 0.0.15
+	pulumi plugin install resource local 0.0.1
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml

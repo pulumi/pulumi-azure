@@ -299,6 +299,13 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     /**
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      * 
@@ -508,6 +515,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
         this.location = $.location;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
@@ -928,6 +936,15 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

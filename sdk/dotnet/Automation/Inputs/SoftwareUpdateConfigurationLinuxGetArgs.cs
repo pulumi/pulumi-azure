@@ -12,11 +12,20 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class SoftwareUpdateConfigurationLinuxGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-        /// </summary>
         [Input("classificationIncluded")]
         public Input<string>? ClassificationIncluded { get; set; }
+
+        [Input("classificationsIncludeds")]
+        private InputList<string>? _classificationsIncludeds;
+
+        /// <summary>
+        /// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+        /// </summary>
+        public InputList<string> ClassificationsIncludeds
+        {
+            get => _classificationsIncludeds ?? (_classificationsIncludeds = new InputList<string>());
+            set => _classificationsIncludeds = value;
+        }
 
         [Input("excludedPackages")]
         private InputList<string>? _excludedPackages;
@@ -43,7 +52,7 @@ namespace Pulumi.Azure.Automation.Inputs
         }
 
         /// <summary>
-        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         /// </summary>
         [Input("reboot")]
         public Input<string>? Reboot { get; set; }

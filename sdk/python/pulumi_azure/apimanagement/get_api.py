@@ -261,23 +261,23 @@ def get_api(api_management_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts, typ=GetApiResult).value
 
     return AwaitableGetApiResult(
-        api_management_name=__ret__.api_management_name,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        is_current=__ret__.is_current,
-        is_online=__ret__.is_online,
-        name=__ret__.name,
-        path=__ret__.path,
-        protocols=__ret__.protocols,
-        resource_group_name=__ret__.resource_group_name,
-        revision=__ret__.revision,
-        service_url=__ret__.service_url,
-        soap_pass_through=__ret__.soap_pass_through,
-        subscription_key_parameter_names=__ret__.subscription_key_parameter_names,
-        subscription_required=__ret__.subscription_required,
-        version=__ret__.version,
-        version_set_id=__ret__.version_set_id)
+        api_management_name=pulumi.get(__ret__, 'api_management_name'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        is_current=pulumi.get(__ret__, 'is_current'),
+        is_online=pulumi.get(__ret__, 'is_online'),
+        name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
+        protocols=pulumi.get(__ret__, 'protocols'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        revision=pulumi.get(__ret__, 'revision'),
+        service_url=pulumi.get(__ret__, 'service_url'),
+        soap_pass_through=pulumi.get(__ret__, 'soap_pass_through'),
+        subscription_key_parameter_names=pulumi.get(__ret__, 'subscription_key_parameter_names'),
+        subscription_required=pulumi.get(__ret__, 'subscription_required'),
+        version=pulumi.get(__ret__, 'version'),
+        version_set_id=pulumi.get(__ret__, 'version_set_id'))
 
 
 @_utilities.lift_output_func(get_api)

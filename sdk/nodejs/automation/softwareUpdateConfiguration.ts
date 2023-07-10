@@ -96,7 +96,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
      */
     public readonly automationAccountId!: pulumi.Output<string>;
     /**
-     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      */
     public readonly duration!: pulumi.Output<string | undefined>;
     /**
@@ -111,7 +111,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly errorMeesage!: pulumi.Output<string>;
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
-     * One or more `linux` blocks as defined below.
+     * A `linux` block as defined below.
      */
     public readonly linuxes!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationLinux[] | undefined>;
     /**
@@ -119,35 +119,37 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies a list of names of non-azure machines for the software update configuration.
+     * Specifies a list of names of non-Azure machines for the software update configuration.
      */
     public readonly nonAzureComputerNames!: pulumi.Output<string[] | undefined>;
     /**
-     * The Operating system of target machines. Possible values are `Windows` and `Linux`.
+     * @deprecated This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
      */
     public readonly operatingSystem!: pulumi.Output<string>;
     /**
-     * One or more `postTask` blocks as defined below.
+     * A `postTask` blocks as defined below.
      */
     public readonly postTasks!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPostTask[] | undefined>;
     /**
-     * One or more `preTask` blocks as defined below.
+     * A `preTask` blocks as defined below.
      */
     public readonly preTasks!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPreTask[] | undefined>;
     /**
-     * One or more `schedule` blocks as defined below.
+     * A `schedule` blocks as defined below.
      */
-    public readonly schedules!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationSchedule[] | undefined>;
+    public readonly schedules!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationSchedule[]>;
     /**
-     * One or more `target` blocks as defined below.
+     * A `target` blocks as defined below.
      */
     public readonly target!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationTarget | undefined>;
     /**
-     * Specifies a list of azure resource Ids of azure virtual machines.
+     * Specifies a list of Azure Resource IDs of azure virtual machines.
      */
     public readonly virtualMachineIds!: pulumi.Output<string[] | undefined>;
     /**
-     * One or more `windows` blocks as defined below.
+     * A `windows` block as defined below.
+     *
+     * > **NOTE:** One of `linux` or `windows` must be specified.
      */
     public readonly windows!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
 
@@ -184,8 +186,8 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
             if ((!args || args.automationAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountId'");
             }
-            if ((!args || args.operatingSystem === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operatingSystem'");
+            if ((!args || args.schedules === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'schedules'");
             }
             resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
             resourceInputs["duration"] = args ? args.duration : undefined;
@@ -217,7 +219,7 @@ export interface SoftwareUpdateConfigurationState {
      */
     automationAccountId?: pulumi.Input<string>;
     /**
-     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      */
     duration?: pulumi.Input<string>;
     /**
@@ -232,7 +234,7 @@ export interface SoftwareUpdateConfigurationState {
     errorMeesage?: pulumi.Input<string>;
     errorMessage?: pulumi.Input<string>;
     /**
-     * One or more `linux` blocks as defined below.
+     * A `linux` block as defined below.
      */
     linuxes?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>[]>;
     /**
@@ -240,35 +242,37 @@ export interface SoftwareUpdateConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a list of names of non-azure machines for the software update configuration.
+     * Specifies a list of names of non-Azure machines for the software update configuration.
      */
     nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Operating system of target machines. Possible values are `Windows` and `Linux`.
+     * @deprecated This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
      */
     operatingSystem?: pulumi.Input<string>;
     /**
-     * One or more `postTask` blocks as defined below.
+     * A `postTask` blocks as defined below.
      */
     postTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>[]>;
     /**
-     * One or more `preTask` blocks as defined below.
+     * A `preTask` blocks as defined below.
      */
     preTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>[]>;
     /**
-     * One or more `schedule` blocks as defined below.
+     * A `schedule` blocks as defined below.
      */
     schedules?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>[]>;
     /**
-     * One or more `target` blocks as defined below.
+     * A `target` blocks as defined below.
      */
     target?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTarget>;
     /**
-     * Specifies a list of azure resource Ids of azure virtual machines.
+     * Specifies a list of Azure Resource IDs of azure virtual machines.
      */
     virtualMachineIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `windows` blocks as defined below.
+     * A `windows` block as defined below.
+     *
+     * > **NOTE:** One of `linux` or `windows` must be specified.
      */
     windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
 }
@@ -282,11 +286,11 @@ export interface SoftwareUpdateConfigurationArgs {
      */
     automationAccountId: pulumi.Input<string>;
     /**
-     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601.
+     * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      */
     duration?: pulumi.Input<string>;
     /**
-     * One or more `linux` blocks as defined below.
+     * A `linux` block as defined below.
      */
     linuxes?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>[]>;
     /**
@@ -294,35 +298,37 @@ export interface SoftwareUpdateConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a list of names of non-azure machines for the software update configuration.
+     * Specifies a list of names of non-Azure machines for the software update configuration.
      */
     nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Operating system of target machines. Possible values are `Windows` and `Linux`.
+     * @deprecated This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
      */
-    operatingSystem: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string>;
     /**
-     * One or more `postTask` blocks as defined below.
+     * A `postTask` blocks as defined below.
      */
     postTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>[]>;
     /**
-     * One or more `preTask` blocks as defined below.
+     * A `preTask` blocks as defined below.
      */
     preTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>[]>;
     /**
-     * One or more `schedule` blocks as defined below.
+     * A `schedule` blocks as defined below.
      */
-    schedules?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>[]>;
+    schedules: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>[]>;
     /**
-     * One or more `target` blocks as defined below.
+     * A `target` blocks as defined below.
      */
     target?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTarget>;
     /**
-     * Specifies a list of azure resource Ids of azure virtual machines.
+     * Specifies a list of Azure Resource IDs of azure virtual machines.
      */
     virtualMachineIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `windows` blocks as defined below.
+     * A `windows` block as defined below.
+     *
+     * > **NOTE:** One of `linux` or `windows` must be specified.
      */
     windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
 }

@@ -30,6 +30,11 @@ class ExtensionArgs:
         :param pulumi.Input[str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[str] type: Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+               
+               **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+               
+               **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] location: The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[str] name: The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -99,6 +104,13 @@ class ExtensionArgs:
     @property
     @pulumi.getter(name="automaticUpgradeEnabled")
     def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+
+        **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+
+        **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @automatic_upgrade_enabled.setter
@@ -209,6 +221,11 @@ class _ExtensionState:
         """
         Input properties used for looking up and filtering Extension resources.
         :param pulumi.Input[str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+               
+               **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+               
+               **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] location: The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[str] name: The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -259,6 +276,13 @@ class _ExtensionState:
     @property
     @pulumi.getter(name="automaticUpgradeEnabled")
     def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+
+        **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+
+        **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @automatic_upgrade_enabled.setter
@@ -401,12 +425,17 @@ class Extension(pulumi.CustomResource):
         Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:arcmachine/extension:Extension example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
+         $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+               
+               **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+               
+               **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] location: The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[str] name: The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -433,7 +462,7 @@ class Extension(pulumi.CustomResource):
         Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:arcmachine/extension:Extension example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
+         $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
         ```
 
         :param str resource_name: The name of the resource.
@@ -519,6 +548,11 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+               
+               **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+               
+               **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] location: The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[str] name: The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -559,6 +593,13 @@ class Extension(pulumi.CustomResource):
     @property
     @pulumi.getter(name="automaticUpgradeEnabled")
     def automatic_upgrade_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+
+        **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+
+        **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
     @property

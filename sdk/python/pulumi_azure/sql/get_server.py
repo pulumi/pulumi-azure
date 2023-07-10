@@ -165,15 +165,15 @@ def get_server(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:sql/getServer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        administrator_login=__ret__.administrator_login,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_server)

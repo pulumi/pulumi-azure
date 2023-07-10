@@ -3371,7 +3371,7 @@ type ApiOperationRequestHeader struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of this Header.
 	Description *string `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples []ApiOperationRequestHeaderExample `pulumi:"examples"`
 	// The Name of this Header.
 	Name string `pulumi:"name"`
@@ -3403,7 +3403,7 @@ type ApiOperationRequestHeaderArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// A description of this Header.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples ApiOperationRequestHeaderExampleArrayInput `pulumi:"examples"`
 	// The Name of this Header.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3480,7 +3480,7 @@ func (o ApiOperationRequestHeaderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationRequestHeader) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) One or more `example` blocks as defined above.
+// One or more `example` blocks as defined above.
 func (o ApiOperationRequestHeaderOutput) Examples() ApiOperationRequestHeaderExampleArrayOutput {
 	return o.ApplyT(func(v ApiOperationRequestHeader) []ApiOperationRequestHeaderExample { return v.Examples }).(ApiOperationRequestHeaderExampleArrayOutput)
 }
@@ -3673,7 +3673,7 @@ type ApiOperationRequestQueryParameter struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of this Query Parameter.
 	Description *string `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples []ApiOperationRequestQueryParameterExample `pulumi:"examples"`
 	// The Name of this Query Parameter.
 	Name string `pulumi:"name"`
@@ -3705,7 +3705,7 @@ type ApiOperationRequestQueryParameterArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// A description of this Query Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples ApiOperationRequestQueryParameterExampleArrayInput `pulumi:"examples"`
 	// The Name of this Query Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3782,7 +3782,7 @@ func (o ApiOperationRequestQueryParameterOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v ApiOperationRequestQueryParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) One or more `example` blocks as defined above.
+// One or more `example` blocks as defined above.
 func (o ApiOperationRequestQueryParameterOutput) Examples() ApiOperationRequestQueryParameterExampleArrayOutput {
 	return o.ApplyT(func(v ApiOperationRequestQueryParameter) []ApiOperationRequestQueryParameterExample {
 		return v.Examples
@@ -4265,7 +4265,7 @@ type ApiOperationRequestRepresentationFormParameter struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of this Form Parameter.
 	Description *string `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples []ApiOperationRequestRepresentationFormParameterExample `pulumi:"examples"`
 	// The Name of this Form Parameter.
 	Name string `pulumi:"name"`
@@ -4297,7 +4297,7 @@ type ApiOperationRequestRepresentationFormParameterArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// A description of this Form Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples ApiOperationRequestRepresentationFormParameterExampleArrayInput `pulumi:"examples"`
 	// The Name of this Form Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4374,7 +4374,7 @@ func (o ApiOperationRequestRepresentationFormParameterOutput) Description() pulu
 	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) One or more `example` blocks as defined above.
+// One or more `example` blocks as defined above.
 func (o ApiOperationRequestRepresentationFormParameterOutput) Examples() ApiOperationRequestRepresentationFormParameterExampleArrayOutput {
 	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) []ApiOperationRequestRepresentationFormParameterExample {
 		return v.Examples
@@ -4693,7 +4693,7 @@ type ApiOperationResponseHeader struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of this Header.
 	Description *string `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples []ApiOperationResponseHeaderExample `pulumi:"examples"`
 	// The Name of this Header.
 	Name string `pulumi:"name"`
@@ -4725,7 +4725,7 @@ type ApiOperationResponseHeaderArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// A description of this Header.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples ApiOperationResponseHeaderExampleArrayInput `pulumi:"examples"`
 	// The Name of this Header.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4802,7 +4802,7 @@ func (o ApiOperationResponseHeaderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationResponseHeader) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) One or more `example` blocks as defined above.
+// One or more `example` blocks as defined above.
 func (o ApiOperationResponseHeaderOutput) Examples() ApiOperationResponseHeaderExampleArrayOutput {
 	return o.ApplyT(func(v ApiOperationResponseHeader) []ApiOperationResponseHeaderExample { return v.Examples }).(ApiOperationResponseHeaderExampleArrayOutput)
 }
@@ -5283,7 +5283,7 @@ type ApiOperationResponseRepresentationFormParameter struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of this Form Parameter.
 	Description *string `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples []ApiOperationResponseRepresentationFormParameterExample `pulumi:"examples"`
 	// The Name of this Form Parameter.
 	Name string `pulumi:"name"`
@@ -5315,7 +5315,7 @@ type ApiOperationResponseRepresentationFormParameterArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// A description of this Form Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples ApiOperationResponseRepresentationFormParameterExampleArrayInput `pulumi:"examples"`
 	// The Name of this Form Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5392,7 +5392,7 @@ func (o ApiOperationResponseRepresentationFormParameterOutput) Description() pul
 	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) One or more `example` blocks as defined above.
+// One or more `example` blocks as defined above.
 func (o ApiOperationResponseRepresentationFormParameterOutput) Examples() ApiOperationResponseRepresentationFormParameterExampleArrayOutput {
 	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) []ApiOperationResponseRepresentationFormParameterExample {
 		return v.Examples
@@ -5587,7 +5587,7 @@ type ApiOperationTemplateParameter struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of this Template Parameter.
 	Description *string `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples []ApiOperationTemplateParameterExample `pulumi:"examples"`
 	// The Name of this Template Parameter.
 	Name string `pulumi:"name"`
@@ -5619,7 +5619,7 @@ type ApiOperationTemplateParameterArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// A description of this Template Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// (Optional) One or more `example` blocks as defined above.
+	// One or more `example` blocks as defined above.
 	Examples ApiOperationTemplateParameterExampleArrayInput `pulumi:"examples"`
 	// The Name of this Template Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5696,7 +5696,7 @@ func (o ApiOperationTemplateParameterOutput) Description() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ApiOperationTemplateParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) One or more `example` blocks as defined above.
+// One or more `example` blocks as defined above.
 func (o ApiOperationTemplateParameterOutput) Examples() ApiOperationTemplateParameterExampleArrayOutput {
 	return o.ApplyT(func(v ApiOperationTemplateParameter) []ApiOperationTemplateParameterExample { return v.Examples }).(ApiOperationTemplateParameterExampleArrayOutput)
 }

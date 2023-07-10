@@ -101,10 +101,10 @@ def get_images(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getImages:getImages', __args__, opts=opts, typ=GetImagesResult).value
 
     return AwaitableGetImagesResult(
-        id=__ret__.id,
-        images=__ret__.images,
-        resource_group_name=__ret__.resource_group_name,
-        tags_filter=__ret__.tags_filter)
+        id=pulumi.get(__ret__, 'id'),
+        images=pulumi.get(__ret__, 'images'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags_filter=pulumi.get(__ret__, 'tags_filter'))
 
 
 @_utilities.lift_output_func(get_images)

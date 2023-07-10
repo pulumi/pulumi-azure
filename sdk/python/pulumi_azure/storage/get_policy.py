@@ -91,9 +91,9 @@ def get_policy(storage_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        id=__ret__.id,
-        rules=__ret__.rules,
-        storage_account_id=__ret__.storage_account_id)
+        id=pulumi.get(__ret__, 'id'),
+        rules=pulumi.get(__ret__, 'rules'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 
 
 @_utilities.lift_output_func(get_policy)

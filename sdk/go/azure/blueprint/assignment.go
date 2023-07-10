@@ -102,8 +102,22 @@ import (
 //						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
-//				ResourceGroups:  pulumi.String("    {\n      \"ResourceGroup\": {\n        \"name\": \"exampleRG-bp\"\n      }\n    }\n"),
-//				ParameterValues: pulumi.String("    {\n      \"allowedlocationsforresourcegroups_listOfAllowedLocations\": {\n        \"value\": [\"westus\", \"westus2\", \"eastus\", \"centralus\", \"centraluseuap\", \"southcentralus\", \"northcentralus\", \"westcentralus\", \"eastus2\", \"eastus2euap\", \"brazilsouth\", \"brazilus\", \"northeurope\", \"westeurope\", \"eastasia\", \"southeastasia\", \"japanwest\", \"japaneast\", \"koreacentral\", \"koreasouth\", \"indiasouth\", \"indiawest\", \"indiacentral\", \"australiaeast\", \"australiasoutheast\", \"canadacentral\", \"canadaeast\", \"uknorth\", \"uksouth2\", \"uksouth\", \"ukwest\", \"francecentral\", \"francesouth\", \"australiacentral\", \"australiacentral2\", \"uaecentral\", \"uaenorth\", \"southafricanorth\", \"southafricawest\", \"switzerlandnorth\", \"switzerlandwest\", \"germanynorth\", \"germanywestcentral\", \"norwayeast\", \"norwaywest\"]\n      }\n    }\n"),
+//				ResourceGroups: pulumi.String(`    {
+//	      "ResourceGroup": {
+//	        "name": "exampleRG-bp"
+//	      }
+//	    }
+//
+// `),
+//
+//				ParameterValues: pulumi.String(`    {
+//	      "allowedlocationsforresourcegroups_listOfAllowedLocations": {
+//	        "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
+//	      }
+//	    }
+//
+// `),
+//
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				operator,
 //				owner,

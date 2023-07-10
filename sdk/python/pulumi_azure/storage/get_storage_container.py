@@ -152,14 +152,14 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getStorageContainer:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult).value
 
     return AwaitableGetStorageContainerResult(
-        container_access_type=__ret__.container_access_type,
-        has_immutability_policy=__ret__.has_immutability_policy,
-        has_legal_hold=__ret__.has_legal_hold,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        resource_manager_id=__ret__.resource_manager_id,
-        storage_account_name=__ret__.storage_account_name)
+        container_access_type=pulumi.get(__ret__, 'container_access_type'),
+        has_immutability_policy=pulumi.get(__ret__, 'has_immutability_policy'),
+        has_legal_hold=pulumi.get(__ret__, 'has_legal_hold'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
 
 
 @_utilities.lift_output_func(get_storage_container)

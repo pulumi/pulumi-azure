@@ -246,23 +246,23 @@ def get_app(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerapp/getApp:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        container_app_environment_id=__ret__.container_app_environment_id,
-        custom_domain_verification_id=__ret__.custom_domain_verification_id,
-        daprs=__ret__.daprs,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        ingresses=__ret__.ingresses,
-        latest_revision_fqdn=__ret__.latest_revision_fqdn,
-        latest_revision_name=__ret__.latest_revision_name,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_ip_addresses=__ret__.outbound_ip_addresses,
-        registries=__ret__.registries,
-        resource_group_name=__ret__.resource_group_name,
-        revision_mode=__ret__.revision_mode,
-        secrets=__ret__.secrets,
-        tags=__ret__.tags,
-        templates=__ret__.templates)
+        container_app_environment_id=pulumi.get(__ret__, 'container_app_environment_id'),
+        custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
+        daprs=pulumi.get(__ret__, 'daprs'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        ingresses=pulumi.get(__ret__, 'ingresses'),
+        latest_revision_fqdn=pulumi.get(__ret__, 'latest_revision_fqdn'),
+        latest_revision_name=pulumi.get(__ret__, 'latest_revision_name'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        registries=pulumi.get(__ret__, 'registries'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        revision_mode=pulumi.get(__ret__, 'revision_mode'),
+        secrets=pulumi.get(__ret__, 'secrets'),
+        tags=pulumi.get(__ret__, 'tags'),
+        templates=pulumi.get(__ret__, 'templates'))
 
 
 @_utilities.lift_output_func(get_app)

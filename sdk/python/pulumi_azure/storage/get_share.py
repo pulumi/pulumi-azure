@@ -143,13 +143,13 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
     __ret__ = pulumi.runtime.invoke('azure:storage/getShare:getShare', __args__, opts=opts, typ=GetShareResult).value
 
     return AwaitableGetShareResult(
-        acls=__ret__.acls,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        quota=__ret__.quota,
-        resource_manager_id=__ret__.resource_manager_id,
-        storage_account_name=__ret__.storage_account_name)
+        acls=pulumi.get(__ret__, 'acls'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        quota=pulumi.get(__ret__, 'quota'),
+        resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
 
 
 @_utilities.lift_output_func(get_share)

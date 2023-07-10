@@ -141,14 +141,14 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
         return this.dnsForwardingRulesetId;
     }
     /**
-     * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+     * @return Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      * 
      */
     public Output<String> domainName() {

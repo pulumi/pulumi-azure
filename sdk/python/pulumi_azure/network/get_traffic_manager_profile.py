@@ -184,16 +184,16 @@ def get_traffic_manager_profile(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getTrafficManagerProfile:getTrafficManagerProfile', __args__, opts=opts, typ=GetTrafficManagerProfileResult).value
 
     return AwaitableGetTrafficManagerProfileResult(
-        dns_configs=__ret__.dns_configs,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        monitor_configs=__ret__.monitor_configs,
-        name=__ret__.name,
-        profile_status=__ret__.profile_status,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags,
-        traffic_routing_method=__ret__.traffic_routing_method,
-        traffic_view_enabled=__ret__.traffic_view_enabled)
+        dns_configs=pulumi.get(__ret__, 'dns_configs'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        monitor_configs=pulumi.get(__ret__, 'monitor_configs'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_status=pulumi.get(__ret__, 'profile_status'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        traffic_routing_method=pulumi.get(__ret__, 'traffic_routing_method'),
+        traffic_view_enabled=pulumi.get(__ret__, 'traffic_view_enabled'))
 
 
 @_utilities.lift_output_func(get_traffic_manager_profile)

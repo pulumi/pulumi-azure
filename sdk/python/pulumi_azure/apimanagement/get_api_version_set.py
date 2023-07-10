@@ -160,15 +160,15 @@ def get_api_version_set(api_management_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getApiVersionSet:getApiVersionSet', __args__, opts=opts, typ=GetApiVersionSetResult).value
 
     return AwaitableGetApiVersionSetResult(
-        api_management_name=__ret__.api_management_name,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        version_header_name=__ret__.version_header_name,
-        version_query_name=__ret__.version_query_name,
-        versioning_scheme=__ret__.versioning_scheme)
+        api_management_name=pulumi.get(__ret__, 'api_management_name'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        version_header_name=pulumi.get(__ret__, 'version_header_name'),
+        version_query_name=pulumi.get(__ret__, 'version_query_name'),
+        versioning_scheme=pulumi.get(__ret__, 'versioning_scheme'))
 
 
 @_utilities.lift_output_func(get_api_version_set)

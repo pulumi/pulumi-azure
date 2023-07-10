@@ -94,6 +94,14 @@ namespace Pulumi.Azure.CosmosDB
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
+        /// <summary>
+        /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+        /// 
+        /// &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        /// </summary>
+        [Output("analyticalStorageTtl")]
+        public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
+
         [Output("autoscaleSettings")]
         public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -209,6 +217,14 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+        /// 
+        /// &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
+
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -291,6 +307,14 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
+        /// 
+        /// &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
 
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }

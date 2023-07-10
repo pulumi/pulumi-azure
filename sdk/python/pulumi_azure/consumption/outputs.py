@@ -102,6 +102,9 @@ class BudgetManagementGroupFilter(dict):
         """
         A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "not_")
 
     @property
@@ -489,6 +492,9 @@ class BudgetResourceGroupFilter(dict):
         """
         A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "not_")
 
     @property
@@ -909,6 +915,9 @@ class BudgetSubscriptionFilter(dict):
         """
         A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "not_")
 
     @property

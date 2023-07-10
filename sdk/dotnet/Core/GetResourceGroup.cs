@@ -117,6 +117,7 @@ namespace Pulumi.Azure.Core
         /// The Azure Region where the Resource Group exists.
         /// </summary>
         public readonly string Location;
+        public readonly string ManagedBy;
         public readonly string Name;
         /// <summary>
         /// A mapping of tags assigned to the Resource Group.
@@ -129,12 +130,15 @@ namespace Pulumi.Azure.Core
 
             string location,
 
+            string managedBy,
+
             string name,
 
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
             Location = location;
+            ManagedBy = managedBy;
             Name = name;
             Tags = tags;
         }

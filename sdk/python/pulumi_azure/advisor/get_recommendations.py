@@ -106,10 +106,10 @@ def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('azure:advisor/getRecommendations:getRecommendations', __args__, opts=opts, typ=GetRecommendationsResult).value
 
     return AwaitableGetRecommendationsResult(
-        filter_by_categories=__ret__.filter_by_categories,
-        filter_by_resource_groups=__ret__.filter_by_resource_groups,
-        id=__ret__.id,
-        recommendations=__ret__.recommendations)
+        filter_by_categories=pulumi.get(__ret__, 'filter_by_categories'),
+        filter_by_resource_groups=pulumi.get(__ret__, 'filter_by_resource_groups'),
+        id=pulumi.get(__ret__, 'id'),
+        recommendations=pulumi.get(__ret__, 'recommendations'))
 
 
 @_utilities.lift_output_func(get_recommendations)

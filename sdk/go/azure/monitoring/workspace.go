@@ -66,6 +66,8 @@ type Workspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -108,6 +110,8 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -119,6 +123,8 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -134,6 +140,8 @@ type workspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -146,6 +154,8 @@ type WorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Azure Monitor Workspace.
@@ -247,6 +257,11 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 // Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is public network access enabled? Defaults to `true`.
+func (o WorkspaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.

@@ -206,18 +206,18 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
     __ret__ = pulumi.runtime.invoke('azure:batch/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_endpoint=__ret__.account_endpoint,
-        encryption=__ret__.encryption,
-        id=__ret__.id,
-        key_vault_references=__ret__.key_vault_references,
-        location=__ret__.location,
-        name=__ret__.name,
-        pool_allocation_mode=__ret__.pool_allocation_mode,
-        primary_access_key=__ret__.primary_access_key,
-        resource_group_name=__ret__.resource_group_name,
-        secondary_access_key=__ret__.secondary_access_key,
-        storage_account_id=__ret__.storage_account_id,
-        tags=__ret__.tags)
+        account_endpoint=pulumi.get(__ret__, 'account_endpoint'),
+        encryption=pulumi.get(__ret__, 'encryption'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_references=pulumi.get(__ret__, 'key_vault_references'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        pool_allocation_mode=pulumi.get(__ret__, 'pool_allocation_mode'),
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_account)

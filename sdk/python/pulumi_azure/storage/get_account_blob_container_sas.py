@@ -254,20 +254,20 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS', __args__, opts=opts, typ=GetAccountBlobContainerSASResult).value
 
     return AwaitableGetAccountBlobContainerSASResult(
-        cache_control=__ret__.cache_control,
-        connection_string=__ret__.connection_string,
-        container_name=__ret__.container_name,
-        content_disposition=__ret__.content_disposition,
-        content_encoding=__ret__.content_encoding,
-        content_language=__ret__.content_language,
-        content_type=__ret__.content_type,
-        expiry=__ret__.expiry,
-        https_only=__ret__.https_only,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        permissions=__ret__.permissions,
-        sas=__ret__.sas,
-        start=__ret__.start)
+        cache_control=pulumi.get(__ret__, 'cache_control'),
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        container_name=pulumi.get(__ret__, 'container_name'),
+        content_disposition=pulumi.get(__ret__, 'content_disposition'),
+        content_encoding=pulumi.get(__ret__, 'content_encoding'),
+        content_language=pulumi.get(__ret__, 'content_language'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        expiry=pulumi.get(__ret__, 'expiry'),
+        https_only=pulumi.get(__ret__, 'https_only'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        sas=pulumi.get(__ret__, 'sas'),
+        start=pulumi.get(__ret__, 'start'))
 
 
 @_utilities.lift_output_func(get_account_blob_container_sas)

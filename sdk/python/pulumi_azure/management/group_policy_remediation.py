@@ -109,6 +109,9 @@ class GroupPolicyRemediationArgs:
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
+        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
+
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
@@ -136,6 +139,9 @@ class GroupPolicyRemediationArgs:
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
     def resource_discovery_mode(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
+        pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
+
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
@@ -243,6 +249,9 @@ class _GroupPolicyRemediationState:
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
+        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
+
         return pulumi.get(self, "policy_definition_id")
 
     @policy_definition_id.setter
@@ -270,6 +279,9 @@ class _GroupPolicyRemediationState:
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
     def resource_discovery_mode(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
+        pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
+
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
@@ -437,6 +449,9 @@ class GroupPolicyRemediation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
+        pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
+
         return pulumi.get(self, "policy_definition_id")
 
     @property
@@ -452,5 +467,8 @@ class GroupPolicyRemediation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
     def resource_discovery_mode(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
+        pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
+
         return pulumi.get(self, "resource_discovery_mode")
 

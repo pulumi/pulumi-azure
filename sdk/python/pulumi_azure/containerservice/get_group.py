@@ -180,16 +180,16 @@ def get_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        ip_address=__ret__.ip_address,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        zones=__ret__.zones)
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_group)

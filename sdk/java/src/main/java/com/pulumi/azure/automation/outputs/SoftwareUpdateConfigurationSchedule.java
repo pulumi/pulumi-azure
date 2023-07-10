@@ -22,7 +22,7 @@ public final class SoftwareUpdateConfigurationSchedule {
      */
     private @Nullable List<Integer> advancedMonthDays;
     /**
-     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
      * 
      */
     private @Nullable List<String> advancedWeekDays;
@@ -42,7 +42,7 @@ public final class SoftwareUpdateConfigurationSchedule {
      * @return The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
-    private @Nullable String frequency;
+    private String frequency;
     /**
      * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
      * 
@@ -82,7 +82,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         return this.advancedMonthDays == null ? List.of() : this.advancedMonthDays;
     }
     /**
-     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
      * 
      */
     public List<String> advancedWeekDays() {
@@ -112,8 +112,8 @@ public final class SoftwareUpdateConfigurationSchedule {
      * @return The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
-    public Optional<String> frequency() {
-        return Optional.ofNullable(this.frequency);
+    public String frequency() {
+        return this.frequency;
     }
     /**
      * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
@@ -178,7 +178,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         private @Nullable String description;
         private @Nullable String expiryTime;
         private @Nullable Double expiryTimeOffsetMinutes;
-        private @Nullable String frequency;
+        private String frequency;
         private @Nullable Integer interval;
         private @Nullable Boolean isEnabled;
         private @Nullable String lastModifiedTime;
@@ -246,8 +246,8 @@ public final class SoftwareUpdateConfigurationSchedule {
             return this;
         }
         @CustomType.Setter
-        public Builder frequency(@Nullable String frequency) {
-            this.frequency = frequency;
+        public Builder frequency(String frequency) {
+            this.frequency = Objects.requireNonNull(frequency);
             return this;
         }
         @CustomType.Setter

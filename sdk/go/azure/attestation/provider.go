@@ -76,9 +76,9 @@ type Provider struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 pulumi.StringPtrOutput `pulumi:"openEnclavePolicyBase64"`
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
 	Policies ProviderPolicyArrayOutput `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -86,13 +86,15 @@ type Provider struct {
 	PolicySigningCertificateData pulumi.StringPtrOutput `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	//
+	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	SevSnpPolicyBase64 pulumi.StringPtrOutput `pulumi:"sevSnpPolicyBase64"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 pulumi.StringPtrOutput `pulumi:"sgxEnclavePolicyBase64"`
 	// A mapping of tags which should be assigned to the Attestation Provider.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	TpmPolicyBase64 pulumi.StringPtrOutput `pulumi:"tpmPolicyBase64"`
 	// Trust model used for the Attestation Service.
 	TrustModel pulumi.StringOutput `pulumi:"trustModel"`
@@ -136,9 +138,9 @@ type providerState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 *string `pulumi:"openEnclavePolicyBase64"`
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
 	Policies []ProviderPolicy `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -146,13 +148,15 @@ type providerState struct {
 	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	//
+	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	SevSnpPolicyBase64 *string `pulumi:"sevSnpPolicyBase64"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 *string `pulumi:"sgxEnclavePolicyBase64"`
 	// A mapping of tags which should be assigned to the Attestation Provider.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	TpmPolicyBase64 *string `pulumi:"tpmPolicyBase64"`
 	// Trust model used for the Attestation Service.
 	TrustModel *string `pulumi:"trustModel"`
@@ -165,9 +169,9 @@ type ProviderState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
 	Policies ProviderPolicyArrayInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -175,13 +179,15 @@ type ProviderState struct {
 	PolicySigningCertificateData pulumi.StringPtrInput
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	//
+	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	SevSnpPolicyBase64 pulumi.StringPtrInput
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Attestation Provider.
 	Tags pulumi.StringMapInput
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	TpmPolicyBase64 pulumi.StringPtrInput
 	// Trust model used for the Attestation Service.
 	TrustModel pulumi.StringPtrInput
@@ -196,9 +202,9 @@ type providerArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 *string `pulumi:"openEnclavePolicyBase64"`
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
 	Policies []ProviderPolicy `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -206,13 +212,15 @@ type providerArgs struct {
 	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	//
+	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	SevSnpPolicyBase64 *string `pulumi:"sevSnpPolicyBase64"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 *string `pulumi:"sgxEnclavePolicyBase64"`
 	// A mapping of tags which should be assigned to the Attestation Provider.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	TpmPolicyBase64 *string `pulumi:"tpmPolicyBase64"`
 }
 
@@ -222,9 +230,9 @@ type ProviderArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
 	Policies ProviderPolicyArrayInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -232,13 +240,15 @@ type ProviderArgs struct {
 	PolicySigningCertificateData pulumi.StringPtrInput
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	//
+	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	SevSnpPolicyBase64 pulumi.StringPtrInput
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Attestation Provider.
 	Tags pulumi.StringMapInput
-	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	TpmPolicyBase64 pulumi.StringPtrInput
 }
 
@@ -344,12 +354,12 @@ func (o ProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 func (o ProviderOutput) OpenEnclavePolicyBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OpenEnclavePolicyBase64 }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
 func (o ProviderOutput) Policies() ProviderPolicyArrayOutput {
 	return o.ApplyT(func(v *Provider) ProviderPolicyArrayOutput { return v.Policies }).(ProviderPolicyArrayOutput)
 }
@@ -366,7 +376,14 @@ func (o ProviderOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+//
+// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+func (o ProviderOutput) SevSnpPolicyBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SevSnpPolicyBase64 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 func (o ProviderOutput) SgxEnclavePolicyBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SgxEnclavePolicyBase64 }).(pulumi.StringPtrOutput)
 }
@@ -376,9 +393,7 @@ func (o ProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
-//
-// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 func (o ProviderOutput) TpmPolicyBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TpmPolicyBase64 }).(pulumi.StringPtrOutput)
 }

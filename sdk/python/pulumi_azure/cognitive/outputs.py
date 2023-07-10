@@ -352,18 +352,66 @@ class DeploymentModel(dict):
 @pulumi.output_type
 class DeploymentScale(dict):
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
         """
-        :param str type: Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        :param str type: The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+        :param str tier: Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "type", type)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tier")
 
 

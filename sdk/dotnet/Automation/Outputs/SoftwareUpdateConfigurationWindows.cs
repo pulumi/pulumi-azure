@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class SoftwareUpdateConfigurationWindows
     {
-        /// <summary>
-        /// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-        /// </summary>
         public readonly string? ClassificationIncluded;
         /// <summary>
         /// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
@@ -30,7 +27,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IncludedKnowledgeBaseNumbers;
         /// <summary>
-        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        /// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         /// </summary>
         public readonly string? Reboot;
 

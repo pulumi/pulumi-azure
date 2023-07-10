@@ -127,12 +127,12 @@ def get_network_site(mobile_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mobile/getNetworkSite:getNetworkSite', __args__, opts=opts, typ=GetNetworkSiteResult).value
 
     return AwaitableGetNetworkSiteResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        mobile_network_id=__ret__.mobile_network_id,
-        name=__ret__.name,
-        network_function_ids=__ret__.network_function_ids,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_function_ids=pulumi.get(__ret__, 'network_function_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_site)

@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// The Win32 Status Code of the Request.
         /// </summary>
         [Input("win32Status")]
-        public Input<string>? Win32Status { get; set; }
+        public Input<int>? Win32Status { get; set; }
 
         public LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeGetArgs()
         {

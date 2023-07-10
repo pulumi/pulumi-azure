@@ -177,16 +177,16 @@ def get_blob(metadata: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('azure:storage/getBlob:getBlob', __args__, opts=opts, typ=GetBlobResult).value
 
     return AwaitableGetBlobResult(
-        access_tier=__ret__.access_tier,
-        content_md5=__ret__.content_md5,
-        content_type=__ret__.content_type,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        storage_account_name=__ret__.storage_account_name,
-        storage_container_name=__ret__.storage_container_name,
-        type=__ret__.type,
-        url=__ret__.url)
+        access_tier=pulumi.get(__ret__, 'access_tier'),
+        content_md5=pulumi.get(__ret__, 'content_md5'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        storage_container_name=pulumi.get(__ret__, 'storage_container_name'),
+        type=pulumi.get(__ret__, 'type'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_blob)

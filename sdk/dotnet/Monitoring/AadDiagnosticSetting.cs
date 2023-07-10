@@ -41,65 +41,43 @@ namespace Pulumi.Azure.Monitoring
     ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
-    ///         Logs = new[]
+    ///         EnabledLogs = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "SignInLogs",
-    ///                 Enabled = true,
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
     ///                 {
     ///                     Enabled = true,
     ///                     Days = 1,
     ///                 },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "AuditLogs",
-    ///                 Enabled = true,
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
     ///                 {
     ///                     Enabled = true,
     ///                     Days = 1,
     ///                 },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "NonInteractiveUserSignInLogs",
-    ///                 Enabled = true,
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
     ///                 {
     ///                     Enabled = true,
     ///                     Days = 1,
     ///                 },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "ServicePrincipalSignInLogs",
-    ///                 Enabled = true,
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
     ///                 {
     ///                     Enabled = true,
     ///                     Days = 1,
     ///                 },
-    ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///             {
-    ///                 Category = "ManagedIdentitySignInLogs",
-    ///                 Enabled = false,
-    ///                 RetentionPolicy = null,
-    ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///             {
-    ///                 Category = "ProvisioningLogs",
-    ///                 Enabled = false,
-    ///                 RetentionPolicy = null,
-    ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///             {
-    ///                 Category = "ADFSSignInLogs",
-    ///                 Enabled = false,
-    ///                 RetentionPolicy = null,
     ///             },
     ///         },
     ///     });
@@ -118,6 +96,14 @@ namespace Pulumi.Azure.Monitoring
     [AzureResourceType("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting")]
     public partial class AadDiagnosticSetting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// One or more `enabled_log` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
+        /// </summary>
+        [Output("enabledLogs")]
+        public Output<ImmutableArray<Outputs.AadDiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// 
@@ -141,7 +127,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `log` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         /// </summary>
         [Output("logs")]
         public Output<ImmutableArray<Outputs.AadDiagnosticSettingLog>> Logs { get; private set; } = null!;
@@ -168,7 +154,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AadDiagnosticSetting(string name, AadDiagnosticSettingArgs args, CustomResourceOptions? options = null)
+        public AadDiagnosticSetting(string name, AadDiagnosticSettingArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", name, args ?? new AadDiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -206,6 +192,20 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AadDiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enabledLogs")]
+        private InputList<Inputs.AadDiagnosticSettingEnabledLogArgs>? _enabledLogs;
+
+        /// <summary>
+        /// One or more `enabled_log` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
+        /// </summary>
+        public InputList<Inputs.AadDiagnosticSettingEnabledLogArgs> EnabledLogs
+        {
+            get => _enabledLogs ?? (_enabledLogs = new InputList<Inputs.AadDiagnosticSettingEnabledLogArgs>());
+            set => _enabledLogs = value;
+        }
+
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// 
@@ -226,14 +226,15 @@ namespace Pulumi.Azure.Monitoring
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
-        [Input("logs", required: true)]
+        [Input("logs")]
         private InputList<Inputs.AadDiagnosticSettingLogArgs>? _logs;
 
         /// <summary>
         /// One or more `log` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         /// </summary>
+        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.AadDiagnosticSettingLogArgs> Logs
         {
             get => _logs ?? (_logs = new InputList<Inputs.AadDiagnosticSettingLogArgs>());
@@ -262,6 +263,20 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AadDiagnosticSettingState : global::Pulumi.ResourceArgs
     {
+        [Input("enabledLogs")]
+        private InputList<Inputs.AadDiagnosticSettingEnabledLogGetArgs>? _enabledLogs;
+
+        /// <summary>
+        /// One or more `enabled_log` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
+        /// </summary>
+        public InputList<Inputs.AadDiagnosticSettingEnabledLogGetArgs> EnabledLogs
+        {
+            get => _enabledLogs ?? (_enabledLogs = new InputList<Inputs.AadDiagnosticSettingEnabledLogGetArgs>());
+            set => _enabledLogs = value;
+        }
+
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// 
@@ -288,8 +303,9 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `log` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
+        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         /// </summary>
+        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.AadDiagnosticSettingLogGetArgs> Logs
         {
             get => _logs ?? (_logs = new InputList<Inputs.AadDiagnosticSettingLogGetArgs>());
