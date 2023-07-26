@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,6 +101,7 @@ func NewChannelTeams(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChannelTeams
 	err := ctx.RegisterResource("azure:bot/channelTeams:ChannelTeams", name, args, &resource, opts...)
 	if err != nil {

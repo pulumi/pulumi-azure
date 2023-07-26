@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ import (
 //
 // ```
 func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionScopeResult
 	err := ctx.Invoke("azure:storage/getEncryptionScope:getEncryptionScope", args, &rv, opts...)
 	if err != nil {

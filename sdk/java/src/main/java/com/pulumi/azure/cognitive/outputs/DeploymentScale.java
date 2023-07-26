@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentScale {
     /**
-     * @return If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+     * @return Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer capacity;
@@ -40,7 +40,7 @@ public final class DeploymentScale {
 
     private DeploymentScale() {}
     /**
-     * @return If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+     * @return Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> capacity() {

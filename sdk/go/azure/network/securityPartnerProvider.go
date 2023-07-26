@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -117,6 +118,7 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	if args.SecurityProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityProviderName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityPartnerProvider
 	err := ctx.RegisterResource("azure:network/securityPartnerProvider:SecurityPartnerProvider", name, args, &resource, opts...)
 	if err != nil {

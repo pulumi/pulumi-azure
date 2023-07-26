@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,6 +97,8 @@ type SpringCloudService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled pulumi.BoolPtrOutput `pulumi:"logStreamPublicEndpointEnabled"`
+	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+	Marketplace SpringCloudServiceMarketplaceOutput `pulumi:"marketplace"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -130,6 +133,7 @@ func NewSpringCloudService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpringCloudService
 	err := ctx.RegisterResource("azure:appplatform/springCloudService:SpringCloudService", name, args, &resource, opts...)
 	if err != nil {
@@ -164,6 +168,8 @@ type springCloudServiceState struct {
 	Location *string `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled *bool `pulumi:"logStreamPublicEndpointEnabled"`
+	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+	Marketplace *SpringCloudServiceMarketplace `pulumi:"marketplace"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -201,6 +207,8 @@ type SpringCloudServiceState struct {
 	Location pulumi.StringPtrInput
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled pulumi.BoolPtrInput
+	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+	Marketplace SpringCloudServiceMarketplacePtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -242,6 +250,8 @@ type springCloudServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled *bool `pulumi:"logStreamPublicEndpointEnabled"`
+	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+	Marketplace *SpringCloudServiceMarketplace `pulumi:"marketplace"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -274,6 +284,8 @@ type SpringCloudServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled pulumi.BoolPtrInput
+	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+	Marketplace SpringCloudServiceMarketplacePtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -413,6 +425,11 @@ func (o SpringCloudServiceOutput) Location() pulumi.StringOutput {
 // Should the log stream in vnet injection instance could be accessed from Internet?
 func (o SpringCloudServiceOutput) LogStreamPublicEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.BoolPtrOutput { return v.LogStreamPublicEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+func (o SpringCloudServiceOutput) Marketplace() SpringCloudServiceMarketplaceOutput {
+	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceMarketplaceOutput { return v.Marketplace }).(SpringCloudServiceMarketplaceOutput)
 }
 
 // Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

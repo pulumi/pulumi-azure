@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetMpaAccountScope(ctx *pulumi.Context, args *GetMpaAccountScopeArgs, opts ...pulumi.InvokeOption) (*GetMpaAccountScopeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMpaAccountScopeResult
 	err := ctx.Invoke("azure:billing/getMpaAccountScope:getMpaAccountScope", args, &rv, opts...)
 	if err != nil {

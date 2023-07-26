@@ -433,9 +433,17 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
     public Output<String> possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     * 
+     */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
+    /**
+     * @return Should public network access be enabled for the Web App. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -197,6 +198,7 @@ func NewSubscription(ctx *pulumi.Context,
 	if args.SubscriptionName == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Subscription
 	err := ctx.RegisterResource("azure:core/subscription:Subscription", name, args, &resource, opts...)
 	if err != nil {

@@ -34,21 +34,9 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
         return this.mode;
     }
 
-    /**
-     * Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-     * 
-     */
     @Import(name="standbyAvailabilityZone")
     private @Nullable Output<String> standbyAvailabilityZone;
 
-    /**
-     * @return Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-     * 
-     */
     public Optional<Output<String>> standbyAvailabilityZone() {
         return Optional.ofNullable(this.standbyAvailabilityZone);
     }
@@ -103,27 +91,11 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param standbyAvailabilityZone Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-         * 
-         * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder standbyAvailabilityZone(@Nullable Output<String> standbyAvailabilityZone) {
             $.standbyAvailabilityZone = standbyAvailabilityZone;
             return this;
         }
 
-        /**
-         * @param standbyAvailabilityZone Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-         * 
-         * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder standbyAvailabilityZone(String standbyAvailabilityZone) {
             return standbyAvailabilityZone(Output.of(standbyAvailabilityZone));
         }

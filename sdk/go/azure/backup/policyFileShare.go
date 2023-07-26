@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -149,6 +150,7 @@ func NewPolicyFileShare(ctx *pulumi.Context,
 	if args.RetentionDaily == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionDaily'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyFileShare
 	err := ctx.RegisterResource("azure:backup/policyFileShare:PolicyFileShare", name, args, &resource, opts...)
 	if err != nil {

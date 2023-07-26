@@ -67,6 +67,7 @@ import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as fluidrelay from "./fluidrelay";
 import * as frontdoor from "./frontdoor";
+import * as graph from "./graph";
 import * as hdinsight from "./hdinsight";
 import * as healthcare from "./healthcare";
 import * as hpc from "./hpc";
@@ -192,6 +193,7 @@ export {
     eventhub,
     fluidrelay,
     frontdoor,
+    graph,
     hdinsight,
     healthcare,
     hpc,

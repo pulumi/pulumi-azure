@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubscriptionsResult
 	err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", args, &rv, opts...)
 	if err != nil {

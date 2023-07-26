@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,6 +93,7 @@ func NewNamespaceSchemaGroup(ctx *pulumi.Context,
 	if args.SchemaType == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NamespaceSchemaGroup
 	err := ctx.RegisterResource("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, args, &resource, opts...)
 	if err != nil {

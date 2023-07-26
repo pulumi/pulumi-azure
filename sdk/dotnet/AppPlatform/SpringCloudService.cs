@@ -111,6 +111,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool?> LogStreamPublicEndpointEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        /// </summary>
+        [Output("marketplace")]
+        public Output<Outputs.SpringCloudServiceMarketplace> Marketplace { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -265,6 +271,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
 
         /// <summary>
+        /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        /// </summary>
+        [Input("marketplace")]
+        public Input<Inputs.SpringCloudServiceMarketplaceArgs>? Marketplace { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -367,6 +379,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("logStreamPublicEndpointEnabled")]
         public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
+
+        /// <summary>
+        /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        /// </summary>
+        [Input("marketplace")]
+        public Input<Inputs.SpringCloudServiceMarketplaceGetArgs>? Marketplace { get; set; }
 
         /// <summary>
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

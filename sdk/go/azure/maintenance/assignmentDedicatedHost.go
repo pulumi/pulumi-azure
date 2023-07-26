@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewAssignmentDedicatedHost(ctx *pulumi.Context,
 	if args.MaintenanceConfigurationId == nil {
 		return nil, errors.New("invalid value for required argument 'MaintenanceConfigurationId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssignmentDedicatedHost
 	err := ctx.RegisterResource("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost", name, args, &resource, opts...)
 	if err != nil {

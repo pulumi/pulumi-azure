@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform.inputs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceConfigServerGitSettingArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceContainerRegistryArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceDefaultBuildServiceArgs;
+import com.pulumi.azure.appplatform.inputs.SpringCloudServiceMarketplaceArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceNetworkArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceRequiredNetworkTrafficRuleArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceTraceArgs;
@@ -112,6 +113,21 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
      */
     public Optional<Output<Boolean>> logStreamPublicEndpointEnabled() {
         return Optional.ofNullable(this.logStreamPublicEndpointEnabled);
+    }
+
+    /**
+     * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     * 
+     */
+    @Import(name="marketplace")
+    private @Nullable Output<SpringCloudServiceMarketplaceArgs> marketplace;
+
+    /**
+     * @return A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     * 
+     */
+    public Optional<Output<SpringCloudServiceMarketplaceArgs>> marketplace() {
+        return Optional.ofNullable(this.marketplace);
     }
 
     /**
@@ -288,6 +304,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         this.defaultBuildService = $.defaultBuildService;
         this.location = $.location;
         this.logStreamPublicEndpointEnabled = $.logStreamPublicEndpointEnabled;
+        this.marketplace = $.marketplace;
         this.name = $.name;
         this.network = $.network;
         this.outboundPublicIpAddresses = $.outboundPublicIpAddresses;
@@ -453,6 +470,27 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
          */
         public Builder logStreamPublicEndpointEnabled(Boolean logStreamPublicEndpointEnabled) {
             return logStreamPublicEndpointEnabled(Output.of(logStreamPublicEndpointEnabled));
+        }
+
+        /**
+         * @param marketplace A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder marketplace(@Nullable Output<SpringCloudServiceMarketplaceArgs> marketplace) {
+            $.marketplace = marketplace;
+            return this;
+        }
+
+        /**
+         * @param marketplace A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder marketplace(SpringCloudServiceMarketplaceArgs marketplace) {
+            return marketplace(Output.of(marketplace));
         }
 
         /**

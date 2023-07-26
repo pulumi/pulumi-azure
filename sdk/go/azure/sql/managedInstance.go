@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -348,6 +349,7 @@ func NewManagedInstance(ctx *pulumi.Context,
 		"administratorLoginPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedInstance
 	err := ctx.RegisterResource("azure:sql/managedInstance:ManagedInstance", name, args, &resource, opts...)
 	if err != nil {

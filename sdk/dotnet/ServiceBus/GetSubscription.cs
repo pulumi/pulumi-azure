@@ -29,9 +29,7 @@ namespace Pulumi.Azure.ServiceBus
         ///     var example = Azure.ServiceBus.GetSubscription.Invoke(new()
         ///     {
         ///         Name = "examplesubscription",
-        ///         ResourceGroupName = "exampleresources",
-        ///         NamespaceName = "examplenamespace",
-        ///         TopicName = "exampletopic",
+        ///         TopicId = "exampletopic",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -64,9 +62,7 @@ namespace Pulumi.Azure.ServiceBus
         ///     var example = Azure.ServiceBus.GetSubscription.Invoke(new()
         ///     {
         ///         Name = "examplesubscription",
-        ///         ResourceGroupName = "exampleresources",
-        ///         NamespaceName = "examplenamespace",
-        ///         TopicName = "exampletopic",
+        ///         TopicId = "exampletopic",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -103,11 +99,16 @@ namespace Pulumi.Azure.ServiceBus
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
+        /// </summary>
         [Input("topicId")]
         public string? TopicId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic.
+        /// 
+        /// &gt; **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
         /// </summary>
         [Input("topicName")]
         public string? TopicName { get; set; }
@@ -138,11 +139,16 @@ namespace Pulumi.Azure.ServiceBus
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
+        /// </summary>
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic.
+        /// 
+        /// &gt; **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

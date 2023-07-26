@@ -54,6 +54,50 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// ### TXT validation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleStaticSite = new Azure.AppService.StaticSite("exampleStaticSite", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleStaticSiteCustomDomain = new Azure.AppService.StaticSiteCustomDomain("exampleStaticSiteCustomDomain", new()
+    ///     {
+    ///         StaticSiteId = exampleStaticSite.Id,
+    ///         DomainName = "my-domain.contoso.com",
+    ///         ValidationType = "dns-txt-token",
+    ///     });
+    /// 
+    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("exampleTxtRecord", new()
+    ///     {
+    ///         ZoneName = "contoso.com",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             {
+    ///                 Value = exampleStaticSiteCustomDomain.ValidationToken,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

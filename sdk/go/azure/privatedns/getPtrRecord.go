@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetPtrRecord(ctx *pulumi.Context, args *GetPtrRecordArgs, opts ...pulumi.InvokeOption) (*GetPtrRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPtrRecordResult
 	err := ctx.Invoke("azure:privatedns/getPtrRecord:getPtrRecord", args, &rv, opts...)
 	if err != nil {

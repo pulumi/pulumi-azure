@@ -36,16 +36,40 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
         return Optional.ofNullable(this.namespaceId);
     }
 
+    /**
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     @Import(name="namespaceName")
     private @Nullable Output<String> namespaceName;
 
+    /**
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
 
+    /**
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
+    /**
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -105,20 +129,52 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
             return namespaceId(Output.of(namespaceId));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder namespaceName(@Nullable Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }

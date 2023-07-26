@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,6 +106,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.VmwareCloudId == nil {
 		return nil, errors.New("invalid value for required argument 'VmwareCloudId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("azure:avs/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

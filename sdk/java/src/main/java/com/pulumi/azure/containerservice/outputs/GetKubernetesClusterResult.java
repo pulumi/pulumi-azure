@@ -17,6 +17,7 @@ import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterLinuxProfil
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterMicrosoftDefender;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterOmsAgent;
+import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterServiceMeshProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterServicePrincipal;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterStorageProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterWindowsProfile;
@@ -210,6 +211,7 @@ public final class GetKubernetesClusterResult {
      * 
      */
     private Boolean roleBasedAccessControlEnabled;
+    private List<GetKubernetesClusterServiceMeshProfile> serviceMeshProfiles;
     /**
      * @return A `service_principal` block as documented below.
      * 
@@ -487,6 +489,9 @@ public final class GetKubernetesClusterResult {
     public Boolean roleBasedAccessControlEnabled() {
         return this.roleBasedAccessControlEnabled;
     }
+    public List<GetKubernetesClusterServiceMeshProfile> serviceMeshProfiles() {
+        return this.serviceMeshProfiles;
+    }
     /**
      * @return A `service_principal` block as documented below.
      * 
@@ -562,6 +567,7 @@ public final class GetKubernetesClusterResult {
         private String privateFqdn;
         private String resourceGroupName;
         private Boolean roleBasedAccessControlEnabled;
+        private List<GetKubernetesClusterServiceMeshProfile> serviceMeshProfiles;
         private List<GetKubernetesClusterServicePrincipal> servicePrincipals;
         private List<GetKubernetesClusterStorageProfile> storageProfiles;
         private Map<String,String> tags;
@@ -606,6 +612,7 @@ public final class GetKubernetesClusterResult {
     	      this.privateFqdn = defaults.privateFqdn;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.roleBasedAccessControlEnabled = defaults.roleBasedAccessControlEnabled;
+    	      this.serviceMeshProfiles = defaults.serviceMeshProfiles;
     	      this.servicePrincipals = defaults.servicePrincipals;
     	      this.storageProfiles = defaults.storageProfiles;
     	      this.tags = defaults.tags;
@@ -846,6 +853,14 @@ public final class GetKubernetesClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceMeshProfiles(List<GetKubernetesClusterServiceMeshProfile> serviceMeshProfiles) {
+            this.serviceMeshProfiles = Objects.requireNonNull(serviceMeshProfiles);
+            return this;
+        }
+        public Builder serviceMeshProfiles(GetKubernetesClusterServiceMeshProfile... serviceMeshProfiles) {
+            return serviceMeshProfiles(List.of(serviceMeshProfiles));
+        }
+        @CustomType.Setter
         public Builder servicePrincipals(List<GetKubernetesClusterServicePrincipal> servicePrincipals) {
             this.servicePrincipals = Objects.requireNonNull(servicePrincipals);
             return this;
@@ -913,6 +928,7 @@ public final class GetKubernetesClusterResult {
             o.privateFqdn = privateFqdn;
             o.resourceGroupName = resourceGroupName;
             o.roleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
+            o.serviceMeshProfiles = serviceMeshProfiles;
             o.servicePrincipals = servicePrincipals;
             o.storageProfiles = storageProfiles;
             o.tags = tags;

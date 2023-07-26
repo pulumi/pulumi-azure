@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupTableEntity(ctx *pulumi.Context, args *LookupTableEntityArgs, opts ...pulumi.InvokeOption) (*LookupTableEntityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableEntityResult
 	err := ctx.Invoke("azure:storage/getTableEntity:getTableEntity", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -236,6 +237,7 @@ func NewManagedStorageAccount(ctx *pulumi.Context,
 	if args.StorageAccountKey == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedStorageAccount
 	err := ctx.RegisterResource("azure:keyvault/managedStorageAccount:ManagedStorageAccount", name, args, &resource, opts...)
 	if err != nil {

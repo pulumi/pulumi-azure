@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -247,6 +248,7 @@ func NewAssignmentVirtualMachineScaleSet(ctx *pulumi.Context,
 	if args.VirtualMachineScaleSetId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineScaleSetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssignmentVirtualMachineScaleSet
 	err := ctx.RegisterResource("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, args, &resource, opts...)
 	if err != nil {

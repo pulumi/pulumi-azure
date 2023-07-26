@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventhubNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, opts...)
 	if err != nil {

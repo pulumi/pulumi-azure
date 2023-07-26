@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -129,6 +130,7 @@ func NewSpringCloudContainerDeployment(ctx *pulumi.Context,
 	if args.SpringCloudAppId == nil {
 		return nil, errors.New("invalid value for required argument 'SpringCloudAppId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpringCloudContainerDeployment
 	err := ctx.RegisterResource("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment", name, args, &resource, opts...)
 	if err != nil {

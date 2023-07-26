@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupResolverDnsForwardingRuleset(ctx *pulumi.Context, args *LookupResolverDnsForwardingRulesetArgs, opts ...pulumi.InvokeOption) (*LookupResolverDnsForwardingRulesetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverDnsForwardingRulesetResult
 	err := ctx.Invoke("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", args, &rv, opts...)
 	if err != nil {

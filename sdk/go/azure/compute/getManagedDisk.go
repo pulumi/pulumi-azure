@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupManagedDisk(ctx *pulumi.Context, args *LookupManagedDiskArgs, opts ...pulumi.InvokeOption) (*LookupManagedDiskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedDiskResult
 	err := ctx.Invoke("azure:compute/getManagedDisk:getManagedDisk", args, &rv, opts...)
 	if err != nil {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VpnServerConfigurationRadiusClientRootCertificateArgs>? _clientRootCertificates;
 
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
+        /// One or more `client_root_certificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationRadiusClientRootCertificateArgs> ClientRootCertificates
         {

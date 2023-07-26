@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetDnsZone(ctx *pulumi.Context, args *GetDnsZoneArgs, opts ...pulumi.InvokeOption) (*GetDnsZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDnsZoneResult
 	err := ctx.Invoke("azure:privatedns/getDnsZone:getDnsZone", args, &rv, opts...)
 	if err != nil {

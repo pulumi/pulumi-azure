@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -122,6 +123,7 @@ func NewIotHubDeviceUpdateInstance(ctx *pulumi.Context,
 	if args.IothubId == nil {
 		return nil, errors.New("invalid value for required argument 'IothubId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IotHubDeviceUpdateInstance
 	err := ctx.RegisterResource("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -186,6 +187,7 @@ func NewTimeSeriesInsightsEventSourceEventhub(ctx *pulumi.Context,
 		"sharedAccessKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TimeSeriesInsightsEventSourceEventhub
 	err := ctx.RegisterResource("azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub", name, args, &resource, opts...)
 	if err != nil {

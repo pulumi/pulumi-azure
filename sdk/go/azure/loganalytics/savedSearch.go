@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewSavedSearch(ctx *pulumi.Context,
 	if args.Query == nil {
 		return nil, errors.New("invalid value for required argument 'Query'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SavedSearch
 	err := ctx.RegisterResource("azure:loganalytics/savedSearch:SavedSearch", name, args, &resource, opts...)
 	if err != nil {

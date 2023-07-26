@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // Deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
 func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagementGroupResult
 	err := ctx.Invoke("azure:managementgroups/getManagementGroup:getManagementGroup", args, &rv, opts...)
 	if err != nil {

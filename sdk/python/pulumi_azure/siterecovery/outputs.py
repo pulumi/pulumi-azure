@@ -19,9 +19,18 @@ __all__ = [
     'ReplicatedVMNetworkInterface',
     'ReplicatedVMUnmanagedDisk',
     'ReplicationRecoveryPlanAzureToAzureSettings',
+    'ReplicationRecoveryPlanBootRecoveryGroup',
+    'ReplicationRecoveryPlanBootRecoveryGroupPostAction',
+    'ReplicationRecoveryPlanBootRecoveryGroupPreAction',
+    'ReplicationRecoveryPlanFailoverRecoveryGroup',
+    'ReplicationRecoveryPlanFailoverRecoveryGroupPostAction',
+    'ReplicationRecoveryPlanFailoverRecoveryGroupPreAction',
     'ReplicationRecoveryPlanRecoveryGroup',
     'ReplicationRecoveryPlanRecoveryGroupPostAction',
     'ReplicationRecoveryPlanRecoveryGroupPreAction',
+    'ReplicationRecoveryPlanShutdownRecoveryGroup',
+    'ReplicationRecoveryPlanShutdownRecoveryGroupPostAction',
+    'ReplicationRecoveryPlanShutdownRecoveryGroupPreAction',
     'GetReplicationRecoveryPlanAzureToAzureSettingResult',
     'GetReplicationRecoveryPlanRecoveryGroupResult',
     'GetReplicationRecoveryPlanRecoveryGroupPostActionResult',
@@ -651,6 +660,688 @@ class ReplicationRecoveryPlanAzureToAzureSettings(dict):
 
 
 @pulumi.output_type
+class ReplicationRecoveryPlanBootRecoveryGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postActions":
+            suggest = "post_actions"
+        elif key == "preActions":
+            suggest = "pre_actions"
+        elif key == "replicatedProtectedItems":
+            suggest = "replicated_protected_items"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanBootRecoveryGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanBootRecoveryGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanBootRecoveryGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanBootRecoveryGroupPostAction']] = None,
+                 pre_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanBootRecoveryGroupPreAction']] = None,
+                 replicated_protected_items: Optional[Sequence[str]] = None):
+        """
+        :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param Sequence[str] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        """
+        if post_actions is not None:
+            pulumi.set(__self__, "post_actions", post_actions)
+        if pre_actions is not None:
+            pulumi.set(__self__, "pre_actions", pre_actions)
+        if replicated_protected_items is not None:
+            pulumi.set(__self__, "replicated_protected_items", replicated_protected_items)
+
+    @property
+    @pulumi.getter(name="postActions")
+    def post_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanBootRecoveryGroupPostAction']]:
+        """
+        one or more `action` block as defined below. which will be executed after the group recovery.
+        """
+        return pulumi.get(self, "post_actions")
+
+    @property
+    @pulumi.getter(name="preActions")
+    def pre_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanBootRecoveryGroupPreAction']]:
+        """
+        one or more `action` block as defined below. which will be executed before the group recovery.
+        """
+        return pulumi.get(self, "pre_actions")
+
+    @property
+    @pulumi.getter(name="replicatedProtectedItems")
+    def replicated_protected_items(self) -> Optional[Sequence[str]]:
+        """
+        One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        """
+        return pulumi.get(self, "replicated_protected_items")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanBootRecoveryGroupPostAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failOverDirections":
+            suggest = "fail_over_directions"
+        elif key == "failOverTypes":
+            suggest = "fail_over_types"
+        elif key == "fabricLocation":
+            suggest = "fabric_location"
+        elif key == "manualActionInstruction":
+            suggest = "manual_action_instruction"
+        elif key == "runbookId":
+            suggest = "runbook_id"
+        elif key == "scriptPath":
+            suggest = "script_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanBootRecoveryGroupPostAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanBootRecoveryGroupPostAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanBootRecoveryGroupPostAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_over_directions: Sequence[str],
+                 fail_over_types: Sequence[str],
+                 name: str,
+                 type: str,
+                 fabric_location: Optional[str] = None,
+                 manual_action_instruction: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 script_path: Optional[str] = None):
+        """
+        :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        :param str manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        :param str runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        :param str script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
+        pulumi.set(__self__, "fail_over_types", fail_over_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if fabric_location is not None:
+            pulumi.set(__self__, "fabric_location", fabric_location)
+        if manual_action_instruction is not None:
+            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+
+    @property
+    @pulumi.getter(name="failOverDirections")
+    def fail_over_directions(self) -> Sequence[str]:
+        """
+        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        """
+        return pulumi.get(self, "fail_over_directions")
+
+    @property
+    @pulumi.getter(name="failOverTypes")
+    def fail_over_types(self) -> Sequence[str]:
+        """
+        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        """
+        return pulumi.get(self, "fail_over_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fabricLocation")
+    def fabric_location(self) -> Optional[str]:
+        """
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "fabric_location")
+
+    @property
+    @pulumi.getter(name="manualActionInstruction")
+    def manual_action_instruction(self) -> Optional[str]:
+        """
+        Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        """
+        return pulumi.get(self, "manual_action_instruction")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[str]:
+        """
+        Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "script_path")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanBootRecoveryGroupPreAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failOverDirections":
+            suggest = "fail_over_directions"
+        elif key == "failOverTypes":
+            suggest = "fail_over_types"
+        elif key == "fabricLocation":
+            suggest = "fabric_location"
+        elif key == "manualActionInstruction":
+            suggest = "manual_action_instruction"
+        elif key == "runbookId":
+            suggest = "runbook_id"
+        elif key == "scriptPath":
+            suggest = "script_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanBootRecoveryGroupPreAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanBootRecoveryGroupPreAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanBootRecoveryGroupPreAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_over_directions: Sequence[str],
+                 fail_over_types: Sequence[str],
+                 name: str,
+                 type: str,
+                 fabric_location: Optional[str] = None,
+                 manual_action_instruction: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 script_path: Optional[str] = None):
+        """
+        :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        :param str manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        :param str runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        :param str script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
+        pulumi.set(__self__, "fail_over_types", fail_over_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if fabric_location is not None:
+            pulumi.set(__self__, "fabric_location", fabric_location)
+        if manual_action_instruction is not None:
+            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+
+    @property
+    @pulumi.getter(name="failOverDirections")
+    def fail_over_directions(self) -> Sequence[str]:
+        """
+        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        """
+        return pulumi.get(self, "fail_over_directions")
+
+    @property
+    @pulumi.getter(name="failOverTypes")
+    def fail_over_types(self) -> Sequence[str]:
+        """
+        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        """
+        return pulumi.get(self, "fail_over_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fabricLocation")
+    def fabric_location(self) -> Optional[str]:
+        """
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "fabric_location")
+
+    @property
+    @pulumi.getter(name="manualActionInstruction")
+    def manual_action_instruction(self) -> Optional[str]:
+        """
+        Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        """
+        return pulumi.get(self, "manual_action_instruction")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[str]:
+        """
+        Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "script_path")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanFailoverRecoveryGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postActions":
+            suggest = "post_actions"
+        elif key == "preActions":
+            suggest = "pre_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanFailoverRecoveryGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanFailoverRecoveryGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanFailoverRecoveryGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanFailoverRecoveryGroupPostAction']] = None,
+                 pre_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanFailoverRecoveryGroupPreAction']] = None):
+        """
+        :param Sequence['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        """
+        if post_actions is not None:
+            pulumi.set(__self__, "post_actions", post_actions)
+        if pre_actions is not None:
+            pulumi.set(__self__, "pre_actions", pre_actions)
+
+    @property
+    @pulumi.getter(name="postActions")
+    def post_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanFailoverRecoveryGroupPostAction']]:
+        """
+        one or more `action` block as defined below. which will be executed after the group recovery.
+        """
+        return pulumi.get(self, "post_actions")
+
+    @property
+    @pulumi.getter(name="preActions")
+    def pre_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanFailoverRecoveryGroupPreAction']]:
+        """
+        one or more `action` block as defined below. which will be executed before the group recovery.
+        """
+        return pulumi.get(self, "pre_actions")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanFailoverRecoveryGroupPostAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failOverDirections":
+            suggest = "fail_over_directions"
+        elif key == "failOverTypes":
+            suggest = "fail_over_types"
+        elif key == "fabricLocation":
+            suggest = "fabric_location"
+        elif key == "manualActionInstruction":
+            suggest = "manual_action_instruction"
+        elif key == "runbookId":
+            suggest = "runbook_id"
+        elif key == "scriptPath":
+            suggest = "script_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanFailoverRecoveryGroupPostAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanFailoverRecoveryGroupPostAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanFailoverRecoveryGroupPostAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_over_directions: Sequence[str],
+                 fail_over_types: Sequence[str],
+                 name: str,
+                 type: str,
+                 fabric_location: Optional[str] = None,
+                 manual_action_instruction: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 script_path: Optional[str] = None):
+        """
+        :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        :param str manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        :param str runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        :param str script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
+        pulumi.set(__self__, "fail_over_types", fail_over_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if fabric_location is not None:
+            pulumi.set(__self__, "fabric_location", fabric_location)
+        if manual_action_instruction is not None:
+            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+
+    @property
+    @pulumi.getter(name="failOverDirections")
+    def fail_over_directions(self) -> Sequence[str]:
+        """
+        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        """
+        return pulumi.get(self, "fail_over_directions")
+
+    @property
+    @pulumi.getter(name="failOverTypes")
+    def fail_over_types(self) -> Sequence[str]:
+        """
+        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        """
+        return pulumi.get(self, "fail_over_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fabricLocation")
+    def fabric_location(self) -> Optional[str]:
+        """
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "fabric_location")
+
+    @property
+    @pulumi.getter(name="manualActionInstruction")
+    def manual_action_instruction(self) -> Optional[str]:
+        """
+        Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        """
+        return pulumi.get(self, "manual_action_instruction")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[str]:
+        """
+        Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "script_path")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanFailoverRecoveryGroupPreAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failOverDirections":
+            suggest = "fail_over_directions"
+        elif key == "failOverTypes":
+            suggest = "fail_over_types"
+        elif key == "fabricLocation":
+            suggest = "fabric_location"
+        elif key == "manualActionInstruction":
+            suggest = "manual_action_instruction"
+        elif key == "runbookId":
+            suggest = "runbook_id"
+        elif key == "scriptPath":
+            suggest = "script_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanFailoverRecoveryGroupPreAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanFailoverRecoveryGroupPreAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanFailoverRecoveryGroupPreAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_over_directions: Sequence[str],
+                 fail_over_types: Sequence[str],
+                 name: str,
+                 type: str,
+                 fabric_location: Optional[str] = None,
+                 manual_action_instruction: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 script_path: Optional[str] = None):
+        """
+        :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        :param str manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        :param str runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        :param str script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
+        pulumi.set(__self__, "fail_over_types", fail_over_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if fabric_location is not None:
+            pulumi.set(__self__, "fabric_location", fabric_location)
+        if manual_action_instruction is not None:
+            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+
+    @property
+    @pulumi.getter(name="failOverDirections")
+    def fail_over_directions(self) -> Sequence[str]:
+        """
+        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        """
+        return pulumi.get(self, "fail_over_directions")
+
+    @property
+    @pulumi.getter(name="failOverTypes")
+    def fail_over_types(self) -> Sequence[str]:
+        """
+        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        """
+        return pulumi.get(self, "fail_over_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fabricLocation")
+    def fabric_location(self) -> Optional[str]:
+        """
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "fabric_location")
+
+    @property
+    @pulumi.getter(name="manualActionInstruction")
+    def manual_action_instruction(self) -> Optional[str]:
+        """
+        Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        """
+        return pulumi.get(self, "manual_action_instruction")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[str]:
+        """
+        Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "script_path")
+
+
+@pulumi.output_type
 class ReplicationRecoveryPlanRecoveryGroup(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -894,6 +1585,340 @@ class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
 
     def get(self, key: str, default = None) -> Any:
         ReplicationRecoveryPlanRecoveryGroupPreAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_over_directions: Sequence[str],
+                 fail_over_types: Sequence[str],
+                 name: str,
+                 type: str,
+                 fabric_location: Optional[str] = None,
+                 manual_action_instruction: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 script_path: Optional[str] = None):
+        """
+        :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        :param str manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        :param str runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        :param str script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
+        pulumi.set(__self__, "fail_over_types", fail_over_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if fabric_location is not None:
+            pulumi.set(__self__, "fabric_location", fabric_location)
+        if manual_action_instruction is not None:
+            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+
+    @property
+    @pulumi.getter(name="failOverDirections")
+    def fail_over_directions(self) -> Sequence[str]:
+        """
+        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        """
+        return pulumi.get(self, "fail_over_directions")
+
+    @property
+    @pulumi.getter(name="failOverTypes")
+    def fail_over_types(self) -> Sequence[str]:
+        """
+        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        """
+        return pulumi.get(self, "fail_over_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fabricLocation")
+    def fabric_location(self) -> Optional[str]:
+        """
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "fabric_location")
+
+    @property
+    @pulumi.getter(name="manualActionInstruction")
+    def manual_action_instruction(self) -> Optional[str]:
+        """
+        Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        """
+        return pulumi.get(self, "manual_action_instruction")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[str]:
+        """
+        Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "script_path")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanShutdownRecoveryGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postActions":
+            suggest = "post_actions"
+        elif key == "preActions":
+            suggest = "pre_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanShutdownRecoveryGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanShutdownRecoveryGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanShutdownRecoveryGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanShutdownRecoveryGroupPostAction']] = None,
+                 pre_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanShutdownRecoveryGroupPreAction']] = None):
+        """
+        :param Sequence['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        """
+        if post_actions is not None:
+            pulumi.set(__self__, "post_actions", post_actions)
+        if pre_actions is not None:
+            pulumi.set(__self__, "pre_actions", pre_actions)
+
+    @property
+    @pulumi.getter(name="postActions")
+    def post_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanShutdownRecoveryGroupPostAction']]:
+        """
+        one or more `action` block as defined below. which will be executed after the group recovery.
+        """
+        return pulumi.get(self, "post_actions")
+
+    @property
+    @pulumi.getter(name="preActions")
+    def pre_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanShutdownRecoveryGroupPreAction']]:
+        """
+        one or more `action` block as defined below. which will be executed before the group recovery.
+        """
+        return pulumi.get(self, "pre_actions")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failOverDirections":
+            suggest = "fail_over_directions"
+        elif key == "failOverTypes":
+            suggest = "fail_over_types"
+        elif key == "fabricLocation":
+            suggest = "fabric_location"
+        elif key == "manualActionInstruction":
+            suggest = "manual_action_instruction"
+        elif key == "runbookId":
+            suggest = "runbook_id"
+        elif key == "scriptPath":
+            suggest = "script_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanShutdownRecoveryGroupPostAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanShutdownRecoveryGroupPostAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanShutdownRecoveryGroupPostAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fail_over_directions: Sequence[str],
+                 fail_over_types: Sequence[str],
+                 name: str,
+                 type: str,
+                 fabric_location: Optional[str] = None,
+                 manual_action_instruction: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 script_path: Optional[str] = None):
+        """
+        :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+               
+               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        :param str manual_action_instruction: Instructions of manual action.
+               
+               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        :param str runbook_id: Id of runbook.
+               
+               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        :param str script_path: Path of action script.
+               
+               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
+        pulumi.set(__self__, "fail_over_types", fail_over_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if fabric_location is not None:
+            pulumi.set(__self__, "fabric_location", fabric_location)
+        if manual_action_instruction is not None:
+            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if script_path is not None:
+            pulumi.set(__self__, "script_path", script_path)
+
+    @property
+    @pulumi.getter(name="failOverDirections")
+    def fail_over_directions(self) -> Sequence[str]:
+        """
+        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        """
+        return pulumi.get(self, "fail_over_directions")
+
+    @property
+    @pulumi.getter(name="failOverTypes")
+    def fail_over_types(self) -> Sequence[str]:
+        """
+        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        """
+        return pulumi.get(self, "fail_over_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fabricLocation")
+    def fabric_location(self) -> Optional[str]:
+        """
+        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+
+        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "fabric_location")
+
+    @property
+    @pulumi.getter(name="manualActionInstruction")
+    def manual_action_instruction(self) -> Optional[str]:
+        """
+        Instructions of manual action.
+
+        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        """
+        return pulumi.get(self, "manual_action_instruction")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Id of runbook.
+
+        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="scriptPath")
+    def script_path(self) -> Optional[str]:
+        """
+        Path of action script.
+
+        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        """
+        return pulumi.get(self, "script_path")
+
+
+@pulumi.output_type
+class ReplicationRecoveryPlanShutdownRecoveryGroupPreAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failOverDirections":
+            suggest = "fail_over_directions"
+        elif key == "failOverTypes":
+            suggest = "fail_over_types"
+        elif key == "fabricLocation":
+            suggest = "fabric_location"
+        elif key == "manualActionInstruction":
+            suggest = "manual_action_instruction"
+        elif key == "runbookId":
+            suggest = "runbook_id"
+        elif key == "scriptPath":
+            suggest = "script_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationRecoveryPlanShutdownRecoveryGroupPreAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationRecoveryPlanShutdownRecoveryGroupPreAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationRecoveryPlanShutdownRecoveryGroupPreAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

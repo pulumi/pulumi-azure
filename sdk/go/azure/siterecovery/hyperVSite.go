@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,6 +85,7 @@ func NewHyperVSite(ctx *pulumi.Context,
 	if args.RecoveryVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'RecoveryVaultId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HyperVSite
 	err := ctx.RegisterResource("azure:siterecovery/hyperVSite:HyperVSite", name, args, &resource, opts...)
 	if err != nil {

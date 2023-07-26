@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,9 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupNamespaceAuthorizationRule(ctx, &servicebus.LookupNamespaceAuthorizationRuleArgs{
-//				Name:              "examplerule",
-//				NamespaceName:     pulumi.StringRef("examplenamespace"),
-//				ResourceGroupName: pulumi.StringRef("example-resources"),
+//				Name:        "examplerule",
+//				NamespaceId: pulumi.StringRef("examplenamespace"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,6 +41,7 @@ import (
 //
 // ```
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamespaceAuthorizationRuleResult
 	err := ctx.Invoke("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args, &rv, opts...)
 	if err != nil {
@@ -52,27 +53,36 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 // A collection of arguments for invoking getNamespaceAuthorizationRule.
 type LookupNamespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule.
-	Name        string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// Specifies the name of the ServiceBus Namespace.
+	//
+	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+	//
+	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+	//
+	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespaceAuthorizationRule.
 type LookupNamespaceAuthorizationRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id            string  `pulumi:"id"`
-	Name          string  `pulumi:"name"`
-	NamespaceId   *string `pulumi:"namespaceId"`
+	Id          string  `pulumi:"id"`
+	Name        string  `pulumi:"name"`
+	NamespaceId *string `pulumi:"namespaceId"`
+	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The primary connection string for the authorization rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
 	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
 	// The primary access key for the authorization rule.
-	PrimaryKey        string  `pulumi:"primaryKey"`
+	PrimaryKey string `pulumi:"primaryKey"`
+	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary connection string for the authorization rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
@@ -98,11 +108,18 @@ func LookupNamespaceAuthorizationRuleOutput(ctx *pulumi.Context, args LookupName
 // A collection of arguments for invoking getNamespaceAuthorizationRule.
 type LookupNamespaceAuthorizationRuleOutputArgs struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule.
-	Name        pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
 	// Specifies the name of the ServiceBus Namespace.
+	//
+	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+	//
+	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+	//
+	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -138,6 +155,7 @@ func (o LookupNamespaceAuthorizationRuleResultOutput) NamespaceId() pulumi.Strin
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 func (o LookupNamespaceAuthorizationRuleResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
@@ -157,6 +175,7 @@ func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryKey() pulumi.String
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
+// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 func (o LookupNamespaceAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

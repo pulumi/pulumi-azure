@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ import (
 //
 // ```
 func GetPrivateLinkResource(ctx *pulumi.Context, args *GetPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*GetPrivateLinkResourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrivateLinkResourceResult
 	err := ctx.Invoke("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, &rv, opts...)
 	if err != nil {

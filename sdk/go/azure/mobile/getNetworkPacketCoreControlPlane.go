@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupNetworkPacketCoreControlPlane(ctx *pulumi.Context, args *LookupNetworkPacketCoreControlPlaneArgs, opts ...pulumi.InvokeOption) (*LookupNetworkPacketCoreControlPlaneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkPacketCoreControlPlaneResult
 	err := ctx.Invoke("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", args, &rv, opts...)
 	if err != nil {

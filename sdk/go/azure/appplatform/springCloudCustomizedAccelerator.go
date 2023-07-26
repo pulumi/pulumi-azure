@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewSpringCloudCustomizedAccelerator(ctx *pulumi.Context,
 	if args.SpringCloudAcceleratorId == nil {
 		return nil, errors.New("invalid value for required argument 'SpringCloudAcceleratorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpringCloudCustomizedAccelerator
 	err := ctx.RegisterResource("azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator", name, args, &resource, opts...)
 	if err != nil {

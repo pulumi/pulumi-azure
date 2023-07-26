@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,6 +113,7 @@ func NewLogzMonitor(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogzMonitor
 	err := ctx.RegisterResource("azure:monitoring/logzMonitor:LogzMonitor", name, args, &resource, opts...)
 	if err != nil {

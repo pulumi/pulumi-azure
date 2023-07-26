@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -174,6 +175,7 @@ func NewCassandraCluster(ctx *pulumi.Context,
 		"defaultAdminPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CassandraCluster
 	err := ctx.RegisterResource("azure:cosmosdb/cassandraCluster:CassandraCluster", name, args, &resource, opts...)
 	if err != nil {

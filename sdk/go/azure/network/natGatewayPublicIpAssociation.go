@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,6 +96,7 @@ func NewNatGatewayPublicIpAssociation(ctx *pulumi.Context,
 	if args.PublicIpAddressId == nil {
 		return nil, errors.New("invalid value for required argument 'PublicIpAddressId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NatGatewayPublicIpAssociation
 	err := ctx.RegisterResource("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -13,9 +13,17 @@ public final class GetVariablesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVariablesArgs Empty = new GetVariablesArgs();
 
+    /**
+     * The resource ID of the automation account.
+     * 
+     */
     @Import(name="automationAccountId", required=true)
     private Output<String> automationAccountId;
 
+    /**
+     * @return The resource ID of the automation account.
+     * 
+     */
     public Output<String> automationAccountId() {
         return this.automationAccountId;
     }
@@ -44,11 +52,23 @@ public final class GetVariablesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVariablesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param automationAccountId The resource ID of the automation account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automationAccountId(Output<String> automationAccountId) {
             $.automationAccountId = automationAccountId;
             return this;
         }
 
+        /**
+         * @param automationAccountId The resource ID of the automation account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automationAccountId(String automationAccountId) {
             return automationAccountId(Output.of(automationAccountId));
         }

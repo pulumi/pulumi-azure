@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -183,6 +184,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args.StartIpAddress == nil {
 		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallRule
 	err := ctx.RegisterResource("azure:mysql/firewallRule:FirewallRule", name, args, &resource, opts...)
 	if err != nil {

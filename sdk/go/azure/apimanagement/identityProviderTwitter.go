@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,6 +112,7 @@ func NewIdentityProviderTwitter(ctx *pulumi.Context,
 		"apiSecretKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProviderTwitter
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter", name, args, &resource, opts...)
 	if err != nil {

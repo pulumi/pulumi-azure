@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewActionRuleSuppression(ctx *pulumi.Context,
 	if args.Suppression == nil {
 		return nil, errors.New("invalid value for required argument 'Suppression'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionRuleSuppression
 	err := ctx.RegisterResource("azure:monitoring/actionRuleSuppression:ActionRuleSuppression", name, args, &resource, opts...)
 	if err != nil {

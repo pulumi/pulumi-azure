@@ -169,12 +169,12 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;S1&#34;)
  *             .build());
  * 
- *         var test = new WindowsFunctionApp(&#34;test&#34;, WindowsFunctionAppArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .servicePlanId(azurerm_service_plan.test().id())
- *             .storageAccountName(azurerm_storage_account.test().name())
- *             .storageAccountAccessKey(azurerm_storage_account.test().primary_access_key())
+ *         var exampleWindowsFunctionApp = new WindowsFunctionApp(&#34;exampleWindowsFunctionApp&#34;, WindowsFunctionAppArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .servicePlanId(exampleServicePlan.id())
+ *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
  *                 .applicationStack(WindowsFunctionAppSiteConfigApplicationStackArgs.builder()
  *                     .dotnetVersion(&#34;6&#34;)
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
- *             .functionAppId(azurerm_linux_function_app.example().id())
+ *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .language(&#34;CSharp&#34;)
  *             .files(FunctionAppFunctionFileArgs.builder()
  *                 .name(&#34;run.csx&#34;)

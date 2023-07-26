@@ -50,12 +50,16 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs e
     /**
      * Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
+     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+     * 
      */
     @Import(name="selector", required=true)
     private Output<String> selector;
 
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * 
+     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
      */
     public Output<String> selector() {
@@ -137,6 +141,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs e
         /**
          * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
          * 
+         * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+         * 
          * @return builder
          * 
          */
@@ -147,6 +153,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs e
 
         /**
          * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
+         * 
+         * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          * 
          * @return builder
          * 

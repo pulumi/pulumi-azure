@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -134,6 +135,7 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	if args.Severity == nil {
 		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SmartDetectorAlertRule
 	err := ctx.RegisterResource("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule", name, args, &resource, opts...)
 	if err != nil {

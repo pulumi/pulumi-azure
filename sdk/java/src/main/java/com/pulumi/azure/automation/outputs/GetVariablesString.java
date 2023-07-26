@@ -20,6 +20,7 @@ public final class GetVariablesString {
      * 
      */
     private Boolean encrypted;
+    private String id;
     /**
      * @return The name of the Automation Variable.
      * 
@@ -45,6 +46,9 @@ public final class GetVariablesString {
      */
     public Boolean encrypted() {
         return this.encrypted;
+    }
+    public String id() {
+        return this.id;
     }
     /**
      * @return The name of the Automation Variable.
@@ -72,6 +76,7 @@ public final class GetVariablesString {
     public static final class Builder {
         private String description;
         private Boolean encrypted;
+        private String id;
         private String name;
         private String value;
         public Builder() {}
@@ -79,6 +84,7 @@ public final class GetVariablesString {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.encrypted = defaults.encrypted;
+    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
@@ -91,6 +97,11 @@ public final class GetVariablesString {
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(String id) {
+            this.id = Objects.requireNonNull(id);
             return this;
         }
         @CustomType.Setter
@@ -107,6 +118,7 @@ public final class GetVariablesString {
             final var o = new GetVariablesString();
             o.description = description;
             o.encrypted = encrypted;
+            o.id = id;
             o.name = name;
             o.value = value;
             return o;

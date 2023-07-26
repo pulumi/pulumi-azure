@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type SpringCloudApiPortalSso struct {
 	// The public identifier for the application.
@@ -5864,6 +5867,181 @@ func (o SpringCloudServiceDefaultBuildServicePtrOutput) ContainerRegistryName() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudServiceMarketplace struct {
+	// Specifies the plan ID of the 3rd Party Artifact that is being procured.
+	Plan string `pulumi:"plan"`
+	// Specifies the 3rd Party artifact that is being procured.
+	Product string `pulumi:"product"`
+	// Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+	Publisher string `pulumi:"publisher"`
+}
+
+// SpringCloudServiceMarketplaceInput is an input type that accepts SpringCloudServiceMarketplaceArgs and SpringCloudServiceMarketplaceOutput values.
+// You can construct a concrete instance of `SpringCloudServiceMarketplaceInput` via:
+//
+//	SpringCloudServiceMarketplaceArgs{...}
+type SpringCloudServiceMarketplaceInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceMarketplaceOutput() SpringCloudServiceMarketplaceOutput
+	ToSpringCloudServiceMarketplaceOutputWithContext(context.Context) SpringCloudServiceMarketplaceOutput
+}
+
+type SpringCloudServiceMarketplaceArgs struct {
+	// Specifies the plan ID of the 3rd Party Artifact that is being procured.
+	Plan pulumi.StringInput `pulumi:"plan"`
+	// Specifies the 3rd Party artifact that is being procured.
+	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (SpringCloudServiceMarketplaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceMarketplace)(nil)).Elem()
+}
+
+func (i SpringCloudServiceMarketplaceArgs) ToSpringCloudServiceMarketplaceOutput() SpringCloudServiceMarketplaceOutput {
+	return i.ToSpringCloudServiceMarketplaceOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceMarketplaceArgs) ToSpringCloudServiceMarketplaceOutputWithContext(ctx context.Context) SpringCloudServiceMarketplaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMarketplaceOutput)
+}
+
+func (i SpringCloudServiceMarketplaceArgs) ToSpringCloudServiceMarketplacePtrOutput() SpringCloudServiceMarketplacePtrOutput {
+	return i.ToSpringCloudServiceMarketplacePtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceMarketplaceArgs) ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx context.Context) SpringCloudServiceMarketplacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMarketplaceOutput).ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx)
+}
+
+// SpringCloudServiceMarketplacePtrInput is an input type that accepts SpringCloudServiceMarketplaceArgs, SpringCloudServiceMarketplacePtr and SpringCloudServiceMarketplacePtrOutput values.
+// You can construct a concrete instance of `SpringCloudServiceMarketplacePtrInput` via:
+//
+//	        SpringCloudServiceMarketplaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudServiceMarketplacePtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceMarketplacePtrOutput() SpringCloudServiceMarketplacePtrOutput
+	ToSpringCloudServiceMarketplacePtrOutputWithContext(context.Context) SpringCloudServiceMarketplacePtrOutput
+}
+
+type springCloudServiceMarketplacePtrType SpringCloudServiceMarketplaceArgs
+
+func SpringCloudServiceMarketplacePtr(v *SpringCloudServiceMarketplaceArgs) SpringCloudServiceMarketplacePtrInput {
+	return (*springCloudServiceMarketplacePtrType)(v)
+}
+
+func (*springCloudServiceMarketplacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceMarketplace)(nil)).Elem()
+}
+
+func (i *springCloudServiceMarketplacePtrType) ToSpringCloudServiceMarketplacePtrOutput() SpringCloudServiceMarketplacePtrOutput {
+	return i.ToSpringCloudServiceMarketplacePtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudServiceMarketplacePtrType) ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx context.Context) SpringCloudServiceMarketplacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMarketplacePtrOutput)
+}
+
+type SpringCloudServiceMarketplaceOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceMarketplaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceMarketplace)(nil)).Elem()
+}
+
+func (o SpringCloudServiceMarketplaceOutput) ToSpringCloudServiceMarketplaceOutput() SpringCloudServiceMarketplaceOutput {
+	return o
+}
+
+func (o SpringCloudServiceMarketplaceOutput) ToSpringCloudServiceMarketplaceOutputWithContext(ctx context.Context) SpringCloudServiceMarketplaceOutput {
+	return o
+}
+
+func (o SpringCloudServiceMarketplaceOutput) ToSpringCloudServiceMarketplacePtrOutput() SpringCloudServiceMarketplacePtrOutput {
+	return o.ToSpringCloudServiceMarketplacePtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudServiceMarketplaceOutput) ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx context.Context) SpringCloudServiceMarketplacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceMarketplace) *SpringCloudServiceMarketplace {
+		return &v
+	}).(SpringCloudServiceMarketplacePtrOutput)
+}
+
+// Specifies the plan ID of the 3rd Party Artifact that is being procured.
+func (o SpringCloudServiceMarketplaceOutput) Plan() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceMarketplace) string { return v.Plan }).(pulumi.StringOutput)
+}
+
+// Specifies the 3rd Party artifact that is being procured.
+func (o SpringCloudServiceMarketplaceOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceMarketplace) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+func (o SpringCloudServiceMarketplaceOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceMarketplace) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type SpringCloudServiceMarketplacePtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceMarketplacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceMarketplace)(nil)).Elem()
+}
+
+func (o SpringCloudServiceMarketplacePtrOutput) ToSpringCloudServiceMarketplacePtrOutput() SpringCloudServiceMarketplacePtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceMarketplacePtrOutput) ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx context.Context) SpringCloudServiceMarketplacePtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceMarketplacePtrOutput) Elem() SpringCloudServiceMarketplaceOutput {
+	return o.ApplyT(func(v *SpringCloudServiceMarketplace) SpringCloudServiceMarketplace {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudServiceMarketplace
+		return ret
+	}).(SpringCloudServiceMarketplaceOutput)
+}
+
+// Specifies the plan ID of the 3rd Party Artifact that is being procured.
+func (o SpringCloudServiceMarketplacePtrOutput) Plan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceMarketplace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Plan
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the 3rd Party artifact that is being procured.
+func (o SpringCloudServiceMarketplacePtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceMarketplace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+func (o SpringCloudServiceMarketplacePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceMarketplace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudServiceNetwork struct {
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
@@ -5871,6 +6049,8 @@ type SpringCloudServiceNetwork struct {
 	AppSubnetId string `pulumi:"appSubnetId"`
 	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 	CidrRanges []string `pulumi:"cidrRanges"`
+	// Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+	OutboundType *string `pulumi:"outboundType"`
 	// Ingress read time out in seconds.
 	ReadTimeoutSeconds *int `pulumi:"readTimeoutSeconds"`
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
@@ -5897,6 +6077,8 @@ type SpringCloudServiceNetworkArgs struct {
 	AppSubnetId pulumi.StringInput `pulumi:"appSubnetId"`
 	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
+	// Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// Ingress read time out in seconds.
 	ReadTimeoutSeconds pulumi.IntPtrInput `pulumi:"readTimeoutSeconds"`
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
@@ -5997,6 +6179,11 @@ func (o SpringCloudServiceNetworkOutput) CidrRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudServiceNetwork) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) OutboundType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
+}
+
 // Ingress read time out in seconds.
 func (o SpringCloudServiceNetworkOutput) ReadTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceNetwork) *int { return v.ReadTimeoutSeconds }).(pulumi.IntPtrOutput)
@@ -6064,6 +6251,16 @@ func (o SpringCloudServiceNetworkPtrOutput) CidrRanges() pulumi.StringArrayOutpu
 		}
 		return v.CidrRanges
 	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) OutboundType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Ingress read time out in seconds.
@@ -7577,6 +7774,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceContainerRegistryArrayInput)(nil)).Elem(), SpringCloudServiceContainerRegistryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceDefaultBuildServiceInput)(nil)).Elem(), SpringCloudServiceDefaultBuildServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceDefaultBuildServicePtrInput)(nil)).Elem(), SpringCloudServiceDefaultBuildServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceMarketplaceInput)(nil)).Elem(), SpringCloudServiceMarketplaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceMarketplacePtrInput)(nil)).Elem(), SpringCloudServiceMarketplaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceNetworkInput)(nil)).Elem(), SpringCloudServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceNetworkPtrInput)(nil)).Elem(), SpringCloudServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceRequiredNetworkTrafficRuleInput)(nil)).Elem(), SpringCloudServiceRequiredNetworkTrafficRuleArgs{})
@@ -7667,6 +7866,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceContainerRegistryArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceDefaultBuildServiceOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceDefaultBuildServicePtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceMarketplaceOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceMarketplacePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceRequiredNetworkTrafficRuleOutput{})

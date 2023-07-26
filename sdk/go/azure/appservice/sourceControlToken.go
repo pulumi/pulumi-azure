@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,6 +85,7 @@ func NewSourceControlToken(ctx *pulumi.Context,
 		"tokenSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceControlToken
 	err := ctx.RegisterResource("azure:appservice/sourceControlToken:SourceControlToken", name, args, &resource, opts...)
 	if err != nil {

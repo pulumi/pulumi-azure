@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewHealthbot(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Healthbot
 	err := ctx.RegisterResource("azure:bot/healthbot:Healthbot", name, args, &resource, opts...)
 	if err != nil {

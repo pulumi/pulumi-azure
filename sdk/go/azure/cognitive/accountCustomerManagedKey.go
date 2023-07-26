@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -210,6 +211,7 @@ func NewAccountCustomerManagedKey(ctx *pulumi.Context,
 	if args.KeyVaultKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultKeyId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountCustomerManagedKey
 	err := ctx.RegisterResource("azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupPtrRecord(ctx *pulumi.Context, args *LookupPtrRecordArgs, opts ...pulumi.InvokeOption) (*LookupPtrRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPtrRecordResult
 	err := ctx.Invoke("azure:dns/getPtrRecord:getPtrRecord", args, &rv, opts...)
 	if err != nil {

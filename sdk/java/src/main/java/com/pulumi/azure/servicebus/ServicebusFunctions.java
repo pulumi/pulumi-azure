@@ -218,8 +218,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .namespaceId(&#34;examplenamespace&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
@@ -258,8 +257,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .namespaceId(&#34;examplenamespace&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
@@ -298,8 +296,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .namespaceId(&#34;examplenamespace&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
@@ -338,8 +335,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .namespaceId(&#34;examplenamespace&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
@@ -390,8 +386,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
@@ -430,8 +425,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
@@ -470,8 +464,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
@@ -510,8 +503,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
@@ -714,9 +706,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .topicName(&#34;exampletopic&#34;)
+     *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
@@ -755,9 +745,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .topicName(&#34;exampletopic&#34;)
+     *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
@@ -796,9 +784,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .topicName(&#34;exampletopic&#34;)
+     *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
@@ -837,9 +823,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .namespaceName(&#34;examplenamespace&#34;)
-     *             .topicName(&#34;exampletopic&#34;)
+     *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
@@ -878,8 +862,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
@@ -918,8 +901,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
@@ -958,8 +940,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
@@ -998,8 +979,7 @@ public final class ServicebusFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .namespaceName(&#34;existing&#34;)
+     *             .namespaceId(&#34;existing&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));

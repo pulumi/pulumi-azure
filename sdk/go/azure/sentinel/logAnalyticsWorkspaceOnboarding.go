@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,6 +93,7 @@ func NewLogAnalyticsWorkspaceOnboarding(ctx *pulumi.Context,
 		args = &LogAnalyticsWorkspaceOnboardingArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogAnalyticsWorkspaceOnboarding
 	err := ctx.RegisterResource("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, args, &resource, opts...)
 	if err != nil {

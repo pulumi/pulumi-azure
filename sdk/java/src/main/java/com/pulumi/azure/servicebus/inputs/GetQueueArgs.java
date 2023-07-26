@@ -30,9 +30,17 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    /**
+     * The ID of the ServiceBus Namespace where the Service Bus Queue exists.
+     * 
+     */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
+    /**
+     * @return The ID of the ServiceBus Namespace where the Service Bus Queue exists.
+     * 
+     */
     public Optional<Output<String>> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
     }
@@ -63,6 +71,8 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
      * 
+     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+     * 
      * @deprecated
      * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      * 
@@ -73,6 +83,8 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The name of the Resource Group where the Service Bus Queue exists.
+     * 
+     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
      * 
      * @deprecated
      * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
@@ -131,11 +143,23 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param namespaceId The ID of the ServiceBus Namespace where the Service Bus Queue exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceId(@Nullable Output<String> namespaceId) {
             $.namespaceId = namespaceId;
             return this;
         }
 
+        /**
+         * @param namespaceId The ID of the ServiceBus Namespace where the Service Bus Queue exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceId(String namespaceId) {
             return namespaceId(Output.of(namespaceId));
         }
@@ -172,6 +196,8 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param resourceGroupName The name of the Resource Group where the Service Bus Queue exists.
          * 
+         * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -186,6 +212,8 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param resourceGroupName The name of the Resource Group where the Service Bus Queue exists.
+         * 
+         * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
          * 
          * @return builder
          * 

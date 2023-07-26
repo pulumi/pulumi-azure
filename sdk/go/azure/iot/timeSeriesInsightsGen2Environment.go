@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -117,6 +118,7 @@ func NewTimeSeriesInsightsGen2Environment(ctx *pulumi.Context,
 	if args.Storage == nil {
 		return nil, errors.New("invalid value for required argument 'Storage'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TimeSeriesInsightsGen2Environment
 	err := ctx.RegisterResource("azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment", name, args, &resource, opts...)
 	if err != nil {

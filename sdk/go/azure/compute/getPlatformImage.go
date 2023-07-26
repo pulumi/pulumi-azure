@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs, opts ...pulumi.InvokeOption) (*GetPlatformImageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPlatformImageResult
 	err := ctx.Invoke("azure:compute/getPlatformImage:getPlatformImage", args, &rv, opts...)
 	if err != nil {

@@ -388,9 +388,17 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.possibleOutboundIpAddresses);
     }
 
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     * 
+     */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
+    /**
+     * @return Should public network access be enabled for the Web App. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -1121,11 +1129,23 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
             return possibleOutboundIpAddresses(Output.of(possibleOutboundIpAddresses));
         }
 
+        /**
+         * @param publicNetworkAccessEnabled Should public network access be enabled for the Web App. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
+        /**
+         * @param publicNetworkAccessEnabled Should public network access be enabled for the Web App. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }

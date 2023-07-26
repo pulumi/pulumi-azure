@@ -44,6 +44,7 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingSshAuth',
     'SpringCloudServiceContainerRegistry',
     'SpringCloudServiceDefaultBuildService',
+    'SpringCloudServiceMarketplace',
     'SpringCloudServiceNetwork',
     'SpringCloudServiceRequiredNetworkTrafficRule',
     'SpringCloudServiceTrace',
@@ -2302,6 +2303,46 @@ class SpringCloudServiceDefaultBuildService(dict):
 
 
 @pulumi.output_type
+class SpringCloudServiceMarketplace(dict):
+    def __init__(__self__, *,
+                 plan: str,
+                 product: str,
+                 publisher: str):
+        """
+        :param str plan: Specifies the plan ID of the 3rd Party Artifact that is being procured.
+        :param str product: Specifies the 3rd Party artifact that is being procured.
+        :param str publisher: Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+        """
+        pulumi.set(__self__, "plan", plan)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> str:
+        """
+        Specifies the plan ID of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        """
+        Specifies the 3rd Party artifact that is being procured.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "publisher")
+
+
+@pulumi.output_type
 class SpringCloudServiceNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2314,6 +2355,8 @@ class SpringCloudServiceNetwork(dict):
             suggest = "service_runtime_subnet_id"
         elif key == "appNetworkResourceGroup":
             suggest = "app_network_resource_group"
+        elif key == "outboundType":
+            suggest = "outbound_type"
         elif key == "readTimeoutSeconds":
             suggest = "read_timeout_seconds"
         elif key == "serviceRuntimeNetworkResourceGroup":
@@ -2335,6 +2378,7 @@ class SpringCloudServiceNetwork(dict):
                  cidr_ranges: Sequence[str],
                  service_runtime_subnet_id: str,
                  app_network_resource_group: Optional[str] = None,
+                 outbound_type: Optional[str] = None,
                  read_timeout_seconds: Optional[int] = None,
                  service_runtime_network_resource_group: Optional[str] = None):
         """
@@ -2342,6 +2386,7 @@ class SpringCloudServiceNetwork(dict):
         :param Sequence[str] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
         :param str service_runtime_subnet_id: Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
         :param str app_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+        :param str outbound_type: Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         :param int read_timeout_seconds: Ingress read time out in seconds.
         :param str service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         """
@@ -2350,6 +2395,8 @@ class SpringCloudServiceNetwork(dict):
         pulumi.set(__self__, "service_runtime_subnet_id", service_runtime_subnet_id)
         if app_network_resource_group is not None:
             pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
+        if outbound_type is not None:
+            pulumi.set(__self__, "outbound_type", outbound_type)
         if read_timeout_seconds is not None:
             pulumi.set(__self__, "read_timeout_seconds", read_timeout_seconds)
         if service_runtime_network_resource_group is not None:
@@ -2386,6 +2433,14 @@ class SpringCloudServiceNetwork(dict):
         Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_network_resource_group")
+
+    @property
+    @pulumi.getter(name="outboundType")
+    def outbound_type(self) -> Optional[str]:
+        """
+        Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "outbound_type")
 
     @property
     @pulumi.getter(name="readTimeoutSeconds")

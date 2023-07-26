@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VpnServerConfigurationRadius
     {
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
+        /// One or more `client_root_certificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnServerConfigurationRadiusClientRootCertificate> ClientRootCertificates;
         /// <summary>

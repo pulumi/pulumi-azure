@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *LookupAnalyticsWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupAnalyticsWorkspaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAnalyticsWorkspaceResult
 	err := ctx.Invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, opts...)
 	if err != nil {

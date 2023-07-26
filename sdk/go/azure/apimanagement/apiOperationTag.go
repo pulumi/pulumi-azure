@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,6 +101,7 @@ func NewApiOperationTag(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiOperationTag
 	err := ctx.RegisterResource("azure:apimanagement/apiOperationTag:ApiOperationTag", name, args, &resource, opts...)
 	if err != nil {

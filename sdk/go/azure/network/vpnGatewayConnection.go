@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -147,6 +148,7 @@ func NewVpnGatewayConnection(ctx *pulumi.Context,
 	if args.VpnLinks == nil {
 		return nil, errors.New("invalid value for required argument 'VpnLinks'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpnGatewayConnection
 	err := ctx.RegisterResource("azure:network/vpnGatewayConnection:VpnGatewayConnection", name, args, &resource, opts...)
 	if err != nil {

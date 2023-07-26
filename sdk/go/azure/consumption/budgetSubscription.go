@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -161,6 +162,7 @@ func NewBudgetSubscription(ctx *pulumi.Context,
 	if args.TimePeriod == nil {
 		return nil, errors.New("invalid value for required argument 'TimePeriod'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BudgetSubscription
 	err := ctx.RegisterResource("azure:consumption/budgetSubscription:BudgetSubscription", name, args, &resource, opts...)
 	if err != nil {

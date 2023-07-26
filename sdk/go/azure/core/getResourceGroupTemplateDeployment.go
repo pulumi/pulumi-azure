@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about an existing Resource Group Template Deployment.
 func LookupResourceGroupTemplateDeployment(ctx *pulumi.Context, args *LookupResourceGroupTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupTemplateDeploymentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceGroupTemplateDeploymentResult
 	err := ctx.Invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args, &rv, opts...)
 	if err != nil {

@@ -18,12 +18,6 @@ public final class FlexibleServerHighAvailability {
      * 
      */
     private String mode;
-    /**
-     * @return Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-     * 
-     */
     private @Nullable String standbyAvailabilityZone;
 
     private FlexibleServerHighAvailability() {}
@@ -36,12 +30,6 @@ public final class FlexibleServerHighAvailability {
     public String mode() {
         return this.mode;
     }
-    /**
-     * @return Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-     * 
-     */
     public Optional<String> standbyAvailabilityZone() {
         return Optional.ofNullable(this.standbyAvailabilityZone);
     }

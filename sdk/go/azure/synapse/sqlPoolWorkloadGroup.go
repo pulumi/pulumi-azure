@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -136,6 +137,7 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	if args.SqlPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'SqlPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SqlPoolWorkloadGroup
 	err := ctx.RegisterResource("azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup", name, args, &resource, opts...)
 	if err != nil {

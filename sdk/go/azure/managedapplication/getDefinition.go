@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupDefinition(ctx *pulumi.Context, args *LookupDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDefinitionResult
 	err := ctx.Invoke("azure:managedapplication/getDefinition:getDefinition", args, &rv, opts...)
 	if err != nil {

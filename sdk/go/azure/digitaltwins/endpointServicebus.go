@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -134,6 +135,7 @@ func NewEndpointServicebus(ctx *pulumi.Context,
 		"servicebusSecondaryConnectionString",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointServicebus
 	err := ctx.RegisterResource("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, args, &resource, opts...)
 	if err != nil {

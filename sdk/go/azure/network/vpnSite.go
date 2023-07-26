@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewVpnSite(ctx *pulumi.Context,
 	if args.VirtualWanId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualWanId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpnSite
 	err := ctx.RegisterResource("azure:network/vpnSite:VpnSite", name, args, &resource, opts...)
 	if err != nil {

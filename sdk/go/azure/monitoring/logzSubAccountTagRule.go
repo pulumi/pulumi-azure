@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -133,6 +134,7 @@ func NewLogzSubAccountTagRule(ctx *pulumi.Context,
 	if args.LogzSubAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'LogzSubAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogzSubAccountTagRule
 	err := ctx.RegisterResource("azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule", name, args, &resource, opts...)
 	if err != nil {

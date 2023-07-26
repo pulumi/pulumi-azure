@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -94,6 +95,7 @@ func NewGatewayApi(ctx *pulumi.Context,
 	if args.GatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayApi
 	err := ctx.RegisterResource("azure:apimanagement/gatewayApi:GatewayApi", name, args, &resource, opts...)
 	if err != nil {

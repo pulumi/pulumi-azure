@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewRegistryTaskScheduleRunNow(ctx *pulumi.Context,
 	if args.ContainerRegistryTaskId == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerRegistryTaskId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegistryTaskScheduleRunNow
 	err := ctx.RegisterResource("azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow", name, args, &resource, opts...)
 	if err != nil {

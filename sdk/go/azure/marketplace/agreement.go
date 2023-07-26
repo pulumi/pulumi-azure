@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewAgreement(ctx *pulumi.Context,
 	if args.Publisher == nil {
 		return nil, errors.New("invalid value for required argument 'Publisher'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agreement
 	err := ctx.RegisterResource("azure:marketplace/agreement:Agreement", name, args, &resource, opts...)
 	if err != nil {

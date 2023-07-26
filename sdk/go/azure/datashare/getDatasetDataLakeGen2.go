@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupDatasetDataLakeGen2(ctx *pulumi.Context, args *LookupDatasetDataLakeGen2Args, opts ...pulumi.InvokeOption) (*LookupDatasetDataLakeGen2Result, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetDataLakeGen2Result
 	err := ctx.Invoke("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args, &rv, opts...)
 	if err != nil {

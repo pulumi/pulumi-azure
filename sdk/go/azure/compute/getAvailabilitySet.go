@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilitySetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAvailabilitySetResult
 	err := ctx.Invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, opts...)
 	if err != nil {

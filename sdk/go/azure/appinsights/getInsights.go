@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupInsights(ctx *pulumi.Context, args *LookupInsightsArgs, opts ...pulumi.InvokeOption) (*LookupInsightsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInsightsResult
 	err := ctx.Invoke("azure:appinsights/getInsights:getInsights", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetWorkspacePrivateEndpointConnection(ctx *pulumi.Context, args *GetWorkspacePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*GetWorkspacePrivateEndpointConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacePrivateEndpointConnectionResult
 	err := ctx.Invoke("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 	if args.MssqlServerId == nil {
 		return nil, errors.New("invalid value for required argument 'MssqlServerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerDnsAlias
 	err := ctx.RegisterResource("azure:mssql/serverDnsAlias:ServerDnsAlias", name, args, &resource, opts...)
 	if err != nil {

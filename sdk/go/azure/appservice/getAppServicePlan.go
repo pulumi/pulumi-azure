@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs, opts ...pulumi.InvokeOption) (*GetAppServicePlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppServicePlanResult
 	err := ctx.Invoke("azure:appservice/getAppServicePlan:getAppServicePlan", args, &rv, opts...)
 	if err != nil {

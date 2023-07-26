@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,9 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupQueue(ctx, &servicebus.LookupQueueArgs{
-//				Name:              "existing",
-//				ResourceGroupName: pulumi.StringRef("existing"),
-//				NamespaceName:     pulumi.StringRef("existing"),
+//				Name:        "existing",
+//				NamespaceId: pulumi.StringRef("existing"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,6 +41,7 @@ import (
 //
 // ```
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult
 	err := ctx.Invoke("azure:servicebus/getQueue:getQueue", args, &rv, opts...)
 	if err != nil {
@@ -52,13 +53,16 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
 	// The name of this Service Bus Queue.
-	Name        string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// The name of the ServiceBus Namespace.
 	//
 	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Queue exists.
+	//
+	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
 	//
 	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -122,13 +126,16 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 // A collection of arguments for invoking getQueue.
 type LookupQueueOutputArgs struct {
 	// The name of this Service Bus Queue.
-	Name        pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
 	// The name of the ServiceBus Namespace.
 	//
 	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Queue exists.
+	//
+	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
 	//
 	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`

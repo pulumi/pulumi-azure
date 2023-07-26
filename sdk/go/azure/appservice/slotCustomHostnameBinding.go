@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -116,6 +117,7 @@ func NewSlotCustomHostnameBinding(ctx *pulumi.Context,
 	if args.Hostname == nil {
 		return nil, errors.New("invalid value for required argument 'Hostname'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlotCustomHostnameBinding
 	err := ctx.RegisterResource("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding", name, args, &resource, opts...)
 	if err != nil {

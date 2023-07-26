@@ -65,6 +65,7 @@ class WindowsFunctionAppSlotArgs:
         :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
@@ -365,6 +366,9 @@ class WindowsFunctionAppSlotArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Function App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -539,6 +543,7 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
@@ -945,6 +950,9 @@ class _WindowsFunctionAppSlotState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Function App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1169,6 +1177,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
@@ -1405,6 +1414,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
@@ -1675,6 +1685,9 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should public network access be enabled for the Function App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

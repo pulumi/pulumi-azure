@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupFrontdoorEndpoint(ctx *pulumi.Context, args *LookupFrontdoorEndpointArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorEndpointResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewLogzTagRule(ctx *pulumi.Context,
 	if args.LogzMonitorId == nil {
 		return nil, errors.New("invalid value for required argument 'LogzMonitorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogzTagRule
 	err := ctx.RegisterResource("azure:monitoring/logzTagRule:LogzTagRule", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure:redis/getCache:getCache", args, &rv, opts...)
 	if err != nil {

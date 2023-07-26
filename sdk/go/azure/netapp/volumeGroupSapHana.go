@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,6 +62,7 @@ func NewVolumeGroupSapHana(ctx *pulumi.Context,
 	if args.Volumes == nil {
 		return nil, errors.New("invalid value for required argument 'Volumes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VolumeGroupSapHana
 	err := ctx.RegisterResource("azure:netapp/volumeGroupSapHana:VolumeGroupSapHana", name, args, &resource, opts...)
 	if err != nil {

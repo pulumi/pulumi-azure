@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetIpGroup(ctx *pulumi.Context, args *GetIpGroupArgs, opts ...pulumi.InvokeOption) (*GetIpGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpGroupResult
 	err := ctx.Invoke("azure:network/getIpGroup:getIpGroup", args, &rv, opts...)
 	if err != nil {

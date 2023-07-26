@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetAlertRuleTemplate(ctx *pulumi.Context, args *GetAlertRuleTemplateArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertRuleTemplateResult
 	err := ctx.Invoke("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args, &rv, opts...)
 	if err != nil {

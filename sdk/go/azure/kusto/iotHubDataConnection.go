@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -174,6 +175,7 @@ func NewIotHubDataConnection(ctx *pulumi.Context,
 	if args.SharedAccessPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IotHubDataConnection
 	err := ctx.RegisterResource("azure:kusto/iotHubDataConnection:IotHubDataConnection", name, args, &resource, opts...)
 	if err != nil {

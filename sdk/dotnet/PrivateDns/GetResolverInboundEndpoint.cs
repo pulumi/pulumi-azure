@@ -80,7 +80,7 @@ namespace Pulumi.Azure.PrivateDns
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// ID of the Private DNS Resolver Inbound Endpoint.
+        /// ID of the Private DNS Resolver.
         /// </summary>
         [Input("privateDnsResolverId", required: true)]
         public string PrivateDnsResolverId { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// ID of the Private DNS Resolver Inbound Endpoint.
+        /// ID of the Private DNS Resolver.
         /// </summary>
         [Input("privateDnsResolverId", required: true)]
         public Input<string> PrivateDnsResolverId { get; set; } = null!;

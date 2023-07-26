@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkWatcher
 	err := ctx.RegisterResource("azure:network/networkWatcher:NetworkWatcher", name, args, &resource, opts...)
 	if err != nil {

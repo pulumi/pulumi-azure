@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetExtendedLocations(ctx *pulumi.Context, args *GetExtendedLocationsArgs, opts ...pulumi.InvokeOption) (*GetExtendedLocationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExtendedLocationsResult
 	err := ctx.Invoke("azure:core/getExtendedLocations:getExtendedLocations", args, &rv, opts...)
 	if err != nil {

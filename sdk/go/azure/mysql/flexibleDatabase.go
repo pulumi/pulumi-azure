@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -102,6 +103,7 @@ func NewFlexibleDatabase(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlexibleDatabase
 	err := ctx.RegisterResource("azure:mysql/flexibleDatabase:FlexibleDatabase", name, args, &resource, opts...)
 	if err != nil {

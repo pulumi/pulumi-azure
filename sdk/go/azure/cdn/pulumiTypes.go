@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type EndpointCustomDomainCdnManagedHttps struct {
 	// The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
@@ -5599,6 +5602,8 @@ type FrontdoorFirewallPolicyManagedRuleExclusion struct {
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	//
+	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector string `pulumi:"selector"`
 }
 
@@ -5621,6 +5626,8 @@ type FrontdoorFirewallPolicyManagedRuleExclusionArgs struct {
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	//
+	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -5688,6 +5695,8 @@ func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) Operator() pulumi.Str
 }
 
 // Selector for the value in the `matchVariable` attribute this exclusion applies to.
+//
+// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) Selector() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
@@ -5839,6 +5848,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideExclusion struct {
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	//
+	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector string `pulumi:"selector"`
 }
 
@@ -5861,6 +5872,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs struct {
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	//
+	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -5928,6 +5941,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) Operator() pu
 }
 
 // Selector for the value in the `matchVariable` attribute this exclusion applies to.
+//
+// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) Selector() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
@@ -6092,6 +6107,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion struct {
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	//
+	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector string `pulumi:"selector"`
 }
 
@@ -6114,6 +6131,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	//
+	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -6181,6 +6200,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) Operator(
 }
 
 // Selector for the value in the `matchVariable` attribute this exclusion applies to.
+//
+// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) Selector() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }

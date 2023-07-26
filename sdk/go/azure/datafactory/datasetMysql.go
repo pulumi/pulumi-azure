@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,6 +111,7 @@ func NewDatasetMysql(ctx *pulumi.Context,
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatasetMysql
 	err := ctx.RegisterResource("azure:datafactory/datasetMysql:DatasetMysql", name, args, &resource, opts...)
 	if err != nil {

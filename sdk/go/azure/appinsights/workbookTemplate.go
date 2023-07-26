@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -164,6 +165,7 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 	if args.TemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateData'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkbookTemplate
 	err := ctx.RegisterResource("azure:appinsights/workbookTemplate:WorkbookTemplate", name, args, &resource, opts...)
 	if err != nil {

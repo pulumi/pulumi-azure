@@ -122,14 +122,14 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
         return this.serverName;
     }
     /**
-     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * @return Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      * 
      */
     public Output<String> value() {

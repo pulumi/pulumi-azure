@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -133,6 +134,7 @@ func NewTrafficManagerProfile(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficManagerProfile
 	err := ctx.RegisterResource("azure:network/trafficManagerProfile:TrafficManagerProfile", name, args, &resource, opts...)
 	if err != nil {

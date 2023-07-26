@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,6 +82,7 @@ func NewFrontdoorRuleSet(ctx *pulumi.Context,
 	if args.CdnFrontdoorProfileId == nil {
 		return nil, errors.New("invalid value for required argument 'CdnFrontdoorProfileId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrontdoorRuleSet
 	err := ctx.RegisterResource("azure:cdn/frontdoorRuleSet:FrontdoorRuleSet", name, args, &resource, opts...)
 	if err != nil {

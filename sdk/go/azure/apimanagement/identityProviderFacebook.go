@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewIdentityProviderFacebook(ctx *pulumi.Context,
 		"appSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProviderFacebook
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, args, &resource, opts...)
 	if err != nil {

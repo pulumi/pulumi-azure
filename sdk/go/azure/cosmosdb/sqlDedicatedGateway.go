@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -102,6 +103,7 @@ func NewSqlDedicatedGateway(ctx *pulumi.Context,
 	if args.InstanceSize == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceSize'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SqlDedicatedGateway
 	err := ctx.RegisterResource("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, args, &resource, opts...)
 	if err != nil {

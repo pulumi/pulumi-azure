@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupRegistryToken(ctx *pulumi.Context, args *LookupRegistryTokenArgs, opts ...pulumi.InvokeOption) (*LookupRegistryTokenResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryTokenResult
 	err := ctx.Invoke("azure:containerservice/getRegistryToken:getRegistryToken", args, &rv, opts...)
 	if err != nil {

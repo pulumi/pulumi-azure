@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewAlertRuleMachineLearningBehaviorAnalytics(ctx *pulumi.Context,
 	if args.LogAnalyticsWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'LogAnalyticsWorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertRuleMachineLearningBehaviorAnalytics
 	err := ctx.RegisterResource("azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,20 @@ namespace Pulumi.Azure.PostgreSql.Inputs
     public sealed class FlexibleServerCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        /// </summary>
+        [Input("geoBackupKeyVaultKeyId")]
+        public Input<string>? GeoBackupKeyVaultKeyId { get; set; }
+
+        /// <summary>
+        /// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        /// 
+        /// &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+        /// </summary>
+        [Input("geoBackupUserAssignedIdentityId")]
+        public Input<string>? GeoBackupUserAssignedIdentityId { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault Key.
         /// </summary>
         [Input("keyVaultKeyId")]
@@ -20,8 +34,6 @@ namespace Pulumi.Azure.PostgreSql.Inputs
 
         /// <summary>
         /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
-        /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }

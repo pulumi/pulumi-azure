@@ -193,6 +193,7 @@ export interface GetKubernetesClusterResult {
      * Is Role Based Access Control enabled for this managed Kubernetes Cluster?
      */
     readonly roleBasedAccessControlEnabled: boolean;
+    readonly serviceMeshProfiles: outputs.containerservice.GetKubernetesClusterServiceMeshProfile[];
     /**
      * A `servicePrincipal` block as documented below.
      */

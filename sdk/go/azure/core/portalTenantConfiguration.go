@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewPortalTenantConfiguration(ctx *pulumi.Context,
 	if args.PrivateMarkdownStorageEnforced == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateMarkdownStorageEnforced'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortalTenantConfiguration
 	err := ctx.RegisterResource("azure:core/portalTenantConfiguration:PortalTenantConfiguration", name, args, &resource, opts...)
 	if err != nil {

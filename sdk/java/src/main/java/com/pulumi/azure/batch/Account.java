@@ -9,6 +9,7 @@ import com.pulumi.azure.batch.inputs.AccountState;
 import com.pulumi.azure.batch.outputs.AccountEncryption;
 import com.pulumi.azure.batch.outputs.AccountIdentity;
 import com.pulumi.azure.batch.outputs.AccountKeyVaultReference;
+import com.pulumi.azure.batch.outputs.AccountNetworkProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -181,6 +182,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A `network_profile` block as defined below.
+     * 
+     */
+    @Export(name="networkProfile", refs={AccountNetworkProfile.class}, tree="[0]")
+    private Output</* @Nullable */ AccountNetworkProfile> networkProfile;
+
+    /**
+     * @return A `network_profile` block as defined below.
+     * 
+     */
+    public Output<Optional<AccountNetworkProfile>> networkProfile() {
+        return Codegen.optional(this.networkProfile);
     }
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.

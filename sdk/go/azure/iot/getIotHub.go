@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetIotHub(ctx *pulumi.Context, args *GetIotHubArgs, opts ...pulumi.InvokeOption) (*GetIotHubResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIotHubResult
 	err := ctx.Invoke("azure:iot/getIotHub:getIotHub", args, &rv, opts...)
 	if err != nil {

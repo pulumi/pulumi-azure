@@ -23,6 +23,7 @@ class AccountArgs:
                  key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['AccountNetworkProfileArgs']] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
@@ -40,6 +41,7 @@ class AccountArgs:
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
                
@@ -68,6 +70,8 @@ class AccountArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if pool_allocation_mode is not None:
             pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
         if public_network_access_enabled is not None:
@@ -168,6 +172,18 @@ class AccountArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['AccountNetworkProfileArgs']]:
+        """
+        A `network_profile` block as defined below.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['AccountNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
     @pulumi.getter(name="poolAllocationMode")
     def pool_allocation_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -258,6 +274,7 @@ class _AccountState:
                  key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['AccountNetworkProfileArgs']] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -276,6 +293,7 @@ class _AccountState:
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[str] primary_access_key: The Batch account primary access key.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
@@ -310,6 +328,8 @@ class _AccountState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if pool_allocation_mode is not None:
             pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
         if primary_access_key is not None:
@@ -412,6 +432,18 @@ class _AccountState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['AccountNetworkProfileArgs']]:
+        """
+        A `network_profile` block as defined below.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['AccountNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
 
     @property
     @pulumi.getter(name="poolAllocationMode")
@@ -543,6 +575,7 @@ class Account(pulumi.CustomResource):
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -593,6 +626,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
                
@@ -672,6 +706,7 @@ class Account(pulumi.CustomResource):
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -694,6 +729,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["key_vault_reference"] = key_vault_reference
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
@@ -725,6 +761,7 @@ class Account(pulumi.CustomResource):
             key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_profile: Optional[pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']]] = None,
             pool_allocation_mode: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -748,6 +785,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[str] primary_access_key: The Batch account primary access key.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
@@ -779,6 +817,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["key_vault_reference"] = key_vault_reference
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
         __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -845,6 +884,14 @@ class Account(pulumi.CustomResource):
         Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Output[Optional['outputs.AccountNetworkProfile']]:
+        """
+        A `network_profile` block as defined below.
+        """
+        return pulumi.get(self, "network_profile")
 
     @property
     @pulumi.getter(name="poolAllocationMode")

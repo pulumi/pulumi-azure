@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -148,6 +149,7 @@ func NewClusterCustomerManagedKey(ctx *pulumi.Context,
 	if args.LogAnalyticsClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'LogAnalyticsClusterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterCustomerManagedKey
 	err := ctx.RegisterResource("azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,6 +127,7 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 		"serviceKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExpressRouteCircuit
 	err := ctx.RegisterResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, args, &resource, opts...)
 	if err != nil {

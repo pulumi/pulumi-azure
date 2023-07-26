@@ -90,9 +90,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-     *
-     * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -272,9 +270,7 @@ export interface ClusterState {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-     *
-     * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -376,9 +372,7 @@ export interface ClusterArgs {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-     *
-     * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
      */
     engine?: pulumi.Input<string>;
     /**

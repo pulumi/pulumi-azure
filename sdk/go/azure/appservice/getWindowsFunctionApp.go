@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupWindowsFunctionApp(ctx *pulumi.Context, args *LookupWindowsFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFunctionAppResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWindowsFunctionAppResult
 	err := ctx.Invoke("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetAAAARecord(ctx *pulumi.Context, args *GetAAAARecordArgs, opts ...pulumi.InvokeOption) (*GetAAAARecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAAAARecordResult
 	err := ctx.Invoke("azure:dns/getAAAARecord:getAAAARecord", args, &rv, opts...)
 	if err != nil {

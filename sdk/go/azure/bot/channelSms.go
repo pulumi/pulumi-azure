@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -121,6 +122,7 @@ func NewChannelSms(ctx *pulumi.Context,
 		"smsChannelAuthToken",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChannelSms
 	err := ctx.RegisterResource("azure:bot/channelSms:ChannelSms", name, args, &resource, opts...)
 	if err != nil {

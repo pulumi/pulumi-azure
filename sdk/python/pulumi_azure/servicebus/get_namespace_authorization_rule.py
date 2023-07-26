@@ -77,6 +77,9 @@ class GetNamespaceAuthorizationRuleResult:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[str]:
+        warnings.warn("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -106,6 +109,9 @@ class GetNamespaceAuthorizationRuleResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[str]:
+        warnings.warn("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -167,15 +173,17 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_namespace_authorization_rule(name="examplerule",
-        namespace_name="examplenamespace",
-        resource_group_name="example-resources")
+        namespace_id="examplenamespace")
     pulumi.export("ruleId", example.id)
     ```
 
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
+    :param str namespace_id: Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
     :param str namespace_name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+           
+           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -215,14 +223,16 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
     import pulumi_azure as azure
 
     example = azure.servicebus.get_namespace_authorization_rule(name="examplerule",
-        namespace_name="examplenamespace",
-        resource_group_name="example-resources")
+        namespace_id="examplenamespace")
     pulumi.export("ruleId", example.id)
     ```
 
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
+    :param str namespace_id: Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
     :param str namespace_name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+           
+           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     ...

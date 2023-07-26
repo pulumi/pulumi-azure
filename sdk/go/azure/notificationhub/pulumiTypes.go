@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type HubApnsCredential struct {
 	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.

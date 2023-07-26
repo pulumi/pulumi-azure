@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -121,6 +122,7 @@ func NewResourceGroupCostManagementView(ctx *pulumi.Context,
 	if args.Timeframe == nil {
 		return nil, errors.New("invalid value for required argument 'Timeframe'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceGroupCostManagementView
 	err := ctx.RegisterResource("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, args, &resource, opts...)
 	if err != nil {

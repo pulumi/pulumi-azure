@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulumi.InvokeOption) (*LookupHostPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHostPoolResult
 	err := ctx.Invoke("azure:desktopvirtualization/getHostPool:getHostPool", args, &rv, opts...)
 	if err != nil {

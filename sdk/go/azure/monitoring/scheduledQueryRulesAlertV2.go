@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewScheduledQueryRulesAlertV2(ctx *pulumi.Context,
 	if args.WindowDuration == nil {
 		return nil, errors.New("invalid value for required argument 'WindowDuration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledQueryRulesAlertV2
 	err := ctx.RegisterResource("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2", name, args, &resource, opts...)
 	if err != nil {

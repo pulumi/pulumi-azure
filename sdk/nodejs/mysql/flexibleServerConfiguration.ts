@@ -81,7 +81,7 @@ export class FlexibleServerConfiguration extends pulumi.CustomResource {
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
-     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -140,7 +140,7 @@ export interface FlexibleServerConfigurationState {
      */
     serverName?: pulumi.Input<string>;
     /**
-     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      */
     value?: pulumi.Input<string>;
 }
@@ -162,7 +162,7 @@ export interface FlexibleServerConfigurationArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      */
     value: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ import (
 //
 // ```
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserAssignedIdentityResult
 	err := ctx.Invoke("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, opts...)
 	if err != nil {

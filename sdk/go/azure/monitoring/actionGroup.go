@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -215,6 +216,7 @@ func NewActionGroup(ctx *pulumi.Context,
 	if args.ShortName == nil {
 		return nil, errors.New("invalid value for required argument 'ShortName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionGroup
 	err := ctx.RegisterResource("azure:monitoring/actionGroup:ActionGroup", name, args, &resource, opts...)
 	if err != nil {

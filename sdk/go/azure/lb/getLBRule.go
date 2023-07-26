@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about an existing Load Balancer Rule.
 func GetLBRule(ctx *pulumi.Context, args *GetLBRuleArgs, opts ...pulumi.InvokeOption) (*GetLBRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBRuleResult
 	err := ctx.Invoke("azure:lb/getLBRule:getLBRule", args, &rv, opts...)
 	if err != nil {

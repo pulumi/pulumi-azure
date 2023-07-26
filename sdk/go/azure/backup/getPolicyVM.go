@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupPolicyVM(ctx *pulumi.Context, args *LookupPolicyVMArgs, opts ...pulumi.InvokeOption) (*LookupPolicyVMResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyVMResult
 	err := ctx.Invoke("azure:backup/getPolicyVM:getPolicyVM", args, &rv, opts...)
 	if err != nil {

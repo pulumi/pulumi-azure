@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -204,6 +205,7 @@ func NewScalingPlan(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScalingPlan
 	err := ctx.RegisterResource("azure:desktopvirtualization/scalingPlan:ScalingPlan", name, args, &resource, opts...)
 	if err != nil {

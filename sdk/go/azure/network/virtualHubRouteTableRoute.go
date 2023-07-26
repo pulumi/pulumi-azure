@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -168,6 +169,7 @@ func NewVirtualHubRouteTableRoute(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualHubRouteTableRoute
 	err := ctx.RegisterResource("azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute", name, args, &resource, opts...)
 	if err != nil {

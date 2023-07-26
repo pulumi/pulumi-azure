@@ -90,8 +90,6 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -172,7 +170,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
@@ -443,8 +441,6 @@ class KubernetesClusterArgs:
     def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
@@ -900,7 +896,7 @@ class KubernetesClusterArgs:
         """
         Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 
-        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1136,8 +1132,6 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -1229,7 +1223,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -1499,8 +1493,6 @@ class _KubernetesClusterState:
     def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
@@ -2088,7 +2080,7 @@ class _KubernetesClusterState:
         """
         Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 
-        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -2368,8 +2360,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2451,7 +2441,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -2775,8 +2765,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2868,7 +2856,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -3039,8 +3027,6 @@ class KubernetesCluster(pulumi.CustomResource):
     def custom_ca_trust_certificates_base64s(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
@@ -3448,7 +3434,7 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 
-        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

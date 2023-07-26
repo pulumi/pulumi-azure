@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about an existing Tenant Template Deployment.
 func LookupTenantTemplateDeployment(ctx *pulumi.Context, args *LookupTenantTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupTenantTemplateDeploymentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTenantTemplateDeploymentResult
 	err := ctx.Invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, &rv, opts...)
 	if err != nil {

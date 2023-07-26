@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -148,6 +149,7 @@ func NewNetworkManagerDeployment(ctx *pulumi.Context,
 	if args.ScopeAccess == nil {
 		return nil, errors.New("invalid value for required argument 'ScopeAccess'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkManagerDeployment
 	err := ctx.RegisterResource("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, args, &resource, opts...)
 	if err != nil {

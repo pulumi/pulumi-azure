@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -143,6 +144,7 @@ func NewNetworkManagerConnectivityConfiguration(ctx *pulumi.Context,
 	if args.NetworkManagerId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkManagerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkManagerConnectivityConfiguration
 	err := ctx.RegisterResource("azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration", name, args, &resource, opts...)
 	if err != nil {

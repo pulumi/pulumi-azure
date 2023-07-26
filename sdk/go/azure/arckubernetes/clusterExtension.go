@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -124,6 +125,7 @@ func NewClusterExtension(ctx *pulumi.Context,
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterExtension
 	err := ctx.RegisterResource("azure:arckubernetes/clusterExtension:ClusterExtension", name, args, &resource, opts...)
 	if err != nil {

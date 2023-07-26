@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSoaRecord(ctx *pulumi.Context, args *GetSoaRecordArgs, opts ...pulumi.InvokeOption) (*GetSoaRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSoaRecordResult
 	err := ctx.Invoke("azure:privatedns/getSoaRecord:getSoaRecord", args, &rv, opts...)
 	if err != nil {

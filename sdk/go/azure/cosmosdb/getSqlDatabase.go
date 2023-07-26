@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupSqlDatabase(ctx *pulumi.Context, args *LookupSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlDatabaseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlDatabaseResult
 	err := ctx.Invoke("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, &rv, opts...)
 	if err != nil {

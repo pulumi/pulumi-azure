@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetPolicyDefintionBuiltIn(ctx *pulumi.Context, args *GetPolicyDefintionBuiltInArgs, opts ...pulumi.InvokeOption) (*GetPolicyDefintionBuiltInResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyDefintionBuiltInResult
 	err := ctx.Invoke("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args, &rv, opts...)
 	if err != nil {

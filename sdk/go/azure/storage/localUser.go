@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -133,6 +134,7 @@ func NewLocalUser(ctx *pulumi.Context,
 		"sid",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalUser
 	err := ctx.RegisterResource("azure:storage/localUser:LocalUser", name, args, &resource, opts...)
 	if err != nil {

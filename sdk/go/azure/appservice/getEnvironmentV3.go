@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupEnvironmentV3(ctx *pulumi.Context, args *LookupEnvironmentV3Args, opts ...pulumi.InvokeOption) (*LookupEnvironmentV3Result, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentV3Result
 	err := ctx.Invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, opts...)
 	if err != nil {

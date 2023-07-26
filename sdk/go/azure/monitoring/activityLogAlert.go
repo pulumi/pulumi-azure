@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -132,6 +133,7 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActivityLogAlert
 	err := ctx.RegisterResource("azure:monitoring/activityLogAlert:ActivityLogAlert", name, args, &resource, opts...)
 	if err != nil {

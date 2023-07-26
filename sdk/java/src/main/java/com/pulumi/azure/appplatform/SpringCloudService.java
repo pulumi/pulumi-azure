@@ -9,6 +9,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudServiceState;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSetting;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceContainerRegistry;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceDefaultBuildService;
+import com.pulumi.azure.appplatform.outputs.SpringCloudServiceMarketplace;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceNetwork;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceRequiredNetworkTrafficRule;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceTrace;
@@ -180,6 +181,20 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> logStreamPublicEndpointEnabled() {
         return Codegen.optional(this.logStreamPublicEndpointEnabled);
+    }
+    /**
+     * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     * 
+     */
+    @Export(name="marketplace", refs={SpringCloudServiceMarketplace.class}, tree="[0]")
+    private Output<SpringCloudServiceMarketplace> marketplace;
+
+    /**
+     * @return A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     * 
+     */
+    public Output<SpringCloudServiceMarketplace> marketplace() {
+        return this.marketplace;
     }
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

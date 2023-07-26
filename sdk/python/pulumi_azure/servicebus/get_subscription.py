@@ -159,6 +159,9 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[str]:
+        warnings.warn("""`namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -172,6 +175,9 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[str]:
+        warnings.warn("""`resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -182,6 +188,9 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="topicName")
     def topic_name(self) -> Optional[str]:
+        warnings.warn("""`topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""topic_name is deprecated: `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "topic_name")
 
 
@@ -225,9 +234,7 @@ def get_subscription(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_subscription(name="examplesubscription",
-        resource_group_name="exampleresources",
-        namespace_name="examplenamespace",
-        topic_name="exampletopic")
+        topic_id="exampletopic")
     pulumi.export("servicebusSubscription", data["azurerm_servicebus_namespace"]["example"])
     ```
 
@@ -235,7 +242,10 @@ def get_subscription(name: Optional[str] = None,
     :param str name: Specifies the name of the ServiceBus Subscription.
     :param str namespace_name: The name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+    :param str topic_id: The ID of the ServiceBus Topic where the Service Bus Subscription exists.
     :param str topic_name: The name of the ServiceBus Topic.
+           
+           > **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -282,9 +292,7 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_subscription(name="examplesubscription",
-        resource_group_name="exampleresources",
-        namespace_name="examplenamespace",
-        topic_name="exampletopic")
+        topic_id="exampletopic")
     pulumi.export("servicebusSubscription", data["azurerm_servicebus_namespace"]["example"])
     ```
 
@@ -292,6 +300,9 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the ServiceBus Subscription.
     :param str namespace_name: The name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+    :param str topic_id: The ID of the ServiceBus Topic where the Service Bus Subscription exists.
     :param str topic_name: The name of the ServiceBus Topic.
+           
+           > **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
     """
     ...

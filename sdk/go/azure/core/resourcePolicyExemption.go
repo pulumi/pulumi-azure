@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -124,6 +125,7 @@ func NewResourcePolicyExemption(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicyExemption
 	err := ctx.RegisterResource("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOption) (*GetImagesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagesResult
 	err := ctx.Invoke("azure:compute/getImages:getImages", args, &rv, opts...)
 	if err != nil {

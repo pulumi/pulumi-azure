@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,6 +127,7 @@ func NewLab(ctx *pulumi.Context,
 	if args.VirtualMachine == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachine'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Lab
 	err := ctx.RegisterResource("azure:lab/lab:Lab", name, args, &resource, opts...)
 	if err != nil {

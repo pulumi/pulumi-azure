@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -143,6 +144,7 @@ func NewResourceDeploymentScriptPowerShell(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceDeploymentScriptPowerShell
 	err := ctx.RegisterResource("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell", name, args, &resource, opts...)
 	if err != nil {

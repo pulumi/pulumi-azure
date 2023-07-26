@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FlexibleServerCustomerManagedKey struct {
 	// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
@@ -216,10 +219,7 @@ type FlexibleServerHighAvailability struct {
 	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
 	//
 	// > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
-	Mode string `pulumi:"mode"`
-	// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	//
-	// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
+	Mode                    string  `pulumi:"mode"`
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -238,10 +238,7 @@ type FlexibleServerHighAvailabilityArgs struct {
 	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
 	//
 	// > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
-	Mode pulumi.StringInput `pulumi:"mode"`
-	// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	//
-	// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
+	Mode                    pulumi.StringInput    `pulumi:"mode"`
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -329,9 +326,6 @@ func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-//
-// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
 func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -372,9 +366,6 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-//
-// > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
 func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {

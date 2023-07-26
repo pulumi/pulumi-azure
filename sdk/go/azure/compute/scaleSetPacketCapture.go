@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -186,6 +187,7 @@ func NewScaleSetPacketCapture(ctx *pulumi.Context,
 	if args.VirtualMachineScaleSetId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineScaleSetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScaleSetPacketCapture
 	err := ctx.RegisterResource("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, args, &resource, opts...)
 	if err != nil {

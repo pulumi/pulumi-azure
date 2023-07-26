@@ -22,7 +22,10 @@ class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, routes=None, subnets=None, tags=None):
+    def __init__(__self__, bgp_route_propagation_enabled=None, id=None, location=None, name=None, resource_group_name=None, routes=None, subnets=None, tags=None):
+        if bgp_route_propagation_enabled and not isinstance(bgp_route_propagation_enabled, bool):
+            raise TypeError("Expected argument 'bgp_route_propagation_enabled' to be a bool")
+        pulumi.set(__self__, "bgp_route_propagation_enabled", bgp_route_propagation_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,6 +47,14 @@ class GetRouteTableResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="bgpRoutePropagationEnabled")
+    def bgp_route_propagation_enabled(self) -> bool:
+        """
+        Boolean flag which controls propagation of routes learned by BGP on that route table.
+        """
+        return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @property
     @pulumi.getter
@@ -105,6 +116,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
         if False:
             yield self
         return GetRouteTableResult(
+            bgp_route_propagation_enabled=self.bgp_route_propagation_enabled,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -141,6 +153,7 @@ def get_route_table(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult).value
 
     return AwaitableGetRouteTableResult(
+        bgp_route_propagation_enabled=pulumi.get(__ret__, 'bgp_route_propagation_enabled'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),

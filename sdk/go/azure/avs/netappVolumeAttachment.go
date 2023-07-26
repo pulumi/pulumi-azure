@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,6 +49,7 @@ func NewNetappVolumeAttachment(ctx *pulumi.Context,
 	if args.VmwareClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'VmwareClusterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetappVolumeAttachment
 	err := ctx.RegisterResource("azure:avs/netappVolumeAttachment:NetappVolumeAttachment", name, args, &resource, opts...)
 	if err != nil {

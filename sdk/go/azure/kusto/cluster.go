@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,9 +79,7 @@ type Cluster struct {
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-	//
-	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
@@ -135,6 +134,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("azure:kusto/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {
@@ -169,9 +169,7 @@ type clusterState struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-	//
-	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -226,9 +224,7 @@ type ClusterState struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-	//
-	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -285,9 +281,7 @@ type clusterArgs struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-	//
-	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -339,9 +333,7 @@ type ClusterArgs struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-	//
-	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -498,9 +490,7 @@ func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-//
-// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }

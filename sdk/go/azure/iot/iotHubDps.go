@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,6 +106,7 @@ func NewIotHubDps(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IotHubDps
 	err := ctx.RegisterResource("azure:iot/iotHubDps:IotHubDps", name, args, &resource, opts...)
 	if err != nil {

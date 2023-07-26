@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKubernetesClusterResult
 	err := ctx.Invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, &rv, opts...)
 	if err != nil {
@@ -129,7 +131,8 @@ type LookupKubernetesClusterResult struct {
 	PrivateFqdn       string `pulumi:"privateFqdn"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is Role Based Access Control enabled for this managed Kubernetes Cluster?
-	RoleBasedAccessControlEnabled bool `pulumi:"roleBasedAccessControlEnabled"`
+	RoleBasedAccessControlEnabled bool                                     `pulumi:"roleBasedAccessControlEnabled"`
+	ServiceMeshProfiles           []GetKubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfiles"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
 	// A `storageProfile` block as documented below.
@@ -378,6 +381,12 @@ func (o LookupKubernetesClusterResultOutput) ResourceGroupName() pulumi.StringOu
 // Is Role Based Access Control enabled for this managed Kubernetes Cluster?
 func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControlEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.RoleBasedAccessControlEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupKubernetesClusterResultOutput) ServiceMeshProfiles() GetKubernetesClusterServiceMeshProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterServiceMeshProfile {
+		return v.ServiceMeshProfiles
+	}).(GetKubernetesClusterServiceMeshProfileArrayOutput)
 }
 
 // A `servicePrincipal` block as documented below.

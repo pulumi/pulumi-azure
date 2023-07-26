@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about a Network Manager Network Group.
 func LookupNetworkManagerNetworkGroup(ctx *pulumi.Context, args *LookupNetworkManagerNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkManagerNetworkGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkManagerNetworkGroupResult
 	err := ctx.Invoke("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, &rv, opts...)
 	if err != nil {

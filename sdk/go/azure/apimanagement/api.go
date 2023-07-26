@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -157,6 +158,7 @@ func NewApi(ctx *pulumi.Context,
 	if args.Revision == nil {
 		return nil, errors.New("invalid value for required argument 'Revision'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("azure:apimanagement/api:Api", name, args, &resource, opts...)
 	if err != nil {

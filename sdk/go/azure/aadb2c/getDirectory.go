@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDirectoryResult
 	err := ctx.Invoke("azure:aadb2c/getDirectory:getDirectory", args, &rv, opts...)
 	if err != nil {

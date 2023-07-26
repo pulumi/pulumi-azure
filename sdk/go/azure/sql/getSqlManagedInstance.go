@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetSqlManagedInstance(ctx *pulumi.Context, args *GetSqlManagedInstanceArgs, opts ...pulumi.InvokeOption) (*GetSqlManagedInstanceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSqlManagedInstanceResult
 	err := ctx.Invoke("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args, &rv, opts...)
 	if err != nil {

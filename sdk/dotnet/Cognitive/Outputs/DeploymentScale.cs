@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class DeploymentScale
     {
         /// <summary>
-        /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+        /// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? Capacity;
         /// <summary>

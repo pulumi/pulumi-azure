@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:mobile/network:Network":
 		r = &Network{}
+	case "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork":
+		r = &NetworkAttachedDataNetwork{}
 	case "azure:mobile/networkDataNetwork:NetworkDataNetwork":
 		r = &NetworkDataNetwork{}
 	case "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane":
@@ -48,13 +50,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := azure.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mobile/network",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkAttachedDataNetwork",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about existing resources.
 func GetResources(ctx *pulumi.Context, args *GetResourcesArgs, opts ...pulumi.InvokeOption) (*GetResourcesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourcesResult
 	err := ctx.Invoke("azure:core/getResources:getResources", args, &rv, opts...)
 	if err != nil {

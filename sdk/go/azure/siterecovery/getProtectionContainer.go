@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProtectionContainerResult
 	err := ctx.Invoke("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, &rv, opts...)
 	if err != nil {

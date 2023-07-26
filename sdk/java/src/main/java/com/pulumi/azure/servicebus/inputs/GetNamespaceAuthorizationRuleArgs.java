@@ -30,9 +30,17 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
         return this.name;
     }
 
+    /**
+     * Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+     * 
+     */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
+    /**
+     * @return Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+     * 
+     */
     public Optional<Output<String>> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
     }
@@ -40,14 +48,22 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
     /**
      * Specifies the name of the ServiceBus Namespace.
      * 
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     @Import(name="namespaceName")
     private @Nullable Output<String> namespaceName;
 
     /**
      * @return Specifies the name of the ServiceBus Namespace.
      * 
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -55,14 +71,26 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      * 
+     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+     * 
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
      * @return Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      * 
+     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+     * 
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -115,11 +143,23 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
             return name(Output.of(name));
         }
 
+        /**
+         * @param namespaceId Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceId(@Nullable Output<String> namespaceId) {
             $.namespaceId = namespaceId;
             return this;
         }
 
+        /**
+         * @param namespaceId Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceId(String namespaceId) {
             return namespaceId(Output.of(namespaceId));
         }
@@ -129,7 +169,11 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder namespaceName(@Nullable Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -140,7 +184,11 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
@@ -148,9 +196,15 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
         /**
          * @param resourceGroupName Specifies the name of the Resource Group where the ServiceBus Namespace exists.
          * 
+         * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
@@ -159,9 +213,15 @@ public final class GetNamespaceAuthorizationRuleArgs extends com.pulumi.resource
         /**
          * @param resourceGroupName Specifies the name of the Resource Group where the ServiceBus Namespace exists.
          * 
+         * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }

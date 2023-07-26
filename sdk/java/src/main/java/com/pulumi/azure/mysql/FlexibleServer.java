@@ -483,17 +483,9 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     public Output<String> version() {
         return this.version;
     }
-    /**
-     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
-    /**
-     * @return Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     */
     public Output<Optional<String>> zone() {
         return Codegen.optional(this.zone);
     }

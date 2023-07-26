@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -114,6 +115,7 @@ func NewRegistryToken(ctx *pulumi.Context,
 	if args.ScopeMapId == nil {
 		return nil, errors.New("invalid value for required argument 'ScopeMapId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegistryToken
 	err := ctx.RegisterResource("azure:containerservice/registryToken:RegistryToken", name, args, &resource, opts...)
 	if err != nil {

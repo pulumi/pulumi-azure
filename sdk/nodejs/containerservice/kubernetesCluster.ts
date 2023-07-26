@@ -114,8 +114,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      */
     public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
     /**
@@ -347,7 +345,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -614,8 +612,6 @@ export interface KubernetesClusterState {
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      */
     customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -847,7 +843,7 @@ export interface KubernetesClusterState {
     /**
      * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -954,8 +950,6 @@ export interface KubernetesClusterArgs {
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      */
     customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1147,7 +1141,7 @@ export interface KubernetesClusterArgs {
     /**
      * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.RootFile == nil {
 		return nil, errors.New("invalid value for required argument 'RootFile'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("azure:nginx/configuration:Configuration", name, args, &resource, opts...)
 	if err != nil {

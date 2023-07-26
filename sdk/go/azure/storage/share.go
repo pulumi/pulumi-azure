@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -119,6 +120,7 @@ func NewShare(ctx *pulumi.Context,
 	if args.StorageAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Share
 	err := ctx.RegisterResource("azure:storage/share:Share", name, args, &resource, opts...)
 	if err != nil {

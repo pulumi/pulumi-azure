@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -125,6 +126,7 @@ func NewRegistryWebhook(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegistryWebhook
 	err := ctx.RegisterResource("azure:containerservice/registryWebhook:RegistryWebhook", name, args, &resource, opts...)
 	if err != nil {

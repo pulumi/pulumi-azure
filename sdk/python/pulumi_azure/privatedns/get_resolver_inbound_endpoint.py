@@ -117,7 +117,7 @@ def get_resolver_inbound_endpoint(name: Optional[str] = None,
 
 
     :param str name: Name of the Private DNS Resolver Inbound Endpoint.
-    :param str private_dns_resolver_id: ID of the Private DNS Resolver Inbound Endpoint.
+    :param str private_dns_resolver_id: ID of the Private DNS Resolver.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -153,6 +153,6 @@ def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[str]] = Non
 
 
     :param str name: Name of the Private DNS Resolver Inbound Endpoint.
-    :param str private_dns_resolver_id: ID of the Private DNS Resolver Inbound Endpoint.
+    :param str private_dns_resolver_id: ID of the Private DNS Resolver.
     """
     ...

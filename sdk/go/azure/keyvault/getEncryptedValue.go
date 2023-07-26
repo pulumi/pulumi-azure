@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Encrypts or Decrypts a value using a Key Vault Key.
 func GetEncryptedValue(ctx *pulumi.Context, args *GetEncryptedValueArgs, opts ...pulumi.InvokeOption) (*GetEncryptedValueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEncryptedValueResult
 	err := ctx.Invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", args, &rv, opts...)
 	if err != nil {

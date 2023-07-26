@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -139,6 +140,7 @@ func NewEndpointEventHub(ctx *pulumi.Context,
 		"eventhubSecondaryConnectionString",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointEventHub
 	err := ctx.RegisterResource("azure:digitaltwins/endpointEventHub:EndpointEventHub", name, args, &resource, opts...)
 	if err != nil {

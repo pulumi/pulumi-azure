@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupMxRecord(ctx *pulumi.Context, args *LookupMxRecordArgs, opts ...pulumi.InvokeOption) (*LookupMxRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMxRecordResult
 	err := ctx.Invoke("azure:dns/getMxRecord:getMxRecord", args, &rv, opts...)
 	if err != nil {

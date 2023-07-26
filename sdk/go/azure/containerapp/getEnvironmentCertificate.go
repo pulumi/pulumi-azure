@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ import (
 //
 // ```
 func LookupEnvironmentCertificate(ctx *pulumi.Context, args *LookupEnvironmentCertificateArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentCertificateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentCertificateResult
 	err := ctx.Invoke("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args, &rv, opts...)
 	if err != nil {

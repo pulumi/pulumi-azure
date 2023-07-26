@@ -88,12 +88,12 @@ import * as utilities from "../utilities";
  *     osType: "Windows",
  *     skuName: "S1",
  * });
- * const test = new azure.appservice.WindowsFunctionApp("test", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     servicePlanId: azurerm_service_plan.test.id,
- *     storageAccountName: azurerm_storage_account.test.name,
- *     storageAccountAccessKey: azurerm_storage_account.test.primary_access_key,
+ * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     servicePlanId: exampleServicePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     siteConfig: {
  *         applicationStack: {
  *             dotnetVersion: "6",
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("exampleFunctionAppFunction", {
- *     functionAppId: azurerm_linux_function_app.example.id,
+ *     functionAppId: exampleWindowsFunctionApp.id,
  *     language: "CSharp",
  *     files: [{
  *         name: "run.csx",

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -159,6 +160,7 @@ func NewLinkedService(ctx *pulumi.Context,
 	if args.TypePropertiesJson == nil {
 		return nil, errors.New("invalid value for required argument 'TypePropertiesJson'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedService
 	err := ctx.RegisterResource("azure:synapse/linkedService:LinkedService", name, args, &resource, opts...)
 	if err != nil {

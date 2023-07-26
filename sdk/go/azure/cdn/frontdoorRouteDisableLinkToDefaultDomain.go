@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewFrontdoorRouteDisableLinkToDefaultDomain(ctx *pulumi.Context,
 	if args.CdnFrontdoorRouteId == nil {
 		return nil, errors.New("invalid value for required argument 'CdnFrontdoorRouteId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrontdoorRouteDisableLinkToDefaultDomain
 	err := ctx.RegisterResource("azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain", name, args, &resource, opts...)
 	if err != nil {

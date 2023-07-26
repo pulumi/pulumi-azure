@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -155,6 +156,7 @@ func NewNetworkWatcherFlowLog(ctx *pulumi.Context,
 	if args.StorageAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkWatcherFlowLog
 	err := ctx.RegisterResource("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog", name, args, &resource, opts...)
 	if err != nil {

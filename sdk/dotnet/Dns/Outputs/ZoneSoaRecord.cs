@@ -23,9 +23,9 @@ namespace Pulumi.Azure.Dns.Outputs
         public readonly int? ExpireTime;
         public readonly string? Fqdn;
         /// <summary>
-        /// The domain name of the authoritative name server for the SOA record.
+        /// The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
         /// </summary>
-        public readonly string HostName;
+        public readonly string? HostName;
         /// <summary>
         /// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Dns.Outputs
 
             string? fqdn,
 
-            string hostName,
+            string? hostName,
 
             int? minimumTtl,
 

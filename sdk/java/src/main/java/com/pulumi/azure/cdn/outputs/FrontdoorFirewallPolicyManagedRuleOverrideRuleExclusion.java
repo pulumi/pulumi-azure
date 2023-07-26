@@ -24,6 +24,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
+     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+     * 
      */
     private String selector;
 
@@ -46,6 +48,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
     }
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
+     * 
+     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
      */
     public String selector() {

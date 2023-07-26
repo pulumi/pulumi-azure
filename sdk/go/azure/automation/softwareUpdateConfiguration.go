@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -152,6 +153,7 @@ func NewSoftwareUpdateConfiguration(ctx *pulumi.Context,
 	if args.Schedules == nil {
 		return nil, errors.New("invalid value for required argument 'Schedules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SoftwareUpdateConfiguration
 	err := ctx.RegisterResource("azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration", name, args, &resource, opts...)
 	if err != nil {

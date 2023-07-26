@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -102,6 +103,7 @@ func NewGalleryApplication(ctx *pulumi.Context,
 	if args.SupportedOsType == nil {
 		return nil, errors.New("invalid value for required argument 'SupportedOsType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GalleryApplication
 	err := ctx.RegisterResource("azure:compute/galleryApplication:GalleryApplication", name, args, &resource, opts...)
 	if err != nil {

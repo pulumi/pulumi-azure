@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -164,6 +165,7 @@ func NewCustomDomain(ctx *pulumi.Context,
 	if args.ApiManagementId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiManagementId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDomain
 	err := ctx.RegisterResource("azure:apimanagement/customDomain:CustomDomain", name, args, &resource, opts...)
 	if err != nil {

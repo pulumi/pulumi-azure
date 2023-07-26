@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	if args.ApiTagId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiTagId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiTagDescription
 	err := ctx.RegisterResource("azure:apimanagement/apiTagDescription:ApiTagDescription", name, args, &resource, opts...)
 	if err != nil {

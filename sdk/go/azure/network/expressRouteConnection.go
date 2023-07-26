@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -153,6 +154,7 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 	if args.ExpressRouteGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'ExpressRouteGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExpressRouteConnection
 	err := ctx.RegisterResource("azure:network/expressRouteConnection:ExpressRouteConnection", name, args, &resource, opts...)
 	if err != nil {

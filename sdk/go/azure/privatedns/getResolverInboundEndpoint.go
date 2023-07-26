@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupResolverInboundEndpoint(ctx *pulumi.Context, args *LookupResolverInboundEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverInboundEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverInboundEndpointResult
 	err := ctx.Invoke("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -51,7 +53,7 @@ func LookupResolverInboundEndpoint(ctx *pulumi.Context, args *LookupResolverInbo
 type LookupResolverInboundEndpointArgs struct {
 	// Name of the Private DNS Resolver Inbound Endpoint.
 	Name string `pulumi:"name"`
-	// ID of the Private DNS Resolver Inbound Endpoint.
+	// ID of the Private DNS Resolver.
 	PrivateDnsResolverId string `pulumi:"privateDnsResolverId"`
 }
 
@@ -86,7 +88,7 @@ func LookupResolverInboundEndpointOutput(ctx *pulumi.Context, args LookupResolve
 type LookupResolverInboundEndpointOutputArgs struct {
 	// Name of the Private DNS Resolver Inbound Endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// ID of the Private DNS Resolver Inbound Endpoint.
+	// ID of the Private DNS Resolver.
 	PrivateDnsResolverId pulumi.StringInput `pulumi:"privateDnsResolverId"`
 }
 

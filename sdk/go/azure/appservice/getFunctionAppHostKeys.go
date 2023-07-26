@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetFunctionAppHostKeys(ctx *pulumi.Context, args *GetFunctionAppHostKeysArgs, opts ...pulumi.InvokeOption) (*GetFunctionAppHostKeysResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionAppHostKeysResult
 	err := ctx.Invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -120,6 +121,7 @@ func NewLinkedServiceAzureFunction(ctx *pulumi.Context,
 		"key",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedServiceAzureFunction
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", name, args, &resource, opts...)
 	if err != nil {

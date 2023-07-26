@@ -1588,6 +1588,7 @@ class GetVariablesBoolResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
+                 id: str,
                  name: str,
                  value: bool):
         """
@@ -1598,6 +1599,7 @@ class GetVariablesBoolResult(dict):
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
@@ -1616,6 +1618,11 @@ class GetVariablesBoolResult(dict):
         Specifies if the Automation Variable is encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1639,6 +1646,7 @@ class GetVariablesDatetimeResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
+                 id: str,
                  name: str,
                  value: str):
         """
@@ -1649,6 +1657,7 @@ class GetVariablesDatetimeResult(dict):
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
@@ -1667,6 +1676,11 @@ class GetVariablesDatetimeResult(dict):
         Specifies if the Automation Variable is encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1690,6 +1704,7 @@ class GetVariablesEncryptedResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
+                 id: str,
                  name: str,
                  value: str):
         """
@@ -1700,6 +1715,7 @@ class GetVariablesEncryptedResult(dict):
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
@@ -1718,6 +1734,11 @@ class GetVariablesEncryptedResult(dict):
         Specifies if the Automation Variable is encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1741,6 +1762,7 @@ class GetVariablesIntResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
+                 id: str,
                  name: str,
                  value: int):
         """
@@ -1751,6 +1773,7 @@ class GetVariablesIntResult(dict):
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
@@ -1769,6 +1792,11 @@ class GetVariablesIntResult(dict):
         Specifies if the Automation Variable is encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1792,6 +1820,7 @@ class GetVariablesNullResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
+                 id: str,
                  name: str,
                  value: str):
         """
@@ -1802,6 +1831,7 @@ class GetVariablesNullResult(dict):
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
@@ -1820,6 +1850,11 @@ class GetVariablesNullResult(dict):
         Specifies if the Automation Variable is encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1843,6 +1878,7 @@ class GetVariablesStringResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
+                 id: str,
                  name: str,
                  value: str):
         """
@@ -1853,6 +1889,7 @@ class GetVariablesStringResult(dict):
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
@@ -1871,6 +1908,11 @@ class GetVariablesStringResult(dict):
         Specifies if the Automation Variable is encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

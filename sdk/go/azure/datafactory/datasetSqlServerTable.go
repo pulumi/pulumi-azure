@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewDatasetSqlServerTable(ctx *pulumi.Context,
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatasetSqlServerTable
 	err := ctx.RegisterResource("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, args, &resource, opts...)
 	if err != nil {

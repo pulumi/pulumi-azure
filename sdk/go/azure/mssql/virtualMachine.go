@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -123,6 +124,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		"sqlConnectivityUpdateUsername",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualMachine
 	err := ctx.RegisterResource("azure:mssql/virtualMachine:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {

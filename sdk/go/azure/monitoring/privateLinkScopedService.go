@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewPrivateLinkScopedService(ctx *pulumi.Context,
 	if args.ScopeName == nil {
 		return nil, errors.New("invalid value for required argument 'ScopeName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrivateLinkScopedService
 	err := ctx.RegisterResource("azure:monitoring/privateLinkScopedService:PrivateLinkScopedService", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -170,6 +171,7 @@ func NewCassandraDatacenter(ctx *pulumi.Context,
 	if args.DelegatedManagementSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'DelegatedManagementSubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CassandraDatacenter
 	err := ctx.RegisterResource("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter", name, args, &resource, opts...)
 	if err != nil {

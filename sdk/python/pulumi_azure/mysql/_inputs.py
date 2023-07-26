@@ -103,9 +103,6 @@ class FlexibleServerHighAvailabilityArgs:
         :param pulumi.Input[str] mode: The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
                
                > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
-        :param pulumi.Input[str] standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-               
-               > **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -128,11 +125,6 @@ class FlexibleServerHighAvailabilityArgs:
     @property
     @pulumi.getter(name="standbyAvailabilityZone")
     def standby_availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-
-        > **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
-        """
         return pulumi.get(self, "standby_availability_zone")
 
     @standby_availability_zone.setter

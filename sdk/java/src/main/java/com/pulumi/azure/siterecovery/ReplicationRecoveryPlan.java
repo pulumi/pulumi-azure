@@ -7,7 +7,10 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.siterecovery.ReplicationRecoveryPlanArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanState;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanAzureToAzureSettings;
+import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanBootRecoveryGroup;
+import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanFailoverRecoveryGroup;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanRecoveryGroup;
+import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanShutdownRecoveryGroup;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -64,7 +67,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceArgs;
  * import com.pulumi.azure.siterecovery.ReplicationRecoveryPlan;
  * import com.pulumi.azure.siterecovery.ReplicationRecoveryPlanArgs;
- * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroupArgs;
+ * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs;
+ * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs;
+ * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -258,17 +263,11 @@ import javax.annotation.Nullable;
  *             .recoveryVaultId(vault.id())
  *             .sourceRecoveryFabricId(primaryFabric.id())
  *             .targetRecoveryFabricId(secondaryFabric.id())
- *             .recoveryGroups(            
- *                 ReplicationRecoveryPlanRecoveryGroupArgs.builder()
- *                     .type(&#34;Boot&#34;)
- *                     .replicatedProtectedItems(vm_replication.id())
- *                     .build(),
- *                 ReplicationRecoveryPlanRecoveryGroupArgs.builder()
- *                     .type(&#34;Failover&#34;)
- *                     .build(),
- *                 ReplicationRecoveryPlanRecoveryGroupArgs.builder()
- *                     .type(&#34;Shutdown&#34;)
- *                     .build())
+ *             .shutdownRecoveryGroup()
+ *             .failoverRecoveryGroup()
+ *             .bootRecoveryGroups(ReplicationRecoveryPlanBootRecoveryGroupArgs.builder()
+ *                 .replicatedProtectedItems(vm_replication.id())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -301,6 +300,42 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.azureToAzureSettings);
     }
     /**
+     * One or more `boot_recovery_group` blocks as defined below.
+     * 
+     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    @Export(name="bootRecoveryGroups", refs={List.class,ReplicationRecoveryPlanBootRecoveryGroup.class}, tree="[0,1]")
+    private Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups;
+
+    /**
+     * @return One or more `boot_recovery_group` blocks as defined below.
+     * 
+     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    public Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups() {
+        return this.bootRecoveryGroups;
+    }
+    /**
+     * One `failover_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    @Export(name="failoverRecoveryGroup", refs={ReplicationRecoveryPlanFailoverRecoveryGroup.class}, tree="[0]")
+    private Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup;
+
+    /**
+     * @return One `failover_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    public Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup() {
+        return this.failoverRecoveryGroup;
+    }
+    /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
@@ -317,16 +352,24 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
     /**
      * Three or more `recovery_group` block defined as below.
      * 
+     * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+     * 
+     * @deprecated
+     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
     @Export(name="recoveryGroups", refs={List.class,ReplicationRecoveryPlanRecoveryGroup.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups;
+    private Output<List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups;
 
     /**
      * @return Three or more `recovery_group` block defined as below.
      * 
+     * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+     * 
      */
-    public Output<Optional<List<ReplicationRecoveryPlanRecoveryGroup>>> recoveryGroups() {
-        return Codegen.optional(this.recoveryGroups);
+    public Output<List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups() {
+        return this.recoveryGroups;
     }
     /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
@@ -341,6 +384,24 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      */
     public Output<String> recoveryVaultId() {
         return this.recoveryVaultId;
+    }
+    /**
+     * One `shutdown_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    @Export(name="shutdownRecoveryGroup", refs={ReplicationRecoveryPlanShutdownRecoveryGroup.class}, tree="[0]")
+    private Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup;
+
+    /**
+     * @return One `shutdown_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    public Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup() {
+        return this.shutdownRecoveryGroup;
     }
     /**
      * ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.

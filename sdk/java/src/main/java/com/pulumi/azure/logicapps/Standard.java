@@ -208,6 +208,20 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.appSettings;
     }
     /**
+     * The Auto-swap slot name.
+     * 
+     */
+    @Export(name="autoSwapSlotName", refs={String.class}, tree="[0]")
+    private Output<String> autoSwapSlotName;
+
+    /**
+     * @return The Auto-swap slot name.
+     * 
+     */
+    public Output<String> autoSwapSlotName() {
+        return this.autoSwapSlotName;
+    }
+    /**
      * If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
      * 
      */

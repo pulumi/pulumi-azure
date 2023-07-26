@@ -260,6 +260,7 @@ namespace Pulumi.Azure.ContainerService
         /// Is Role Based Access Control enabled for this managed Kubernetes Cluster?
         /// </summary>
         public readonly bool RoleBasedAccessControlEnabled;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterServiceMeshProfileResult> ServiceMeshProfiles;
         /// <summary>
         /// A `service_principal` block as documented below.
         /// </summary>
@@ -353,6 +354,8 @@ namespace Pulumi.Azure.ContainerService
 
             bool roleBasedAccessControlEnabled,
 
+            ImmutableArray<Outputs.GetKubernetesClusterServiceMeshProfileResult> serviceMeshProfiles,
+
             ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> servicePrincipals,
 
             ImmutableArray<Outputs.GetKubernetesClusterStorageProfileResult> storageProfiles,
@@ -398,6 +401,7 @@ namespace Pulumi.Azure.ContainerService
             PrivateFqdn = privateFqdn;
             ResourceGroupName = resourceGroupName;
             RoleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
+            ServiceMeshProfiles = serviceMeshProfiles;
             ServicePrincipals = servicePrincipals;
             StorageProfiles = storageProfiles;
             Tags = tags;

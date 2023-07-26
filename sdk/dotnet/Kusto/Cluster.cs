@@ -92,11 +92,6 @@ namespace Pulumi.Azure.Kusto
         [Output("doubleEncryptionEnabled")]
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-        /// 
-        /// &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-        /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
@@ -294,11 +289,6 @@ namespace Pulumi.Azure.Kusto
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-        /// 
-        /// &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
@@ -482,11 +472,6 @@ namespace Pulumi.Azure.Kusto
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-        /// 
-        /// &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 

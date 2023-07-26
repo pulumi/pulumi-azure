@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,6 +93,7 @@ func NewSpringCloudGatewayCustomDomain(ctx *pulumi.Context,
 	if args.SpringCloudGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'SpringCloudGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpringCloudGatewayCustomDomain
 	err := ctx.RegisterResource("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,6 +94,7 @@ func NewPostgresqlCoordinatorConfiguration(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PostgresqlCoordinatorConfiguration
 	err := ctx.RegisterResource("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -130,6 +131,7 @@ func NewFluxConfiguration(ctx *pulumi.Context,
 	if args.Namespace == nil {
 		return nil, errors.New("invalid value for required argument 'Namespace'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FluxConfiguration
 	err := ctx.RegisterResource("azure:containerservice/fluxConfiguration:FluxConfiguration", name, args, &resource, opts...)
 	if err != nil {

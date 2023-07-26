@@ -207,6 +207,9 @@ namespace Pulumi.Azure.AppService
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// Should public network access be enabled for the Web App. Defaults to `true`.
+        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -410,6 +413,9 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Should public network access be enabled for the Web App. Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -646,6 +652,9 @@ namespace Pulumi.Azure.AppService
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
+        /// <summary>
+        /// Should public network access be enabled for the Web App. Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

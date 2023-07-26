@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupVolumeGroupSapHana(ctx *pulumi.Context, args *LookupVolumeGroupSapHanaArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupSapHanaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeGroupSapHanaResult
 	err := ctx.Invoke("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
 	err := ctx.Invoke("azure:mssql/getServer:getServer", args, &rv, opts...)
 	if err != nil {

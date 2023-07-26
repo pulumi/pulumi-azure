@@ -55,18 +55,18 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain name of the authoritative name server for the SOA record.
+     * The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
      * 
      */
-    @Import(name="hostName", required=true)
-    private Output<String> hostName;
+    @Import(name="hostName")
+    private @Nullable Output<String> hostName;
 
     /**
-     * @return The domain name of the authoritative name server for the SOA record.
+     * @return The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
      * 
      */
-    public Output<String> hostName() {
-        return this.hostName;
+    public Optional<Output<String>> hostName() {
+        return Optional.ofNullable(this.hostName);
     }
 
     /**
@@ -244,18 +244,18 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostName The domain name of the authoritative name server for the SOA record.
+         * @param hostName The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
          * 
          * @return builder
          * 
          */
-        public Builder hostName(Output<String> hostName) {
+        public Builder hostName(@Nullable Output<String> hostName) {
             $.hostName = hostName;
             return this;
         }
 
         /**
-         * @param hostName The domain name of the authoritative name server for the SOA record.
+         * @param hostName The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
          * 
          * @return builder
          * 
@@ -392,7 +392,6 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
 
         public ZoneSoaRecordArgs build() {
             $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
-            $.hostName = Objects.requireNonNull($.hostName, "expected parameter 'hostName' to be non-null");
             return $;
         }
     }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -103,6 +104,7 @@ func NewApiRelease(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiRelease
 	err := ctx.RegisterResource("azure:apimanagement/apiRelease:ApiRelease", name, args, &resource, opts...)
 	if err != nil {

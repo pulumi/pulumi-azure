@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupSpringCloudService(ctx *pulumi.Context, args *LookupSpringCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupSpringCloudServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpringCloudServiceResult
 	err := ctx.Invoke("azure:appplatform/getSpringCloudService:getSpringCloudService", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupKeyVault(ctx *pulumi.Context, args *LookupKeyVaultArgs, opts ...pulumi.InvokeOption) (*LookupKeyVaultResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyVaultResult
 	err := ctx.Invoke("azure:keyvault/getKeyVault:getKeyVault", args, &rv, opts...)
 	if err != nil {

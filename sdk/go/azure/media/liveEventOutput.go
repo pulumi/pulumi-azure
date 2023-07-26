@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -150,6 +151,7 @@ func NewLiveEventOutputResource(ctx *pulumi.Context,
 	if args.LiveEventId == nil {
 		return nil, errors.New("invalid value for required argument 'LiveEventId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LiveEventOutputResource
 	err := ctx.RegisterResource("azure:media/liveEventOutput:LiveEventOutput", name, args, &resource, opts...)
 	if err != nil {

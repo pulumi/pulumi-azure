@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -218,6 +219,7 @@ func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 		"serviceEndpoint",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedServiceAzureBlobStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, args, &resource, opts...)
 	if err != nil {

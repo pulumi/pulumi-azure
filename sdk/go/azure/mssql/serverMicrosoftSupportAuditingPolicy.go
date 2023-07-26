@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -258,6 +259,7 @@ func NewServerMicrosoftSupportAuditingPolicy(ctx *pulumi.Context,
 		"storageAccountSubscriptionId",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerMicrosoftSupportAuditingPolicy
 	err := ctx.RegisterResource("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy", name, args, &resource, opts...)
 	if err != nil {

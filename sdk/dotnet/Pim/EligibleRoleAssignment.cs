@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Pim
     /// Manages a Pim Eligible Role Assignment.
     /// 
     /// ## Example Usage
+    /// ### Subscription)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -43,6 +44,51 @@ namespace Pulumi.Azure.Pim
     ///             var exampleRoleDefinition = values.Item2;
     ///             return $"{primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id)}{exampleRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id)}";
     ///         }),
+    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         Schedule = new Azure.Pim.Inputs.EligibleRoleAssignmentScheduleArgs
+    ///         {
+    ///             StartDateTime = exampleStatic.Rfc3339,
+    ///             Expiration = new Azure.Pim.Inputs.EligibleRoleAssignmentScheduleExpirationArgs
+    ///             {
+    ///                 DurationHours = 8,
+    ///             },
+    ///         },
+    ///         Justification = "Expiration Duration Set",
+    ///         Ticket = new Azure.Pim.Inputs.EligibleRoleAssignmentTicketArgs
+    ///         {
+    ///             Number = "1",
+    ///             System = "example ticket system",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Management Group)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Time = Pulumiverse.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Reader",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Azure.Management.Group("exampleGroup");
+    /// 
+    ///     var exampleStatic = new Time.Static("exampleStatic");
+    /// 
+    ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("exampleEligibleRoleAssignment", new()
+    ///     {
+    ///         Scope = exampleGroup.Id,
+    ///         RoleDefinitionId = exampleRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
     ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///         Schedule = new Azure.Pim.Inputs.EligibleRoleAssignmentScheduleArgs
     ///         {

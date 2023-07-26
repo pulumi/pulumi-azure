@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewExpressRouteAuthorization(ctx *pulumi.Context,
 		"expressRouteAuthorizationKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExpressRouteAuthorization
 	err := ctx.RegisterResource("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", name, args, &resource, opts...)
 	if err != nil {

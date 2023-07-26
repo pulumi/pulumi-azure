@@ -10,6 +10,11 @@ export type EmailService = import("./emailService").EmailService;
 export const EmailService: typeof import("./emailService").EmailService = null as any;
 utilities.lazyLoad(exports, ["EmailService"], () => require("./emailService"));
 
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
 export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;

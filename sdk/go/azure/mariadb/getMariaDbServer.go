@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetMariaDbServer(ctx *pulumi.Context, args *GetMariaDbServerArgs, opts ...pulumi.InvokeOption) (*GetMariaDbServerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMariaDbServerResult
 	err := ctx.Invoke("azure:mariadb/getMariaDbServer:getMariaDbServer", args, &rv, opts...)
 	if err != nil {

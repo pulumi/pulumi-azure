@@ -25,10 +25,10 @@ public final class ZoneSoaRecord {
     private @Nullable Integer expireTime;
     private @Nullable String fqdn;
     /**
-     * @return The domain name of the authoritative name server for the SOA record.
+     * @return The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
      * 
      */
-    private String hostName;
+    private @Nullable String hostName;
     /**
      * @return The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
      * 
@@ -79,11 +79,11 @@ public final class ZoneSoaRecord {
         return Optional.ofNullable(this.fqdn);
     }
     /**
-     * @return The domain name of the authoritative name server for the SOA record.
+     * @return The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
      * 
      */
-    public String hostName() {
-        return this.hostName;
+    public Optional<String> hostName() {
+        return Optional.ofNullable(this.hostName);
     }
     /**
      * @return The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
@@ -140,7 +140,7 @@ public final class ZoneSoaRecord {
         private String email;
         private @Nullable Integer expireTime;
         private @Nullable String fqdn;
-        private String hostName;
+        private @Nullable String hostName;
         private @Nullable Integer minimumTtl;
         private @Nullable Integer refreshTime;
         private @Nullable Integer retryTime;
@@ -178,8 +178,8 @@ public final class ZoneSoaRecord {
             return this;
         }
         @CustomType.Setter
-        public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+        public Builder hostName(@Nullable String hostName) {
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter

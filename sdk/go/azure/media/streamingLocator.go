@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -147,6 +148,7 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	if args.StreamingPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamingPolicyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamingLocator
 	err := ctx.RegisterResource("azure:media/streamingLocator:StreamingLocator", name, args, &resource, opts...)
 	if err != nil {

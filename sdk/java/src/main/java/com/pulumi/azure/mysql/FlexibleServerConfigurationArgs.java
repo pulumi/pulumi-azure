@@ -61,14 +61,14 @@ public final class FlexibleServerConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+     * @return Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
      * 
      */
     public Output<String> value() {
@@ -166,7 +166,7 @@ public final class FlexibleServerConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param value Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+         * @param value Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class FlexibleServerConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param value Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
+         * @param value Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
          * 
          * @return builder
          * 

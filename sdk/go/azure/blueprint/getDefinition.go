@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,6 +54,7 @@ import (
 //
 // ```
 func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.InvokeOption) (*GetDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefinitionResult
 	err := ctx.Invoke("azure:blueprint/getDefinition:getDefinition", args, &rv, opts...)
 	if err != nil {

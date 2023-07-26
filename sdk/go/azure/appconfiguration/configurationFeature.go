@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,6 +127,7 @@ func NewConfigurationFeature(ctx *pulumi.Context,
 	if args.ConfigurationStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigurationStoreId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationFeature
 	err := ctx.RegisterResource("azure:appconfiguration/configurationFeature:ConfigurationFeature", name, args, &resource, opts...)
 	if err != nil {
