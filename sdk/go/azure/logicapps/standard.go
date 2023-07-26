@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -166,6 +167,8 @@ type Standard struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
+	// The Auto-swap slot name.
+	AutoSwapSlotName pulumi.StringOutput `pulumi:"autoSwapSlotName"`
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion pulumi.StringPtrOutput `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
@@ -240,6 +243,7 @@ func NewStandard(ctx *pulumi.Context,
 		"storageAccountAccessKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Standard
 	err := ctx.RegisterResource("azure:logicapps/standard:Standard", name, args, &resource, opts...)
 	if err != nil {
@@ -268,6 +272,8 @@ type standardState struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings map[string]string `pulumi:"appSettings"`
+	// The Auto-swap slot name.
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion *string `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
@@ -323,6 +329,8 @@ type StandardState struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings pulumi.StringMapInput
+	// The Auto-swap slot name.
+	AutoSwapSlotName pulumi.StringPtrInput
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion pulumi.StringPtrInput
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
@@ -559,6 +567,11 @@ func (o StandardOutput) AppServicePlanId() pulumi.StringOutput {
 // > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 func (o StandardOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
+}
+
+// The Auto-swap slot name.
+func (o StandardOutput) AutoSwapSlotName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.AutoSwapSlotName }).(pulumi.StringOutput)
 }
 
 // If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`

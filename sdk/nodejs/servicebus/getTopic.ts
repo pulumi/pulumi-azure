@@ -15,8 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.servicebus.getTopic({
  *     name: "existing",
- *     resourceGroupName: "existing",
- *     namespaceName: "existing",
+ *     namespaceId: "existing",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -40,13 +39,22 @@ export interface GetTopicArgs {
      * The name of this Service Bus Topic.
      */
     name: string;
+    /**
+     * The ID of the ServiceBus Namespace where the Service Bus Topic exists.
+     */
     namespaceId?: string;
     /**
      * The name of the Service Bus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
      * The name of the Resource Group where the Service Bus Topic exists.
+     *
+     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -89,11 +97,17 @@ export interface GetTopicResult {
     readonly maxSizeInMegabytes: number;
     readonly name: string;
     readonly namespaceId?: string;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly namespaceName?: string;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection.
      */
     readonly requiresDuplicateDetection: boolean;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly resourceGroupName?: string;
     /**
      * The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
@@ -115,8 +129,7 @@ export interface GetTopicResult {
  *
  * const example = azure.servicebus.getTopic({
  *     name: "existing",
- *     resourceGroupName: "existing",
- *     namespaceName: "existing",
+ *     namespaceId: "existing",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -133,13 +146,22 @@ export interface GetTopicOutputArgs {
      * The name of this Service Bus Topic.
      */
     name: pulumi.Input<string>;
+    /**
+     * The ID of the ServiceBus Namespace where the Service Bus Topic exists.
+     */
     namespaceId?: pulumi.Input<string>;
     /**
      * The name of the Service Bus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Service Bus Topic exists.
+     *
+     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

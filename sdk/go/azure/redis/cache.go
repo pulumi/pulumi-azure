@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -163,6 +164,7 @@ func NewCache(ctx *pulumi.Context,
 		"secondaryConnectionString",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cache
 	err := ctx.RegisterResource("azure:redis/cache:Cache", name, args, &resource, opts...)
 	if err != nil {

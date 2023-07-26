@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -174,6 +175,7 @@ func NewServiceCustomDomain(ctx *pulumi.Context,
 	if args.SignalrServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'SignalrServiceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceCustomDomain
 	err := ctx.RegisterResource("azure:signalr/serviceCustomDomain:ServiceCustomDomain", name, args, &resource, opts...)
 	if err != nil {

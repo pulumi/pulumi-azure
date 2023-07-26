@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupMedtechService(ctx *pulumi.Context, args *LookupMedtechServiceArgs, opts ...pulumi.InvokeOption) (*LookupMedtechServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMedtechServiceResult
 	err := ctx.Invoke("azure:healthcare/getMedtechService:getMedtechService", args, &rv, opts...)
 	if err != nil {

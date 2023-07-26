@@ -99,6 +99,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `networkProfile` block as defined below.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.batch.AccountNetworkProfile | undefined>;
+    /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
     public readonly poolAllocationMode!: pulumi.Output<string | undefined>;
@@ -165,6 +169,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
@@ -185,6 +190,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -235,6 +241,10 @@ export interface AccountState {
      * Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkProfile` block as defined below.
+     */
+    networkProfile?: pulumi.Input<inputs.batch.AccountNetworkProfile>;
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
@@ -311,6 +321,10 @@ export interface AccountArgs {
      * Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkProfile` block as defined below.
+     */
+    networkProfile?: pulumi.Input<inputs.batch.AccountNetworkProfile>;
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */

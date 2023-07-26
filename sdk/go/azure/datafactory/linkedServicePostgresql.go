@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewLinkedServicePostgresql(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedServicePostgresql
 	err := ctx.RegisterResource("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -170,6 +171,7 @@ func NewNamespaceCustomerManagedKey(ctx *pulumi.Context,
 	if args.KeyVaultKeyIds == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultKeyIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NamespaceCustomerManagedKey
 	err := ctx.RegisterResource("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey", name, args, &resource, opts...)
 	if err != nil {

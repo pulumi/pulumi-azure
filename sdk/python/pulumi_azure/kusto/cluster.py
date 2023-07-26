@@ -47,9 +47,6 @@ class ClusterArgs:
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-               
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
@@ -81,6 +78,9 @@ class ClusterArgs:
             pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+        if engine is not None:
+            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if identity is not None:
@@ -199,11 +199,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
-        """
-        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
+        warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
 
-        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -418,9 +416,6 @@ class _ClusterState:
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-               
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
@@ -455,6 +450,9 @@ class _ClusterState:
             pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+        if engine is not None:
+            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if identity is not None:
@@ -567,11 +565,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
-        """
-        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
+        warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
 
-        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -852,9 +848,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-               
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
@@ -963,6 +956,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["auto_stop_enabled"] = auto_stop_enabled
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
+            if engine is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
             __props__.__dict__["engine"] = engine
             __props__.__dict__["identity"] = identity
             __props__.__dict__["language_extensions"] = language_extensions
@@ -1033,9 +1029,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
-               
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
@@ -1139,11 +1132,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
-        """
-        . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. 
+        warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
 
-        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-        """
         return pulumi.get(self, "engine")
 
     @property

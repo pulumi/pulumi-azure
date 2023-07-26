@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupResolverVirtualNetworkLink(ctx *pulumi.Context, args *LookupResolverVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupResolverVirtualNetworkLinkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverVirtualNetworkLinkResult
 	err := ctx.Invoke("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args, &rv, opts...)
 	if err != nil {

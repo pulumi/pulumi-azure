@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,6 +58,7 @@ func NewManagedInstanceFailoverGroup(ctx *pulumi.Context,
 	if args.ReadWriteEndpointFailoverPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'ReadWriteEndpointFailoverPolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedInstanceFailoverGroup
 	err := ctx.RegisterResource("azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup", name, args, &resource, opts...)
 	if err != nil {

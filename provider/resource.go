@@ -103,6 +103,7 @@ const (
 	azureElasticCloud          = "ElasticCloud"          // Elastic Cloud
 	azureFluidRelay            = "FluidRelay"            // Fluid Relay
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
+	azureGraph                 = "Graph"                 // Graph
 	azureHdInsight             = "HDInsight"             // nolint:misspell // HDInsight
 	azureHealthcare            = "Healthcare"            // HealthCare
 	azureHpc                   = "Hpc"                   // High-performance Compute
@@ -248,6 +249,7 @@ var moduleMap = map[string]string{
 	"elastic_cloud":           azureElasticCloud,
 	"fluid_relay":             azureFluidRelay,
 	"frontdoor":               azureFrontdoor,
+	"graph":                   azureGraph,
 	"hdinsight":               azureHdInsight,
 	"healthcare":              azureHealthcare,
 	"hpc":                     azureHpc,

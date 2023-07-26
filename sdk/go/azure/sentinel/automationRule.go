@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -135,6 +136,7 @@ func NewAutomationRule(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutomationRule
 	err := ctx.RegisterResource("azure:sentinel/automationRule:AutomationRule", name, args, &resource, opts...)
 	if err != nil {

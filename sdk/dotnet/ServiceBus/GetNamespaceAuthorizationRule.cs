@@ -29,8 +29,7 @@ namespace Pulumi.Azure.ServiceBus
         ///     var example = Azure.ServiceBus.GetNamespaceAuthorizationRule.Invoke(new()
         ///     {
         ///         Name = "examplerule",
-        ///         NamespaceName = "examplenamespace",
-        ///         ResourceGroupName = "example-resources",
+        ///         NamespaceId = "examplenamespace",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -63,8 +62,7 @@ namespace Pulumi.Azure.ServiceBus
         ///     var example = Azure.ServiceBus.GetNamespaceAuthorizationRule.Invoke(new()
         ///     {
         ///         Name = "examplerule",
-        ///         NamespaceName = "examplenamespace",
-        ///         ResourceGroupName = "example-resources",
+        ///         NamespaceId = "examplenamespace",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -89,6 +87,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+        /// </summary>
         [Input("namespaceId")]
         public string? NamespaceId { get; set; }
 
@@ -100,6 +101,8 @@ namespace Pulumi.Azure.ServiceBus
 
         /// <summary>
         /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+        /// 
+        /// &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
         /// </summary>
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
@@ -118,6 +121,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+        /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
@@ -129,6 +135,8 @@ namespace Pulumi.Azure.ServiceBus
 
         /// <summary>
         /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+        /// 
+        /// &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

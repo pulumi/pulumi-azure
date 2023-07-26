@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupMongoDatabase(ctx *pulumi.Context, args *LookupMongoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupMongoDatabaseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMongoDatabaseResult
 	err := ctx.Invoke("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, &rv, opts...)
 	if err != nil {

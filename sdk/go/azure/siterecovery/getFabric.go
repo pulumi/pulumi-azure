@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupFabric(ctx *pulumi.Context, args *LookupFabricArgs, opts ...pulumi.InvokeOption) (*LookupFabricResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFabricResult
 	err := ctx.Invoke("azure:siterecovery/getFabric:getFabric", args, &rv, opts...)
 	if err != nil {

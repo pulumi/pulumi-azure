@@ -21,6 +21,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// Specifies if the Automation Variable is encrypted.
         /// </summary>
         public readonly bool Encrypted;
+        public readonly string Id;
         /// <summary>
         /// The name of the Automation Variable.
         /// </summary>
@@ -36,12 +37,15 @@ namespace Pulumi.Azure.Automation.Outputs
 
             bool encrypted,
 
+            string id,
+
             string name,
 
             string value)
         {
             Description = description;
             Encrypted = encrypted;
+            Id = id;
             Name = name;
             Value = value;
         }

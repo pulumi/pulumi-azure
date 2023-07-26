@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -140,6 +141,7 @@ func NewEdgeModule(ctx *pulumi.Context,
 	if args.VideoAnalyzerName == nil {
 		return nil, errors.New("invalid value for required argument 'VideoAnalyzerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EdgeModule
 	err := ctx.RegisterResource("azure:videoanalyzer/edgeModule:EdgeModule", name, args, &resource, opts...)
 	if err != nil {

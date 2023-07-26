@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -198,6 +199,7 @@ func NewModule(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Module
 	err := ctx.RegisterResource("azure:hsm/module:Module", name, args, &resource, opts...)
 	if err != nil {

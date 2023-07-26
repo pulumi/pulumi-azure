@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -103,6 +104,7 @@ func NewApplication(ctx *pulumi.Context,
 	if args.SubDomain == nil {
 		return nil, errors.New("invalid value for required argument 'SubDomain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("azure:iotcentral/application:Application", name, args, &resource, opts...)
 	if err != nil {

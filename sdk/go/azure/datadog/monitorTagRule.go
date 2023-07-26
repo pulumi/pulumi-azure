@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewMonitorTagRule(ctx *pulumi.Context,
 	if args.DatadogMonitorId == nil {
 		return nil, errors.New("invalid value for required argument 'DatadogMonitorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitorTagRule
 	err := ctx.RegisterResource("azure:datadog/monitorTagRule:MonitorTagRule", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupFrontdoorCustomDomain(ctx *pulumi.Context, args *LookupFrontdoorCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorCustomDomainResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorCustomDomainResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, &rv, opts...)
 	if err != nil {

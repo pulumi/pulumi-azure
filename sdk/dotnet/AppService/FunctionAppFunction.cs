@@ -130,13 +130,13 @@ namespace Pulumi.Azure.AppService
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var test = new Azure.AppService.WindowsFunctionApp("test", new()
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///         ServicePlanId = azurerm_service_plan.Test.Id,
-    ///         StorageAccountName = azurerm_storage_account.Test.Name,
-    ///         StorageAccountAccessKey = azurerm_storage_account.Test.Primary_access_key,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         SiteConfig = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigArgs
     ///         {
     ///             ApplicationStack = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigApplicationStackArgs
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new()
     ///     {
-    ///         FunctionAppId = azurerm_linux_function_app.Example.Id,
+    ///         FunctionAppId = exampleWindowsFunctionApp.Id,
     ///         Language = "CSharp",
     ///         Files = new[]
     ///         {

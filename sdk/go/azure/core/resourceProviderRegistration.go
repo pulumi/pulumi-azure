@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,6 +97,7 @@ func NewResourceProviderRegistration(ctx *pulumi.Context,
 		args = &ResourceProviderRegistrationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceProviderRegistration
 	err := ctx.RegisterResource("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, args, &resource, opts...)
 	if err != nil {

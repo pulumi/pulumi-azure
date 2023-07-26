@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedHostResult
 	err := ctx.Invoke("azure:compute/getDedicatedHost:getDedicatedHost", args, &rv, opts...)
 	if err != nil {

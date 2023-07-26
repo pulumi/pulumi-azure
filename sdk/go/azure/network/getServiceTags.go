@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetServiceTags(ctx *pulumi.Context, args *GetServiceTagsArgs, opts ...pulumi.InvokeOption) (*GetServiceTagsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceTagsResult
 	err := ctx.Invoke("azure:network/getServiceTags:getServiceTags", args, &rv, opts...)
 	if err != nil {

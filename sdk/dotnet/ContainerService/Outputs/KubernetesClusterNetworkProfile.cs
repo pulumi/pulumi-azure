@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// 
         /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
         /// 
-        /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "Overlay"` or `pod_subnet_id` must be specified.
+        /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
         /// 
         /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         /// </summary>
@@ -68,9 +68,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>
-        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+        /// &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
         /// </summary>
         public readonly string? NetworkPluginMode;
         /// <summary>

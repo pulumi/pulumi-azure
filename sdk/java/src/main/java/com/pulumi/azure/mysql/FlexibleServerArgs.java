@@ -362,17 +362,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.version);
     }
 
-    /**
-     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
-    /**
-     * @return Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-     * 
-     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -887,23 +879,11 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
             return version(Output.of(version));
         }
 
-        /**
-         * @param zone Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
-        /**
-         * @param zone Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

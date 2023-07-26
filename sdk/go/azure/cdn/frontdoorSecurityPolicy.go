@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewFrontdoorSecurityPolicy(ctx *pulumi.Context,
 	if args.SecurityPolicies == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityPolicies'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrontdoorSecurityPolicy
 	err := ctx.RegisterResource("azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy", name, args, &resource, opts...)
 	if err != nil {

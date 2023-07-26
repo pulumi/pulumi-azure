@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewGroupSubscriptionAssociation(ctx *pulumi.Context,
 	if args.SubscriptionId == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupSubscriptionAssociation
 	err := ctx.RegisterResource("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, args, &resource, opts...)
 	if err != nil {

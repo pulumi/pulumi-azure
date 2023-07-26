@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlRoleDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlRoleDefinitionResult
 	err := ctx.Invoke("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, &rv, opts...)
 	if err != nil {

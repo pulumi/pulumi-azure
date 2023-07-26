@@ -164,10 +164,10 @@ class ZoneSoaRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hostName":
-            suggest = "host_name"
-        elif key == "expireTime":
+        if key == "expireTime":
             suggest = "expire_time"
+        elif key == "hostName":
+            suggest = "host_name"
         elif key == "minimumTtl":
             suggest = "minimum_ttl"
         elif key == "refreshTime":
@@ -190,9 +190,9 @@ class ZoneSoaRecord(dict):
 
     def __init__(__self__, *,
                  email: str,
-                 host_name: str,
                  expire_time: Optional[int] = None,
                  fqdn: Optional[str] = None,
+                 host_name: Optional[str] = None,
                  minimum_ttl: Optional[int] = None,
                  refresh_time: Optional[int] = None,
                  retry_time: Optional[int] = None,
@@ -201,8 +201,8 @@ class ZoneSoaRecord(dict):
                  ttl: Optional[int] = None):
         """
         :param str email: The email contact for the SOA record.
-        :param str host_name: The domain name of the authoritative name server for the SOA record.
         :param int expire_time: The expire time for the SOA record. Defaults to `2419200`.
+        :param str host_name: The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
         :param int minimum_ttl: The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
         :param int refresh_time: The refresh time for the SOA record. Defaults to `3600`.
         :param int retry_time: The retry time for the SOA record. Defaults to `300`.
@@ -211,11 +211,12 @@ class ZoneSoaRecord(dict):
         :param int ttl: The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
         pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "host_name", host_name)
         if expire_time is not None:
             pulumi.set(__self__, "expire_time", expire_time)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
         if minimum_ttl is not None:
             pulumi.set(__self__, "minimum_ttl", minimum_ttl)
         if refresh_time is not None:
@@ -238,14 +239,6 @@ class ZoneSoaRecord(dict):
         return pulumi.get(self, "email")
 
     @property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
-        """
-        The domain name of the authoritative name server for the SOA record.
-        """
-        return pulumi.get(self, "host_name")
-
-    @property
     @pulumi.getter(name="expireTime")
     def expire_time(self) -> Optional[int]:
         """
@@ -257,6 +250,14 @@ class ZoneSoaRecord(dict):
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+        """
+        return pulumi.get(self, "host_name")
 
     @property
     @pulumi.getter(name="minimumTtl")

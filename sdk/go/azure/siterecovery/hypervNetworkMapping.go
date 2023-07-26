@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,6 +113,7 @@ func NewHypervNetworkMapping(ctx *pulumi.Context,
 	if args.TargetNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetNetworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HypervNetworkMapping
 	err := ctx.RegisterResource("azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping", name, args, &resource, opts...)
 	if err != nil {

@@ -116,6 +116,10 @@ namespace Pulumi.Azure.Network
     public sealed class GetRouteTableResult
     {
         /// <summary>
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table.
+        /// </summary>
+        public readonly bool BgpRoutePropagationEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -143,6 +147,8 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetRouteTableResult(
+            bool bgpRoutePropagationEnabled,
+
             string id,
 
             string location,
@@ -157,6 +163,7 @@ namespace Pulumi.Azure.Network
 
             ImmutableDictionary<string, string> tags)
         {
+            BgpRoutePropagationEnabled = bgpRoutePropagationEnabled;
             Id = id;
             Location = location;
             Name = name;

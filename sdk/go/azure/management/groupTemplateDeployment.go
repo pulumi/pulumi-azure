@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -221,6 +222,7 @@ func NewGroupTemplateDeployment(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupTemplateDeployment
 	err := ctx.RegisterResource("azure:management/groupTemplateDeployment:GroupTemplateDeployment", name, args, &resource, opts...)
 	if err != nil {

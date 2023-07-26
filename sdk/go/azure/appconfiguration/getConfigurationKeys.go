@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetConfigurationKeys(ctx *pulumi.Context, args *GetConfigurationKeysArgs, opts ...pulumi.InvokeOption) (*GetConfigurationKeysResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConfigurationKeysResult
 	err := ctx.Invoke("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,6 +54,7 @@ func NewNetworkPacketCoreDataPlane(ctx *pulumi.Context,
 	if args.MobileNetworkPacketCoreControlPlaneId == nil {
 		return nil, errors.New("invalid value for required argument 'MobileNetworkPacketCoreControlPlaneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkPacketCoreDataPlane
 	err := ctx.RegisterResource("azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane", name, args, &resource, opts...)
 	if err != nil {

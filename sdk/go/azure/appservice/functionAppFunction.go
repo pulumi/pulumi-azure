@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -148,7 +149,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -157,7 +158,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				OsType:            pulumi.String("Windows"),
@@ -166,12 +167,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewWindowsFunctionApp(ctx, "test", &appservice.WindowsFunctionAppArgs{
-//				Location:                pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
-//				ServicePlanId:           pulumi.Any(azurerm_service_plan.Test.Id),
-//				StorageAccountName:      pulumi.Any(azurerm_storage_account.Test.Name),
-//				StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Test.Primary_access_key),
+//			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				ServicePlanId:           exampleServicePlan.ID(),
+//				StorageAccountName:      exampleAccount.Name,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
 //					ApplicationStack: &appservice.WindowsFunctionAppSiteConfigApplicationStackArgs{
 //						DotnetVersion: pulumi.String("6"),
@@ -212,7 +213,7 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
-//				FunctionAppId: pulumi.Any(azurerm_linux_function_app.Example.Id),
+//				FunctionAppId: exampleWindowsFunctionApp.ID(),
 //				Language:      pulumi.String("CSharp"),
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{
@@ -289,6 +290,7 @@ func NewFunctionAppFunction(ctx *pulumi.Context,
 	if args.FunctionAppId == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionAppId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionAppFunction
 	err := ctx.RegisterResource("azure:appservice/functionAppFunction:FunctionAppFunction", name, args, &resource, opts...)
 	if err != nil {

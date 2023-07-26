@@ -74,6 +74,62 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### TXT validation
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appservice.StaticSite;
+ * import com.pulumi.azure.appservice.StaticSiteArgs;
+ * import com.pulumi.azure.appservice.StaticSiteCustomDomain;
+ * import com.pulumi.azure.appservice.StaticSiteCustomDomainArgs;
+ * import com.pulumi.azure.dns.TxtRecord;
+ * import com.pulumi.azure.dns.TxtRecordArgs;
+ * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleStaticSite = new StaticSite(&#34;exampleStaticSite&#34;, StaticSiteArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
+ *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain(&#34;exampleStaticSiteCustomDomain&#34;, StaticSiteCustomDomainArgs.builder()        
+ *             .staticSiteId(exampleStaticSite.id())
+ *             .domainName(&#34;my-domain.contoso.com&#34;)
+ *             .validationType(&#34;dns-txt-token&#34;)
+ *             .build());
+ * 
+ *         var exampleTxtRecord = new TxtRecord(&#34;exampleTxtRecord&#34;, TxtRecordArgs.builder()        
+ *             .zoneName(&#34;contoso.com&#34;)
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ttl(300)
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value(exampleStaticSiteCustomDomain.validationToken())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

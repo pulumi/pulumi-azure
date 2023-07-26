@@ -23,7 +23,7 @@ public final class GetVariablesResult {
      */
     private List<GetVariablesBool> bools;
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each datetime variable.
      * 
      */
     private List<GetVariablesDatetime> datetimes;
@@ -38,17 +38,17 @@ public final class GetVariablesResult {
      */
     private String id;
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each int variable.
      * 
      */
     private List<GetVariablesInt> ints;
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each null variable.
      * 
      */
     private List<GetVariablesNull> nulls;
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each string variable.
      * 
      */
     private List<GetVariablesString> strings;
@@ -65,7 +65,7 @@ public final class GetVariablesResult {
         return this.bools;
     }
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each datetime variable.
      * 
      */
     public List<GetVariablesDatetime> datetimes() {
@@ -86,21 +86,21 @@ public final class GetVariablesResult {
         return this.id;
     }
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each int variable.
      * 
      */
     public List<GetVariablesInt> ints() {
         return this.ints;
     }
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each null variable.
      * 
      */
     public List<GetVariablesNull> nulls() {
         return this.nulls;
     }
     /**
-     * @return One or more `variable` blocks as defined below for each boolean variable.
+     * @return One or more `variable` blocks as defined below for each string variable.
      * 
      */
     public List<GetVariablesString> strings() {

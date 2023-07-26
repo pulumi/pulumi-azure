@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -224,6 +225,7 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 		"sharedKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExpressRouteCircuitPeering
 	err := ctx.RegisterResource("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, args, &resource, opts...)
 	if err != nil {

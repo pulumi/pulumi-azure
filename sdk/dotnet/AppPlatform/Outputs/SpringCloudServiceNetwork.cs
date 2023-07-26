@@ -26,6 +26,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CidrRanges;
         /// <summary>
+        /// Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? OutboundType;
+        /// <summary>
         /// Ingress read time out in seconds.
         /// </summary>
         public readonly int? ReadTimeoutSeconds;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             ImmutableArray<string> cidrRanges,
 
+            string? outboundType,
+
             int? readTimeoutSeconds,
 
             string? serviceRuntimeNetworkResourceGroup,
@@ -55,6 +61,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
             AppNetworkResourceGroup = appNetworkResourceGroup;
             AppSubnetId = appSubnetId;
             CidrRanges = cidrRanges;
+            OutboundType = outboundType;
             ReadTimeoutSeconds = readTimeoutSeconds;
             ServiceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             ServiceRuntimeSubnetId = serviceRuntimeSubnetId;

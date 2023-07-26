@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAgreementResult
 	err := ctx.Invoke("azure:marketplace/getAgreement:getAgreement", args, &rv, opts...)
 	if err != nil {

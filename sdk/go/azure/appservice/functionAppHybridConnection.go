@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -161,6 +162,7 @@ func NewFunctionAppHybridConnection(ctx *pulumi.Context,
 		"sendKeyValue",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionAppHybridConnection
 	err := ctx.RegisterResource("azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection", name, args, &resource, opts...)
 	if err != nil {

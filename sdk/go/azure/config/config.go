@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 func GetAuxiliaryTenantIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:auxiliaryTenantIds")
@@ -67,7 +70,7 @@ func GetEnvironment(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"); d != nil {
+	if d := internal.GetEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -81,7 +84,7 @@ func GetLocation(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "ARM_LOCATION"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "ARM_LOCATION"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -94,7 +97,7 @@ func GetMetadataHost(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "ARM_METADATA_HOSTNAME"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "ARM_METADATA_HOSTNAME"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -141,7 +144,7 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 		return v
 	}
 	var value bool
-	if d := getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION"); d != nil {
+	if d := internal.GetEnvOrDefault(false, internal.ParseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION"); d != nil {
 		value = d.(bool)
 	}
 	return value
@@ -154,7 +157,7 @@ func GetStorageUseAzuread(ctx *pulumi.Context) bool {
 		return v
 	}
 	var value bool
-	if d := getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD"); d != nil {
+	if d := internal.GetEnvOrDefault(false, internal.ParseEnvBool, "ARM_STORAGE_USE_AZUREAD"); d != nil {
 		value = d.(bool)
 	}
 	return value
@@ -167,7 +170,7 @@ func GetSubscriptionId(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID"); d != nil {
+	if d := internal.GetEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID"); d != nil {
 		value = d.(string)
 	}
 	return value

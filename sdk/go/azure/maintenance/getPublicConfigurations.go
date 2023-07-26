@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetPublicConfigurations(ctx *pulumi.Context, args *GetPublicConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetPublicConfigurationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicConfigurationsResult
 	err := ctx.Invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, &rv, opts...)
 	if err != nil {

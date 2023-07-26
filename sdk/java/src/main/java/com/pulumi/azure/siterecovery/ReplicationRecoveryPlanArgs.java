@@ -4,7 +4,10 @@
 package com.pulumi.azure.siterecovery;
 
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs;
+import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs;
+import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroupArgs;
+import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -34,6 +37,44 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * One or more `boot_recovery_group` blocks as defined below.
+     * 
+     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    @Import(name="bootRecoveryGroups")
+    private @Nullable Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups;
+
+    /**
+     * @return One or more `boot_recovery_group` blocks as defined below.
+     * 
+     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    public Optional<Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>>> bootRecoveryGroups() {
+        return Optional.ofNullable(this.bootRecoveryGroups);
+    }
+
+    /**
+     * One `failover_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    @Import(name="failoverRecoveryGroup")
+    private @Nullable Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup;
+
+    /**
+     * @return One `failover_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    public Optional<Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs>> failoverRecoveryGroup() {
+        return Optional.ofNullable(this.failoverRecoveryGroup);
+    }
+
+    /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
@@ -51,14 +92,26 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     /**
      * Three or more `recovery_group` block defined as below.
      * 
+     * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+     * 
+     * @deprecated
+     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
     @Import(name="recoveryGroups")
     private @Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups;
 
     /**
      * @return Three or more `recovery_group` block defined as below.
      * 
+     * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+     * 
+     * @deprecated
+     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
     public Optional<Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>>> recoveryGroups() {
         return Optional.ofNullable(this.recoveryGroups);
     }
@@ -76,6 +129,25 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      */
     public Output<String> recoveryVaultId() {
         return this.recoveryVaultId;
+    }
+
+    /**
+     * One `shutdown_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    @Import(name="shutdownRecoveryGroup")
+    private @Nullable Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup;
+
+    /**
+     * @return One `shutdown_recovery_group` block as defined below.
+     * 
+     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+     * 
+     */
+    public Optional<Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs>> shutdownRecoveryGroup() {
+        return Optional.ofNullable(this.shutdownRecoveryGroup);
     }
 
     /**
@@ -112,9 +184,12 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
 
     private ReplicationRecoveryPlanArgs(ReplicationRecoveryPlanArgs $) {
         this.azureToAzureSettings = $.azureToAzureSettings;
+        this.bootRecoveryGroups = $.bootRecoveryGroups;
+        this.failoverRecoveryGroup = $.failoverRecoveryGroup;
         this.name = $.name;
         this.recoveryGroups = $.recoveryGroups;
         this.recoveryVaultId = $.recoveryVaultId;
+        this.shutdownRecoveryGroup = $.shutdownRecoveryGroup;
         this.sourceRecoveryFabricId = $.sourceRecoveryFabricId;
         this.targetRecoveryFabricId = $.targetRecoveryFabricId;
     }
@@ -159,6 +234,68 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
+         * 
+         * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootRecoveryGroups(@Nullable Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups) {
+            $.bootRecoveryGroups = bootRecoveryGroups;
+            return this;
+        }
+
+        /**
+         * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
+         * 
+         * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootRecoveryGroups(List<ReplicationRecoveryPlanBootRecoveryGroupArgs> bootRecoveryGroups) {
+            return bootRecoveryGroups(Output.of(bootRecoveryGroups));
+        }
+
+        /**
+         * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
+         * 
+         * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootRecoveryGroups(ReplicationRecoveryPlanBootRecoveryGroupArgs... bootRecoveryGroups) {
+            return bootRecoveryGroups(List.of(bootRecoveryGroups));
+        }
+
+        /**
+         * @param failoverRecoveryGroup One `failover_recovery_group` block as defined below.
+         * 
+         * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverRecoveryGroup(@Nullable Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup) {
+            $.failoverRecoveryGroup = failoverRecoveryGroup;
+            return this;
+        }
+
+        /**
+         * @param failoverRecoveryGroup One `failover_recovery_group` block as defined below.
+         * 
+         * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverRecoveryGroup(ReplicationRecoveryPlanFailoverRecoveryGroupArgs failoverRecoveryGroup) {
+            return failoverRecoveryGroup(Output.of(failoverRecoveryGroup));
+        }
+
+        /**
          * @param name The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -182,9 +319,15 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
+         * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+         * 
          */
+        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
         public Builder recoveryGroups(@Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups) {
             $.recoveryGroups = recoveryGroups;
             return this;
@@ -193,9 +336,15 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
+         * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+         * 
          */
+        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
         public Builder recoveryGroups(List<ReplicationRecoveryPlanRecoveryGroupArgs> recoveryGroups) {
             return recoveryGroups(Output.of(recoveryGroups));
         }
@@ -203,9 +352,15 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
+         * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+         * 
          */
+        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
         public Builder recoveryGroups(ReplicationRecoveryPlanRecoveryGroupArgs... recoveryGroups) {
             return recoveryGroups(List.of(recoveryGroups));
         }
@@ -229,6 +384,31 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
          */
         public Builder recoveryVaultId(String recoveryVaultId) {
             return recoveryVaultId(Output.of(recoveryVaultId));
+        }
+
+        /**
+         * @param shutdownRecoveryGroup One `shutdown_recovery_group` block as defined below.
+         * 
+         * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shutdownRecoveryGroup(@Nullable Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup) {
+            $.shutdownRecoveryGroup = shutdownRecoveryGroup;
+            return this;
+        }
+
+        /**
+         * @param shutdownRecoveryGroup One `shutdown_recovery_group` block as defined below.
+         * 
+         * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shutdownRecoveryGroup(ReplicationRecoveryPlanShutdownRecoveryGroupArgs shutdownRecoveryGroup) {
+            return shutdownRecoveryGroup(Output.of(shutdownRecoveryGroup));
         }
 
         /**

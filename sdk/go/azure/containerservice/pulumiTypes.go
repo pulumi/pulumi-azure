@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ConnectedRegistryNotification struct {
 	// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
@@ -12445,7 +12448,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 	//
-	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
@@ -12471,9 +12474,9 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
 	NetworkPlugin string `pulumi:"networkPlugin"`
-	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
 	NetworkPluginMode *string `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	//
@@ -12517,7 +12520,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 	//
-	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
@@ -12543,9 +12546,9 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
-	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
 	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	//
@@ -12660,7 +12663,7 @@ func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringP
 //
 // > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 //
-// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 func (o KubernetesClusterNetworkProfileOutput) EbpfDataPlane() pulumi.StringPtrOutput {
@@ -12711,9 +12714,9 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
-// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
 //
-// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
 }
@@ -12804,7 +12807,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Stri
 //
 // > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 //
-// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringPtrOutput {
@@ -12886,9 +12889,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
 //
-// > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -15313,6 +15316,14 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.Int
 }
 
 type KubernetesClusterServiceMeshProfile struct {
+	// Is Istio External Ingress Gateway enabled?
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+	//
+	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+	ExternalIngressGatewayEnabled *bool `pulumi:"externalIngressGatewayEnabled"`
+	// Is Istio Internal Ingress Gateway enabled?
+	InternalIngressGatewayEnabled *bool `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode string `pulumi:"mode"`
 }
@@ -15329,6 +15340,14 @@ type KubernetesClusterServiceMeshProfileInput interface {
 }
 
 type KubernetesClusterServiceMeshProfileArgs struct {
+	// Is Istio External Ingress Gateway enabled?
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+	//
+	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+	ExternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"externalIngressGatewayEnabled"`
+	// Is Istio Internal Ingress Gateway enabled?
+	InternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
@@ -15410,6 +15429,20 @@ func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMes
 	}).(KubernetesClusterServiceMeshProfilePtrOutput)
 }
 
+// Is Istio External Ingress Gateway enabled?
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+//
+// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+func (o KubernetesClusterServiceMeshProfileOutput) ExternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) *bool { return v.ExternalIngressGatewayEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Istio Internal Ingress Gateway enabled?
+func (o KubernetesClusterServiceMeshProfileOutput) InternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) *bool { return v.InternalIngressGatewayEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The mode of the service mesh. Possible value is `Istio`.
 func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
@@ -15437,6 +15470,30 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Elem() KubernetesClusterSe
 		var ret KubernetesClusterServiceMeshProfile
 		return ret
 	}).(KubernetesClusterServiceMeshProfileOutput)
+}
+
+// Is Istio External Ingress Gateway enabled?
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+//
+// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+func (o KubernetesClusterServiceMeshProfilePtrOutput) ExternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalIngressGatewayEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is Istio Internal Ingress Gateway enabled?
+func (o KubernetesClusterServiceMeshProfilePtrOutput) InternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InternalIngressGatewayEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The mode of the service mesh. Possible value is `Istio`.
@@ -23214,6 +23271,121 @@ func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.
 	}).(GetKubernetesClusterOmsAgentOmsAgentIdentityOutput)
 }
 
+type GetKubernetesClusterServiceMeshProfile struct {
+	// Is Istio External Ingress Gateway enabled?
+	ExternalIngressGatewayEnabled bool `pulumi:"externalIngressGatewayEnabled"`
+	// Is Istio Internal Ingress Gateway enabled?
+	InternalIngressGatewayEnabled bool `pulumi:"internalIngressGatewayEnabled"`
+	// The mode of the service mesh.
+	Mode string `pulumi:"mode"`
+}
+
+// GetKubernetesClusterServiceMeshProfileInput is an input type that accepts GetKubernetesClusterServiceMeshProfileArgs and GetKubernetesClusterServiceMeshProfileOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterServiceMeshProfileInput` via:
+//
+//	GetKubernetesClusterServiceMeshProfileArgs{...}
+type GetKubernetesClusterServiceMeshProfileInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterServiceMeshProfileOutput() GetKubernetesClusterServiceMeshProfileOutput
+	ToGetKubernetesClusterServiceMeshProfileOutputWithContext(context.Context) GetKubernetesClusterServiceMeshProfileOutput
+}
+
+type GetKubernetesClusterServiceMeshProfileArgs struct {
+	// Is Istio External Ingress Gateway enabled?
+	ExternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"externalIngressGatewayEnabled"`
+	// Is Istio Internal Ingress Gateway enabled?
+	InternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"internalIngressGatewayEnabled"`
+	// The mode of the service mesh.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (GetKubernetesClusterServiceMeshProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterServiceMeshProfileArgs) ToGetKubernetesClusterServiceMeshProfileOutput() GetKubernetesClusterServiceMeshProfileOutput {
+	return i.ToGetKubernetesClusterServiceMeshProfileOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterServiceMeshProfileArgs) ToGetKubernetesClusterServiceMeshProfileOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServiceMeshProfileOutput)
+}
+
+// GetKubernetesClusterServiceMeshProfileArrayInput is an input type that accepts GetKubernetesClusterServiceMeshProfileArray and GetKubernetesClusterServiceMeshProfileArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterServiceMeshProfileArrayInput` via:
+//
+//	GetKubernetesClusterServiceMeshProfileArray{ GetKubernetesClusterServiceMeshProfileArgs{...} }
+type GetKubernetesClusterServiceMeshProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterServiceMeshProfileArrayOutput() GetKubernetesClusterServiceMeshProfileArrayOutput
+	ToGetKubernetesClusterServiceMeshProfileArrayOutputWithContext(context.Context) GetKubernetesClusterServiceMeshProfileArrayOutput
+}
+
+type GetKubernetesClusterServiceMeshProfileArray []GetKubernetesClusterServiceMeshProfileInput
+
+func (GetKubernetesClusterServiceMeshProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterServiceMeshProfileArray) ToGetKubernetesClusterServiceMeshProfileArrayOutput() GetKubernetesClusterServiceMeshProfileArrayOutput {
+	return i.ToGetKubernetesClusterServiceMeshProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterServiceMeshProfileArray) ToGetKubernetesClusterServiceMeshProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServiceMeshProfileArrayOutput)
+}
+
+type GetKubernetesClusterServiceMeshProfileOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterServiceMeshProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterServiceMeshProfileOutput) ToGetKubernetesClusterServiceMeshProfileOutput() GetKubernetesClusterServiceMeshProfileOutput {
+	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileOutput) ToGetKubernetesClusterServiceMeshProfileOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileOutput {
+	return o
+}
+
+// Is Istio External Ingress Gateway enabled?
+func (o GetKubernetesClusterServiceMeshProfileOutput) ExternalIngressGatewayEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) bool { return v.ExternalIngressGatewayEnabled }).(pulumi.BoolOutput)
+}
+
+// Is Istio Internal Ingress Gateway enabled?
+func (o GetKubernetesClusterServiceMeshProfileOutput) InternalIngressGatewayEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) bool { return v.InternalIngressGatewayEnabled }).(pulumi.BoolOutput)
+}
+
+// The mode of the service mesh.
+func (o GetKubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterServiceMeshProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterServiceMeshProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterServiceMeshProfileArrayOutput) ToGetKubernetesClusterServiceMeshProfileArrayOutput() GetKubernetesClusterServiceMeshProfileArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileArrayOutput) ToGetKubernetesClusterServiceMeshProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterServiceMeshProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterServiceMeshProfile {
+		return vs[0].([]GetKubernetesClusterServiceMeshProfile)[vs[1].(int)]
+	}).(GetKubernetesClusterServiceMeshProfileOutput)
+}
+
 type GetKubernetesClusterServicePrincipal struct {
 	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
 	ClientId string `pulumi:"clientId"`
@@ -23790,6 +23962,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentArrayInput)(nil)).Elem(), GetKubernetesClusterOmsAgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentOmsAgentIdentityInput)(nil)).Elem(), GetKubernetesClusterOmsAgentOmsAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterOmsAgentOmsAgentIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileInput)(nil)).Elem(), GetKubernetesClusterServiceMeshProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileArrayInput)(nil)).Elem(), GetKubernetesClusterServiceMeshProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalArrayInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterStorageProfileInput)(nil)).Elem(), GetKubernetesClusterStorageProfileArgs{})
@@ -24044,6 +24218,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterServiceMeshProfileOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterServiceMeshProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterStorageProfileOutput{})

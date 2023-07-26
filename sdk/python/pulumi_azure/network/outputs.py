@@ -11797,7 +11797,7 @@ class VpnServerConfigurationRadius(dict):
                  server_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate']] = None,
                  servers: Optional[Sequence['outputs.VpnServerConfigurationRadiusServer']] = None):
         """
-        :param Sequence['VpnServerConfigurationRadiusClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
+        :param Sequence['VpnServerConfigurationRadiusClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
         :param Sequence['VpnServerConfigurationRadiusServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
         :param Sequence['VpnServerConfigurationRadiusServerArgs'] servers: One or more `server` blocks as defined below.
         """
@@ -11812,7 +11812,7 @@ class VpnServerConfigurationRadius(dict):
     @pulumi.getter(name="clientRootCertificates")
     def client_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigurationRadiusClientRootCertificate']]:
         """
-        One or more `client_root_certificate` blocks as defined above.
+        One or more `client_root_certificate` blocks as defined below.
         """
         return pulumi.get(self, "client_root_certificates")
 

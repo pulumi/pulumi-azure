@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'NetworkAttachedDataNetworkNetworkAddressPortTranslation',
+    'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange',
     'NetworkPacketCoreControlPlaneIdentity',
     'NetworkPacketCoreControlPlaneLocalDiagnosticsAccess',
     'NetworkPacketCoreControlPlanePlatform',
@@ -27,6 +29,8 @@ __all__ = [
     'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate',
     'NetworkSimPolicyUserEquipmentAggregateMaximumBitRate',
     'NetworkSliceSingleNetworkSliceSelectionAssistanceInformation',
+    'GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult',
+    'GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult',
     'GetNetworkPacketCoreControlPlaneIdentityResult',
     'GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessResult',
     'GetNetworkPacketCoreControlPlanePlatformResult',
@@ -44,6 +48,153 @@ __all__ = [
     'GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult',
     'GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationResult',
 ]
+
+@pulumi.output_type
+class NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icmpPinholeTimeoutInSeconds":
+            suggest = "icmp_pinhole_timeout_in_seconds"
+        elif key == "pinholeMaximumNumber":
+            suggest = "pinhole_maximum_number"
+        elif key == "portRange":
+            suggest = "port_range"
+        elif key == "tcpPinholeTimeoutInSeconds":
+            suggest = "tcp_pinhole_timeout_in_seconds"
+        elif key == "tcpPortReuseMinimumHoldTimeInSeconds":
+            suggest = "tcp_port_reuse_minimum_hold_time_in_seconds"
+        elif key == "udpPinholeTimeoutInSeconds":
+            suggest = "udp_pinhole_timeout_in_seconds"
+        elif key == "udpPortReuseMinimumHoldTimeInSeconds":
+            suggest = "udp_port_reuse_minimum_hold_time_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAttachedDataNetworkNetworkAddressPortTranslation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAttachedDataNetworkNetworkAddressPortTranslation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAttachedDataNetworkNetworkAddressPortTranslation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icmp_pinhole_timeout_in_seconds: Optional[int] = None,
+                 pinhole_maximum_number: Optional[int] = None,
+                 port_range: Optional['outputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange'] = None,
+                 tcp_pinhole_timeout_in_seconds: Optional[int] = None,
+                 tcp_port_reuse_minimum_hold_time_in_seconds: Optional[int] = None,
+                 udp_pinhole_timeout_in_seconds: Optional[int] = None,
+                 udp_port_reuse_minimum_hold_time_in_seconds: Optional[int] = None):
+        """
+        :param int icmp_pinhole_timeout_in_seconds: Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        :param 'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs' port_range: A `port_range` block as defined below.
+        :param int tcp_pinhole_timeout_in_seconds: Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        :param int tcp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+        :param int udp_pinhole_timeout_in_seconds: Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        :param int udp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+        """
+        if icmp_pinhole_timeout_in_seconds is not None:
+            pulumi.set(__self__, "icmp_pinhole_timeout_in_seconds", icmp_pinhole_timeout_in_seconds)
+        if pinhole_maximum_number is not None:
+            pulumi.set(__self__, "pinhole_maximum_number", pinhole_maximum_number)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+        if tcp_pinhole_timeout_in_seconds is not None:
+            pulumi.set(__self__, "tcp_pinhole_timeout_in_seconds", tcp_pinhole_timeout_in_seconds)
+        if tcp_port_reuse_minimum_hold_time_in_seconds is not None:
+            pulumi.set(__self__, "tcp_port_reuse_minimum_hold_time_in_seconds", tcp_port_reuse_minimum_hold_time_in_seconds)
+        if udp_pinhole_timeout_in_seconds is not None:
+            pulumi.set(__self__, "udp_pinhole_timeout_in_seconds", udp_pinhole_timeout_in_seconds)
+        if udp_port_reuse_minimum_hold_time_in_seconds is not None:
+            pulumi.set(__self__, "udp_port_reuse_minimum_hold_time_in_seconds", udp_port_reuse_minimum_hold_time_in_seconds)
+
+    @property
+    @pulumi.getter(name="icmpPinholeTimeoutInSeconds")
+    def icmp_pinhole_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        """
+        return pulumi.get(self, "icmp_pinhole_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="pinholeMaximumNumber")
+    def pinhole_maximum_number(self) -> Optional[int]:
+        return pulumi.get(self, "pinhole_maximum_number")
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional['outputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange']:
+        """
+        A `port_range` block as defined below.
+        """
+        return pulumi.get(self, "port_range")
+
+    @property
+    @pulumi.getter(name="tcpPinholeTimeoutInSeconds")
+    def tcp_pinhole_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        """
+        return pulumi.get(self, "tcp_pinhole_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="tcpPortReuseMinimumHoldTimeInSeconds")
+    def tcp_port_reuse_minimum_hold_time_in_seconds(self) -> Optional[int]:
+        """
+        Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+        """
+        return pulumi.get(self, "tcp_port_reuse_minimum_hold_time_in_seconds")
+
+    @property
+    @pulumi.getter(name="udpPinholeTimeoutInSeconds")
+    def udp_pinhole_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        """
+        return pulumi.get(self, "udp_pinhole_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="udpPortReuseMinimumHoldTimeInSeconds")
+    def udp_port_reuse_minimum_hold_time_in_seconds(self) -> Optional[int]:
+        """
+        Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+        """
+        return pulumi.get(self, "udp_port_reuse_minimum_hold_time_in_seconds")
+
+
+@pulumi.output_type
+class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange(dict):
+    def __init__(__self__, *,
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None):
+        """
+        :param int maximum: Specifies the maximum port number.
+        :param int minimum: Specifies the minimum port number.
+        """
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[int]:
+        """
+        Specifies the maximum port number.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[int]:
+        """
+        Specifies the minimum port number.
+        """
+        return pulumi.get(self, "minimum")
+
 
 @pulumi.output_type
 class NetworkPacketCoreControlPlaneIdentity(dict):
@@ -1050,6 +1201,104 @@ class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation(dict):
         Slice differentiator (SD). Must be a 6 digit hex string.
         """
         return pulumi.get(self, "slice_differentiator")
+
+
+@pulumi.output_type
+class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult(dict):
+    def __init__(__self__, *,
+                 icmp_pinhole_timeout_in_seconds: int,
+                 port_ranges: Sequence['outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult'],
+                 tcp_pinhole_timeout_in_seconds: int,
+                 tcp_port_reuse_minimum_hold_time_in_seconds: int,
+                 udp_pinhole_timeout_in_seconds: int,
+                 udp_port_reuse_minimum_hold_time_in_seconds: int,
+                 pinhole_maximum_number: Optional[int] = None):
+        """
+        :param Sequence['GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs'] port_ranges: A `port_range` block as defined below.
+        :param int tcp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused.
+        :param int udp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused.
+        """
+        pulumi.set(__self__, "icmp_pinhole_timeout_in_seconds", icmp_pinhole_timeout_in_seconds)
+        pulumi.set(__self__, "port_ranges", port_ranges)
+        pulumi.set(__self__, "tcp_pinhole_timeout_in_seconds", tcp_pinhole_timeout_in_seconds)
+        pulumi.set(__self__, "tcp_port_reuse_minimum_hold_time_in_seconds", tcp_port_reuse_minimum_hold_time_in_seconds)
+        pulumi.set(__self__, "udp_pinhole_timeout_in_seconds", udp_pinhole_timeout_in_seconds)
+        pulumi.set(__self__, "udp_port_reuse_minimum_hold_time_in_seconds", udp_port_reuse_minimum_hold_time_in_seconds)
+        if pinhole_maximum_number is not None:
+            pulumi.set(__self__, "pinhole_maximum_number", pinhole_maximum_number)
+
+    @property
+    @pulumi.getter(name="icmpPinholeTimeoutInSeconds")
+    def icmp_pinhole_timeout_in_seconds(self) -> int:
+        return pulumi.get(self, "icmp_pinhole_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Sequence['outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult']:
+        """
+        A `port_range` block as defined below.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @property
+    @pulumi.getter(name="tcpPinholeTimeoutInSeconds")
+    def tcp_pinhole_timeout_in_seconds(self) -> int:
+        return pulumi.get(self, "tcp_pinhole_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="tcpPortReuseMinimumHoldTimeInSeconds")
+    def tcp_port_reuse_minimum_hold_time_in_seconds(self) -> int:
+        """
+        Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused.
+        """
+        return pulumi.get(self, "tcp_port_reuse_minimum_hold_time_in_seconds")
+
+    @property
+    @pulumi.getter(name="udpPinholeTimeoutInSeconds")
+    def udp_pinhole_timeout_in_seconds(self) -> int:
+        return pulumi.get(self, "udp_pinhole_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="udpPortReuseMinimumHoldTimeInSeconds")
+    def udp_port_reuse_minimum_hold_time_in_seconds(self) -> int:
+        """
+        Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused.
+        """
+        return pulumi.get(self, "udp_port_reuse_minimum_hold_time_in_seconds")
+
+    @property
+    @pulumi.getter(name="pinholeMaximumNumber")
+    def pinhole_maximum_number(self) -> Optional[int]:
+        return pulumi.get(self, "pinhole_maximum_number")
+
+
+@pulumi.output_type
+class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult(dict):
+    def __init__(__self__, *,
+                 maximum: int,
+                 minimum: int):
+        """
+        :param int maximum: The maximum port number.
+        :param int minimum: The minimum port number.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The maximum port number.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        The minimum port number.
+        """
+        return pulumi.get(self, "minimum")
 
 
 @pulumi.output_type

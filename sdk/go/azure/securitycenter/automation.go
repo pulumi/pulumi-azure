@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -161,6 +162,7 @@ func NewAutomation(ctx *pulumi.Context,
 	if args.Sources == nil {
 		return nil, errors.New("invalid value for required argument 'Sources'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Automation
 	err := ctx.RegisterResource("azure:securitycenter/automation:Automation", name, args, &resource, opts...)
 	if err != nil {

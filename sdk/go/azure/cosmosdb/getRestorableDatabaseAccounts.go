@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetRestorableDatabaseAccounts(ctx *pulumi.Context, args *GetRestorableDatabaseAccountsArgs, opts ...pulumi.InvokeOption) (*GetRestorableDatabaseAccountsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRestorableDatabaseAccountsResult
 	err := ctx.Invoke("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, &rv, opts...)
 	if err != nil {

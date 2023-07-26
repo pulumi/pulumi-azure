@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupVirtualMachineConfigurationAssignment(ctx *pulumi.Context, args *LookupVirtualMachineConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineConfigurationAssignmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualMachineConfigurationAssignmentResult
 	err := ctx.Invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, &rv, opts...)
 	if err != nil {

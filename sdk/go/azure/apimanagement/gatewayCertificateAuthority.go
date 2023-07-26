@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -129,6 +130,7 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 	if args.GatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayCertificateAuthority
 	err := ctx.RegisterResource("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, args, &resource, opts...)
 	if err != nil {

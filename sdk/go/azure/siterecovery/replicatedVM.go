@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -365,6 +366,7 @@ func NewReplicatedVM(ctx *pulumi.Context,
 	if args.TargetResourceGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicatedVM
 	err := ctx.RegisterResource("azure:siterecovery/replicatedVM:ReplicatedVM", name, args, &resource, opts...)
 	if err != nil {

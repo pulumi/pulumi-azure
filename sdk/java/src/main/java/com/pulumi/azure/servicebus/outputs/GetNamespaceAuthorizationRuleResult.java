@@ -18,6 +18,12 @@ public final class GetNamespaceAuthorizationRuleResult {
     private String id;
     private String name;
     private @Nullable String namespaceId;
+    /**
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     private @Nullable String namespaceName;
     /**
      * @return The primary connection string for the authorization rule.
@@ -34,6 +40,12 @@ public final class GetNamespaceAuthorizationRuleResult {
      * 
      */
     private String primaryKey;
+    /**
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     private @Nullable String resourceGroupName;
     /**
      * @return The secondary connection string for the authorization rule.
@@ -65,6 +77,12 @@ public final class GetNamespaceAuthorizationRuleResult {
     public Optional<String> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
     }
+    /**
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -89,6 +107,12 @@ public final class GetNamespaceAuthorizationRuleResult {
     public String primaryKey() {
         return this.primaryKey;
     }
+    /**
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }

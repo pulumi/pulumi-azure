@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func LookupSourceControlToken(ctx *pulumi.Context, args *LookupSourceControlTokenArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlTokenResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSourceControlTokenResult
 	err := ctx.Invoke("azure:appservice/getSourceControlToken:getSourceControlToken", args, &rv, opts...)
 	if err != nil {

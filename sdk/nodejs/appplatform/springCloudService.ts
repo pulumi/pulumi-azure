@@ -104,6 +104,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly logStreamPublicEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     */
+    public readonly marketplace!: pulumi.Output<outputs.appplatform.SpringCloudServiceMarketplace>;
+    /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -167,6 +171,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["defaultBuildService"] = state ? state.defaultBuildService : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logStreamPublicEndpointEnabled"] = state ? state.logStreamPublicEndpointEnabled : undefined;
+            resourceInputs["marketplace"] = state ? state.marketplace : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
             resourceInputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
@@ -189,6 +194,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["defaultBuildService"] = args ? args.defaultBuildService : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logStreamPublicEndpointEnabled"] = args ? args.logStreamPublicEndpointEnabled : undefined;
+            resourceInputs["marketplace"] = args ? args.marketplace : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -234,6 +240,10 @@ export interface SpringCloudServiceState {
      * Should the log stream in vnet injection instance could be accessed from Internet?
      */
     logStreamPublicEndpointEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     */
+    marketplace?: pulumi.Input<inputs.appplatform.SpringCloudServiceMarketplace>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
@@ -308,6 +318,10 @@ export interface SpringCloudServiceArgs {
      * Should the log stream in vnet injection instance could be accessed from Internet?
      */
     logStreamPublicEndpointEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+     */
+    marketplace?: pulumi.Input<inputs.appplatform.SpringCloudServiceMarketplace>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */

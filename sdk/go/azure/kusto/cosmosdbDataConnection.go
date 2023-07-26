@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -219,6 +220,7 @@ func NewCosmosdbDataConnection(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CosmosdbDataConnection
 	err := ctx.RegisterResource("azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection", name, args, &resource, opts...)
 	if err != nil {

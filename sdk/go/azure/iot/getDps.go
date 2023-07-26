@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDpsResult
 	err := ctx.Invoke("azure:iot/getDps:getDps", args, &rv, opts...)
 	if err != nil {

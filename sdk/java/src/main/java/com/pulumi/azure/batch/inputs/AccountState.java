@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.inputs;
 import com.pulumi.azure.batch.inputs.AccountEncryptionArgs;
 import com.pulumi.azure.batch.inputs.AccountIdentityArgs;
 import com.pulumi.azure.batch.inputs.AccountKeyVaultReferenceArgs;
+import com.pulumi.azure.batch.inputs.AccountNetworkProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -124,6 +125,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * A `network_profile` block as defined below.
+     * 
+     */
+    @Import(name="networkProfile")
+    private @Nullable Output<AccountNetworkProfileArgs> networkProfile;
+
+    /**
+     * @return A `network_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<AccountNetworkProfileArgs>> networkProfile() {
+        return Optional.ofNullable(this.networkProfile);
     }
 
     /**
@@ -291,6 +307,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.keyVaultReference = $.keyVaultReference;
         this.location = $.location;
         this.name = $.name;
+        this.networkProfile = $.networkProfile;
         this.poolAllocationMode = $.poolAllocationMode;
         this.primaryAccessKey = $.primaryAccessKey;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
@@ -475,6 +492,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkProfile A `network_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkProfile(@Nullable Output<AccountNetworkProfileArgs> networkProfile) {
+            $.networkProfile = networkProfile;
+            return this;
+        }
+
+        /**
+         * @param networkProfile A `network_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkProfile(AccountNetworkProfileArgs networkProfile) {
+            return networkProfile(Output.of(networkProfile));
         }
 
         /**

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetConsumeGroup(ctx *pulumi.Context, args *GetConsumeGroupArgs, opts ...pulumi.InvokeOption) (*GetConsumeGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConsumeGroupResult
 	err := ctx.Invoke("azure:eventhub/getConsumeGroup:getConsumeGroup", args, &rv, opts...)
 	if err != nil {

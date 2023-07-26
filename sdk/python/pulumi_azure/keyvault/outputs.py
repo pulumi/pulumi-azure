@@ -65,6 +65,15 @@ class CertifiateCertificate(dict):
         """
         :param str contents: The base64-encoded certificate contents.
         :param str password: The password associated with the certificate.
+               
+               > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+               
+               To convert a private key to pkcs8 format with openssl use:
+               ```python
+               import pulumi
+               ```
+               
+               The PEM content should look something like:
         """
         pulumi.set(__self__, "contents", contents)
         if password is not None:
@@ -83,6 +92,15 @@ class CertifiateCertificate(dict):
     def password(self) -> Optional[str]:
         """
         The password associated with the certificate.
+
+        > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+
+        To convert a private key to pkcs8 format with openssl use:
+        ```python
+        import pulumi
+        ```
+
+        The PEM content should look something like:
         """
         return pulumi.get(self, "password")
 
@@ -681,6 +699,15 @@ class CertificateCertificate(dict):
         """
         :param str contents: The base64-encoded certificate contents.
         :param str password: The password associated with the certificate.
+               
+               > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+               
+               To convert a private key to pkcs8 format with openssl use:
+               ```python
+               import pulumi
+               ```
+               
+               The PEM content should look something like:
         """
         pulumi.set(__self__, "contents", contents)
         if password is not None:
@@ -699,6 +726,15 @@ class CertificateCertificate(dict):
     def password(self) -> Optional[str]:
         """
         The password associated with the certificate.
+
+        > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+
+        To convert a private key to pkcs8 format with openssl use:
+        ```python
+        import pulumi
+        ```
+
+        The PEM content should look something like:
         """
         return pulumi.get(self, "password")
 

@@ -43,6 +43,7 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingSshAuthArgs',
     'SpringCloudServiceContainerRegistryArgs',
     'SpringCloudServiceDefaultBuildServiceArgs',
+    'SpringCloudServiceMarketplaceArgs',
     'SpringCloudServiceNetworkArgs',
     'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
     'SpringCloudServiceTraceArgs',
@@ -2332,12 +2333,65 @@ class SpringCloudServiceDefaultBuildServiceArgs:
 
 
 @pulumi.input_type
+class SpringCloudServiceMarketplaceArgs:
+    def __init__(__self__, *,
+                 plan: pulumi.Input[str],
+                 product: pulumi.Input[str],
+                 publisher: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] plan: Specifies the plan ID of the 3rd Party Artifact that is being procured.
+        :param pulumi.Input[str] product: Specifies the 3rd Party artifact that is being procured.
+        :param pulumi.Input[str] publisher: Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+        """
+        pulumi.set(__self__, "plan", plan)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> pulumi.Input[str]:
+        """
+        Specifies the plan ID of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: pulumi.Input[str]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[str]:
+        """
+        Specifies the 3rd Party artifact that is being procured.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+
+@pulumi.input_type
 class SpringCloudServiceNetworkArgs:
     def __init__(__self__, *,
                  app_subnet_id: pulumi.Input[str],
                  cidr_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
                  service_runtime_subnet_id: pulumi.Input[str],
                  app_network_resource_group: Optional[pulumi.Input[str]] = None,
+                 outbound_type: Optional[pulumi.Input[str]] = None,
                  read_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  service_runtime_network_resource_group: Optional[pulumi.Input[str]] = None):
         """
@@ -2345,6 +2399,7 @@ class SpringCloudServiceNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_runtime_subnet_id: Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] outbound_type: Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] read_timeout_seconds: Ingress read time out in seconds.
         :param pulumi.Input[str] service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         """
@@ -2353,6 +2408,8 @@ class SpringCloudServiceNetworkArgs:
         pulumi.set(__self__, "service_runtime_subnet_id", service_runtime_subnet_id)
         if app_network_resource_group is not None:
             pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
+        if outbound_type is not None:
+            pulumi.set(__self__, "outbound_type", outbound_type)
         if read_timeout_seconds is not None:
             pulumi.set(__self__, "read_timeout_seconds", read_timeout_seconds)
         if service_runtime_network_resource_group is not None:
@@ -2405,6 +2462,18 @@ class SpringCloudServiceNetworkArgs:
     @app_network_resource_group.setter
     def app_network_resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_network_resource_group", value)
+
+    @property
+    @pulumi.getter(name="outboundType")
+    def outbound_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "outbound_type")
+
+    @outbound_type.setter
+    def outbound_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_type", value)
 
     @property
     @pulumi.getter(name="readTimeoutSeconds")

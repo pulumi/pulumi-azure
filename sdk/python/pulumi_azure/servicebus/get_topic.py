@@ -145,6 +145,9 @@ class GetTopicResult:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[str]:
+        warnings.warn("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -158,6 +161,9 @@ class GetTopicResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[str]:
+        warnings.warn("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -215,15 +221,17 @@ def get_topic(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_topic(name="existing",
-        resource_group_name="existing",
-        namespace_name="existing")
+        namespace_id="existing")
     pulumi.export("id", example.id)
     ```
 
 
     :param str name: The name of this Service Bus Topic.
+    :param str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Topic exists.
     :param str namespace_name: The name of the Service Bus Namespace.
     :param str resource_group_name: The name of the Resource Group where the Service Bus Topic exists.
+           
+           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -267,14 +275,16 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_topic(name="existing",
-        resource_group_name="existing",
-        namespace_name="existing")
+        namespace_id="existing")
     pulumi.export("id", example.id)
     ```
 
 
     :param str name: The name of this Service Bus Topic.
+    :param str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Topic exists.
     :param str namespace_name: The name of the Service Bus Namespace.
     :param str resource_group_name: The name of the Resource Group where the Service Bus Topic exists.
+           
+           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     ...

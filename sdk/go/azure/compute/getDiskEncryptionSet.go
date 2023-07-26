@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDiskEncryptionSetResult
 	err := ctx.Invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", args, &rv, opts...)
 	if err != nil {

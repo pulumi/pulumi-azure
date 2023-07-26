@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ import (
 //
 // ```
 func GetCertificateData(ctx *pulumi.Context, args *GetCertificateDataArgs, opts ...pulumi.InvokeOption) (*GetCertificateDataResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCertificateDataResult
 	err := ctx.Invoke("azure:keyvault/getCertificateData:getCertificateData", args, &rv, opts...)
 	if err != nil {

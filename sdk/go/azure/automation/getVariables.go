@@ -7,11 +7,47 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get all variables in an Automation Account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := automation.LookupAccount(ctx, &automation.LookupAccountArgs{
+//				Name:              "example-account",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.GetVariables(ctx, &automation.GetVariablesArgs{
+//				AutomationAccountId: exampleAccount.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("stringVars", data.Azurerm_automation_variable_string.Example.String)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetVariables(ctx *pulumi.Context, args *GetVariablesArgs, opts ...pulumi.InvokeOption) (*GetVariablesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVariablesResult
 	err := ctx.Invoke("azure:automation/getVariables:getVariables", args, &rv, opts...)
 	if err != nil {
@@ -22,6 +58,7 @@ func GetVariables(ctx *pulumi.Context, args *GetVariablesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getVariables.
 type GetVariablesArgs struct {
+	// The resource ID of the automation account.
 	AutomationAccountId string `pulumi:"automationAccountId"`
 }
 
@@ -30,17 +67,17 @@ type GetVariablesResult struct {
 	AutomationAccountId string `pulumi:"automationAccountId"`
 	// One or more `variable` blocks as defined below for each boolean variable.
 	Bools []GetVariablesBool `pulumi:"bools"`
-	// One or more `variable` blocks as defined below for each boolean variable.
+	// One or more `variable` blocks as defined below for each datetime variable.
 	Datetimes []GetVariablesDatetime `pulumi:"datetimes"`
 	// Specifies if the Automation Variable is encrypted.
 	Encrypteds []GetVariablesEncrypted `pulumi:"encrypteds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// One or more `variable` blocks as defined below for each boolean variable.
+	// One or more `variable` blocks as defined below for each int variable.
 	Ints []GetVariablesInt `pulumi:"ints"`
-	// One or more `variable` blocks as defined below for each boolean variable.
+	// One or more `variable` blocks as defined below for each null variable.
 	Nulls []GetVariablesNull `pulumi:"nulls"`
-	// One or more `variable` blocks as defined below for each boolean variable.
+	// One or more `variable` blocks as defined below for each string variable.
 	Strings []GetVariablesString `pulumi:"strings"`
 }
 
@@ -59,6 +96,7 @@ func GetVariablesOutput(ctx *pulumi.Context, args GetVariablesOutputArgs, opts .
 
 // A collection of arguments for invoking getVariables.
 type GetVariablesOutputArgs struct {
+	// The resource ID of the automation account.
 	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
 }
 
@@ -90,7 +128,7 @@ func (o GetVariablesResultOutput) Bools() GetVariablesBoolArrayOutput {
 	return o.ApplyT(func(v GetVariablesResult) []GetVariablesBool { return v.Bools }).(GetVariablesBoolArrayOutput)
 }
 
-// One or more `variable` blocks as defined below for each boolean variable.
+// One or more `variable` blocks as defined below for each datetime variable.
 func (o GetVariablesResultOutput) Datetimes() GetVariablesDatetimeArrayOutput {
 	return o.ApplyT(func(v GetVariablesResult) []GetVariablesDatetime { return v.Datetimes }).(GetVariablesDatetimeArrayOutput)
 }
@@ -105,17 +143,17 @@ func (o GetVariablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVariablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// One or more `variable` blocks as defined below for each boolean variable.
+// One or more `variable` blocks as defined below for each int variable.
 func (o GetVariablesResultOutput) Ints() GetVariablesIntArrayOutput {
 	return o.ApplyT(func(v GetVariablesResult) []GetVariablesInt { return v.Ints }).(GetVariablesIntArrayOutput)
 }
 
-// One or more `variable` blocks as defined below for each boolean variable.
+// One or more `variable` blocks as defined below for each null variable.
 func (o GetVariablesResultOutput) Nulls() GetVariablesNullArrayOutput {
 	return o.ApplyT(func(v GetVariablesResult) []GetVariablesNull { return v.Nulls }).(GetVariablesNullArrayOutput)
 }
 
-// One or more `variable` blocks as defined below for each boolean variable.
+// One or more `variable` blocks as defined below for each string variable.
 func (o GetVariablesResultOutput) Strings() GetVariablesStringArrayOutput {
 	return o.ApplyT(func(v GetVariablesResult) []GetVariablesString { return v.Strings }).(GetVariablesStringArrayOutput)
 }

@@ -13,6 +13,22 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterServiceMeshProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is Istio External Ingress Gateway enabled?
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+        /// 
+        /// &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        /// </summary>
+        [Input("externalIngressGatewayEnabled")]
+        public Input<bool>? ExternalIngressGatewayEnabled { get; set; }
+
+        /// <summary>
+        /// Is Istio Internal Ingress Gateway enabled?
+        /// </summary>
+        [Input("internalIngressGatewayEnabled")]
+        public Input<bool>? InternalIngressGatewayEnabled { get; set; }
+
+        /// <summary>
         /// The mode of the service mesh. Possible value is `Istio`.
         /// </summary>
         [Input("mode", required: true)]

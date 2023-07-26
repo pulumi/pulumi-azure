@@ -55,6 +55,10 @@ export interface GetStandardArgs {
 export interface GetStandardResult {
     readonly appServicePlanId: string;
     readonly appSettings: {[key: string]: string};
+    /**
+     * The Auto-swap slot name.
+     */
+    readonly autoSwapSlotName: string;
     readonly bundleVersion: string;
     readonly clientAffinityEnabled: boolean;
     readonly clientCertificateMode: string;

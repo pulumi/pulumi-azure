@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AccountEncryption struct {
 	// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
@@ -3893,7 +3896,8 @@ type GetVariablesBool struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name string `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -3915,7 +3919,8 @@ type GetVariablesBoolArgs struct {
 	// The description of the Automation Variable.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -3983,6 +3988,10 @@ func (o GetVariablesBoolOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVariablesBool) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+func (o GetVariablesBoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesBool) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // The name of the Automation Variable.
 func (o GetVariablesBoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVariablesBool) string { return v.Name }).(pulumi.StringOutput)
@@ -4017,7 +4026,8 @@ type GetVariablesDatetime struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name string `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4039,7 +4049,8 @@ type GetVariablesDatetimeArgs struct {
 	// The description of the Automation Variable.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4107,6 +4118,10 @@ func (o GetVariablesDatetimeOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVariablesDatetime) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+func (o GetVariablesDatetimeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesDatetime) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // The name of the Automation Variable.
 func (o GetVariablesDatetimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVariablesDatetime) string { return v.Name }).(pulumi.StringOutput)
@@ -4141,7 +4156,8 @@ type GetVariablesEncrypted struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name string `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4163,7 +4179,8 @@ type GetVariablesEncryptedArgs struct {
 	// The description of the Automation Variable.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4231,6 +4248,10 @@ func (o GetVariablesEncryptedOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVariablesEncrypted) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+func (o GetVariablesEncryptedOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesEncrypted) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // The name of the Automation Variable.
 func (o GetVariablesEncryptedOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVariablesEncrypted) string { return v.Name }).(pulumi.StringOutput)
@@ -4265,7 +4286,8 @@ type GetVariablesInt struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name string `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4287,7 +4309,8 @@ type GetVariablesIntArgs struct {
 	// The description of the Automation Variable.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4355,6 +4378,10 @@ func (o GetVariablesIntOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVariablesInt) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+func (o GetVariablesIntOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesInt) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // The name of the Automation Variable.
 func (o GetVariablesIntOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVariablesInt) string { return v.Name }).(pulumi.StringOutput)
@@ -4389,7 +4416,8 @@ type GetVariablesNull struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name string `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4411,7 +4439,8 @@ type GetVariablesNullArgs struct {
 	// The description of the Automation Variable.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4479,6 +4508,10 @@ func (o GetVariablesNullOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVariablesNull) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+func (o GetVariablesNullOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesNull) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // The name of the Automation Variable.
 func (o GetVariablesNullOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVariablesNull) string { return v.Name }).(pulumi.StringOutput)
@@ -4513,7 +4546,8 @@ type GetVariablesString struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name string `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4535,7 +4569,8 @@ type GetVariablesStringArgs struct {
 	// The description of the Automation Variable.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
 	// The name of the Automation Variable.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the Automation Variable.
@@ -4601,6 +4636,10 @@ func (o GetVariablesStringOutput) Description() pulumi.StringOutput {
 // Specifies if the Automation Variable is encrypted.
 func (o GetVariablesStringOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVariablesString) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+func (o GetVariablesStringOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesString) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the Automation Variable.

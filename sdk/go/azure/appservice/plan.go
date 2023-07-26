@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -229,6 +230,7 @@ func NewPlan(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Plan
 	err := ctx.RegisterResource("azure:appservice/plan:Plan", name, args, &resource, opts...)
 	if err != nil {

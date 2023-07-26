@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -114,6 +115,7 @@ func NewDatasetSnowflake(ctx *pulumi.Context,
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatasetSnowflake
 	err := ctx.RegisterResource("azure:datafactory/datasetSnowflake:DatasetSnowflake", name, args, &resource, opts...)
 	if err != nil {

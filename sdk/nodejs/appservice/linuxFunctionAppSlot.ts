@@ -182,6 +182,9 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Should public network access be enabled for the Function App. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
@@ -438,6 +441,9 @@ export interface LinuxFunctionAppSlotState {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Function App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
@@ -560,6 +566,9 @@ export interface LinuxFunctionAppSlotArgs {
      * Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Function App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.

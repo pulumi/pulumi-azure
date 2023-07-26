@@ -98,20 +98,20 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-     * 
-     * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+     * @deprecated
+     * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-     * 
-     * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
+     * @deprecated
+     * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
@@ -535,26 +535,26 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-         * 
-         * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
         /**
-         * @param engine . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`.
-         * 
-         * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }

@@ -15,8 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.servicebus.getNamespaceAuthorizationRule({
  *     name: "examplerule",
- *     namespaceName: "examplenamespace",
- *     resourceGroupName: "example-resources",
+ *     namespaceId: "examplenamespace",
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
@@ -40,13 +39,22 @@ export interface GetNamespaceAuthorizationRuleArgs {
      * Specifies the name of the ServiceBus Namespace Authorization Rule.
      */
     name: string;
+    /**
+     * Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+     */
     namespaceId?: string;
     /**
      * Specifies the name of the ServiceBus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+     *
+     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -61,6 +69,9 @@ export interface GetNamespaceAuthorizationRuleResult {
     readonly id: string;
     readonly name: string;
     readonly namespaceId?: string;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly namespaceName?: string;
     /**
      * The primary connection string for the authorization rule.
@@ -74,6 +85,9 @@ export interface GetNamespaceAuthorizationRuleResult {
      * The primary access key for the authorization rule.
      */
     readonly primaryKey: string;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly resourceGroupName?: string;
     /**
      * The secondary connection string for the authorization rule.
@@ -99,8 +113,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  *
  * const example = azure.servicebus.getNamespaceAuthorizationRule({
  *     name: "examplerule",
- *     namespaceName: "examplenamespace",
- *     resourceGroupName: "example-resources",
+ *     namespaceId: "examplenamespace",
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
@@ -117,13 +130,22 @@ export interface GetNamespaceAuthorizationRuleOutputArgs {
      * Specifies the name of the ServiceBus Namespace Authorization Rule.
      */
     name: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
+     */
     namespaceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the ServiceBus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+     *
+     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

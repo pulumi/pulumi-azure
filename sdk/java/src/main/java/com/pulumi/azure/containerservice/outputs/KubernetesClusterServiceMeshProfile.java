@@ -4,11 +4,28 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterServiceMeshProfile {
+    /**
+     * @return Is Istio External Ingress Gateway enabled?
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+     * 
+     * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+     * 
+     */
+    private @Nullable Boolean externalIngressGatewayEnabled;
+    /**
+     * @return Is Istio Internal Ingress Gateway enabled?
+     * 
+     */
+    private @Nullable Boolean internalIngressGatewayEnabled;
     /**
      * @return The mode of the service mesh. Possible value is `Istio`.
      * 
@@ -16,6 +33,24 @@ public final class KubernetesClusterServiceMeshProfile {
     private String mode;
 
     private KubernetesClusterServiceMeshProfile() {}
+    /**
+     * @return Is Istio External Ingress Gateway enabled?
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+     * 
+     * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+     * 
+     */
+    public Optional<Boolean> externalIngressGatewayEnabled() {
+        return Optional.ofNullable(this.externalIngressGatewayEnabled);
+    }
+    /**
+     * @return Is Istio Internal Ingress Gateway enabled?
+     * 
+     */
+    public Optional<Boolean> internalIngressGatewayEnabled() {
+        return Optional.ofNullable(this.internalIngressGatewayEnabled);
+    }
     /**
      * @return The mode of the service mesh. Possible value is `Istio`.
      * 
@@ -33,13 +68,27 @@ public final class KubernetesClusterServiceMeshProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean externalIngressGatewayEnabled;
+        private @Nullable Boolean internalIngressGatewayEnabled;
         private String mode;
         public Builder() {}
         public Builder(KubernetesClusterServiceMeshProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.externalIngressGatewayEnabled = defaults.externalIngressGatewayEnabled;
+    	      this.internalIngressGatewayEnabled = defaults.internalIngressGatewayEnabled;
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
+        public Builder externalIngressGatewayEnabled(@Nullable Boolean externalIngressGatewayEnabled) {
+            this.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder internalIngressGatewayEnabled(@Nullable Boolean internalIngressGatewayEnabled) {
+            this.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
@@ -47,6 +96,8 @@ public final class KubernetesClusterServiceMeshProfile {
         }
         public KubernetesClusterServiceMeshProfile build() {
             final var o = new KubernetesClusterServiceMeshProfile();
+            o.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
+            o.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             o.mode = mode;
             return o;
         }

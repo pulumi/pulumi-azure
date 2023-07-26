@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,6 +94,7 @@ func NewSubscriptionTemplateDeployment(ctx *pulumi.Context,
 		args = &SubscriptionTemplateDeploymentArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubscriptionTemplateDeployment
 	err := ctx.RegisterResource("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, args, &resource, opts...)
 	if err != nil {

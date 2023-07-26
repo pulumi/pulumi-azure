@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -166,6 +167,7 @@ func NewJob(ctx *pulumi.Context,
 	if args.TransformName == nil {
 		return nil, errors.New("invalid value for required argument 'TransformName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Job
 	err := ctx.RegisterResource("azure:media/job:Job", name, args, &resource, opts...)
 	if err != nil {

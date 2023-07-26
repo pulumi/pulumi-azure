@@ -15,8 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.servicebus.getQueue({
  *     name: "existing",
- *     resourceGroupName: "existing",
- *     namespaceName: "existing",
+ *     namespaceId: "existing",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -40,6 +39,9 @@ export interface GetQueueArgs {
      * The name of this Service Bus Queue.
      */
     name: string;
+    /**
+     * The ID of the ServiceBus Namespace where the Service Bus Queue exists.
+     */
     namespaceId?: string;
     /**
      * The name of the ServiceBus Namespace.
@@ -49,6 +51,8 @@ export interface GetQueueArgs {
     namespaceName?: string;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
+     *
+     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
      *
      * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
@@ -145,8 +149,7 @@ export interface GetQueueResult {
  *
  * const example = azure.servicebus.getQueue({
  *     name: "existing",
- *     resourceGroupName: "existing",
- *     namespaceName: "existing",
+ *     namespaceId: "existing",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -163,6 +166,9 @@ export interface GetQueueOutputArgs {
      * The name of this Service Bus Queue.
      */
     name: pulumi.Input<string>;
+    /**
+     * The ID of the ServiceBus Namespace where the Service Bus Queue exists.
+     */
     namespaceId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Namespace.
@@ -172,6 +178,8 @@ export interface GetQueueOutputArgs {
     namespaceName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
+     *
+     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
      *
      * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */

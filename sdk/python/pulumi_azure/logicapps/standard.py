@@ -338,6 +338,7 @@ class _StandardState:
     def __init__(__self__, *,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  bundle_version: Optional[pulumi.Input[str]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
@@ -368,6 +369,7 @@ class _StandardState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        :param pulumi.Input[str] auto_swap_slot_name: The Auto-swap slot name.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -395,6 +397,8 @@ class _StandardState:
             pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if bundle_version is not None:
             pulumi.set(__self__, "bundle_version", bundle_version)
         if client_affinity_enabled is not None:
@@ -469,6 +473,18 @@ class _StandardState:
     @app_settings.setter
     def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "app_settings", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Auto-swap slot name.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_swap_slot_name", value)
 
     @property
     @pulumi.getter(name="bundleVersion")
@@ -1044,6 +1060,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["use_extension_bundle"] = use_extension_bundle
             __props__.__dict__["version"] = version
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["auto_swap_slot_name"] = None
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1064,6 +1081,7 @@ class Standard(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_plan_id: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
             bundle_version: Optional[pulumi.Input[str]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
@@ -1099,6 +1117,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        :param pulumi.Input[str] auto_swap_slot_name: The Auto-swap slot name.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -1128,6 +1147,7 @@ class Standard(pulumi.CustomResource):
 
         __props__.__dict__["app_service_plan_id"] = app_service_plan_id
         __props__.__dict__["app_settings"] = app_settings
+        __props__.__dict__["auto_swap_slot_name"] = auto_swap_slot_name
         __props__.__dict__["bundle_version"] = bundle_version
         __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["client_certificate_mode"] = client_certificate_mode
@@ -1171,6 +1191,14 @@ class Standard(pulumi.CustomResource):
         > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> pulumi.Output[str]:
+        """
+        The Auto-swap slot name.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
 
     @property
     @pulumi.getter(name="bundleVersion")

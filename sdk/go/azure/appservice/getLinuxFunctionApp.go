@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupLinuxFunctionApp(ctx *pulumi.Context, args *LookupLinuxFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupLinuxFunctionAppResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLinuxFunctionAppResult
 	err := ctx.Invoke("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args, &rv, opts...)
 	if err != nil {

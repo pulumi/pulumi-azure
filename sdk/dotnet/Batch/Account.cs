@@ -105,6 +105,12 @@ namespace Pulumi.Azure.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.AccountNetworkProfile?> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         /// </summary>
         [Output("poolAllocationMode")]
@@ -262,6 +268,12 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.AccountNetworkProfileArgs>? NetworkProfile { get; set; }
+
+        /// <summary>
         /// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         /// </summary>
         [Input("poolAllocationMode")]
@@ -374,6 +386,12 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.AccountNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
         /// <summary>
         /// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.

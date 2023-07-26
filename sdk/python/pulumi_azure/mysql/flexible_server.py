@@ -73,7 +73,6 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -386,9 +385,6 @@ class FlexibleServerArgs:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -462,7 +458,6 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -818,9 +813,6 @@ class _FlexibleServerState:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -942,7 +934,6 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerStorageArgs']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         """
         ...
     @overload
@@ -1154,7 +1145,6 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerStorageArgs']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1394,8 +1384,5 @@ class FlexibleServer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-        """
         return pulumi.get(self, "zone")
 

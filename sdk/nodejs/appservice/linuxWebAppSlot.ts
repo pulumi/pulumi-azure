@@ -170,6 +170,9 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
@@ -398,6 +401,9 @@ export interface LinuxWebAppSlotState {
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
@@ -496,6 +502,9 @@ export interface LinuxWebAppSlotArgs {
      * The Site Credentials Username used for publishing.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.

@@ -186,16 +186,12 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-     * 
      */
     @Import(name="customCaTrustCertificatesBase64s")
     private @Nullable Output<List<String>> customCaTrustCertificatesBase64s;
 
     /**
      * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Optional<Output<List<String>>> customCaTrustCertificatesBase64s() {
@@ -1041,7 +1037,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -1050,7 +1046,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -1545,8 +1541,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-         * 
          * @return builder
          * 
          */
@@ -1558,8 +1552,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-         * 
          * @return builder
          * 
          */
@@ -1569,8 +1561,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
 
         /**
          * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
          * 
          * @return builder
          * 
@@ -2702,7 +2692,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param publicNetworkAccessEnabled Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+         * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
          * 
          * @return builder
          * 
@@ -2715,7 +2705,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param publicNetworkAccessEnabled Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+         * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
          * 
          * @return builder
          * 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -176,9 +177,8 @@ type FlexibleServer struct {
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
-	Version pulumi.StringOutput `pulumi:"version"`
-	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	Zone pulumi.StringPtrOutput `pulumi:"zone"`
+	Version pulumi.StringOutput    `pulumi:"version"`
+	Zone    pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewFlexibleServer registers a new resource with the given unique name, arguments, and options.
@@ -198,6 +198,7 @@ func NewFlexibleServer(ctx *pulumi.Context,
 		"administratorPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlexibleServer
 	err := ctx.RegisterResource("azure:mysql/flexibleServer:FlexibleServer", name, args, &resource, opts...)
 	if err != nil {
@@ -280,8 +281,7 @@ type flexibleServerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
-	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	Zone *string `pulumi:"zone"`
+	Zone    *string `pulumi:"zone"`
 }
 
 type FlexibleServerState struct {
@@ -345,8 +345,7 @@ type FlexibleServerState struct {
 	Tags pulumi.StringMapInput
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
-	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	Zone pulumi.StringPtrInput
+	Zone    pulumi.StringPtrInput
 }
 
 func (FlexibleServerState) ElementType() reflect.Type {
@@ -408,8 +407,7 @@ type flexibleServerArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
-	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	Zone *string `pulumi:"zone"`
+	Zone    *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a FlexibleServer resource.
@@ -468,8 +466,7 @@ type FlexibleServerArgs struct {
 	Tags pulumi.StringMapInput
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
-	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
-	Zone pulumi.StringPtrInput
+	Zone    pulumi.StringPtrInput
 }
 
 func (FlexibleServerArgs) ElementType() reflect.Type {
@@ -691,7 +688,6 @@ func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 func (o FlexibleServerOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }

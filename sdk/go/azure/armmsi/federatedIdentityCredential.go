@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,6 +62,7 @@ func NewFederatedIdentityCredential(ctx *pulumi.Context,
 	if args.Subject == nil {
 		return nil, errors.New("invalid value for required argument 'Subject'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FederatedIdentityCredential
 	err := ctx.RegisterResource("azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential", name, args, &resource, opts...)
 	if err != nil {

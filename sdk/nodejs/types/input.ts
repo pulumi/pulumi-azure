@@ -2908,6 +2908,21 @@ export namespace appplatform {
         containerRegistryName?: pulumi.Input<string>;
     }
 
+    export interface SpringCloudServiceMarketplace {
+        /**
+         * Specifies the plan ID of the 3rd Party Artifact that is being procured.
+         */
+        plan: pulumi.Input<string>;
+        /**
+         * Specifies the 3rd Party artifact that is being procured.
+         */
+        product: pulumi.Input<string>;
+        /**
+         * Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+         */
+        publisher: pulumi.Input<string>;
+    }
+
     export interface SpringCloudServiceNetwork {
         /**
          * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
@@ -2921,6 +2936,10 @@ export namespace appplatform {
          * A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
          */
         cidrRanges: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+         */
+        outboundType?: pulumi.Input<string>;
         /**
          * Ingress read time out in seconds.
          */
@@ -15952,6 +15971,63 @@ export namespace batch {
         url: pulumi.Input<string>;
     }
 
+    export interface AccountNetworkProfile {
+        /**
+         * An `accountAccess` block as defined below.
+         */
+        accountAccess?: pulumi.Input<inputs.batch.AccountNetworkProfileAccountAccess>;
+        /**
+         * A `nodeManagementAccess` block as defined below.
+         *
+         * > **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
+         */
+        nodeManagementAccess?: pulumi.Input<inputs.batch.AccountNetworkProfileNodeManagementAccess>;
+    }
+
+    export interface AccountNetworkProfileAccountAccess {
+        /**
+         * Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<inputs.batch.AccountNetworkProfileAccountAccessIpRule>[]>;
+    }
+
+    export interface AccountNetworkProfileAccountAccessIpRule {
+        /**
+         * Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The CIDR block from which requests will match the rule.
+         */
+        ipRange: pulumi.Input<string>;
+    }
+
+    export interface AccountNetworkProfileNodeManagementAccess {
+        /**
+         * Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<inputs.batch.AccountNetworkProfileNodeManagementAccessIpRule>[]>;
+    }
+
+    export interface AccountNetworkProfileNodeManagementAccessIpRule {
+        /**
+         * Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The CIDR block from which requests will match the rule.
+         */
+        ipRange: pulumi.Input<string>;
+    }
+
     export interface GetAccountEncryption {
         /**
          * The full URL path of the Key Vault Key used to encrypt data for this Batch account.
@@ -17369,6 +17445,8 @@ export namespace cdn {
         operator: pulumi.Input<string>;
         /**
          * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         *
+         * > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          */
         selector: pulumi.Input<string>;
     }
@@ -17401,6 +17479,8 @@ export namespace cdn {
         operator: pulumi.Input<string>;
         /**
          * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         *
+         * > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          */
         selector: pulumi.Input<string>;
     }
@@ -17439,6 +17519,8 @@ export namespace cdn {
         operator: pulumi.Input<string>;
         /**
          * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         *
+         * > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          */
         selector: pulumi.Input<string>;
     }
@@ -18236,7 +18318,7 @@ export namespace cognitive {
 
     export interface DeploymentScale {
         /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+         * Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
          */
         capacity?: pulumi.Input<number>;
         /**
@@ -23832,7 +23914,7 @@ export namespace containerservice {
          *
          * > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          *
-         * > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "Overlay"` or `podSubnetId` must be specified.
+         * > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
          */
@@ -23872,9 +23954,9 @@ export namespace containerservice {
          */
         networkPlugin: pulumi.Input<string>;
         /**
-         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
          *
-         * > **Note:** When `networkPluginMode` is set to `Overlay`, the `networkPlugin` field can only be set to `azure`.
+         * > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
          */
         networkPluginMode?: pulumi.Input<string>;
         /**
@@ -24198,6 +24280,18 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterServiceMeshProfile {
+        /**
+         * Is Istio External Ingress Gateway enabled?
+         *
+         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+         *
+         * > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+         */
+        externalIngressGatewayEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is Istio Internal Ingress Gateway enabled?
+         */
+        internalIngressGatewayEnabled?: pulumi.Input<boolean>;
         /**
          * The mode of the service mesh. Possible value is `Istio`.
          */
@@ -28237,9 +28331,9 @@ export namespace dns {
         expireTime?: pulumi.Input<number>;
         fqdn?: pulumi.Input<string>;
         /**
-         * The domain name of the authoritative name server for the SOA record.
+         * The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
          */
-        hostName: pulumi.Input<string>;
+        hostName?: pulumi.Input<string>;
         /**
          * The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
          */
@@ -34260,6 +34354,15 @@ export namespace keyvault {
         contents: pulumi.Input<string>;
         /**
          * The password associated with the certificate.
+         *
+         * > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+         *
+         * To convert a private key to pkcs8 format with openssl use:
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         *
+         * The PEM content should look something like:
          */
         password?: pulumi.Input<string>;
     }
@@ -34425,6 +34528,15 @@ export namespace keyvault {
         contents: pulumi.Input<string>;
         /**
          * The password associated with the certificate.
+         *
+         * > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+         *
+         * To convert a private key to pkcs8 format with openssl use:
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         *
+         * The PEM content should look something like:
          */
         password?: pulumi.Input<string>;
     }
@@ -38199,6 +38311,45 @@ export namespace mediaservices {
 }
 
 export namespace mobile {
+    export interface NetworkAttachedDataNetworkNetworkAddressPortTranslation {
+        /**
+         * Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+         */
+        icmpPinholeTimeoutInSeconds?: pulumi.Input<number>;
+        pinholeMaximumNumber?: pulumi.Input<number>;
+        /**
+         * A `portRange` block as defined below.
+         */
+        portRange?: pulumi.Input<inputs.mobile.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange>;
+        /**
+         * Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+         */
+        tcpPinholeTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+         */
+        tcpPortReuseMinimumHoldTimeInSeconds?: pulumi.Input<number>;
+        /**
+         * Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+         */
+        udpPinholeTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+         */
+        udpPortReuseMinimumHoldTimeInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+        /**
+         * Specifies the maximum port number.
+         */
+        maximum?: pulumi.Input<number>;
+        /**
+         * Specifies the minimum port number.
+         */
+        minimum?: pulumi.Input<number>;
+    }
+
     export interface NetworkPacketCoreControlPlaneIdentity {
         /**
          * A list of the IDs for User Assigned Managed Identity resources to be assigned.
@@ -41450,11 +41601,6 @@ export namespace mysql {
          * > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
          */
         mode: pulumi.Input<string>;
-        /**
-         * Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
-         *
-         * > **NOTE:** The `standbyAvailabilityZone` will be omitted when mode is `SameZone`, for the `standbyAvailabilityZone` will be the same as `zone`.
-         */
         standbyAvailabilityZone?: pulumi.Input<string>;
     }
 
@@ -45002,7 +45148,7 @@ export namespace network {
 
     export interface VpnServerConfigurationRadius {
         /**
-         * One or more `clientRootCertificate` blocks as defined above.
+         * One or more `clientRootCertificate` blocks as defined below.
          */
         clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusClientRootCertificate>[]>;
         /**
@@ -45556,13 +45702,21 @@ export namespace postgresql {
 
     export interface FlexibleServerCustomerManagedKey {
         /**
+         * The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+         */
+        geoBackupKeyVaultKeyId?: pulumi.Input<string>;
+        /**
+         * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+         *
+         * > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+         */
+        geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
+        /**
          * The ID of the Key Vault Key.
          */
         keyVaultKeyId?: pulumi.Input<string>;
         /**
          * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
-         *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
          */
         primaryUserAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -47824,6 +47978,204 @@ export namespace siterecovery {
         recoveryZone?: pulumi.Input<string>;
     }
 
+    export interface ReplicationRecoveryPlanBootRecoveryGroup {
+        /**
+         * one or more `action` block as defined below. which will be executed after the group recovery.
+         */
+        postActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupPostAction>[]>;
+        /**
+         * one or more `action` block as defined below. which will be executed before the group recovery.
+         */
+        preActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupPreAction>[]>;
+        /**
+         * One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+         */
+        replicatedProtectedItems?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ReplicationRecoveryPlanBootRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanBootRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanFailoverRecoveryGroup {
+        /**
+         * one or more `action` block as defined below. which will be executed after the group recovery.
+         */
+        postActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupPostAction>[]>;
+        /**
+         * one or more `action` block as defined below. which will be executed before the group recovery.
+         */
+        preActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupPreAction>[]>;
+    }
+
+    export interface ReplicationRecoveryPlanFailoverRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanFailoverRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ReplicationRecoveryPlanRecoveryGroup {
         /**
          * one or more `action` block as defined below. which will be executed after the group recovery.
@@ -47887,6 +48239,103 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanShutdownRecoveryGroup {
+        /**
+         * one or more `action` block as defined below. which will be executed after the group recovery.
+         */
+        postActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupPostAction>[]>;
+        /**
+         * one or more `action` block as defined below. which will be executed before the group recovery.
+         */
+        preActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupPreAction>[]>;
+    }
+
+    export interface ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanShutdownRecoveryGroupPreAction {
         /**
          * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
          *

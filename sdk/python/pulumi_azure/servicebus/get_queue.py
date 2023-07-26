@@ -281,15 +281,17 @@ def get_queue(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_queue(name="existing",
-        resource_group_name="existing",
-        namespace_name="existing")
+        namespace_id="existing")
     pulumi.export("id", example.id)
     ```
 
 
     :param str name: The name of this Service Bus Queue.
+    :param str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Queue exists.
     :param str namespace_name: The name of the ServiceBus Namespace.
     :param str resource_group_name: The name of the Resource Group where the Service Bus Queue exists.
+           
+           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -338,14 +340,16 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_queue(name="existing",
-        resource_group_name="existing",
-        namespace_name="existing")
+        namespace_id="existing")
     pulumi.export("id", example.id)
     ```
 
 
     :param str name: The name of this Service Bus Queue.
+    :param str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Queue exists.
     :param str namespace_name: The name of the ServiceBus Namespace.
     :param str resource_group_name: The name of the Resource Group where the Service Bus Queue exists.
+           
+           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     ...

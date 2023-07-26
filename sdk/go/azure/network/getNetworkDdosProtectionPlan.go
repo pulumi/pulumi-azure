@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetNetworkDdosProtectionPlan(ctx *pulumi.Context, args *GetNetworkDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*GetNetworkDdosProtectionPlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkDdosProtectionPlanResult
 	err := ctx.Invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, &rv, opts...)
 	if err != nil {

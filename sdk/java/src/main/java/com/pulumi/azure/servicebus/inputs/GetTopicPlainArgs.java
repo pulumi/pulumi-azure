@@ -29,9 +29,17 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    /**
+     * The ID of the ServiceBus Namespace where the Service Bus Topic exists.
+     * 
+     */
     @Import(name="namespaceId")
     private @Nullable String namespaceId;
 
+    /**
+     * @return The ID of the ServiceBus Namespace where the Service Bus Topic exists.
+     * 
+     */
     public Optional<String> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
     }
@@ -39,14 +47,22 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The name of the Service Bus Namespace.
      * 
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     @Import(name="namespaceName")
     private @Nullable String namespaceName;
 
     /**
      * @return The name of the Service Bus Namespace.
      * 
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -54,14 +70,26 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The name of the Resource Group where the Service Bus Topic exists.
      * 
+     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+     * 
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     @Import(name="resourceGroupName")
     private @Nullable String resourceGroupName;
 
     /**
      * @return The name of the Resource Group where the Service Bus Topic exists.
      * 
+     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+     * 
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -104,6 +132,12 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param namespaceId The ID of the ServiceBus Namespace where the Service Bus Topic exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceId(@Nullable String namespaceId) {
             $.namespaceId = namespaceId;
             return this;
@@ -114,7 +148,11 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder namespaceName(@Nullable String namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -123,9 +161,15 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param resourceGroupName The name of the Resource Group where the Service Bus Topic exists.
          * 
+         * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;

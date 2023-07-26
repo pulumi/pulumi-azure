@@ -162,6 +162,9 @@ export class LinuxWebApp extends pulumi.CustomResource {
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
@@ -399,6 +402,9 @@ export interface LinuxWebAppState {
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
@@ -505,6 +511,9 @@ export interface LinuxWebAppArgs {
      * The Site Credentials Username used for publishing.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.

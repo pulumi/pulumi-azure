@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AccountCustomerManagedKeyType struct {
 	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
@@ -931,7 +934,7 @@ func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type DeploymentScale struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+	// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
 	Capacity *int `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family *string `pulumi:"family"`
@@ -955,7 +958,7 @@ type DeploymentScaleInput interface {
 }
 
 type DeploymentScaleArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+	// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family pulumi.StringPtrInput `pulumi:"family"`
@@ -1044,7 +1047,7 @@ func (o DeploymentScaleOutput) ToDeploymentScalePtrOutputWithContext(ctx context
 	}).(DeploymentScalePtrOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
 func (o DeploymentScaleOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentScale) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -1093,7 +1096,7 @@ func (o DeploymentScalePtrOutput) Elem() DeploymentScaleOutput {
 	}).(DeploymentScaleOutput)
 }
 
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Possible values are between `1` and `10000` and the default value is `1`. Changing this forces a new resource to be created.
+// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
 func (o DeploymentScalePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentScale) *int {
 		if v == nil {

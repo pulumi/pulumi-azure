@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetLBOutboundRule(ctx *pulumi.Context, args *GetLBOutboundRuleArgs, opts ...pulumi.InvokeOption) (*GetLBOutboundRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBOutboundRuleResult
 	err := ctx.Invoke("azure:lb/getLBOutboundRule:getLBOutboundRule", args, &rv, opts...)
 	if err != nil {

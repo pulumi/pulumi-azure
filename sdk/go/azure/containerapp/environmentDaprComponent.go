@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -123,6 +124,7 @@ func NewEnvironmentDaprComponent(ctx *pulumi.Context,
 		"secrets",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentDaprComponent
 	err := ctx.RegisterResource("azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent", name, args, &resource, opts...)
 	if err != nil {

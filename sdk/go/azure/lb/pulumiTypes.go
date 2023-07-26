@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type BackendAddressPoolAddressInboundNatRulePortMapping struct {
 	// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.

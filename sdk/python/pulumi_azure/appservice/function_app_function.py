@@ -461,19 +461,19 @@ class FunctionAppFunction(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             os_type="Windows",
             sku_name="S1")
-        test = azure.appservice.WindowsFunctionApp("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            service_plan_id=azurerm_service_plan["test"]["id"],
-            storage_account_name=azurerm_storage_account["test"]["name"],
-            storage_account_access_key=azurerm_storage_account["test"]["primary_access_key"],
+        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
             site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs(
                 application_stack=azure.appservice.WindowsFunctionAppSiteConfigApplicationStackArgs(
                     dotnet_version="6",
                 ),
             ))
         example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
-            function_app_id=azurerm_linux_function_app["example"]["id"],
+            function_app_id=example_windows_function_app.id,
             language="CSharp",
             files=[azure.appservice.FunctionAppFunctionFileArgs(
                 name="run.csx",
@@ -606,19 +606,19 @@ class FunctionAppFunction(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             os_type="Windows",
             sku_name="S1")
-        test = azure.appservice.WindowsFunctionApp("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            service_plan_id=azurerm_service_plan["test"]["id"],
-            storage_account_name=azurerm_storage_account["test"]["name"],
-            storage_account_access_key=azurerm_storage_account["test"]["primary_access_key"],
+        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
             site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs(
                 application_stack=azure.appservice.WindowsFunctionAppSiteConfigApplicationStackArgs(
                     dotnet_version="6",
                 ),
             ))
         example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
-            function_app_id=azurerm_linux_function_app["example"]["id"],
+            function_app_id=example_windows_function_app.id,
             language="CSharp",
             files=[azure.appservice.FunctionAppFunctionFileArgs(
                 name="run.csx",

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -215,6 +216,7 @@ func NewLinkedServiceAzureDatabricks(ctx *pulumi.Context,
 		"accessToken",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedServiceAzureDatabricks
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, args, &resource, opts...)
 	if err != nil {

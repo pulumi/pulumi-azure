@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -231,6 +232,7 @@ func NewManagedDisk(ctx *pulumi.Context,
 	if args.StorageAccountType == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedDisk
 	err := ctx.RegisterResource("azure:compute/managedDisk:ManagedDisk", name, args, &resource, opts...)
 	if err != nil {

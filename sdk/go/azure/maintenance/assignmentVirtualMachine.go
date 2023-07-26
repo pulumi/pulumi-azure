@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -163,6 +164,7 @@ func NewAssignmentVirtualMachine(ctx *pulumi.Context,
 	if args.VirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssignmentVirtualMachine
 	err := ctx.RegisterResource("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", name, args, &resource, opts...)
 	if err != nil {

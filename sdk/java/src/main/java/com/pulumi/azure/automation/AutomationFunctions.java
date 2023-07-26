@@ -829,7 +829,6 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -837,6 +836,7 @@ public final class AutomationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -851,9 +851,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *             .name(&#34;example-account&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
@@ -869,7 +873,6 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -877,6 +880,7 @@ public final class AutomationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -891,9 +895,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *             .name(&#34;example-account&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
@@ -909,7 +917,6 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -917,6 +924,7 @@ public final class AutomationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -931,9 +939,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *             .name(&#34;example-account&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
@@ -949,7 +961,6 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -957,6 +968,7 @@ public final class AutomationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
      * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -971,9 +983,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .resourceGroupName(&#34;tfex-example-rg&#34;)
-     *             .automationAccountName(&#34;tfex-example-account&#34;)
+     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *             .name(&#34;example-account&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());

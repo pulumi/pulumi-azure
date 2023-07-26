@@ -62,6 +62,7 @@ class LinuxWebAppArgs:
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
@@ -348,6 +349,9 @@ class LinuxWebAppArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Web App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -477,6 +481,7 @@ class _LinuxWebAppState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input['LinuxWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -848,6 +853,9 @@ class _LinuxWebAppState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Web App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1041,6 +1049,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1253,6 +1262,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1499,6 +1509,9 @@ class LinuxWebApp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should public network access be enabled for the Web App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

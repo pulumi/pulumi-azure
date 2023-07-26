@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,6 +111,7 @@ func NewBackendAddressPool(ctx *pulumi.Context,
 	if args.LoadbalancerId == nil {
 		return nil, errors.New("invalid value for required argument 'LoadbalancerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackendAddressPool
 	err := ctx.RegisterResource("azure:lb/backendAddressPool:BackendAddressPool", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupIntVariable(ctx *pulumi.Context, args *LookupIntVariableArgs, opts ...pulumi.InvokeOption) (*LookupIntVariableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntVariableResult
 	err := ctx.Invoke("azure:automation/getIntVariable:getIntVariable", args, &rv, opts...)
 	if err != nil {

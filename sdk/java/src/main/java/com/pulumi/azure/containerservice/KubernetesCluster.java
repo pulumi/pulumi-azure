@@ -238,16 +238,12 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-     * 
      */
     @Export(name="customCaTrustCertificatesBase64s", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customCaTrustCertificatesBase64s;
 
     /**
      * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Output<Optional<List<String>>> customCaTrustCertificatesBase64s() {
@@ -1042,7 +1038,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
@@ -1051,7 +1047,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/32` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

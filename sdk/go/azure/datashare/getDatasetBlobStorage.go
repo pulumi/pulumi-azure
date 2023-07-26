@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupDatasetBlobStorage(ctx *pulumi.Context, args *LookupDatasetBlobStorageArgs, opts ...pulumi.InvokeOption) (*LookupDatasetBlobStorageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetBlobStorageResult
 	err := ctx.Invoke("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args, &rv, opts...)
 	if err != nil {

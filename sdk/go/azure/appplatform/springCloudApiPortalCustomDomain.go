@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewSpringCloudApiPortalCustomDomain(ctx *pulumi.Context,
 	if args.SpringCloudApiPortalId == nil {
 		return nil, errors.New("invalid value for required argument 'SpringCloudApiPortalId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpringCloudApiPortalCustomDomain
 	err := ctx.RegisterResource("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, args, &resource, opts...)
 	if err != nil {

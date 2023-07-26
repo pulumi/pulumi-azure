@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -118,6 +119,7 @@ func NewSourceControl(ctx *pulumi.Context,
 	if args.SourceControlType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceControlType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceControl
 	err := ctx.RegisterResource("azure:automation/sourceControl:SourceControl", name, args, &resource, opts...)
 	if err != nil {

@@ -49,6 +49,10 @@ export interface GetRouteTableArgs {
  */
 export interface GetRouteTableResult {
     /**
+     * Boolean flag which controls propagation of routes learned by BGP on that route table.
+     */
+    readonly bgpRoutePropagationEnabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

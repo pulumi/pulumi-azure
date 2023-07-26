@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicResult
 	err := ctx.Invoke("azure:eventgrid/getTopic:getTopic", args, &rv, opts...)
 	if err != nil {

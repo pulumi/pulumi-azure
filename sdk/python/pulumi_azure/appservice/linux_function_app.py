@@ -71,6 +71,7 @@ class LinuxFunctionAppArgs:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input['LinuxFunctionAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
@@ -404,6 +405,9 @@ class LinuxFunctionAppArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Function App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -596,6 +600,7 @@ class _LinuxFunctionAppState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['LinuxFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -1014,6 +1019,9 @@ class _LinuxFunctionAppState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Function App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1277,6 +1285,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1527,6 +1536,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1806,6 +1816,9 @@ class LinuxFunctionApp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should public network access be enabled for the Function App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

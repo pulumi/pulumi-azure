@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -118,6 +119,7 @@ func NewSRVRecord(ctx *pulumi.Context,
 	if args.ZoneName == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SRVRecord
 	err := ctx.RegisterResource("azure:privatedns/sRVRecord:SRVRecord", name, args, &resource, opts...)
 	if err != nil {

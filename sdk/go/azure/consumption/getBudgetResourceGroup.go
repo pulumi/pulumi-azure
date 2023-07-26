@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupBudgetResourceGroup(ctx *pulumi.Context, args *LookupBudgetResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResourceGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetResourceGroupResult
 	err := ctx.Invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, &rv, opts...)
 	if err != nil {

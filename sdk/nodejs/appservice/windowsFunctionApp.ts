@@ -179,6 +179,9 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Should public network access be enabled for the Function App. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
@@ -459,6 +462,9 @@ export interface WindowsFunctionAppState {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Function App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
@@ -596,6 +602,9 @@ export interface WindowsFunctionAppArgs {
      * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
     name?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Function App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.

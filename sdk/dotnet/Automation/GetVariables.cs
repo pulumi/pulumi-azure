@@ -13,12 +13,76 @@ namespace Pulumi.Azure.Automation
     {
         /// <summary>
         /// Use this data source to get all variables in an Automation Account.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleAccount = Azure.Automation.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleVariables = Azure.Automation.GetVariables.Invoke(new()
+        ///     {
+        ///         AutomationAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["stringVars"] = data.Azurerm_automation_variable_string.Example.String,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVariablesResult> InvokeAsync(GetVariablesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariablesResult>("azure:automation/getVariables:getVariables", args ?? new GetVariablesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get all variables in an Automation Account.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleAccount = Azure.Automation.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleVariables = Azure.Automation.GetVariables.Invoke(new()
+        ///     {
+        ///         AutomationAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["stringVars"] = data.Azurerm_automation_variable_string.Example.String,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVariablesResult> Invoke(GetVariablesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariablesResult>("azure:automation/getVariables:getVariables", args ?? new GetVariablesInvokeArgs(), options.WithDefaults());
@@ -27,6 +91,9 @@ namespace Pulumi.Azure.Automation
 
     public sealed class GetVariablesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID of the automation account.
+        /// </summary>
         [Input("automationAccountId", required: true)]
         public string AutomationAccountId { get; set; } = null!;
 
@@ -38,6 +105,9 @@ namespace Pulumi.Azure.Automation
 
     public sealed class GetVariablesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID of the automation account.
+        /// </summary>
         [Input("automationAccountId", required: true)]
         public Input<string> AutomationAccountId { get; set; } = null!;
 
@@ -57,7 +127,7 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesBoolResult> Bools;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each boolean variable.
+        /// One or more `variable` blocks as defined below for each datetime variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesDatetimeResult> Datetimes;
         /// <summary>
@@ -69,15 +139,15 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each boolean variable.
+        /// One or more `variable` blocks as defined below for each int variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesIntResult> Ints;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each boolean variable.
+        /// One or more `variable` blocks as defined below for each null variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesNullResult> Nulls;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each boolean variable.
+        /// One or more `variable` blocks as defined below for each string variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesStringResult> Strings;
 

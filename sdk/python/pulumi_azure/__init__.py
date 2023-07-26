@@ -116,6 +116,8 @@ if typing.TYPE_CHECKING:
     fluidrelay = __fluidrelay
     import pulumi_azure.frontdoor as __frontdoor
     frontdoor = __frontdoor
+    import pulumi_azure.graph as __graph
+    graph = __graph
     import pulumi_azure.hdinsight as __hdinsight
     hdinsight = __hdinsight
     import pulumi_azure.healthcare as __healthcare
@@ -308,6 +310,7 @@ else:
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
     fluidrelay = _utilities.lazy_import('pulumi_azure.fluidrelay')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
+    graph = _utilities.lazy_import('pulumi_azure.graph')
     hdinsight = _utilities.lazy_import('pulumi_azure.hdinsight')
     healthcare = _utilities.lazy_import('pulumi_azure.healthcare')
     hpc = _utilities.lazy_import('pulumi_azure.hpc')
@@ -4087,6 +4090,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "graph/account",
+  "fqn": "pulumi_azure.graph",
+  "classes": {
+   "azure:graph/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "hdinsight/hBaseCluster",
   "fqn": "pulumi_azure.hdinsight",
   "classes": {
@@ -5323,6 +5334,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mobile",
   "classes": {
    "azure:mobile/network:Network": "Network"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/networkAttachedDataNetwork",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork": "NetworkAttachedDataNetwork"
   }
  },
  {

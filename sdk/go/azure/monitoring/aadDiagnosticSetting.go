@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -133,6 +134,7 @@ func NewAadDiagnosticSetting(ctx *pulumi.Context,
 		args = &AadDiagnosticSettingArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AadDiagnosticSetting
 	err := ctx.RegisterResource("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

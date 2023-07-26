@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupManagedHardwareSecurityModule(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedHardwareSecurityModuleResult
 	err := ctx.Invoke("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args, &rv, opts...)
 	if err != nil {

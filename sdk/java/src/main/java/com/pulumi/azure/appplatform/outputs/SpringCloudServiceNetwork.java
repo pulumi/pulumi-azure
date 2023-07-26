@@ -29,6 +29,11 @@ public final class SpringCloudServiceNetwork {
      */
     private List<String> cidrRanges;
     /**
+     * @return Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String outboundType;
+    /**
      * @return Ingress read time out in seconds.
      * 
      */
@@ -67,6 +72,13 @@ public final class SpringCloudServiceNetwork {
         return this.cidrRanges;
     }
     /**
+     * @return Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> outboundType() {
+        return Optional.ofNullable(this.outboundType);
+    }
+    /**
      * @return Ingress read time out in seconds.
      * 
      */
@@ -100,6 +112,7 @@ public final class SpringCloudServiceNetwork {
         private @Nullable String appNetworkResourceGroup;
         private String appSubnetId;
         private List<String> cidrRanges;
+        private @Nullable String outboundType;
         private @Nullable Integer readTimeoutSeconds;
         private @Nullable String serviceRuntimeNetworkResourceGroup;
         private String serviceRuntimeSubnetId;
@@ -109,6 +122,7 @@ public final class SpringCloudServiceNetwork {
     	      this.appNetworkResourceGroup = defaults.appNetworkResourceGroup;
     	      this.appSubnetId = defaults.appSubnetId;
     	      this.cidrRanges = defaults.cidrRanges;
+    	      this.outboundType = defaults.outboundType;
     	      this.readTimeoutSeconds = defaults.readTimeoutSeconds;
     	      this.serviceRuntimeNetworkResourceGroup = defaults.serviceRuntimeNetworkResourceGroup;
     	      this.serviceRuntimeSubnetId = defaults.serviceRuntimeSubnetId;
@@ -133,6 +147,11 @@ public final class SpringCloudServiceNetwork {
             return cidrRanges(List.of(cidrRanges));
         }
         @CustomType.Setter
+        public Builder outboundType(@Nullable String outboundType) {
+            this.outboundType = outboundType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder readTimeoutSeconds(@Nullable Integer readTimeoutSeconds) {
             this.readTimeoutSeconds = readTimeoutSeconds;
             return this;
@@ -152,6 +171,7 @@ public final class SpringCloudServiceNetwork {
             o.appNetworkResourceGroup = appNetworkResourceGroup;
             o.appSubnetId = appSubnetId;
             o.cidrRanges = cidrRanges;
+            o.outboundType = outboundType;
             o.readTimeoutSeconds = readTimeoutSeconds;
             o.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             o.serviceRuntimeSubnetId = serviceRuntimeSubnetId;

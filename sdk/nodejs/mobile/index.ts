@@ -10,6 +10,11 @@ export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
 
+export { GetNetworkAttachedDataNetworkArgs, GetNetworkAttachedDataNetworkResult, GetNetworkAttachedDataNetworkOutputArgs } from "./getNetworkAttachedDataNetwork";
+export const getNetworkAttachedDataNetwork: typeof import("./getNetworkAttachedDataNetwork").getNetworkAttachedDataNetwork = null as any;
+export const getNetworkAttachedDataNetworkOutput: typeof import("./getNetworkAttachedDataNetwork").getNetworkAttachedDataNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkAttachedDataNetwork","getNetworkAttachedDataNetworkOutput"], () => require("./getNetworkAttachedDataNetwork"));
+
 export { GetNetworkDataNetworkArgs, GetNetworkDataNetworkResult, GetNetworkDataNetworkOutputArgs } from "./getNetworkDataNetwork";
 export const getNetworkDataNetwork: typeof import("./getNetworkDataNetwork").getNetworkDataNetwork = null as any;
 export const getNetworkDataNetworkOutput: typeof import("./getNetworkDataNetwork").getNetworkDataNetworkOutput = null as any;
@@ -54,6 +59,11 @@ export { NetworkArgs, NetworkState } from "./network";
 export type Network = import("./network").Network;
 export const Network: typeof import("./network").Network = null as any;
 utilities.lazyLoad(exports, ["Network"], () => require("./network"));
+
+export { NetworkAttachedDataNetworkArgs, NetworkAttachedDataNetworkState } from "./networkAttachedDataNetwork";
+export type NetworkAttachedDataNetwork = import("./networkAttachedDataNetwork").NetworkAttachedDataNetwork;
+export const NetworkAttachedDataNetwork: typeof import("./networkAttachedDataNetwork").NetworkAttachedDataNetwork = null as any;
+utilities.lazyLoad(exports, ["NetworkAttachedDataNetwork"], () => require("./networkAttachedDataNetwork"));
 
 export { NetworkDataNetworkArgs, NetworkDataNetworkState } from "./networkDataNetwork";
 export type NetworkDataNetwork = import("./networkDataNetwork").NetworkDataNetwork;
@@ -102,6 +112,8 @@ const _module = {
         switch (type) {
             case "azure:mobile/network:Network":
                 return new Network(name, <any>undefined, { urn })
+            case "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork":
+                return new NetworkAttachedDataNetwork(name, <any>undefined, { urn })
             case "azure:mobile/networkDataNetwork:NetworkDataNetwork":
                 return new NetworkDataNetwork(name, <any>undefined, { urn })
             case "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane":
@@ -124,6 +136,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "mobile/network", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkAttachedDataNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkDataNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkPacketCoreControlPlane", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkPacketCoreDataPlane", _module)

@@ -2408,6 +2408,33 @@
                     },
                     "key_vault_reference": {
                         "maxItemsOne": true
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "account_access": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "ip_rule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "node_management_access": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "ip_rule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -7800,6 +7827,10 @@
                     }
                 }
             },
+            "azurerm_graph_account": {
+                "current": "azure:graph/account:Account",
+                "majorVersion": 5
+            },
             "azurerm_hdinsight_hadoop_cluster": {
                 "current": "azure:hdinsight/hadoopCluster:HadoopCluster",
                 "majorVersion": 5,
@@ -12967,6 +12998,31 @@
                 "current": "azure:mobile/network:Network",
                 "majorVersion": 5
             },
+            "azurerm_mobile_network_attached_data_network": {
+                "current": "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork",
+                "majorVersion": 5,
+                "fields": {
+                    "dns_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "network_address_port_translation": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "port_range": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "user_equipment_address_pool_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "user_equipment_static_address_pool_prefixes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_mobile_network_data_network": {
                 "current": "azure:mobile/networkDataNetwork:NetworkDataNetwork",
                 "majorVersion": 5
@@ -17561,6 +17617,75 @@
                     "azure_to_azure_settings": {
                         "maxItemsOne": true
                     },
+                    "boot_recovery_group": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "post_action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "fail_over_directions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "fail_over_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "pre_action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "fail_over_directions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "fail_over_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "replicated_protected_items": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "failover_recovery_group": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "post_action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "fail_over_directions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "fail_over_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "pre_action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "fail_over_directions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "fail_over_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "recovery_group": {
                         "maxItemsOne": false,
                         "elem": {
@@ -17593,6 +17718,39 @@
                                 },
                                 "replicated_protected_items": {
                                     "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "shutdown_recovery_group": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "post_action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "fail_over_directions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "fail_over_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "pre_action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "fail_over_directions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "fail_over_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -17990,6 +18148,9 @@
                         "maxItemsOne": false
                     },
                     "default_build_service": {
+                        "maxItemsOne": true
+                    },
+                    "marketplace": {
                         "maxItemsOne": true
                     },
                     "network": {
@@ -22719,6 +22880,10 @@
                 "current": "azure:cognitive/getAccount:getAccount",
                 "majorVersion": 5
             },
+            "azurerm_communication_service": {
+                "current": "azure:communication/getService:getService",
+                "majorVersion": 5
+            },
             "azurerm_confidential_ledger": {
                 "current": "azure:compute/getConfidentialLedger:getConfidentialLedger",
                 "majorVersion": 5,
@@ -24195,6 +24360,9 @@
                             }
                         }
                     },
+                    "service_mesh_profile": {
+                        "maxItemsOne": false
+                    },
                     "service_principal": {
                         "maxItemsOne": false
                     },
@@ -25269,6 +25437,31 @@
             "azurerm_mobile_network": {
                 "current": "azure:mobile/getNetwork:getNetwork",
                 "majorVersion": 5
+            },
+            "azurerm_mobile_network_attached_data_network": {
+                "current": "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork",
+                "majorVersion": 5,
+                "fields": {
+                    "dns_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "network_address_port_translation": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "port_range": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "user_equipment_address_pool_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "user_equipment_static_address_pool_prefixes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_mobile_network_data_network": {
                 "current": "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork",
@@ -28648,6 +28841,7 @@
             "azure:frontdoor/firewallPolicy:FirewallPolicy": "azurerm_frontdoor_firewall_policy",
             "azure:frontdoor/frontdoor:Frontdoor": "azurerm_frontdoor",
             "azure:frontdoor/rulesEngine:RulesEngine": "azurerm_frontdoor_rules_engine",
+            "azure:graph/account:Account": "azurerm_graph_account",
             "azure:hdinsight/hBaseCluster:HBaseCluster": "azurerm_hdinsight_hbase_cluster",
             "azure:hdinsight/hadoopCluster:HadoopCluster": "azurerm_hdinsight_hadoop_cluster",
             "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster": "azurerm_hdinsight_interactive_query_cluster",
@@ -28803,6 +28997,7 @@
             "azure:mediaservices/account:Account": "azurerm_media_services_account_legacy",
             "azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount": "azurerm_spatial_anchors_account",
             "azure:mobile/network:Network": "azurerm_mobile_network",
+            "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork": "azurerm_mobile_network_attached_data_network",
             "azure:mobile/networkDataNetwork:NetworkDataNetwork": "azurerm_mobile_network_data_network",
             "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane": "azurerm_mobile_network_packet_core_control_plane",
             "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane": "azurerm_mobile_network_packet_core_data_plane",
@@ -29268,6 +29463,7 @@
             "azure:cdn/getFrontdoorSecret:getFrontdoorSecret": "azurerm_cdn_frontdoor_secret",
             "azure:cdn/getProfile:getProfile": "azurerm_cdn_profile",
             "azure:cognitive/getAccount:getAccount": "azurerm_cognitive_account",
+            "azure:communication/getService:getService": "azurerm_communication_service",
             "azure:compute/getAvailabilitySet:getAvailabilitySet": "azurerm_availability_set",
             "azure:compute/getBastionHost:getBastionHost": "azurerm_bastion_host",
             "azure:compute/getConfidentialLedger:getConfidentialLedger": "azurerm_confidential_ledger",
@@ -29404,6 +29600,7 @@
             "azure:marketplace/getAgreement:getAgreement": "azurerm_marketplace_agreement",
             "azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount": "azurerm_spatial_anchors_account",
             "azure:mobile/getNetwork:getNetwork": "azurerm_mobile_network",
+            "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork": "azurerm_mobile_network_attached_data_network",
             "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork": "azurerm_mobile_network_data_network",
             "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane": "azurerm_mobile_network_packet_core_control_plane",
             "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane": "azurerm_mobile_network_packet_core_data_plane",
@@ -30731,6 +30928,7 @@
                 "appNetworkResourceGroup": "app_network_resource_group",
                 "appSubnetId": "app_subnet_id",
                 "cidrRanges": "cidr_ranges",
+                "outboundType": "outbound_type",
                 "readTimeoutSeconds": "read_timeout_seconds",
                 "serviceRuntimeNetworkResourceGroup": "service_runtime_network_resource_group",
                 "serviceRuntimeSubnetId": "service_runtime_subnet_id"
@@ -36330,6 +36528,24 @@
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
+            "azure:batch/AccountNetworkProfile:AccountNetworkProfile": {
+                "accountAccess": "account_access",
+                "nodeManagementAccess": "node_management_access"
+            },
+            "azure:batch/AccountNetworkProfileAccountAccess:AccountNetworkProfileAccountAccess": {
+                "defaultAction": "default_action",
+                "ipRules": "ip_rule"
+            },
+            "azure:batch/AccountNetworkProfileAccountAccessIpRule:AccountNetworkProfileAccountAccessIpRule": {
+                "ipRange": "ip_range"
+            },
+            "azure:batch/AccountNetworkProfileNodeManagementAccess:AccountNetworkProfileNodeManagementAccess": {
+                "defaultAction": "default_action",
+                "ipRules": "ip_rule"
+            },
+            "azure:batch/AccountNetworkProfileNodeManagementAccessIpRule:AccountNetworkProfileNodeManagementAccessIpRule": {
+                "ipRange": "ip_range"
+            },
             "azure:batch/PoolAutoScale:PoolAutoScale": {
                 "evaluationInterval": "evaluation_interval"
             },
@@ -36474,6 +36690,7 @@
                 "accountEndpoint": "account_endpoint",
                 "allowedAuthenticationModes": "allowed_authentication_modes",
                 "keyVaultReference": "key_vault_reference",
+                "networkProfile": "network_profile",
                 "poolAllocationMode": "pool_allocation_mode",
                 "primaryAccessKey": "primary_access_key",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
@@ -37465,6 +37682,14 @@
             "azure:communication/emailService:EmailService": {
                 "dataLocation": "data_location",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:communication/getService:getService": {
+                "dataLocation": "data_location",
+                "primaryConnectionString": "primary_connection_string",
+                "primaryKey": "primary_key",
+                "resourceGroupName": "resource_group_name",
+                "secondaryConnectionString": "secondary_connection_string",
+                "secondaryKey": "secondary_key"
             },
             "azure:communication/service:Service": {
                 "dataLocation": "data_location",
@@ -39692,6 +39917,10 @@
                 "objectId": "object_id",
                 "userAssignedIdentityId": "user_assigned_identity_id"
             },
+            "azure:containerservice/KubernetesClusterServiceMeshProfile:KubernetesClusterServiceMeshProfile": {
+                "externalIngressGatewayEnabled": "external_ingress_gateway_enabled",
+                "internalIngressGatewayEnabled": "internal_ingress_gateway_enabled"
+            },
             "azure:containerservice/KubernetesClusterServicePrincipal:KubernetesClusterServicePrincipal": {
                 "clientId": "client_id",
                 "clientSecret": "client_secret"
@@ -39887,6 +40116,7 @@
                 "privateFqdn": "private_fqdn",
                 "resourceGroupName": "resource_group_name",
                 "roleBasedAccessControlEnabled": "role_based_access_control_enabled",
+                "serviceMeshProfiles": "service_mesh_profile",
                 "servicePrincipals": "service_principal",
                 "storageProfiles": "storage_profile",
                 "windowsProfiles": "windows_profile"
@@ -39995,6 +40225,10 @@
                 "clientId": "client_id",
                 "objectId": "object_id",
                 "userAssignedIdentityId": "user_assigned_identity_id"
+            },
+            "azure:containerservice/getKubernetesClusterServiceMeshProfile:getKubernetesClusterServiceMeshProfile": {
+                "externalIngressGatewayEnabled": "external_ingress_gateway_enabled",
+                "internalIngressGatewayEnabled": "internal_ingress_gateway_enabled"
             },
             "azure:containerservice/getKubernetesClusterServicePrincipal:getKubernetesClusterServicePrincipal": {
                 "clientId": "client_id"
@@ -43446,6 +43680,11 @@
                 "resourceGroupName": "resource_group_name",
                 "rules": "rule"
             },
+            "azure:graph/account:Account": {
+                "applicationId": "application_id",
+                "billingPlanId": "billing_plan_id",
+                "resourceGroupName": "resource_group_name"
+            },
             "azure:hdinsight/HBaseClusterComputeIsolation:HBaseClusterComputeIsolation": {
                 "computeIsolationEnabled": "compute_isolation_enabled",
                 "hostSku": "host_sku"
@@ -45724,6 +45963,7 @@
             "azure:logicapps/getStandard:getStandard": {
                 "appServicePlanId": "app_service_plan_id",
                 "appSettings": "app_settings",
+                "autoSwapSlotName": "auto_swap_slot_name",
                 "bundleVersion": "bundle_version",
                 "clientAffinityEnabled": "client_affinity_enabled",
                 "clientCertificateMode": "client_certificate_mode",
@@ -45876,6 +46116,7 @@
             "azure:logicapps/standard:Standard": {
                 "appServicePlanId": "app_service_plan_id",
                 "appSettings": "app_settings",
+                "autoSwapSlotName": "auto_swap_slot_name",
                 "bundleVersion": "bundle_version",
                 "clientAffinityEnabled": "client_affinity_enabled",
                 "clientCertificateMode": "client_certificate_mode",
@@ -46831,6 +47072,15 @@
                 "accountId": "account_id",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:mobile/NetworkAttachedDataNetworkNetworkAddressPortTranslation:NetworkAttachedDataNetworkNetworkAddressPortTranslation": {
+                "icmpPinholeTimeoutInSeconds": "icmp_pinhole_timeout_in_seconds",
+                "pinholeMaximumNumber": "pinhole_maximum_number",
+                "portRange": "port_range",
+                "tcpPinholeTimeoutInSeconds": "tcp_pinhole_timeout_in_seconds",
+                "tcpPortReuseMinimumHoldTimeInSeconds": "tcp_port_reuse_minimum_hold_time_in_seconds",
+                "udpPinholeTimeoutInSeconds": "udp_pinhole_timeout_in_seconds",
+                "udpPortReuseMinimumHoldTimeInSeconds": "udp_port_reuse_minimum_hold_time_in_seconds"
+            },
             "azure:mobile/NetworkPacketCoreControlPlaneIdentity:NetworkPacketCoreControlPlaneIdentity": {
                 "identityIds": "identity_ids"
             },
@@ -46897,6 +47147,27 @@
                 "mobileNetworkCode": "mobile_network_code",
                 "resourceGroupName": "resource_group_name",
                 "serviceKey": "service_key"
+            },
+            "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork": {
+                "dnsAddresses": "dns_addresses",
+                "mobileNetworkDataNetworkName": "mobile_network_data_network_name",
+                "mobileNetworkPacketCoreDataPlaneId": "mobile_network_packet_core_data_plane_id",
+                "networkAddressPortTranslations": "network_address_port_translation",
+                "userEquipmentAddressPoolPrefixes": "user_equipment_address_pool_prefixes",
+                "userEquipmentStaticAddressPoolPrefixes": "user_equipment_static_address_pool_prefixes",
+                "userPlaneAccessIpv4Address": "user_plane_access_ipv4_address",
+                "userPlaneAccessIpv4Gateway": "user_plane_access_ipv4_gateway",
+                "userPlaneAccessIpv4Subnet": "user_plane_access_ipv4_subnet",
+                "userPlaneAccessName": "user_plane_access_name"
+            },
+            "azure:mobile/getNetworkAttachedDataNetworkNetworkAddressPortTranslation:getNetworkAttachedDataNetworkNetworkAddressPortTranslation": {
+                "icmpPinholeTimeoutInSeconds": "icmp_pinhole_timeout_in_seconds",
+                "pinholeMaximumNumber": "pinhole_maximum_number",
+                "portRanges": "port_range",
+                "tcpPinholeTimeoutInSeconds": "tcp_pinhole_timeout_in_seconds",
+                "tcpPortReuseMinimumHoldTimeInSeconds": "tcp_port_reuse_minimum_hold_time_in_seconds",
+                "udpPinholeTimeoutInSeconds": "udp_pinhole_timeout_in_seconds",
+                "udpPortReuseMinimumHoldTimeInSeconds": "udp_port_reuse_minimum_hold_time_in_seconds"
             },
             "azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork": {
                 "mobileNetworkId": "mobile_network_id"
@@ -47018,6 +47289,18 @@
                 "mobileNetworkCode": "mobile_network_code",
                 "resourceGroupName": "resource_group_name",
                 "serviceKey": "service_key"
+            },
+            "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork": {
+                "dnsAddresses": "dns_addresses",
+                "mobileNetworkDataNetworkName": "mobile_network_data_network_name",
+                "mobileNetworkPacketCoreDataPlaneId": "mobile_network_packet_core_data_plane_id",
+                "networkAddressPortTranslation": "network_address_port_translation",
+                "userEquipmentAddressPoolPrefixes": "user_equipment_address_pool_prefixes",
+                "userEquipmentStaticAddressPoolPrefixes": "user_equipment_static_address_pool_prefixes",
+                "userPlaneAccessIpv4Address": "user_plane_access_ipv4_address",
+                "userPlaneAccessIpv4Gateway": "user_plane_access_ipv4_gateway",
+                "userPlaneAccessIpv4Subnet": "user_plane_access_ipv4_subnet",
+                "userPlaneAccessName": "user_plane_access_name"
             },
             "azure:mobile/networkDataNetwork:NetworkDataNetwork": {
                 "mobileNetworkId": "mobile_network_id"
@@ -49767,6 +50050,7 @@
                 "ruleType": "rule_type"
             },
             "azure:network/getRouteTable:getRouteTable": {
+                "bgpRoutePropagationEnabled": "bgp_route_propagation_enabled",
                 "resourceGroupName": "resource_group_name",
                 "routes": "route"
             },
@@ -50708,6 +50992,8 @@
                 "tenantId": "tenant_id"
             },
             "azure:postgresql/FlexibleServerCustomerManagedKey:FlexibleServerCustomerManagedKey": {
+                "geoBackupKeyVaultKeyId": "geo_backup_key_vault_key_id",
+                "geoBackupUserAssignedIdentityId": "geo_backup_user_assigned_identity_id",
                 "keyVaultKeyId": "key_vault_key_id",
                 "primaryUserAssignedIdentityId": "primary_user_assigned_identity_id"
             },
@@ -52367,6 +52653,47 @@
                 "recoveryEdgeZone": "recovery_edge_zone",
                 "recoveryZone": "recovery_zone"
             },
+            "azure:siterecovery/ReplicationRecoveryPlanBootRecoveryGroup:ReplicationRecoveryPlanBootRecoveryGroup": {
+                "postActions": "post_action",
+                "preActions": "pre_action",
+                "replicatedProtectedItems": "replicated_protected_items"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanBootRecoveryGroupPostAction:ReplicationRecoveryPlanBootRecoveryGroupPostAction": {
+                "fabricLocation": "fabric_location",
+                "failOverDirections": "fail_over_directions",
+                "failOverTypes": "fail_over_types",
+                "manualActionInstruction": "manual_action_instruction",
+                "runbookId": "runbook_id",
+                "scriptPath": "script_path"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanBootRecoveryGroupPreAction:ReplicationRecoveryPlanBootRecoveryGroupPreAction": {
+                "fabricLocation": "fabric_location",
+                "failOverDirections": "fail_over_directions",
+                "failOverTypes": "fail_over_types",
+                "manualActionInstruction": "manual_action_instruction",
+                "runbookId": "runbook_id",
+                "scriptPath": "script_path"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanFailoverRecoveryGroup:ReplicationRecoveryPlanFailoverRecoveryGroup": {
+                "postActions": "post_action",
+                "preActions": "pre_action"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanFailoverRecoveryGroupPostAction:ReplicationRecoveryPlanFailoverRecoveryGroupPostAction": {
+                "fabricLocation": "fabric_location",
+                "failOverDirections": "fail_over_directions",
+                "failOverTypes": "fail_over_types",
+                "manualActionInstruction": "manual_action_instruction",
+                "runbookId": "runbook_id",
+                "scriptPath": "script_path"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanFailoverRecoveryGroupPreAction:ReplicationRecoveryPlanFailoverRecoveryGroupPreAction": {
+                "fabricLocation": "fabric_location",
+                "failOverDirections": "fail_over_directions",
+                "failOverTypes": "fail_over_types",
+                "manualActionInstruction": "manual_action_instruction",
+                "runbookId": "runbook_id",
+                "scriptPath": "script_path"
+            },
             "azure:siterecovery/ReplicationRecoveryPlanRecoveryGroup:ReplicationRecoveryPlanRecoveryGroup": {
                 "postActions": "post_action",
                 "preActions": "pre_action",
@@ -52381,6 +52708,26 @@
                 "scriptPath": "script_path"
             },
             "azure:siterecovery/ReplicationRecoveryPlanRecoveryGroupPreAction:ReplicationRecoveryPlanRecoveryGroupPreAction": {
+                "fabricLocation": "fabric_location",
+                "failOverDirections": "fail_over_directions",
+                "failOverTypes": "fail_over_types",
+                "manualActionInstruction": "manual_action_instruction",
+                "runbookId": "runbook_id",
+                "scriptPath": "script_path"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanShutdownRecoveryGroup:ReplicationRecoveryPlanShutdownRecoveryGroup": {
+                "postActions": "post_action",
+                "preActions": "pre_action"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanShutdownRecoveryGroupPostAction:ReplicationRecoveryPlanShutdownRecoveryGroupPostAction": {
+                "fabricLocation": "fabric_location",
+                "failOverDirections": "fail_over_directions",
+                "failOverTypes": "fail_over_types",
+                "manualActionInstruction": "manual_action_instruction",
+                "runbookId": "runbook_id",
+                "scriptPath": "script_path"
+            },
+            "azure:siterecovery/ReplicationRecoveryPlanShutdownRecoveryGroupPreAction:ReplicationRecoveryPlanShutdownRecoveryGroupPreAction": {
                 "fabricLocation": "fabric_location",
                 "failOverDirections": "fail_over_directions",
                 "failOverTypes": "fail_over_types",
@@ -52515,8 +52862,11 @@
             },
             "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan": {
                 "azureToAzureSettings": "azure_to_azure_settings",
+                "bootRecoveryGroups": "boot_recovery_group",
+                "failoverRecoveryGroup": "failover_recovery_group",
                 "recoveryGroups": "recovery_group",
                 "recoveryVaultId": "recovery_vault_id",
+                "shutdownRecoveryGroup": "shutdown_recovery_group",
                 "sourceRecoveryFabricId": "source_recovery_fabric_id",
                 "targetRecoveryFabricId": "target_recovery_fabric_id"
             },

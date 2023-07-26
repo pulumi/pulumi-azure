@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 	if args.WorkspaceResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedStorageAccount
 	err := ctx.RegisterResource("azure:loganalytics/linkedStorageAccount:LinkedStorageAccount", name, args, &resource, opts...)
 	if err != nil {

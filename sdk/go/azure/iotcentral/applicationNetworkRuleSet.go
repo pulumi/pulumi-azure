@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewApplicationNetworkRuleSet(ctx *pulumi.Context,
 	if args.IotcentralApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'IotcentralApplicationId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationNetworkRuleSet
 	err := ctx.RegisterResource("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet", name, args, &resource, opts...)
 	if err != nil {

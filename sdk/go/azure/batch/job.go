@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewJob(ctx *pulumi.Context,
 	if args.BatchPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'BatchPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Job
 	err := ctx.RegisterResource("azure:batch/job:Job", name, args, &resource, opts...)
 	if err != nil {

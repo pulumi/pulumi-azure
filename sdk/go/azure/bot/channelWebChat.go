@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -102,6 +103,7 @@ func NewChannelWebChat(ctx *pulumi.Context,
 	if args.SiteNames == nil {
 		return nil, errors.New("invalid value for required argument 'SiteNames'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChannelWebChat
 	err := ctx.RegisterResource("azure:bot/channelWebChat:ChannelWebChat", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,8 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `networkProfile` block as defined below.
+	NetworkProfile AccountNetworkProfilePtrOutput `pulumi:"networkProfile"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrOutput `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
@@ -134,6 +137,7 @@ func NewAccount(ctx *pulumi.Context,
 		"secondaryAccessKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("azure:batch/account:Account", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +174,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkProfile` block as defined below.
+	NetworkProfile *AccountNetworkProfile `pulumi:"networkProfile"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
@@ -215,6 +221,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkProfile` block as defined below.
+	NetworkProfile AccountNetworkProfilePtrInput
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrInput
 	// The Batch account primary access key.
@@ -262,6 +270,8 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkProfile` block as defined below.
+	NetworkProfile *AccountNetworkProfile `pulumi:"networkProfile"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
@@ -302,6 +312,8 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkProfile` block as defined below.
+	NetworkProfile AccountNetworkProfilePtrInput
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.
@@ -448,6 +460,11 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `networkProfile` block as defined below.
+func (o AccountOutput) NetworkProfile() AccountNetworkProfilePtrOutput {
+	return o.ApplyT(func(v *Account) AccountNetworkProfilePtrOutput { return v.NetworkProfile }).(AccountNetworkProfilePtrOutput)
 }
 
 // Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.

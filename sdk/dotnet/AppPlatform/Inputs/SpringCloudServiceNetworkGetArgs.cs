@@ -37,6 +37,12 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
+        /// Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("outboundType")]
+        public Input<string>? OutboundType { get; set; }
+
+        /// <summary>
         /// Ingress read time out in seconds.
         /// </summary>
         [Input("readTimeoutSeconds")]

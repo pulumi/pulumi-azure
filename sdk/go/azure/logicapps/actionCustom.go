@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,6 +106,7 @@ func NewActionCustom(ctx *pulumi.Context,
 	if args.LogicAppId == nil {
 		return nil, errors.New("invalid value for required argument 'LogicAppId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionCustom
 	err := ctx.RegisterResource("azure:logicapps/actionCustom:ActionCustom", name, args, &resource, opts...)
 	if err != nil {

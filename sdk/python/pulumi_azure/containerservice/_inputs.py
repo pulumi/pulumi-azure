@@ -6057,7 +6057,7 @@ class KubernetesClusterNetworkProfileArgs:
                
                > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
                
-               > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "Overlay"` or `pod_subnet_id` must be specified.
+               > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -6073,9 +6073,9 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
                
                > **Note:** This property can only be set when `network_plugin` is set to `azure`.
-        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
                
-               > **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+               > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
@@ -6173,7 +6173,7 @@ class KubernetesClusterNetworkProfileArgs:
 
         > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
 
-        > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "Overlay"` or `pod_subnet_id` must be specified.
+        > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
 
         > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         """
@@ -6255,9 +6255,9 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkPluginMode")
     def network_plugin_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
 
-        > **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+        > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
         """
         return pulumi.get(self, "network_plugin_mode")
 
@@ -7429,11 +7429,23 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
 @pulumi.input_type
 class KubernetesClusterServiceMeshProfileArgs:
     def __init__(__self__, *,
-                 mode: pulumi.Input[str]):
+                 mode: pulumi.Input[str],
+                 external_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None,
+                 internal_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] mode: The mode of the service mesh. Possible value is `Istio`.
+        :param pulumi.Input[bool] external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+               
+               > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        :param pulumi.Input[bool] internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         """
         pulumi.set(__self__, "mode", mode)
+        if external_ingress_gateway_enabled is not None:
+            pulumi.set(__self__, "external_ingress_gateway_enabled", external_ingress_gateway_enabled)
+        if internal_ingress_gateway_enabled is not None:
+            pulumi.set(__self__, "internal_ingress_gateway_enabled", internal_ingress_gateway_enabled)
 
     @property
     @pulumi.getter
@@ -7446,6 +7458,34 @@ class KubernetesClusterServiceMeshProfileArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="externalIngressGatewayEnabled")
+    def external_ingress_gateway_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Istio External Ingress Gateway enabled?
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+
+        > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        """
+        return pulumi.get(self, "external_ingress_gateway_enabled")
+
+    @external_ingress_gateway_enabled.setter
+    def external_ingress_gateway_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "external_ingress_gateway_enabled", value)
+
+    @property
+    @pulumi.getter(name="internalIngressGatewayEnabled")
+    def internal_ingress_gateway_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Istio Internal Ingress Gateway enabled?
+        """
+        return pulumi.get(self, "internal_ingress_gateway_enabled")
+
+    @internal_ingress_gateway_enabled.setter
+    def internal_ingress_gateway_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internal_ingress_gateway_enabled", value)
 
 
 @pulumi.input_type

@@ -7,8 +7,426 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslation struct {
+	// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+	IcmpPinholeTimeoutInSeconds *int `pulumi:"icmpPinholeTimeoutInSeconds"`
+	PinholeMaximumNumber        *int `pulumi:"pinholeMaximumNumber"`
+	// A `portRange` block as defined below.
+	PortRange *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange `pulumi:"portRange"`
+	// Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+	TcpPinholeTimeoutInSeconds *int `pulumi:"tcpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+	TcpPortReuseMinimumHoldTimeInSeconds *int `pulumi:"tcpPortReuseMinimumHoldTimeInSeconds"`
+	// Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+	UdpPinholeTimeoutInSeconds *int `pulumi:"udpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+	UdpPortReuseMinimumHoldTimeInSeconds *int `pulumi:"udpPortReuseMinimumHoldTimeInSeconds"`
+}
+
+// NetworkAttachedDataNetworkNetworkAddressPortTranslationInput is an input type that accepts NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs and NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput values.
+// You can construct a concrete instance of `NetworkAttachedDataNetworkNetworkAddressPortTranslationInput` via:
+//
+//	NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{...}
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationInput interface {
+	pulumi.Input
+
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs struct {
+	// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+	IcmpPinholeTimeoutInSeconds pulumi.IntPtrInput `pulumi:"icmpPinholeTimeoutInSeconds"`
+	PinholeMaximumNumber        pulumi.IntPtrInput `pulumi:"pinholeMaximumNumber"`
+	// A `portRange` block as defined below.
+	PortRange NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput `pulumi:"portRange"`
+	// Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+	TcpPinholeTimeoutInSeconds pulumi.IntPtrInput `pulumi:"tcpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+	TcpPortReuseMinimumHoldTimeInSeconds pulumi.IntPtrInput `pulumi:"tcpPortReuseMinimumHoldTimeInSeconds"`
+	// Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+	UdpPinholeTimeoutInSeconds pulumi.IntPtrInput `pulumi:"udpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+	UdpPortReuseMinimumHoldTimeInSeconds pulumi.IntPtrInput `pulumi:"udpPortReuseMinimumHoldTimeInSeconds"`
+}
+
+func (NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(context.Background())
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput)
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput).ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx)
+}
+
+// NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput is an input type that accepts NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs, NetworkAttachedDataNetworkNetworkAddressPortTranslationPtr and NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput values.
+// You can construct a concrete instance of `NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput` via:
+//
+//	        NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput
+}
+
+type networkAttachedDataNetworkNetworkAddressPortTranslationPtrType NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs
+
+func NetworkAttachedDataNetworkNetworkAddressPortTranslationPtr(v *NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput {
+	return (*networkAttachedDataNetworkNetworkAddressPortTranslationPtrType)(v)
+}
+
+func (*networkAttachedDataNetworkNetworkAddressPortTranslationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPtrType) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPtrType) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput)
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput struct{ *pulumi.OutputState }
+
+func (NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return o.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *NetworkAttachedDataNetworkNetworkAddressPortTranslation {
+		return &v
+	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput)
+}
+
+// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) IcmpPinholeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		return v.IcmpPinholeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) PinholeMaximumNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int { return v.PinholeMaximumNumber }).(pulumi.IntPtrOutput)
+}
+
+// A `portRange` block as defined below.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) PortRange() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+		return v.PortRange
+	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput)
+}
+
+// Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) TcpPinholeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		return v.TcpPinholeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) TcpPortReuseMinimumHoldTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		return v.TcpPortReuseMinimumHoldTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) UdpPinholeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		return v.UdpPinholeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) UdpPortReuseMinimumHoldTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		return v.UdpPortReuseMinimumHoldTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) Elem() NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) NetworkAttachedDataNetworkNetworkAddressPortTranslation {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAttachedDataNetworkNetworkAddressPortTranslation
+		return ret
+	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput)
+}
+
+// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) IcmpPinholeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IcmpPinholeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) PinholeMaximumNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PinholeMaximumNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `portRange` block as defined below.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) PortRange() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRange
+	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput)
+}
+
+// Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) TcpPinholeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpPinholeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) TcpPortReuseMinimumHoldTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpPortReuseMinimumHoldTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) UdpPinholeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpPinholeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) UdpPortReuseMinimumHoldTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpPortReuseMinimumHoldTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange struct {
+	// Specifies the maximum port number.
+	Maximum *int `pulumi:"maximum"`
+	// Specifies the minimum port number.
+	Minimum *int `pulumi:"minimum"`
+}
+
+// NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput is an input type that accepts NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs and NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput values.
+// You can construct a concrete instance of `NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput` via:
+//
+//	NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{...}
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs struct {
+	// Specifies the maximum port number.
+	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
+	// Specifies the minimum port number.
+	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
+}
+
+func (NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput)
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput).ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput is an input type that accepts NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs, NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtr and NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput` via:
+//
+//	        NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput
+	ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput
+}
+
+type networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs
+
+func NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtr(v *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput {
+	return (*networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType)(v)
+}
+
+func (*networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput)
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return o.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+		return &v
+	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput)
+}
+
+// Specifies the maximum port number.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) *int { return v.Maximum }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum port number.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) *int { return v.Minimum }).(pulumi.IntPtrOutput)
+}
+
+type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) Elem() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange
+		return ret
+	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput)
+}
+
+// Specifies the maximum port number.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Maximum
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum port number.
+func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minimum
+	}).(pulumi.IntPtrOutput)
+}
 
 type NetworkPacketCoreControlPlaneIdentity struct {
 	// A list of the IDs for User Assigned Managed Identity resources to be assigned.
@@ -2558,6 +2976,263 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) S
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslation struct {
+	IcmpPinholeTimeoutInSeconds int  `pulumi:"icmpPinholeTimeoutInSeconds"`
+	PinholeMaximumNumber        *int `pulumi:"pinholeMaximumNumber"`
+	// A `portRange` block as defined below.
+	PortRanges                 []GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange `pulumi:"portRanges"`
+	TcpPinholeTimeoutInSeconds int                                                                   `pulumi:"tcpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused.
+	TcpPortReuseMinimumHoldTimeInSeconds int `pulumi:"tcpPortReuseMinimumHoldTimeInSeconds"`
+	UdpPinholeTimeoutInSeconds           int `pulumi:"udpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused.
+	UdpPortReuseMinimumHoldTimeInSeconds int `pulumi:"udpPortReuseMinimumHoldTimeInSeconds"`
+}
+
+// GetNetworkAttachedDataNetworkNetworkAddressPortTranslationInput is an input type that accepts GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs and GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput values.
+// You can construct a concrete instance of `GetNetworkAttachedDataNetworkNetworkAddressPortTranslationInput` via:
+//
+//	GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{...}
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationInput interface {
+	pulumi.Input
+
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs struct {
+	IcmpPinholeTimeoutInSeconds pulumi.IntInput    `pulumi:"icmpPinholeTimeoutInSeconds"`
+	PinholeMaximumNumber        pulumi.IntPtrInput `pulumi:"pinholeMaximumNumber"`
+	// A `portRange` block as defined below.
+	PortRanges                 GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput `pulumi:"portRanges"`
+	TcpPinholeTimeoutInSeconds pulumi.IntInput                                                               `pulumi:"tcpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused.
+	TcpPortReuseMinimumHoldTimeInSeconds pulumi.IntInput `pulumi:"tcpPortReuseMinimumHoldTimeInSeconds"`
+	UdpPinholeTimeoutInSeconds           pulumi.IntInput `pulumi:"udpPinholeTimeoutInSeconds"`
+	// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused.
+	UdpPortReuseMinimumHoldTimeInSeconds pulumi.IntInput `pulumi:"udpPortReuseMinimumHoldTimeInSeconds"`
+}
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput)
+}
+
+// GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayInput is an input type that accepts GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray and GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayInput` via:
+//
+//	GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray{ GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{...} }
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutputWithContext(context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray []GetNetworkAttachedDataNetworkNetworkAddressPortTranslationInput
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput {
+	return i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput)
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) IcmpPinholeTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) int {
+		return v.IcmpPinholeTimeoutInSeconds
+	}).(pulumi.IntOutput)
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) PinholeMaximumNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) *int { return v.PinholeMaximumNumber }).(pulumi.IntPtrOutput)
+}
+
+// A `portRange` block as defined below.
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) PortRanges() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) []GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+		return v.PortRanges
+	}).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput)
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) TcpPinholeTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) int {
+		return v.TcpPinholeTimeoutInSeconds
+	}).(pulumi.IntOutput)
+}
+
+// Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused.
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) TcpPortReuseMinimumHoldTimeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) int {
+		return v.TcpPortReuseMinimumHoldTimeInSeconds
+	}).(pulumi.IntOutput)
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) UdpPinholeTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) int {
+		return v.UdpPinholeTimeoutInSeconds
+	}).(pulumi.IntOutput)
+}
+
+// Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused.
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) UdpPortReuseMinimumHoldTimeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslation) int {
+		return v.UdpPortReuseMinimumHoldTimeInSeconds
+	}).(pulumi.IntOutput)
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation)(nil)).Elem()
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) Index(i pulumi.IntInput) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
+		return vs[0].([]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation)[vs[1].(int)]
+	}).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput)
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange struct {
+	// The maximum port number.
+	Maximum int `pulumi:"maximum"`
+	// The minimum port number.
+	Minimum int `pulumi:"minimum"`
+}
+
+// GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput is an input type that accepts GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs and GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput values.
+// You can construct a concrete instance of `GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput` via:
+//
+//	GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{...}
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput interface {
+	pulumi.Input
+
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs struct {
+	// The maximum port number.
+	Maximum pulumi.IntInput `pulumi:"maximum"`
+	// The minimum port number.
+	Minimum pulumi.IntInput `pulumi:"minimum"`
+}
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput)
+}
+
+// GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput is an input type that accepts GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray and GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput` via:
+//
+//	GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray{ GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{...} }
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput
+	ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutputWithContext(context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray []GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput {
+	return i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput)
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return o
+}
+
+// The maximum port number.
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) Maximum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) int { return v.Maximum }).(pulumi.IntOutput)
+}
+
+// The minimum port number.
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) Minimum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) int { return v.Minimum }).(pulumi.IntOutput)
+}
+
+type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)(nil)).Elem()
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput() GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) Index(i pulumi.IntInput) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange {
+		return vs[0].([]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange)[vs[1].(int)]
+	}).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput)
+}
+
 type GetNetworkPacketCoreControlPlaneIdentity struct {
 	// A list of User Assigned Managed Identity IDs assigned to this resource.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -4506,6 +5181,10 @@ func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslationInput)(nil)).Elem(), NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput)(nil)).Elem(), NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput)(nil)).Elem(), NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput)(nil)).Elem(), NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneIdentityInput)(nil)).Elem(), NetworkPacketCoreControlPlaneIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneIdentityPtrInput)(nil)).Elem(), NetworkPacketCoreControlPlaneIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput)(nil)).Elem(), NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{})
@@ -4537,6 +5216,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput)(nil)).Elem(), NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationInput)(nil)).Elem(), GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayInput)(nil)).Elem(), GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeInput)(nil)).Elem(), GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput)(nil)).Elem(), GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneIdentityInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneIdentityArrayInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessInput)(nil)).Elem(), GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{})
@@ -4569,6 +5252,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray{})
+	pulumi.RegisterOutputType(NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput{})
+	pulumi.RegisterOutputType(NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneIdentityOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneIdentityPtrOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput{})
@@ -4600,6 +5287,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput{})
+	pulumi.RegisterOutputType(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput{})
+	pulumi.RegisterOutputType(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput{})
+	pulumi.RegisterOutputType(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneIdentityOutput{})
 	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput{})

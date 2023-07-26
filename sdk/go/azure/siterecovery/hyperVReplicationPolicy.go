@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,6 +101,7 @@ func NewHyperVReplicationPolicy(ctx *pulumi.Context,
 	if args.ReplicationIntervalInSeconds == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationIntervalInSeconds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HyperVReplicationPolicy
 	err := ctx.RegisterResource("azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy", name, args, &resource, opts...)
 	if err != nil {

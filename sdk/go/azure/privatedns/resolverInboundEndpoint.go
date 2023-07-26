@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -133,6 +134,7 @@ func NewResolverInboundEndpoint(ctx *pulumi.Context,
 	if args.PrivateDnsResolverId == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateDnsResolverId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverInboundEndpoint
 	err := ctx.RegisterResource("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint", name, args, &resource, opts...)
 	if err != nil {

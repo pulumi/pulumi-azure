@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -146,6 +147,7 @@ func NewEndpointStorageContainer(ctx *pulumi.Context,
 		"connectionString",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointStorageContainer
 	err := ctx.RegisterResource("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, args, &resource, opts...)
 	if err != nil {

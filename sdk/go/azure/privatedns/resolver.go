@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,6 +97,7 @@ func NewResolver(ctx *pulumi.Context,
 	if args.VirtualNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resolver
 	err := ctx.RegisterResource("azure:privatedns/resolver:Resolver", name, args, &resource, opts...)
 	if err != nil {

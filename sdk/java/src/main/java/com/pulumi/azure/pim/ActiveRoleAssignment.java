@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * Manages a Pim Active Role Assignment.
  * 
  * ## Example Usage
+ * ### Subscription)
  * ```java
  * package generated_program;
  * 
@@ -62,6 +63,66 @@ import javax.annotation.Nullable;
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment(&#34;exampleActiveRoleAssignment&#34;, ActiveRoleAssignmentArgs.builder()        
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(String.format(&#34;%s%s&#34;, primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()),exampleRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())))
+ *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
+ *                 .startDateTime(exampleStatic.rfc3339())
+ *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()
+ *                     .durationHours(8)
+ *                     .build())
+ *                 .build())
+ *             .justification(&#34;Expiration Duration Set&#34;)
+ *             .ticket(ActiveRoleAssignmentTicketArgs.builder()
+ *                 .number(&#34;1&#34;)
+ *                 .system(&#34;example ticket system&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Management Group)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.authorization.AuthorizationFunctions;
+ * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+ * import com.pulumi.azure.management.Group;
+ * import com.pulumi.time.Static;
+ * import com.pulumi.azure.pim.ActiveRoleAssignment;
+ * import com.pulumi.azure.pim.ActiveRoleAssignmentArgs;
+ * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleArgs;
+ * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleExpirationArgs;
+ * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentTicketArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ * 
+ *         final var exampleRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *             .name(&#34;Reader&#34;)
+ *             .build());
+ * 
+ *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+ * 
+ *         var exampleStatic = new Static(&#34;exampleStatic&#34;);
+ * 
+ *         var exampleActiveRoleAssignment = new ActiveRoleAssignment(&#34;exampleActiveRoleAssignment&#34;, ActiveRoleAssignmentArgs.builder()        
+ *             .scope(exampleGroup.id())
+ *             .roleDefinitionId(exampleRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()))
  *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())

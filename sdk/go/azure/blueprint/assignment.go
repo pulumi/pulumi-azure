@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -193,6 +194,7 @@ func NewAssignment(ctx *pulumi.Context,
 	if args.VersionId == nil {
 		return nil, errors.New("invalid value for required argument 'VersionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assignment
 	err := ctx.RegisterResource("azure:blueprint/assignment:Assignment", name, args, &resource, opts...)
 	if err != nil {

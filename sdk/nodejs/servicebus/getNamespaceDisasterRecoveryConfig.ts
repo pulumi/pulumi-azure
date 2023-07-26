@@ -23,7 +23,13 @@ export interface GetNamespaceDisasterRecoveryConfigArgs {
     aliasAuthorizationRuleId?: string;
     name: string;
     namespaceId?: string;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     namespaceName?: string;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     resourceGroupName?: string;
 }
 
@@ -40,9 +46,15 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly id: string;
     readonly name: string;
     readonly namespaceId?: string;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly namespaceName?: string;
     readonly partnerNamespaceId: string;
     readonly primaryConnectionStringAlias: string;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly resourceGroupName?: string;
     readonly secondaryConnectionStringAlias: string;
 }
@@ -57,6 +69,12 @@ export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
     aliasAuthorizationRuleId?: pulumi.Input<string>;
     name: pulumi.Input<string>;
     namespaceId?: pulumi.Input<string>;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     resourceGroupName?: pulumi.Input<string>;
 }

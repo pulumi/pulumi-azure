@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,6 +60,7 @@ func NewManagedCertificate(ctx *pulumi.Context,
 	if args.CustomHostnameBindingId == nil {
 		return nil, errors.New("invalid value for required argument 'CustomHostnameBindingId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedCertificate
 	err := ctx.RegisterResource("azure:appservice/managedCertificate:ManagedCertificate", name, args, &resource, opts...)
 	if err != nil {

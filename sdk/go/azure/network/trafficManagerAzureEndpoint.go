@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -124,6 +125,7 @@ func NewTrafficManagerAzureEndpoint(ctx *pulumi.Context,
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficManagerAzureEndpoint
 	err := ctx.RegisterResource("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint", name, args, &resource, opts...)
 	if err != nil {

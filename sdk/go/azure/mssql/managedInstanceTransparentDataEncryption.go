@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -282,6 +283,7 @@ func NewManagedInstanceTransparentDataEncryption(ctx *pulumi.Context,
 	if args.ManagedInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedInstanceTransparentDataEncryption
 	err := ctx.RegisterResource("azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption", name, args, &resource, opts...)
 	if err != nil {

@@ -39,7 +39,7 @@ export interface GetResolverInboundEndpointArgs {
      */
     name: string;
     /**
-     * ID of the Private DNS Resolver Inbound Endpoint.
+     * ID of the Private DNS Resolver.
      */
     privateDnsResolverId: string;
 }
@@ -95,7 +95,7 @@ export interface GetResolverInboundEndpointOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * ID of the Private DNS Resolver Inbound Endpoint.
+     * ID of the Private DNS Resolver.
      */
     privateDnsResolverId: pulumi.Input<string>;
 }

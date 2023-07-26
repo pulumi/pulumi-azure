@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetVirtualMachineScaleSet(ctx *pulumi.Context, args *GetVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*GetVirtualMachineScaleSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVirtualMachineScaleSetResult
 	err := ctx.Invoke("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args, &rv, opts...)
 	if err != nil {

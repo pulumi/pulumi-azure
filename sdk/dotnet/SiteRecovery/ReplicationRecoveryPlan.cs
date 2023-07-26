@@ -256,23 +256,16 @@ namespace Pulumi.Azure.SiteRecovery
     ///         RecoveryVaultId = vault.Id,
     ///         SourceRecoveryFabricId = primaryFabric.Id,
     ///         TargetRecoveryFabricId = secondaryFabric.Id,
-    ///         RecoveryGroups = new[]
+    ///         ShutdownRecoveryGroup = null,
+    ///         FailoverRecoveryGroup = null,
+    ///         BootRecoveryGroups = new[]
     ///         {
-    ///             new Azure.SiteRecovery.Inputs.ReplicationRecoveryPlanRecoveryGroupArgs
+    ///             new Azure.SiteRecovery.Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs
     ///             {
-    ///                 Type = "Boot",
     ///                 ReplicatedProtectedItems = new[]
     ///                 {
     ///                     vm_replication.Id,
     ///                 },
-    ///             },
-    ///             new Azure.SiteRecovery.Inputs.ReplicationRecoveryPlanRecoveryGroupArgs
-    ///             {
-    ///                 Type = "Failover",
-    ///             },
-    ///             new Azure.SiteRecovery.Inputs.ReplicationRecoveryPlanRecoveryGroupArgs
-    ///             {
-    ///                 Type = "Shutdown",
     ///             },
     ///         },
     ///     });
@@ -298,6 +291,22 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<Outputs.ReplicationRecoveryPlanAzureToAzureSettings?> AzureToAzureSettings { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `boot_recovery_group` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Output("bootRecoveryGroups")]
+        public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanBootRecoveryGroup>> BootRecoveryGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// One `failover_recovery_group` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Output("failoverRecoveryGroup")]
+        public Output<Outputs.ReplicationRecoveryPlanFailoverRecoveryGroup> FailoverRecoveryGroup { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -305,6 +314,8 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// Three or more `recovery_group` block defined as below.
+        /// 
+        /// **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         /// </summary>
         [Output("recoveryGroups")]
         public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanRecoveryGroup>> RecoveryGroups { get; private set; } = null!;
@@ -314,6 +325,14 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Output("recoveryVaultId")]
         public Output<string> RecoveryVaultId { get; private set; } = null!;
+
+        /// <summary>
+        /// One `shutdown_recovery_group` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Output("shutdownRecoveryGroup")]
+        public Output<Outputs.ReplicationRecoveryPlanShutdownRecoveryGroup> ShutdownRecoveryGroup { get; private set; } = null!;
 
         /// <summary>
         /// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
@@ -379,6 +398,28 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs>? AzureToAzureSettings { get; set; }
 
+        [Input("bootRecoveryGroups")]
+        private InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs>? _bootRecoveryGroups;
+
+        /// <summary>
+        /// One or more `boot_recovery_group` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        public InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs> BootRecoveryGroups
+        {
+            get => _bootRecoveryGroups ?? (_bootRecoveryGroups = new InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs>());
+            set => _bootRecoveryGroups = value;
+        }
+
+        /// <summary>
+        /// One `failover_recovery_group` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Input("failoverRecoveryGroup")]
+        public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs>? FailoverRecoveryGroup { get; set; }
+
         /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
@@ -390,7 +431,10 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// Three or more `recovery_group` block defined as below.
+        /// 
+        /// **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         /// </summary>
+        [Obsolete(@"the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.")]
         public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs> RecoveryGroups
         {
             get => _recoveryGroups ?? (_recoveryGroups = new InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs>());
@@ -402,6 +446,14 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("recoveryVaultId", required: true)]
         public Input<string> RecoveryVaultId { get; set; } = null!;
+
+        /// <summary>
+        /// One `shutdown_recovery_group` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Input("shutdownRecoveryGroup")]
+        public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs>? ShutdownRecoveryGroup { get; set; }
 
         /// <summary>
         /// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
@@ -429,6 +481,28 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsGetArgs>? AzureToAzureSettings { get; set; }
 
+        [Input("bootRecoveryGroups")]
+        private InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupGetArgs>? _bootRecoveryGroups;
+
+        /// <summary>
+        /// One or more `boot_recovery_group` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        public InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupGetArgs> BootRecoveryGroups
+        {
+            get => _bootRecoveryGroups ?? (_bootRecoveryGroups = new InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupGetArgs>());
+            set => _bootRecoveryGroups = value;
+        }
+
+        /// <summary>
+        /// One `failover_recovery_group` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Input("failoverRecoveryGroup")]
+        public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupGetArgs>? FailoverRecoveryGroup { get; set; }
+
         /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
@@ -440,7 +514,10 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// Three or more `recovery_group` block defined as below.
+        /// 
+        /// **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         /// </summary>
+        [Obsolete(@"the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.")]
         public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs> RecoveryGroups
         {
             get => _recoveryGroups ?? (_recoveryGroups = new InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs>());
@@ -452,6 +529,14 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("recoveryVaultId")]
         public Input<string>? RecoveryVaultId { get; set; }
+
+        /// <summary>
+        /// One `shutdown_recovery_group` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+        /// </summary>
+        [Input("shutdownRecoveryGroup")]
+        public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupGetArgs>? ShutdownRecoveryGroup { get; set; }
 
         /// <summary>
         /// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewCacheBlobNfsTarget(ctx *pulumi.Context,
 	if args.UsageModel == nil {
 		return nil, errors.New("invalid value for required argument 'UsageModel'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CacheBlobNfsTarget
 	err := ctx.RegisterResource("azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget", name, args, &resource, opts...)
 	if err != nil {

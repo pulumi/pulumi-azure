@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,7 +72,7 @@ type PostgresqlCluster struct {
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrOutput `pulumi:"coordinatorPublicIpAccessEnabled"`
 	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
 	CoordinatorServerEdition pulumi.StringPtrOutput `pulumi:"coordinatorServerEdition"`
-	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
 	CoordinatorStorageQuotaInMb pulumi.IntOutput `pulumi:"coordinatorStorageQuotaInMb"`
@@ -144,6 +145,7 @@ func NewPostgresqlCluster(ctx *pulumi.Context,
 		"administratorLoginPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PostgresqlCluster
 	err := ctx.RegisterResource("azure:cosmosdb/postgresqlCluster:PostgresqlCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -174,7 +176,7 @@ type postgresqlClusterState struct {
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
 	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
 	CoordinatorServerEdition *string `pulumi:"coordinatorServerEdition"`
-	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
 	CoordinatorStorageQuotaInMb *int `pulumi:"coordinatorStorageQuotaInMb"`
@@ -227,7 +229,7 @@ type PostgresqlClusterState struct {
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
 	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
 	CoordinatorServerEdition pulumi.StringPtrInput
-	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
 	CoordinatorStorageQuotaInMb pulumi.IntPtrInput
@@ -284,7 +286,7 @@ type postgresqlClusterArgs struct {
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
 	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
 	CoordinatorServerEdition *string `pulumi:"coordinatorServerEdition"`
-	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
 	CoordinatorStorageQuotaInMb int `pulumi:"coordinatorStorageQuotaInMb"`
@@ -336,7 +338,7 @@ type PostgresqlClusterArgs struct {
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
 	// The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
 	CoordinatorServerEdition pulumi.StringPtrInput
-	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
 	CoordinatorStorageQuotaInMb pulumi.IntInput
@@ -485,7 +487,7 @@ func (o PostgresqlClusterOutput) CoordinatorServerEdition() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringPtrOutput { return v.CoordinatorServerEdition }).(pulumi.StringPtrOutput)
 }
 
-// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
+// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 //
 // > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
 func (o PostgresqlClusterOutput) CoordinatorStorageQuotaInMb() pulumi.IntOutput {

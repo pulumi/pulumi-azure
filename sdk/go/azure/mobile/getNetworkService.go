@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ import (
 //
 // ```
 func LookupNetworkService(ctx *pulumi.Context, args *LookupNetworkServiceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkServiceResult
 	err := ctx.Invoke("azure:mobile/getNetworkService:getNetworkService", args, &rv, opts...)
 	if err != nil {

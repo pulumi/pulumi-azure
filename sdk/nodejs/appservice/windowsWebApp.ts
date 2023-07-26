@@ -162,6 +162,9 @@ export class WindowsWebApp extends pulumi.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
@@ -401,6 +404,9 @@ export interface WindowsWebAppState {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
@@ -509,6 +515,9 @@ export interface WindowsWebAppArgs {
      * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Should public network access be enabled for the Web App. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.

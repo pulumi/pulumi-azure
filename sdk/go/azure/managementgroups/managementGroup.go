@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewManagementGroup(ctx *pulumi.Context,
 		args = &ManagementGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagementGroup
 	err := ctx.RegisterResource("azure:managementgroups/managementGroup:ManagementGroup", name, args, &resource, opts...)
 	if err != nil {

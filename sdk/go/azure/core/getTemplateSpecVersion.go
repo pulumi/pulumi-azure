@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetTemplateSpecVersion(ctx *pulumi.Context, args *GetTemplateSpecVersionArgs, opts ...pulumi.InvokeOption) (*GetTemplateSpecVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplateSpecVersionResult
 	err := ctx.Invoke("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, &rv, opts...)
 	if err != nil {

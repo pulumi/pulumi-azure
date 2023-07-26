@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -127,6 +128,7 @@ func NewNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 		"secondaryConnectionStringAlias",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NamespaceDisasterRecoveryConfig
 	err := ctx.RegisterResource("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig", name, args, &resource, opts...)
 	if err != nil {

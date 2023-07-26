@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -127,6 +128,7 @@ func NewOrder(ctx *pulumi.Context,
 	if args.ShipmentAddress == nil {
 		return nil, errors.New("invalid value for required argument 'ShipmentAddress'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Order
 	err := ctx.RegisterResource("azure:databoxedge/order:Order", name, args, &resource, opts...)
 	if err != nil {

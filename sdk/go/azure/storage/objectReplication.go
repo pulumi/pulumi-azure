@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -139,6 +140,7 @@ func NewObjectReplication(ctx *pulumi.Context,
 	if args.SourceStorageAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceStorageAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObjectReplication
 	err := ctx.RegisterResource("azure:storage/objectReplication:ObjectReplication", name, args, &resource, opts...)
 	if err != nil {

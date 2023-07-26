@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupVirtualHubConnection(ctx *pulumi.Context, args *LookupVirtualHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualHubConnectionResult
 	err := ctx.Invoke("azure:network/getVirtualHubConnection:getVirtualHubConnection", args, &rv, opts...)
 	if err != nil {

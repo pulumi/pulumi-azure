@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -151,6 +152,7 @@ func NewFrontdoorCustomDomain(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrontdoorCustomDomain
 	err := ctx.RegisterResource("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, args, &resource, opts...)
 	if err != nil {

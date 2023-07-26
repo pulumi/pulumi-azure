@@ -2794,6 +2794,8 @@ class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
                > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
         :param pulumi.Input[str] operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
         :param pulumi.Input[str] selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
+               
+               > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "operator", operator)
@@ -2830,6 +2832,8 @@ class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
     def selector(self) -> pulumi.Input[str]:
         """
         Selector for the value in the `match_variable` attribute this exclusion applies to.
+
+        > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         """
         return pulumi.get(self, "selector")
 
@@ -2904,6 +2908,8 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
                > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
         :param pulumi.Input[str] operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
         :param pulumi.Input[str] selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
+               
+               > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "operator", operator)
@@ -2940,6 +2946,8 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
     def selector(self) -> pulumi.Input[str]:
         """
         Selector for the value in the `match_variable` attribute this exclusion applies to.
+
+        > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         """
         return pulumi.get(self, "selector")
 
@@ -3033,6 +3041,8 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
                > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
         :param pulumi.Input[str] operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
         :param pulumi.Input[str] selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
+               
+               > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "operator", operator)
@@ -3069,6 +3079,8 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
     def selector(self) -> pulumi.Input[str]:
         """
         Selector for the value in the `match_variable` attribute this exclusion applies to.
+
+        > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         """
         return pulumi.get(self, "selector")
 

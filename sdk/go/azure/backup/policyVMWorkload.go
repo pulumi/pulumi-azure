@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -131,6 +132,7 @@ func NewPolicyVMWorkload(ctx *pulumi.Context,
 	if args.WorkloadType == nil {
 		return nil, errors.New("invalid value for required argument 'WorkloadType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyVMWorkload
 	err := ctx.RegisterResource("azure:backup/policyVMWorkload:PolicyVMWorkload", name, args, &resource, opts...)
 	if err != nil {

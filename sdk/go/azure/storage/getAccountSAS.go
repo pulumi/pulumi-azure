@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,7 @@ import (
 //
 // ```
 func GetAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs, opts ...pulumi.InvokeOption) (*GetAccountSASResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountSASResult
 	err := ctx.Invoke("azure:storage/getAccountSAS:getAccountSAS", args, &rv, opts...)
 	if err != nil {

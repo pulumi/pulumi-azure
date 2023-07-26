@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -218,6 +219,7 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	if args.ScaleUnits == nil {
 		return nil, errors.New("invalid value for required argument 'ScaleUnits'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamingEndpoint
 	err := ctx.RegisterResource("azure:media/streamingEndpoint:StreamingEndpoint", name, args, &resource, opts...)
 	if err != nil {

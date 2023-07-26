@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulumi.InvokeOption) (*LookupStandardResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStandardResult
 	err := ctx.Invoke("azure:logicapps/getStandard:getStandard", args, &rv, opts...)
 	if err != nil {
@@ -60,8 +62,10 @@ type LookupStandardArgs struct {
 
 // A collection of values returned by getStandard.
 type LookupStandardResult struct {
-	AppServicePlanId           string                        `pulumi:"appServicePlanId"`
-	AppSettings                map[string]string             `pulumi:"appSettings"`
+	AppServicePlanId string            `pulumi:"appServicePlanId"`
+	AppSettings      map[string]string `pulumi:"appSettings"`
+	// The Auto-swap slot name.
+	AutoSwapSlotName           string                        `pulumi:"autoSwapSlotName"`
 	BundleVersion              string                        `pulumi:"bundleVersion"`
 	ClientAffinityEnabled      bool                          `pulumi:"clientAffinityEnabled"`
 	ClientCertificateMode      string                        `pulumi:"clientCertificateMode"`
@@ -140,6 +144,11 @@ func (o LookupStandardResultOutput) AppServicePlanId() pulumi.StringOutput {
 
 func (o LookupStandardResultOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStandardResult) map[string]string { return v.AppSettings }).(pulumi.StringMapOutput)
+}
+
+// The Auto-swap slot name.
+func (o LookupStandardResultOutput) AutoSwapSlotName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStandardResult) string { return v.AutoSwapSlotName }).(pulumi.StringOutput)
 }
 
 func (o LookupStandardResultOutput) BundleVersion() pulumi.StringOutput {

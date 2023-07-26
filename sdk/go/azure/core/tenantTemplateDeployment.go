@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ func NewTenantTemplateDeployment(ctx *pulumi.Context,
 		args = &TenantTemplateDeploymentArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TenantTemplateDeployment
 	err := ctx.RegisterResource("azure:core/tenantTemplateDeployment:TenantTemplateDeployment", name, args, &resource, opts...)
 	if err != nil {

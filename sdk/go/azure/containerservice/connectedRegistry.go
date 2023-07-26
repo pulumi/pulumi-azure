@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -135,6 +136,7 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 	if args.SyncTokenId == nil {
 		return nil, errors.New("invalid value for required argument 'SyncTokenId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectedRegistry
 	err := ctx.RegisterResource("azure:containerservice/connectedRegistry:ConnectedRegistry", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewSetting(ctx *pulumi.Context,
 	if args.SettingName == nil {
 		return nil, errors.New("invalid value for required argument 'SettingName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Setting
 	err := ctx.RegisterResource("azure:securitycenter/setting:Setting", name, args, &resource, opts...)
 	if err != nil {

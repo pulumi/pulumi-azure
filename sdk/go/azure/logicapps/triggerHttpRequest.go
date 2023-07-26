@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewTriggerHttpRequest(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TriggerHttpRequest
 	err := ctx.RegisterResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, args, &resource, opts...)
 	if err != nil {

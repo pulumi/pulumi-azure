@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupCnameRecord(ctx *pulumi.Context, args *LookupCnameRecordArgs, opts ...pulumi.InvokeOption) (*LookupCnameRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCnameRecordResult
 	err := ctx.Invoke("azure:privatedns/getCnameRecord:getCnameRecord", args, &rv, opts...)
 	if err != nil {

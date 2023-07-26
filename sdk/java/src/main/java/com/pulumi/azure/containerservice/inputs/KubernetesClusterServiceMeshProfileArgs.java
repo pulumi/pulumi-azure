@@ -5,13 +5,54 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KubernetesClusterServiceMeshProfileArgs Empty = new KubernetesClusterServiceMeshProfileArgs();
+
+    /**
+     * Is Istio External Ingress Gateway enabled?
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+     * 
+     * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+     * 
+     */
+    @Import(name="externalIngressGatewayEnabled")
+    private @Nullable Output<Boolean> externalIngressGatewayEnabled;
+
+    /**
+     * @return Is Istio External Ingress Gateway enabled?
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+     * 
+     * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+     * 
+     */
+    public Optional<Output<Boolean>> externalIngressGatewayEnabled() {
+        return Optional.ofNullable(this.externalIngressGatewayEnabled);
+    }
+
+    /**
+     * Is Istio Internal Ingress Gateway enabled?
+     * 
+     */
+    @Import(name="internalIngressGatewayEnabled")
+    private @Nullable Output<Boolean> internalIngressGatewayEnabled;
+
+    /**
+     * @return Is Istio Internal Ingress Gateway enabled?
+     * 
+     */
+    public Optional<Output<Boolean>> internalIngressGatewayEnabled() {
+        return Optional.ofNullable(this.internalIngressGatewayEnabled);
+    }
 
     /**
      * The mode of the service mesh. Possible value is `Istio`.
@@ -31,6 +72,8 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
     private KubernetesClusterServiceMeshProfileArgs() {}
 
     private KubernetesClusterServiceMeshProfileArgs(KubernetesClusterServiceMeshProfileArgs $) {
+        this.externalIngressGatewayEnabled = $.externalIngressGatewayEnabled;
+        this.internalIngressGatewayEnabled = $.internalIngressGatewayEnabled;
         this.mode = $.mode;
     }
 
@@ -50,6 +93,56 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
 
         public Builder(KubernetesClusterServiceMeshProfileArgs defaults) {
             $ = new KubernetesClusterServiceMeshProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param externalIngressGatewayEnabled Is Istio External Ingress Gateway enabled?
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+         * 
+         * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalIngressGatewayEnabled(@Nullable Output<Boolean> externalIngressGatewayEnabled) {
+            $.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
+            return this;
+        }
+
+        /**
+         * @param externalIngressGatewayEnabled Is Istio External Ingress Gateway enabled?
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
+         * 
+         * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalIngressGatewayEnabled(Boolean externalIngressGatewayEnabled) {
+            return externalIngressGatewayEnabled(Output.of(externalIngressGatewayEnabled));
+        }
+
+        /**
+         * @param internalIngressGatewayEnabled Is Istio Internal Ingress Gateway enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder internalIngressGatewayEnabled(@Nullable Output<Boolean> internalIngressGatewayEnabled) {
+            $.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
+            return this;
+        }
+
+        /**
+         * @param internalIngressGatewayEnabled Is Istio Internal Ingress Gateway enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder internalIngressGatewayEnabled(Boolean internalIngressGatewayEnabled) {
+            return internalIngressGatewayEnabled(Output.of(internalIngressGatewayEnabled));
         }
 
         /**

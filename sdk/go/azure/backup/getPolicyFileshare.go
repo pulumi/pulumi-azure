@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetPolicyFileshare(ctx *pulumi.Context, args *GetPolicyFileshareArgs, opts ...pulumi.InvokeOption) (*GetPolicyFileshareResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyFileshareResult
 	err := ctx.Invoke("azure:backup/getPolicyFileshare:getPolicyFileshare", args, &rv, opts...)
 	if err != nil {

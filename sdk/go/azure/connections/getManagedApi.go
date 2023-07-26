@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetManagedApi(ctx *pulumi.Context, args *GetManagedApiArgs, opts ...pulumi.InvokeOption) (*GetManagedApiResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetManagedApiResult
 	err := ctx.Invoke("azure:connections/getManagedApi:getManagedApi", args, &rv, opts...)
 	if err != nil {

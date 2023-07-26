@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -192,6 +193,7 @@ func NewWorkspaceKey(ctx *pulumi.Context,
 	if args.SynapseWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkspaceKey
 	err := ctx.RegisterResource("azure:synapse/workspaceKey:WorkspaceKey", name, args, &resource, opts...)
 	if err != nil {

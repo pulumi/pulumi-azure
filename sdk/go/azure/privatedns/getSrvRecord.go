@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetSrvRecord(ctx *pulumi.Context, args *GetSrvRecordArgs, opts ...pulumi.InvokeOption) (*GetSrvRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSrvRecordResult
 	err := ctx.Invoke("azure:privatedns/getSrvRecord:getSrvRecord", args, &rv, opts...)
 	if err != nil {

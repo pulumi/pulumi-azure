@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -193,6 +194,7 @@ func NewMedtechServiceFhirDestination(ctx *pulumi.Context,
 	if args.MedtechServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'MedtechServiceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MedtechServiceFhirDestination
 	err := ctx.RegisterResource("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination", name, args, &resource, opts...)
 	if err != nil {

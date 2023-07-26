@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupDatasetKustoCluster(ctx *pulumi.Context, args *LookupDatasetKustoClusterArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetKustoClusterResult
 	err := ctx.Invoke("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args, &rv, opts...)
 	if err != nil {

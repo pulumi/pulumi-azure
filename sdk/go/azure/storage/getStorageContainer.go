@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageContainerResult
 	err := ctx.Invoke("azure:storage/getStorageContainer:getStorageContainer", args, &rv, opts...)
 	if err != nil {

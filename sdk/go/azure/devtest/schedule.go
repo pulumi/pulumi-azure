@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -128,6 +129,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.TimeZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("azure:devtest/schedule:Schedule", name, args, &resource, opts...)
 	if err != nil {

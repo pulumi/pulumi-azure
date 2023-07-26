@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,6 +63,7 @@ import (
 //
 // ```
 func GetAlertRuleAnomaly(ctx *pulumi.Context, args *GetAlertRuleAnomalyArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleAnomalyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertRuleAnomalyResult
 	err := ctx.Invoke("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args, &rv, opts...)
 	if err != nil {

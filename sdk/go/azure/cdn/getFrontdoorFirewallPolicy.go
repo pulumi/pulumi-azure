@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupFrontdoorFirewallPolicy(ctx *pulumi.Context, args *LookupFrontdoorFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorFirewallPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorFirewallPolicyResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupShareResult
 	err := ctx.Invoke("azure:storage/getShare:getShare", args, &rv, opts...)
 	if err != nil {

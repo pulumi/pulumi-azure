@@ -28,14 +28,14 @@ public final class GetResolverInboundEndpointPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * ID of the Private DNS Resolver Inbound Endpoint.
+     * ID of the Private DNS Resolver.
      * 
      */
     @Import(name="privateDnsResolverId", required=true)
     private String privateDnsResolverId;
 
     /**
-     * @return ID of the Private DNS Resolver Inbound Endpoint.
+     * @return ID of the Private DNS Resolver.
      * 
      */
     public String privateDnsResolverId() {
@@ -79,7 +79,7 @@ public final class GetResolverInboundEndpointPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param privateDnsResolverId ID of the Private DNS Resolver Inbound Endpoint.
+         * @param privateDnsResolverId ID of the Private DNS Resolver.
          * 
          * @return builder
          * 

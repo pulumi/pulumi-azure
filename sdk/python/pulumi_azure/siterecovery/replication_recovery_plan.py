@@ -20,26 +20,49 @@ class ReplicationRecoveryPlanArgs:
                  source_recovery_fabric_id: pulumi.Input[str],
                  target_recovery_fabric_id: pulumi.Input[str],
                  azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
+                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] = None,
+                 failover_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None):
+                 recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
+                 shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None):
         """
         The set of arguments for constructing a ReplicationRecoveryPlan resource.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+               
+               > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        :param pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs'] failover_recovery_group: One `failover_recovery_group` block as defined below.
+               
+               > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block defined as below.
+               
+               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        :param pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs'] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+               
+               > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         """
         pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
         pulumi.set(__self__, "source_recovery_fabric_id", source_recovery_fabric_id)
         pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
         if azure_to_azure_settings is not None:
             pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
+        if boot_recovery_groups is not None:
+            pulumi.set(__self__, "boot_recovery_groups", boot_recovery_groups)
+        if failover_recovery_group is not None:
+            pulumi.set(__self__, "failover_recovery_group", failover_recovery_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recovery_groups is not None:
+            warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
+        if recovery_groups is not None:
             pulumi.set(__self__, "recovery_groups", recovery_groups)
+        if shutdown_recovery_group is not None:
+            pulumi.set(__self__, "shutdown_recovery_group", shutdown_recovery_group)
 
     @property
     @pulumi.getter(name="recoveryVaultId")
@@ -90,6 +113,34 @@ class ReplicationRecoveryPlanArgs:
         pulumi.set(self, "azure_to_azure_settings", value)
 
     @property
+    @pulumi.getter(name="bootRecoveryGroups")
+    def boot_recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]:
+        """
+        One or more `boot_recovery_group` blocks as defined below.
+
+        > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "boot_recovery_groups")
+
+    @boot_recovery_groups.setter
+    def boot_recovery_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]):
+        pulumi.set(self, "boot_recovery_groups", value)
+
+    @property
+    @pulumi.getter(name="failoverRecoveryGroup")
+    def failover_recovery_group(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]:
+        """
+        One `failover_recovery_group` block as defined below.
+
+        > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "failover_recovery_group")
+
+    @failover_recovery_group.setter
+    def failover_recovery_group(self, value: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]):
+        pulumi.set(self, "failover_recovery_group", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -106,40 +157,82 @@ class ReplicationRecoveryPlanArgs:
     def recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]:
         """
         Three or more `recovery_group` block defined as below.
+
+        **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
+        warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "recovery_groups")
 
     @recovery_groups.setter
     def recovery_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]):
         pulumi.set(self, "recovery_groups", value)
 
+    @property
+    @pulumi.getter(name="shutdownRecoveryGroup")
+    def shutdown_recovery_group(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]:
+        """
+        One `shutdown_recovery_group` block as defined below.
+
+        > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "shutdown_recovery_group")
+
+    @shutdown_recovery_group.setter
+    def shutdown_recovery_group(self, value: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]):
+        pulumi.set(self, "shutdown_recovery_group", value)
+
 
 @pulumi.input_type
 class _ReplicationRecoveryPlanState:
     def __init__(__self__, *,
                  azure_to_azure_settings: Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] = None,
+                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] = None,
+                 failover_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
+                 shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
                  source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
         :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+               
+               > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        :param pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs'] failover_recovery_group: One `failover_recovery_group` block as defined below.
+               
+               > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block defined as below.
+               
+               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs'] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+               
+               > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
         if azure_to_azure_settings is not None:
             pulumi.set(__self__, "azure_to_azure_settings", azure_to_azure_settings)
+        if boot_recovery_groups is not None:
+            pulumi.set(__self__, "boot_recovery_groups", boot_recovery_groups)
+        if failover_recovery_group is not None:
+            pulumi.set(__self__, "failover_recovery_group", failover_recovery_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if recovery_groups is not None:
+            warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
         if recovery_groups is not None:
             pulumi.set(__self__, "recovery_groups", recovery_groups)
         if recovery_vault_id is not None:
             pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+        if shutdown_recovery_group is not None:
+            pulumi.set(__self__, "shutdown_recovery_group", shutdown_recovery_group)
         if source_recovery_fabric_id is not None:
             pulumi.set(__self__, "source_recovery_fabric_id", source_recovery_fabric_id)
         if target_recovery_fabric_id is not None:
@@ -158,6 +251,34 @@ class _ReplicationRecoveryPlanState:
         pulumi.set(self, "azure_to_azure_settings", value)
 
     @property
+    @pulumi.getter(name="bootRecoveryGroups")
+    def boot_recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]:
+        """
+        One or more `boot_recovery_group` blocks as defined below.
+
+        > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "boot_recovery_groups")
+
+    @boot_recovery_groups.setter
+    def boot_recovery_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]):
+        pulumi.set(self, "boot_recovery_groups", value)
+
+    @property
+    @pulumi.getter(name="failoverRecoveryGroup")
+    def failover_recovery_group(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]:
+        """
+        One `failover_recovery_group` block as defined below.
+
+        > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "failover_recovery_group")
+
+    @failover_recovery_group.setter
+    def failover_recovery_group(self, value: Optional[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]):
+        pulumi.set(self, "failover_recovery_group", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -174,7 +295,12 @@ class _ReplicationRecoveryPlanState:
     def recovery_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]]:
         """
         Three or more `recovery_group` block defined as below.
+
+        **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
+        warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "recovery_groups")
 
     @recovery_groups.setter
@@ -192,6 +318,20 @@ class _ReplicationRecoveryPlanState:
     @recovery_vault_id.setter
     def recovery_vault_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "recovery_vault_id", value)
+
+    @property
+    @pulumi.getter(name="shutdownRecoveryGroup")
+    def shutdown_recovery_group(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]:
+        """
+        One `shutdown_recovery_group` block as defined below.
+
+        > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "shutdown_recovery_group")
+
+    @shutdown_recovery_group.setter
+    def shutdown_recovery_group(self, value: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]):
+        pulumi.set(self, "shutdown_recovery_group", value)
 
     @property
     @pulumi.getter(name="sourceRecoveryFabricId")
@@ -224,9 +364,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
+                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]] = None,
+                 failover_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
+                 shutdown_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]] = None,
                  source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -376,18 +519,11 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             recovery_vault_id=vault.id,
             source_recovery_fabric_id=primary_fabric.id,
             target_recovery_fabric_id=secondary_fabric.id,
-            recovery_groups=[
-                azure.siterecovery.ReplicationRecoveryPlanRecoveryGroupArgs(
-                    type="Boot",
-                    replicated_protected_items=[vm_replication.id],
-                ),
-                azure.siterecovery.ReplicationRecoveryPlanRecoveryGroupArgs(
-                    type="Failover",
-                ),
-                azure.siterecovery.ReplicationRecoveryPlanRecoveryGroupArgs(
-                    type="Shutdown",
-                ),
-            ])
+            shutdown_recovery_group=azure.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs(),
+            failover_recovery_group=azure.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs(),
+            boot_recovery_groups=[azure.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs(
+                replicated_protected_items=[vm_replication.id],
+            )])
         ```
 
         ## Import
@@ -401,9 +537,20 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+               
+               > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] failover_recovery_group: One `failover_recovery_group` block as defined below.
+               
+               > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
+               
+               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+               
+               > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
@@ -559,18 +706,11 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             recovery_vault_id=vault.id,
             source_recovery_fabric_id=primary_fabric.id,
             target_recovery_fabric_id=secondary_fabric.id,
-            recovery_groups=[
-                azure.siterecovery.ReplicationRecoveryPlanRecoveryGroupArgs(
-                    type="Boot",
-                    replicated_protected_items=[vm_replication.id],
-                ),
-                azure.siterecovery.ReplicationRecoveryPlanRecoveryGroupArgs(
-                    type="Failover",
-                ),
-                azure.siterecovery.ReplicationRecoveryPlanRecoveryGroupArgs(
-                    type="Shutdown",
-                ),
-            ])
+            shutdown_recovery_group=azure.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs(),
+            failover_recovery_group=azure.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs(),
+            boot_recovery_groups=[azure.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs(
+                replicated_protected_items=[vm_replication.id],
+            )])
         ```
 
         ## Import
@@ -597,9 +737,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
+                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]] = None,
+                 failover_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
+                 shutdown_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]] = None,
                  source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -612,11 +755,17 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             __props__ = ReplicationRecoveryPlanArgs.__new__(ReplicationRecoveryPlanArgs)
 
             __props__.__dict__["azure_to_azure_settings"] = azure_to_azure_settings
+            __props__.__dict__["boot_recovery_groups"] = boot_recovery_groups
+            __props__.__dict__["failover_recovery_group"] = failover_recovery_group
             __props__.__dict__["name"] = name
+            if recovery_groups is not None and not opts.urn:
+                warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
             __props__.__dict__["recovery_groups"] = recovery_groups
             if recovery_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_id'")
             __props__.__dict__["recovery_vault_id"] = recovery_vault_id
+            __props__.__dict__["shutdown_recovery_group"] = shutdown_recovery_group
             if source_recovery_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_fabric_id'")
             __props__.__dict__["source_recovery_fabric_id"] = source_recovery_fabric_id
@@ -634,9 +783,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
+            boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]] = None,
+            failover_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+            shutdown_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]] = None,
             source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None) -> 'ReplicationRecoveryPlan':
         """
@@ -647,9 +799,20 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+               
+               > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] failover_recovery_group: One `failover_recovery_group` block as defined below.
+               
+               > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
+               
+               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+               
+               > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
@@ -658,9 +821,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         __props__ = _ReplicationRecoveryPlanState.__new__(_ReplicationRecoveryPlanState)
 
         __props__.__dict__["azure_to_azure_settings"] = azure_to_azure_settings
+        __props__.__dict__["boot_recovery_groups"] = boot_recovery_groups
+        __props__.__dict__["failover_recovery_group"] = failover_recovery_group
         __props__.__dict__["name"] = name
         __props__.__dict__["recovery_groups"] = recovery_groups
         __props__.__dict__["recovery_vault_id"] = recovery_vault_id
+        __props__.__dict__["shutdown_recovery_group"] = shutdown_recovery_group
         __props__.__dict__["source_recovery_fabric_id"] = source_recovery_fabric_id
         __props__.__dict__["target_recovery_fabric_id"] = target_recovery_fabric_id
         return ReplicationRecoveryPlan(resource_name, opts=opts, __props__=__props__)
@@ -674,6 +840,26 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         return pulumi.get(self, "azure_to_azure_settings")
 
     @property
+    @pulumi.getter(name="bootRecoveryGroups")
+    def boot_recovery_groups(self) -> pulumi.Output[Sequence['outputs.ReplicationRecoveryPlanBootRecoveryGroup']]:
+        """
+        One or more `boot_recovery_group` blocks as defined below.
+
+        > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "boot_recovery_groups")
+
+    @property
+    @pulumi.getter(name="failoverRecoveryGroup")
+    def failover_recovery_group(self) -> pulumi.Output['outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']:
+        """
+        One `failover_recovery_group` block as defined below.
+
+        > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "failover_recovery_group")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -683,10 +869,15 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryGroups")
-    def recovery_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationRecoveryPlanRecoveryGroup']]]:
+    def recovery_groups(self) -> pulumi.Output[Sequence['outputs.ReplicationRecoveryPlanRecoveryGroup']]:
         """
         Three or more `recovery_group` block defined as below.
+
+        **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
+        warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
+
         return pulumi.get(self, "recovery_groups")
 
     @property
@@ -696,6 +887,16 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         The ID of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
+
+    @property
+    @pulumi.getter(name="shutdownRecoveryGroup")
+    def shutdown_recovery_group(self) -> pulumi.Output['outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']:
+        """
+        One `shutdown_recovery_group` block as defined below.
+
+        > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "shutdown_recovery_group")
 
     @property
     @pulumi.getter(name="sourceRecoveryFabricId")

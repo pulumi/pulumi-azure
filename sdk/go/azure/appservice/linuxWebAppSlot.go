@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,8 +127,9 @@ type LinuxWebAppSlot struct {
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses pulumi.StringOutput  `pulumi:"possibleOutboundIpAddresses"`
-	PublicNetworkAccessEnabled  pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	// Should public network access be enabled for the Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -163,6 +165,7 @@ func NewLinuxWebAppSlot(ctx *pulumi.Context,
 		"siteCredentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinuxWebAppSlot
 	err := ctx.RegisterResource("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", name, args, &resource, opts...)
 	if err != nil {
@@ -235,7 +238,8 @@ type linuxWebAppSlotState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
-	PublicNetworkAccessEnabled  *bool   `pulumi:"publicNetworkAccessEnabled"`
+	// Should public network access be enabled for the Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -304,7 +308,8 @@ type LinuxWebAppSlotState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
-	PublicNetworkAccessEnabled  pulumi.BoolPtrInput
+	// Should public network access be enabled for the Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
@@ -358,8 +363,9 @@ type linuxWebAppSlotArgs struct {
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
 	// The Site Credentials Username used for publishing.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Should public network access be enabled for the Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -408,7 +414,8 @@ type LinuxWebAppSlotArgs struct {
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
 	// The Site Credentials Username used for publishing.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
 	ServicePlanId pulumi.StringPtrInput
@@ -637,6 +644,7 @@ func (o LinuxWebAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringOutput
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// Should public network access be enabled for the Web App. Defaults to `true`.
 func (o LinuxWebAppSlotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

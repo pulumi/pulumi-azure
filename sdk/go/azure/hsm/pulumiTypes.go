@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ModuleManagementNetworkProfile struct {
 	// The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.

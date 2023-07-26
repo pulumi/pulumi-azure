@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventHubResult
 	err := ctx.Invoke("azure:eventhub/getEventHub:getEventHub", args, &rv, opts...)
 	if err != nil {

@@ -12,6 +12,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlexibleServerCustomerManagedKey {
     /**
+     * @return The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+     * 
+     */
+    private @Nullable String geoBackupKeyVaultKeyId;
+    /**
+     * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * 
+     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * 
+     */
+    private @Nullable String geoBackupUserAssignedIdentityId;
+    /**
      * @return The ID of the Key Vault Key.
      * 
      */
@@ -19,12 +31,26 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
-     * 
      */
     private @Nullable String primaryUserAssignedIdentityId;
 
     private FlexibleServerCustomerManagedKey() {}
+    /**
+     * @return The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+     * 
+     */
+    public Optional<String> geoBackupKeyVaultKeyId() {
+        return Optional.ofNullable(this.geoBackupKeyVaultKeyId);
+    }
+    /**
+     * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * 
+     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * 
+     */
+    public Optional<String> geoBackupUserAssignedIdentityId() {
+        return Optional.ofNullable(this.geoBackupUserAssignedIdentityId);
+    }
     /**
      * @return The ID of the Key Vault Key.
      * 
@@ -34,8 +60,6 @@ public final class FlexibleServerCustomerManagedKey {
     }
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
-     * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<String> primaryUserAssignedIdentityId() {
@@ -51,15 +75,29 @@ public final class FlexibleServerCustomerManagedKey {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String geoBackupKeyVaultKeyId;
+        private @Nullable String geoBackupUserAssignedIdentityId;
         private @Nullable String keyVaultKeyId;
         private @Nullable String primaryUserAssignedIdentityId;
         public Builder() {}
         public Builder(FlexibleServerCustomerManagedKey defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.geoBackupKeyVaultKeyId = defaults.geoBackupKeyVaultKeyId;
+    	      this.geoBackupUserAssignedIdentityId = defaults.geoBackupUserAssignedIdentityId;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
     	      this.primaryUserAssignedIdentityId = defaults.primaryUserAssignedIdentityId;
         }
 
+        @CustomType.Setter
+        public Builder geoBackupKeyVaultKeyId(@Nullable String geoBackupKeyVaultKeyId) {
+            this.geoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder geoBackupUserAssignedIdentityId(@Nullable String geoBackupUserAssignedIdentityId) {
+            this.geoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
+            return this;
+        }
         @CustomType.Setter
         public Builder keyVaultKeyId(@Nullable String keyVaultKeyId) {
             this.keyVaultKeyId = keyVaultKeyId;
@@ -72,6 +110,8 @@ public final class FlexibleServerCustomerManagedKey {
         }
         public FlexibleServerCustomerManagedKey build() {
             final var o = new FlexibleServerCustomerManagedKey();
+            o.geoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
+            o.geoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
             o.keyVaultKeyId = keyVaultKeyId;
             o.primaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             return o;

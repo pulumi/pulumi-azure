@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupSharedImageVersion(ctx *pulumi.Context, args *LookupSharedImageVersionArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSharedImageVersionResult
 	err := ctx.Invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", args, &rv, opts...)
 	if err != nil {

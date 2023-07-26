@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // Deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
 func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboardArgs, opts ...pulumi.InvokeOption) (*Azurerm_portal_dashboardResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv Azurerm_portal_dashboardResult
 	err := ctx.Invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,6 +106,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteTableName == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("azure:network/route:Route", name, args, &resource, opts...)
 	if err != nil {

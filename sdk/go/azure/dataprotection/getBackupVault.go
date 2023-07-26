@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ...pulumi.InvokeOption) (*LookupBackupVaultResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBackupVaultResult
 	err := ctx.Invoke("azure:dataprotection/getBackupVault:getBackupVault", args, &rv, opts...)
 	if err != nil {

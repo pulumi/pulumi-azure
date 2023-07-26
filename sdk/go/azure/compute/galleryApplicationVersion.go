@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -154,6 +155,7 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	if args.TargetRegions == nil {
 		return nil, errors.New("invalid value for required argument 'TargetRegions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GalleryApplicationVersion
 	err := ctx.RegisterResource("azure:compute/galleryApplicationVersion:GalleryApplicationVersion", name, args, &resource, opts...)
 	if err != nil {

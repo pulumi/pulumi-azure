@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -133,7 +134,7 @@ type SpringCloudConnection struct {
 	SecretStore SpringCloudConnectionSecretStorePtrOutput `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringOutput `pulumi:"springCloudId"`
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 	VnetSolution pulumi.StringPtrOutput `pulumi:"vnetSolution"`
@@ -155,6 +156,7 @@ func NewSpringCloudConnection(ctx *pulumi.Context,
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpringCloudConnection
 	err := ctx.RegisterResource("azure:appplatform/springCloudConnection:SpringCloudConnection", name, args, &resource, opts...)
 	if err != nil {
@@ -187,7 +189,7 @@ type springCloudConnectionState struct {
 	SecretStore *SpringCloudConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId *string `pulumi:"springCloudId"`
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 	VnetSolution *string `pulumi:"vnetSolution"`
@@ -204,7 +206,7 @@ type SpringCloudConnectionState struct {
 	SecretStore SpringCloudConnectionSecretStorePtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringPtrInput
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringPtrInput
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 	VnetSolution pulumi.StringPtrInput
@@ -225,7 +227,7 @@ type springCloudConnectionArgs struct {
 	SecretStore *SpringCloudConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId string `pulumi:"springCloudId"`
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId string `pulumi:"targetResourceId"`
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 	VnetSolution *string `pulumi:"vnetSolution"`
@@ -243,7 +245,7 @@ type SpringCloudConnectionArgs struct {
 	SecretStore SpringCloudConnectionSecretStorePtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringInput
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringInput
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 	VnetSolution pulumi.StringPtrInput
@@ -361,7 +363,7 @@ func (o SpringCloudConnectionOutput) SpringCloudId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringOutput { return v.SpringCloudId }).(pulumi.StringOutput)
 }
 
-// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
+// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 func (o SpringCloudConnectionOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

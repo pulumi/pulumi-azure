@@ -5,6 +5,8 @@ package com.pulumi.azure.mobile;
 
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
@@ -22,6 +24,7 @@ import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSitePlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSlicePlainArgs;
+import com.pulumi.azure.mobile.outputs.GetNetworkAttachedDataNetworkResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkDataNetworkResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreControlPlaneResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreDataPlaneResult;
@@ -189,6 +192,182 @@ public final class MobileFunctions {
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Mobile Network Attached Data Network.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
+     *             .mobileNetworkDataNetworkName(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args) {
+        return getNetworkAttachedDataNetwork(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Mobile Network Attached Data Network.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
+     *             .mobileNetworkDataNetworkName(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args) {
+        return getNetworkAttachedDataNetworkPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Mobile Network Attached Data Network.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
+     *             .mobileNetworkDataNetworkName(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", TypeShape.of(GetNetworkAttachedDataNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Mobile Network Attached Data Network.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkPacketCoreControlPlane = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
+     *             .name(&#34;example-mnpccp&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
+     *             .mobileNetworkDataNetworkName(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
+     *             .mobileNetworkPacketCoreDataPlaneId(exampleNetworkPacketCoreControlPlane.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", TypeShape.of(GetNetworkAttachedDataNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Data Network.

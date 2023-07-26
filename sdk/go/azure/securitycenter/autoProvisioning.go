@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +68,7 @@ func NewAutoProvisioning(ctx *pulumi.Context,
 	if args.AutoProvision == nil {
 		return nil, errors.New("invalid value for required argument 'AutoProvision'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoProvisioning
 	err := ctx.RegisterResource("azure:securitycenter/autoProvisioning:AutoProvisioning", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -205,6 +206,7 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualNetworkGateway
 	err := ctx.RegisterResource("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, args, &resource, opts...)
 	if err != nil {

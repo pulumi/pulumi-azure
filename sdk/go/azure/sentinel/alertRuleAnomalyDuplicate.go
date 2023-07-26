@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -154,6 +155,7 @@ func NewAlertRuleAnomalyDuplicate(ctx *pulumi.Context,
 	if args.Mode == nil {
 		return nil, errors.New("invalid value for required argument 'Mode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertRuleAnomalyDuplicate
 	err := ctx.RegisterResource("azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate", name, args, &resource, opts...)
 	if err != nil {

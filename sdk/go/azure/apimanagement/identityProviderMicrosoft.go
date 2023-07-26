@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewIdentityProviderMicrosoft(ctx *pulumi.Context,
 		"clientSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProviderMicrosoft
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft", name, args, &resource, opts...)
 	if err != nil {

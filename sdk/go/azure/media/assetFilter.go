@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -155,6 +156,7 @@ func NewAssetFilter(ctx *pulumi.Context,
 	if args.AssetId == nil {
 		return nil, errors.New("invalid value for required argument 'AssetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssetFilter
 	err := ctx.RegisterResource("azure:media/assetFilter:AssetFilter", name, args, &resource, opts...)
 	if err != nil {

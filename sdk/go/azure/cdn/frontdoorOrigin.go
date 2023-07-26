@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewFrontdoorOrigin(ctx *pulumi.Context,
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrontdoorOrigin
 	err := ctx.RegisterResource("azure:cdn/frontdoorOrigin:FrontdoorOrigin", name, args, &resource, opts...)
 	if err != nil {

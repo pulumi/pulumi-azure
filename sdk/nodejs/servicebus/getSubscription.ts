@@ -15,9 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.servicebus.getSubscription({
  *     name: "examplesubscription",
- *     resourceGroupName: "exampleresources",
- *     namespaceName: "examplenamespace",
- *     topicName: "exampletopic",
+ *     topicId: "exampletopic",
  * });
  * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
  * ```
@@ -44,15 +42,26 @@ export interface GetSubscriptionArgs {
     name: string;
     /**
      * The name of the ServiceBus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
+    /**
+     * The ID of the ServiceBus Topic where the Service Bus Subscription exists.
+     */
     topicId?: string;
     /**
      * The name of the ServiceBus Topic.
+     *
+     * > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
+     *
+     * @deprecated `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
      */
     topicName?: string;
 }
@@ -102,13 +111,22 @@ export interface GetSubscriptionResult {
      */
     readonly maxDeliveryCount: number;
     readonly name: string;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly namespaceName?: string;
     /**
      * Whether or not this ServiceBus Subscription supports session.
      */
     readonly requiresSession: boolean;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly resourceGroupName?: string;
     readonly topicId?: string;
+    /**
+     * @deprecated `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly topicName?: string;
 }
 /**
@@ -122,9 +140,7 @@ export interface GetSubscriptionResult {
  *
  * const example = azure.servicebus.getSubscription({
  *     name: "examplesubscription",
- *     resourceGroupName: "exampleresources",
- *     namespaceName: "examplenamespace",
- *     topicName: "exampletopic",
+ *     topicId: "exampletopic",
  * });
  * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
  * ```
@@ -143,15 +159,26 @@ export interface GetSubscriptionOutputArgs {
     name: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The ID of the ServiceBus Topic where the Service Bus Subscription exists.
+     */
     topicId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Topic.
+     *
+     * > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
+     *
+     * @deprecated `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
      */
     topicName?: pulumi.Input<string>;
 }

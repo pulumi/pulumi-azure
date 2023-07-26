@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -201,6 +202,7 @@ func NewFlexibleServer(ctx *pulumi.Context,
 		"administratorPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlexibleServer
 	err := ctx.RegisterResource("azure:postgresql/flexibleServer:FlexibleServer", name, args, &resource, opts...)
 	if err != nil {

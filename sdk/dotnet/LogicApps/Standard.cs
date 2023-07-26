@@ -150,6 +150,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
+        /// The Auto-swap slot name.
+        /// </summary>
+        [Output("autoSwapSlotName")]
+        public Output<string> AutoSwapSlotName { get; private set; } = null!;
+
+        /// <summary>
         /// If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         /// </summary>
         [Output("bundleVersion")]
@@ -508,6 +514,12 @@ namespace Pulumi.Azure.LogicApps
             get => _appSettings ?? (_appSettings = new InputMap<string>());
             set => _appSettings = value;
         }
+
+        /// <summary>
+        /// The Auto-swap slot name.
+        /// </summary>
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
 
         /// <summary>
         /// If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`

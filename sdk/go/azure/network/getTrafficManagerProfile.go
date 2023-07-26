@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupTrafficManagerProfile(ctx *pulumi.Context, args *LookupTrafficManagerProfileArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrafficManagerProfileResult
 	err := ctx.Invoke("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, &rv, opts...)
 	if err != nil {

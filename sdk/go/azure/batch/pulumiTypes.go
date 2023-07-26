@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AccountEncryption struct {
 	// The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
@@ -503,6 +506,700 @@ func (o AccountKeyVaultReferencePtrOutput) Url() pulumi.StringPtrOutput {
 		}
 		return &v.Url
 	}).(pulumi.StringPtrOutput)
+}
+
+type AccountNetworkProfile struct {
+	// An `accountAccess` block as defined below.
+	AccountAccess *AccountNetworkProfileAccountAccess `pulumi:"accountAccess"`
+	// A `nodeManagementAccess` block as defined below.
+	//
+	// > **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
+	NodeManagementAccess *AccountNetworkProfileNodeManagementAccess `pulumi:"nodeManagementAccess"`
+}
+
+// AccountNetworkProfileInput is an input type that accepts AccountNetworkProfileArgs and AccountNetworkProfileOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileInput` via:
+//
+//	AccountNetworkProfileArgs{...}
+type AccountNetworkProfileInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileOutput() AccountNetworkProfileOutput
+	ToAccountNetworkProfileOutputWithContext(context.Context) AccountNetworkProfileOutput
+}
+
+type AccountNetworkProfileArgs struct {
+	// An `accountAccess` block as defined below.
+	AccountAccess AccountNetworkProfileAccountAccessPtrInput `pulumi:"accountAccess"`
+	// A `nodeManagementAccess` block as defined below.
+	//
+	// > **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
+	NodeManagementAccess AccountNetworkProfileNodeManagementAccessPtrInput `pulumi:"nodeManagementAccess"`
+}
+
+func (AccountNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfile)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileArgs) ToAccountNetworkProfileOutput() AccountNetworkProfileOutput {
+	return i.ToAccountNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileArgs) ToAccountNetworkProfileOutputWithContext(ctx context.Context) AccountNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileOutput)
+}
+
+func (i AccountNetworkProfileArgs) ToAccountNetworkProfilePtrOutput() AccountNetworkProfilePtrOutput {
+	return i.ToAccountNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileArgs) ToAccountNetworkProfilePtrOutputWithContext(ctx context.Context) AccountNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileOutput).ToAccountNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// AccountNetworkProfilePtrInput is an input type that accepts AccountNetworkProfileArgs, AccountNetworkProfilePtr and AccountNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `AccountNetworkProfilePtrInput` via:
+//
+//	        AccountNetworkProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfilePtrOutput() AccountNetworkProfilePtrOutput
+	ToAccountNetworkProfilePtrOutputWithContext(context.Context) AccountNetworkProfilePtrOutput
+}
+
+type accountNetworkProfilePtrType AccountNetworkProfileArgs
+
+func AccountNetworkProfilePtr(v *AccountNetworkProfileArgs) AccountNetworkProfilePtrInput {
+	return (*accountNetworkProfilePtrType)(v)
+}
+
+func (*accountNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkProfile)(nil)).Elem()
+}
+
+func (i *accountNetworkProfilePtrType) ToAccountNetworkProfilePtrOutput() AccountNetworkProfilePtrOutput {
+	return i.ToAccountNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *accountNetworkProfilePtrType) ToAccountNetworkProfilePtrOutputWithContext(ctx context.Context) AccountNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfilePtrOutput)
+}
+
+type AccountNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfile)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileOutput) ToAccountNetworkProfileOutput() AccountNetworkProfileOutput {
+	return o
+}
+
+func (o AccountNetworkProfileOutput) ToAccountNetworkProfileOutputWithContext(ctx context.Context) AccountNetworkProfileOutput {
+	return o
+}
+
+func (o AccountNetworkProfileOutput) ToAccountNetworkProfilePtrOutput() AccountNetworkProfilePtrOutput {
+	return o.ToAccountNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o AccountNetworkProfileOutput) ToAccountNetworkProfilePtrOutputWithContext(ctx context.Context) AccountNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkProfile) *AccountNetworkProfile {
+		return &v
+	}).(AccountNetworkProfilePtrOutput)
+}
+
+// An `accountAccess` block as defined below.
+func (o AccountNetworkProfileOutput) AccountAccess() AccountNetworkProfileAccountAccessPtrOutput {
+	return o.ApplyT(func(v AccountNetworkProfile) *AccountNetworkProfileAccountAccess { return v.AccountAccess }).(AccountNetworkProfileAccountAccessPtrOutput)
+}
+
+// A `nodeManagementAccess` block as defined below.
+//
+// > **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
+func (o AccountNetworkProfileOutput) NodeManagementAccess() AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return o.ApplyT(func(v AccountNetworkProfile) *AccountNetworkProfileNodeManagementAccess {
+		return v.NodeManagementAccess
+	}).(AccountNetworkProfileNodeManagementAccessPtrOutput)
+}
+
+type AccountNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkProfile)(nil)).Elem()
+}
+
+func (o AccountNetworkProfilePtrOutput) ToAccountNetworkProfilePtrOutput() AccountNetworkProfilePtrOutput {
+	return o
+}
+
+func (o AccountNetworkProfilePtrOutput) ToAccountNetworkProfilePtrOutputWithContext(ctx context.Context) AccountNetworkProfilePtrOutput {
+	return o
+}
+
+func (o AccountNetworkProfilePtrOutput) Elem() AccountNetworkProfileOutput {
+	return o.ApplyT(func(v *AccountNetworkProfile) AccountNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkProfile
+		return ret
+	}).(AccountNetworkProfileOutput)
+}
+
+// An `accountAccess` block as defined below.
+func (o AccountNetworkProfilePtrOutput) AccountAccess() AccountNetworkProfileAccountAccessPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkProfile) *AccountNetworkProfileAccountAccess {
+		if v == nil {
+			return nil
+		}
+		return v.AccountAccess
+	}).(AccountNetworkProfileAccountAccessPtrOutput)
+}
+
+// A `nodeManagementAccess` block as defined below.
+//
+// > **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
+func (o AccountNetworkProfilePtrOutput) NodeManagementAccess() AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkProfile) *AccountNetworkProfileNodeManagementAccess {
+		if v == nil {
+			return nil
+		}
+		return v.NodeManagementAccess
+	}).(AccountNetworkProfileNodeManagementAccessPtrOutput)
+}
+
+type AccountNetworkProfileAccountAccess struct {
+	// Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules []AccountNetworkProfileAccountAccessIpRule `pulumi:"ipRules"`
+}
+
+// AccountNetworkProfileAccountAccessInput is an input type that accepts AccountNetworkProfileAccountAccessArgs and AccountNetworkProfileAccountAccessOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileAccountAccessInput` via:
+//
+//	AccountNetworkProfileAccountAccessArgs{...}
+type AccountNetworkProfileAccountAccessInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileAccountAccessOutput() AccountNetworkProfileAccountAccessOutput
+	ToAccountNetworkProfileAccountAccessOutputWithContext(context.Context) AccountNetworkProfileAccountAccessOutput
+}
+
+type AccountNetworkProfileAccountAccessArgs struct {
+	// Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules AccountNetworkProfileAccountAccessIpRuleArrayInput `pulumi:"ipRules"`
+}
+
+func (AccountNetworkProfileAccountAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileAccountAccess)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileAccountAccessArgs) ToAccountNetworkProfileAccountAccessOutput() AccountNetworkProfileAccountAccessOutput {
+	return i.ToAccountNetworkProfileAccountAccessOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileAccountAccessArgs) ToAccountNetworkProfileAccountAccessOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessOutput)
+}
+
+func (i AccountNetworkProfileAccountAccessArgs) ToAccountNetworkProfileAccountAccessPtrOutput() AccountNetworkProfileAccountAccessPtrOutput {
+	return i.ToAccountNetworkProfileAccountAccessPtrOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileAccountAccessArgs) ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessOutput).ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx)
+}
+
+// AccountNetworkProfileAccountAccessPtrInput is an input type that accepts AccountNetworkProfileAccountAccessArgs, AccountNetworkProfileAccountAccessPtr and AccountNetworkProfileAccountAccessPtrOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileAccountAccessPtrInput` via:
+//
+//	        AccountNetworkProfileAccountAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountNetworkProfileAccountAccessPtrInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileAccountAccessPtrOutput() AccountNetworkProfileAccountAccessPtrOutput
+	ToAccountNetworkProfileAccountAccessPtrOutputWithContext(context.Context) AccountNetworkProfileAccountAccessPtrOutput
+}
+
+type accountNetworkProfileAccountAccessPtrType AccountNetworkProfileAccountAccessArgs
+
+func AccountNetworkProfileAccountAccessPtr(v *AccountNetworkProfileAccountAccessArgs) AccountNetworkProfileAccountAccessPtrInput {
+	return (*accountNetworkProfileAccountAccessPtrType)(v)
+}
+
+func (*accountNetworkProfileAccountAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkProfileAccountAccess)(nil)).Elem()
+}
+
+func (i *accountNetworkProfileAccountAccessPtrType) ToAccountNetworkProfileAccountAccessPtrOutput() AccountNetworkProfileAccountAccessPtrOutput {
+	return i.ToAccountNetworkProfileAccountAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *accountNetworkProfileAccountAccessPtrType) ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessPtrOutput)
+}
+
+type AccountNetworkProfileAccountAccessOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileAccountAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileAccountAccess)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileAccountAccessOutput) ToAccountNetworkProfileAccountAccessOutput() AccountNetworkProfileAccountAccessOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessOutput) ToAccountNetworkProfileAccountAccessOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessOutput) ToAccountNetworkProfileAccountAccessPtrOutput() AccountNetworkProfileAccountAccessPtrOutput {
+	return o.ToAccountNetworkProfileAccountAccessPtrOutputWithContext(context.Background())
+}
+
+func (o AccountNetworkProfileAccountAccessOutput) ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkProfileAccountAccess) *AccountNetworkProfileAccountAccess {
+		return &v
+	}).(AccountNetworkProfileAccountAccessPtrOutput)
+}
+
+// Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+func (o AccountNetworkProfileAccountAccessOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkProfileAccountAccess) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipRule` blocks as defined below.
+func (o AccountNetworkProfileAccountAccessOutput) IpRules() AccountNetworkProfileAccountAccessIpRuleArrayOutput {
+	return o.ApplyT(func(v AccountNetworkProfileAccountAccess) []AccountNetworkProfileAccountAccessIpRule {
+		return v.IpRules
+	}).(AccountNetworkProfileAccountAccessIpRuleArrayOutput)
+}
+
+type AccountNetworkProfileAccountAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileAccountAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkProfileAccountAccess)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileAccountAccessPtrOutput) ToAccountNetworkProfileAccountAccessPtrOutput() AccountNetworkProfileAccountAccessPtrOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessPtrOutput) ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessPtrOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessPtrOutput) Elem() AccountNetworkProfileAccountAccessOutput {
+	return o.ApplyT(func(v *AccountNetworkProfileAccountAccess) AccountNetworkProfileAccountAccess {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkProfileAccountAccess
+		return ret
+	}).(AccountNetworkProfileAccountAccessOutput)
+}
+
+// Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+func (o AccountNetworkProfileAccountAccessPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkProfileAccountAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipRule` blocks as defined below.
+func (o AccountNetworkProfileAccountAccessPtrOutput) IpRules() AccountNetworkProfileAccountAccessIpRuleArrayOutput {
+	return o.ApplyT(func(v *AccountNetworkProfileAccountAccess) []AccountNetworkProfileAccountAccessIpRule {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(AccountNetworkProfileAccountAccessIpRuleArrayOutput)
+}
+
+type AccountNetworkProfileAccountAccessIpRule struct {
+	// Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The CIDR block from which requests will match the rule.
+	IpRange string `pulumi:"ipRange"`
+}
+
+// AccountNetworkProfileAccountAccessIpRuleInput is an input type that accepts AccountNetworkProfileAccountAccessIpRuleArgs and AccountNetworkProfileAccountAccessIpRuleOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileAccountAccessIpRuleInput` via:
+//
+//	AccountNetworkProfileAccountAccessIpRuleArgs{...}
+type AccountNetworkProfileAccountAccessIpRuleInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileAccountAccessIpRuleOutput() AccountNetworkProfileAccountAccessIpRuleOutput
+	ToAccountNetworkProfileAccountAccessIpRuleOutputWithContext(context.Context) AccountNetworkProfileAccountAccessIpRuleOutput
+}
+
+type AccountNetworkProfileAccountAccessIpRuleArgs struct {
+	// Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The CIDR block from which requests will match the rule.
+	IpRange pulumi.StringInput `pulumi:"ipRange"`
+}
+
+func (AccountNetworkProfileAccountAccessIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileAccountAccessIpRule)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileAccountAccessIpRuleArgs) ToAccountNetworkProfileAccountAccessIpRuleOutput() AccountNetworkProfileAccountAccessIpRuleOutput {
+	return i.ToAccountNetworkProfileAccountAccessIpRuleOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileAccountAccessIpRuleArgs) ToAccountNetworkProfileAccountAccessIpRuleOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessIpRuleOutput)
+}
+
+// AccountNetworkProfileAccountAccessIpRuleArrayInput is an input type that accepts AccountNetworkProfileAccountAccessIpRuleArray and AccountNetworkProfileAccountAccessIpRuleArrayOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileAccountAccessIpRuleArrayInput` via:
+//
+//	AccountNetworkProfileAccountAccessIpRuleArray{ AccountNetworkProfileAccountAccessIpRuleArgs{...} }
+type AccountNetworkProfileAccountAccessIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileAccountAccessIpRuleArrayOutput() AccountNetworkProfileAccountAccessIpRuleArrayOutput
+	ToAccountNetworkProfileAccountAccessIpRuleArrayOutputWithContext(context.Context) AccountNetworkProfileAccountAccessIpRuleArrayOutput
+}
+
+type AccountNetworkProfileAccountAccessIpRuleArray []AccountNetworkProfileAccountAccessIpRuleInput
+
+func (AccountNetworkProfileAccountAccessIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkProfileAccountAccessIpRule)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileAccountAccessIpRuleArray) ToAccountNetworkProfileAccountAccessIpRuleArrayOutput() AccountNetworkProfileAccountAccessIpRuleArrayOutput {
+	return i.ToAccountNetworkProfileAccountAccessIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileAccountAccessIpRuleArray) ToAccountNetworkProfileAccountAccessIpRuleArrayOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessIpRuleArrayOutput)
+}
+
+type AccountNetworkProfileAccountAccessIpRuleOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileAccountAccessIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileAccountAccessIpRule)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleOutput) ToAccountNetworkProfileAccountAccessIpRuleOutput() AccountNetworkProfileAccountAccessIpRuleOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleOutput) ToAccountNetworkProfileAccountAccessIpRuleOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessIpRuleOutput {
+	return o
+}
+
+// Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+func (o AccountNetworkProfileAccountAccessIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkProfileAccountAccessIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The CIDR block from which requests will match the rule.
+func (o AccountNetworkProfileAccountAccessIpRuleOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountNetworkProfileAccountAccessIpRule) string { return v.IpRange }).(pulumi.StringOutput)
+}
+
+type AccountNetworkProfileAccountAccessIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileAccountAccessIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkProfileAccountAccessIpRule)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) ToAccountNetworkProfileAccountAccessIpRuleArrayOutput() AccountNetworkProfileAccountAccessIpRuleArrayOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) ToAccountNetworkProfileAccountAccessIpRuleArrayOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessIpRuleArrayOutput {
+	return o
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkProfileAccountAccessIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkProfileAccountAccessIpRule {
+		return vs[0].([]AccountNetworkProfileAccountAccessIpRule)[vs[1].(int)]
+	}).(AccountNetworkProfileAccountAccessIpRuleOutput)
+}
+
+type AccountNetworkProfileNodeManagementAccess struct {
+	// Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules []AccountNetworkProfileNodeManagementAccessIpRule `pulumi:"ipRules"`
+}
+
+// AccountNetworkProfileNodeManagementAccessInput is an input type that accepts AccountNetworkProfileNodeManagementAccessArgs and AccountNetworkProfileNodeManagementAccessOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileNodeManagementAccessInput` via:
+//
+//	AccountNetworkProfileNodeManagementAccessArgs{...}
+type AccountNetworkProfileNodeManagementAccessInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileNodeManagementAccessOutput() AccountNetworkProfileNodeManagementAccessOutput
+	ToAccountNetworkProfileNodeManagementAccessOutputWithContext(context.Context) AccountNetworkProfileNodeManagementAccessOutput
+}
+
+type AccountNetworkProfileNodeManagementAccessArgs struct {
+	// Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules AccountNetworkProfileNodeManagementAccessIpRuleArrayInput `pulumi:"ipRules"`
+}
+
+func (AccountNetworkProfileNodeManagementAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileNodeManagementAccess)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileNodeManagementAccessArgs) ToAccountNetworkProfileNodeManagementAccessOutput() AccountNetworkProfileNodeManagementAccessOutput {
+	return i.ToAccountNetworkProfileNodeManagementAccessOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileNodeManagementAccessArgs) ToAccountNetworkProfileNodeManagementAccessOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessOutput)
+}
+
+func (i AccountNetworkProfileNodeManagementAccessArgs) ToAccountNetworkProfileNodeManagementAccessPtrOutput() AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return i.ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileNodeManagementAccessArgs) ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessOutput).ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx)
+}
+
+// AccountNetworkProfileNodeManagementAccessPtrInput is an input type that accepts AccountNetworkProfileNodeManagementAccessArgs, AccountNetworkProfileNodeManagementAccessPtr and AccountNetworkProfileNodeManagementAccessPtrOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileNodeManagementAccessPtrInput` via:
+//
+//	        AccountNetworkProfileNodeManagementAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountNetworkProfileNodeManagementAccessPtrInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileNodeManagementAccessPtrOutput() AccountNetworkProfileNodeManagementAccessPtrOutput
+	ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(context.Context) AccountNetworkProfileNodeManagementAccessPtrOutput
+}
+
+type accountNetworkProfileNodeManagementAccessPtrType AccountNetworkProfileNodeManagementAccessArgs
+
+func AccountNetworkProfileNodeManagementAccessPtr(v *AccountNetworkProfileNodeManagementAccessArgs) AccountNetworkProfileNodeManagementAccessPtrInput {
+	return (*accountNetworkProfileNodeManagementAccessPtrType)(v)
+}
+
+func (*accountNetworkProfileNodeManagementAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkProfileNodeManagementAccess)(nil)).Elem()
+}
+
+func (i *accountNetworkProfileNodeManagementAccessPtrType) ToAccountNetworkProfileNodeManagementAccessPtrOutput() AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return i.ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *accountNetworkProfileNodeManagementAccessPtrType) ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessPtrOutput)
+}
+
+type AccountNetworkProfileNodeManagementAccessOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileNodeManagementAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileNodeManagementAccess)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileNodeManagementAccessOutput) ToAccountNetworkProfileNodeManagementAccessOutput() AccountNetworkProfileNodeManagementAccessOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessOutput) ToAccountNetworkProfileNodeManagementAccessOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessOutput) ToAccountNetworkProfileNodeManagementAccessPtrOutput() AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return o.ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(context.Background())
+}
+
+func (o AccountNetworkProfileNodeManagementAccessOutput) ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkProfileNodeManagementAccess) *AccountNetworkProfileNodeManagementAccess {
+		return &v
+	}).(AccountNetworkProfileNodeManagementAccessPtrOutput)
+}
+
+// Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+func (o AccountNetworkProfileNodeManagementAccessOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkProfileNodeManagementAccess) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipRule` blocks as defined below.
+func (o AccountNetworkProfileNodeManagementAccessOutput) IpRules() AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
+	return o.ApplyT(func(v AccountNetworkProfileNodeManagementAccess) []AccountNetworkProfileNodeManagementAccessIpRule {
+		return v.IpRules
+	}).(AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput)
+}
+
+type AccountNetworkProfileNodeManagementAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileNodeManagementAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkProfileNodeManagementAccess)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileNodeManagementAccessPtrOutput) ToAccountNetworkProfileNodeManagementAccessPtrOutput() AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessPtrOutput) ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessPtrOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessPtrOutput) Elem() AccountNetworkProfileNodeManagementAccessOutput {
+	return o.ApplyT(func(v *AccountNetworkProfileNodeManagementAccess) AccountNetworkProfileNodeManagementAccess {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkProfileNodeManagementAccess
+		return ret
+	}).(AccountNetworkProfileNodeManagementAccessOutput)
+}
+
+// Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+func (o AccountNetworkProfileNodeManagementAccessPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkProfileNodeManagementAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipRule` blocks as defined below.
+func (o AccountNetworkProfileNodeManagementAccessPtrOutput) IpRules() AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
+	return o.ApplyT(func(v *AccountNetworkProfileNodeManagementAccess) []AccountNetworkProfileNodeManagementAccessIpRule {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput)
+}
+
+type AccountNetworkProfileNodeManagementAccessIpRule struct {
+	// Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The CIDR block from which requests will match the rule.
+	IpRange string `pulumi:"ipRange"`
+}
+
+// AccountNetworkProfileNodeManagementAccessIpRuleInput is an input type that accepts AccountNetworkProfileNodeManagementAccessIpRuleArgs and AccountNetworkProfileNodeManagementAccessIpRuleOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileNodeManagementAccessIpRuleInput` via:
+//
+//	AccountNetworkProfileNodeManagementAccessIpRuleArgs{...}
+type AccountNetworkProfileNodeManagementAccessIpRuleInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileNodeManagementAccessIpRuleOutput() AccountNetworkProfileNodeManagementAccessIpRuleOutput
+	ToAccountNetworkProfileNodeManagementAccessIpRuleOutputWithContext(context.Context) AccountNetworkProfileNodeManagementAccessIpRuleOutput
+}
+
+type AccountNetworkProfileNodeManagementAccessIpRuleArgs struct {
+	// Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The CIDR block from which requests will match the rule.
+	IpRange pulumi.StringInput `pulumi:"ipRange"`
+}
+
+func (AccountNetworkProfileNodeManagementAccessIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessIpRule)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileNodeManagementAccessIpRuleArgs) ToAccountNetworkProfileNodeManagementAccessIpRuleOutput() AccountNetworkProfileNodeManagementAccessIpRuleOutput {
+	return i.ToAccountNetworkProfileNodeManagementAccessIpRuleOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileNodeManagementAccessIpRuleArgs) ToAccountNetworkProfileNodeManagementAccessIpRuleOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessIpRuleOutput)
+}
+
+// AccountNetworkProfileNodeManagementAccessIpRuleArrayInput is an input type that accepts AccountNetworkProfileNodeManagementAccessIpRuleArray and AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput values.
+// You can construct a concrete instance of `AccountNetworkProfileNodeManagementAccessIpRuleArrayInput` via:
+//
+//	AccountNetworkProfileNodeManagementAccessIpRuleArray{ AccountNetworkProfileNodeManagementAccessIpRuleArgs{...} }
+type AccountNetworkProfileNodeManagementAccessIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutput() AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput
+	ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutputWithContext(context.Context) AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput
+}
+
+type AccountNetworkProfileNodeManagementAccessIpRuleArray []AccountNetworkProfileNodeManagementAccessIpRuleInput
+
+func (AccountNetworkProfileNodeManagementAccessIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkProfileNodeManagementAccessIpRule)(nil)).Elem()
+}
+
+func (i AccountNetworkProfileNodeManagementAccessIpRuleArray) ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutput() AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
+	return i.ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkProfileNodeManagementAccessIpRuleArray) ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput)
+}
+
+type AccountNetworkProfileNodeManagementAccessIpRuleOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileNodeManagementAccessIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessIpRule)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) ToAccountNetworkProfileNodeManagementAccessIpRuleOutput() AccountNetworkProfileNodeManagementAccessIpRuleOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) ToAccountNetworkProfileNodeManagementAccessIpRuleOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessIpRuleOutput {
+	return o
+}
+
+// Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkProfileNodeManagementAccessIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The CIDR block from which requests will match the rule.
+func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountNetworkProfileNodeManagementAccessIpRule) string { return v.IpRange }).(pulumi.StringOutput)
+}
+
+type AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkProfileNodeManagementAccessIpRule)(nil)).Elem()
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutput() AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
+	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkProfileNodeManagementAccessIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkProfileNodeManagementAccessIpRule {
+		return vs[0].([]AccountNetworkProfileNodeManagementAccessIpRule)[vs[1].(int)]
+	}).(AccountNetworkProfileNodeManagementAccessIpRuleOutput)
 }
 
 type PoolAutoScale struct {
@@ -8697,6 +9394,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyVaultReferenceInput)(nil)).Elem(), AccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyVaultReferencePtrInput)(nil)).Elem(), AccountKeyVaultReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileInput)(nil)).Elem(), AccountNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfilePtrInput)(nil)).Elem(), AccountNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileAccountAccessInput)(nil)).Elem(), AccountNetworkProfileAccountAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileAccountAccessPtrInput)(nil)).Elem(), AccountNetworkProfileAccountAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileAccountAccessIpRuleInput)(nil)).Elem(), AccountNetworkProfileAccountAccessIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileAccountAccessIpRuleArrayInput)(nil)).Elem(), AccountNetworkProfileAccountAccessIpRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessInput)(nil)).Elem(), AccountNetworkProfileNodeManagementAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessPtrInput)(nil)).Elem(), AccountNetworkProfileNodeManagementAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessIpRuleInput)(nil)).Elem(), AccountNetworkProfileNodeManagementAccessIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessIpRuleArrayInput)(nil)).Elem(), AccountNetworkProfileNodeManagementAccessIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAutoScaleInput)(nil)).Elem(), PoolAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAutoScalePtrInput)(nil)).Elem(), PoolAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolCertificateInput)(nil)).Elem(), PoolCertificateArgs{})
@@ -8825,6 +9532,16 @@ func init() {
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountKeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(AccountKeyVaultReferencePtrOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileAccountAccessOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileAccountAccessPtrOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileAccountAccessIpRuleOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileAccountAccessIpRuleArrayOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileNodeManagementAccessOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileNodeManagementAccessPtrOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileNodeManagementAccessIpRuleOutput{})
+	pulumi.RegisterOutputType(AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(PoolAutoScaleOutput{})
 	pulumi.RegisterOutputType(PoolAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(PoolCertificateOutput{})

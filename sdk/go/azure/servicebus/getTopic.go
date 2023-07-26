@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,9 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupTopic(ctx, &servicebus.LookupTopicArgs{
-//				Name:              "existing",
-//				ResourceGroupName: pulumi.StringRef("existing"),
-//				NamespaceName:     pulumi.StringRef("existing"),
+//				Name:        "existing",
+//				NamespaceId: pulumi.StringRef("existing"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,6 +41,7 @@ import (
 //
 // ```
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicResult
 	err := ctx.Invoke("azure:servicebus/getTopic:getTopic", args, &rv, opts...)
 	if err != nil {
@@ -52,11 +53,18 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
 	// The name of this Service Bus Topic.
-	Name        string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// The name of the Service Bus Namespace.
+	//
+	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Topic exists.
+	//
+	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+	//
+	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -80,10 +88,12 @@ type LookupTopicResult struct {
 	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
 	Name               string  `pulumi:"name"`
 	NamespaceId        *string `pulumi:"namespaceId"`
-	NamespaceName      *string `pulumi:"namespaceName"`
+	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether the Topic requires duplicate detection.
-	RequiresDuplicateDetection bool    `pulumi:"requiresDuplicateDetection"`
-	ResourceGroupName          *string `pulumi:"resourceGroupName"`
+	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
+	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
 	Status string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic supports ordering.
@@ -106,11 +116,18 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
 	// The name of this Service Bus Topic.
-	Name        pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
 	// The name of the Service Bus Namespace.
+	//
+	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Topic exists.
+	//
+	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
+	//
+	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -181,6 +198,7 @@ func (o LookupTopicResultOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 func (o LookupTopicResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
@@ -190,6 +208,7 @@ func (o LookupTopicResultOutput) RequiresDuplicateDetection() pulumi.BoolOutput 
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.RequiresDuplicateDetection }).(pulumi.BoolOutput)
 }
 
+// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
 func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

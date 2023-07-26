@@ -62,6 +62,7 @@ class WindowsWebAppArgs:
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input['WindowsWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
                
@@ -350,6 +351,9 @@ class WindowsWebAppArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Web App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -481,6 +485,7 @@ class _WindowsWebAppState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
         :param pulumi.Input['WindowsWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -854,6 +859,9 @@ class _WindowsWebAppState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Web App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1049,6 +1057,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1263,6 +1272,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1511,6 +1521,9 @@ class WindowsWebApp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should public network access be enabled for the Web App. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

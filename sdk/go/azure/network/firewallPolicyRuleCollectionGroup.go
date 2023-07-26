@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,7 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	if args.Priority == nil {
 		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallPolicyRuleCollectionGroup
 	err := ctx.RegisterResource("azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup", name, args, &resource, opts...)
 	if err != nil {

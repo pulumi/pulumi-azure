@@ -14,6 +14,11 @@ __all__ = [
     'AccountEncryption',
     'AccountIdentity',
     'AccountKeyVaultReference',
+    'AccountNetworkProfile',
+    'AccountNetworkProfileAccountAccess',
+    'AccountNetworkProfileAccountAccessIpRule',
+    'AccountNetworkProfileNodeManagementAccess',
+    'AccountNetworkProfileNodeManagementAccessIpRule',
     'PoolAutoScale',
     'PoolCertificate',
     'PoolContainerConfiguration',
@@ -218,6 +223,254 @@ class AccountKeyVaultReference(dict):
         The HTTPS URL of the Azure KeyVault to use.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class AccountNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountAccess":
+            suggest = "account_access"
+        elif key == "nodeManagementAccess":
+            suggest = "node_management_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_access: Optional['outputs.AccountNetworkProfileAccountAccess'] = None,
+                 node_management_access: Optional['outputs.AccountNetworkProfileNodeManagementAccess'] = None):
+        """
+        :param 'AccountNetworkProfileAccountAccessArgs' account_access: An `account_access` block as defined below.
+        :param 'AccountNetworkProfileNodeManagementAccessArgs' node_management_access: A `node_management_access` block as defined below.
+               
+               > **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+        """
+        if account_access is not None:
+            pulumi.set(__self__, "account_access", account_access)
+        if node_management_access is not None:
+            pulumi.set(__self__, "node_management_access", node_management_access)
+
+    @property
+    @pulumi.getter(name="accountAccess")
+    def account_access(self) -> Optional['outputs.AccountNetworkProfileAccountAccess']:
+        """
+        An `account_access` block as defined below.
+        """
+        return pulumi.get(self, "account_access")
+
+    @property
+    @pulumi.getter(name="nodeManagementAccess")
+    def node_management_access(self) -> Optional['outputs.AccountNetworkProfileNodeManagementAccess']:
+        """
+        A `node_management_access` block as defined below.
+
+        > **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+        """
+        return pulumi.get(self, "node_management_access")
+
+
+@pulumi.output_type
+class AccountNetworkProfileAccountAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkProfileAccountAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkProfileAccountAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkProfileAccountAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.AccountNetworkProfileAccountAccessIpRule']] = None):
+        """
+        :param str default_action: Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param Sequence['AccountNetworkProfileAccountAccessIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        """
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.AccountNetworkProfileAccountAccessIpRule']]:
+        """
+        One or more `ip_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_rules")
+
+
+@pulumi.output_type
+class AccountNetworkProfileAccountAccessIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipRange":
+            suggest = "ip_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkProfileAccountAccessIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkProfileAccountAccessIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkProfileAccountAccessIpRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_range: str,
+                 action: Optional[str] = None):
+        """
+        :param str ip_range: The CIDR block from which requests will match the rule.
+        :param str action: Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "ip_range", ip_range)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> str:
+        """
+        The CIDR block from which requests will match the rule.
+        """
+        return pulumi.get(self, "ip_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class AccountNetworkProfileNodeManagementAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkProfileNodeManagementAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkProfileNodeManagementAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkProfileNodeManagementAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.AccountNetworkProfileNodeManagementAccessIpRule']] = None):
+        """
+        :param str default_action: Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param Sequence['AccountNetworkProfileNodeManagementAccessIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        """
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.AccountNetworkProfileNodeManagementAccessIpRule']]:
+        """
+        One or more `ip_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_rules")
+
+
+@pulumi.output_type
+class AccountNetworkProfileNodeManagementAccessIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipRange":
+            suggest = "ip_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkProfileNodeManagementAccessIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkProfileNodeManagementAccessIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkProfileNodeManagementAccessIpRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_range: str,
+                 action: Optional[str] = None):
+        """
+        :param str ip_range: The CIDR block from which requests will match the rule.
+        :param str action: Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "ip_range", ip_range)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> str:
+        """
+        The CIDR block from which requests will match the rule.
+        """
+        return pulumi.get(self, "ip_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
 
 
 @pulumi.output_type

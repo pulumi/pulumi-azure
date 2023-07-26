@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -149,6 +150,7 @@ func NewAlertRuleScheduled(ctx *pulumi.Context,
 	if args.Severity == nil {
 		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertRuleScheduled
 	err := ctx.RegisterResource("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", name, args, &resource, opts...)
 	if err != nil {

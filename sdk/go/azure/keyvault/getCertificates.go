@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a list of certificate names from an existing Key Vault.
 func GetCertificates(ctx *pulumi.Context, args *GetCertificatesArgs, opts ...pulumi.InvokeOption) (*GetCertificatesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCertificatesResult
 	err := ctx.Invoke("azure:keyvault/getCertificates:getCertificates", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,6 +112,7 @@ func NewFunctionJavaScriptUDF(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionJavaScriptUDF
 	err := ctx.RegisterResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args, &resource, opts...)
 	if err != nil {

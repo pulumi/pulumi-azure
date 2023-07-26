@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetRouteTableRoute;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteTableResult {
+    /**
+     * @return Boolean flag which controls propagation of routes learned by BGP on that route table.
+     * 
+     */
+    private Boolean bgpRoutePropagationEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -45,6 +51,13 @@ public final class GetRouteTableResult {
     private Map<String,String> tags;
 
     private GetRouteTableResult() {}
+    /**
+     * @return Boolean flag which controls propagation of routes learned by BGP on that route table.
+     * 
+     */
+    public Boolean bgpRoutePropagationEnabled() {
+        return this.bgpRoutePropagationEnabled;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -100,6 +113,7 @@ public final class GetRouteTableResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean bgpRoutePropagationEnabled;
         private String id;
         private String location;
         private String name;
@@ -110,6 +124,7 @@ public final class GetRouteTableResult {
         public Builder() {}
         public Builder(GetRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bgpRoutePropagationEnabled = defaults.bgpRoutePropagationEnabled;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -119,6 +134,11 @@ public final class GetRouteTableResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder bgpRoutePropagationEnabled(Boolean bgpRoutePropagationEnabled) {
+            this.bgpRoutePropagationEnabled = Objects.requireNonNull(bgpRoutePropagationEnabled);
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -162,6 +182,7 @@ public final class GetRouteTableResult {
         }
         public GetRouteTableResult build() {
             final var o = new GetRouteTableResult();
+            o.bgpRoutePropagationEnabled = bgpRoutePropagationEnabled;
             o.id = id;
             o.location = location;
             o.name = name;

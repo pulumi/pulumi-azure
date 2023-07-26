@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -119,6 +120,7 @@ func NewSourceControlSlot(ctx *pulumi.Context,
 	if args.SlotId == nil {
 		return nil, errors.New("invalid value for required argument 'SlotId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceControlSlot
 	err := ctx.RegisterResource("azure:appservice/sourceControlSlot:SourceControlSlot", name, args, &resource, opts...)
 	if err != nil {

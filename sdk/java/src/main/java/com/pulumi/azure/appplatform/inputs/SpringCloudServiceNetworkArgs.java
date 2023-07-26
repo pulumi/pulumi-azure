@@ -63,6 +63,21 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="outboundType")
+    private @Nullable Output<String> outboundType;
+
+    /**
+     * @return Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> outboundType() {
+        return Optional.ofNullable(this.outboundType);
+    }
+
+    /**
      * Ingress read time out in seconds.
      * 
      */
@@ -113,6 +128,7 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
         this.appNetworkResourceGroup = $.appNetworkResourceGroup;
         this.appSubnetId = $.appSubnetId;
         this.cidrRanges = $.cidrRanges;
+        this.outboundType = $.outboundType;
         this.readTimeoutSeconds = $.readTimeoutSeconds;
         this.serviceRuntimeNetworkResourceGroup = $.serviceRuntimeNetworkResourceGroup;
         this.serviceRuntimeSubnetId = $.serviceRuntimeSubnetId;
@@ -207,6 +223,27 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
          */
         public Builder cidrRanges(String... cidrRanges) {
             return cidrRanges(List.of(cidrRanges));
+        }
+
+        /**
+         * @param outboundType Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundType(@Nullable Output<String> outboundType) {
+            $.outboundType = outboundType;
+            return this;
+        }
+
+        /**
+         * @param outboundType Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundType(String outboundType) {
+            return outboundType(Output.of(outboundType));
         }
 
         /**

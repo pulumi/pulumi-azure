@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type HBaseClusterComponentVersion struct {
 	// The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.

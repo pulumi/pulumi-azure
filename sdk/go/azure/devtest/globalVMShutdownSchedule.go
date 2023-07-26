@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -167,6 +168,7 @@ func NewGlobalVMShutdownSchedule(ctx *pulumi.Context,
 	if args.VirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalVMShutdownSchedule
 	err := ctx.RegisterResource("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", name, args, &resource, opts...)
 	if err != nil {

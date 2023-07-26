@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,6 +106,7 @@ func NewChannelDirectLine(ctx *pulumi.Context,
 	if args.Sites == nil {
 		return nil, errors.New("invalid value for required argument 'Sites'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChannelDirectLine
 	err := ctx.RegisterResource("azure:bot/channelDirectLine:ChannelDirectLine", name, args, &resource, opts...)
 	if err != nil {

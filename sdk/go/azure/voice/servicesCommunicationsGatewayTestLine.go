@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,6 +101,7 @@ func NewServicesCommunicationsGatewayTestLine(ctx *pulumi.Context,
 	if args.VoiceServicesCommunicationsGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'VoiceServicesCommunicationsGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServicesCommunicationsGatewayTestLine
 	err := ctx.RegisterResource("azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine", name, args, &resource, opts...)
 	if err != nil {

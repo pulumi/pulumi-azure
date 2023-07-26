@@ -57,6 +57,21 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Auto-swap slot name.
+     * 
+     */
+    @Import(name="autoSwapSlotName")
+    private @Nullable Output<String> autoSwapSlotName;
+
+    /**
+     * @return The Auto-swap slot name.
+     * 
+     */
+    public Optional<Output<String>> autoSwapSlotName() {
+        return Optional.ofNullable(this.autoSwapSlotName);
+    }
+
+    /**
      * If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
      * 
      */
@@ -405,6 +420,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     private StandardState(StandardState $) {
         this.appServicePlanId = $.appServicePlanId;
         this.appSettings = $.appSettings;
+        this.autoSwapSlotName = $.autoSwapSlotName;
         this.bundleVersion = $.bundleVersion;
         this.clientAffinityEnabled = $.clientAffinityEnabled;
         this.clientCertificateMode = $.clientCertificateMode;
@@ -493,6 +509,27 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appSettings(Map<String,String> appSettings) {
             return appSettings(Output.of(appSettings));
+        }
+
+        /**
+         * @param autoSwapSlotName The Auto-swap slot name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoSwapSlotName(@Nullable Output<String> autoSwapSlotName) {
+            $.autoSwapSlotName = autoSwapSlotName;
+            return this;
+        }
+
+        /**
+         * @param autoSwapSlotName The Auto-swap slot name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoSwapSlotName(String autoSwapSlotName) {
+            return autoSwapSlotName(Output.of(autoSwapSlotName));
         }
 
         /**

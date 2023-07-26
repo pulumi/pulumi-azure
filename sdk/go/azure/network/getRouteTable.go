@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteTableResult
 	err := ctx.Invoke("azure:network/getRouteTable:getRouteTable", args, &rv, opts...)
 	if err != nil {
@@ -57,6 +59,8 @@ type LookupRouteTableArgs struct {
 
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
+	// Boolean flag which controls propagation of routes learned by BGP on that route table.
+	BgpRoutePropagationEnabled bool `pulumi:"bgpRoutePropagationEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which the Route Table exists.
@@ -110,6 +114,11 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutput() LookupRou
 
 func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(ctx context.Context) LookupRouteTableResultOutput {
 	return o
+}
+
+// Boolean flag which controls propagation of routes learned by BGP on that route table.
+func (o LookupRouteTableResultOutput) BgpRoutePropagationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) bool { return v.BgpRoutePropagationEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ func NewFrontdoorEndpoint(ctx *pulumi.Context,
 	if args.CdnFrontdoorProfileId == nil {
 		return nil, errors.New("invalid value for required argument 'CdnFrontdoorProfileId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrontdoorEndpoint
 	err := ctx.RegisterResource("azure:cdn/frontdoorEndpoint:FrontdoorEndpoint", name, args, &resource, opts...)
 	if err != nil {

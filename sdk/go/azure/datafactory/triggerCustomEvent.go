@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -149,6 +150,7 @@ func NewTriggerCustomEvent(ctx *pulumi.Context,
 	if args.Pipelines == nil {
 		return nil, errors.New("invalid value for required argument 'Pipelines'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TriggerCustomEvent
 	err := ctx.RegisterResource("azure:datafactory/triggerCustomEvent:TriggerCustomEvent", name, args, &resource, opts...)
 	if err != nil {

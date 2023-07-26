@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCircuitArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExpressRouteCircuitResult
 	err := ctx.Invoke("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args, &rv, opts...)
 	if err != nil {

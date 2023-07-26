@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ApplicationGatewayAuthenticationCertificate struct {
 	// The contents of the Authentication Certificate which should be used.
@@ -24105,7 +24108,7 @@ func (o VpnServerConfigurationPolicyGroupPolicyArrayOutput) Index(i pulumi.IntIn
 }
 
 type VpnServerConfigurationRadius struct {
-	// One or more `clientRootCertificate` blocks as defined above.
+	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates []VpnServerConfigurationRadiusClientRootCertificate `pulumi:"clientRootCertificates"`
 	// One or more `serverRootCertificate` blocks as defined below.
 	ServerRootCertificates []VpnServerConfigurationRadiusServerRootCertificate `pulumi:"serverRootCertificates"`
@@ -24125,7 +24128,7 @@ type VpnServerConfigurationRadiusInput interface {
 }
 
 type VpnServerConfigurationRadiusArgs struct {
-	// One or more `clientRootCertificate` blocks as defined above.
+	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates VpnServerConfigurationRadiusClientRootCertificateArrayInput `pulumi:"clientRootCertificates"`
 	// One or more `serverRootCertificate` blocks as defined below.
 	ServerRootCertificates VpnServerConfigurationRadiusServerRootCertificateArrayInput `pulumi:"serverRootCertificates"`
@@ -24210,7 +24213,7 @@ func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusPtrOut
 	}).(VpnServerConfigurationRadiusPtrOutput)
 }
 
-// One or more `clientRootCertificate` blocks as defined above.
+// One or more `clientRootCertificate` blocks as defined below.
 func (o VpnServerConfigurationRadiusOutput) ClientRootCertificates() VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
 	return o.ApplyT(func(v VpnServerConfigurationRadius) []VpnServerConfigurationRadiusClientRootCertificate {
 		return v.ClientRootCertificates
@@ -24253,7 +24256,7 @@ func (o VpnServerConfigurationRadiusPtrOutput) Elem() VpnServerConfigurationRadi
 	}).(VpnServerConfigurationRadiusOutput)
 }
 
-// One or more `clientRootCertificate` blocks as defined above.
+// One or more `clientRootCertificate` blocks as defined below.
 func (o VpnServerConfigurationRadiusPtrOutput) ClientRootCertificates() VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfigurationRadius) []VpnServerConfigurationRadiusClientRootCertificate {
 		if v == nil {

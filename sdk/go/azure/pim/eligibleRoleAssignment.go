@@ -8,12 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a Pim Eligible Role Assignment.
 //
 // ## Example Usage
+// ### Subscription)
 //
 // ```go
 // package main
@@ -53,6 +55,66 @@ import (
 //			_, err = pim.NewEligibleRoleAssignment(ctx, "exampleEligibleRoleAssignment", &pim.EligibleRoleAssignmentArgs{
 //				Scope:            *pulumi.String(primary.Id),
 //				RoleDefinitionId: pulumi.String(fmt.Sprintf("%v%v", primary.Id, exampleRoleDefinition.Id)),
+//				PrincipalId:      *pulumi.String(exampleClientConfig.ObjectId),
+//				Schedule: &pim.EligibleRoleAssignmentScheduleArgs{
+//					StartDateTime: exampleStatic.Rfc3339,
+//					Expiration: &pim.EligibleRoleAssignmentScheduleExpirationArgs{
+//						DurationHours: pulumi.Int(8),
+//					},
+//				},
+//				Justification: pulumi.String("Expiration Duration Set"),
+//				Ticket: &pim.EligibleRoleAssignmentTicketArgs{
+//					Number: pulumi.String("1"),
+//					System: pulumi.String("example ticket system"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Management Group)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/pim"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRoleDefinition, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				Name: pulumi.StringRef("Reader"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleStatic, err := time.NewStatic(ctx, "exampleStatic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pim.NewEligibleRoleAssignment(ctx, "exampleEligibleRoleAssignment", &pim.EligibleRoleAssignmentArgs{
+//				Scope:            exampleGroup.ID(),
+//				RoleDefinitionId: *pulumi.String(exampleRoleDefinition.Id),
 //				PrincipalId:      *pulumi.String(exampleClientConfig.ObjectId),
 //				Schedule: &pim.EligibleRoleAssignmentScheduleArgs{
 //					StartDateTime: exampleStatic.Rfc3339,
@@ -119,6 +181,7 @@ func NewEligibleRoleAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EligibleRoleAssignment
 	err := ctx.RegisterResource("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, args, &resource, opts...)
 	if err != nil {

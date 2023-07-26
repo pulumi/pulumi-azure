@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -128,6 +129,7 @@ func NewResolverOutboundEndpoint(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverOutboundEndpoint
 	err := ctx.RegisterResource("azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint", name, args, &resource, opts...)
 	if err != nil {

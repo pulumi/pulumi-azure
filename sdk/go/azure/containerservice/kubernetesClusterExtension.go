@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -114,6 +115,7 @@ func NewKubernetesClusterExtension(ctx *pulumi.Context,
 	if args.ExtensionType == nil {
 		return nil, errors.New("invalid value for required argument 'ExtensionType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KubernetesClusterExtension
 	err := ctx.RegisterResource("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, args, &resource, opts...)
 	if err != nil {

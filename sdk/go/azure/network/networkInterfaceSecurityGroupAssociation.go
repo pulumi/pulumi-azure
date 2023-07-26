@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -119,6 +120,7 @@ func NewNetworkInterfaceSecurityGroupAssociation(ctx *pulumi.Context,
 	if args.NetworkSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterfaceSecurityGroupAssociation
 	err := ctx.RegisterResource("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation", name, args, &resource, opts...)
 	if err != nil {

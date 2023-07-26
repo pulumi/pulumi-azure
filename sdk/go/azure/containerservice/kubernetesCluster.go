@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,8 +101,6 @@ type KubernetesCluster struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrOutput `pulumi:"confidentialComputing"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayOutput `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
@@ -274,7 +273,7 @@ type KubernetesCluster struct {
 	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -332,6 +331,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		"kubeConfigs",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KubernetesCluster
 	err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -377,8 +377,6 @@ type kubernetesClusterState struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -551,7 +549,7 @@ type kubernetesClusterState struct {
 	PrivateFqdn *string `pulumi:"privateFqdn"`
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -613,8 +611,6 @@ type KubernetesClusterState struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
@@ -787,7 +783,7 @@ type KubernetesClusterState struct {
 	PrivateFqdn pulumi.StringPtrInput
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -853,8 +849,6 @@ type kubernetesClusterArgs struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -1007,7 +1001,7 @@ type kubernetesClusterArgs struct {
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -1070,8 +1064,6 @@ type KubernetesClusterArgs struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
@@ -1224,7 +1216,7 @@ type KubernetesClusterArgs struct {
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+	// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -1402,8 +1394,6 @@ func (o KubernetesClusterOutput) ConfidentialComputing() KubernetesClusterConfid
 }
 
 // A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
 }
@@ -1724,7 +1714,7 @@ func (o KubernetesClusterOutput) PrivateFqdn() pulumi.StringOutput {
 
 // Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 //
-// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/32` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+// > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
 func (o KubernetesClusterOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

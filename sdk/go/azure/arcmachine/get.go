@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func Get(ctx *pulumi.Context, args *GetArgs, opts ...pulumi.InvokeOption) (*GetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResult
 	err := ctx.Invoke("azure:arcmachine/get:get", args, &rv, opts...)
 	if err != nil {

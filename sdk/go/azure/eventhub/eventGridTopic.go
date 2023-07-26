@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,6 +112,7 @@ func NewEventGridTopic(ctx *pulumi.Context,
 		"secondaryAccessKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventGridTopic
 	err := ctx.RegisterResource("azure:eventhub/eventGridTopic:EventGridTopic", name, args, &resource, opts...)
 	if err != nil {

@@ -25,6 +25,8 @@ namespace Pulumi.Azure.Cdn.Outputs
         public readonly string Operator;
         /// <summary>
         /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// 
+        /// &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         /// </summary>
         public readonly string Selector;
 
