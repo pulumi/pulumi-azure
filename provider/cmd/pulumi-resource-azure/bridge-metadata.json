@@ -9674,6 +9674,15 @@
                     }
                 }
             },
+            "azurerm_kubernetes_cluster_trusted_access_role_binding": {
+                "current": "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding",
+                "majorVersion": 5,
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_kubernetes_fleet_manager": {
                 "current": "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager",
                 "majorVersion": 5,
@@ -12433,6 +12442,10 @@
                 "current": "azure:marketplace/agreement:Agreement",
                 "majorVersion": 5
             },
+            "azurerm_marketplace_role_assignment": {
+                "current": "azure:marketplace/roleAssignment:RoleAssignment",
+                "majorVersion": 5
+            },
             "azurerm_media_asset": {
                 "current": "azure:media/asset:Asset",
                 "majorVersion": 5
@@ -15031,6 +15044,25 @@
                 "majorVersion": 5,
                 "fields": {
                     "virtual_network_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_network_function_azure_traffic_collector": {
+                "current": "azure:network/functionAzureTrafficController:FunctionAzureTrafficController",
+                "past": [
+                    {
+                        "name": "azure:network/functionAzureTrafficController:FunctionAzureTrafficController",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
+                "majorVersion": 5,
+                "fields": {
+                    "collector_policy_ids": {
+                        "maxItemsOne": false
+                    },
+                    "virtual_hub_id": {
                         "maxItemsOne": false
                     }
                 }
@@ -23606,6 +23638,10 @@
                 "current": "azure:eventhub/getEventhubNamespace:getEventhubNamespace",
                 "majorVersion": 5
             },
+            "azurerm_eventhub_sas": {
+                "current": "azure:eventhub/getSas:getSas",
+                "majorVersion": 5
+            },
             "azurerm_express_route_circuit": {
                 "current": "azure:network/getExpressRouteCircuit:getExpressRouteCircuit",
                 "majorVersion": 5,
@@ -28633,6 +28669,7 @@
             "azure:containerapp/environmentCertificate:EnvironmentCertificate": "azurerm_container_app_environment_certificate",
             "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent": "azurerm_container_app_environment_dapr_component",
             "azure:containerapp/environmentStorage:EnvironmentStorage": "azurerm_container_app_environment_storage",
+            "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding": "azurerm_kubernetes_cluster_trusted_access_role_binding",
             "azure:containerservice/connectedRegistry:ConnectedRegistry": "azurerm_container_connected_registry",
             "azure:containerservice/fluxConfiguration:FluxConfiguration": "azurerm_kubernetes_flux_configuration",
             "azure:containerservice/group:Group": "azurerm_container_group",
@@ -28982,6 +29019,7 @@
             "azure:mariadb/server:Server": "azurerm_mariadb_server",
             "azure:mariadb/virtualNetworkRule:VirtualNetworkRule": "azurerm_mariadb_virtual_network_rule",
             "azure:marketplace/agreement:Agreement": "azurerm_marketplace_agreement",
+            "azure:marketplace/roleAssignment:RoleAssignment": "azurerm_marketplace_role_assignment",
             "azure:media/accountFilter:AccountFilter": "azurerm_media_services_account_filter",
             "azure:media/asset:Asset": "azurerm_media_asset",
             "azure:media/assetFilter:AssetFilter": "azurerm_media_asset_filter",
@@ -29095,6 +29133,7 @@
             "azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection": "azurerm_firewall_network_rule_collection",
             "azure:network/firewallPolicy:FirewallPolicy": "azurerm_firewall_policy",
             "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup": "azurerm_firewall_policy_rule_collection_group",
+            "azure:network/functionAzureTrafficController:FunctionAzureTrafficController": "azurerm_network_function_azure_traffic_collector_legacy",
             "azure:network/iPGroup:IPGroup": "azurerm_ip_group",
             "azure:network/iPGroupCIDR:IPGroupCIDR": "azurerm_ip_group_cidr",
             "azure:network/localNetworkGateway:LocalNetworkGateway": "azurerm_local_network_gateway",
@@ -29162,6 +29201,7 @@
             "azure:network/vpnServerConfiguration:VpnServerConfiguration": "azurerm_vpn_server_configuration",
             "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup": "azurerm_vpn_server_configuration_policy_group",
             "azure:network/vpnSite:VpnSite": "azurerm_vpn_site",
+            "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector": "azurerm_network_function_azure_traffic_collector",
             "azure:newrelic/monitor:Monitor": "azurerm_new_relic_monitor",
             "azure:nginx/certificate:Certificate": "azurerm_nginx_certificate",
             "azure:nginx/configuration:Configuration": "azurerm_nginx_configuration",
@@ -29556,6 +29596,7 @@
             "azure:eventhub/getEventhubNamespace:getEventhubNamespace": "azurerm_eventhub_namespace_legacy",
             "azure:eventhub/getNamespace:getNamespace": "azurerm_eventhub_namespace",
             "azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule": "azurerm_eventhub_namespace_authorization_rule",
+            "azure:eventhub/getSas:getSas": "azurerm_eventhub_sas",
             "azure:eventhub/getServiceBusNamespace:getServiceBusNamespace": "azurerm_servicebus_namespace_legacy",
             "azure:hdinsight/getCluster:getCluster": "azurerm_hdinsight_cluster",
             "azure:healthcare/getDicomService:getDicomService": "azurerm_healthcare_dicom_service",
@@ -37727,6 +37768,7 @@
             },
             "azure:compute/ImageOsDisk:ImageOsDisk": {
                 "blobUri": "blob_uri",
+                "diskEncryptionSetId": "disk_encryption_set_id",
                 "managedDiskId": "managed_disk_id",
                 "osState": "os_state",
                 "osType": "os_type",
@@ -38684,6 +38726,7 @@
                 "allowExtensionOperations": "allow_extension_operations",
                 "availabilitySetId": "availability_set_id",
                 "bootDiagnostics": "boot_diagnostics",
+                "bypassPlatformSafetyChecksOnUserScheduleEnabled": "bypass_platform_safety_checks_on_user_schedule_enabled",
                 "capacityReservationGroupId": "capacity_reservation_group_id",
                 "computerName": "computer_name",
                 "customData": "custom_data",
@@ -38708,6 +38751,7 @@
                 "proximityPlacementGroupId": "proximity_placement_group_id",
                 "publicIpAddress": "public_ip_address",
                 "publicIpAddresses": "public_ip_addresses",
+                "rebootSetting": "reboot_setting",
                 "resourceGroupName": "resource_group_name",
                 "secrets": "secret",
                 "secureBootEnabled": "secure_boot_enabled",
@@ -38962,6 +39006,7 @@
                 "allowExtensionOperations": "allow_extension_operations",
                 "availabilitySetId": "availability_set_id",
                 "bootDiagnostics": "boot_diagnostics",
+                "bypassPlatformSafetyChecksOnUserScheduleEnabled": "bypass_platform_safety_checks_on_user_schedule_enabled",
                 "capacityReservationGroupId": "capacity_reservation_group_id",
                 "computerName": "computer_name",
                 "customData": "custom_data",
@@ -38987,6 +39032,7 @@
                 "proximityPlacementGroupId": "proximity_placement_group_id",
                 "publicIpAddress": "public_ip_address",
                 "publicIpAddresses": "public_ip_addresses",
+                "rebootSetting": "reboot_setting",
                 "resourceGroupName": "resource_group_name",
                 "secrets": "secret",
                 "secureBootEnabled": "secure_boot_enabled",
@@ -40026,6 +40072,10 @@
                 "expireInSeconds": "expire_in_seconds",
                 "refreshToken": "refresh_token",
                 "tokenType": "token_type"
+            },
+            "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding": {
+                "kubernetesClusterId": "kubernetes_cluster_id",
+                "sourceResourceId": "source_resource_id"
             },
             "azure:containerservice/connectedRegistry:ConnectedRegistry": {
                 "auditLogEnabled": "audit_log_enabled",
@@ -43393,6 +43443,9 @@
                 "secondaryConnectionStringAlias": "secondary_connection_string_alias",
                 "secondaryKey": "secondary_key"
             },
+            "azure:eventhub/getSas:getSas": {
+                "connectionString": "connection_string"
+            },
             "azure:eventhub/getServiceBusNamespace:getServiceBusNamespace": {
                 "defaultPrimaryConnectionString": "default_primary_connection_string",
                 "defaultPrimaryKey": "default_primary_key",
@@ -45876,6 +45929,7 @@
             "azure:logicapps/StandardSiteConfig:StandardSiteConfig": {
                 "alwaysOn": "always_on",
                 "appScaleLimit": "app_scale_limit",
+                "autoSwapSlotName": "auto_swap_slot_name",
                 "dotnetFrameworkVersion": "dotnet_framework_version",
                 "elasticInstanceMinimum": "elastic_instance_minimum",
                 "ftpsState": "ftps_state",
@@ -45963,7 +46017,6 @@
             "azure:logicapps/getStandard:getStandard": {
                 "appServicePlanId": "app_service_plan_id",
                 "appSettings": "app_settings",
-                "autoSwapSlotName": "auto_swap_slot_name",
                 "bundleVersion": "bundle_version",
                 "clientAffinityEnabled": "client_affinity_enabled",
                 "clientCertificateMode": "client_certificate_mode",
@@ -45990,6 +46043,7 @@
             "azure:logicapps/getStandardSiteConfig:getStandardSiteConfig": {
                 "alwaysOn": "always_on",
                 "appScaleLimit": "app_scale_limit",
+                "autoSwapSlotName": "auto_swap_slot_name",
                 "dotnetFrameworkVersion": "dotnet_framework_version",
                 "elasticInstanceMinimum": "elastic_instance_minimum",
                 "ftpsState": "ftps_state",
@@ -46116,7 +46170,6 @@
             "azure:logicapps/standard:Standard": {
                 "appServicePlanId": "app_service_plan_id",
                 "appSettings": "app_settings",
-                "autoSwapSlotName": "auto_swap_slot_name",
                 "bundleVersion": "bundle_version",
                 "clientAffinityEnabled": "client_affinity_enabled",
                 "clientCertificateMode": "client_certificate_mode",
@@ -46553,6 +46606,15 @@
             "azure:marketplace/getAgreement:getAgreement": {
                 "licenseTextLink": "license_text_link",
                 "privacyPolicyLink": "privacy_policy_link"
+            },
+            "azure:marketplace/roleAssignment:RoleAssignment": {
+                "conditionVersion": "condition_version",
+                "delegatedManagedIdentityResourceId": "delegated_managed_identity_resource_id",
+                "principalId": "principal_id",
+                "principalType": "principal_type",
+                "roleDefinitionId": "role_definition_id",
+                "roleDefinitionName": "role_definition_name",
+                "skipServicePrincipalAadCheck": "skip_service_principal_aad_check"
             },
             "azure:media/AccountFilterPresentationTimeRange:AccountFilterPresentationTimeRange": {
                 "endInUnits": "end_in_units",
@@ -49829,6 +49891,11 @@
                 "natRuleCollections": "nat_rule_collection",
                 "networkRuleCollections": "network_rule_collection"
             },
+            "azure:network/functionAzureTrafficController:FunctionAzureTrafficController": {
+                "collectorPolicyIds": "collector_policy_ids",
+                "resourceGroupName": "resource_group_name",
+                "virtualHubIds": "virtual_hub_id"
+            },
             "azure:network/getApplicationGateway:getApplicationGateway": {
                 "backendAddressPools": "backend_address_pool",
                 "identities": "identity",
@@ -50665,6 +50732,11 @@
                 "o365Policy": "o365_policy",
                 "resourceGroupName": "resource_group_name",
                 "virtualWanId": "virtual_wan_id"
+            },
+            "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector": {
+                "collectorPolicyIds": "collector_policy_ids",
+                "resourceGroupName": "resource_group_name",
+                "virtualHubIds": "virtual_hub_id"
             },
             "azure:newrelic/MonitorPlan:MonitorPlan": {
                 "billingCycle": "billing_cycle",

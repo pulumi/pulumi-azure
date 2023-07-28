@@ -1,4 +1,4 @@
-From e1c946ca9b9acb6fab6867ee4c45852339893f4f Mon Sep 17 00:00:00 2001
+From 748d3c0d7965c6e4df90519dca61906f9ce74f60 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 7/8] Update-documentation
@@ -236,7 +236,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index e33f772984..73c379b18b 100644
+index 52194d26d1..38eaa4f94f 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -905,7 +905,7 @@ index 0000000000..067d552662
 +
 +-> **NOTE:** This ID format is unique to this provider and is composed of the Service Principal's Object ID and the Service Principal Password's Key ID in the format `{ServicePrincipalObjectId}/{ServicePrincipalPasswordKeyId}`.
 diff --git a/website/docs/r/batch_account.html.markdown b/website/docs/r/batch_account.html.markdown
-index 38484c77a8..57e5349a30 100644
+index dbb9f23817..883c232af6 100644
 --- a/website/docs/r/batch_account.html.markdown
 +++ b/website/docs/r/batch_account.html.markdown
 @@ -49,7 +49,7 @@ The following arguments are supported:
@@ -1169,7 +1169,7 @@ index c45421c25f..5ea881d4cc 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index a4dd884f8e..2abb90aa4f 100644
+index c6c3ad1164..f12b1a5e90 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1913,7 +1913,7 @@ index 3945175d50..d4045c9a05 100644
 --> **NOTE:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
 +-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index 982efa923d..c49d4d1aab 100644
+index 513d19f56c..886dbc534d 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
 @@ -11,8 +11,6 @@ description: |-
@@ -1951,7 +1951,7 @@ index d97d53b42d..d04a166153 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 0c1b19732f..9c352f98da 100644
+index dae708263e..56bdec4541 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1971,7 +1971,7 @@ index 0c1b19732f..9c352f98da 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -386,7 +380,7 @@ A `default_node_pool` block supports the following:
+@@ -388,7 +382,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1980,7 +1980,7 @@ index 0c1b19732f..9c352f98da 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -442,7 +436,7 @@ A `default_node_pool` block supports the following:
+@@ -444,7 +438,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1989,7 +1989,7 @@ index 0c1b19732f..9c352f98da 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
  
-@@ -468,7 +462,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -470,7 +464,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1998,7 +1998,7 @@ index 0c1b19732f..9c352f98da 100644
  
  If `enable_auto_scaling` is set to `false`, then the following fields can also be configured:
  
-@@ -691,8 +685,6 @@ A `network_profile` block supports the following:
+@@ -693,8 +687,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2007,7 +2007,7 @@ index 0c1b19732f..9c352f98da 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1017,19 +1009,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1027,19 +1019,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2078,7 +2078,7 @@ index 36d2624bc0..a32b415063 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index d81c5a2c70..2c01a4bd9f 100644
+index 84c2e77680..bea6b38897 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2925,17 +2925,17 @@ index 6786f8eb01..38823a0fd4 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index a4bd3ea4e8..a4edfe6db4 100644
+index 461c8f5688..7a028b73f5 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
  
--~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
+-~> **NOTE on Virtual Networks and Subnets:** Terraform currently
 +~> **NOTE on Virtual Networks and Subnet's:** This provider currently
  provides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).
- At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+ At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
  
 diff --git a/website/docs/r/subscription.html.markdown b/website/docs/r/subscription.html.markdown
 index 4bbafff3c7..74005275d6 100644
@@ -3183,7 +3183,7 @@ index 876cf68385..623813b4e8 100644
  
  ## Example Usage
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index 87f4b33d63..fb92a5630e 100644
+index d326f7879c..03d6b84909 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Windows Virtual Machine.
@@ -3264,5 +3264,5 @@ index e94d26bbb6..3b17a31535 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.41.0
+2.39.1
 
