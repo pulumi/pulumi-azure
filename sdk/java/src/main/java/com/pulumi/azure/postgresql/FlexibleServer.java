@@ -444,14 +444,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceServerId);
     }
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
      * 
      */
     @Export(name="storageMb", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageMb;
 
     /**
-     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
+     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
      * 
      */
     public Output<Integer> storageMb() {

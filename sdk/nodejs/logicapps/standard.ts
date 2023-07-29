@@ -133,10 +133,6 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Auto-swap slot name.
-     */
-    public /*out*/ readonly autoSwapSlotName!: pulumi.Output<string>;
-    /**
      * If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
      */
     public readonly bundleVersion!: pulumi.Output<string | undefined>;
@@ -242,7 +238,6 @@ export class Standard extends pulumi.CustomResource {
             const state = argsOrState as StandardState | undefined;
             resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["autoSwapSlotName"] = state ? state.autoSwapSlotName : undefined;
             resourceInputs["bundleVersion"] = state ? state.bundleVersion : undefined;
             resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
@@ -301,7 +296,6 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["useExtensionBundle"] = args ? args.useExtensionBundle : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            resourceInputs["autoSwapSlotName"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -330,10 +324,6 @@ export interface StandardState {
      * > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Auto-swap slot name.
-     */
-    autoSwapSlotName?: pulumi.Input<string>;
     /**
      * If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
      */

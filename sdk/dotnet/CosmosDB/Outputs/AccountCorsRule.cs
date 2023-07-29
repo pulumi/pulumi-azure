@@ -30,9 +30,9 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExposedHeaders;
         /// <summary>
-        /// The number of seconds the client should cache a preflight response.
+        /// The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         /// </summary>
-        public readonly int MaxAgeInSeconds;
+        public readonly int? MaxAgeInSeconds;
 
         [OutputConstructor]
         private AccountCorsRule(
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
 
             ImmutableArray<string> exposedHeaders,
 
-            int maxAgeInSeconds)
+            int? maxAgeInSeconds)
         {
             AllowedHeaders = allowedHeaders;
             AllowedMethods = allowedMethods;

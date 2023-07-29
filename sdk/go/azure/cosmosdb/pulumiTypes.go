@@ -770,8 +770,8 @@ type AccountCorsRule struct {
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 	// A list of response headers that are exposed to CORS clients.
 	ExposedHeaders []string `pulumi:"exposedHeaders"`
-	// The number of seconds the client should cache a preflight response.
-	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+	// The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
+	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
 }
 
 // AccountCorsRuleInput is an input type that accepts AccountCorsRuleArgs and AccountCorsRuleOutput values.
@@ -794,8 +794,8 @@ type AccountCorsRuleArgs struct {
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 	// A list of response headers that are exposed to CORS clients.
 	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	// The number of seconds the client should cache a preflight response.
-	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+	// The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
+	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
 }
 
 func (AccountCorsRuleArgs) ElementType() reflect.Type {
@@ -895,9 +895,9 @@ func (o AccountCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// The number of seconds the client should cache a preflight response.
-func (o AccountCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v AccountCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+// The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
+func (o AccountCorsRuleOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountCorsRule) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
 type AccountCorsRulePtrOutput struct{ *pulumi.OutputState }
@@ -964,13 +964,13 @@ func (o AccountCorsRulePtrOutput) ExposedHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The number of seconds the client should cache a preflight response.
+// The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
 func (o AccountCorsRulePtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountCorsRule) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.MaxAgeInSeconds
+		return v.MaxAgeInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 

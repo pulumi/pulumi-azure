@@ -115,7 +115,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+     * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      * 
      */
     @Import(name="modules")
@@ -124,7 +124,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     /**
      * @return A `module` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+     * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      * 
      */
     public Optional<Output<List<EnterpriseDatabaseModuleArgs>>> modules() {
@@ -362,7 +362,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+         * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+         * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+         * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
          * 
          * @return builder
          * 

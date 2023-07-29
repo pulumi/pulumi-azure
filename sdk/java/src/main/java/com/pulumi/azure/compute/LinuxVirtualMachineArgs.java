@@ -146,6 +146,25 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    @Import(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    private @Nullable Output<Boolean> bypassPlatformSafetyChecksOnUserScheduleEnabled;
+
+    /**
+     * @return Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    public Optional<Output<Boolean>> bypassPlatformSafetyChecksOnUserScheduleEnabled() {
+        return Optional.ofNullable(this.bypassPlatformSafetyChecksOnUserScheduleEnabled);
+    }
+
+    /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
      * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -553,6 +572,25 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     * 
+     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    @Import(name="rebootSetting")
+    private @Nullable Output<String> rebootSetting;
+
+    /**
+     * @return Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     * 
+     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    public Optional<Output<String>> rebootSetting() {
+        return Optional.ofNullable(this.rebootSetting);
+    }
+
+    /**
      * The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
      * 
      */
@@ -754,6 +792,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         this.allowExtensionOperations = $.allowExtensionOperations;
         this.availabilitySetId = $.availabilitySetId;
         this.bootDiagnostics = $.bootDiagnostics;
+        this.bypassPlatformSafetyChecksOnUserScheduleEnabled = $.bypassPlatformSafetyChecksOnUserScheduleEnabled;
         this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.computerName = $.computerName;
         this.customData = $.customData;
@@ -779,6 +818,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         this.priority = $.priority;
         this.provisionVmAgent = $.provisionVmAgent;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
+        this.rebootSetting = $.rebootSetting;
         this.resourceGroupName = $.resourceGroupName;
         this.secrets = $.secrets;
         this.secureBootEnabled = $.secureBootEnabled;
@@ -978,6 +1018,31 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
          */
         public Builder bootDiagnostics(LinuxVirtualMachineBootDiagnosticsArgs bootDiagnostics) {
             return bootDiagnostics(Output.of(bootDiagnostics));
+        }
+
+        /**
+         * @param bypassPlatformSafetyChecksOnUserScheduleEnabled Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypassPlatformSafetyChecksOnUserScheduleEnabled(@Nullable Output<Boolean> bypassPlatformSafetyChecksOnUserScheduleEnabled) {
+            $.bypassPlatformSafetyChecksOnUserScheduleEnabled = bypassPlatformSafetyChecksOnUserScheduleEnabled;
+            return this;
+        }
+
+        /**
+         * @param bypassPlatformSafetyChecksOnUserScheduleEnabled Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypassPlatformSafetyChecksOnUserScheduleEnabled(Boolean bypassPlatformSafetyChecksOnUserScheduleEnabled) {
+            return bypassPlatformSafetyChecksOnUserScheduleEnabled(Output.of(bypassPlatformSafetyChecksOnUserScheduleEnabled));
         }
 
         /**
@@ -1555,6 +1620,31 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
          */
         public Builder proximityPlacementGroupId(String proximityPlacementGroupId) {
             return proximityPlacementGroupId(Output.of(proximityPlacementGroupId));
+        }
+
+        /**
+         * @param rebootSetting Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+         * 
+         * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rebootSetting(@Nullable Output<String> rebootSetting) {
+            $.rebootSetting = rebootSetting;
+            return this;
+        }
+
+        /**
+         * @param rebootSetting Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+         * 
+         * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rebootSetting(String rebootSetting) {
+            return rebootSetting(Output.of(rebootSetting));
         }
 
         /**

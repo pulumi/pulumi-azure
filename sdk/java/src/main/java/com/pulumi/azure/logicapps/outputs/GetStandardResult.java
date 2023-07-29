@@ -19,11 +19,6 @@ import javax.annotation.Nullable;
 public final class GetStandardResult {
     private String appServicePlanId;
     private Map<String,String> appSettings;
-    /**
-     * @return The Auto-swap slot name.
-     * 
-     */
-    private String autoSwapSlotName;
     private String bundleVersion;
     private Boolean clientAffinityEnabled;
     private String clientCertificateMode;
@@ -68,13 +63,6 @@ public final class GetStandardResult {
     }
     public Map<String,String> appSettings() {
         return this.appSettings;
-    }
-    /**
-     * @return The Auto-swap slot name.
-     * 
-     */
-    public String autoSwapSlotName() {
-        return this.autoSwapSlotName;
     }
     public String bundleVersion() {
         return this.bundleVersion;
@@ -175,7 +163,6 @@ public final class GetStandardResult {
     public static final class Builder {
         private String appServicePlanId;
         private Map<String,String> appSettings;
-        private String autoSwapSlotName;
         private String bundleVersion;
         private Boolean clientAffinityEnabled;
         private String clientCertificateMode;
@@ -206,7 +193,6 @@ public final class GetStandardResult {
     	      Objects.requireNonNull(defaults);
     	      this.appServicePlanId = defaults.appServicePlanId;
     	      this.appSettings = defaults.appSettings;
-    	      this.autoSwapSlotName = defaults.autoSwapSlotName;
     	      this.bundleVersion = defaults.bundleVersion;
     	      this.clientAffinityEnabled = defaults.clientAffinityEnabled;
     	      this.clientCertificateMode = defaults.clientCertificateMode;
@@ -242,11 +228,6 @@ public final class GetStandardResult {
         @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
             this.appSettings = Objects.requireNonNull(appSettings);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder autoSwapSlotName(String autoSwapSlotName) {
-            this.autoSwapSlotName = Objects.requireNonNull(autoSwapSlotName);
             return this;
         }
         @CustomType.Setter
@@ -387,7 +368,6 @@ public final class GetStandardResult {
             final var o = new GetStandardResult();
             o.appServicePlanId = appServicePlanId;
             o.appSettings = appSettings;
-            o.autoSwapSlotName = autoSwapSlotName;
             o.bundleVersion = bundleVersion;
             o.clientAffinityEnabled = clientAffinityEnabled;
             o.clientCertificateMode = clientCertificateMode;

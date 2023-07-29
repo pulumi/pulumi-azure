@@ -23,6 +23,11 @@ public final class ImageOsDisk {
      */
     private @Nullable String caching;
     /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * 
+     */
+    private @Nullable String diskEncryptionSetId;
+    /**
      * @return Specifies the ID of the managed disk resource that you want to use to create the image.
      * 
      */
@@ -57,6 +62,13 @@ public final class ImageOsDisk {
      */
     public Optional<String> caching() {
         return Optional.ofNullable(this.caching);
+    }
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * 
+     */
+    public Optional<String> diskEncryptionSetId() {
+        return Optional.ofNullable(this.diskEncryptionSetId);
     }
     /**
      * @return Specifies the ID of the managed disk resource that you want to use to create the image.
@@ -98,6 +110,7 @@ public final class ImageOsDisk {
     public static final class Builder {
         private @Nullable String blobUri;
         private @Nullable String caching;
+        private @Nullable String diskEncryptionSetId;
         private @Nullable String managedDiskId;
         private @Nullable String osState;
         private @Nullable String osType;
@@ -107,6 +120,7 @@ public final class ImageOsDisk {
     	      Objects.requireNonNull(defaults);
     	      this.blobUri = defaults.blobUri;
     	      this.caching = defaults.caching;
+    	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.managedDiskId = defaults.managedDiskId;
     	      this.osState = defaults.osState;
     	      this.osType = defaults.osType;
@@ -121,6 +135,11 @@ public final class ImageOsDisk {
         @CustomType.Setter
         public Builder caching(@Nullable String caching) {
             this.caching = caching;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
+            this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
@@ -147,6 +166,7 @@ public final class ImageOsDisk {
             final var o = new ImageOsDisk();
             o.blobUri = blobUri;
             o.caching = caching;
+            o.diskEncryptionSetId = diskEncryptionSetId;
             o.managedDiskId = managedDiskId;
             o.osState = osState;
             o.osType = osType;

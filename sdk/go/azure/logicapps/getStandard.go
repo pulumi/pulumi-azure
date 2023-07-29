@@ -62,10 +62,8 @@ type LookupStandardArgs struct {
 
 // A collection of values returned by getStandard.
 type LookupStandardResult struct {
-	AppServicePlanId string            `pulumi:"appServicePlanId"`
-	AppSettings      map[string]string `pulumi:"appSettings"`
-	// The Auto-swap slot name.
-	AutoSwapSlotName           string                        `pulumi:"autoSwapSlotName"`
+	AppServicePlanId           string                        `pulumi:"appServicePlanId"`
+	AppSettings                map[string]string             `pulumi:"appSettings"`
 	BundleVersion              string                        `pulumi:"bundleVersion"`
 	ClientAffinityEnabled      bool                          `pulumi:"clientAffinityEnabled"`
 	ClientCertificateMode      string                        `pulumi:"clientCertificateMode"`
@@ -144,11 +142,6 @@ func (o LookupStandardResultOutput) AppServicePlanId() pulumi.StringOutput {
 
 func (o LookupStandardResultOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStandardResult) map[string]string { return v.AppSettings }).(pulumi.StringMapOutput)
-}
-
-// The Auto-swap slot name.
-func (o LookupStandardResultOutput) AutoSwapSlotName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupStandardResult) string { return v.AutoSwapSlotName }).(pulumi.StringOutput)
 }
 
 func (o LookupStandardResultOutput) BundleVersion() pulumi.StringOutput {

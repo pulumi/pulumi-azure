@@ -95,6 +95,11 @@ export type FirewallPolicyRuleCollectionGroup = import("./firewallPolicyRuleColl
 export const FirewallPolicyRuleCollectionGroup: typeof import("./firewallPolicyRuleCollectionGroup").FirewallPolicyRuleCollectionGroup = null as any;
 utilities.lazyLoad(exports, ["FirewallPolicyRuleCollectionGroup"], () => require("./firewallPolicyRuleCollectionGroup"));
 
+export { FunctionAzureTrafficControllerArgs, FunctionAzureTrafficControllerState } from "./functionAzureTrafficController";
+export type FunctionAzureTrafficController = import("./functionAzureTrafficController").FunctionAzureTrafficController;
+export const FunctionAzureTrafficController: typeof import("./functionAzureTrafficController").FunctionAzureTrafficController = null as any;
+utilities.lazyLoad(exports, ["FunctionAzureTrafficController"], () => require("./functionAzureTrafficController"));
+
 export { GetApplicationGatewayArgs, GetApplicationGatewayResult, GetApplicationGatewayOutputArgs } from "./getApplicationGateway";
 export const getApplicationGateway: typeof import("./getApplicationGateway").getApplicationGateway = null as any;
 export const getApplicationGatewayOutput: typeof import("./getApplicationGateway").getApplicationGatewayOutput = null as any;
@@ -621,6 +626,8 @@ const _module = {
                 return new FirewallPolicy(name, <any>undefined, { urn })
             case "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup":
                 return new FirewallPolicyRuleCollectionGroup(name, <any>undefined, { urn })
+            case "azure:network/functionAzureTrafficController:FunctionAzureTrafficController":
+                return new FunctionAzureTrafficController(name, <any>undefined, { urn })
             case "azure:network/iPGroup:IPGroup":
                 return new IPGroup(name, <any>undefined, { urn })
             case "azure:network/iPGroupCIDR:IPGroupCIDR":
@@ -778,6 +785,7 @@ pulumi.runtime.registerResourceModule("azure", "network/firewallNatRuleCollectio
 pulumi.runtime.registerResourceModule("azure", "network/firewallNetworkRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewallPolicyRuleCollectionGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "network/functionAzureTrafficController", _module)
 pulumi.runtime.registerResourceModule("azure", "network/iPGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/iPGroupCIDR", _module)
 pulumi.runtime.registerResourceModule("azure", "network/localNetworkGateway", _module)

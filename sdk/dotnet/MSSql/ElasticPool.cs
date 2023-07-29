@@ -27,7 +27,7 @@ namespace Pulumi.Azure.MSSql
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.MSSql
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
-    ///         ServerName = exampleSqlServer.Name,
+    ///         ServerName = exampleServer.Name,
     ///         LicenseType = "LicenseIncluded",
     ///         MaxSizeGb = 756,
     ///         Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs

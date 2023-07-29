@@ -159,6 +159,10 @@ type LinuxVirtualMachine struct {
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics LinuxVirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
+	// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+	//
+	// > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+	BypassPlatformSafetyChecksOnUserScheduleEnabled pulumi.BoolPtrOutput `pulumi:"bypassPlatformSafetyChecksOnUserScheduleEnabled"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
@@ -233,6 +237,10 @@ type LinuxVirtualMachine struct {
 	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
 	// A list of the Public IP Addresses assigned to this Virtual Machine.
 	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
+	// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+	//
+	// > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+	RebootSetting pulumi.StringPtrOutput `pulumi:"rebootSetting"`
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
@@ -342,6 +350,10 @@ type linuxVirtualMachineState struct {
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *LinuxVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
+	// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+	//
+	// > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+	BypassPlatformSafetyChecksOnUserScheduleEnabled *bool `pulumi:"bypassPlatformSafetyChecksOnUserScheduleEnabled"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
@@ -416,6 +428,10 @@ type linuxVirtualMachineState struct {
 	PublicIpAddress *string `pulumi:"publicIpAddress"`
 	// A list of the Public IP Addresses assigned to this Virtual Machine.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+	//
+	// > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+	RebootSetting *string `pulumi:"rebootSetting"`
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
@@ -470,6 +486,10 @@ type LinuxVirtualMachineState struct {
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics LinuxVirtualMachineBootDiagnosticsPtrInput
+	// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+	//
+	// > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+	BypassPlatformSafetyChecksOnUserScheduleEnabled pulumi.BoolPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
@@ -544,6 +564,10 @@ type LinuxVirtualMachineState struct {
 	PublicIpAddress pulumi.StringPtrInput
 	// A list of the Public IP Addresses assigned to this Virtual Machine.
 	PublicIpAddresses pulumi.StringArrayInput
+	// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+	//
+	// > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+	RebootSetting pulumi.StringPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
@@ -602,6 +626,10 @@ type linuxVirtualMachineArgs struct {
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *LinuxVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
+	// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+	//
+	// > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+	BypassPlatformSafetyChecksOnUserScheduleEnabled *bool `pulumi:"bypassPlatformSafetyChecksOnUserScheduleEnabled"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
@@ -668,6 +696,10 @@ type linuxVirtualMachineArgs struct {
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+	//
+	// > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+	RebootSetting *string `pulumi:"rebootSetting"`
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
@@ -721,6 +753,10 @@ type LinuxVirtualMachineArgs struct {
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics LinuxVirtualMachineBootDiagnosticsPtrInput
+	// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+	//
+	// > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+	BypassPlatformSafetyChecksOnUserScheduleEnabled pulumi.BoolPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 	//
 	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
@@ -787,6 +823,10 @@ type LinuxVirtualMachineArgs struct {
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
+	// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+	//
+	// > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+	RebootSetting pulumi.StringPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// One or more `secret` blocks as defined below.
@@ -946,6 +986,15 @@ func (o LinuxVirtualMachineOutput) AvailabilitySetId() pulumi.StringPtrOutput {
 // A `bootDiagnostics` block as defined below.
 func (o LinuxVirtualMachineOutput) BootDiagnostics() LinuxVirtualMachineBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineBootDiagnosticsPtrOutput { return v.BootDiagnostics }).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
+}
+
+// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+//
+// > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+func (o LinuxVirtualMachineOutput) BypassPlatformSafetyChecksOnUserScheduleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput {
+		return v.BypassPlatformSafetyChecksOnUserScheduleEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
@@ -1109,6 +1158,13 @@ func (o LinuxVirtualMachineOutput) PublicIpAddress() pulumi.StringOutput {
 // A list of the Public IP Addresses assigned to this Virtual Machine.
 func (o LinuxVirtualMachineOutput) PublicIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringArrayOutput { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+//
+// > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+func (o LinuxVirtualMachineOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.RebootSetting }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.

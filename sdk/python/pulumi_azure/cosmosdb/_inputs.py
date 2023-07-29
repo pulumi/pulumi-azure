@@ -258,19 +258,20 @@ class AccountCorsRuleArgs:
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 max_age_in_seconds: pulumi.Input[int]):
+                 max_age_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
-        :param pulumi.Input[int] max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        :param pulumi.Input[int] max_age_in_seconds: The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         """
         pulumi.set(__self__, "allowed_headers", allowed_headers)
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         pulumi.set(__self__, "exposed_headers", exposed_headers)
-        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -322,14 +323,14 @@ class AccountCorsRuleArgs:
 
     @property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> pulumi.Input[int]:
+    def max_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds the client should cache a preflight response.
+        The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: pulumi.Input[int]):
+    def max_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 

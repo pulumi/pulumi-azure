@@ -134,6 +134,12 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.WindowsVirtualMachineBootDiagnostics | undefined>;
     /**
+     * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     *
+     * > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+     */
+    public readonly bypassPlatformSafetyChecksOnUserScheduleEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
@@ -263,6 +269,12 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
     /**
+     * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     *
+     * > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+     */
+    public readonly rebootSetting!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -349,6 +361,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["allowExtensionOperations"] = state ? state.allowExtensionOperations : undefined;
             resourceInputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
             resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = state ? state.bypassPlatformSafetyChecksOnUserScheduleEnabled : undefined;
             resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
             resourceInputs["computerName"] = state ? state.computerName : undefined;
             resourceInputs["customData"] = state ? state.customData : undefined;
@@ -379,6 +392,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             resourceInputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
             resourceInputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
+            resourceInputs["rebootSetting"] = state ? state.rebootSetting : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secrets"] = state ? state.secrets : undefined;
             resourceInputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
@@ -421,6 +435,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["allowExtensionOperations"] = args ? args.allowExtensionOperations : undefined;
             resourceInputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = args ? args.bypassPlatformSafetyChecksOnUserScheduleEnabled : undefined;
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["computerName"] = args ? args.computerName : undefined;
             resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
@@ -447,6 +462,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["provisionVmAgent"] = args ? args.provisionVmAgent : undefined;
             resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
+            resourceInputs["rebootSetting"] = args ? args.rebootSetting : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
             resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
@@ -506,6 +522,12 @@ export interface WindowsVirtualMachineState {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
+    /**
+     * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     *
+     * > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+     */
+    bypassPlatformSafetyChecksOnUserScheduleEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
@@ -636,6 +658,12 @@ export interface WindowsVirtualMachineState {
      */
     publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     *
+     * > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+     */
+    rebootSetting?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -735,6 +763,12 @@ export interface WindowsVirtualMachineArgs {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
+    /**
+     * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     *
+     * > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
+     */
+    bypassPlatformSafetyChecksOnUserScheduleEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
@@ -848,6 +882,12 @@ export interface WindowsVirtualMachineArgs {
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
+    /**
+     * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     *
+     * > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
+     */
+    rebootSetting?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
      */

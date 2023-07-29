@@ -61,10 +61,10 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         }
 
         /// <summary>
-        /// The number of seconds the client should cache a preflight response.
+        /// The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         /// </summary>
-        [Input("maxAgeInSeconds", required: true)]
-        public Input<int> MaxAgeInSeconds { get; set; } = null!;
+        [Input("maxAgeInSeconds")]
+        public Input<int>? MaxAgeInSeconds { get; set; }
 
         public AccountCorsRuleArgs()
         {

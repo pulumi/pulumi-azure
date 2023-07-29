@@ -22,6 +22,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly int? AppScaleLimit;
         /// <summary>
+        /// The Auto-swap slot name.
+        /// </summary>
+        public readonly string? AutoSwapSlotName;
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         public readonly Outputs.StandardSiteConfigCors? Cors;
@@ -106,6 +110,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             int? appScaleLimit,
 
+            string? autoSwapSlotName,
+
             Outputs.StandardSiteConfigCors? cors,
 
             string? dotnetFrameworkVersion,
@@ -144,6 +150,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         {
             AlwaysOn = alwaysOn;
             AppScaleLimit = appScaleLimit;
+            AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
             DotnetFrameworkVersion = dotnetFrameworkVersion;
             ElasticInstanceMinimum = elasticInstanceMinimum;

@@ -8,6 +8,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AccountCorsRule {
@@ -32,10 +34,10 @@ public final class AccountCorsRule {
      */
     private List<String> exposedHeaders;
     /**
-     * @return The number of seconds the client should cache a preflight response.
+     * @return The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
      * 
      */
-    private Integer maxAgeInSeconds;
+    private @Nullable Integer maxAgeInSeconds;
 
     private AccountCorsRule() {}
     /**
@@ -67,11 +69,11 @@ public final class AccountCorsRule {
         return this.exposedHeaders;
     }
     /**
-     * @return The number of seconds the client should cache a preflight response.
+     * @return The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
      * 
      */
-    public Integer maxAgeInSeconds() {
-        return this.maxAgeInSeconds;
+    public Optional<Integer> maxAgeInSeconds() {
+        return Optional.ofNullable(this.maxAgeInSeconds);
     }
 
     public static Builder builder() {
@@ -87,7 +89,7 @@ public final class AccountCorsRule {
         private List<String> allowedMethods;
         private List<String> allowedOrigins;
         private List<String> exposedHeaders;
-        private Integer maxAgeInSeconds;
+        private @Nullable Integer maxAgeInSeconds;
         public Builder() {}
         public Builder(AccountCorsRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -131,8 +133,8 @@ public final class AccountCorsRule {
             return exposedHeaders(List.of(exposedHeaders));
         }
         @CustomType.Setter
-        public Builder maxAgeInSeconds(Integer maxAgeInSeconds) {
-            this.maxAgeInSeconds = Objects.requireNonNull(maxAgeInSeconds);
+        public Builder maxAgeInSeconds(@Nullable Integer maxAgeInSeconds) {
+            this.maxAgeInSeconds = maxAgeInSeconds;
             return this;
         }
         public AccountCorsRule build() {

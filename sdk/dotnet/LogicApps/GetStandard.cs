@@ -147,10 +147,6 @@ namespace Pulumi.Azure.LogicApps
     {
         public readonly string AppServicePlanId;
         public readonly ImmutableDictionary<string, string> AppSettings;
-        /// <summary>
-        /// The Auto-swap slot name.
-        /// </summary>
-        public readonly string AutoSwapSlotName;
         public readonly string BundleVersion;
         public readonly bool ClientAffinityEnabled;
         public readonly string ClientCertificateMode;
@@ -191,8 +187,6 @@ namespace Pulumi.Azure.LogicApps
             string appServicePlanId,
 
             ImmutableDictionary<string, string> appSettings,
-
-            string autoSwapSlotName,
 
             string bundleVersion,
 
@@ -246,7 +240,6 @@ namespace Pulumi.Azure.LogicApps
         {
             AppServicePlanId = appServicePlanId;
             AppSettings = appSettings;
-            AutoSwapSlotName = autoSwapSlotName;
             BundleVersion = bundleVersion;
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertificateMode = clientCertificateMode;

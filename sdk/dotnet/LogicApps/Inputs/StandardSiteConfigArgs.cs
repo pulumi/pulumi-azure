@@ -25,6 +25,12 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<int>? AppScaleLimit { get; set; }
 
         /// <summary>
+        /// The Auto-swap slot name.
+        /// </summary>
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]

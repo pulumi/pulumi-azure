@@ -47,6 +47,21 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * 
+     */
+    @Import(name="diskEncryptionSetId")
+    private @Nullable Output<String> diskEncryptionSetId;
+
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * 
+     */
+    public Optional<Output<String>> diskEncryptionSetId() {
+        return Optional.ofNullable(this.diskEncryptionSetId);
+    }
+
+    /**
      * Specifies the ID of the managed disk resource that you want to use to create the image.
      * 
      */
@@ -111,6 +126,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     private ImageOsDiskArgs(ImageOsDiskArgs $) {
         this.blobUri = $.blobUri;
         this.caching = $.caching;
+        this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.managedDiskId = $.managedDiskId;
         this.osState = $.osState;
         this.osType = $.osType;
@@ -175,6 +191,27 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder caching(String caching) {
             return caching(Output.of(caching));
+        }
+
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptionSetId(@Nullable Output<String> diskEncryptionSetId) {
+            $.diskEncryptionSetId = diskEncryptionSetId;
+            return this;
+        }
+
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptionSetId(String diskEncryptionSetId) {
+            return diskEncryptionSetId(Output.of(diskEncryptionSetId));
         }
 
         /**

@@ -27,6 +27,7 @@ class WindowsVirtualMachineArgs:
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class WindowsVirtualMachineArgs:
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
@@ -76,6 +78,9 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -111,6 +116,9 @@ class WindowsVirtualMachineArgs:
                
                > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
@@ -146,6 +154,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if bypass_platform_safety_checks_on_user_schedule_enabled is not None:
+            pulumi.set(__self__, "bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
@@ -194,6 +204,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if reboot_setting is not None:
+            pulumi.set(__self__, "reboot_setting", reboot_setting)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
@@ -350,6 +362,20 @@ class WindowsVirtualMachineArgs:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+
+        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
+
+    @bypass_platform_safety_checks_on_user_schedule_enabled.setter
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_platform_safety_checks_on_user_schedule_enabled", value)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -649,6 +675,20 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+
+        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "reboot_setting")
+
+    @reboot_setting.setter
+    def reboot_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot_setting", value)
+
+    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]:
         """
@@ -809,6 +849,7 @@ class _WindowsVirtualMachineState:
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -839,6 +880,7 @@ class _WindowsVirtualMachineState:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -863,6 +905,9 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -904,6 +949,9 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -940,6 +988,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if bypass_platform_safety_checks_on_user_schedule_enabled is not None:
+            pulumi.set(__self__, "bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
@@ -1000,6 +1050,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if reboot_setting is not None:
+            pulumi.set(__self__, "reboot_setting", reboot_setting)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secrets is not None:
@@ -1114,6 +1166,20 @@ class _WindowsVirtualMachineState:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+
+        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
+
+    @bypass_platform_safety_checks_on_user_schedule_enabled.setter
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_platform_safety_checks_on_user_schedule_enabled", value)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -1485,6 +1551,20 @@ class _WindowsVirtualMachineState:
         pulumi.set(self, "public_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+
+        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "reboot_setting")
+
+    @reboot_setting.setter
+    def reboot_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot_setting", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1683,6 +1763,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -1709,6 +1790,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1800,6 +1882,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -1837,6 +1922,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -1953,6 +2041,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -1979,6 +2068,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2013,6 +2103,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
             __props__.__dict__["availability_set_id"] = availability_set_id
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+            __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name"] = computer_name
             __props__.__dict__["custom_data"] = None if custom_data is None else pulumi.Output.secret(custom_data)
@@ -2043,6 +2134,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["provision_vm_agent"] = provision_vm_agent
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+            __props__.__dict__["reboot_setting"] = reboot_setting
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -2085,6 +2177,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
             availability_set_id: Optional[pulumi.Input[str]] = None,
             boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+            bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
             computer_name: Optional[pulumi.Input[str]] = None,
             custom_data: Optional[pulumi.Input[str]] = None,
@@ -2115,6 +2208,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             public_ip_address: Optional[pulumi.Input[str]] = None,
             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            reboot_setting: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2144,6 +2238,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -2185,6 +2282,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -2218,6 +2318,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["allow_extension_operations"] = allow_extension_operations
         __props__.__dict__["availability_set_id"] = availability_set_id
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+        __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["computer_name"] = computer_name
         __props__.__dict__["custom_data"] = custom_data
@@ -2248,6 +2349,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["public_ip_address"] = public_ip_address
         __props__.__dict__["public_ip_addresses"] = public_ip_addresses
+        __props__.__dict__["reboot_setting"] = reboot_setting
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
@@ -2320,6 +2422,16 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
+
+    @property
+    @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+
+        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -2569,6 +2681,16 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A list of the Public IP Addresses assigned to this Virtual Machine.
         """
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+
+        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "reboot_setting")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -106,7 +106,7 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Only RediSearch module is allowed with geo-replication
+     * > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      */
     public readonly modules!: pulumi.Output<outputs.redis.EnterpriseDatabaseModule[] | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface EnterpriseDatabaseState {
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Only RediSearch module is allowed with geo-replication
+     * > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      */
     modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
     /**
@@ -275,7 +275,7 @@ export interface EnterpriseDatabaseArgs {
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Only RediSearch module is allowed with geo-replication
+     * > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      */
     modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
     /**

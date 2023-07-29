@@ -1294,6 +1294,8 @@ type ImageOsDisk struct {
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 	Caching *string `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this image.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
@@ -1320,6 +1322,8 @@ type ImageOsDiskArgs struct {
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this image.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
@@ -1417,6 +1421,11 @@ func (o ImageOsDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this image.
+func (o ImageOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageOsDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
@@ -1478,6 +1487,16 @@ func (o ImageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Caching
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to encrypt this image.
+func (o ImageOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskEncryptionSetId
 	}).(pulumi.StringPtrOutput)
 }
 

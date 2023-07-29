@@ -158,6 +158,14 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// </summary>
+        [Output("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
+        public Output<bool?> BypassPlatformSafetyChecksOnUserScheduleEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
         /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -345,6 +353,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("publicIpAddresses")]
         public Output<ImmutableArray<string>> PublicIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+        /// 
+        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// </summary>
+        [Output("rebootSetting")]
+        public Output<string?> RebootSetting { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
@@ -552,6 +568,14 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
+        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// </summary>
+        [Input("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
+        public Input<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
         /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -739,6 +763,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
+        /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+        /// 
+        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// </summary>
+        [Input("rebootSetting")]
+        public Input<string>? RebootSetting { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -911,6 +943,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
+
+        /// <summary>
+        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// </summary>
+        [Input("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
+        public Input<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
@@ -1134,6 +1174,14 @@ namespace Pulumi.Azure.Compute
             get => _publicIpAddresses ?? (_publicIpAddresses = new InputList<string>());
             set => _publicIpAddresses = value;
         }
+
+        /// <summary>
+        /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+        /// 
+        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// </summary>
+        [Input("rebootSetting")]
+        public Input<string>? RebootSetting { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.

@@ -252,6 +252,24 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bootDiagnostics);
     }
     /**
+     * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    @Export(name="bypassPlatformSafetyChecksOnUserScheduleEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> bypassPlatformSafetyChecksOnUserScheduleEnabled;
+
+    /**
+     * @return Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    public Output<Optional<Boolean>> bypassPlatformSafetyChecksOnUserScheduleEnabled() {
+        return Codegen.optional(this.bypassPlatformSafetyChecksOnUserScheduleEnabled);
+    }
+    /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
      * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -688,6 +706,24 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> publicIpAddresses() {
         return this.publicIpAddresses;
+    }
+    /**
+     * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     * 
+     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    @Export(name="rebootSetting", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> rebootSetting;
+
+    /**
+     * @return Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+     * 
+     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * 
+     */
+    public Output<Optional<String>> rebootSetting() {
+        return Codegen.optional(this.rebootSetting);
     }
     /**
      * The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.

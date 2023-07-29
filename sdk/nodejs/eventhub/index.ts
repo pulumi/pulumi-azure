@@ -100,6 +100,11 @@ export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthori
 export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
 
+export { GetSasArgs, GetSasResult, GetSasOutputArgs } from "./getSas";
+export const getSas: typeof import("./getSas").getSas = null as any;
+export const getSasOutput: typeof import("./getSas").getSasOutput = null as any;
+utilities.lazyLoad(exports, ["getSas","getSasOutput"], () => require("./getSas"));
+
 export { GetServiceBusNamespaceArgs, GetServiceBusNamespaceResult, GetServiceBusNamespaceOutputArgs } from "./getServiceBusNamespace";
 export const getServiceBusNamespace: typeof import("./getServiceBusNamespace").getServiceBusNamespace = null as any;
 export const getServiceBusNamespaceOutput: typeof import("./getServiceBusNamespace").getServiceBusNamespaceOutput = null as any;

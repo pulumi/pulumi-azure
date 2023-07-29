@@ -18,6 +18,8 @@ import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
 import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
 import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRulePlainArgs;
 import com.pulumi.azure.eventhub.inputs.GetNamespacePlainArgs;
+import com.pulumi.azure.eventhub.inputs.GetSasArgs;
+import com.pulumi.azure.eventhub.inputs.GetSasPlainArgs;
 import com.pulumi.azure.eventhub.inputs.GetServiceBusNamespaceArgs;
 import com.pulumi.azure.eventhub.inputs.GetServiceBusNamespacePlainArgs;
 import com.pulumi.azure.eventhub.outputs.GetAuthorizationRuleResult;
@@ -27,6 +29,7 @@ import com.pulumi.azure.eventhub.outputs.GetEventHubResult;
 import com.pulumi.azure.eventhub.outputs.GetEventhubNamespaceResult;
 import com.pulumi.azure.eventhub.outputs.GetNamespaceAuthorizationRuleResult;
 import com.pulumi.azure.eventhub.outputs.GetNamespaceResult;
+import com.pulumi.azure.eventhub.outputs.GetSasResult;
 import com.pulumi.azure.eventhub.outputs.GetServiceBusNamespaceResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1158,6 +1161,34 @@ public final class EventhubFunctions {
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", TypeShape.of(GetNamespaceAuthorizationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
+     * 
+     */
+    public static Output<GetSasResult> getSas(GetSasArgs args) {
+        return getSas(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
+     * 
+     */
+    public static CompletableFuture<GetSasResult> getSasPlain(GetSasPlainArgs args) {
+        return getSasPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
+     * 
+     */
+    public static Output<GetSasResult> getSas(GetSasArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:eventhub/getSas:getSas", TypeShape.of(GetSasResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
+     * 
+     */
+    public static CompletableFuture<GetSasResult> getSasPlain(GetSasPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:eventhub/getSas:getSas", TypeShape.of(GetSasResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing ServiceBus Namespace.

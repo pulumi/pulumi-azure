@@ -23,6 +23,7 @@ from .firewall_nat_rule_collection import *
 from .firewall_network_rule_collection import *
 from .firewall_policy import *
 from .firewall_policy_rule_collection_group import *
+from .function_azure_traffic_controller import *
 from .get_application_gateway import *
 from .get_application_security_group import *
 from .get_express_route_circuit import *

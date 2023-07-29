@@ -25022,6 +25022,10 @@ export namespace compute {
          */
         caching?: string;
         /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this image.
+         */
+        diskEncryptionSetId?: string;
+        /**
          * Specifies the ID of the managed disk resource that you want to use to create the image.
          */
         managedDiskId: string;
@@ -33232,9 +33236,9 @@ export namespace cosmosdb {
          */
         exposedHeaders: string[];
         /**
-         * The number of seconds the client should cache a preflight response.
+         * The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
          */
-        maxAgeInSeconds: number;
+        maxAgeInSeconds?: number;
     }
 
     export interface AccountGeoLocation {
@@ -44468,6 +44472,7 @@ export namespace logicapps {
     export interface GetStandardSiteConfig {
         alwaysOn?: boolean;
         appScaleLimit: number;
+        autoSwapSlotName: string;
         cors: outputs.logicapps.GetStandardSiteConfigCors;
         dotnetFrameworkVersion?: string;
         elasticInstanceMinimum: number;
@@ -44728,6 +44733,10 @@ export namespace logicapps {
          * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
          */
         appScaleLimit: number;
+        /**
+         * The Auto-swap slot name.
+         */
+        autoSwapSlotName: string;
         /**
          * A `cors` block as defined below.
          */

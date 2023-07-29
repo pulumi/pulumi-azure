@@ -18,6 +18,9 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("appScaleLimit", required: true)]
         public Input<int> AppScaleLimit { get; set; } = null!;
 
+        [Input("autoSwapSlotName", required: true)]
+        public Input<string> AutoSwapSlotName { get; set; } = null!;
+
         [Input("cors", required: true)]
         public Input<Inputs.GetStandardSiteConfigCorsInputArgs> Cors { get; set; } = null!;
 

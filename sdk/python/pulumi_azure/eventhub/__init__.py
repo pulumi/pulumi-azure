@@ -24,6 +24,7 @@ from .get_event_hub import *
 from .get_eventhub_namespace import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .get_sas import *
 from .get_service_bus_namespace import *
 from .namespace import *
 from .namespace_authorization_rule import *

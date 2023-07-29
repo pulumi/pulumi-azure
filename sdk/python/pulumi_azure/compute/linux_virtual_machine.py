@@ -27,6 +27,7 @@ class LinuxVirtualMachineArgs:
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,7 @@ class LinuxVirtualMachineArgs:
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
@@ -78,6 +80,9 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -117,6 +122,9 @@ class LinuxVirtualMachineArgs:
                
                > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
@@ -151,6 +159,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if bypass_platform_safety_checks_on_user_schedule_enabled is not None:
+            pulumi.set(__self__, "bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
@@ -197,6 +207,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if reboot_setting is not None:
+            pulumi.set(__self__, "reboot_setting", reboot_setting)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
@@ -354,6 +366,20 @@ class LinuxVirtualMachineArgs:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+
+        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
+
+    @bypass_platform_safety_checks_on_user_schedule_enabled.setter
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_platform_safety_checks_on_user_schedule_enabled", value)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -648,6 +674,20 @@ class LinuxVirtualMachineArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+
+        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "reboot_setting")
+
+    @reboot_setting.setter
+    def reboot_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot_setting", value)
+
+    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]:
         """
@@ -784,6 +824,7 @@ class _LinuxVirtualMachineState:
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -813,6 +854,7 @@ class _LinuxVirtualMachineState:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -840,6 +882,9 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -885,6 +930,9 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -919,6 +967,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if bypass_platform_safety_checks_on_user_schedule_enabled is not None:
+            pulumi.set(__self__, "bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
@@ -977,6 +1027,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if reboot_setting is not None:
+            pulumi.set(__self__, "reboot_setting", reboot_setting)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secrets is not None:
@@ -1092,6 +1144,20 @@ class _LinuxVirtualMachineState:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+
+        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
+
+    @bypass_platform_safety_checks_on_user_schedule_enabled.setter
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_platform_safety_checks_on_user_schedule_enabled", value)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -1458,6 +1524,20 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "public_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+
+        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "reboot_setting")
+
+    @reboot_setting.setter
+    def reboot_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot_setting", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1632,6 +1712,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -1657,6 +1738,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1754,6 +1836,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -1795,6 +1880,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -1912,6 +2000,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
@@ -1937,6 +2026,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1967,6 +2057,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
             __props__.__dict__["availability_set_id"] = availability_set_id
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+            __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name"] = computer_name
             __props__.__dict__["custom_data"] = None if custom_data is None else pulumi.Output.secret(custom_data)
@@ -1996,6 +2087,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["provision_vm_agent"] = provision_vm_agent
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+            __props__.__dict__["reboot_setting"] = reboot_setting
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -2036,6 +2128,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
             availability_set_id: Optional[pulumi.Input[str]] = None,
             boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
+            bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
             computer_name: Optional[pulumi.Input[str]] = None,
             custom_data: Optional[pulumi.Input[str]] = None,
@@ -2065,6 +2158,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             public_ip_address: Optional[pulumi.Input[str]] = None,
             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            reboot_setting: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2097,6 +2191,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+               
+               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
@@ -2142,6 +2239,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+               
+               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -2173,6 +2273,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["allow_extension_operations"] = allow_extension_operations
         __props__.__dict__["availability_set_id"] = availability_set_id
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+        __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["computer_name"] = computer_name
         __props__.__dict__["custom_data"] = custom_data
@@ -2202,6 +2303,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["public_ip_address"] = public_ip_address
         __props__.__dict__["public_ip_addresses"] = public_ip_addresses
+        __props__.__dict__["reboot_setting"] = reboot_setting
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
@@ -2277,6 +2379,16 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
+
+    @property
+    @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+
+        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -2525,6 +2637,16 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         A list of the Public IP Addresses assigned to this Virtual Machine.
         """
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="rebootSetting")
+    def reboot_setting(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
+
+        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        """
+        return pulumi.get(self, "reboot_setting")
 
     @property
     @pulumi.getter(name="resourceGroupName")

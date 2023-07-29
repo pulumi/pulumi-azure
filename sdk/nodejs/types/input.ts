@@ -18475,6 +18475,10 @@ export namespace compute {
          */
         caching?: pulumi.Input<string>;
         /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this image.
+         */
+        diskEncryptionSetId?: pulumi.Input<string>;
+        /**
          * Specifies the ID of the managed disk resource that you want to use to create the image.
          */
         managedDiskId?: pulumi.Input<string>;
@@ -25458,9 +25462,9 @@ export namespace cosmosdb {
          */
         exposedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The number of seconds the client should cache a preflight response.
+         * The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
          */
-        maxAgeInSeconds: pulumi.Input<number>;
+        maxAgeInSeconds?: pulumi.Input<number>;
     }
 
     export interface AccountGeoLocation {
@@ -35426,6 +35430,7 @@ export namespace logicapps {
     export interface GetStandardSiteConfig {
         alwaysOn?: boolean;
         appScaleLimit?: number;
+        autoSwapSlotName?: string;
         cors?: inputs.logicapps.GetStandardSiteConfigCors;
         dotnetFrameworkVersion?: string;
         elasticInstanceMinimum?: number;
@@ -35449,6 +35454,7 @@ export namespace logicapps {
     export interface GetStandardSiteConfigArgs {
         alwaysOn?: pulumi.Input<boolean>;
         appScaleLimit?: pulumi.Input<number>;
+        autoSwapSlotName?: pulumi.Input<string>;
         cors?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigCorsArgs>;
         dotnetFrameworkVersion?: pulumi.Input<string>;
         elasticInstanceMinimum?: pulumi.Input<number>;
@@ -35730,6 +35736,10 @@ export namespace logicapps {
          * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
          */
         appScaleLimit?: pulumi.Input<number>;
+        /**
+         * The Auto-swap slot name.
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
         /**
          * A `cors` block as defined below.
          */
