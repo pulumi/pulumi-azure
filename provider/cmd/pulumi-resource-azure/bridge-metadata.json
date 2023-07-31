@@ -15049,14 +15049,7 @@
                 }
             },
             "azurerm_network_function_azure_traffic_collector": {
-                "current": "azure:network/functionAzureTrafficController:FunctionAzureTrafficController",
-                "past": [
-                    {
-                        "name": "azure:network/functionAzureTrafficController:FunctionAzureTrafficController",
-                        "inCodegen": true,
-                        "majorVersion": 5
-                    }
-                ],
+                "current": "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector",
                 "majorVersion": 5,
                 "fields": {
                     "collector_policy_ids": {
@@ -29133,7 +29126,6 @@
             "azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection": "azurerm_firewall_network_rule_collection",
             "azure:network/firewallPolicy:FirewallPolicy": "azurerm_firewall_policy",
             "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup": "azurerm_firewall_policy_rule_collection_group",
-            "azure:network/functionAzureTrafficController:FunctionAzureTrafficController": "azurerm_network_function_azure_traffic_collector_legacy",
             "azure:network/iPGroup:IPGroup": "azurerm_ip_group",
             "azure:network/iPGroupCIDR:IPGroupCIDR": "azurerm_ip_group_cidr",
             "azure:network/localNetworkGateway:LocalNetworkGateway": "azurerm_local_network_gateway",
@@ -49890,11 +49882,6 @@
                 "firewallPolicyId": "firewall_policy_id",
                 "natRuleCollections": "nat_rule_collection",
                 "networkRuleCollections": "network_rule_collection"
-            },
-            "azure:network/functionAzureTrafficController:FunctionAzureTrafficController": {
-                "collectorPolicyIds": "collector_policy_ids",
-                "resourceGroupName": "resource_group_name",
-                "virtualHubIds": "virtual_hub_id"
             },
             "azure:network/getApplicationGateway:getApplicationGateway": {
                 "backendAddressPools": "backend_address_pool",
