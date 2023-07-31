@@ -57,8 +57,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallPolicy{}
 	case "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup":
 		r = &FirewallPolicyRuleCollectionGroup{}
-	case "azure:network/functionAzureTrafficController:FunctionAzureTrafficController":
-		r = &FunctionAzureTrafficController{}
 	case "azure:network/iPGroup:IPGroup":
 		r = &IPGroup{}
 	case "azure:network/iPGroupCIDR:IPGroupCIDR":
@@ -294,11 +292,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/firewallPolicyRuleCollectionGroup",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"network/functionAzureTrafficController",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

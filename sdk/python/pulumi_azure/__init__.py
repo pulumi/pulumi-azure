@@ -6141,14 +6141,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "network/functionAzureTrafficController",
-  "fqn": "pulumi_azure.network",
-  "classes": {
-   "azure:network/functionAzureTrafficController:FunctionAzureTrafficController": "FunctionAzureTrafficController"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "network/iPGroup",
   "fqn": "pulumi_azure.network",
   "classes": {

@@ -116,8 +116,6 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
             resourceInputs["virtualHubIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure:network/functionAzureTrafficController:FunctionAzureTrafficController" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureTrafficCollector.__pulumiType, name, resourceInputs, opts);
     }
 }

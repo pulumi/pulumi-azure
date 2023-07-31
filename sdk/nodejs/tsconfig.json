@@ -1059,7 +1059,6 @@
         "network/firewallNetworkRuleCollection.ts",
         "network/firewallPolicy.ts",
         "network/firewallPolicyRuleCollectionGroup.ts",
-        "network/functionAzureTrafficController.ts",
         "network/getApplicationGateway.ts",
         "network/getApplicationSecurityGroup.ts",
         "network/getExpressRouteCircuit.ts",

@@ -87,12 +87,6 @@ func NewAzureTrafficCollector(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure:network/functionAzureTrafficController:FunctionAzureTrafficController"),
-		},
-	})
-	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AzureTrafficCollector
 	err := ctx.RegisterResource("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector", name, args, &resource, opts...)

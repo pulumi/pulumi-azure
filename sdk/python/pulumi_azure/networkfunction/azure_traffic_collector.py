@@ -297,8 +297,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["collector_policy_ids"] = None
             __props__.__dict__["virtual_hub_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:network/functionAzureTrafficController:FunctionAzureTrafficController")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureTrafficCollector, __self__).__init__(
             'azure:networkfunction/azureTrafficCollector:AzureTrafficCollector',
             resource_name,
