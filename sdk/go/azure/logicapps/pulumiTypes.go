@@ -1782,6 +1782,8 @@ type StandardSiteConfig struct {
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
 	AppScaleLimit *int `pulumi:"appScaleLimit"`
+	// The Auto-swap slot name.
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *StandardSiteConfigCors `pulumi:"cors"`
 	// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
@@ -1842,6 +1844,8 @@ type StandardSiteConfigArgs struct {
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
 	AppScaleLimit pulumi.IntPtrInput `pulumi:"appScaleLimit"`
+	// The Auto-swap slot name.
+	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors StandardSiteConfigCorsPtrInput `pulumi:"cors"`
 	// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
@@ -1971,6 +1975,11 @@ func (o StandardSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 // The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
 func (o StandardSiteConfigOutput) AppScaleLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *int { return v.AppScaleLimit }).(pulumi.IntPtrOutput)
+}
+
+// The Auto-swap slot name.
+func (o StandardSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
 // A `cors` block as defined below.
@@ -2111,6 +2120,16 @@ func (o StandardSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
 		}
 		return v.AppScaleLimit
 	}).(pulumi.IntPtrOutput)
+}
+
+// The Auto-swap slot name.
+func (o StandardSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSwapSlotName
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `cors` block as defined below.
@@ -4849,6 +4868,7 @@ func (o GetStandardIdentityArrayOutput) Index(i pulumi.IntInput) GetStandardIden
 type GetStandardSiteConfig struct {
 	AlwaysOn                      *bool                                   `pulumi:"alwaysOn"`
 	AppScaleLimit                 int                                     `pulumi:"appScaleLimit"`
+	AutoSwapSlotName              string                                  `pulumi:"autoSwapSlotName"`
 	Cors                          GetStandardSiteConfigCors               `pulumi:"cors"`
 	DotnetFrameworkVersion        *string                                 `pulumi:"dotnetFrameworkVersion"`
 	ElasticInstanceMinimum        int                                     `pulumi:"elasticInstanceMinimum"`
@@ -4883,6 +4903,7 @@ type GetStandardSiteConfigInput interface {
 type GetStandardSiteConfigArgs struct {
 	AlwaysOn                      pulumi.BoolPtrInput                             `pulumi:"alwaysOn"`
 	AppScaleLimit                 pulumi.IntInput                                 `pulumi:"appScaleLimit"`
+	AutoSwapSlotName              pulumi.StringInput                              `pulumi:"autoSwapSlotName"`
 	Cors                          GetStandardSiteConfigCorsInput                  `pulumi:"cors"`
 	DotnetFrameworkVersion        pulumi.StringPtrInput                           `pulumi:"dotnetFrameworkVersion"`
 	ElasticInstanceMinimum        pulumi.IntInput                                 `pulumi:"elasticInstanceMinimum"`
@@ -4986,6 +5007,10 @@ func (o GetStandardSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 
 func (o GetStandardSiteConfigOutput) AppScaleLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) int { return v.AppScaleLimit }).(pulumi.IntOutput)
+}
+
+func (o GetStandardSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.AutoSwapSlotName }).(pulumi.StringOutput)
 }
 
 func (o GetStandardSiteConfigOutput) Cors() GetStandardSiteConfigCorsOutput {
@@ -5100,6 +5125,15 @@ func (o GetStandardSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
 		}
 		return &v.AppScaleLimit
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoSwapSlotName
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o GetStandardSiteConfigPtrOutput) Cors() GetStandardSiteConfigCorsPtrOutput {

@@ -15,6 +15,11 @@ export const getAgreement: typeof import("./getAgreement").getAgreement = null a
 export const getAgreementOutput: typeof import("./getAgreement").getAgreementOutput = null as any;
 utilities.lazyLoad(exports, ["getAgreement","getAgreementOutput"], () => require("./getAgreement"));
 
+export { RoleAssignmentArgs, RoleAssignmentState } from "./roleAssignment";
+export type RoleAssignment = import("./roleAssignment").RoleAssignment;
+export const RoleAssignment: typeof import("./roleAssignment").RoleAssignment = null as any;
+utilities.lazyLoad(exports, ["RoleAssignment"], () => require("./roleAssignment"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,9 +27,12 @@ const _module = {
         switch (type) {
             case "azure:marketplace/agreement:Agreement":
                 return new Agreement(name, <any>undefined, { urn })
+            case "azure:marketplace/roleAssignment:RoleAssignment":
+                return new RoleAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "marketplace/agreement", _module)
+pulumi.runtime.registerResourceModule("azure", "marketplace/roleAssignment", _module)

@@ -440,7 +440,7 @@ class Subnet(pulumi.CustomResource):
 
         > **NOTE on Virtual Networks and Subnet's:** This provider currently
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
-        At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+        At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
 
         ## Example Usage
 
@@ -508,7 +508,7 @@ class Subnet(pulumi.CustomResource):
 
         > **NOTE on Virtual Networks and Subnet's:** This provider currently
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
-        At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+        At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
 
         ## Example Usage
 

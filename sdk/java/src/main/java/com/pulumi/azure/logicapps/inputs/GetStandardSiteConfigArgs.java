@@ -35,6 +35,13 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
         return this.appScaleLimit;
     }
 
+    @Import(name="autoSwapSlotName", required=true)
+    private Output<String> autoSwapSlotName;
+
+    public Output<String> autoSwapSlotName() {
+        return this.autoSwapSlotName;
+    }
+
     @Import(name="cors", required=true)
     private Output<GetStandardSiteConfigCorsArgs> cors;
 
@@ -166,6 +173,7 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
     private GetStandardSiteConfigArgs(GetStandardSiteConfigArgs $) {
         this.alwaysOn = $.alwaysOn;
         this.appScaleLimit = $.appScaleLimit;
+        this.autoSwapSlotName = $.autoSwapSlotName;
         this.cors = $.cors;
         this.dotnetFrameworkVersion = $.dotnetFrameworkVersion;
         this.elasticInstanceMinimum = $.elasticInstanceMinimum;
@@ -220,6 +228,15 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
 
         public Builder appScaleLimit(Integer appScaleLimit) {
             return appScaleLimit(Output.of(appScaleLimit));
+        }
+
+        public Builder autoSwapSlotName(Output<String> autoSwapSlotName) {
+            $.autoSwapSlotName = autoSwapSlotName;
+            return this;
+        }
+
+        public Builder autoSwapSlotName(String autoSwapSlotName) {
+            return autoSwapSlotName(Output.of(autoSwapSlotName));
         }
 
         public Builder cors(Output<GetStandardSiteConfigCorsArgs> cors) {
@@ -394,6 +411,7 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
 
         public GetStandardSiteConfigArgs build() {
             $.appScaleLimit = Objects.requireNonNull($.appScaleLimit, "expected parameter 'appScaleLimit' to be non-null");
+            $.autoSwapSlotName = Objects.requireNonNull($.autoSwapSlotName, "expected parameter 'autoSwapSlotName' to be non-null");
             $.cors = Objects.requireNonNull($.cors, "expected parameter 'cors' to be non-null");
             $.elasticInstanceMinimum = Objects.requireNonNull($.elasticInstanceMinimum, "expected parameter 'elasticInstanceMinimum' to be non-null");
             $.ftpsState = Objects.requireNonNull($.ftpsState, "expected parameter 'ftpsState' to be non-null");

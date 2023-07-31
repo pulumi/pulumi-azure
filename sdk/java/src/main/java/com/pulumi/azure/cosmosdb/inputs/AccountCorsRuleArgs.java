@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -76,18 +78,18 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The number of seconds the client should cache a preflight response.
+     * The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
      * 
      */
-    @Import(name="maxAgeInSeconds", required=true)
-    private Output<Integer> maxAgeInSeconds;
+    @Import(name="maxAgeInSeconds")
+    private @Nullable Output<Integer> maxAgeInSeconds;
 
     /**
-     * @return The number of seconds the client should cache a preflight response.
+     * @return The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
      * 
      */
-    public Output<Integer> maxAgeInSeconds() {
-        return this.maxAgeInSeconds;
+    public Optional<Output<Integer>> maxAgeInSeconds() {
+        return Optional.ofNullable(this.maxAgeInSeconds);
     }
 
     private AccountCorsRuleArgs() {}
@@ -243,18 +245,18 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxAgeInSeconds The number of seconds the client should cache a preflight response.
+         * @param maxAgeInSeconds The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
          * 
          * @return builder
          * 
          */
-        public Builder maxAgeInSeconds(Output<Integer> maxAgeInSeconds) {
+        public Builder maxAgeInSeconds(@Nullable Output<Integer> maxAgeInSeconds) {
             $.maxAgeInSeconds = maxAgeInSeconds;
             return this;
         }
 
         /**
-         * @param maxAgeInSeconds The number of seconds the client should cache a preflight response.
+         * @param maxAgeInSeconds The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
          * 
          * @return builder
          * 
@@ -268,7 +270,6 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
             $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
             $.allowedOrigins = Objects.requireNonNull($.allowedOrigins, "expected parameter 'allowedOrigins' to be non-null");
             $.exposedHeaders = Objects.requireNonNull($.exposedHeaders, "expected parameter 'exposedHeaders' to be non-null");
-            $.maxAgeInSeconds = Objects.requireNonNull($.maxAgeInSeconds, "expected parameter 'maxAgeInSeconds' to be non-null");
             return $;
         }
     }

@@ -28,6 +28,11 @@ public final class StandardSiteConfig {
      */
     private @Nullable Integer appScaleLimit;
     /**
+     * @return The Auto-swap slot name.
+     * 
+     */
+    private @Nullable String autoSwapSlotName;
+    /**
      * @return A `cors` block as defined below.
      * 
      */
@@ -138,6 +143,13 @@ public final class StandardSiteConfig {
      */
     public Optional<Integer> appScaleLimit() {
         return Optional.ofNullable(this.appScaleLimit);
+    }
+    /**
+     * @return The Auto-swap slot name.
+     * 
+     */
+    public Optional<String> autoSwapSlotName() {
+        return Optional.ofNullable(this.autoSwapSlotName);
     }
     /**
      * @return A `cors` block as defined below.
@@ -283,6 +295,7 @@ public final class StandardSiteConfig {
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private @Nullable Integer appScaleLimit;
+        private @Nullable String autoSwapSlotName;
         private @Nullable StandardSiteConfigCors cors;
         private @Nullable String dotnetFrameworkVersion;
         private @Nullable Integer elasticInstanceMinimum;
@@ -306,6 +319,7 @@ public final class StandardSiteConfig {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
     	      this.appScaleLimit = defaults.appScaleLimit;
+    	      this.autoSwapSlotName = defaults.autoSwapSlotName;
     	      this.cors = defaults.cors;
     	      this.dotnetFrameworkVersion = defaults.dotnetFrameworkVersion;
     	      this.elasticInstanceMinimum = defaults.elasticInstanceMinimum;
@@ -334,6 +348,11 @@ public final class StandardSiteConfig {
         @CustomType.Setter
         public Builder appScaleLimit(@Nullable Integer appScaleLimit) {
             this.appScaleLimit = appScaleLimit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoSwapSlotName(@Nullable String autoSwapSlotName) {
+            this.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
         @CustomType.Setter
@@ -436,6 +455,7 @@ public final class StandardSiteConfig {
             final var o = new StandardSiteConfig();
             o.alwaysOn = alwaysOn;
             o.appScaleLimit = appScaleLimit;
+            o.autoSwapSlotName = autoSwapSlotName;
             o.cors = cors;
             o.dotnetFrameworkVersion = dotnetFrameworkVersion;
             o.elasticInstanceMinimum = elasticInstanceMinimum;

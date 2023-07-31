@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .cluster_trusted_access_role_binding import *
 from .connected_registry import *
 from .flux_configuration import *
 from .get_cluster_node_pool import *

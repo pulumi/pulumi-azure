@@ -661,6 +661,7 @@ class StandardSiteConfigArgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  cors: Optional[pulumi.Input['StandardSiteConfigCorsArgs']] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
@@ -682,6 +683,7 @@ class StandardSiteConfigArgs:
         """
         :param pulumi.Input[bool] always_on: Should the Logic App be loaded at all times? Defaults to `false`.
         :param pulumi.Input[int] app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param pulumi.Input[str] auto_swap_slot_name: The Auto-swap slot name.
         :param pulumi.Input['StandardSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
@@ -711,6 +713,8 @@ class StandardSiteConfigArgs:
             pulumi.set(__self__, "always_on", always_on)
         if app_scale_limit is not None:
             pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
         if dotnet_framework_version is not None:
@@ -771,6 +775,18 @@ class StandardSiteConfigArgs:
     @app_scale_limit.setter
     def app_scale_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Auto-swap slot name.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_swap_slot_name", value)
 
     @property
     @pulumi.getter
@@ -1842,6 +1858,7 @@ class WorkflowIdentityArgs:
 class GetStandardSiteConfigArgs:
     def __init__(__self__, *,
                  app_scale_limit: int,
+                 auto_swap_slot_name: str,
                  cors: 'GetStandardSiteConfigCorsArgs',
                  elastic_instance_minimum: int,
                  ftps_state: str,
@@ -1862,6 +1879,7 @@ class GetStandardSiteConfigArgs:
                  use32_bit_worker_process: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
         pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
         pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         pulumi.set(__self__, "ftps_state", ftps_state)
@@ -1898,6 +1916,15 @@ class GetStandardSiteConfigArgs:
     @app_scale_limit.setter
     def app_scale_limit(self, value: int):
         pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> str:
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: str):
+        pulumi.set(self, "auto_swap_slot_name", value)
 
     @property
     @pulumi.getter

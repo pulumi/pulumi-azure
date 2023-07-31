@@ -614,6 +614,7 @@ class ImageOsDiskArgs:
     def __init__(__self__, *,
                  blob_uri: Optional[pulumi.Input[str]] = None,
                  caching: Optional[pulumi.Input[str]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  managed_disk_id: Optional[pulumi.Input[str]] = None,
                  os_state: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -621,6 +622,7 @@ class ImageOsDiskArgs:
         """
         :param pulumi.Input[str] blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this image.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param pulumi.Input[str] os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         :param pulumi.Input[str] os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
@@ -630,6 +632,8 @@ class ImageOsDiskArgs:
             pulumi.set(__self__, "blob_uri", blob_uri)
         if caching is not None:
             pulumi.set(__self__, "caching", caching)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if managed_disk_id is not None:
             pulumi.set(__self__, "managed_disk_id", managed_disk_id)
         if os_state is not None:
@@ -662,6 +666,18 @@ class ImageOsDiskArgs:
     @caching.setter
     def caching(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to encrypt this image.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
 
     @property
     @pulumi.getter(name="managedDiskId")

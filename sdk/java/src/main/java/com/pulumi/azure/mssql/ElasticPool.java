@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.sql.SqlServer;
- * import com.pulumi.azure.sql.SqlServerArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.ElasticPool;
  * import com.pulumi.azure.mssql.ElasticPoolArgs;
  * import com.pulumi.azure.mssql.inputs.ElasticPoolSkuArgs;
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
+ *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .version(&#34;12.0&#34;)
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *         var exampleElasticPool = new ElasticPool(&#34;exampleElasticPool&#34;, ElasticPoolArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .serverName(exampleSqlServer.name())
+ *             .serverName(exampleServer.name())
  *             .licenseType(&#34;LicenseIncluded&#34;)
  *             .maxSizeGb(756)
  *             .sku(ElasticPoolSkuArgs.builder()

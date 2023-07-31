@@ -1,4 +1,4 @@
-From d6f89942621d48f5c8611171c3383d07736339d5 Mon Sep 17 00:00:00 2001
+From d577dead6e6fe220efbff57fa68b935aa77f5fab Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 4/8] fixup-Shared-features
@@ -22,5 +22,5 @@ index 926f57f880..815f6e3006 100644
 +	return strings.EqualFold(old, new)
 +}
 -- 
-2.41.0
+2.39.1
 

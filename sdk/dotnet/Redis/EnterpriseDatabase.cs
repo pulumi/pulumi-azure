@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+        /// &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
         [Output("modules")]
         public Output<ImmutableArray<Outputs.EnterpriseDatabaseModule>> Modules { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+        /// &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
         public InputList<Inputs.EnterpriseDatabaseModuleArgs> Modules
         {
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+        /// &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
         public InputList<Inputs.EnterpriseDatabaseModuleGetArgs> Modules
         {

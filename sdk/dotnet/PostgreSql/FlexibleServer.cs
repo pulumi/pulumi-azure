@@ -251,7 +251,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> SourceServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
+        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
         /// </summary>
         [Output("storageMb")]
         public Output<int> StorageMb { get; private set; } = null!;
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
+        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }
@@ -645,7 +645,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
+        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }

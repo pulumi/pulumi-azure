@@ -137,6 +137,7 @@ const (
 	azureMySQL                 = "MySql"                 // MySql
 	azureNetapp                = "NetApp"                // NetApp
 	azureNetwork               = "Network"               // Networking
+	azureNetworkFunction       = "NetworkFunction"       // Network Function
 	azureNginx                 = "Nginx"                 // Nginx
 	azureNotificationHub       = "NotificationHub"       // Notification Hub
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
@@ -326,6 +327,7 @@ var moduleMap = map[string]string{
 	"voice":                    azureVoice,
 	"web_application_firewall": azureWaf,
 	"web_pubsub":               azureWebPubSub,
+	"network_function":         azureNetworkFunction,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
@@ -2206,6 +2208,12 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
+			"azurerm_marketplace_role_assignment": {
+				Tok: azureResource(azureMarketPlace, "RoleAssignment"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 
 			// Kusto
 			"azurerm_kusto_cluster":                      {Tok: azureResource(azureKusto, "Cluster")},

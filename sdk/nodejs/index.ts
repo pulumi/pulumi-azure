@@ -102,6 +102,7 @@ import * as mssql from "./mssql";
 import * as mysql from "./mysql";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as networkfunction from "./networkfunction";
 import * as newrelic from "./newrelic";
 import * as nginx from "./nginx";
 import * as notificationhub from "./notificationhub";
@@ -228,6 +229,7 @@ export {
     mysql,
     netapp,
     network,
+    networkfunction,
     newrelic,
     nginx,
     notificationhub,

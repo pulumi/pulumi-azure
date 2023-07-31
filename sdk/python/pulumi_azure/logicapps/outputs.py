@@ -654,6 +654,8 @@ class StandardSiteConfig(dict):
             suggest = "always_on"
         elif key == "appScaleLimit":
             suggest = "app_scale_limit"
+        elif key == "autoSwapSlotName":
+            suggest = "auto_swap_slot_name"
         elif key == "dotnetFrameworkVersion":
             suggest = "dotnet_framework_version"
         elif key == "elasticInstanceMinimum":
@@ -703,6 +705,7 @@ class StandardSiteConfig(dict):
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
                  app_scale_limit: Optional[int] = None,
+                 auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.StandardSiteConfigCors'] = None,
                  dotnet_framework_version: Optional[str] = None,
                  elastic_instance_minimum: Optional[int] = None,
@@ -724,6 +727,7 @@ class StandardSiteConfig(dict):
         """
         :param bool always_on: Should the Logic App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param str auto_swap_slot_name: The Auto-swap slot name.
         :param 'StandardSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
@@ -753,6 +757,8 @@ class StandardSiteConfig(dict):
             pulumi.set(__self__, "always_on", always_on)
         if app_scale_limit is not None:
             pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
         if dotnet_framework_version is not None:
@@ -805,6 +811,14 @@ class StandardSiteConfig(dict):
         The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         """
         return pulumi.get(self, "app_scale_limit")
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[str]:
+        """
+        The Auto-swap slot name.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
 
     @property
     @pulumi.getter
@@ -1932,6 +1946,7 @@ class GetStandardIdentityResult(dict):
 class GetStandardSiteConfigResult(dict):
     def __init__(__self__, *,
                  app_scale_limit: int,
+                 auto_swap_slot_name: str,
                  cors: 'outputs.GetStandardSiteConfigCorsResult',
                  elastic_instance_minimum: int,
                  ftps_state: str,
@@ -1952,6 +1967,7 @@ class GetStandardSiteConfigResult(dict):
                  use32_bit_worker_process: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
         pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
         pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         pulumi.set(__self__, "ftps_state", ftps_state)
@@ -1984,6 +2000,11 @@ class GetStandardSiteConfigResult(dict):
     @pulumi.getter(name="appScaleLimit")
     def app_scale_limit(self) -> int:
         return pulumi.get(self, "app_scale_limit")
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> str:
+        return pulumi.get(self, "auto_swap_slot_name")
 
     @property
     @pulumi.getter

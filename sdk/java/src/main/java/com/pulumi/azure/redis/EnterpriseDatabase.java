@@ -181,7 +181,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+     * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      * 
      */
     @Export(name="modules", refs={List.class,EnterpriseDatabaseModule.class}, tree="[0,1]")
@@ -190,7 +190,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
     /**
      * @return A `module` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+     * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      * 
      */
     public Output<Optional<List<EnterpriseDatabaseModule>>> modules() {

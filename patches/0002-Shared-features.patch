@@ -1,4 +1,4 @@
-From dc6f7c604b547c1a9ec01b7bc931401faa5e7904 Mon Sep 17 00:00:00 2001
+From 315b2dd527bb89a53e5e90f5774d29fdf839fa74 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 2/8] Shared-features
@@ -36,5 +36,5 @@ index bdb0cbfe3a..c4122bf0bc 100644
  		MinItems: 1,
  		Elem: &pluginsdk.Resource{
 -- 
-2.41.0
+2.39.1
 

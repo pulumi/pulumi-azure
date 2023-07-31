@@ -34,6 +34,13 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
         return this.appScaleLimit;
     }
 
+    @Import(name="autoSwapSlotName", required=true)
+    private String autoSwapSlotName;
+
+    public String autoSwapSlotName() {
+        return this.autoSwapSlotName;
+    }
+
     @Import(name="cors", required=true)
     private GetStandardSiteConfigCors cors;
 
@@ -165,6 +172,7 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
     private GetStandardSiteConfig(GetStandardSiteConfig $) {
         this.alwaysOn = $.alwaysOn;
         this.appScaleLimit = $.appScaleLimit;
+        this.autoSwapSlotName = $.autoSwapSlotName;
         this.cors = $.cors;
         this.dotnetFrameworkVersion = $.dotnetFrameworkVersion;
         this.elasticInstanceMinimum = $.elasticInstanceMinimum;
@@ -210,6 +218,11 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
 
         public Builder appScaleLimit(Integer appScaleLimit) {
             $.appScaleLimit = appScaleLimit;
+            return this;
+        }
+
+        public Builder autoSwapSlotName(String autoSwapSlotName) {
+            $.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
 
@@ -313,6 +326,7 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
 
         public GetStandardSiteConfig build() {
             $.appScaleLimit = Objects.requireNonNull($.appScaleLimit, "expected parameter 'appScaleLimit' to be non-null");
+            $.autoSwapSlotName = Objects.requireNonNull($.autoSwapSlotName, "expected parameter 'autoSwapSlotName' to be non-null");
             $.cors = Objects.requireNonNull($.cors, "expected parameter 'cors' to be non-null");
             $.elasticInstanceMinimum = Objects.requireNonNull($.elasticInstanceMinimum, "expected parameter 'elasticInstanceMinimum' to be non-null");
             $.ftpsState = Objects.requireNonNull($.ftpsState, "expected parameter 'ftpsState' to be non-null");

@@ -107,7 +107,7 @@ type EnterpriseDatabase struct {
 	LinkedDatabaseIds pulumi.StringArrayOutput `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only RediSearch module is allowed with geo-replication
+	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules EnterpriseDatabaseModuleArrayOutput `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -177,7 +177,7 @@ type enterpriseDatabaseState struct {
 	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only RediSearch module is allowed with geo-replication
+	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
@@ -210,7 +210,7 @@ type EnterpriseDatabaseState struct {
 	LinkedDatabaseIds pulumi.StringArrayInput
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only RediSearch module is allowed with geo-replication
+	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
@@ -247,7 +247,7 @@ type enterpriseDatabaseArgs struct {
 	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only RediSearch module is allowed with geo-replication
+	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
@@ -277,7 +277,7 @@ type EnterpriseDatabaseArgs struct {
 	LinkedDatabaseIds pulumi.StringArrayInput
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only RediSearch module is allowed with geo-replication
+	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
@@ -410,7 +410,7 @@ func (o EnterpriseDatabaseOutput) LinkedDatabaseIds() pulumi.StringArrayOutput {
 
 // A `module` block as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Only RediSearch module is allowed with geo-replication
+// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 func (o EnterpriseDatabaseOutput) Modules() EnterpriseDatabaseModuleArrayOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) EnterpriseDatabaseModuleArrayOutput { return v.Modules }).(EnterpriseDatabaseModuleArrayOutput)
 }

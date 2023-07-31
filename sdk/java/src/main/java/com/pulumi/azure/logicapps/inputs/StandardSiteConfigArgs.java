@@ -52,6 +52,21 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The Auto-swap slot name.
+     * 
+     */
+    @Import(name="autoSwapSlotName")
+    private @Nullable Output<String> autoSwapSlotName;
+
+    /**
+     * @return The Auto-swap slot name.
+     * 
+     */
+    public Optional<Output<String>> autoSwapSlotName() {
+        return Optional.ofNullable(this.autoSwapSlotName);
+    }
+
+    /**
      * A `cors` block as defined below.
      * 
      */
@@ -338,6 +353,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     private StandardSiteConfigArgs(StandardSiteConfigArgs $) {
         this.alwaysOn = $.alwaysOn;
         this.appScaleLimit = $.appScaleLimit;
+        this.autoSwapSlotName = $.autoSwapSlotName;
         this.cors = $.cors;
         this.dotnetFrameworkVersion = $.dotnetFrameworkVersion;
         this.elasticInstanceMinimum = $.elasticInstanceMinimum;
@@ -416,6 +432,27 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          */
         public Builder appScaleLimit(Integer appScaleLimit) {
             return appScaleLimit(Output.of(appScaleLimit));
+        }
+
+        /**
+         * @param autoSwapSlotName The Auto-swap slot name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoSwapSlotName(@Nullable Output<String> autoSwapSlotName) {
+            $.autoSwapSlotName = autoSwapSlotName;
+            return this;
+        }
+
+        /**
+         * @param autoSwapSlotName The Auto-swap slot name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoSwapSlotName(String autoSwapSlotName) {
+            return autoSwapSlotName(Output.of(autoSwapSlotName));
         }
 
         /**

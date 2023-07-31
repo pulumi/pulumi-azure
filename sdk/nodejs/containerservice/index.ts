@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ClusterTrustedAccessRoleBindingArgs, ClusterTrustedAccessRoleBindingState } from "./clusterTrustedAccessRoleBinding";
+export type ClusterTrustedAccessRoleBinding = import("./clusterTrustedAccessRoleBinding").ClusterTrustedAccessRoleBinding;
+export const ClusterTrustedAccessRoleBinding: typeof import("./clusterTrustedAccessRoleBinding").ClusterTrustedAccessRoleBinding = null as any;
+utilities.lazyLoad(exports, ["ClusterTrustedAccessRoleBinding"], () => require("./clusterTrustedAccessRoleBinding"));
+
 export { ConnectedRegistryArgs, ConnectedRegistryState } from "./connectedRegistry";
 export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
 export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
@@ -130,6 +135,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding":
+                return new ClusterTrustedAccessRoleBinding(name, <any>undefined, { urn })
             case "azure:containerservice/connectedRegistry:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
             case "azure:containerservice/fluxConfiguration:FluxConfiguration":
@@ -167,6 +174,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "containerservice/clusterTrustedAccessRoleBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/fluxConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)

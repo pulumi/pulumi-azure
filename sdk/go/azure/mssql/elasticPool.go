@@ -23,7 +23,6 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
 //				Version:                    pulumi.String("12.0"),
@@ -49,7 +48,7 @@ import (
 //			_, err = mssql.NewElasticPool(ctx, "exampleElasticPool", &mssql.ElasticPoolArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				ServerName:        exampleSqlServer.Name,
+//				ServerName:        exampleServer.Name,
 //				LicenseType:       pulumi.String("LicenseIncluded"),
 //				MaxSizeGb:         pulumi.Float64(756),
 //				Sku: &mssql.ElasticPoolSkuArgs{

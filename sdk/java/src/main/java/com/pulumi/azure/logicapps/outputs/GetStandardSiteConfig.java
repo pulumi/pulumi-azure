@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 public final class GetStandardSiteConfig {
     private @Nullable Boolean alwaysOn;
     private Integer appScaleLimit;
+    private String autoSwapSlotName;
     private GetStandardSiteConfigCors cors;
     private @Nullable String dotnetFrameworkVersion;
     private Integer elasticInstanceMinimum;
@@ -44,6 +45,9 @@ public final class GetStandardSiteConfig {
     }
     public Integer appScaleLimit() {
         return this.appScaleLimit;
+    }
+    public String autoSwapSlotName() {
+        return this.autoSwapSlotName;
     }
     public GetStandardSiteConfigCors cors() {
         return this.cors;
@@ -111,6 +115,7 @@ public final class GetStandardSiteConfig {
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private Integer appScaleLimit;
+        private String autoSwapSlotName;
         private GetStandardSiteConfigCors cors;
         private @Nullable String dotnetFrameworkVersion;
         private Integer elasticInstanceMinimum;
@@ -134,6 +139,7 @@ public final class GetStandardSiteConfig {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
     	      this.appScaleLimit = defaults.appScaleLimit;
+    	      this.autoSwapSlotName = defaults.autoSwapSlotName;
     	      this.cors = defaults.cors;
     	      this.dotnetFrameworkVersion = defaults.dotnetFrameworkVersion;
     	      this.elasticInstanceMinimum = defaults.elasticInstanceMinimum;
@@ -162,6 +168,11 @@ public final class GetStandardSiteConfig {
         @CustomType.Setter
         public Builder appScaleLimit(Integer appScaleLimit) {
             this.appScaleLimit = Objects.requireNonNull(appScaleLimit);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoSwapSlotName(String autoSwapSlotName) {
+            this.autoSwapSlotName = Objects.requireNonNull(autoSwapSlotName);
             return this;
         }
         @CustomType.Setter
@@ -264,6 +275,7 @@ public final class GetStandardSiteConfig {
             final var o = new GetStandardSiteConfig();
             o.alwaysOn = alwaysOn;
             o.appScaleLimit = appScaleLimit;
+            o.autoSwapSlotName = autoSwapSlotName;
             o.cors = cors;
             o.dotnetFrameworkVersion = dotnetFrameworkVersion;
             o.elasticInstanceMinimum = elasticInstanceMinimum;

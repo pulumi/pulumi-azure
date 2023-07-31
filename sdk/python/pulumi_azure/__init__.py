@@ -186,6 +186,8 @@ if typing.TYPE_CHECKING:
     netapp = __netapp
     import pulumi_azure.network as __network
     network = __network
+    import pulumi_azure.networkfunction as __networkfunction
+    networkfunction = __networkfunction
     import pulumi_azure.newrelic as __newrelic
     newrelic = __newrelic
     import pulumi_azure.nginx as __nginx
@@ -345,6 +347,7 @@ else:
     mysql = _utilities.lazy_import('pulumi_azure.mysql')
     netapp = _utilities.lazy_import('pulumi_azure.netapp')
     network = _utilities.lazy_import('pulumi_azure.network')
+    networkfunction = _utilities.lazy_import('pulumi_azure.networkfunction')
     newrelic = _utilities.lazy_import('pulumi_azure.newrelic')
     nginx = _utilities.lazy_import('pulumi_azure.nginx')
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
@@ -2422,6 +2425,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerapp",
   "classes": {
    "azure:containerapp/environmentStorage:EnvironmentStorage": "EnvironmentStorage"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/clusterTrustedAccessRoleBinding",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding": "ClusterTrustedAccessRoleBinding"
   }
  },
  {
@@ -5218,6 +5229,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "marketplace/roleAssignment",
+  "fqn": "pulumi_azure.marketplace",
+  "classes": {
+   "azure:marketplace/roleAssignment:RoleAssignment": "RoleAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "media/accountFilter",
   "fqn": "pulumi_azure.media",
   "classes": {
@@ -6654,6 +6673,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/vpnSite:VpnSite": "VpnSite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "networkfunction/azureTrafficCollector",
+  "fqn": "pulumi_azure.networkfunction",
+  "classes": {
+   "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector": "AzureTrafficCollector"
   }
  },
  {

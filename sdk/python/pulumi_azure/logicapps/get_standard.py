@@ -23,16 +23,13 @@ class GetStandardResult:
     """
     A collection of values returned by getStandard.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, auto_swap_slot_name=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
-        if auto_swap_slot_name and not isinstance(auto_swap_slot_name, str):
-            raise TypeError("Expected argument 'auto_swap_slot_name' to be a str")
-        pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         if bundle_version and not isinstance(bundle_version, str):
             raise TypeError("Expected argument 'bundle_version' to be a str")
         pulumi.set(__self__, "bundle_version", bundle_version)
@@ -118,14 +115,6 @@ class GetStandardResult:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Mapping[str, str]:
         return pulumi.get(self, "app_settings")
-
-    @property
-    @pulumi.getter(name="autoSwapSlotName")
-    def auto_swap_slot_name(self) -> str:
-        """
-        The Auto-swap slot name.
-        """
-        return pulumi.get(self, "auto_swap_slot_name")
 
     @property
     @pulumi.getter(name="bundleVersion")
@@ -270,7 +259,6 @@ class AwaitableGetStandardResult(GetStandardResult):
         return GetStandardResult(
             app_service_plan_id=self.app_service_plan_id,
             app_settings=self.app_settings,
-            auto_swap_slot_name=self.auto_swap_slot_name,
             bundle_version=self.bundle_version,
             client_affinity_enabled=self.client_affinity_enabled,
             client_certificate_mode=self.client_certificate_mode,
@@ -332,7 +320,6 @@ def get_standard(name: Optional[str] = None,
     return AwaitableGetStandardResult(
         app_service_plan_id=pulumi.get(__ret__, 'app_service_plan_id'),
         app_settings=pulumi.get(__ret__, 'app_settings'),
-        auto_swap_slot_name=pulumi.get(__ret__, 'auto_swap_slot_name'),
         bundle_version=pulumi.get(__ret__, 'bundle_version'),
         client_affinity_enabled=pulumi.get(__ret__, 'client_affinity_enabled'),
         client_certificate_mode=pulumi.get(__ret__, 'client_certificate_mode'),

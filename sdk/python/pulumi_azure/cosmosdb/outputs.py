@@ -328,19 +328,20 @@ class AccountCorsRule(dict):
                  allowed_methods: Sequence[str],
                  allowed_origins: Sequence[str],
                  exposed_headers: Sequence[str],
-                 max_age_in_seconds: int):
+                 max_age_in_seconds: Optional[int] = None):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
         :param Sequence[str] allowed_methods: A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
-        :param int max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        :param int max_age_in_seconds: The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         """
         pulumi.set(__self__, "allowed_headers", allowed_headers)
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         pulumi.set(__self__, "exposed_headers", exposed_headers)
-        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -376,9 +377,9 @@ class AccountCorsRule(dict):
 
     @property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> int:
+    def max_age_in_seconds(self) -> Optional[int]:
         """
-        The number of seconds the client should cache a preflight response.
+        The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         """
         return pulumi.get(self, "max_age_in_seconds")
 

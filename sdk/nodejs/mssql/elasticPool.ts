@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const exampleElasticPool = new azure.mssql.ElasticPool("exampleElasticPool", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     serverName: exampleSqlServer.name,
+ *     serverName: exampleServer.name,
  *     licenseType: "LicenseIncluded",
  *     maxSizeGb: 756,
  *     sku: {

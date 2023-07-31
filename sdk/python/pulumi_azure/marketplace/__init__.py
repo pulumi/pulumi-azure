@@ -7,3 +7,4 @@ import typing
 # Export this package's modules as members:
 from .agreement import *
 from .get_agreement import *
+from .role_assignment import *
