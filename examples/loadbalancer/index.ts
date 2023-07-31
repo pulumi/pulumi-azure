@@ -80,7 +80,7 @@ const networkinterface = new azure.network.NetworkInterface("networkinterface", 
         {
             name: "ipconfig",
             subnetId: vnet.subnets[0].id,
-            privateIpAddressAllocation: "dynamic",
+            privateIpAddressAllocation: "Dynamic",
         },
     ],
 });
