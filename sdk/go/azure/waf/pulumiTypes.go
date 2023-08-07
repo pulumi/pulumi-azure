@@ -1306,6 +1306,8 @@ type PolicyPolicySettings struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
+	// One `logScrubbing` block as defined below.
+	LogScrubbing *PolicyPolicySettingsLogScrubbing `pulumi:"logScrubbing"`
 	// The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
 	MaxRequestBodySizeInKb *int `pulumi:"maxRequestBodySizeInKb"`
 	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
@@ -1330,6 +1332,8 @@ type PolicyPolicySettingsArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
+	// One `logScrubbing` block as defined below.
+	LogScrubbing PolicyPolicySettingsLogScrubbingPtrInput `pulumi:"logScrubbing"`
 	// The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
 	MaxRequestBodySizeInKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeInKb"`
 	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
@@ -1425,6 +1429,11 @@ func (o PolicyPolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
 }
 
+// One `logScrubbing` block as defined below.
+func (o PolicyPolicySettingsOutput) LogScrubbing() PolicyPolicySettingsLogScrubbingPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *PolicyPolicySettingsLogScrubbing { return v.LogScrubbing }).(PolicyPolicySettingsLogScrubbingPtrOutput)
+}
+
 // The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
 func (o PolicyPolicySettingsOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.MaxRequestBodySizeInKb }).(pulumi.IntPtrOutput)
@@ -1484,6 +1493,16 @@ func (o PolicyPolicySettingsPtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// One `logScrubbing` block as defined below.
+func (o PolicyPolicySettingsPtrOutput) LogScrubbing() PolicyPolicySettingsLogScrubbingPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *PolicyPolicySettingsLogScrubbing {
+		if v == nil {
+			return nil
+		}
+		return v.LogScrubbing
+	}).(PolicyPolicySettingsLogScrubbingPtrOutput)
+}
+
 // The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
 func (o PolicyPolicySettingsPtrOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *int {
@@ -1514,6 +1533,286 @@ func (o PolicyPolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type PolicyPolicySettingsLogScrubbing struct {
+	// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// One or more `scrubbingRule` as define below.
+	Rules []PolicyPolicySettingsLogScrubbingRule `pulumi:"rules"`
+}
+
+// PolicyPolicySettingsLogScrubbingInput is an input type that accepts PolicyPolicySettingsLogScrubbingArgs and PolicyPolicySettingsLogScrubbingOutput values.
+// You can construct a concrete instance of `PolicyPolicySettingsLogScrubbingInput` via:
+//
+//	PolicyPolicySettingsLogScrubbingArgs{...}
+type PolicyPolicySettingsLogScrubbingInput interface {
+	pulumi.Input
+
+	ToPolicyPolicySettingsLogScrubbingOutput() PolicyPolicySettingsLogScrubbingOutput
+	ToPolicyPolicySettingsLogScrubbingOutputWithContext(context.Context) PolicyPolicySettingsLogScrubbingOutput
+}
+
+type PolicyPolicySettingsLogScrubbingArgs struct {
+	// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// One or more `scrubbingRule` as define below.
+	Rules PolicyPolicySettingsLogScrubbingRuleArrayInput `pulumi:"rules"`
+}
+
+func (PolicyPolicySettingsLogScrubbingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicySettingsLogScrubbing)(nil)).Elem()
+}
+
+func (i PolicyPolicySettingsLogScrubbingArgs) ToPolicyPolicySettingsLogScrubbingOutput() PolicyPolicySettingsLogScrubbingOutput {
+	return i.ToPolicyPolicySettingsLogScrubbingOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicySettingsLogScrubbingArgs) ToPolicyPolicySettingsLogScrubbingOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingOutput)
+}
+
+func (i PolicyPolicySettingsLogScrubbingArgs) ToPolicyPolicySettingsLogScrubbingPtrOutput() PolicyPolicySettingsLogScrubbingPtrOutput {
+	return i.ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicySettingsLogScrubbingArgs) ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingOutput).ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx)
+}
+
+// PolicyPolicySettingsLogScrubbingPtrInput is an input type that accepts PolicyPolicySettingsLogScrubbingArgs, PolicyPolicySettingsLogScrubbingPtr and PolicyPolicySettingsLogScrubbingPtrOutput values.
+// You can construct a concrete instance of `PolicyPolicySettingsLogScrubbingPtrInput` via:
+//
+//	        PolicyPolicySettingsLogScrubbingArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyPolicySettingsLogScrubbingPtrInput interface {
+	pulumi.Input
+
+	ToPolicyPolicySettingsLogScrubbingPtrOutput() PolicyPolicySettingsLogScrubbingPtrOutput
+	ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(context.Context) PolicyPolicySettingsLogScrubbingPtrOutput
+}
+
+type policyPolicySettingsLogScrubbingPtrType PolicyPolicySettingsLogScrubbingArgs
+
+func PolicyPolicySettingsLogScrubbingPtr(v *PolicyPolicySettingsLogScrubbingArgs) PolicyPolicySettingsLogScrubbingPtrInput {
+	return (*policyPolicySettingsLogScrubbingPtrType)(v)
+}
+
+func (*policyPolicySettingsLogScrubbingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPolicySettingsLogScrubbing)(nil)).Elem()
+}
+
+func (i *policyPolicySettingsLogScrubbingPtrType) ToPolicyPolicySettingsLogScrubbingPtrOutput() PolicyPolicySettingsLogScrubbingPtrOutput {
+	return i.ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(context.Background())
+}
+
+func (i *policyPolicySettingsLogScrubbingPtrType) ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingPtrOutput)
+}
+
+type PolicyPolicySettingsLogScrubbingOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicySettingsLogScrubbingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicySettingsLogScrubbing)(nil)).Elem()
+}
+
+func (o PolicyPolicySettingsLogScrubbingOutput) ToPolicyPolicySettingsLogScrubbingOutput() PolicyPolicySettingsLogScrubbingOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingOutput) ToPolicyPolicySettingsLogScrubbingOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingOutput) ToPolicyPolicySettingsLogScrubbingPtrOutput() PolicyPolicySettingsLogScrubbingPtrOutput {
+	return o.ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyPolicySettingsLogScrubbingOutput) ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPolicySettingsLogScrubbing) *PolicyPolicySettingsLogScrubbing {
+		return &v
+	}).(PolicyPolicySettingsLogScrubbingPtrOutput)
+}
+
+// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+func (o PolicyPolicySettingsLogScrubbingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `scrubbingRule` as define below.
+func (o PolicyPolicySettingsLogScrubbingOutput) Rules() PolicyPolicySettingsLogScrubbingRuleArrayOutput {
+	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbing) []PolicyPolicySettingsLogScrubbingRule { return v.Rules }).(PolicyPolicySettingsLogScrubbingRuleArrayOutput)
+}
+
+type PolicyPolicySettingsLogScrubbingPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicySettingsLogScrubbingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPolicySettingsLogScrubbing)(nil)).Elem()
+}
+
+func (o PolicyPolicySettingsLogScrubbingPtrOutput) ToPolicyPolicySettingsLogScrubbingPtrOutput() PolicyPolicySettingsLogScrubbingPtrOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingPtrOutput) ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingPtrOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingPtrOutput) Elem() PolicyPolicySettingsLogScrubbingOutput {
+	return o.ApplyT(func(v *PolicyPolicySettingsLogScrubbing) PolicyPolicySettingsLogScrubbing {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPolicySettingsLogScrubbing
+		return ret
+	}).(PolicyPolicySettingsLogScrubbingOutput)
+}
+
+// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+func (o PolicyPolicySettingsLogScrubbingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettingsLogScrubbing) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// One or more `scrubbingRule` as define below.
+func (o PolicyPolicySettingsLogScrubbingPtrOutput) Rules() PolicyPolicySettingsLogScrubbingRuleArrayOutput {
+	return o.ApplyT(func(v *PolicyPolicySettingsLogScrubbing) []PolicyPolicySettingsLogScrubbingRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(PolicyPolicySettingsLogScrubbingRuleArrayOutput)
+}
+
+type PolicyPolicySettingsLogScrubbingRule struct {
+	// Describes if the managed rule is in enabled state or disabled state.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// Describes field of the matchVariable collection
+	Selector *string `pulumi:"selector"`
+	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+	SelectorMatchOperator *string `pulumi:"selectorMatchOperator"`
+}
+
+// PolicyPolicySettingsLogScrubbingRuleInput is an input type that accepts PolicyPolicySettingsLogScrubbingRuleArgs and PolicyPolicySettingsLogScrubbingRuleOutput values.
+// You can construct a concrete instance of `PolicyPolicySettingsLogScrubbingRuleInput` via:
+//
+//	PolicyPolicySettingsLogScrubbingRuleArgs{...}
+type PolicyPolicySettingsLogScrubbingRuleInput interface {
+	pulumi.Input
+
+	ToPolicyPolicySettingsLogScrubbingRuleOutput() PolicyPolicySettingsLogScrubbingRuleOutput
+	ToPolicyPolicySettingsLogScrubbingRuleOutputWithContext(context.Context) PolicyPolicySettingsLogScrubbingRuleOutput
+}
+
+type PolicyPolicySettingsLogScrubbingRuleArgs struct {
+	// Describes if the managed rule is in enabled state or disabled state.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Describes field of the matchVariable collection
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+	SelectorMatchOperator pulumi.StringPtrInput `pulumi:"selectorMatchOperator"`
+}
+
+func (PolicyPolicySettingsLogScrubbingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicySettingsLogScrubbingRule)(nil)).Elem()
+}
+
+func (i PolicyPolicySettingsLogScrubbingRuleArgs) ToPolicyPolicySettingsLogScrubbingRuleOutput() PolicyPolicySettingsLogScrubbingRuleOutput {
+	return i.ToPolicyPolicySettingsLogScrubbingRuleOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicySettingsLogScrubbingRuleArgs) ToPolicyPolicySettingsLogScrubbingRuleOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingRuleOutput)
+}
+
+// PolicyPolicySettingsLogScrubbingRuleArrayInput is an input type that accepts PolicyPolicySettingsLogScrubbingRuleArray and PolicyPolicySettingsLogScrubbingRuleArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicySettingsLogScrubbingRuleArrayInput` via:
+//
+//	PolicyPolicySettingsLogScrubbingRuleArray{ PolicyPolicySettingsLogScrubbingRuleArgs{...} }
+type PolicyPolicySettingsLogScrubbingRuleArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicySettingsLogScrubbingRuleArrayOutput() PolicyPolicySettingsLogScrubbingRuleArrayOutput
+	ToPolicyPolicySettingsLogScrubbingRuleArrayOutputWithContext(context.Context) PolicyPolicySettingsLogScrubbingRuleArrayOutput
+}
+
+type PolicyPolicySettingsLogScrubbingRuleArray []PolicyPolicySettingsLogScrubbingRuleInput
+
+func (PolicyPolicySettingsLogScrubbingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicySettingsLogScrubbingRule)(nil)).Elem()
+}
+
+func (i PolicyPolicySettingsLogScrubbingRuleArray) ToPolicyPolicySettingsLogScrubbingRuleArrayOutput() PolicyPolicySettingsLogScrubbingRuleArrayOutput {
+	return i.ToPolicyPolicySettingsLogScrubbingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicySettingsLogScrubbingRuleArray) ToPolicyPolicySettingsLogScrubbingRuleArrayOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingRuleArrayOutput)
+}
+
+type PolicyPolicySettingsLogScrubbingRuleOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicySettingsLogScrubbingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicySettingsLogScrubbingRule)(nil)).Elem()
+}
+
+func (o PolicyPolicySettingsLogScrubbingRuleOutput) ToPolicyPolicySettingsLogScrubbingRuleOutput() PolicyPolicySettingsLogScrubbingRuleOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingRuleOutput) ToPolicyPolicySettingsLogScrubbingRuleOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingRuleOutput {
+	return o
+}
+
+// Describes if the managed rule is in enabled state or disabled state.
+func (o PolicyPolicySettingsLogScrubbingRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+func (o PolicyPolicySettingsLogScrubbingRuleOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Describes field of the matchVariable collection
+func (o PolicyPolicySettingsLogScrubbingRuleOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+func (o PolicyPolicySettingsLogScrubbingRuleOutput) SelectorMatchOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *string { return v.SelectorMatchOperator }).(pulumi.StringPtrOutput)
+}
+
+type PolicyPolicySettingsLogScrubbingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicySettingsLogScrubbingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicySettingsLogScrubbingRule)(nil)).Elem()
+}
+
+func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) ToPolicyPolicySettingsLogScrubbingRuleArrayOutput() PolicyPolicySettingsLogScrubbingRuleArrayOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) ToPolicyPolicySettingsLogScrubbingRuleArrayOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingRuleArrayOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) Index(i pulumi.IntInput) PolicyPolicySettingsLogScrubbingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicySettingsLogScrubbingRule {
+		return vs[0].([]PolicyPolicySettingsLogScrubbingRule)[vs[1].(int)]
+	}).(PolicyPolicySettingsLogScrubbingRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleInput)(nil)).Elem(), PolicyCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleArrayInput)(nil)).Elem(), PolicyCustomRuleArray{})
@@ -1537,6 +1836,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsInput)(nil)).Elem(), PolicyPolicySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsPtrInput)(nil)).Elem(), PolicyPolicySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsLogScrubbingInput)(nil)).Elem(), PolicyPolicySettingsLogScrubbingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsLogScrubbingPtrInput)(nil)).Elem(), PolicyPolicySettingsLogScrubbingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsLogScrubbingRuleInput)(nil)).Elem(), PolicyPolicySettingsLogScrubbingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsLogScrubbingRuleArrayInput)(nil)).Elem(), PolicyPolicySettingsLogScrubbingRuleArray{})
 	pulumi.RegisterOutputType(PolicyCustomRuleOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionOutput{})
@@ -1559,4 +1862,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput{})
 	pulumi.RegisterOutputType(PolicyPolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicyPolicySettingsPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPolicySettingsLogScrubbingOutput{})
+	pulumi.RegisterOutputType(PolicyPolicySettingsLogScrubbingPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPolicySettingsLogScrubbingRuleOutput{})
+	pulumi.RegisterOutputType(PolicyPolicySettingsLogScrubbingRuleArrayOutput{})
 }

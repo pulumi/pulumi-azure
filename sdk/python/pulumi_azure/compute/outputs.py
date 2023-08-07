@@ -112,6 +112,8 @@ __all__ = [
     'ScaleSetStorageProfileDataDisk',
     'ScaleSetStorageProfileImageReference',
     'ScaleSetStorageProfileOsDisk',
+    'SharedImageGallerySharing',
+    'SharedImageGallerySharingCommunityGallery',
     'SharedImageIdentifier',
     'SharedImagePurchasePlan',
     'SharedImageVersionTargetRegion',
@@ -7151,6 +7153,143 @@ class ScaleSetStorageProfileOsDisk(dict):
 
 
 @pulumi.output_type
+class SharedImageGallerySharing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "communityGallery":
+            suggest = "community_gallery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedImageGallerySharing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedImageGallerySharing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedImageGallerySharing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 permission: str,
+                 community_gallery: Optional['outputs.SharedImageGallerySharingCommunityGallery'] = None):
+        """
+        :param str permission: The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+        :param 'SharedImageGallerySharingCommunityGalleryArgs' community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        """
+        pulumi.set(__self__, "permission", permission)
+        if community_gallery is not None:
+            pulumi.set(__self__, "community_gallery", community_gallery)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> str:
+        """
+        The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter(name="communityGallery")
+    def community_gallery(self) -> Optional['outputs.SharedImageGallerySharingCommunityGallery']:
+        """
+        A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+
+        > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        """
+        return pulumi.get(self, "community_gallery")
+
+
+@pulumi.output_type
+class SharedImageGallerySharingCommunityGallery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publisherEmail":
+            suggest = "publisher_email"
+        elif key == "publisherUri":
+            suggest = "publisher_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedImageGallerySharingCommunityGallery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedImageGallerySharingCommunityGallery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedImageGallerySharingCommunityGallery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 eula: str,
+                 prefix: str,
+                 publisher_email: str,
+                 publisher_uri: str,
+                 name: Optional[str] = None):
+        """
+        :param str eula: The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param str prefix: Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param str publisher_email: Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param str publisher_uri: URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "eula", eula)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        pulumi.set(__self__, "publisher_uri", publisher_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def eula(self) -> str:
+        """
+        The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eula")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> str:
+        """
+        Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @property
+    @pulumi.getter(name="publisherUri")
+    def publisher_uri(self) -> str:
+        """
+        URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher_uri")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class SharedImageIdentifier(dict):
     def __init__(__self__, *,
                  offer: str,
@@ -11504,6 +11643,7 @@ class GetImagesImageOsDiskResult(dict):
     def __init__(__self__, *,
                  blob_uri: str,
                  caching: str,
+                 disk_encryption_set_id: str,
                  managed_disk_id: str,
                  os_state: str,
                  os_type: str,
@@ -11511,6 +11651,7 @@ class GetImagesImageOsDiskResult(dict):
         """
         :param str blob_uri: the URI in Azure storage of the blob used to create the image.
         :param str caching: the caching mode for the Data Disk.
+        :param str disk_encryption_set_id: the ID of the Disk Encryption Set used to encrypt this image.
         :param str managed_disk_id: the ID of the Managed Disk used as the Data Disk Image.
         :param str os_state: the State of the OS used in the Image.
         :param str os_type: the type of Operating System used on the OS Disk.
@@ -11518,6 +11659,7 @@ class GetImagesImageOsDiskResult(dict):
         """
         pulumi.set(__self__, "blob_uri", blob_uri)
         pulumi.set(__self__, "caching", caching)
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         pulumi.set(__self__, "managed_disk_id", managed_disk_id)
         pulumi.set(__self__, "os_state", os_state)
         pulumi.set(__self__, "os_type", os_type)
@@ -11538,6 +11680,14 @@ class GetImagesImageOsDiskResult(dict):
         the caching mode for the Data Disk.
         """
         return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> str:
+        """
+        the ID of the Disk Encryption Set used to encrypt this image.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter(name="managedDiskId")

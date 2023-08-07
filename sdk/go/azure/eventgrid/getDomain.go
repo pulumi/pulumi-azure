@@ -52,16 +52,10 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDomain.
 type LookupDomainArgs struct {
-	// One or more `inboundIpRule` blocks as defined below.
-	InboundIpRules []GetDomainInboundIpRule `pulumi:"inboundIpRules"`
 	// The name of the EventGrid Domain resource.
 	Name string `pulumi:"name"`
-	// Whether or not public network access is allowed for this server.
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Domain exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the EventGrid Domain.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDomain.
@@ -84,7 +78,7 @@ type LookupDomainResult struct {
 	// The primary access key associated with the EventGrid Domain.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// Whether or not public network access is allowed for this server.
-	PublicNetworkAccessEnabled *bool  `pulumi:"publicNetworkAccessEnabled"`
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The secondary access key associated with the EventGrid Domain.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
@@ -107,16 +101,10 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 
 // A collection of arguments for invoking getDomain.
 type LookupDomainOutputArgs struct {
-	// One or more `inboundIpRule` blocks as defined below.
-	InboundIpRules GetDomainInboundIpRuleArrayInput `pulumi:"inboundIpRules"`
 	// The name of the EventGrid Domain resource.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Whether or not public network access is allowed for this server.
-	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Domain exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the EventGrid Domain.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDomainOutputArgs) ElementType() reflect.Type {
@@ -183,8 +171,8 @@ func (o LookupDomainResultOutput) PrimaryAccessKey() pulumi.StringOutput {
 }
 
 // Whether or not public network access is allowed for this server.
-func (o LookupDomainResultOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+func (o LookupDomainResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDomainResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupDomainResultOutput) ResourceGroupName() pulumi.StringOutput {

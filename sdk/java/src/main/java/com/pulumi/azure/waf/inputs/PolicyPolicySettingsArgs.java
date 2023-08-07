@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.waf.inputs;
 
+import com.pulumi.azure.waf.inputs.PolicyPolicySettingsLogScrubbingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -45,6 +46,21 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<Integer>> fileUploadLimitInMb() {
         return Optional.ofNullable(this.fileUploadLimitInMb);
+    }
+
+    /**
+     * One `log_scrubbing` block as defined below.
+     * 
+     */
+    @Import(name="logScrubbing")
+    private @Nullable Output<PolicyPolicySettingsLogScrubbingArgs> logScrubbing;
+
+    /**
+     * @return One `log_scrubbing` block as defined below.
+     * 
+     */
+    public Optional<Output<PolicyPolicySettingsLogScrubbingArgs>> logScrubbing() {
+        return Optional.ofNullable(this.logScrubbing);
     }
 
     /**
@@ -97,6 +113,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     private PolicyPolicySettingsArgs(PolicyPolicySettingsArgs $) {
         this.enabled = $.enabled;
         this.fileUploadLimitInMb = $.fileUploadLimitInMb;
+        this.logScrubbing = $.logScrubbing;
         this.maxRequestBodySizeInKb = $.maxRequestBodySizeInKb;
         this.mode = $.mode;
         this.requestBodyCheck = $.requestBodyCheck;
@@ -160,6 +177,27 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder fileUploadLimitInMb(Integer fileUploadLimitInMb) {
             return fileUploadLimitInMb(Output.of(fileUploadLimitInMb));
+        }
+
+        /**
+         * @param logScrubbing One `log_scrubbing` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbing(@Nullable Output<PolicyPolicySettingsLogScrubbingArgs> logScrubbing) {
+            $.logScrubbing = logScrubbing;
+            return this;
+        }
+
+        /**
+         * @param logScrubbing One `log_scrubbing` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbing(PolicyPolicySettingsLogScrubbingArgs logScrubbing) {
+            return logScrubbing(Output.of(logScrubbing));
         }
 
         /**

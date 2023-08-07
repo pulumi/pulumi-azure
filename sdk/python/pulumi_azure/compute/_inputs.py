@@ -111,6 +111,8 @@ __all__ = [
     'ScaleSetStorageProfileDataDiskArgs',
     'ScaleSetStorageProfileImageReferenceArgs',
     'ScaleSetStorageProfileOsDiskArgs',
+    'SharedImageGallerySharingArgs',
+    'SharedImageGallerySharingCommunityGalleryArgs',
     'SharedImageIdentifierArgs',
     'SharedImagePurchasePlanArgs',
     'SharedImageVersionTargetRegionArgs',
@@ -7021,6 +7023,135 @@ class ScaleSetStorageProfileOsDiskArgs:
     @vhd_containers.setter
     def vhd_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vhd_containers", value)
+
+
+@pulumi.input_type
+class SharedImageGallerySharingArgs:
+    def __init__(__self__, *,
+                 permission: pulumi.Input[str],
+                 community_gallery: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']] = None):
+        """
+        :param pulumi.Input[str] permission: The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+        :param pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs'] community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        """
+        pulumi.set(__self__, "permission", permission)
+        if community_gallery is not None:
+            pulumi.set(__self__, "community_gallery", community_gallery)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> pulumi.Input[str]:
+        """
+        The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: pulumi.Input[str]):
+        pulumi.set(self, "permission", value)
+
+    @property
+    @pulumi.getter(name="communityGallery")
+    def community_gallery(self) -> Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']]:
+        """
+        A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+
+        > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        """
+        return pulumi.get(self, "community_gallery")
+
+    @community_gallery.setter
+    def community_gallery(self, value: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']]):
+        pulumi.set(self, "community_gallery", value)
+
+
+@pulumi.input_type
+class SharedImageGallerySharingCommunityGalleryArgs:
+    def __init__(__self__, *,
+                 eula: pulumi.Input[str],
+                 prefix: pulumi.Input[str],
+                 publisher_email: pulumi.Input[str],
+                 publisher_uri: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] prefix: Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher_email: Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher_uri: URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "eula", eula)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        pulumi.set(__self__, "publisher_uri", publisher_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def eula(self) -> pulumi.Input[str]:
+        """
+        The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eula")
+
+    @eula.setter
+    def eula(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eula", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> pulumi.Input[str]:
+        """
+        Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @publisher_email.setter
+    def publisher_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_email", value)
+
+    @property
+    @pulumi.getter(name="publisherUri")
+    def publisher_uri(self) -> pulumi.Input[str]:
+        """
+        URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher_uri")
+
+    @publisher_uri.setter
+    def publisher_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_uri", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

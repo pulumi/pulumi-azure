@@ -11,6 +11,7 @@ from .get_network_data_network import *
 from .get_network_packet_core_control_plane import *
 from .get_network_packet_core_data_plane import *
 from .get_network_service import *
+from .get_network_sim import *
 from .get_network_sim_group import *
 from .get_network_sim_policy import *
 from .get_network_site import *
@@ -21,6 +22,7 @@ from .network_data_network import *
 from .network_packet_core_control_plane import *
 from .network_packet_core_data_plane import *
 from .network_service import *
+from .network_sim import *
 from .network_sim_group import *
 from .network_sim_policy import *
 from .network_site import *

@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<int>? FileUploadLimitInMb { get; set; }
 
         /// <summary>
+        /// One `log_scrubbing` block as defined below.
+        /// </summary>
+        [Input("logScrubbing")]
+        public Input<Inputs.PolicyPolicySettingsLogScrubbingArgs>? LogScrubbing { get; set; }
+
+        /// <summary>
         /// The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         /// </summary>
         [Input("maxRequestBodySizeInKb")]

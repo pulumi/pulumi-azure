@@ -73,6 +73,8 @@ type SharedImageGallery struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `sharing` block as defined below. Changing this forces a new resource to be created.
+	Sharing SharedImageGallerySharingPtrOutput `pulumi:"sharing"`
 	// A mapping of tags to assign to the Shared Image Gallery.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Unique Name for this Shared Image Gallery.
@@ -120,6 +122,8 @@ type sharedImageGalleryState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `sharing` block as defined below. Changing this forces a new resource to be created.
+	Sharing *SharedImageGallerySharing `pulumi:"sharing"`
 	// A mapping of tags to assign to the Shared Image Gallery.
 	Tags map[string]string `pulumi:"tags"`
 	// The Unique Name for this Shared Image Gallery.
@@ -135,6 +139,8 @@ type SharedImageGalleryState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `sharing` block as defined below. Changing this forces a new resource to be created.
+	Sharing SharedImageGallerySharingPtrInput
 	// A mapping of tags to assign to the Shared Image Gallery.
 	Tags pulumi.StringMapInput
 	// The Unique Name for this Shared Image Gallery.
@@ -154,6 +160,8 @@ type sharedImageGalleryArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `sharing` block as defined below. Changing this forces a new resource to be created.
+	Sharing *SharedImageGallerySharing `pulumi:"sharing"`
 	// A mapping of tags to assign to the Shared Image Gallery.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -168,6 +176,8 @@ type SharedImageGalleryArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `sharing` block as defined below. Changing this forces a new resource to be created.
+	Sharing SharedImageGallerySharingPtrInput
 	// A mapping of tags to assign to the Shared Image Gallery.
 	Tags pulumi.StringMapInput
 }
@@ -277,6 +287,11 @@ func (o SharedImageGalleryOutput) Name() pulumi.StringOutput {
 // The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
 func (o SharedImageGalleryOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedImageGallery) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `sharing` block as defined below. Changing this forces a new resource to be created.
+func (o SharedImageGalleryOutput) Sharing() SharedImageGallerySharingPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallery) SharedImageGallerySharingPtrOutput { return v.Sharing }).(SharedImageGallerySharingPtrOutput)
 }
 
 // A mapping of tags to assign to the Shared Image Gallery.

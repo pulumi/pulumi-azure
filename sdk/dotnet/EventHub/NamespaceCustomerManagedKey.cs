@@ -142,6 +142,12 @@ namespace Pulumi.Azure.EventHub
         public Output<string> EventhubNamespaceId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("infrastructureEncryptionEnabled")]
+        public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The list of keys of Key Vault.
         /// </summary>
         [Output("keyVaultKeyIds")]
@@ -199,6 +205,12 @@ namespace Pulumi.Azure.EventHub
         [Input("eventhubNamespaceId", required: true)]
         public Input<string> EventhubNamespaceId { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
+
         [Input("keyVaultKeyIds", required: true)]
         private InputList<string>? _keyVaultKeyIds;
 
@@ -224,6 +236,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("eventhubNamespaceId")]
         public Input<string>? EventhubNamespaceId { get; set; }
+
+        /// <summary>
+        /// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         [Input("keyVaultKeyIds")]
         private InputList<string>? _keyVaultKeyIds;

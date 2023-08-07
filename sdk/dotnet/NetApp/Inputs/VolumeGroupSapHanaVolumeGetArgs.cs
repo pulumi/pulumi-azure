@@ -75,7 +75,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
-        /// Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("securityStyle", required: true)]
         public Input<string> SecurityStyle { get; set; } = null!;

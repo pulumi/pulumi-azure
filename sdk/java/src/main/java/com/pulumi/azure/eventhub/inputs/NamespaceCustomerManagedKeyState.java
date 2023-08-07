@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +33,21 @@ public final class NamespaceCustomerManagedKeyState extends com.pulumi.resources
     }
 
     /**
+     * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="infrastructureEncryptionEnabled")
+    private @Nullable Output<Boolean> infrastructureEncryptionEnabled;
+
+    /**
+     * @return Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> infrastructureEncryptionEnabled() {
+        return Optional.ofNullable(this.infrastructureEncryptionEnabled);
+    }
+
+    /**
      * The list of keys of Key Vault.
      * 
      */
@@ -50,6 +66,7 @@ public final class NamespaceCustomerManagedKeyState extends com.pulumi.resources
 
     private NamespaceCustomerManagedKeyState(NamespaceCustomerManagedKeyState $) {
         this.eventhubNamespaceId = $.eventhubNamespaceId;
+        this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.keyVaultKeyIds = $.keyVaultKeyIds;
     }
 
@@ -90,6 +107,27 @@ public final class NamespaceCustomerManagedKeyState extends com.pulumi.resources
          */
         public Builder eventhubNamespaceId(String eventhubNamespaceId) {
             return eventhubNamespaceId(Output.of(eventhubNamespaceId));
+        }
+
+        /**
+         * @param infrastructureEncryptionEnabled Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder infrastructureEncryptionEnabled(@Nullable Output<Boolean> infrastructureEncryptionEnabled) {
+            $.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param infrastructureEncryptionEnabled Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
+            return infrastructureEncryptionEnabled(Output.of(infrastructureEncryptionEnabled));
         }
 
         /**

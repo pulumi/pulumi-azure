@@ -76,7 +76,8 @@ type GetVariablesResult struct {
 	// One or more `variable` blocks as defined below for each int variable.
 	Ints []GetVariablesInt `pulumi:"ints"`
 	// One or more `variable` blocks as defined below for each null variable.
-	Nulls []GetVariablesNull `pulumi:"nulls"`
+	Nulls   []GetVariablesNull   `pulumi:"nulls"`
+	Objects []GetVariablesObject `pulumi:"objects"`
 	// One or more `variable` blocks as defined below for each string variable.
 	Strings []GetVariablesString `pulumi:"strings"`
 }
@@ -151,6 +152,10 @@ func (o GetVariablesResultOutput) Ints() GetVariablesIntArrayOutput {
 // One or more `variable` blocks as defined below for each null variable.
 func (o GetVariablesResultOutput) Nulls() GetVariablesNullArrayOutput {
 	return o.ApplyT(func(v GetVariablesResult) []GetVariablesNull { return v.Nulls }).(GetVariablesNullArrayOutput)
+}
+
+func (o GetVariablesResultOutput) Objects() GetVariablesObjectArrayOutput {
+	return o.ApplyT(func(v GetVariablesResult) []GetVariablesObject { return v.Objects }).(GetVariablesObjectArrayOutput)
 }
 
 // One or more `variable` blocks as defined below for each string variable.

@@ -154,6 +154,8 @@ type NamespaceCustomerManagedKey struct {
 
 	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	EventhubNamespaceId pulumi.StringOutput `pulumi:"eventhubNamespaceId"`
+	// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds pulumi.StringArrayOutput `pulumi:"keyVaultKeyIds"`
 }
@@ -196,6 +198,8 @@ func GetNamespaceCustomerManagedKey(ctx *pulumi.Context,
 type namespaceCustomerManagedKeyState struct {
 	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	EventhubNamespaceId *string `pulumi:"eventhubNamespaceId"`
+	// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds []string `pulumi:"keyVaultKeyIds"`
 }
@@ -203,6 +207,8 @@ type namespaceCustomerManagedKeyState struct {
 type NamespaceCustomerManagedKeyState struct {
 	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	EventhubNamespaceId pulumi.StringPtrInput
+	// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds pulumi.StringArrayInput
 }
@@ -214,6 +220,8 @@ func (NamespaceCustomerManagedKeyState) ElementType() reflect.Type {
 type namespaceCustomerManagedKeyArgs struct {
 	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	EventhubNamespaceId string `pulumi:"eventhubNamespaceId"`
+	// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds []string `pulumi:"keyVaultKeyIds"`
 }
@@ -222,6 +230,8 @@ type namespaceCustomerManagedKeyArgs struct {
 type NamespaceCustomerManagedKeyArgs struct {
 	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	EventhubNamespaceId pulumi.StringInput
+	// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// The list of keys of Key Vault.
 	KeyVaultKeyIds pulumi.StringArrayInput
 }
@@ -316,6 +326,11 @@ func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyOutputWi
 // The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 func (o NamespaceCustomerManagedKeyOutput) EventhubNamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceCustomerManagedKey) pulumi.StringOutput { return v.EventhubNamespaceId }).(pulumi.StringOutput)
+}
+
+// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+func (o NamespaceCustomerManagedKeyOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) pulumi.BoolPtrOutput { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The list of keys of Key Vault.

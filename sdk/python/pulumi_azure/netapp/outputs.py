@@ -645,7 +645,7 @@ class VolumeGroupSapHanaVolume(dict):
         :param Sequence['VolumeGroupSapHanaVolumeExportPolicyRuleArgs'] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
         :param str name: The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param str protocols: The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
-        :param str security_style: Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param str security_style: Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param str service_level: Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param bool snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -720,7 +720,7 @@ class VolumeGroupSapHanaVolume(dict):
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> str:
         """
-        Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "security_style")
 

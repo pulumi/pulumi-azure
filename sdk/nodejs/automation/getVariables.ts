@@ -72,6 +72,7 @@ export interface GetVariablesResult {
      * One or more `variable` blocks as defined below for each null variable.
      */
     readonly nulls: outputs.automation.GetVariablesNull[];
+    readonly objects: outputs.automation.GetVariablesObject[];
     /**
      * One or more `variable` blocks as defined below for each string variable.
      */

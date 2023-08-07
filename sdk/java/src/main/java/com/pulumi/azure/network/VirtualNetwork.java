@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.network.VirtualNetworkArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkState;
 import com.pulumi.azure.network.outputs.VirtualNetworkDdosProtectionPlan;
+import com.pulumi.azure.network.outputs.VirtualNetworkEncryption;
 import com.pulumi.azure.network.outputs.VirtualNetworkSubnet;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -177,6 +178,20 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
+    }
+    /**
+     * A `encryption` block as defined below.
+     * 
+     */
+    @Export(name="encryption", refs={VirtualNetworkEncryption.class}, tree="[0]")
+    private Output</* @Nullable */ VirtualNetworkEncryption> encryption;
+
+    /**
+     * @return A `encryption` block as defined below.
+     * 
+     */
+    public Output<Optional<VirtualNetworkEncryption>> encryption() {
+        return Codegen.optional(this.encryption);
     }
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.

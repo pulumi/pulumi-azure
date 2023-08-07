@@ -135,6 +135,7 @@ __all__ = [
     'VirtualHubRouteArgs',
     'VirtualHubRouteTableRouteArgs',
     'VirtualNetworkDdosProtectionPlanArgs',
+    'VirtualNetworkEncryptionArgs',
     'VirtualNetworkGatewayBgpSettingsArgs',
     'VirtualNetworkGatewayBgpSettingsPeeringAddressArgs',
     'VirtualNetworkGatewayConnectionCustomBgpAddressesArgs',
@@ -9731,6 +9732,28 @@ class VirtualNetworkDdosProtectionPlanArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class VirtualNetworkEncryptionArgs:
+    def __init__(__self__, *,
+                 enforcement: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] enforcement: Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+        """
+        pulumi.set(__self__, "enforcement", enforcement)
+
+    @property
+    @pulumi.getter
+    def enforcement(self) -> pulumi.Input[str]:
+        """
+        Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+        """
+        return pulumi.get(self, "enforcement")
+
+    @enforcement.setter
+    def enforcement(self, value: pulumi.Input[str]):
+        pulumi.set(self, "enforcement", value)
 
 
 @pulumi.input_type

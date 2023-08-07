@@ -22,6 +22,7 @@ class VirtualNetworkArgs:
                  ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class VirtualNetworkArgs:
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: A `encryption` block as defined below.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
@@ -57,6 +59,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if flow_timeout_in_minutes is not None:
             pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if location is not None:
@@ -145,6 +149,18 @@ class VirtualNetworkArgs:
         pulumi.set(self, "edge_zone", value)
 
     @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]:
+        """
+        A `encryption` block as defined below.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
     @pulumi.getter(name="flowTimeoutInMinutes")
     def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -215,6 +231,7 @@ class _VirtualNetworkState:
                  ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -233,6 +250,7 @@ class _VirtualNetworkState:
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: A `encryption` block as defined below.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -253,6 +271,8 @@ class _VirtualNetworkState:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if flow_timeout_in_minutes is not None:
             pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if guid is not None:
@@ -331,6 +351,18 @@ class _VirtualNetworkState:
     @edge_zone.setter
     def edge_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_zone", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]:
+        """
+        A `encryption` block as defined below.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter(name="flowTimeoutInMinutes")
@@ -429,6 +461,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -499,6 +532,7 @@ class VirtualNetwork(pulumi.CustomResource):
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
@@ -586,6 +620,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -608,6 +643,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["edge_zone"] = edge_zone
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -632,6 +668,7 @@ class VirtualNetwork(pulumi.CustomResource):
             ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']]] = None,
             flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -655,6 +692,7 @@ class VirtualNetwork(pulumi.CustomResource):
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -674,6 +712,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["edge_zone"] = edge_zone
+        __props__.__dict__["encryption"] = encryption
         __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
         __props__.__dict__["guid"] = guid
         __props__.__dict__["location"] = location
@@ -726,6 +765,14 @@ class VirtualNetwork(pulumi.CustomResource):
         Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         """
         return pulumi.get(self, "edge_zone")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.VirtualNetworkEncryption']]:
+        """
+        A `encryption` block as defined below.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="flowTimeoutInMinutes")

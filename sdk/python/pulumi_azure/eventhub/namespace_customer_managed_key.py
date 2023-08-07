@@ -15,14 +15,18 @@ __all__ = ['NamespaceCustomerManagedKeyInitArgs', 'NamespaceCustomerManagedKey']
 class NamespaceCustomerManagedKeyInitArgs:
     def __init__(__self__, *,
                  eventhub_namespace_id: pulumi.Input[str],
-                 key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NamespaceCustomerManagedKey resource.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
         pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
+        if infrastructure_encryption_enabled is not None:
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -48,19 +52,35 @@ class NamespaceCustomerManagedKeyInitArgs:
     def key_vault_key_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "key_vault_key_ids", value)
 
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @infrastructure_encryption_enabled.setter
+    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_enabled", value)
+
 
 @pulumi.input_type
 class _NamespaceCustomerManagedKeyState:
     def __init__(__self__, *,
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NamespaceCustomerManagedKey resources.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
         """
         if eventhub_namespace_id is not None:
             pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
+        if infrastructure_encryption_enabled is not None:
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if key_vault_key_ids is not None:
             pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
 
@@ -75,6 +95,18 @@ class _NamespaceCustomerManagedKeyState:
     @eventhub_namespace_id.setter
     def eventhub_namespace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "eventhub_namespace_id", value)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @infrastructure_encryption_enabled.setter
+    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyIds")
@@ -95,6 +127,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -182,6 +215,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
         """
         ...
@@ -288,6 +322,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -301,6 +336,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             if eventhub_namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_namespace_id'")
             __props__.__dict__["eventhub_namespace_id"] = eventhub_namespace_id
+            __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             if key_vault_key_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_ids'")
             __props__.__dict__["key_vault_key_ids"] = key_vault_key_ids
@@ -315,6 +351,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+            infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'NamespaceCustomerManagedKey':
         """
         Get an existing NamespaceCustomerManagedKey resource's state with the given name, id, and optional extra
@@ -324,6 +361,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -331,6 +369,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         __props__ = _NamespaceCustomerManagedKeyState.__new__(_NamespaceCustomerManagedKeyState)
 
         __props__.__dict__["eventhub_namespace_id"] = eventhub_namespace_id
+        __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["key_vault_key_ids"] = key_vault_key_ids
         return NamespaceCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
@@ -341,6 +380,14 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_namespace_id")
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @property
     @pulumi.getter(name="keyVaultKeyIds")

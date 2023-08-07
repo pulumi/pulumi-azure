@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkPacketCoreDataPlane{}
 	case "azure:mobile/networkService:NetworkService":
 		r = &NetworkService{}
+	case "azure:mobile/networkSim:NetworkSim":
+		r = &NetworkSim{}
 	case "azure:mobile/networkSimGroup:NetworkSimGroup":
 		r = &NetworkSimGroup{}
 	case "azure:mobile/networkSimPolicy:NetworkSimPolicy":
@@ -82,6 +84,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mobile/networkService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkSim",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -8,6 +8,7 @@ import com.pulumi.azure.automation.outputs.GetVariablesDatetime;
 import com.pulumi.azure.automation.outputs.GetVariablesEncrypted;
 import com.pulumi.azure.automation.outputs.GetVariablesInt;
 import com.pulumi.azure.automation.outputs.GetVariablesNull;
+import com.pulumi.azure.automation.outputs.GetVariablesObject;
 import com.pulumi.azure.automation.outputs.GetVariablesString;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -47,6 +48,7 @@ public final class GetVariablesResult {
      * 
      */
     private List<GetVariablesNull> nulls;
+    private List<GetVariablesObject> objects;
     /**
      * @return One or more `variable` blocks as defined below for each string variable.
      * 
@@ -99,6 +101,9 @@ public final class GetVariablesResult {
     public List<GetVariablesNull> nulls() {
         return this.nulls;
     }
+    public List<GetVariablesObject> objects() {
+        return this.objects;
+    }
     /**
      * @return One or more `variable` blocks as defined below for each string variable.
      * 
@@ -123,6 +128,7 @@ public final class GetVariablesResult {
         private String id;
         private List<GetVariablesInt> ints;
         private List<GetVariablesNull> nulls;
+        private List<GetVariablesObject> objects;
         private List<GetVariablesString> strings;
         public Builder() {}
         public Builder(GetVariablesResult defaults) {
@@ -134,6 +140,7 @@ public final class GetVariablesResult {
     	      this.id = defaults.id;
     	      this.ints = defaults.ints;
     	      this.nulls = defaults.nulls;
+    	      this.objects = defaults.objects;
     	      this.strings = defaults.strings;
         }
 
@@ -188,6 +195,14 @@ public final class GetVariablesResult {
             return nulls(List.of(nulls));
         }
         @CustomType.Setter
+        public Builder objects(List<GetVariablesObject> objects) {
+            this.objects = Objects.requireNonNull(objects);
+            return this;
+        }
+        public Builder objects(GetVariablesObject... objects) {
+            return objects(List.of(objects));
+        }
+        @CustomType.Setter
         public Builder strings(List<GetVariablesString> strings) {
             this.strings = Objects.requireNonNull(strings);
             return this;
@@ -204,6 +219,7 @@ public final class GetVariablesResult {
             o.id = id;
             o.ints = ints;
             o.nulls = nulls;
+            o.objects = objects;
             o.strings = strings;
             return o;
         }

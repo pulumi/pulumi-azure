@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetDomainResult',
@@ -82,7 +81,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[Sequence['outputs.GetDomainInboundIpRuleResult']]:
+    def inbound_ip_rules(self) -> Sequence['outputs.GetDomainInboundIpRuleResult']:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
@@ -135,7 +134,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[bool]:
+    def public_network_access_enabled(self) -> bool:
         """
         Whether or not public network access is allowed for this server.
         """
@@ -156,7 +155,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the EventGrid Domain.
         """
@@ -184,11 +183,8 @@ class AwaitableGetDomainResult(GetDomainResult):
             tags=self.tags)
 
 
-def get_domain(inbound_ip_rules: Optional[Sequence[pulumi.InputType['GetDomainInboundIpRuleArgs']]] = None,
-               name: Optional[str] = None,
-               public_network_access_enabled: Optional[bool] = None,
+def get_domain(name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
-               tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Use this data source to access information about an existing EventGrid Domain
@@ -205,18 +201,12 @@ def get_domain(inbound_ip_rules: Optional[Sequence[pulumi.InputType['GetDomainIn
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDomainInboundIpRuleArgs']] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
     :param str name: The name of the EventGrid Domain resource.
-    :param bool public_network_access_enabled: Whether or not public network access is allowed for this server.
     :param str resource_group_name: The name of the resource group in which the EventGrid Domain exists.
-    :param Mapping[str, str] tags: A mapping of tags assigned to the EventGrid Domain.
     """
     __args__ = dict()
-    __args__['inboundIpRules'] = inbound_ip_rules
     __args__['name'] = name
-    __args__['publicNetworkAccessEnabled'] = public_network_access_enabled
     __args__['resourceGroupName'] = resource_group_name
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:eventgrid/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
@@ -237,11 +227,8 @@ def get_domain(inbound_ip_rules: Optional[Sequence[pulumi.InputType['GetDomainIn
 
 
 @_utilities.lift_output_func(get_domain)
-def get_domain_output(inbound_ip_rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDomainInboundIpRuleArgs']]]]] = None,
-                      name: Optional[pulumi.Input[str]] = None,
-                      public_network_access_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+def get_domain_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Use this data source to access information about an existing EventGrid Domain
@@ -258,10 +245,7 @@ def get_domain_output(inbound_ip_rules: Optional[pulumi.Input[Optional[Sequence[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDomainInboundIpRuleArgs']] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
     :param str name: The name of the EventGrid Domain resource.
-    :param bool public_network_access_enabled: Whether or not public network access is allowed for this server.
     :param str resource_group_name: The name of the resource group in which the EventGrid Domain exists.
-    :param Mapping[str, str] tags: A mapping of tags assigned to the EventGrid Domain.
     """
     ...

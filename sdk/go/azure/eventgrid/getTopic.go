@@ -54,8 +54,7 @@ type LookupTopicArgs struct {
 	// The name of the EventGrid Topic resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group in which the EventGrid Topic exists.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getTopic.
@@ -92,8 +91,7 @@ type LookupTopicOutputArgs struct {
 	// The name of the EventGrid Topic resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the EventGrid Topic exists.
-	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapInput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {

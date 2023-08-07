@@ -127,6 +127,10 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
      */
     public readonly eventhubNamespaceId!: pulumi.Output<string>;
     /**
+     * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     */
+    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The list of keys of Key Vault.
      */
     public readonly keyVaultKeyIds!: pulumi.Output<string[]>;
@@ -145,6 +149,7 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NamespaceCustomerManagedKeyState | undefined;
             resourceInputs["eventhubNamespaceId"] = state ? state.eventhubNamespaceId : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["keyVaultKeyIds"] = state ? state.keyVaultKeyIds : undefined;
         } else {
             const args = argsOrState as NamespaceCustomerManagedKeyArgs | undefined;
@@ -155,6 +160,7 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'keyVaultKeyIds'");
             }
             resourceInputs["eventhubNamespaceId"] = args ? args.eventhubNamespaceId : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["keyVaultKeyIds"] = args ? args.keyVaultKeyIds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -171,6 +177,10 @@ export interface NamespaceCustomerManagedKeyState {
      */
     eventhubNamespaceId?: pulumi.Input<string>;
     /**
+     * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     */
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
      * The list of keys of Key Vault.
      */
     keyVaultKeyIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -184,6 +194,10 @@ export interface NamespaceCustomerManagedKeyArgs {
      * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     eventhubNamespaceId: pulumi.Input<string>;
+    /**
+     * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     */
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The list of keys of Key Vault.
      */

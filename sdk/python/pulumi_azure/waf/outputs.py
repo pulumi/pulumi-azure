@@ -22,6 +22,8 @@ __all__ = [
     'PolicyManagedRulesManagedRuleSetRuleGroupOverride',
     'PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule',
     'PolicyPolicySettings',
+    'PolicyPolicySettingsLogScrubbing',
+    'PolicyPolicySettingsLogScrubbingRule',
 ]
 
 @pulumi.output_type
@@ -636,6 +638,8 @@ class PolicyPolicySettings(dict):
         suggest = None
         if key == "fileUploadLimitInMb":
             suggest = "file_upload_limit_in_mb"
+        elif key == "logScrubbing":
+            suggest = "log_scrubbing"
         elif key == "maxRequestBodySizeInKb":
             suggest = "max_request_body_size_in_kb"
         elif key == "requestBodyCheck":
@@ -655,12 +659,14 @@ class PolicyPolicySettings(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  file_upload_limit_in_mb: Optional[int] = None,
+                 log_scrubbing: Optional['outputs.PolicyPolicySettingsLogScrubbing'] = None,
                  max_request_body_size_in_kb: Optional[int] = None,
                  mode: Optional[str] = None,
                  request_body_check: Optional[bool] = None):
         """
         :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param int file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
+        :param 'PolicyPolicySettingsLogScrubbingArgs' log_scrubbing: One `log_scrubbing` block as defined below.
         :param int max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param str mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
@@ -669,6 +675,8 @@ class PolicyPolicySettings(dict):
             pulumi.set(__self__, "enabled", enabled)
         if file_upload_limit_in_mb is not None:
             pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if log_scrubbing is not None:
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if max_request_body_size_in_kb is not None:
             pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
         if mode is not None:
@@ -693,6 +701,14 @@ class PolicyPolicySettings(dict):
         return pulumi.get(self, "file_upload_limit_in_mb")
 
     @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional['outputs.PolicyPolicySettingsLogScrubbing']:
+        """
+        One `log_scrubbing` block as defined below.
+        """
+        return pulumi.get(self, "log_scrubbing")
+
+    @property
     @pulumi.getter(name="maxRequestBodySizeInKb")
     def max_request_body_size_in_kb(self) -> Optional[int]:
         """
@@ -715,5 +731,109 @@ class PolicyPolicySettings(dict):
         Is Request Body Inspection enabled? Defaults to `true`.
         """
         return pulumi.get(self, "request_body_check")
+
+
+@pulumi.output_type
+class PolicyPolicySettingsLogScrubbing(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 rules: Optional[Sequence['outputs.PolicyPolicySettingsLogScrubbingRule']] = None):
+        """
+        :param bool enabled: Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+        :param Sequence['PolicyPolicySettingsLogScrubbingRuleArgs'] rules: One or more `scrubbing_rule` as define below.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.PolicyPolicySettingsLogScrubbingRule']]:
+        """
+        One or more `scrubbing_rule` as define below.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class PolicyPolicySettingsLogScrubbingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPolicySettingsLogScrubbingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPolicySettingsLogScrubbingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPolicySettingsLogScrubbingRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 enabled: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 selector_match_operator: Optional[str] = None):
+        """
+        :param str match_variable: The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+        :param bool enabled: Describes if the managed rule is in enabled state or disabled state.
+        :param str selector: Describes field of the matchVariable collection
+        :param str selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if selector_match_operator is not None:
+            pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Describes if the managed rule is in enabled state or disabled state.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Describes field of the matchVariable collection
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> Optional[str]:
+        """
+        Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+        """
+        return pulumi.get(self, "selector_match_operator")
 
 

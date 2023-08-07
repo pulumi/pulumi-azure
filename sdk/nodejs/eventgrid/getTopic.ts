@@ -25,7 +25,6 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("azure:eventgrid/getTopic:getTopic", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -41,7 +40,6 @@ export interface GetTopicArgs {
      * The name of the resource group in which the EventGrid Topic exists.
      */
     resourceGroupName: string;
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -67,7 +65,7 @@ export interface GetTopicResult {
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      */
     readonly secondaryAccessKey: string;
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
 }
 /**
  * Use this data source to access information about an existing EventGrid Topic
@@ -100,5 +98,4 @@ export interface GetTopicOutputArgs {
      * The name of the resource group in which the EventGrid Topic exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

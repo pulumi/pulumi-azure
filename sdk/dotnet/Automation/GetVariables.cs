@@ -146,6 +146,7 @@ namespace Pulumi.Azure.Automation
         /// One or more `variable` blocks as defined below for each null variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesNullResult> Nulls;
+        public readonly ImmutableArray<Outputs.GetVariablesObjectResult> Objects;
         /// <summary>
         /// One or more `variable` blocks as defined below for each string variable.
         /// </summary>
@@ -167,6 +168,8 @@ namespace Pulumi.Azure.Automation
 
             ImmutableArray<Outputs.GetVariablesNullResult> nulls,
 
+            ImmutableArray<Outputs.GetVariablesObjectResult> objects,
+
             ImmutableArray<Outputs.GetVariablesStringResult> strings)
         {
             AutomationAccountId = automationAccountId;
@@ -176,6 +179,7 @@ namespace Pulumi.Azure.Automation
             Id = id;
             Ints = ints;
             Nulls = nulls;
+            Objects = objects;
             Strings = strings;
         }
     }

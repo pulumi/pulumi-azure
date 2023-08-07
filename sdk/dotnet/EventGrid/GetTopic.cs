@@ -85,14 +85,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
-
         public GetTopicArgs()
         {
         }
@@ -112,14 +104,6 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public GetTopicInvokeArgs()
         {
@@ -150,7 +134,7 @@ namespace Pulumi.Azure.EventGrid
         /// The Secondary Shared Access Key associated with the EventGrid Topic.
         /// </summary>
         public readonly string SecondaryAccessKey;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetTopicResult(
@@ -168,7 +152,7 @@ namespace Pulumi.Azure.EventGrid
 
             string secondaryAccessKey,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string> tags)
         {
             Endpoint = endpoint;
             Id = id;

@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.SharedImageGalleryArgs;
 import com.pulumi.azure.compute.inputs.SharedImageGalleryState;
+import com.pulumi.azure.compute.outputs.SharedImageGallerySharing;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -126,6 +127,20 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `sharing` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="sharing", refs={SharedImageGallerySharing.class}, tree="[0]")
+    private Output</* @Nullable */ SharedImageGallerySharing> sharing;
+
+    /**
+     * @return A `sharing` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<SharedImageGallerySharing>> sharing() {
+        return Codegen.optional(this.sharing);
     }
     /**
      * A mapping of tags to assign to the Shared Image Gallery.

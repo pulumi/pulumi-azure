@@ -81,18 +81,6 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
-        [Input("inboundIpRules")]
-        private List<Inputs.GetDomainInboundIpRuleArgs>? _inboundIpRules;
-
-        /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
-        /// </summary>
-        public List<Inputs.GetDomainInboundIpRuleArgs> InboundIpRules
-        {
-            get => _inboundIpRules ?? (_inboundIpRules = new List<Inputs.GetDomainInboundIpRuleArgs>());
-            set => _inboundIpRules = value;
-        }
-
         /// <summary>
         /// The name of the EventGrid Domain resource.
         /// </summary>
@@ -100,28 +88,10 @@ namespace Pulumi.Azure.EventGrid
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server.
-        /// </summary>
-        [Input("publicNetworkAccessEnabled")]
-        public bool? PublicNetworkAccessEnabled { get; set; }
-
-        /// <summary>
         /// The name of the resource group in which the EventGrid Domain exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags assigned to the EventGrid Domain.
-        /// </summary>
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
 
         public GetDomainArgs()
         {
@@ -131,18 +101,6 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("inboundIpRules")]
-        private InputList<Inputs.GetDomainInboundIpRuleInputArgs>? _inboundIpRules;
-
-        /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.GetDomainInboundIpRuleInputArgs> InboundIpRules
-        {
-            get => _inboundIpRules ?? (_inboundIpRules = new InputList<Inputs.GetDomainInboundIpRuleInputArgs>());
-            set => _inboundIpRules = value;
-        }
-
         /// <summary>
         /// The name of the EventGrid Domain resource.
         /// </summary>
@@ -150,28 +108,10 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server.
-        /// </summary>
-        [Input("publicNetworkAccessEnabled")]
-        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
-
-        /// <summary>
         /// The name of the resource group in which the EventGrid Domain exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags assigned to the EventGrid Domain.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public GetDomainInvokeArgs()
         {
@@ -219,7 +159,7 @@ namespace Pulumi.Azure.EventGrid
         /// <summary>
         /// Whether or not public network access is allowed for this server.
         /// </summary>
-        public readonly bool? PublicNetworkAccessEnabled;
+        public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The secondary access key associated with the EventGrid Domain.
@@ -228,7 +168,7 @@ namespace Pulumi.Azure.EventGrid
         /// <summary>
         /// A mapping of tags assigned to the EventGrid Domain.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -250,13 +190,13 @@ namespace Pulumi.Azure.EventGrid
 
             string primaryAccessKey,
 
-            bool? publicNetworkAccessEnabled,
+            bool publicNetworkAccessEnabled,
 
             string resourceGroupName,
 
             string secondaryAccessKey,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string> tags)
         {
             Endpoint = endpoint;
             Id = id;

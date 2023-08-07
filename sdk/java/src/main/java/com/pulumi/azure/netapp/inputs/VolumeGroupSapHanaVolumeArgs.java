@@ -151,14 +151,14 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="securityStyle", required=true)
     private Output<String> securityStyle;
 
     /**
-     * @return Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> securityStyle() {
@@ -518,7 +518,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param securityStyle Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param securityStyle Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param securityStyle Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param securityStyle Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 

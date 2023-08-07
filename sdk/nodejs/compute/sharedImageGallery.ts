@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +80,10 @@ export class SharedImageGallery extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `sharing` block as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly sharing!: pulumi.Output<outputs.compute.SharedImageGallerySharing | undefined>;
+    /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -103,6 +109,7 @@ export class SharedImageGallery extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sharing"] = state ? state.sharing : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["uniqueName"] = state ? state.uniqueName : undefined;
         } else {
@@ -114,6 +121,7 @@ export class SharedImageGallery extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharing"] = args ? args.sharing : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["uniqueName"] = undefined /*out*/;
         }
@@ -142,6 +150,10 @@ export interface SharedImageGalleryState {
      * The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `sharing` block as defined below. Changing this forces a new resource to be created.
+     */
+    sharing?: pulumi.Input<inputs.compute.SharedImageGallerySharing>;
     /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */
@@ -172,6 +184,10 @@ export interface SharedImageGalleryArgs {
      * The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `sharing` block as defined below. Changing this forces a new resource to be created.
+     */
+    sharing?: pulumi.Input<inputs.compute.SharedImageGallerySharing>;
     /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */

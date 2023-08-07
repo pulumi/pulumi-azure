@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.waf.outputs;
 
+import com.pulumi.azure.waf.outputs.PolicyPolicySettingsLogScrubbing;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -23,6 +24,11 @@ public final class PolicyPolicySettings {
      * 
      */
     private @Nullable Integer fileUploadLimitInMb;
+    /**
+     * @return One `log_scrubbing` block as defined below.
+     * 
+     */
+    private @Nullable PolicyPolicySettingsLogScrubbing logScrubbing;
     /**
      * @return The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
      * 
@@ -53,6 +59,13 @@ public final class PolicyPolicySettings {
      */
     public Optional<Integer> fileUploadLimitInMb() {
         return Optional.ofNullable(this.fileUploadLimitInMb);
+    }
+    /**
+     * @return One `log_scrubbing` block as defined below.
+     * 
+     */
+    public Optional<PolicyPolicySettingsLogScrubbing> logScrubbing() {
+        return Optional.ofNullable(this.logScrubbing);
     }
     /**
      * @return The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
@@ -87,6 +100,7 @@ public final class PolicyPolicySettings {
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer fileUploadLimitInMb;
+        private @Nullable PolicyPolicySettingsLogScrubbing logScrubbing;
         private @Nullable Integer maxRequestBodySizeInKb;
         private @Nullable String mode;
         private @Nullable Boolean requestBodyCheck;
@@ -95,6 +109,7 @@ public final class PolicyPolicySettings {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.fileUploadLimitInMb = defaults.fileUploadLimitInMb;
+    	      this.logScrubbing = defaults.logScrubbing;
     	      this.maxRequestBodySizeInKb = defaults.maxRequestBodySizeInKb;
     	      this.mode = defaults.mode;
     	      this.requestBodyCheck = defaults.requestBodyCheck;
@@ -108,6 +123,11 @@ public final class PolicyPolicySettings {
         @CustomType.Setter
         public Builder fileUploadLimitInMb(@Nullable Integer fileUploadLimitInMb) {
             this.fileUploadLimitInMb = fileUploadLimitInMb;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder logScrubbing(@Nullable PolicyPolicySettingsLogScrubbing logScrubbing) {
+            this.logScrubbing = logScrubbing;
             return this;
         }
         @CustomType.Setter
@@ -129,6 +149,7 @@ public final class PolicyPolicySettings {
             final var o = new PolicyPolicySettings();
             o.enabled = enabled;
             o.fileUploadLimitInMb = fileUploadLimitInMb;
+            o.logScrubbing = logScrubbing;
             o.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
             o.mode = mode;
             o.requestBodyCheck = requestBodyCheck;

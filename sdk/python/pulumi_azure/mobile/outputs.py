@@ -28,6 +28,7 @@ __all__ = [
     'NetworkSimPolicySliceDataNetwork',
     'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate',
     'NetworkSimPolicyUserEquipmentAggregateMaximumBitRate',
+    'NetworkSimStaticIpConfiguration',
     'NetworkSliceSingleNetworkSliceSelectionAssistanceInformation',
     'GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult',
     'GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult',
@@ -46,6 +47,7 @@ __all__ = [
     'GetNetworkSimPolicySliceDataNetworkResult',
     'GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateResult',
     'GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult',
+    'GetNetworkSimStaticIpConfigurationResult',
     'GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationResult',
 ]
 
@@ -1155,6 +1157,64 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRate(dict):
 
 
 @pulumi.output_type
+class NetworkSimStaticIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachedDataNetworkId":
+            suggest = "attached_data_network_id"
+        elif key == "sliceId":
+            suggest = "slice_id"
+        elif key == "staticIpv4Address":
+            suggest = "static_ipv4_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSimStaticIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSimStaticIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSimStaticIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attached_data_network_id: str,
+                 slice_id: str,
+                 static_ipv4_address: Optional[str] = None):
+        """
+        :param str attached_data_network_id: The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        :param str static_ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+        """
+        pulumi.set(__self__, "attached_data_network_id", attached_data_network_id)
+        pulumi.set(__self__, "slice_id", slice_id)
+        if static_ipv4_address is not None:
+            pulumi.set(__self__, "static_ipv4_address", static_ipv4_address)
+
+    @property
+    @pulumi.getter(name="attachedDataNetworkId")
+    def attached_data_network_id(self) -> str:
+        """
+        The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        """
+        return pulumi.get(self, "attached_data_network_id")
+
+    @property
+    @pulumi.getter(name="sliceId")
+    def slice_id(self) -> str:
+        return pulumi.get(self, "slice_id")
+
+    @property
+    @pulumi.getter(name="staticIpv4Address")
+    def static_ipv4_address(self) -> Optional[str]:
+        """
+        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+        """
+        return pulumi.get(self, "static_ipv4_address")
+
+
+@pulumi.output_type
 class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2023,6 +2083,42 @@ class GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult(dict):
         Uplink bit rate.
         """
         return pulumi.get(self, "uplink")
+
+
+@pulumi.output_type
+class GetNetworkSimStaticIpConfigurationResult(dict):
+    def __init__(__self__, *,
+                 attached_data_network_id: str,
+                 slice_id: str,
+                 static_ipv4_address: str):
+        """
+        :param str attached_data_network_id: The ID of attached data network on which the static.
+        :param str static_ipv4_address: The IPv4 address assigned to the SIM at this network scope.
+        """
+        pulumi.set(__self__, "attached_data_network_id", attached_data_network_id)
+        pulumi.set(__self__, "slice_id", slice_id)
+        pulumi.set(__self__, "static_ipv4_address", static_ipv4_address)
+
+    @property
+    @pulumi.getter(name="attachedDataNetworkId")
+    def attached_data_network_id(self) -> str:
+        """
+        The ID of attached data network on which the static.
+        """
+        return pulumi.get(self, "attached_data_network_id")
+
+    @property
+    @pulumi.getter(name="sliceId")
+    def slice_id(self) -> str:
+        return pulumi.get(self, "slice_id")
+
+    @property
+    @pulumi.getter(name="staticIpv4Address")
+    def static_ipv4_address(self) -> str:
+        """
+        The IPv4 address assigned to the SIM at this network scope.
+        """
+        return pulumi.get(self, "static_ipv4_address")
 
 
 @pulumi.output_type

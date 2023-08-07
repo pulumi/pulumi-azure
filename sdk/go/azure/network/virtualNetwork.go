@@ -109,6 +109,8 @@ type VirtualNetwork struct {
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
+	// A `encryption` block as defined below.
+	Encryption VirtualNetworkEncryptionPtrOutput `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the virtual network.
@@ -177,6 +179,8 @@ type virtualNetworkState struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
+	// A `encryption` block as defined below.
+	Encryption *VirtualNetworkEncryption `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the virtual network.
@@ -210,6 +214,8 @@ type VirtualNetworkState struct {
 	DnsServers pulumi.StringArrayInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone pulumi.StringPtrInput
+	// A `encryption` block as defined below.
+	Encryption VirtualNetworkEncryptionPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The GUID of the virtual network.
@@ -247,6 +253,8 @@ type virtualNetworkArgs struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
+	// A `encryption` block as defined below.
+	Encryption *VirtualNetworkEncryption `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -279,6 +287,8 @@ type VirtualNetworkArgs struct {
 	DnsServers pulumi.StringArrayInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 	EdgeZone pulumi.StringPtrInput
+	// A `encryption` block as defined below.
+	Encryption VirtualNetworkEncryptionPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -409,6 +419,11 @@ func (o VirtualNetworkOutput) DnsServers() pulumi.StringArrayOutput {
 // Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
 func (o VirtualNetworkOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
+}
+
+// A `encryption` block as defined below.
+func (o VirtualNetworkOutput) Encryption() VirtualNetworkEncryptionPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkEncryptionPtrOutput { return v.Encryption }).(VirtualNetworkEncryptionPtrOutput)
 }
 
 // The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.

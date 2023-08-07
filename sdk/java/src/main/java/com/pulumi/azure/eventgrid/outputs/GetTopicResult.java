@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTopicResult {
@@ -34,7 +33,7 @@ public final class GetTopicResult {
      * 
      */
     private String secondaryAccessKey;
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
 
     private GetTopicResult() {}
     /**
@@ -75,7 +74,7 @@ public final class GetTopicResult {
         return this.secondaryAccessKey;
     }
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -94,7 +93,7 @@ public final class GetTopicResult {
         private String primaryAccessKey;
         private String resourceGroupName;
         private String secondaryAccessKey;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -144,8 +143,8 @@ public final class GetTopicResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-            this.tags = tags;
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public GetTopicResult build() {

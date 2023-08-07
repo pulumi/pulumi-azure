@@ -27,6 +27,7 @@ __all__ = [
     'NetworkSimPolicySliceDataNetworkArgs',
     'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs',
     'NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs',
+    'NetworkSimStaticIpConfigurationArgs',
     'NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs',
 ]
 
@@ -1138,6 +1139,55 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
     @uplink.setter
     def uplink(self, value: pulumi.Input[str]):
         pulumi.set(self, "uplink", value)
+
+
+@pulumi.input_type
+class NetworkSimStaticIpConfigurationArgs:
+    def __init__(__self__, *,
+                 attached_data_network_id: pulumi.Input[str],
+                 slice_id: pulumi.Input[str],
+                 static_ipv4_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] attached_data_network_id: The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        :param pulumi.Input[str] static_ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+        """
+        pulumi.set(__self__, "attached_data_network_id", attached_data_network_id)
+        pulumi.set(__self__, "slice_id", slice_id)
+        if static_ipv4_address is not None:
+            pulumi.set(__self__, "static_ipv4_address", static_ipv4_address)
+
+    @property
+    @pulumi.getter(name="attachedDataNetworkId")
+    def attached_data_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        """
+        return pulumi.get(self, "attached_data_network_id")
+
+    @attached_data_network_id.setter
+    def attached_data_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attached_data_network_id", value)
+
+    @property
+    @pulumi.getter(name="sliceId")
+    def slice_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slice_id")
+
+    @slice_id.setter
+    def slice_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slice_id", value)
+
+    @property
+    @pulumi.getter(name="staticIpv4Address")
+    def static_ipv4_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+        """
+        return pulumi.get(self, "static_ipv4_address")
+
+    @static_ipv4_address.setter
+    def static_ipv4_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "static_ipv4_address", value)
 
 
 @pulumi.input_type

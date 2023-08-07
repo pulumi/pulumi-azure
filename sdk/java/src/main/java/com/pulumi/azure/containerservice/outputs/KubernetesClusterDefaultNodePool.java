@@ -191,7 +191,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String type;
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable Boolean ultraSsdEnabled;
@@ -462,7 +462,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<Boolean> ultraSsdEnabled() {

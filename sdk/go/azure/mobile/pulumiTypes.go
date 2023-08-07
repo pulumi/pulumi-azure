@@ -2818,6 +2818,118 @@ func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) Uplink() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type NetworkSimStaticIpConfiguration struct {
+	// The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+	AttachedDataNetworkId string `pulumi:"attachedDataNetworkId"`
+	SliceId               string `pulumi:"sliceId"`
+	// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+	StaticIpv4Address *string `pulumi:"staticIpv4Address"`
+}
+
+// NetworkSimStaticIpConfigurationInput is an input type that accepts NetworkSimStaticIpConfigurationArgs and NetworkSimStaticIpConfigurationOutput values.
+// You can construct a concrete instance of `NetworkSimStaticIpConfigurationInput` via:
+//
+//	NetworkSimStaticIpConfigurationArgs{...}
+type NetworkSimStaticIpConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkSimStaticIpConfigurationOutput() NetworkSimStaticIpConfigurationOutput
+	ToNetworkSimStaticIpConfigurationOutputWithContext(context.Context) NetworkSimStaticIpConfigurationOutput
+}
+
+type NetworkSimStaticIpConfigurationArgs struct {
+	// The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+	AttachedDataNetworkId pulumi.StringInput `pulumi:"attachedDataNetworkId"`
+	SliceId               pulumi.StringInput `pulumi:"sliceId"`
+	// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+	StaticIpv4Address pulumi.StringPtrInput `pulumi:"staticIpv4Address"`
+}
+
+func (NetworkSimStaticIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (i NetworkSimStaticIpConfigurationArgs) ToNetworkSimStaticIpConfigurationOutput() NetworkSimStaticIpConfigurationOutput {
+	return i.ToNetworkSimStaticIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkSimStaticIpConfigurationArgs) ToNetworkSimStaticIpConfigurationOutputWithContext(ctx context.Context) NetworkSimStaticIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimStaticIpConfigurationOutput)
+}
+
+// NetworkSimStaticIpConfigurationArrayInput is an input type that accepts NetworkSimStaticIpConfigurationArray and NetworkSimStaticIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `NetworkSimStaticIpConfigurationArrayInput` via:
+//
+//	NetworkSimStaticIpConfigurationArray{ NetworkSimStaticIpConfigurationArgs{...} }
+type NetworkSimStaticIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkSimStaticIpConfigurationArrayOutput() NetworkSimStaticIpConfigurationArrayOutput
+	ToNetworkSimStaticIpConfigurationArrayOutputWithContext(context.Context) NetworkSimStaticIpConfigurationArrayOutput
+}
+
+type NetworkSimStaticIpConfigurationArray []NetworkSimStaticIpConfigurationInput
+
+func (NetworkSimStaticIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (i NetworkSimStaticIpConfigurationArray) ToNetworkSimStaticIpConfigurationArrayOutput() NetworkSimStaticIpConfigurationArrayOutput {
+	return i.ToNetworkSimStaticIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkSimStaticIpConfigurationArray) ToNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx context.Context) NetworkSimStaticIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimStaticIpConfigurationArrayOutput)
+}
+
+type NetworkSimStaticIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimStaticIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkSimStaticIpConfigurationOutput) ToNetworkSimStaticIpConfigurationOutput() NetworkSimStaticIpConfigurationOutput {
+	return o
+}
+
+func (o NetworkSimStaticIpConfigurationOutput) ToNetworkSimStaticIpConfigurationOutputWithContext(ctx context.Context) NetworkSimStaticIpConfigurationOutput {
+	return o
+}
+
+// The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+func (o NetworkSimStaticIpConfigurationOutput) AttachedDataNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimStaticIpConfiguration) string { return v.AttachedDataNetworkId }).(pulumi.StringOutput)
+}
+
+func (o NetworkSimStaticIpConfigurationOutput) SliceId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimStaticIpConfiguration) string { return v.SliceId }).(pulumi.StringOutput)
+}
+
+// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+func (o NetworkSimStaticIpConfigurationOutput) StaticIpv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSimStaticIpConfiguration) *string { return v.StaticIpv4Address }).(pulumi.StringPtrOutput)
+}
+
+type NetworkSimStaticIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimStaticIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkSimStaticIpConfigurationArrayOutput) ToNetworkSimStaticIpConfigurationArrayOutput() NetworkSimStaticIpConfigurationArrayOutput {
+	return o
+}
+
+func (o NetworkSimStaticIpConfigurationArrayOutput) ToNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx context.Context) NetworkSimStaticIpConfigurationArrayOutput {
+	return o
+}
+
+func (o NetworkSimStaticIpConfigurationArrayOutput) Index(i pulumi.IntInput) NetworkSimStaticIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSimStaticIpConfiguration {
+		return vs[0].([]NetworkSimStaticIpConfiguration)[vs[1].(int)]
+	}).(NetworkSimStaticIpConfigurationOutput)
+}
+
 type NetworkSliceSingleNetworkSliceSelectionAssistanceInformation struct {
 	// Slice differentiator (SD). Must be a 6 digit hex string.
 	SliceDifferentiator *string `pulumi:"sliceDifferentiator"`
@@ -5072,6 +5184,118 @@ func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) Inde
 	}).(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
 }
 
+type GetNetworkSimStaticIpConfiguration struct {
+	// The ID of attached data network on which the static.
+	AttachedDataNetworkId string `pulumi:"attachedDataNetworkId"`
+	SliceId               string `pulumi:"sliceId"`
+	// The IPv4 address assigned to the SIM at this network scope.
+	StaticIpv4Address string `pulumi:"staticIpv4Address"`
+}
+
+// GetNetworkSimStaticIpConfigurationInput is an input type that accepts GetNetworkSimStaticIpConfigurationArgs and GetNetworkSimStaticIpConfigurationOutput values.
+// You can construct a concrete instance of `GetNetworkSimStaticIpConfigurationInput` via:
+//
+//	GetNetworkSimStaticIpConfigurationArgs{...}
+type GetNetworkSimStaticIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimStaticIpConfigurationOutput() GetNetworkSimStaticIpConfigurationOutput
+	ToGetNetworkSimStaticIpConfigurationOutputWithContext(context.Context) GetNetworkSimStaticIpConfigurationOutput
+}
+
+type GetNetworkSimStaticIpConfigurationArgs struct {
+	// The ID of attached data network on which the static.
+	AttachedDataNetworkId pulumi.StringInput `pulumi:"attachedDataNetworkId"`
+	SliceId               pulumi.StringInput `pulumi:"sliceId"`
+	// The IPv4 address assigned to the SIM at this network scope.
+	StaticIpv4Address pulumi.StringInput `pulumi:"staticIpv4Address"`
+}
+
+func (GetNetworkSimStaticIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (i GetNetworkSimStaticIpConfigurationArgs) ToGetNetworkSimStaticIpConfigurationOutput() GetNetworkSimStaticIpConfigurationOutput {
+	return i.ToGetNetworkSimStaticIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimStaticIpConfigurationArgs) ToGetNetworkSimStaticIpConfigurationOutputWithContext(ctx context.Context) GetNetworkSimStaticIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimStaticIpConfigurationOutput)
+}
+
+// GetNetworkSimStaticIpConfigurationArrayInput is an input type that accepts GetNetworkSimStaticIpConfigurationArray and GetNetworkSimStaticIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetNetworkSimStaticIpConfigurationArrayInput` via:
+//
+//	GetNetworkSimStaticIpConfigurationArray{ GetNetworkSimStaticIpConfigurationArgs{...} }
+type GetNetworkSimStaticIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimStaticIpConfigurationArrayOutput() GetNetworkSimStaticIpConfigurationArrayOutput
+	ToGetNetworkSimStaticIpConfigurationArrayOutputWithContext(context.Context) GetNetworkSimStaticIpConfigurationArrayOutput
+}
+
+type GetNetworkSimStaticIpConfigurationArray []GetNetworkSimStaticIpConfigurationInput
+
+func (GetNetworkSimStaticIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (i GetNetworkSimStaticIpConfigurationArray) ToGetNetworkSimStaticIpConfigurationArrayOutput() GetNetworkSimStaticIpConfigurationArrayOutput {
+	return i.ToGetNetworkSimStaticIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimStaticIpConfigurationArray) ToGetNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx context.Context) GetNetworkSimStaticIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimStaticIpConfigurationArrayOutput)
+}
+
+type GetNetworkSimStaticIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimStaticIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (o GetNetworkSimStaticIpConfigurationOutput) ToGetNetworkSimStaticIpConfigurationOutput() GetNetworkSimStaticIpConfigurationOutput {
+	return o
+}
+
+func (o GetNetworkSimStaticIpConfigurationOutput) ToGetNetworkSimStaticIpConfigurationOutputWithContext(ctx context.Context) GetNetworkSimStaticIpConfigurationOutput {
+	return o
+}
+
+// The ID of attached data network on which the static.
+func (o GetNetworkSimStaticIpConfigurationOutput) AttachedDataNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimStaticIpConfiguration) string { return v.AttachedDataNetworkId }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkSimStaticIpConfigurationOutput) SliceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimStaticIpConfiguration) string { return v.SliceId }).(pulumi.StringOutput)
+}
+
+// The IPv4 address assigned to the SIM at this network scope.
+func (o GetNetworkSimStaticIpConfigurationOutput) StaticIpv4Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimStaticIpConfiguration) string { return v.StaticIpv4Address }).(pulumi.StringOutput)
+}
+
+type GetNetworkSimStaticIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimStaticIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimStaticIpConfiguration)(nil)).Elem()
+}
+
+func (o GetNetworkSimStaticIpConfigurationArrayOutput) ToGetNetworkSimStaticIpConfigurationArrayOutput() GetNetworkSimStaticIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimStaticIpConfigurationArrayOutput) ToGetNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx context.Context) GetNetworkSimStaticIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimStaticIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetNetworkSimStaticIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkSimStaticIpConfiguration {
+		return vs[0].([]GetNetworkSimStaticIpConfiguration)[vs[1].(int)]
+	}).(GetNetworkSimStaticIpConfigurationOutput)
+}
+
 type GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation struct {
 	// Slice differentiator (SD).
 	SliceDifferentiator string `pulumi:"sliceDifferentiator"`
@@ -5214,6 +5438,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput)(nil)).Elem(), NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput)(nil)).Elem(), NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput)(nil)).Elem(), NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimStaticIpConfigurationInput)(nil)).Elem(), NetworkSimStaticIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimStaticIpConfigurationArrayInput)(nil)).Elem(), NetworkSimStaticIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAttachedDataNetworkNetworkAddressPortTranslationInput)(nil)).Elem(), GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs{})
@@ -5250,6 +5476,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput)(nil)).Elem(), GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimStaticIpConfigurationInput)(nil)).Elem(), GetNetworkSimStaticIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimStaticIpConfigurationArrayInput)(nil)).Elem(), GetNetworkSimStaticIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray{})
 	pulumi.RegisterOutputType(NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput{})
@@ -5285,6 +5513,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput{})
 	pulumi.RegisterOutputType(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput{})
 	pulumi.RegisterOutputType(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput{})
+	pulumi.RegisterOutputType(NetworkSimStaticIpConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkSimStaticIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput{})
 	pulumi.RegisterOutputType(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput{})
@@ -5321,6 +5551,8 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput{})
 	pulumi.RegisterOutputType(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimStaticIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimStaticIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput{})
 	pulumi.RegisterOutputType(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput{})
 }

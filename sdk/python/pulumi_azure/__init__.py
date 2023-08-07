@@ -80,6 +80,8 @@ if typing.TYPE_CHECKING:
     cosmosdb = __cosmosdb
     import pulumi_azure.costmanagement as __costmanagement
     costmanagement = __costmanagement
+    import pulumi_azure.customip as __customip
+    customip = __customip
     import pulumi_azure.dashboard as __dashboard
     dashboard = __dashboard
     import pulumi_azure.databasemigration as __databasemigration
@@ -294,6 +296,7 @@ else:
     core = _utilities.lazy_import('pulumi_azure.core')
     cosmosdb = _utilities.lazy_import('pulumi_azure.cosmosdb')
     costmanagement = _utilities.lazy_import('pulumi_azure.costmanagement')
+    customip = _utilities.lazy_import('pulumi_azure.customip')
     dashboard = _utilities.lazy_import('pulumi_azure.dashboard')
     databasemigration = _utilities.lazy_import('pulumi_azure.databasemigration')
     databoxedge = _utilities.lazy_import('pulumi_azure.databoxedge')
@@ -1633,6 +1636,14 @@ _utilities.register(
   "fqn": "pulumi_azure.automation",
   "classes": {
    "azure:automation/stringVariable:StringVariable": "StringVariable"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "automation/variableObject",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/variableObject:VariableObject": "VariableObject"
   }
  },
  {
@@ -2977,6 +2988,14 @@ _utilities.register(
   "fqn": "pulumi_azure.costmanagement",
   "classes": {
    "azure:costmanagement/scheduledAction:ScheduledAction": "ScheduledAction"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "customip/prefix",
+  "fqn": "pulumi_azure.customip",
+  "classes": {
+   "azure:customip/prefix:Prefix": "Prefix"
   }
  },
  {
@@ -5393,6 +5412,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mobile",
   "classes": {
    "azure:mobile/networkService:NetworkService": "NetworkService"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/networkSim",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkSim:NetworkSim": "NetworkSim"
   }
  },
  {

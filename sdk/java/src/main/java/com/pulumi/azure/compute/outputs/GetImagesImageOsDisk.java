@@ -21,6 +21,11 @@ public final class GetImagesImageOsDisk {
      */
     private String caching;
     /**
+     * @return the ID of the Disk Encryption Set used to encrypt this image.
+     * 
+     */
+    private String diskEncryptionSetId;
+    /**
      * @return the ID of the Managed Disk used as the Data Disk Image.
      * 
      */
@@ -55,6 +60,13 @@ public final class GetImagesImageOsDisk {
      */
     public String caching() {
         return this.caching;
+    }
+    /**
+     * @return the ID of the Disk Encryption Set used to encrypt this image.
+     * 
+     */
+    public String diskEncryptionSetId() {
+        return this.diskEncryptionSetId;
     }
     /**
      * @return the ID of the Managed Disk used as the Data Disk Image.
@@ -96,6 +108,7 @@ public final class GetImagesImageOsDisk {
     public static final class Builder {
         private String blobUri;
         private String caching;
+        private String diskEncryptionSetId;
         private String managedDiskId;
         private String osState;
         private String osType;
@@ -105,6 +118,7 @@ public final class GetImagesImageOsDisk {
     	      Objects.requireNonNull(defaults);
     	      this.blobUri = defaults.blobUri;
     	      this.caching = defaults.caching;
+    	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.managedDiskId = defaults.managedDiskId;
     	      this.osState = defaults.osState;
     	      this.osType = defaults.osType;
@@ -119,6 +133,11 @@ public final class GetImagesImageOsDisk {
         @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder diskEncryptionSetId(String diskEncryptionSetId) {
+            this.diskEncryptionSetId = Objects.requireNonNull(diskEncryptionSetId);
             return this;
         }
         @CustomType.Setter
@@ -145,6 +164,7 @@ public final class GetImagesImageOsDisk {
             final var o = new GetImagesImageOsDisk();
             o.blobUri = blobUri;
             o.caching = caching;
+            o.diskEncryptionSetId = diskEncryptionSetId;
             o.managedDiskId = managedDiskId;
             o.osState = osState;
             o.osType = osType;

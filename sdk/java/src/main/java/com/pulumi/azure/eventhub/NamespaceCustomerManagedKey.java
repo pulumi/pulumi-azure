@@ -10,8 +10,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -160,6 +162,20 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      */
     public Output<String> eventhubNamespaceId() {
         return this.eventhubNamespaceId;
+    }
+    /**
+     * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
+
+    /**
+     * @return Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> infrastructureEncryptionEnabled() {
+        return Codegen.optional(this.infrastructureEncryptionEnabled);
     }
     /**
      * The list of keys of Key Vault.

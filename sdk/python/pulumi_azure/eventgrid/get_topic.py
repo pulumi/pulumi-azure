@@ -96,7 +96,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
 
 
@@ -118,7 +118,6 @@ class AwaitableGetTopicResult(GetTopicResult):
 
 def get_topic(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
-              tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Use this data source to access information about an existing EventGrid Topic
@@ -140,7 +139,6 @@ def get_topic(name: Optional[str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:eventgrid/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
@@ -158,7 +156,6 @@ def get_topic(name: Optional[str] = None,
 @_utilities.lift_output_func(get_topic)
 def get_topic_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Use this data source to access information about an existing EventGrid Topic

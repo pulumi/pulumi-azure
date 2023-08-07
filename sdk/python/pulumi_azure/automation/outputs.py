@@ -43,6 +43,7 @@ __all__ = [
     'GetVariablesEncryptedResult',
     'GetVariablesIntResult',
     'GetVariablesNullResult',
+    'GetVariablesObjectResult',
     'GetVariablesStringResult',
 ]
 
@@ -1817,6 +1818,64 @@ class GetVariablesIntResult(dict):
 
 @pulumi.output_type
 class GetVariablesNullResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 encrypted: bool,
+                 id: str,
+                 name: str,
+                 value: str):
+        """
+        :param str description: The description of the Automation Variable.
+        :param bool encrypted: Specifies if the Automation Variable is encrypted.
+        :param str name: The name of the Automation Variable.
+        :param str value: The value of the Automation Variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the Automation Variable.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the Automation Variable is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Automation Variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVariablesObjectResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,

@@ -35,6 +35,11 @@ export const getNetworkService: typeof import("./getNetworkService").getNetworkS
 export const getNetworkServiceOutput: typeof import("./getNetworkService").getNetworkServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkService","getNetworkServiceOutput"], () => require("./getNetworkService"));
 
+export { GetNetworkSimArgs, GetNetworkSimResult, GetNetworkSimOutputArgs } from "./getNetworkSim";
+export const getNetworkSim: typeof import("./getNetworkSim").getNetworkSim = null as any;
+export const getNetworkSimOutput: typeof import("./getNetworkSim").getNetworkSimOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSim","getNetworkSimOutput"], () => require("./getNetworkSim"));
+
 export { GetNetworkSimGroupArgs, GetNetworkSimGroupResult, GetNetworkSimGroupOutputArgs } from "./getNetworkSimGroup";
 export const getNetworkSimGroup: typeof import("./getNetworkSimGroup").getNetworkSimGroup = null as any;
 export const getNetworkSimGroupOutput: typeof import("./getNetworkSimGroup").getNetworkSimGroupOutput = null as any;
@@ -85,6 +90,11 @@ export type NetworkService = import("./networkService").NetworkService;
 export const NetworkService: typeof import("./networkService").NetworkService = null as any;
 utilities.lazyLoad(exports, ["NetworkService"], () => require("./networkService"));
 
+export { NetworkSimArgs, NetworkSimState } from "./networkSim";
+export type NetworkSim = import("./networkSim").NetworkSim;
+export const NetworkSim: typeof import("./networkSim").NetworkSim = null as any;
+utilities.lazyLoad(exports, ["NetworkSim"], () => require("./networkSim"));
+
 export { NetworkSimGroupArgs, NetworkSimGroupState } from "./networkSimGroup";
 export type NetworkSimGroup = import("./networkSimGroup").NetworkSimGroup;
 export const NetworkSimGroup: typeof import("./networkSimGroup").NetworkSimGroup = null as any;
@@ -122,6 +132,8 @@ const _module = {
                 return new NetworkPacketCoreDataPlane(name, <any>undefined, { urn })
             case "azure:mobile/networkService:NetworkService":
                 return new NetworkService(name, <any>undefined, { urn })
+            case "azure:mobile/networkSim:NetworkSim":
+                return new NetworkSim(name, <any>undefined, { urn })
             case "azure:mobile/networkSimGroup:NetworkSimGroup":
                 return new NetworkSimGroup(name, <any>undefined, { urn })
             case "azure:mobile/networkSimPolicy:NetworkSimPolicy":
@@ -141,6 +153,7 @@ pulumi.runtime.registerResourceModule("azure", "mobile/networkDataNetwork", _mod
 pulumi.runtime.registerResourceModule("azure", "mobile/networkPacketCoreControlPlane", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkPacketCoreDataPlane", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkService", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkSim", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSimGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSimPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSite", _module)

@@ -136,6 +136,7 @@ __all__ = [
     'VirtualHubRoute',
     'VirtualHubRouteTableRoute',
     'VirtualNetworkDdosProtectionPlan',
+    'VirtualNetworkEncryption',
     'VirtualNetworkGatewayBgpSettings',
     'VirtualNetworkGatewayBgpSettingsPeeringAddress',
     'VirtualNetworkGatewayConnectionCustomBgpAddresses',
@@ -9693,6 +9694,24 @@ class VirtualNetworkDdosProtectionPlan(dict):
         The ID of DDoS Protection Plan.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class VirtualNetworkEncryption(dict):
+    def __init__(__self__, *,
+                 enforcement: str):
+        """
+        :param str enforcement: Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+        """
+        pulumi.set(__self__, "enforcement", enforcement)
+
+    @property
+    @pulumi.getter
+    def enforcement(self) -> str:
+        """
+        Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+        """
+        return pulumi.get(self, "enforcement")
 
 
 @pulumi.output_type
