@@ -113,6 +113,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
+     * A `encryption` block as defined below.
+     */
+    public readonly encryption!: pulumi.Output<outputs.network.VirtualNetworkEncryption | undefined>;
+    /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
     public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
@@ -161,6 +165,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -181,6 +186,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -222,6 +228,10 @@ export interface VirtualNetworkState {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
      */
     edgeZone?: pulumi.Input<string>;
+    /**
+     * A `encryption` block as defined below.
+     */
+    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryption>;
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
@@ -282,6 +292,10 @@ export interface VirtualNetworkArgs {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
      */
     edgeZone?: pulumi.Input<string>;
+    /**
+     * A `encryption` block as defined below.
+     */
+    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryption>;
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */

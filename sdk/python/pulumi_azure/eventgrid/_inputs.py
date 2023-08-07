@@ -77,7 +77,6 @@ __all__ = [
     'TopicInboundIpRuleArgs',
     'TopicInputMappingDefaultValuesArgs',
     'TopicInputMappingFieldsArgs',
-    'GetDomainInboundIpRuleArgs',
 ]
 
 @pulumi.input_type
@@ -3814,43 +3813,5 @@ class TopicInputMappingFieldsArgs:
     @topic.setter
     def topic(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic", value)
-
-
-@pulumi.input_type
-class GetDomainInboundIpRuleArgs:
-    def __init__(__self__, *,
-                 ip_mask: str,
-                 action: Optional[str] = None):
-        """
-        :param str ip_mask: The IP mask (CIDR) to match on.
-        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
-        """
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> str:
-        """
-        The IP mask (CIDR) to match on.
-        """
-        return pulumi.get(self, "ip_mask")
-
-    @ip_mask.setter
-    def ip_mask(self, value: str):
-        pulumi.set(self, "ip_mask", value)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[str]:
-        """
-        The action to take when the rule is matched. Possible values are `Allow`.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: Optional[str]):
-        pulumi.set(self, "action", value)
 
 

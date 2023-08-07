@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Caching;
         /// <summary>
+        /// the ID of the Disk Encryption Set used to encrypt this image.
+        /// </summary>
+        public readonly string DiskEncryptionSetId;
+        /// <summary>
         /// the ID of the Managed Disk used as the Data Disk Image.
         /// </summary>
         public readonly string ManagedDiskId;
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string caching,
 
+            string diskEncryptionSetId,
+
             string managedDiskId,
 
             string osState,
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.Compute.Outputs
         {
             BlobUri = blobUri;
             Caching = caching;
+            DiskEncryptionSetId = diskEncryptionSetId;
             ManagedDiskId = managedDiskId;
             OsState = osState;
             OsType = osType;

@@ -20289,6 +20289,44 @@ export namespace compute {
         vhdContainers?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface SharedImageGallerySharing {
+        /**
+         * A `communityGallery` block as defined below. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+         */
+        communityGallery?: pulumi.Input<inputs.compute.SharedImageGallerySharingCommunityGallery>;
+        /**
+         * The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+         */
+        permission: pulumi.Input<string>;
+    }
+
+    export interface SharedImageGallerySharingCommunityGallery {
+        /**
+         * The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        eula: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        prefix: pulumi.Input<string>;
+        /**
+         * Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        publisherEmail: pulumi.Input<string>;
+        /**
+         * URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        publisherUri: pulumi.Input<string>;
+    }
+
     export interface SharedImageIdentifier {
         /**
          * The Offer Name for this Shared Image. Changing this forces a new resource to be created.
@@ -23259,7 +23297,7 @@ export namespace containerservice {
          */
         type?: pulumi.Input<string>;
         /**
-         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporaryNameForRotation` must be specified when attempting a change.
          */
         ultraSsdEnabled?: pulumi.Input<boolean>;
         /**
@@ -29105,28 +29143,6 @@ export namespace eventgrid {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
-    }
-
-    export interface GetDomainInboundIpRule {
-        /**
-         * The action to take when the rule is matched. Possible values are `Allow`.
-         */
-        action?: string;
-        /**
-         * The IP mask (CIDR) to match on.
-         */
-        ipMask: string;
-    }
-
-    export interface GetDomainInboundIpRuleArgs {
-        /**
-         * The action to take when the rule is matched. Possible values are `Allow`.
-         */
-        action?: pulumi.Input<string>;
-        /**
-         * The IP mask (CIDR) to match on.
-         */
-        ipMask: pulumi.Input<string>;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilter {
@@ -38627,6 +38643,18 @@ export namespace mobile {
         uplink: pulumi.Input<string>;
     }
 
+    export interface NetworkSimStaticIpConfiguration {
+        /**
+         * The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+         */
+        attachedDataNetworkId: pulumi.Input<string>;
+        sliceId: pulumi.Input<string>;
+        /**
+         * The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+         */
+        staticIpv4Address?: pulumi.Input<string>;
+    }
+
     export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
         /**
          * Slice differentiator (SD). Must be a 6 digit hex string.
@@ -41876,7 +41904,7 @@ export namespace netapp {
          */
         proximityPlacementGroupId?: pulumi.Input<string>;
         /**
-         * Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         securityStyle: pulumi.Input<string>;
         /**
@@ -44600,6 +44628,13 @@ export namespace network {
          * The ID of DDoS Protection Plan.
          */
         id: pulumi.Input<string>;
+    }
+
+    export interface VirtualNetworkEncryption {
+        /**
+         * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+         */
+        enforcement: pulumi.Input<string>;
     }
 
     export interface VirtualNetworkGatewayBgpSettings {
@@ -50448,6 +50483,10 @@ export namespace waf {
          */
         fileUploadLimitInMb?: pulumi.Input<number>;
         /**
+         * One `logScrubbing` block as defined below.
+         */
+        logScrubbing?: pulumi.Input<inputs.waf.PolicyPolicySettingsLogScrubbing>;
+        /**
          * The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
          */
         maxRequestBodySizeInKb?: pulumi.Input<number>;
@@ -50459,6 +50498,36 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: pulumi.Input<boolean>;
+    }
+
+    export interface PolicyPolicySettingsLogScrubbing {
+        /**
+         * Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `scrubbingRule` as define below.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyPolicySettingsLogScrubbingRule>[]>;
+    }
+
+    export interface PolicyPolicySettingsLogScrubbingRule {
+        /**
+         * Describes if the managed rule is in enabled state or disabled state.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+         */
+        matchVariable: pulumi.Input<string>;
+        /**
+         * Describes field of the matchVariable collection
+         */
+        selector?: pulumi.Input<string>;
+        /**
+         * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+         */
+        selectorMatchOperator?: pulumi.Input<string>;
     }
 }
 

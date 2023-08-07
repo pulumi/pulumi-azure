@@ -14,6 +14,8 @@ import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
 import com.pulumi.azure.automation.inputs.GetIntVariablePlainArgs;
 import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
 import com.pulumi.azure.automation.inputs.GetStringVariablePlainArgs;
+import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
+import com.pulumi.azure.automation.inputs.GetVariableObjectPlainArgs;
 import com.pulumi.azure.automation.inputs.GetVariablesArgs;
 import com.pulumi.azure.automation.inputs.GetVariablesPlainArgs;
 import com.pulumi.azure.automation.outputs.GetAccountResult;
@@ -21,6 +23,7 @@ import com.pulumi.azure.automation.outputs.GetBoolVariableResult;
 import com.pulumi.azure.automation.outputs.GetDateTimeVariableResult;
 import com.pulumi.azure.automation.outputs.GetIntVariableResult;
 import com.pulumi.azure.automation.outputs.GetStringVariableResult;
+import com.pulumi.azure.automation.outputs.GetVariableObjectResult;
 import com.pulumi.azure.automation.outputs.GetVariablesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -824,6 +827,34 @@ public final class AutomationFunctions {
      */
     public static CompletableFuture<GetStringVariableResult> getStringVariablePlain(GetStringVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:automation/getStringVariable:getStringVariable", TypeShape.of(GetStringVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     */
+    public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args) {
+        return getVariableObject(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     */
+    public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args) {
+        return getVariableObjectPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     */
+    public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     */
+    public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get all variables in an Automation Account.

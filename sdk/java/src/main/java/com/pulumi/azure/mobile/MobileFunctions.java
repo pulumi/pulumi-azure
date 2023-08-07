@@ -16,8 +16,10 @@ import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlanePlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkServiceArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkServicePlainArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupPlainArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkSimPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
@@ -32,6 +34,7 @@ import com.pulumi.azure.mobile.outputs.GetNetworkResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkServiceResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSimGroupResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSimPolicyResult;
+import com.pulumi.azure.mobile.outputs.GetNetworkSimResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSiteResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSliceResult;
 import com.pulumi.core.Output;
@@ -1048,6 +1051,186 @@ public final class MobileFunctions {
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkService:getNetworkService", TypeShape.of(GetNetworkServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Mobile Network Sim.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
+     *             .name(&#34;example-mnsg&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
+     *             .name(&#34;example-sim&#34;)
+     *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args) {
+        return getNetworkSim(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Mobile Network Sim.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
+     *             .name(&#34;example-mnsg&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
+     *             .name(&#34;example-sim&#34;)
+     *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args) {
+        return getNetworkSimPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Mobile Network Sim.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
+     *             .name(&#34;example-mnsg&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
+     *             .name(&#34;example-sim&#34;)
+     *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mobile/getNetworkSim:getNetworkSim", TypeShape.of(GetNetworkSimResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Mobile Network Sim.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
+     *             .name(&#34;example-mnsg&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
+     *             .name(&#34;example-sim&#34;)
+     *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkSim:getNetworkSim", TypeShape.of(GetNetworkSimResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Sim Group.

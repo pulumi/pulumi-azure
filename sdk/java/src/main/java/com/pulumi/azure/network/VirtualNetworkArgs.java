@@ -4,6 +4,7 @@
 package com.pulumi.azure.network;
 
 import com.pulumi.azure.network.inputs.VirtualNetworkDdosProtectionPlanArgs;
+import com.pulumi.azure.network.inputs.VirtualNetworkEncryptionArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkSubnetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -101,6 +102,21 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> edgeZone() {
         return Optional.ofNullable(this.edgeZone);
+    }
+
+    /**
+     * A `encryption` block as defined below.
+     * 
+     */
+    @Import(name="encryption")
+    private @Nullable Output<VirtualNetworkEncryptionArgs> encryption;
+
+    /**
+     * @return A `encryption` block as defined below.
+     * 
+     */
+    public Optional<Output<VirtualNetworkEncryptionArgs>> encryption() {
+        return Optional.ofNullable(this.encryption);
     }
 
     /**
@@ -205,6 +221,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         this.ddosProtectionPlan = $.ddosProtectionPlan;
         this.dnsServers = $.dnsServers;
         this.edgeZone = $.edgeZone;
+        this.encryption = $.encryption;
         this.flowTimeoutInMinutes = $.flowTimeoutInMinutes;
         this.location = $.location;
         this.name = $.name;
@@ -364,6 +381,27 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
+        }
+
+        /**
+         * @param encryption A `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(@Nullable Output<VirtualNetworkEncryptionArgs> encryption) {
+            $.encryption = encryption;
+            return this;
+        }
+
+        /**
+         * @param encryption A `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(VirtualNetworkEncryptionArgs encryption) {
+            return encryption(Output.of(encryption));
         }
 
         /**

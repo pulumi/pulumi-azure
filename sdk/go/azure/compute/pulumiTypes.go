@@ -16890,6 +16890,393 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+type SharedImageGallerySharing struct {
+	// A `communityGallery` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+	CommunityGallery *SharedImageGallerySharingCommunityGallery `pulumi:"communityGallery"`
+	// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+	Permission string `pulumi:"permission"`
+}
+
+// SharedImageGallerySharingInput is an input type that accepts SharedImageGallerySharingArgs and SharedImageGallerySharingOutput values.
+// You can construct a concrete instance of `SharedImageGallerySharingInput` via:
+//
+//	SharedImageGallerySharingArgs{...}
+type SharedImageGallerySharingInput interface {
+	pulumi.Input
+
+	ToSharedImageGallerySharingOutput() SharedImageGallerySharingOutput
+	ToSharedImageGallerySharingOutputWithContext(context.Context) SharedImageGallerySharingOutput
+}
+
+type SharedImageGallerySharingArgs struct {
+	// A `communityGallery` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+	CommunityGallery SharedImageGallerySharingCommunityGalleryPtrInput `pulumi:"communityGallery"`
+	// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+	Permission pulumi.StringInput `pulumi:"permission"`
+}
+
+func (SharedImageGallerySharingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageGallerySharing)(nil)).Elem()
+}
+
+func (i SharedImageGallerySharingArgs) ToSharedImageGallerySharingOutput() SharedImageGallerySharingOutput {
+	return i.ToSharedImageGallerySharingOutputWithContext(context.Background())
+}
+
+func (i SharedImageGallerySharingArgs) ToSharedImageGallerySharingOutputWithContext(ctx context.Context) SharedImageGallerySharingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGallerySharingOutput)
+}
+
+func (i SharedImageGallerySharingArgs) ToSharedImageGallerySharingPtrOutput() SharedImageGallerySharingPtrOutput {
+	return i.ToSharedImageGallerySharingPtrOutputWithContext(context.Background())
+}
+
+func (i SharedImageGallerySharingArgs) ToSharedImageGallerySharingPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGallerySharingOutput).ToSharedImageGallerySharingPtrOutputWithContext(ctx)
+}
+
+// SharedImageGallerySharingPtrInput is an input type that accepts SharedImageGallerySharingArgs, SharedImageGallerySharingPtr and SharedImageGallerySharingPtrOutput values.
+// You can construct a concrete instance of `SharedImageGallerySharingPtrInput` via:
+//
+//	        SharedImageGallerySharingArgs{...}
+//
+//	or:
+//
+//	        nil
+type SharedImageGallerySharingPtrInput interface {
+	pulumi.Input
+
+	ToSharedImageGallerySharingPtrOutput() SharedImageGallerySharingPtrOutput
+	ToSharedImageGallerySharingPtrOutputWithContext(context.Context) SharedImageGallerySharingPtrOutput
+}
+
+type sharedImageGallerySharingPtrType SharedImageGallerySharingArgs
+
+func SharedImageGallerySharingPtr(v *SharedImageGallerySharingArgs) SharedImageGallerySharingPtrInput {
+	return (*sharedImageGallerySharingPtrType)(v)
+}
+
+func (*sharedImageGallerySharingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageGallerySharing)(nil)).Elem()
+}
+
+func (i *sharedImageGallerySharingPtrType) ToSharedImageGallerySharingPtrOutput() SharedImageGallerySharingPtrOutput {
+	return i.ToSharedImageGallerySharingPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImageGallerySharingPtrType) ToSharedImageGallerySharingPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGallerySharingPtrOutput)
+}
+
+type SharedImageGallerySharingOutput struct{ *pulumi.OutputState }
+
+func (SharedImageGallerySharingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageGallerySharing)(nil)).Elem()
+}
+
+func (o SharedImageGallerySharingOutput) ToSharedImageGallerySharingOutput() SharedImageGallerySharingOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingOutput) ToSharedImageGallerySharingOutputWithContext(ctx context.Context) SharedImageGallerySharingOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingOutput) ToSharedImageGallerySharingPtrOutput() SharedImageGallerySharingPtrOutput {
+	return o.ToSharedImageGallerySharingPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImageGallerySharingOutput) ToSharedImageGallerySharingPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageGallerySharing) *SharedImageGallerySharing {
+		return &v
+	}).(SharedImageGallerySharingPtrOutput)
+}
+
+// A `communityGallery` block as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+func (o SharedImageGallerySharingOutput) CommunityGallery() SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return o.ApplyT(func(v SharedImageGallerySharing) *SharedImageGallerySharingCommunityGallery {
+		return v.CommunityGallery
+	}).(SharedImageGallerySharingCommunityGalleryPtrOutput)
+}
+
+// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+func (o SharedImageGallerySharingOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageGallerySharing) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+type SharedImageGallerySharingPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedImageGallerySharingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageGallerySharing)(nil)).Elem()
+}
+
+func (o SharedImageGallerySharingPtrOutput) ToSharedImageGallerySharingPtrOutput() SharedImageGallerySharingPtrOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingPtrOutput) ToSharedImageGallerySharingPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingPtrOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingPtrOutput) Elem() SharedImageGallerySharingOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharing) SharedImageGallerySharing {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImageGallerySharing
+		return ret
+	}).(SharedImageGallerySharingOutput)
+}
+
+// A `communityGallery` block as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+func (o SharedImageGallerySharingPtrOutput) CommunityGallery() SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharing) *SharedImageGallerySharingCommunityGallery {
+		if v == nil {
+			return nil
+		}
+		return v.CommunityGallery
+	}).(SharedImageGallerySharingCommunityGalleryPtrOutput)
+}
+
+// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+func (o SharedImageGallerySharingPtrOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharing) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Permission
+	}).(pulumi.StringPtrOutput)
+}
+
+type SharedImageGallerySharingCommunityGallery struct {
+	// The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+	Eula string `pulumi:"eula"`
+	// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+	Prefix string `pulumi:"prefix"`
+	// Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+	PublisherEmail string `pulumi:"publisherEmail"`
+	// URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+	PublisherUri string `pulumi:"publisherUri"`
+}
+
+// SharedImageGallerySharingCommunityGalleryInput is an input type that accepts SharedImageGallerySharingCommunityGalleryArgs and SharedImageGallerySharingCommunityGalleryOutput values.
+// You can construct a concrete instance of `SharedImageGallerySharingCommunityGalleryInput` via:
+//
+//	SharedImageGallerySharingCommunityGalleryArgs{...}
+type SharedImageGallerySharingCommunityGalleryInput interface {
+	pulumi.Input
+
+	ToSharedImageGallerySharingCommunityGalleryOutput() SharedImageGallerySharingCommunityGalleryOutput
+	ToSharedImageGallerySharingCommunityGalleryOutputWithContext(context.Context) SharedImageGallerySharingCommunityGalleryOutput
+}
+
+type SharedImageGallerySharingCommunityGalleryArgs struct {
+	// The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+	Eula pulumi.StringInput `pulumi:"eula"`
+	// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+	PublisherEmail pulumi.StringInput `pulumi:"publisherEmail"`
+	// URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+	PublisherUri pulumi.StringInput `pulumi:"publisherUri"`
+}
+
+func (SharedImageGallerySharingCommunityGalleryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageGallerySharingCommunityGallery)(nil)).Elem()
+}
+
+func (i SharedImageGallerySharingCommunityGalleryArgs) ToSharedImageGallerySharingCommunityGalleryOutput() SharedImageGallerySharingCommunityGalleryOutput {
+	return i.ToSharedImageGallerySharingCommunityGalleryOutputWithContext(context.Background())
+}
+
+func (i SharedImageGallerySharingCommunityGalleryArgs) ToSharedImageGallerySharingCommunityGalleryOutputWithContext(ctx context.Context) SharedImageGallerySharingCommunityGalleryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGallerySharingCommunityGalleryOutput)
+}
+
+func (i SharedImageGallerySharingCommunityGalleryArgs) ToSharedImageGallerySharingCommunityGalleryPtrOutput() SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return i.ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(context.Background())
+}
+
+func (i SharedImageGallerySharingCommunityGalleryArgs) ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGallerySharingCommunityGalleryOutput).ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(ctx)
+}
+
+// SharedImageGallerySharingCommunityGalleryPtrInput is an input type that accepts SharedImageGallerySharingCommunityGalleryArgs, SharedImageGallerySharingCommunityGalleryPtr and SharedImageGallerySharingCommunityGalleryPtrOutput values.
+// You can construct a concrete instance of `SharedImageGallerySharingCommunityGalleryPtrInput` via:
+//
+//	        SharedImageGallerySharingCommunityGalleryArgs{...}
+//
+//	or:
+//
+//	        nil
+type SharedImageGallerySharingCommunityGalleryPtrInput interface {
+	pulumi.Input
+
+	ToSharedImageGallerySharingCommunityGalleryPtrOutput() SharedImageGallerySharingCommunityGalleryPtrOutput
+	ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(context.Context) SharedImageGallerySharingCommunityGalleryPtrOutput
+}
+
+type sharedImageGallerySharingCommunityGalleryPtrType SharedImageGallerySharingCommunityGalleryArgs
+
+func SharedImageGallerySharingCommunityGalleryPtr(v *SharedImageGallerySharingCommunityGalleryArgs) SharedImageGallerySharingCommunityGalleryPtrInput {
+	return (*sharedImageGallerySharingCommunityGalleryPtrType)(v)
+}
+
+func (*sharedImageGallerySharingCommunityGalleryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageGallerySharingCommunityGallery)(nil)).Elem()
+}
+
+func (i *sharedImageGallerySharingCommunityGalleryPtrType) ToSharedImageGallerySharingCommunityGalleryPtrOutput() SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return i.ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImageGallerySharingCommunityGalleryPtrType) ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGallerySharingCommunityGalleryPtrOutput)
+}
+
+type SharedImageGallerySharingCommunityGalleryOutput struct{ *pulumi.OutputState }
+
+func (SharedImageGallerySharingCommunityGalleryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageGallerySharingCommunityGallery)(nil)).Elem()
+}
+
+func (o SharedImageGallerySharingCommunityGalleryOutput) ToSharedImageGallerySharingCommunityGalleryOutput() SharedImageGallerySharingCommunityGalleryOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingCommunityGalleryOutput) ToSharedImageGallerySharingCommunityGalleryOutputWithContext(ctx context.Context) SharedImageGallerySharingCommunityGalleryOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingCommunityGalleryOutput) ToSharedImageGallerySharingCommunityGalleryPtrOutput() SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return o.ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImageGallerySharingCommunityGalleryOutput) ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageGallerySharingCommunityGallery) *SharedImageGallerySharingCommunityGallery {
+		return &v
+	}).(SharedImageGallerySharingCommunityGalleryPtrOutput)
+}
+
+// The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryOutput) Eula() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageGallerySharingCommunityGallery) string { return v.Eula }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedImageGallerySharingCommunityGallery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageGallerySharingCommunityGallery) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryOutput) PublisherEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageGallerySharingCommunityGallery) string { return v.PublisherEmail }).(pulumi.StringOutput)
+}
+
+// URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryOutput) PublisherUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImageGallerySharingCommunityGallery) string { return v.PublisherUri }).(pulumi.StringOutput)
+}
+
+type SharedImageGallerySharingCommunityGalleryPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedImageGallerySharingCommunityGalleryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageGallerySharingCommunityGallery)(nil)).Elem()
+}
+
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) ToSharedImageGallerySharingCommunityGalleryPtrOutput() SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) ToSharedImageGallerySharingCommunityGalleryPtrOutputWithContext(ctx context.Context) SharedImageGallerySharingCommunityGalleryPtrOutput {
+	return o
+}
+
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) Elem() SharedImageGallerySharingCommunityGalleryOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharingCommunityGallery) SharedImageGallerySharingCommunityGallery {
+		if v != nil {
+			return *v
+		}
+		var ret SharedImageGallerySharingCommunityGallery
+		return ret
+	}).(SharedImageGallerySharingCommunityGalleryOutput)
+}
+
+// The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) Eula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharingCommunityGallery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Eula
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharingCommunityGallery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharingCommunityGallery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) PublisherEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharingCommunityGallery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublisherEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+func (o SharedImageGallerySharingCommunityGalleryPtrOutput) PublisherUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageGallerySharingCommunityGallery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublisherUri
+	}).(pulumi.StringPtrOutput)
+}
+
 type SharedImageIdentifier struct {
 	// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
 	Offer string `pulumi:"offer"`
@@ -27849,6 +28236,8 @@ type GetImagesImageOsDisk struct {
 	BlobUri string `pulumi:"blobUri"`
 	// the caching mode for the Data Disk.
 	Caching string `pulumi:"caching"`
+	// the ID of the Disk Encryption Set used to encrypt this image.
+	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// the ID of the Managed Disk used as the Data Disk Image.
 	ManagedDiskId string `pulumi:"managedDiskId"`
 	// the State of the OS used in the Image.
@@ -27875,6 +28264,8 @@ type GetImagesImageOsDiskArgs struct {
 	BlobUri pulumi.StringInput `pulumi:"blobUri"`
 	// the caching mode for the Data Disk.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// the ID of the Disk Encryption Set used to encrypt this image.
+	DiskEncryptionSetId pulumi.StringInput `pulumi:"diskEncryptionSetId"`
 	// the ID of the Managed Disk used as the Data Disk Image.
 	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
 	// the State of the OS used in the Image.
@@ -27944,6 +28335,11 @@ func (o GetImagesImageOsDiskOutput) BlobUri() pulumi.StringOutput {
 // the caching mode for the Data Disk.
 func (o GetImagesImageOsDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// the ID of the Disk Encryption Set used to encrypt this image.
+func (o GetImagesImageOsDiskOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
 }
 
 // the ID of the Managed Disk used as the Data Disk Image.
@@ -31177,6 +31573,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileImageReferencePtrInput)(nil)).Elem(), ScaleSetStorageProfileImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileOsDiskInput)(nil)).Elem(), ScaleSetStorageProfileOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileOsDiskPtrInput)(nil)).Elem(), ScaleSetStorageProfileOsDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageGallerySharingInput)(nil)).Elem(), SharedImageGallerySharingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageGallerySharingPtrInput)(nil)).Elem(), SharedImageGallerySharingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageGallerySharingCommunityGalleryInput)(nil)).Elem(), SharedImageGallerySharingCommunityGalleryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageGallerySharingCommunityGalleryPtrInput)(nil)).Elem(), SharedImageGallerySharingCommunityGalleryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageIdentifierInput)(nil)).Elem(), SharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageIdentifierPtrInput)(nil)).Elem(), SharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImagePurchasePlanInput)(nil)).Elem(), SharedImagePurchasePlanArgs{})
@@ -31563,6 +31963,10 @@ func init() {
 	pulumi.RegisterOutputType(ScaleSetStorageProfileImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileOsDiskOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(SharedImageGallerySharingOutput{})
+	pulumi.RegisterOutputType(SharedImageGallerySharingPtrOutput{})
+	pulumi.RegisterOutputType(SharedImageGallerySharingCommunityGalleryOutput{})
+	pulumi.RegisterOutputType(SharedImageGallerySharingCommunityGalleryPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(SharedImageIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(SharedImagePurchasePlanOutput{})

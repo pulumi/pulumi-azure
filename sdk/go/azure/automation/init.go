@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SourceControl{}
 	case "azure:automation/stringVariable:StringVariable":
 		r = &StringVariable{}
+	case "azure:automation/variableObject:VariableObject":
+		r = &VariableObject{}
 	case "azure:automation/watcher:Watcher":
 		r = &Watcher{}
 	case "azure:automation/webhook:Webhook":
@@ -190,6 +192,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"automation/stringVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"automation/variableObject",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

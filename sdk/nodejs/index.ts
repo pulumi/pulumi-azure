@@ -49,6 +49,7 @@ import * as containerservice from "./containerservice";
 import * as core from "./core";
 import * as cosmosdb from "./cosmosdb";
 import * as costmanagement from "./costmanagement";
+import * as customip from "./customip";
 import * as dashboard from "./dashboard";
 import * as databasemigration from "./databasemigration";
 import * as databoxedge from "./databoxedge";
@@ -176,6 +177,7 @@ export {
     core,
     cosmosdb,
     costmanagement,
+    customip,
     dashboard,
     databasemigration,
     databoxedge,

@@ -234,6 +234,8 @@ var moduleMap = map[string]string{
 	"cost_management": azureCostManagement,
 	"cost":            azureCostManagement,
 
+	"custom_ip": "CustomIp",
+
 	"dashboard":               azureDashboard,
 	"database_migration":      azureDatabaseMigration,
 	"databox_edge":            azureDataboxEdge,
@@ -3512,59 +3514,7 @@ func Provider() tfbridge.ProviderInfo {
 					res.Fields[azureLocation] = &tfbridge.SchemaInfo{
 						Name: azureLocation,
 						Default: &tfbridge.DefaultInfo{
-							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
-								// In here we will fetch the resource group property from this resource and
-								// use it to query the Azure API and return the resource group's location. We
-								// maintain a little cache to avoid querying the API too many times. Note that
-								// it's possible (likely) during previews that the location will be unknown, so
-								// we special logic to propagate likewise unknown location values.
-								if rg, has := res.Properties["resourceGroupName"]; has {
-									if rg.IsComputed() || rg.IsOutput() {
-										return tfbridge.TerraformUnknownVariableValue, nil
-									}
-									if rg.IsString() {
-										rgName := rg.StringValue()
-										rgRegion, has := rgRegionMap[rgName]
-										if !has {
-											rgRes := p.ResourcesMap().Get("azurerm_resource_group")
-											contract.Assert(rgRes != nil)
-											importer := rgRes.Importer()
-											contract.Assert(importer != nil)
-											states, err := importer("azurerm_resource_group",
-												fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
-													rg.StringValue()), p.Meta())
-											if err != nil {
-												return nil, err
-											}
-											switch stateLen := len(states); stateLen {
-											case 0:
-												rgRegion = tfbridge.TerraformUnknownVariableValue
-											case 1:
-												state, err := p.Refresh("azurerm_resource_group", states[0])
-												switch {
-												case err != nil:
-													return nil, err
-												case state == nil:
-													rgRegion = tfbridge.TerraformUnknownVariableValue
-												default:
-													obj, err := state.Object(rgRes.Schema())
-													if err != nil {
-														return nil, err
-													}
-													rgRegion = azure.NormalizeLocation(obj["location"])
-												}
-											default:
-												return nil, fmt.Errorf("expected 0 or 1 states for resource group %s",
-													rg.StringValue())
-											}
-											rgRegionMap[rgName] = rgRegion // memoize the value.
-										}
-										return rgRegion, nil
-									}
-								}
-
-								return nil, nil
-							},
+							From: defaultAzureLocation(p, rgRegionMap),
 						},
 					}
 				}
@@ -3573,6 +3523,62 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	return prov
+}
+
+func defaultAzureLocation(p tfshim.Provider, rgRegionMap map[string]string) func(res *tfbridge.PulumiResource) (interface{}, error) {
+	return func(res *tfbridge.PulumiResource) (interface{}, error) {
+		// In here we will fetch the resource group property from this resource and
+		// use it to query the Azure API and return the resource group's location. We
+		// maintain a little cache to avoid querying the API too many times. Note that
+		// it's possible (likely) during previews that the location will be unknown, so
+		// we special logic to propagate likewise unknown location values.
+		if rg, has := res.Properties["resourceGroupName"]; has {
+			if rg.IsComputed() || rg.IsOutput() {
+				return tfbridge.TerraformUnknownVariableValue, nil
+			}
+			if rg.IsString() {
+				rgName := rg.StringValue()
+				rgRegion, has := rgRegionMap[rgName]
+				if !has {
+					rgRes := p.ResourcesMap().Get("azurerm_resource_group")
+					contract.Assert(rgRes != nil)
+					importer := rgRes.Importer()
+					contract.Assert(importer != nil)
+					states, err := importer("azurerm_resource_group",
+						fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
+							rg.StringValue()), p.Meta())
+					if err != nil {
+						return nil, err
+					}
+					switch stateLen := len(states); stateLen {
+					case 0:
+						rgRegion = tfbridge.TerraformUnknownVariableValue
+					case 1:
+						state, err := p.Refresh("azurerm_resource_group", states[0], nil)
+						switch {
+						case err != nil:
+							return nil, err
+						case state == nil:
+							rgRegion = tfbridge.TerraformUnknownVariableValue
+						default:
+							obj, err := state.Object(rgRes.Schema())
+							if err != nil {
+								return nil, err
+							}
+							rgRegion = azure.NormalizeLocation(obj["location"])
+						}
+					default:
+						return nil, fmt.Errorf("expected 0 or 1 states for resource group %s",
+							rg.StringValue())
+					}
+					rgRegionMap[rgName] = rgRegion // memoize the value.
+				}
+				return rgRegion, nil
+			}
+		}
+
+		return nil, nil
+	}
 }
 
 // lowercaseLettersAndNumbers applies the "Lowercase letters and numbers" naming convention to the given name.

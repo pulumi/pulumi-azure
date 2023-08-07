@@ -2133,6 +2133,10 @@
                 "current": "azure:automation/intVariable:IntVariable",
                 "majorVersion": 5
             },
+            "azurerm_automation_variable_object": {
+                "current": "azure:automation/variableObject:VariableObject",
+                "majorVersion": 5
+            },
             "azurerm_automation_variable_string": {
                 "current": "azure:automation/stringVariable:StringVariable",
                 "majorVersion": 5
@@ -4649,6 +4653,15 @@
                         "maxItemsOne": false
                     },
                     "weeks_of_month": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_custom_ip_prefix": {
+                "current": "azure:customip/prefix:Prefix",
+                "majorVersion": 5,
+                "fields": {
+                    "zones": {
                         "maxItemsOne": false
                     }
                 }
@@ -13121,6 +13134,15 @@
                     }
                 }
             },
+            "azurerm_mobile_network_sim": {
+                "current": "azure:mobile/networkSim:NetworkSim",
+                "majorVersion": 5,
+                "fields": {
+                    "static_ip_configuration": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_mobile_network_sim_group": {
                 "current": "azure:mobile/networkSimGroup:NetworkSimGroup",
                 "majorVersion": 5,
@@ -17463,7 +17485,19 @@
             },
             "azurerm_shared_image_gallery": {
                 "current": "azure:compute/sharedImageGallery:SharedImageGallery",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "sharing": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "community_gallery": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_shared_image_version": {
                 "current": "azure:compute/sharedImageVersion:SharedImageVersion",
@@ -19898,6 +19932,9 @@
                     "dns_servers": {
                         "maxItemsOne": false
                     },
+                    "encryption": {
+                        "maxItemsOne": true
+                    },
                     "subnet": {
                         "maxItemsOne": false
                     }
@@ -20390,7 +20427,21 @@
                         "maxItemsOne": false
                     },
                     "policy_settings": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "log_scrubbing": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "rule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -22582,6 +22633,10 @@
                 "current": "azure:automation/getIntVariable:getIntVariable",
                 "majorVersion": 5
             },
+            "azurerm_automation_variable_object": {
+                "current": "azure:automation/getVariableObject:getVariableObject",
+                "majorVersion": 5
+            },
             "azurerm_automation_variable_string": {
                 "current": "azure:automation/getStringVariable:getStringVariable",
                 "majorVersion": 5
@@ -22603,6 +22658,9 @@
                         "maxItemsOne": false
                     },
                     "null": {
+                        "maxItemsOne": false
+                    },
+                    "object": {
                         "maxItemsOne": false
                     },
                     "string": {
@@ -25574,6 +25632,15 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_mobile_network_sim": {
+                "current": "azure:mobile/getNetworkSim:getNetworkSim",
+                "majorVersion": 5,
+                "fields": {
+                    "static_ip_configuration": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -28563,6 +28630,7 @@
             "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration": "azurerm_automation_software_update_configuration",
             "azure:automation/sourceControl:SourceControl": "azurerm_automation_source_control",
             "azure:automation/stringVariable:StringVariable": "azurerm_automation_variable_string",
+            "azure:automation/variableObject:VariableObject": "azurerm_automation_variable_object",
             "azure:automation/watcher:Watcher": "azurerm_automation_watcher",
             "azure:automation/webhook:Webhook": "azurerm_automation_webhook",
             "azure:avs/cluster:Cluster": "azurerm_vmware_cluster",
@@ -28731,6 +28799,7 @@
             "azure:cosmosdb/table:Table": "azurerm_cosmosdb_table",
             "azure:costmanagement/anomalyAlert:AnomalyAlert": "azurerm_cost_anomaly_alert",
             "azure:costmanagement/scheduledAction:ScheduledAction": "azurerm_cost_management_scheduled_action",
+            "azure:customip/prefix:Prefix": "azurerm_custom_ip_prefix",
             "azure:dashboard/dashboard:Dashboard": "azurerm_dashboard_legacy",
             "azure:dashboard/grafana:Grafana": "azurerm_dashboard_grafana",
             "azure:databasemigration/project:Project": "azurerm_database_migration_project",
@@ -29033,6 +29102,7 @@
             "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane": "azurerm_mobile_network_packet_core_control_plane",
             "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane": "azurerm_mobile_network_packet_core_data_plane",
             "azure:mobile/networkService:NetworkService": "azurerm_mobile_network_service",
+            "azure:mobile/networkSim:NetworkSim": "azurerm_mobile_network_sim",
             "azure:mobile/networkSimGroup:NetworkSimGroup": "azurerm_mobile_network_sim_group",
             "azure:mobile/networkSimPolicy:NetworkSimPolicy": "azurerm_mobile_network_sim_policy",
             "azure:mobile/networkSite:NetworkSite": "azurerm_mobile_network_site",
@@ -29473,6 +29543,7 @@
             "azure:automation/getDateTimeVariable:getDateTimeVariable": "azurerm_automation_variable_datetime",
             "azure:automation/getIntVariable:getIntVariable": "azurerm_automation_variable_int",
             "azure:automation/getStringVariable:getStringVariable": "azurerm_automation_variable_string",
+            "azure:automation/getVariableObject:getVariableObject": "azurerm_automation_variable_object",
             "azure:automation/getVariables:getVariables": "azurerm_automation_variables",
             "azure:avs/getPrivateCloud:getPrivateCloud": "azurerm_vmware_private_cloud",
             "azure:backup/getPolicyFileshare:getPolicyFileshare": "azurerm_backup_policy_file_share",
@@ -29638,6 +29709,7 @@
             "azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane": "azurerm_mobile_network_packet_core_control_plane",
             "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane": "azurerm_mobile_network_packet_core_data_plane",
             "azure:mobile/getNetworkService:getNetworkService": "azurerm_mobile_network_service",
+            "azure:mobile/getNetworkSim:getNetworkSim": "azurerm_mobile_network_sim",
             "azure:mobile/getNetworkSimGroup:getNetworkSimGroup": "azurerm_mobile_network_sim_group",
             "azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy": "azurerm_mobile_network_sim_policy",
             "azure:mobile/getNetworkSite:getNetworkSite": "azurerm_mobile_network_site",
@@ -36297,6 +36369,10 @@
                 "automationAccountName": "automation_account_name",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:automation/getVariableObject:getVariableObject": {
+                "automationAccountName": "automation_account_name",
+                "resourceGroupName": "resource_group_name"
+            },
             "azure:automation/getVariables:getVariables": {
                 "automationAccountId": "automation_account_id",
                 "bools": "bool",
@@ -36304,6 +36380,7 @@
                 "encrypteds": "encrypted",
                 "ints": "int",
                 "nulls": "null",
+                "objects": "object",
                 "strings": "string"
             },
             "azure:automation/hybridRunbookWorker:HybridRunbookWorker": {
@@ -36380,6 +36457,10 @@
                 "sourceControlType": "source_control_type"
             },
             "azure:automation/stringVariable:StringVariable": {
+                "automationAccountName": "automation_account_name",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:automation/variableObject:VariableObject": {
                 "automationAccountName": "automation_account_name",
                 "resourceGroupName": "resource_group_name"
             },
@@ -38122,6 +38203,13 @@
                 "osType": "os_type",
                 "vhdContainers": "vhd_containers"
             },
+            "azure:compute/SharedImageGallerySharing:SharedImageGallerySharing": {
+                "communityGallery": "community_gallery"
+            },
+            "azure:compute/SharedImageGallerySharingCommunityGallery:SharedImageGallerySharingCommunityGallery": {
+                "publisherEmail": "publisher_email",
+                "publisherUri": "publisher_uri"
+            },
             "azure:compute/SharedImageVersionTargetRegion:SharedImageVersionTargetRegion": {
                 "diskEncryptionSetId": "disk_encryption_set_id",
                 "regionalReplicaCount": "regional_replica_count",
@@ -38511,6 +38599,7 @@
             },
             "azure:compute/getImagesImageOsDisk:getImagesImageOsDisk": {
                 "blobUri": "blob_uri",
+                "diskEncryptionSetId": "disk_encryption_set_id",
                 "managedDiskId": "managed_disk_id",
                 "osState": "os_state",
                 "osType": "os_type",
@@ -41261,6 +41350,14 @@
                 "viewId": "view_id",
                 "weeksOfMonths": "weeks_of_month"
             },
+            "azure:customip/prefix:Prefix": {
+                "commissioningEnabled": "commissioning_enabled",
+                "internetAdvertisingDisabled": "internet_advertising_disabled",
+                "parentCustomIpPrefixId": "parent_custom_ip_prefix_id",
+                "resourceGroupName": "resource_group_name",
+                "roaValidityEndDate": "roa_validity_end_date",
+                "wanValidationSignedMessage": "wan_validation_signed_message"
+            },
             "azure:dashboard/GrafanaAzureMonitorWorkspaceIntegration:GrafanaAzureMonitorWorkspaceIntegration": {
                 "resourceId": "resource_id"
             },
@@ -43469,6 +43566,7 @@
             },
             "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey": {
                 "eventhubNamespaceId": "eventhub_namespace_id",
+                "infrastructureEncryptionEnabled": "infrastructure_encryption_enabled",
                 "keyVaultKeyIds": "key_vault_key_ids"
             },
             "azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup": {
@@ -47192,6 +47290,11 @@
                 "qosIndicator": "qos_indicator",
                 "sessionAggregateMaximumBitRate": "session_aggregate_maximum_bit_rate"
             },
+            "azure:mobile/NetworkSimStaticIpConfiguration:NetworkSimStaticIpConfiguration": {
+                "attachedDataNetworkId": "attached_data_network_id",
+                "sliceId": "slice_id",
+                "staticIpv4Address": "static_ipv4_address"
+            },
             "azure:mobile/NetworkSliceSingleNetworkSliceSelectionAssistanceInformation:NetworkSliceSingleNetworkSliceSelectionAssistanceInformation": {
                 "sliceDifferentiator": "slice_differentiator",
                 "sliceServiceType": "slice_service_type"
@@ -47291,6 +47394,17 @@
                 "preemptionVulnerability": "preemption_vulnerability",
                 "qosIndicator": "qos_indicator"
             },
+            "azure:mobile/getNetworkSim:getNetworkSim": {
+                "deviceType": "device_type",
+                "integratedCircuitCardIdentifier": "integrated_circuit_card_identifier",
+                "internationalMobileSubscriberIdentity": "international_mobile_subscriber_identity",
+                "mobileNetworkSimGroupId": "mobile_network_sim_group_id",
+                "simPolicyId": "sim_policy_id",
+                "simState": "sim_state",
+                "staticIpConfigurations": "static_ip_configuration",
+                "vendorKeyFingerprint": "vendor_key_fingerprint",
+                "vendorName": "vendor_name"
+            },
             "azure:mobile/getNetworkSimGroup:getNetworkSimGroup": {
                 "encryptionKeyUrl": "encryption_key_url",
                 "identities": "identity",
@@ -47325,6 +47439,11 @@
                 "preemptionVulnerability": "preemption_vulnerability",
                 "qosIndicator": "qos_indicator",
                 "sessionAggregateMaximumBitRates": "session_aggregate_maximum_bit_rate"
+            },
+            "azure:mobile/getNetworkSimStaticIpConfiguration:getNetworkSimStaticIpConfiguration": {
+                "attachedDataNetworkId": "attached_data_network_id",
+                "sliceId": "slice_id",
+                "staticIpv4Address": "static_ipv4_address"
             },
             "azure:mobile/getNetworkSite:getNetworkSite": {
                 "mobileNetworkId": "mobile_network_id",
@@ -47384,6 +47503,19 @@
                 "pccRules": "pcc_rule",
                 "servicePrecedence": "service_precedence",
                 "serviceQosPolicy": "service_qos_policy"
+            },
+            "azure:mobile/networkSim:NetworkSim": {
+                "authenticationKey": "authentication_key",
+                "deviceType": "device_type",
+                "integratedCircuitCardIdentifier": "integrated_circuit_card_identifier",
+                "internationalMobileSubscriberIdentity": "international_mobile_subscriber_identity",
+                "mobileNetworkSimGroupId": "mobile_network_sim_group_id",
+                "operatorKeyCode": "operator_key_code",
+                "simPolicyId": "sim_policy_id",
+                "simState": "sim_state",
+                "staticIpConfigurations": "static_ip_configuration",
+                "vendorKeyFingerprint": "vendor_key_fingerprint",
+                "vendorName": "vendor_name"
             },
             "azure:mobile/networkSimGroup:NetworkSimGroup": {
                 "encryptionKeyUrl": "encryption_key_url",
@@ -54238,8 +54370,16 @@
             },
             "azure:waf/PolicyPolicySettings:PolicyPolicySettings": {
                 "fileUploadLimitInMb": "file_upload_limit_in_mb",
+                "logScrubbing": "log_scrubbing",
                 "maxRequestBodySizeInKb": "max_request_body_size_in_kb",
                 "requestBodyCheck": "request_body_check"
+            },
+            "azure:waf/PolicyPolicySettingsLogScrubbing:PolicyPolicySettingsLogScrubbing": {
+                "rules": "rule"
+            },
+            "azure:waf/PolicyPolicySettingsLogScrubbingRule:PolicyPolicySettingsLogScrubbingRule": {
+                "matchVariable": "match_variable",
+                "selectorMatchOperator": "selector_match_operator"
             },
             "azure:waf/getFirewallPolicy:getFirewallPolicy": {
                 "resourceGroupName": "resource_group_name"

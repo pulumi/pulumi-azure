@@ -9945,7 +9945,7 @@ func (o TopicInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
 
 type GetDomainInboundIpRule struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
-	Action *string `pulumi:"action"`
+	Action string `pulumi:"action"`
 	// The IP mask (CIDR) to match on.
 	IpMask string `pulumi:"ipMask"`
 }
@@ -9963,7 +9963,7 @@ type GetDomainInboundIpRuleInput interface {
 
 type GetDomainInboundIpRuleArgs struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
-	Action pulumi.StringPtrInput `pulumi:"action"`
+	Action pulumi.StringInput `pulumi:"action"`
 	// The IP mask (CIDR) to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 }
@@ -10020,8 +10020,8 @@ func (o GetDomainInboundIpRuleOutput) ToGetDomainInboundIpRuleOutputWithContext(
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`.
-func (o GetDomainInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetDomainInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o GetDomainInboundIpRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainInboundIpRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The IP mask (CIDR) to match on.

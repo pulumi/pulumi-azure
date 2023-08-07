@@ -20478,6 +20478,26 @@ export namespace automation {
         value: string;
     }
 
+    export interface GetVariablesObject {
+        /**
+         * The description of the Automation Variable.
+         */
+        description: string;
+        /**
+         * Specifies if the Automation Variable is encrypted.
+         */
+        encrypted: boolean;
+        id: string;
+        /**
+         * The name of the Automation Variable.
+         */
+        name: string;
+        /**
+         * The value of the Automation Variable.
+         */
+        value: string;
+    }
+
     export interface GetVariablesString {
         /**
          * The description of the Automation Variable.
@@ -24517,6 +24537,10 @@ export namespace compute {
          */
         caching: string;
         /**
+         * the ID of the Disk Encryption Set used to encrypt this image.
+         */
+        diskEncryptionSetId: string;
+        /**
          * the ID of the Managed Disk used as the Data Disk Image.
          */
         managedDiskId: string;
@@ -26834,6 +26858,44 @@ export namespace compute {
          * Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
          */
         vhdContainers?: string[];
+    }
+
+    export interface SharedImageGallerySharing {
+        /**
+         * A `communityGallery` block as defined below. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+         */
+        communityGallery?: outputs.compute.SharedImageGallerySharingCommunityGallery;
+        /**
+         * The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+         */
+        permission: string;
+    }
+
+    export interface SharedImageGallerySharingCommunityGallery {
+        /**
+         * The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        eula: string;
+        /**
+         * Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        prefix: string;
+        /**
+         * Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        publisherEmail: string;
+        /**
+         * URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created.
+         */
+        publisherUri: string;
     }
 
     export interface SharedImageIdentifier {
@@ -30965,7 +31027,7 @@ export namespace containerservice {
          */
         type?: string;
         /**
-         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporaryNameForRotation` must be specified when attempting a change.
          */
         ultraSsdEnabled?: boolean;
         /**
@@ -37394,7 +37456,7 @@ export namespace eventgrid {
         /**
          * The action to take when the rule is matched. Possible values are `Allow`.
          */
-        action?: string;
+        action: string;
         /**
          * The IP mask (CIDR) to match on.
          */
@@ -47762,6 +47824,18 @@ export namespace mobile {
         uplink: string;
     }
 
+    export interface GetNetworkSimStaticIpConfiguration {
+        /**
+         * The ID of attached data network on which the static.
+         */
+        attachedDataNetworkId: string;
+        sliceId: string;
+        /**
+         * The IPv4 address assigned to the SIM at this network scope.
+         */
+        staticIpv4Address: string;
+    }
+
     export interface GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
         /**
          * Slice differentiator (SD).
@@ -48077,6 +48151,18 @@ export namespace mobile {
          * Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
          */
         uplink: string;
+    }
+
+    export interface NetworkSimStaticIpConfiguration {
+        /**
+         * The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+         */
+        attachedDataNetworkId: string;
+        sliceId: string;
+        /**
+         * The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+         */
+        staticIpv4Address?: string;
     }
 
     export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
@@ -52426,7 +52512,7 @@ export namespace netapp {
          */
         proximityPlacementGroupId?: string;
         /**
-         * Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         securityStyle: string;
         /**
@@ -55864,6 +55950,13 @@ export namespace network {
          * The ID of DDoS Protection Plan.
          */
         id: string;
+    }
+
+    export interface VirtualNetworkEncryption {
+        /**
+         * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+         */
+        enforcement: string;
     }
 
     export interface VirtualNetworkGatewayBgpSettings {
@@ -62505,6 +62598,10 @@ export namespace waf {
          */
         fileUploadLimitInMb?: number;
         /**
+         * One `logScrubbing` block as defined below.
+         */
+        logScrubbing?: outputs.waf.PolicyPolicySettingsLogScrubbing;
+        /**
          * The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
          */
         maxRequestBodySizeInKb?: number;
@@ -62516,6 +62613,36 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: boolean;
+    }
+
+    export interface PolicyPolicySettingsLogScrubbing {
+        /**
+         * Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * One or more `scrubbingRule` as define below.
+         */
+        rules?: outputs.waf.PolicyPolicySettingsLogScrubbingRule[];
+    }
+
+    export interface PolicyPolicySettingsLogScrubbingRule {
+        /**
+         * Describes if the managed rule is in enabled state or disabled state.
+         */
+        enabled?: boolean;
+        /**
+         * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+         */
+        matchVariable: string;
+        /**
+         * Describes field of the matchVariable collection
+         */
+        selector?: string;
+        /**
+         * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+         */
+        selectorMatchOperator?: string;
     }
 
 }

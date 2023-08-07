@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly int? FileUploadLimitInMb;
         /// <summary>
+        /// One `log_scrubbing` block as defined below.
+        /// </summary>
+        public readonly Outputs.PolicyPolicySettingsLogScrubbing? LogScrubbing;
+        /// <summary>
         /// The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         /// </summary>
         public readonly int? MaxRequestBodySizeInKb;
@@ -40,6 +44,8 @@ namespace Pulumi.Azure.Waf.Outputs
 
             int? fileUploadLimitInMb,
 
+            Outputs.PolicyPolicySettingsLogScrubbing? logScrubbing,
+
             int? maxRequestBodySizeInKb,
 
             string? mode,
@@ -48,6 +54,7 @@ namespace Pulumi.Azure.Waf.Outputs
         {
             Enabled = enabled;
             FileUploadLimitInMb = fileUploadLimitInMb;
+            LogScrubbing = logScrubbing;
             MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;
             RequestBodyCheck = requestBodyCheck;

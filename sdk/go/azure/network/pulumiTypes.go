@@ -19583,6 +19583,143 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VirtualNetworkEncryption struct {
+	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+	Enforcement string `pulumi:"enforcement"`
+}
+
+// VirtualNetworkEncryptionInput is an input type that accepts VirtualNetworkEncryptionArgs and VirtualNetworkEncryptionOutput values.
+// You can construct a concrete instance of `VirtualNetworkEncryptionInput` via:
+//
+//	VirtualNetworkEncryptionArgs{...}
+type VirtualNetworkEncryptionInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkEncryptionOutput() VirtualNetworkEncryptionOutput
+	ToVirtualNetworkEncryptionOutputWithContext(context.Context) VirtualNetworkEncryptionOutput
+}
+
+type VirtualNetworkEncryptionArgs struct {
+	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+	Enforcement pulumi.StringInput `pulumi:"enforcement"`
+}
+
+func (VirtualNetworkEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkEncryption)(nil)).Elem()
+}
+
+func (i VirtualNetworkEncryptionArgs) ToVirtualNetworkEncryptionOutput() VirtualNetworkEncryptionOutput {
+	return i.ToVirtualNetworkEncryptionOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkEncryptionArgs) ToVirtualNetworkEncryptionOutputWithContext(ctx context.Context) VirtualNetworkEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkEncryptionOutput)
+}
+
+func (i VirtualNetworkEncryptionArgs) ToVirtualNetworkEncryptionPtrOutput() VirtualNetworkEncryptionPtrOutput {
+	return i.ToVirtualNetworkEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkEncryptionArgs) ToVirtualNetworkEncryptionPtrOutputWithContext(ctx context.Context) VirtualNetworkEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkEncryptionOutput).ToVirtualNetworkEncryptionPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkEncryptionPtrInput is an input type that accepts VirtualNetworkEncryptionArgs, VirtualNetworkEncryptionPtr and VirtualNetworkEncryptionPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkEncryptionPtrInput` via:
+//
+//	        VirtualNetworkEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNetworkEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkEncryptionPtrOutput() VirtualNetworkEncryptionPtrOutput
+	ToVirtualNetworkEncryptionPtrOutputWithContext(context.Context) VirtualNetworkEncryptionPtrOutput
+}
+
+type virtualNetworkEncryptionPtrType VirtualNetworkEncryptionArgs
+
+func VirtualNetworkEncryptionPtr(v *VirtualNetworkEncryptionArgs) VirtualNetworkEncryptionPtrInput {
+	return (*virtualNetworkEncryptionPtrType)(v)
+}
+
+func (*virtualNetworkEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkEncryption)(nil)).Elem()
+}
+
+func (i *virtualNetworkEncryptionPtrType) ToVirtualNetworkEncryptionPtrOutput() VirtualNetworkEncryptionPtrOutput {
+	return i.ToVirtualNetworkEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkEncryptionPtrType) ToVirtualNetworkEncryptionPtrOutputWithContext(ctx context.Context) VirtualNetworkEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkEncryptionPtrOutput)
+}
+
+type VirtualNetworkEncryptionOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkEncryption)(nil)).Elem()
+}
+
+func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionOutput() VirtualNetworkEncryptionOutput {
+	return o
+}
+
+func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionOutputWithContext(ctx context.Context) VirtualNetworkEncryptionOutput {
+	return o
+}
+
+func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionPtrOutput() VirtualNetworkEncryptionPtrOutput {
+	return o.ToVirtualNetworkEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionPtrOutputWithContext(ctx context.Context) VirtualNetworkEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkEncryption) *VirtualNetworkEncryption {
+		return &v
+	}).(VirtualNetworkEncryptionPtrOutput)
+}
+
+// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+func (o VirtualNetworkEncryptionOutput) Enforcement() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkEncryption) string { return v.Enforcement }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkEncryption)(nil)).Elem()
+}
+
+func (o VirtualNetworkEncryptionPtrOutput) ToVirtualNetworkEncryptionPtrOutput() VirtualNetworkEncryptionPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkEncryptionPtrOutput) ToVirtualNetworkEncryptionPtrOutputWithContext(ctx context.Context) VirtualNetworkEncryptionPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkEncryptionPtrOutput) Elem() VirtualNetworkEncryptionOutput {
+	return o.ApplyT(func(v *VirtualNetworkEncryption) VirtualNetworkEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkEncryption
+		return ret
+	}).(VirtualNetworkEncryptionOutput)
+}
+
+// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+func (o VirtualNetworkEncryptionPtrOutput) Enforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Enforcement
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualNetworkGatewayBgpSettings struct {
 	// The Autonomous System Number (ASN) to use as part of the BGP.
 	Asn *int `pulumi:"asn"`
@@ -29900,6 +30037,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableRouteTypeArrayInput)(nil)).Elem(), VirtualHubRouteTableRouteTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDdosProtectionPlanInput)(nil)).Elem(), VirtualNetworkDdosProtectionPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDdosProtectionPlanPtrInput)(nil)).Elem(), VirtualNetworkDdosProtectionPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkEncryptionInput)(nil)).Elem(), VirtualNetworkEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkEncryptionPtrInput)(nil)).Elem(), VirtualNetworkEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPtrInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPeeringAddressInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsPeeringAddressArgs{})
@@ -30290,6 +30429,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualHubRouteTableRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkEncryptionOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPeeringAddressOutput{})

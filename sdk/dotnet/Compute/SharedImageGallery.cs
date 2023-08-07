@@ -78,6 +78,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `sharing` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("sharing")]
+        public Output<Outputs.SharedImageGallerySharing?> Sharing { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the Shared Image Gallery.
         /// </summary>
         [Output("tags")]
@@ -159,6 +165,12 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `sharing` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("sharing")]
+        public Input<Inputs.SharedImageGallerySharingArgs>? Sharing { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -202,6 +214,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `sharing` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("sharing")]
+        public Input<Inputs.SharedImageGallerySharingGetArgs>? Sharing { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

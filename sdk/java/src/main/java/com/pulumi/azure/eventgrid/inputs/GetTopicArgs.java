@@ -6,10 +6,7 @@ package com.pulumi.azure.eventgrid.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetTopicArgs extends com.pulumi.resources.InvokeArgs {
@@ -46,19 +43,11 @@ public final class GetTopicArgs extends com.pulumi.resources.InvokeArgs {
         return this.resourceGroupName;
     }
 
-    @Import(name="tags")
-    private @Nullable Output<Map<String,String>> tags;
-
-    public Optional<Output<Map<String,String>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private GetTopicArgs() {}
 
     private GetTopicArgs(GetTopicArgs $) {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -119,15 +108,6 @@ public final class GetTopicArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        public Builder tags(@Nullable Output<Map<String,String>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        public Builder tags(Map<String,String> tags) {
-            return tags(Output.of(tags));
         }
 
         public GetTopicArgs build() {

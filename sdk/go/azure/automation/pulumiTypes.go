@@ -4542,6 +4542,136 @@ func (o GetVariablesNullArrayOutput) Index(i pulumi.IntInput) GetVariablesNullOu
 	}).(GetVariablesNullOutput)
 }
 
+type GetVariablesObject struct {
+	// The description of the Automation Variable.
+	Description string `pulumi:"description"`
+	// Specifies if the Automation Variable is encrypted.
+	Encrypted bool   `pulumi:"encrypted"`
+	Id        string `pulumi:"id"`
+	// The name of the Automation Variable.
+	Name string `pulumi:"name"`
+	// The value of the Automation Variable.
+	Value string `pulumi:"value"`
+}
+
+// GetVariablesObjectInput is an input type that accepts GetVariablesObjectArgs and GetVariablesObjectOutput values.
+// You can construct a concrete instance of `GetVariablesObjectInput` via:
+//
+//	GetVariablesObjectArgs{...}
+type GetVariablesObjectInput interface {
+	pulumi.Input
+
+	ToGetVariablesObjectOutput() GetVariablesObjectOutput
+	ToGetVariablesObjectOutputWithContext(context.Context) GetVariablesObjectOutput
+}
+
+type GetVariablesObjectArgs struct {
+	// The description of the Automation Variable.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Specifies if the Automation Variable is encrypted.
+	Encrypted pulumi.BoolInput   `pulumi:"encrypted"`
+	Id        pulumi.StringInput `pulumi:"id"`
+	// The name of the Automation Variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the Automation Variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetVariablesObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariablesObject)(nil)).Elem()
+}
+
+func (i GetVariablesObjectArgs) ToGetVariablesObjectOutput() GetVariablesObjectOutput {
+	return i.ToGetVariablesObjectOutputWithContext(context.Background())
+}
+
+func (i GetVariablesObjectArgs) ToGetVariablesObjectOutputWithContext(ctx context.Context) GetVariablesObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesObjectOutput)
+}
+
+// GetVariablesObjectArrayInput is an input type that accepts GetVariablesObjectArray and GetVariablesObjectArrayOutput values.
+// You can construct a concrete instance of `GetVariablesObjectArrayInput` via:
+//
+//	GetVariablesObjectArray{ GetVariablesObjectArgs{...} }
+type GetVariablesObjectArrayInput interface {
+	pulumi.Input
+
+	ToGetVariablesObjectArrayOutput() GetVariablesObjectArrayOutput
+	ToGetVariablesObjectArrayOutputWithContext(context.Context) GetVariablesObjectArrayOutput
+}
+
+type GetVariablesObjectArray []GetVariablesObjectInput
+
+func (GetVariablesObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariablesObject)(nil)).Elem()
+}
+
+func (i GetVariablesObjectArray) ToGetVariablesObjectArrayOutput() GetVariablesObjectArrayOutput {
+	return i.ToGetVariablesObjectArrayOutputWithContext(context.Background())
+}
+
+func (i GetVariablesObjectArray) ToGetVariablesObjectArrayOutputWithContext(ctx context.Context) GetVariablesObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesObjectArrayOutput)
+}
+
+type GetVariablesObjectOutput struct{ *pulumi.OutputState }
+
+func (GetVariablesObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariablesObject)(nil)).Elem()
+}
+
+func (o GetVariablesObjectOutput) ToGetVariablesObjectOutput() GetVariablesObjectOutput {
+	return o
+}
+
+func (o GetVariablesObjectOutput) ToGetVariablesObjectOutputWithContext(ctx context.Context) GetVariablesObjectOutput {
+	return o
+}
+
+// The description of the Automation Variable.
+func (o GetVariablesObjectOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesObject) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies if the Automation Variable is encrypted.
+func (o GetVariablesObjectOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVariablesObject) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+func (o GetVariablesObjectOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesObject) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the Automation Variable.
+func (o GetVariablesObjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesObject) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the Automation Variable.
+func (o GetVariablesObjectOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariablesObject) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetVariablesObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVariablesObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariablesObject)(nil)).Elem()
+}
+
+func (o GetVariablesObjectArrayOutput) ToGetVariablesObjectArrayOutput() GetVariablesObjectArrayOutput {
+	return o
+}
+
+func (o GetVariablesObjectArrayOutput) ToGetVariablesObjectArrayOutputWithContext(ctx context.Context) GetVariablesObjectArrayOutput {
+	return o
+}
+
+func (o GetVariablesObjectArrayOutput) Index(i pulumi.IntInput) GetVariablesObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVariablesObject {
+		return vs[0].([]GetVariablesObject)[vs[1].(int)]
+	}).(GetVariablesObjectOutput)
+}
+
 type GetVariablesString struct {
 	// The description of the Automation Variable.
 	Description string `pulumi:"description"`
@@ -4737,6 +4867,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesIntArrayInput)(nil)).Elem(), GetVariablesIntArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesNullInput)(nil)).Elem(), GetVariablesNullArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesNullArrayInput)(nil)).Elem(), GetVariablesNullArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesObjectInput)(nil)).Elem(), GetVariablesObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesObjectArrayInput)(nil)).Elem(), GetVariablesObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesStringInput)(nil)).Elem(), GetVariablesStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVariablesStringArrayInput)(nil)).Elem(), GetVariablesStringArray{})
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
@@ -4803,6 +4935,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVariablesIntArrayOutput{})
 	pulumi.RegisterOutputType(GetVariablesNullOutput{})
 	pulumi.RegisterOutputType(GetVariablesNullArrayOutput{})
+	pulumi.RegisterOutputType(GetVariablesObjectOutput{})
+	pulumi.RegisterOutputType(GetVariablesObjectArrayOutput{})
 	pulumi.RegisterOutputType(GetVariablesStringOutput{})
 	pulumi.RegisterOutputType(GetVariablesStringArrayOutput{})
 }

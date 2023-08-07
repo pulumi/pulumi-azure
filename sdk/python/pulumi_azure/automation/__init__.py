@@ -22,6 +22,7 @@ from .get_bool_variable import *
 from .get_date_time_variable import *
 from .get_int_variable import *
 from .get_string_variable import *
+from .get_variable_object import *
 from .get_variables import *
 from .hybrid_runbook_worker import *
 from .hybrid_runbook_worker_group import *
@@ -33,6 +34,7 @@ from .schedule import *
 from .software_update_configuration import *
 from .source_control import *
 from .string_variable import *
+from .variable_object import *
 from .watcher import *
 from .webhook import *
 from ._inputs import *

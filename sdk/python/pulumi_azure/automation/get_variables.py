@@ -22,7 +22,7 @@ class GetVariablesResult:
     """
     A collection of values returned by getVariables.
     """
-    def __init__(__self__, automation_account_id=None, bools=None, datetimes=None, encrypteds=None, id=None, ints=None, nulls=None, strings=None):
+    def __init__(__self__, automation_account_id=None, bools=None, datetimes=None, encrypteds=None, id=None, ints=None, nulls=None, objects=None, strings=None):
         if automation_account_id and not isinstance(automation_account_id, str):
             raise TypeError("Expected argument 'automation_account_id' to be a str")
         pulumi.set(__self__, "automation_account_id", automation_account_id)
@@ -44,6 +44,9 @@ class GetVariablesResult:
         if nulls and not isinstance(nulls, list):
             raise TypeError("Expected argument 'nulls' to be a list")
         pulumi.set(__self__, "nulls", nulls)
+        if objects and not isinstance(objects, list):
+            raise TypeError("Expected argument 'objects' to be a list")
+        pulumi.set(__self__, "objects", objects)
         if strings and not isinstance(strings, list):
             raise TypeError("Expected argument 'strings' to be a list")
         pulumi.set(__self__, "strings", strings)
@@ -103,6 +106,11 @@ class GetVariablesResult:
 
     @property
     @pulumi.getter
+    def objects(self) -> Sequence['outputs.GetVariablesObjectResult']:
+        return pulumi.get(self, "objects")
+
+    @property
+    @pulumi.getter
     def strings(self) -> Sequence['outputs.GetVariablesStringResult']:
         """
         One or more `variable` blocks as defined below for each string variable.
@@ -123,6 +131,7 @@ class AwaitableGetVariablesResult(GetVariablesResult):
             id=self.id,
             ints=self.ints,
             nulls=self.nulls,
+            objects=self.objects,
             strings=self.strings)
 
 
@@ -159,6 +168,7 @@ def get_variables(automation_account_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         ints=pulumi.get(__ret__, 'ints'),
         nulls=pulumi.get(__ret__, 'nulls'),
+        objects=pulumi.get(__ret__, 'objects'),
         strings=pulumi.get(__ret__, 'strings'))
 
 

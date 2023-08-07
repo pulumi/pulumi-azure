@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.inputs;
 
+import com.pulumi.azure.compute.inputs.SharedImageGallerySharingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -77,6 +78,21 @@ public final class SharedImageGalleryState extends com.pulumi.resources.Resource
     }
 
     /**
+     * A `sharing` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="sharing")
+    private @Nullable Output<SharedImageGallerySharingArgs> sharing;
+
+    /**
+     * @return A `sharing` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<SharedImageGallerySharingArgs>> sharing() {
+        return Optional.ofNullable(this.sharing);
+    }
+
+    /**
      * A mapping of tags to assign to the Shared Image Gallery.
      * 
      */
@@ -113,6 +129,7 @@ public final class SharedImageGalleryState extends com.pulumi.resources.Resource
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.sharing = $.sharing;
         this.tags = $.tags;
         this.uniqueName = $.uniqueName;
     }
@@ -217,6 +234,27 @@ public final class SharedImageGalleryState extends com.pulumi.resources.Resource
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param sharing A `sharing` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharing(@Nullable Output<SharedImageGallerySharingArgs> sharing) {
+            $.sharing = sharing;
+            return this;
+        }
+
+        /**
+         * @param sharing A `sharing` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharing(SharedImageGallerySharingArgs sharing) {
+            return sharing(Output.of(sharing));
         }
 
         /**

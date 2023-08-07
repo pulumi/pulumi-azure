@@ -122,6 +122,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
+        /// A `encryption` block as defined below.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.VirtualNetworkEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         /// </summary>
         [Output("flowTimeoutInMinutes")]
@@ -258,6 +264,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
+        /// A `encryption` block as defined below.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.VirtualNetworkEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         /// </summary>
         [Input("flowTimeoutInMinutes")]
@@ -360,6 +372,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
+
+        /// <summary>
+        /// A `encryption` block as defined below.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.VirtualNetworkEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
         /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.

@@ -90,6 +90,11 @@ export const getStringVariable: typeof import("./getStringVariable").getStringVa
 export const getStringVariableOutput: typeof import("./getStringVariable").getStringVariableOutput = null as any;
 utilities.lazyLoad(exports, ["getStringVariable","getStringVariableOutput"], () => require("./getStringVariable"));
 
+export { GetVariableObjectArgs, GetVariableObjectResult, GetVariableObjectOutputArgs } from "./getVariableObject";
+export const getVariableObject: typeof import("./getVariableObject").getVariableObject = null as any;
+export const getVariableObjectOutput: typeof import("./getVariableObject").getVariableObjectOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableObject","getVariableObjectOutput"], () => require("./getVariableObject"));
+
 export { GetVariablesArgs, GetVariablesResult, GetVariablesOutputArgs } from "./getVariables";
 export const getVariables: typeof import("./getVariables").getVariables = null as any;
 export const getVariablesOutput: typeof import("./getVariables").getVariablesOutput = null as any;
@@ -144,6 +149,11 @@ export { StringVariableArgs, StringVariableState } from "./stringVariable";
 export type StringVariable = import("./stringVariable").StringVariable;
 export const StringVariable: typeof import("./stringVariable").StringVariable = null as any;
 utilities.lazyLoad(exports, ["StringVariable"], () => require("./stringVariable"));
+
+export { VariableObjectArgs, VariableObjectState } from "./variableObject";
+export type VariableObject = import("./variableObject").VariableObject;
+export const VariableObject: typeof import("./variableObject").VariableObject = null as any;
+utilities.lazyLoad(exports, ["VariableObject"], () => require("./variableObject"));
 
 export { WatcherArgs, WatcherState } from "./watcher";
 export type Watcher = import("./watcher").Watcher;
@@ -204,6 +214,8 @@ const _module = {
                 return new SourceControl(name, <any>undefined, { urn })
             case "azure:automation/stringVariable:StringVariable":
                 return new StringVariable(name, <any>undefined, { urn })
+            case "azure:automation/variableObject:VariableObject":
+                return new VariableObject(name, <any>undefined, { urn })
             case "azure:automation/watcher:Watcher":
                 return new Watcher(name, <any>undefined, { urn })
             case "azure:automation/webhook:Webhook":
@@ -235,5 +247,6 @@ pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/softwareUpdateConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/sourceControl", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/stringVariable", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/variableObject", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/watcher", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/webhook", _module)

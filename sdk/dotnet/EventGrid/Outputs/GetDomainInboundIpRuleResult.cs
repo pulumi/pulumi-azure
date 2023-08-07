@@ -16,7 +16,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// <summary>
         /// The action to take when the rule is matched. Possible values are `Allow`.
         /// </summary>
-        public readonly string? Action;
+        public readonly string Action;
         /// <summary>
         /// The IP mask (CIDR) to match on.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
 
         [OutputConstructor]
         private GetDomainInboundIpRuleResult(
-            string? action,
+            string action,
 
             string ipMask)
         {

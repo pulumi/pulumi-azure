@@ -6,8 +6,6 @@ package com.pulumi.azure.eventgrid.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainInboundIpRule {
@@ -15,7 +13,7 @@ public final class GetDomainInboundIpRule {
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
      */
-    private @Nullable String action;
+    private String action;
     /**
      * @return The IP mask (CIDR) to match on.
      * 
@@ -27,8 +25,8 @@ public final class GetDomainInboundIpRule {
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
      */
-    public Optional<String> action() {
-        return Optional.ofNullable(this.action);
+    public String action() {
+        return this.action;
     }
     /**
      * @return The IP mask (CIDR) to match on.
@@ -47,7 +45,7 @@ public final class GetDomainInboundIpRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String action;
+        private String action;
         private String ipMask;
         public Builder() {}
         public Builder(GetDomainInboundIpRule defaults) {
@@ -57,8 +55,8 @@ public final class GetDomainInboundIpRule {
         }
 
         @CustomType.Setter
-        public Builder action(@Nullable String action) {
-            this.action = action;
+        public Builder action(String action) {
+            this.action = Objects.requireNonNull(action);
             return this;
         }
         @CustomType.Setter

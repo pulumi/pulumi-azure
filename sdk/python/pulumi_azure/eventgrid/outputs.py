@@ -3664,15 +3664,22 @@ class TopicInputMappingFields(dict):
 @pulumi.output_type
 class GetDomainInboundIpRuleResult(dict):
     def __init__(__self__, *,
-                 ip_mask: str,
-                 action: Optional[str] = None):
+                 action: str,
+                 ip_mask: str):
         """
-        :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        :param str ip_mask: The IP mask (CIDR) to match on.
         """
+        pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "ip_mask", ip_mask)
-        if action is not None:
-            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="ipMask")
@@ -3681,14 +3688,6 @@ class GetDomainInboundIpRuleResult(dict):
         The IP mask (CIDR) to match on.
         """
         return pulumi.get(self, "ip_mask")
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[str]:
-        """
-        The action to take when the rule is matched. Possible values are `Allow`.
-        """
-        return pulumi.get(self, "action")
 
 
 @pulumi.output_type

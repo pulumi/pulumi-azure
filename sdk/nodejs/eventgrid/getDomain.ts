@@ -26,11 +26,8 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventgrid/getDomain:getDomain", {
-        "inboundIpRules": args.inboundIpRules,
         "name": args.name,
-        "publicNetworkAccessEnabled": args.publicNetworkAccessEnabled,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -39,25 +36,13 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetDomainArgs {
     /**
-     * One or more `inboundIpRule` blocks as defined below.
-     */
-    inboundIpRules?: inputs.eventgrid.GetDomainInboundIpRule[];
-    /**
      * The name of the EventGrid Domain resource.
      */
     name: string;
     /**
-     * Whether or not public network access is allowed for this server.
-     */
-    publicNetworkAccessEnabled?: boolean;
-    /**
      * The name of the resource group in which the EventGrid Domain exists.
      */
     resourceGroupName: string;
-    /**
-     * A mapping of tags assigned to the EventGrid Domain.
-     */
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -75,7 +60,7 @@ export interface GetDomainResult {
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    readonly inboundIpRules?: outputs.eventgrid.GetDomainInboundIpRule[];
+    readonly inboundIpRules: outputs.eventgrid.GetDomainInboundIpRule[];
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
@@ -100,7 +85,7 @@ export interface GetDomainResult {
     /**
      * Whether or not public network access is allowed for this server.
      */
-    readonly publicNetworkAccessEnabled?: boolean;
+    readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The secondary access key associated with the EventGrid Domain.
@@ -109,7 +94,7 @@ export interface GetDomainResult {
     /**
      * A mapping of tags assigned to the EventGrid Domain.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
 }
 /**
  * Use this data source to access information about an existing EventGrid Domain
@@ -136,23 +121,11 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetDomainOutputArgs {
     /**
-     * One or more `inboundIpRule` blocks as defined below.
-     */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.GetDomainInboundIpRuleArgs>[]>;
-    /**
      * The name of the EventGrid Domain resource.
      */
     name: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this server.
-     */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-    /**
      * The name of the resource group in which the EventGrid Domain exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A mapping of tags assigned to the EventGrid Domain.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

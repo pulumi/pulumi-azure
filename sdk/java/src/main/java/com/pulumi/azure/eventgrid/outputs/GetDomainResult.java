@@ -12,8 +12,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainResult {
@@ -31,7 +29,7 @@ public final class GetDomainResult {
      * @return One or more `inbound_ip_rule` blocks as defined below.
      * 
      */
-    private @Nullable List<GetDomainInboundIpRule> inboundIpRules;
+    private List<GetDomainInboundIpRule> inboundIpRules;
     /**
      * @return A `input_mapping_default_values` block as defined below.
      * 
@@ -62,7 +60,7 @@ public final class GetDomainResult {
      * @return Whether or not public network access is allowed for this server.
      * 
      */
-    private @Nullable Boolean publicNetworkAccessEnabled;
+    private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
      * @return The secondary access key associated with the EventGrid Domain.
@@ -73,7 +71,7 @@ public final class GetDomainResult {
      * @return A mapping of tags assigned to the EventGrid Domain.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
 
     private GetDomainResult() {}
     /**
@@ -95,7 +93,7 @@ public final class GetDomainResult {
      * 
      */
     public List<GetDomainInboundIpRule> inboundIpRules() {
-        return this.inboundIpRules == null ? List.of() : this.inboundIpRules;
+        return this.inboundIpRules;
     }
     /**
      * @return A `input_mapping_default_values` block as defined below.
@@ -139,8 +137,8 @@ public final class GetDomainResult {
      * @return Whether or not public network access is allowed for this server.
      * 
      */
-    public Optional<Boolean> publicNetworkAccessEnabled() {
-        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
@@ -157,7 +155,7 @@ public final class GetDomainResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -171,17 +169,17 @@ public final class GetDomainResult {
     public static final class Builder {
         private String endpoint;
         private String id;
-        private @Nullable List<GetDomainInboundIpRule> inboundIpRules;
+        private List<GetDomainInboundIpRule> inboundIpRules;
         private List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues;
         private List<GetDomainInputMappingField> inputMappingFields;
         private String inputSchema;
         private String location;
         private String name;
         private String primaryAccessKey;
-        private @Nullable Boolean publicNetworkAccessEnabled;
+        private Boolean publicNetworkAccessEnabled;
         private String resourceGroupName;
         private String secondaryAccessKey;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetDomainResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -211,8 +209,8 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
-        public Builder inboundIpRules(@Nullable List<GetDomainInboundIpRule> inboundIpRules) {
-            this.inboundIpRules = inboundIpRules;
+        public Builder inboundIpRules(List<GetDomainInboundIpRule> inboundIpRules) {
+            this.inboundIpRules = Objects.requireNonNull(inboundIpRules);
             return this;
         }
         public Builder inboundIpRules(GetDomainInboundIpRule... inboundIpRules) {
@@ -255,8 +253,8 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
-        public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
         @CustomType.Setter
@@ -270,8 +268,8 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-            this.tags = tags;
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public GetDomainResult build() {
