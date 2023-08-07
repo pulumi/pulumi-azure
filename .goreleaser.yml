@@ -30,6 +30,10 @@ builds:
     post:
     - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -cache
     - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -modcache
+  hooks:
+    post:
+    - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -cache
+    - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -modcache
   ignore: []
   ldflags:
   - -X github.com/pulumi/pulumi-azure/provider/v5/pkg/version.Version={{.Tag}}
