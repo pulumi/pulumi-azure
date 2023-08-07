@@ -1,4 +1,4 @@
-From 748d3c0d7965c6e4df90519dca61906f9ce74f60 Mon Sep 17 00:00:00 2001
+From 4c09b9fcf5e7acf770e58897910810f52840417c Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 7/8] Update-documentation
@@ -1951,7 +1951,7 @@ index d97d53b42d..d04a166153 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index dae708263e..56bdec4541 100644
+index f9cebfec3a..87b36c3b4a 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1987,7 +1987,7 @@ index dae708263e..56bdec4541 100644
 -~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's `ignore_changes` functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API.
 +~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
  
- * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+ * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
 @@ -470,7 +464,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
@@ -3164,7 +3164,7 @@ index 2f1b6e07da..fb1f7f91b7 100644
  ---
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 876cf68385..623813b4e8 100644
+index b81413d6cd..f478a20c63 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -3264,5 +3264,5 @@ index e94d26bbb6..3b17a31535 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.39.1
+2.41.0
 

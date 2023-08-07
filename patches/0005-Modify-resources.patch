@@ -1,4 +1,4 @@
-From 4a00274a37ca71cd78413d5e0b2f629d822b8d9a Mon Sep 17 00:00:00 2001
+From 3ad036935d30dcf7e4110c33da435d5d1e0ea2df Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 5/8] Modify-resources
@@ -1351,7 +1351,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 7eb503d1bb..88c3ea1100 100644
+index 71201df465..f43ad74e76 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1362,7 +1362,7 @@ index 7eb503d1bb..88c3ea1100 100644
  	"log"
  	"strings"
  	"time"
-@@ -1018,7 +1019,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1017,7 +1018,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1372,7 +1372,7 @@ index 7eb503d1bb..88c3ea1100 100644
  						},
  					},
  
-@@ -1029,7 +1031,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1028,7 +1030,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						ValidateFunc: validation.StringInSlice([]string{
  							"Disabled",
  							"Enabled",
@@ -1381,7 +1381,7 @@ index 7eb503d1bb..88c3ea1100 100644
  					},
  
  					"email_addresses": {
-@@ -1055,7 +1057,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1054,7 +1056,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  							string(sql.SecurityAlertPolicyStateDisabled),
  							string(sql.SecurityAlertPolicyStateEnabled),
  							string(sql.SecurityAlertPolicyStateNew),
@@ -1457,7 +1457,7 @@ index d8d893c2da..75c103e7e5 100644
  
  			"storage_account_access_key": {
 diff --git a/internal/services/mysql/mysql_server_resource.go b/internal/services/mysql/mysql_server_resource.go
-index 75cf70a553..3cad4ce28d 100644
+index c40494cc94..875a752374 100644
 --- a/internal/services/mysql/mysql_server_resource.go
 +++ b/internal/services/mysql/mysql_server_resource.go
 @@ -6,6 +6,8 @@ package mysql
@@ -1469,10 +1469,10 @@ index 75cf70a553..3cad4ce28d 100644
  	"log"
  	"strconv"
  	"strings"
-@@ -306,8 +308,9 @@ func resourceMySqlServer() *pluginsdk.Resource {
+@@ -307,8 +309,9 @@ func resourceMySqlServer() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(mysql.FiveFullStopSeven),
- 					string(mysql.EightFullStopZero),
+ 					string(servers.ServerVersionFivePointSeven),
+ 					string(servers.ServerVersionEightPointZero),
 -				}, false),
 -				ForceNew: true,
 +				}, features.CaseInsensitive()),
@@ -1482,7 +1482,7 @@ index 75cf70a553..3cad4ce28d 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index 4fd1bacd9b..3cc8186a0b 100644
+index 97a1cdb274..6d022c6b2e 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -1494,7 +1494,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  	"log"
  	"strings"
  	"time"
-@@ -211,7 +213,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -212,7 +214,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.ProtocolHTTP),
  								string(network.ProtocolHTTPS),
@@ -1503,7 +1503,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"cookie_based_affinity": {
-@@ -220,7 +222,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -221,7 +223,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.ApplicationGatewayCookieBasedAffinityEnabled),
  								string(network.ApplicationGatewayCookieBasedAffinityDisabled),
@@ -1512,7 +1512,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"affinity_cookie_name": {
-@@ -347,7 +349,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -348,7 +350,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.IPAllocationMethodDynamic),
  								string(network.IPAllocationMethodStatic),
@@ -1521,7 +1521,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"private_link_configuration_name": {
-@@ -462,7 +464,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -463,7 +465,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.ProtocolHTTP),
  								string(network.ProtocolHTTPS),
@@ -1530,7 +1530,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"host_name": {
-@@ -617,7 +619,8 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -618,7 +620,8 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  										ValidateFunc: validation.StringInSlice([]string{
  											string(network.IPAllocationMethodDynamic),
  											string(network.IPAllocationMethodStatic),
@@ -1540,7 +1540,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  									},
  
  									"primary": {
-@@ -825,7 +828,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -826,7 +829,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  								string(network.ApplicationGatewaySkuNameWAFLarge),
  								string(network.ApplicationGatewaySkuNameWAFMedium),
  								string(network.ApplicationGatewaySkuNameWAFV2),
@@ -1549,7 +1549,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"tier": {
-@@ -836,7 +839,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -837,7 +840,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  								string(network.ApplicationGatewayTierStandardV2),
  								string(network.ApplicationGatewayTierWAF),
  								string(network.ApplicationGatewayTierWAFV2),
@@ -1558,7 +1558,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"capacity": {
-@@ -937,7 +940,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -938,7 +941,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.ProtocolHTTP),
  								string(network.ProtocolHTTPS),
@@ -1567,7 +1567,7 @@ index 4fd1bacd9b..3cc8186a0b 100644
  						},
  
  						"path": {
-@@ -1406,7 +1409,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -1407,7 +1410,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.ApplicationGatewayFirewallModeDetection),
  								string(network.ApplicationGatewayFirewallModePrevention),
@@ -1657,11 +1657,11 @@ index 668ca0a8d1..a5531c00ba 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_rule_resource.go b/internal/services/network/network_security_rule_resource.go
-index 1ecf3430c2..ae19f4077e 100644
+index 524468a0d8..78a286fbfd 100644
 --- a/internal/services/network/network_security_rule_resource.go
 +++ b/internal/services/network/network_security_rule_resource.go
 @@ -14,7 +14,9 @@ import (
- 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2022-09-01/securityrules"
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-04-01/securityrules"
  	"github.com/hashicorp/terraform-provider-azurerm/helpers/tf"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
@@ -1719,7 +1719,7 @@ index 1ecf3430c2..ae19f4077e 100644
  		},
  	}
 diff --git a/internal/services/network/public_ip_prefix_resource.go b/internal/services/network/public_ip_prefix_resource.go
-index 5833533ef8..25efa46806 100644
+index f0f001ff61..d909b00794 100644
 --- a/internal/services/network/public_ip_prefix_resource.go
 +++ b/internal/services/network/public_ip_prefix_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1796,7 +1796,7 @@ index fa1c7c8eb9..8b150ba955 100644
  
  			"sku_tier": {
 diff --git a/internal/services/network/route_resource.go b/internal/services/network/route_resource.go
-index f437708ac7..bcfe6318a3 100644
+index f4a0909bd2..603b568b09 100644
 --- a/internal/services/network/route_resource.go
 +++ b/internal/services/network/route_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1819,7 +1819,7 @@ index f437708ac7..bcfe6318a3 100644
  
  			"next_hop_in_ip_address": {
 diff --git a/internal/services/network/route_table_resource.go b/internal/services/network/route_table_resource.go
-index fcd9320b57..1f32f4ad60 100644
+index c18857418f..45997207b9 100644
 --- a/internal/services/network/route_table_resource.go
 +++ b/internal/services/network/route_table_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1959,7 +1959,7 @@ index 3856d6e759..dff2cd3a9d 100644
  					},
  				},
 diff --git a/internal/services/network/virtual_network_resource_test.go b/internal/services/network/virtual_network_resource_test.go
-index 6ced40cf07..74d9bcac62 100644
+index f8d5af6645..ba3f7d1106 100644
 --- a/internal/services/network/virtual_network_resource_test.go
 +++ b/internal/services/network/virtual_network_resource_test.go
 @@ -333,6 +333,52 @@ resource "azurerm_virtual_network" "test" {
@@ -2941,5 +2941,5 @@ index da8c25a5b0..fa2bfff38e 100644
  	}
  
 -- 
-2.39.1
+2.41.0
 

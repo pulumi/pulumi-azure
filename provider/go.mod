@@ -4,10 +4,10 @@ go 1.19
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk v0.20230726.1135558
+	github.com/hashicorp/go-azure-sdk v0.20230803.1095722
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.54.3
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.56.1
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 	github.com/stretchr/testify v1.8.3
 )

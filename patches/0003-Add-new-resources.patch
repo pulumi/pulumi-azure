@@ -1,4 +1,4 @@
-From 5a1ba490b3dc3e36d69ddba9d2b2eb9bf8d16fa6 Mon Sep 17 00:00:00 2001
+From 69441c2f48c60a0c92ff03e91415f04a1753f0ae Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 3/8] Add-new-resources
@@ -4842,5 +4842,5 @@ index 0000000000..ad87350b81
 +	}
 +}
 -- 
-2.39.1
+2.41.0
 

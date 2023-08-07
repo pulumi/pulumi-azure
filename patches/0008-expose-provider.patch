@@ -1,4 +1,4 @@
-From dac2d5b5d06b83b9c29837a33935f93be1e3a89b Mon Sep 17 00:00:00 2001
+From 8dd5cfbd098292e7a1aa5517faa23523de8a4633 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 8/8] expose-provider
@@ -25,5 +25,5 @@ index 0000000000..cd6b26156c
 +	return provider.AzureProvider()
 +}
 -- 
-2.39.1
+2.41.0
 
