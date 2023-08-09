@@ -1,7 +1,7 @@
-From f5f613cf921bc36573302a63fd723ac22be690de Mon Sep 17 00:00:00 2001
+From e1400ccb19dcdf1156fc0cbc31905c08190855b5 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
-Subject: [PATCH 4/8] fixup-Shared-features
+Subject: [PATCH 4/9] fixup-Shared-features
 
 ---
  internal/tf/suppress/deprecated_soon.go | 6 ++++++
@@ -22,5 +22,5 @@ index 926f57f880..815f6e3006 100644
 +	return strings.EqualFold(old, new)
 +}
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

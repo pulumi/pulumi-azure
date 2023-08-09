@@ -1,7 +1,7 @@
-From 4c09b9fcf5e7acf770e58897910810f52840417c Mon Sep 17 00:00:00 2001
+From 9ad2b91fc170a884fe548d6f1b525089d36ee3e3 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
-Subject: [PATCH 7/8] Update-documentation
+Subject: [PATCH 7/9] Update-documentation
 
 ---
  .../d/function_app_host_keys.html.markdown    |   2 -
@@ -3264,5 +3264,5 @@ index e94d26bbb6..3b17a31535 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

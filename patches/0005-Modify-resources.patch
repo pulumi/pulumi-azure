@@ -1,7 +1,7 @@
-From 3ad036935d30dcf7e4110c33da435d5d1e0ea2df Mon Sep 17 00:00:00 2001
+From 39afe3d83b8f7d7bb6e6833dd8c04ef40305aec1 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
-Subject: [PATCH 5/8] Modify-resources
+Subject: [PATCH 5/9] Modify-resources
 
 ---
  .../advisor_recommendations_data_source.go    |  6 ++-
@@ -2941,5 +2941,5 @@ index da8c25a5b0..fa2bfff38e 100644
  	}
  
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 
