@@ -125,6 +125,7 @@ const (
 	azureMachineLearning       = "MachineLearning"       // Machine Learning Resources
 	azureMaintenance           = "Maintenance"           // Maintenance Resources
 	azureManagedApplication    = "ManagedApplication"    // ManagedApplication
+	azureManagedLustre         = "ManagedLustre"         // ManagedLustre
 	azureManagement            = "Management"            // Management Resources
 	azureMaps                  = "Maps"                  // Maps
 	azureMarketPlace           = "Marketplace"           // Marketplace
@@ -142,6 +143,7 @@ const (
 	azureNotificationHub       = "NotificationHub"       // Notification Hub
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
 	azureOrbital               = "Orbital"               // Orbital
+	azurePaloAlto              = "PaloAlto"              // PaloAlto
 	azurePostgresql            = "PostgreSql"            // Postgress SQL
 	azurePolicy                = "Policy"                // Policy
 	azurePortal                = "Portal"                // Portal
@@ -278,6 +280,7 @@ var moduleMap = map[string]string{
 	"machine_learning":    azureMachineLearning,
 	"maintenance":         azureMaintenance,
 	"managed_application": azureManagedApplication,
+	"managed_lustre":      azureManagedLustre,
 	"management":          azureManagement,
 	"maps":                azureMaps,
 	"marketplace":         azureMarketPlace,
@@ -297,6 +300,7 @@ var moduleMap = map[string]string{
 	// azureOperationalInsights or azureLogInsights. Its not clear which from the
 	// token.
 	"orbital":    azureOrbital,
+	"palo_alto":  azurePaloAlto,
 	"pim":        "Pim",
 	"postgresql": azurePostgresql,
 	"policy":     azurePolicy,
@@ -2395,6 +2399,26 @@ func Provider() tfbridge.ProviderInfo {
 			// Mixed Reality
 			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
 
+			// Palo Alto
+			"azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack": {
+				Tok: azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubLocalRulestack"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama": {
+				Tok: azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubPanorama"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"azurerm_palo_alto_virtual_network_appliance": {
+				Tok: azureResource(azurePaloAlto, "VirtualNetworkAppliance"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+
 			// PowerBI
 			"azurerm_powerbi_embedded": {Tok: azureResource(azurePowerBi, "Embedded")},
 
@@ -2808,6 +2832,12 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureDataSource(azureLB, "getBackendAddressPool"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_backend_address_pool.html.markdown",
+				},
+			},
+			"azurerm_palo_alto_local_rulestack": {
+				Tok: azureDataSource(azurePaloAlto, "getLocalRulestack"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
 				},
 			},
 
