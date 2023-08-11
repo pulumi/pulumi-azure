@@ -1,7 +1,7 @@
-From 0745908fec984437e0cf7852d4d1de665f67e173 Mon Sep 17 00:00:00 2001
+From ca25bd6b791fb66f6bcc75a44e7d3bd91003e8e1 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
-Subject: [PATCH 2/8] Shared-features
+Subject: [PATCH 2/9] Shared-features
 
 ---
  internal/features/four_point_oh.go | 6 ++++++
@@ -36,5 +36,5 @@ index bdb0cbfe3a..c4122bf0bc 100644
  		MinItems: 1,
  		Elem: &pluginsdk.Resource{
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 
