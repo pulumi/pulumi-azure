@@ -595,7 +595,9 @@ class SpringCloudConfigurationServiceRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hostKey":
+        if key == "caCertificateId":
+            suggest = "ca_certificate_id"
+        elif key == "hostKey":
             suggest = "host_key"
         elif key == "hostKeyAlgorithm":
             suggest = "host_key_algorithm"
@@ -622,6 +624,7 @@ class SpringCloudConfigurationServiceRepository(dict):
                  name: str,
                  patterns: Sequence[str],
                  uri: str,
+                 ca_certificate_id: Optional[str] = None,
                  host_key: Optional[str] = None,
                  host_key_algorithm: Optional[str] = None,
                  password: Optional[str] = None,
@@ -634,6 +637,7 @@ class SpringCloudConfigurationServiceRepository(dict):
         :param str name: Specifies the name which should be used for this repository.
         :param Sequence[str] patterns: Specifies the collection of patterns of the repository.
         :param str uri: Specifies the URI of the repository.
+        :param str ca_certificate_id: Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
         :param str host_key: Specifies the SSH public key of git repository.
         :param str host_key_algorithm: Specifies the SSH key algorithm of git repository.
         :param str password: Specifies the password of git repository basic auth.
@@ -646,6 +650,8 @@ class SpringCloudConfigurationServiceRepository(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "patterns", patterns)
         pulumi.set(__self__, "uri", uri)
+        if ca_certificate_id is not None:
+            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
         if host_key is not None:
             pulumi.set(__self__, "host_key", host_key)
         if host_key_algorithm is not None:
@@ -692,6 +698,14 @@ class SpringCloudConfigurationServiceRepository(dict):
         Specifies the URI of the repository.
         """
         return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="caCertificateId")
+    def ca_certificate_id(self) -> Optional[str]:
+        """
+        Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+        """
+        return pulumi.get(self, "ca_certificate_id")
 
     @property
     @pulumi.getter(name="hostKey")

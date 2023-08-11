@@ -14,9 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type InstanceIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -32,9 +38,15 @@ type InstanceIdentityInput interface {
 }
 
 type InstanceIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -115,15 +127,24 @@ func (o InstanceIdentityOutput) ToInstanceIdentityPtrOutputWithContext(ctx conte
 	}).(InstanceIdentityPtrOutput)
 }
 
+// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o InstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
 func (o InstanceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o InstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o InstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -152,6 +173,19 @@ func (o InstanceIdentityPtrOutput) Elem() InstanceIdentityOutput {
 	}).(InstanceIdentityOutput)
 }
 
+// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o InstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InstanceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
 func (o InstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceIdentity) *string {
 		if v == nil {
@@ -161,6 +195,7 @@ func (o InstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o InstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceIdentity) *string {
 		if v == nil {
@@ -170,7 +205,7 @@ func (o InstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o InstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceIdentity) *string {
 		if v == nil {

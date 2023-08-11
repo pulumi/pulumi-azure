@@ -14,17 +14,17 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationPlan struct {
-	// Specifies the name of the plan from the marketplace.
+	// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// Specifies the product of the plan from the marketplace.
+	// Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
-	// Specifies the promotion code to use with the plan.
+	// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Specifies the publisher of the plan.
+	// Specifies the publisher of the plan. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	// Specifies the version of the plan from the marketplace.
+	// Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
 
@@ -40,17 +40,17 @@ type ApplicationPlanInput interface {
 }
 
 type ApplicationPlanArgs struct {
-	// Specifies the name of the plan from the marketplace.
+	// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the product of the plan from the marketplace.
+	// Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
-	// Specifies the promotion code to use with the plan.
+	// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Specifies the publisher of the plan.
+	// Specifies the publisher of the plan. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// Specifies the version of the plan from the marketplace.
+	// Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -131,29 +131,29 @@ func (o ApplicationPlanOutput) ToApplicationPlanPtrOutputWithContext(ctx context
 	}).(ApplicationPlanPtrOutput)
 }
 
-// Specifies the name of the plan from the marketplace.
+// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
 func (o ApplicationPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the product of the plan from the marketplace.
+// Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
 func (o ApplicationPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Specifies the promotion code to use with the plan.
+// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 //
 // > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o ApplicationPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the publisher of the plan.
+// Specifies the publisher of the plan. Changing this forces a new resource to be created.
 func (o ApplicationPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the plan from the marketplace.
+// Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
 func (o ApplicationPlanOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPlan) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -182,7 +182,7 @@ func (o ApplicationPlanPtrOutput) Elem() ApplicationPlanOutput {
 	}).(ApplicationPlanOutput)
 }
 
-// Specifies the name of the plan from the marketplace.
+// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
 func (o ApplicationPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPlan) *string {
 		if v == nil {
@@ -192,7 +192,7 @@ func (o ApplicationPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the plan from the marketplace.
+// Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
 func (o ApplicationPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPlan) *string {
 		if v == nil {
@@ -202,7 +202,7 @@ func (o ApplicationPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the promotion code to use with the plan.
+// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 //
 // > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o ApplicationPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
@@ -214,7 +214,7 @@ func (o ApplicationPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the publisher of the plan.
+// Specifies the publisher of the plan. Changing this forces a new resource to be created.
 func (o ApplicationPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPlan) *string {
 		if v == nil {
@@ -224,7 +224,7 @@ func (o ApplicationPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the plan from the marketplace.
+// Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
 func (o ApplicationPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPlan) *string {
 		if v == nil {

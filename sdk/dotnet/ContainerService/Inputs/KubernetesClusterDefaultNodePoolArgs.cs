@@ -205,6 +205,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("scaleDownMode")]
         public Input<string>? ScaleDownMode { get; set; }
 
+        /// <summary>
+        /// The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+        /// </summary>
+        [Input("snapshotId")]
+        public Input<string>? SnapshotId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

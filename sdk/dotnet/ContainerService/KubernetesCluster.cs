@@ -213,6 +213,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `ingress_application_gateway` block as defined below.
+        /// 
+        /// &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         /// </summary>
         [Output("ingressApplicationGateway")]
         public Output<Outputs.KubernetesClusterIngressApplicationGateway?> IngressApplicationGateway { get; private set; } = null!;
@@ -747,6 +749,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `ingress_application_gateway` block as defined below.
+        /// 
+        /// &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         /// </summary>
         [Input("ingressApplicationGateway")]
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayArgs>? IngressApplicationGateway { get; set; }
@@ -1206,6 +1210,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `ingress_application_gateway` block as defined below.
+        /// 
+        /// &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         /// </summary>
         [Input("ingressApplicationGateway")]
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayGetArgs>? IngressApplicationGateway { get; set; }

@@ -1811,8 +1811,8 @@ public final class ComputeFunctions {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;20.04-LTS&#34;)
+     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+     *             .sku(&#34;20_04-lts&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
@@ -1852,8 +1852,8 @@ public final class ComputeFunctions {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;20.04-LTS&#34;)
+     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+     *             .sku(&#34;20_04-lts&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
@@ -1893,8 +1893,8 @@ public final class ComputeFunctions {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;20.04-LTS&#34;)
+     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+     *             .sku(&#34;20_04-lts&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
@@ -1934,8 +1934,8 @@ public final class ComputeFunctions {
      *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;UbuntuServer&#34;)
-     *             .sku(&#34;20.04-LTS&#34;)
+     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+     *             .sku(&#34;20_04-lts&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));

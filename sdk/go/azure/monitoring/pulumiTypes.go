@@ -11983,6 +11983,8 @@ type AlertPrometheusRuleGroupRuleAction struct {
 	// Specifies the resource id of the monitor action group.
 	ActionGroupId string `pulumi:"actionGroupId"`
 	// Specifies the properties of an action group object.
+	//
+	// > **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
 	ActionProperties map[string]string `pulumi:"actionProperties"`
 }
 
@@ -12001,6 +12003,8 @@ type AlertPrometheusRuleGroupRuleActionArgs struct {
 	// Specifies the resource id of the monitor action group.
 	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
 	// Specifies the properties of an action group object.
+	//
+	// > **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
 	ActionProperties pulumi.StringMapInput `pulumi:"actionProperties"`
 }
 
@@ -12061,6 +12065,8 @@ func (o AlertPrometheusRuleGroupRuleActionOutput) ActionGroupId() pulumi.StringO
 }
 
 // Specifies the properties of an action group object.
+//
+// > **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
 func (o AlertPrometheusRuleGroupRuleActionOutput) ActionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AlertPrometheusRuleGroupRuleAction) map[string]string { return v.ActionProperties }).(pulumi.StringMapOutput)
 }

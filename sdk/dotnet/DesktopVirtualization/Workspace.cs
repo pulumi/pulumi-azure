@@ -74,6 +74,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -156,6 +162,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -204,6 +216,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.

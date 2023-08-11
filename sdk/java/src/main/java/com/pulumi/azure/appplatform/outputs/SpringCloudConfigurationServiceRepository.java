@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpringCloudConfigurationServiceRepository {
     /**
+     * @return Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+     * 
+     */
+    private @Nullable String caCertificateId;
+    /**
      * @return Specifies the SSH public key of git repository.
      * 
      */
@@ -70,6 +75,13 @@ public final class SpringCloudConfigurationServiceRepository {
     private @Nullable String username;
 
     private SpringCloudConfigurationServiceRepository() {}
+    /**
+     * @return Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+     * 
+     */
+    public Optional<String> caCertificateId() {
+        return Optional.ofNullable(this.caCertificateId);
+    }
     /**
      * @return Specifies the SSH public key of git repository.
      * 
@@ -157,6 +169,7 @@ public final class SpringCloudConfigurationServiceRepository {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String caCertificateId;
         private @Nullable String hostKey;
         private @Nullable String hostKeyAlgorithm;
         private String label;
@@ -171,6 +184,7 @@ public final class SpringCloudConfigurationServiceRepository {
         public Builder() {}
         public Builder(SpringCloudConfigurationServiceRepository defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.caCertificateId = defaults.caCertificateId;
     	      this.hostKey = defaults.hostKey;
     	      this.hostKeyAlgorithm = defaults.hostKeyAlgorithm;
     	      this.label = defaults.label;
@@ -184,6 +198,11 @@ public final class SpringCloudConfigurationServiceRepository {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
+        public Builder caCertificateId(@Nullable String caCertificateId) {
+            this.caCertificateId = caCertificateId;
+            return this;
+        }
         @CustomType.Setter
         public Builder hostKey(@Nullable String hostKey) {
             this.hostKey = hostKey;
@@ -247,6 +266,7 @@ public final class SpringCloudConfigurationServiceRepository {
         }
         public SpringCloudConfigurationServiceRepository build() {
             final var o = new SpringCloudConfigurationServiceRepository();
+            o.caCertificateId = caCertificateId;
             o.hostKey = hostKey;
             o.hostKeyAlgorithm = hostKeyAlgorithm;
             o.label = label;

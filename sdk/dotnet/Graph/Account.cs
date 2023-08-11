@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Graph
 {
     /// <summary>
-    /// Manages a Graph Account.
+    /// Manages a Microsoft Graph Services Account.
+    /// 
+    /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.graph.ServicesAccount` resource instead.
     /// 
     /// ## Example Usage
     /// 

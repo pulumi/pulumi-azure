@@ -180,7 +180,9 @@ class Account(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Graph Account.
+        Manages a Microsoft Graph Services Account.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `graph.ServicesAccount` resource instead.
 
         ## Example Usage
 
@@ -221,7 +223,9 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Graph Account.
+        Manages a Microsoft Graph Services Account.
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `graph.ServicesAccount` resource instead.
 
         ## Example Usage
 

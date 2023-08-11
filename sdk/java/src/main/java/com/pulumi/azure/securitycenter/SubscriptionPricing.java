@@ -6,11 +6,13 @@ package com.pulumi.azure.securitycenter;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.securitycenter.SubscriptionPricingArgs;
 import com.pulumi.azure.securitycenter.inputs.SubscriptionPricingState;
+import com.pulumi.azure.securitycenter.outputs.SubscriptionPricingExtension;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -62,14 +64,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:securitycenter/subscriptionPricing:SubscriptionPricing")
 public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * One or more `extension` blocks as defined below.
+     * 
+     */
+    @Export(name="extensions", refs={List.class,SubscriptionPricingExtension.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SubscriptionPricingExtension>> extensions;
+
+    /**
+     * @return One or more `extension` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<SubscriptionPricingExtension>>> extensions() {
+        return Codegen.optional(this.extensions);
+    }
+    /**
+     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceType;
 
     /**
-     * @return The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * @return The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
     public Output<Optional<String>> resourceType() {
@@ -78,16 +94,12 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
      * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
-     * 
      */
     @Export(name="subplan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subplan;
 
     /**
      * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
-     * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     public Output<Optional<String>> subplan() {

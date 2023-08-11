@@ -10,6 +10,11 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
+export { ServicesAccountArgs, ServicesAccountState } from "./servicesAccount";
+export type ServicesAccount = import("./servicesAccount").ServicesAccount;
+export const ServicesAccount: typeof import("./servicesAccount").ServicesAccount = null as any;
+utilities.lazyLoad(exports, ["ServicesAccount"], () => require("./servicesAccount"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:graph/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure:graph/servicesAccount:ServicesAccount":
+                return new ServicesAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "graph/account", _module)
+pulumi.runtime.registerResourceModule("azure", "graph/servicesAccount", _module)

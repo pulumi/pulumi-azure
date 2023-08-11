@@ -38,11 +38,17 @@ import * as utilities from "../utilities";
  *     kind: "ServiceCatalog",
  *     managedResourceGroupName: "infrastructureGroup",
  *     applicationDefinitionId: exampleDefinition.id,
- *     parameters: {
- *         location: exampleResourceGroup.location,
- *         storageAccountNamePrefix: "storeNamePrefix",
- *         storageAccountType: "Standard_LRS",
- *     },
+ *     parameterValues: exampleResourceGroup.location.apply(location => JSON.stringify({
+ *         location: {
+ *             value: location,
+ *         },
+ *         storageAccountNamePrefix: {
+ *             value: "storeNamePrefix",
+ *         },
+ *         storageAccountType: {
+ *             value: "Standard_LRS",
+ *         },
+ *     })),
  * });
  * ```
  *
@@ -112,10 +118,14 @@ export class Application extends pulumi.CustomResource {
     public readonly parameterValues!: pulumi.Output<string>;
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
+     *
+     * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+     *
+     * @deprecated This property has been deprecated in favour of `parameter_values`
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
-     * One `plan` block as defined below.
+     * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.managedapplication.ApplicationPlan | undefined>;
     /**
@@ -213,10 +223,14 @@ export interface ApplicationState {
     parameterValues?: pulumi.Input<string>;
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
+     *
+     * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+     *
+     * @deprecated This property has been deprecated in favour of `parameter_values`
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * One `plan` block as defined below.
+     * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
     /**
@@ -259,10 +273,14 @@ export interface ApplicationArgs {
     parameterValues?: pulumi.Input<string>;
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
+     *
+     * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+     *
+     * @deprecated This property has been deprecated in favour of `parameter_values`
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * One `plan` block as defined below.
+     * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
     /**

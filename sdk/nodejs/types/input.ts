@@ -2426,6 +2426,10 @@ export namespace appplatform {
 
     export interface SpringCloudConfigurationServiceRepository {
         /**
+         * Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+         */
+        caCertificateId?: pulumi.Input<string>;
+        /**
          * Specifies the SSH public key of git repository.
          */
         hostKey?: pulumi.Input<string>;
@@ -16626,9 +16630,11 @@ export namespace blueprint {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
          */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -23281,6 +23287,10 @@ export namespace containerservice {
          */
         scaleDownMode?: pulumi.Input<string>;
         /**
+         * The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
+         */
+        snapshotId?: pulumi.Input<string>;
+        /**
          * A mapping of tags to assign to the Node Pool.
          *
          * > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -23627,6 +23637,8 @@ export namespace containerservice {
         subnetCidr?: pulumi.Input<string>;
         /**
          * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
          *
          * > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
          */
@@ -24381,6 +24393,27 @@ export namespace containerservice {
          * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
          */
         dnsZoneId: pulumi.Input<string>;
+        /**
+         * A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
+         */
+        webAppRoutingIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterWebAppRoutingWebAppRoutingIdentity>[]>;
+    }
+
+    export interface KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterWindowsProfile {
@@ -28300,10 +28333,22 @@ export namespace devtest {
 
 export namespace digitaltwins {
     export interface InstanceIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -36351,25 +36396,25 @@ export namespace maintenance {
 export namespace managedapplication {
     export interface ApplicationPlan {
         /**
-         * Specifies the name of the plan from the marketplace.
+         * Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies the product of the plan from the marketplace.
+         * Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
          */
         product: pulumi.Input<string>;
         /**
-         * Specifies the promotion code to use with the plan.
+         * Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
          *
          * > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
          */
         promotionCode?: pulumi.Input<string>;
         /**
-         * Specifies the publisher of the plan.
+         * Specifies the publisher of the plan. Changing this forces a new resource to be created.
          */
         publisher: pulumi.Input<string>;
         /**
-         * Specifies the version of the plan from the marketplace.
+         * Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
          */
         version: pulumi.Input<string>;
     }
@@ -36383,6 +36428,55 @@ export namespace managedapplication {
          * Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
          */
         servicePrincipalId: pulumi.Input<string>;
+    }
+}
+
+export namespace managedlustre {
+    export interface FileSystemEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+         */
+        keyUrl: pulumi.Input<string>;
+        /**
+         * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+         */
+        sourceVaultId: pulumi.Input<string>;
+    }
+
+    export interface FileSystemHsmSetting {
+        /**
+         * The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created.
+         */
+        containerId: pulumi.Input<string>;
+        /**
+         * The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+         */
+        importPrefix?: pulumi.Input<string>;
+        /**
+         * The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
+         */
+        loggingContainerId: pulumi.Input<string>;
+    }
+
+    export interface FileSystemIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FileSystemMaintenanceWindow {
+        /**
+         * The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        dayOfWeek: pulumi.Input<string>;
+        timeOfDayInUtc: pulumi.Input<string>;
     }
 }
 
@@ -39908,6 +40002,8 @@ export namespace monitoring {
         actionGroupId: pulumi.Input<string>;
         /**
          * Specifies the properties of an action group object.
+         *
+         * > **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
          */
         actionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -41350,7 +41446,7 @@ export namespace mssql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -45569,6 +45665,339 @@ export namespace orbital {
     }
 }
 
+export namespace paloalto {
+    export interface LocalRulestackRuleCategory {
+        /**
+         * Specifies a list of URL categories to match. Possible values include `abortion`, `abused-drugs`, `adult`, `alcohol-and-tobacco`, `auctions`, `business-and-economy`, `command-and-control`, `computer-and-internet-info`, `content-delivery-networks`, `copyright-infringement`, `cryptocurrency`, `dating`, `dynamic-dns`, `educational-institutions`, `entertainment-and-arts`, `extremism`, `financial-services`, `gambling`, `games`, `government`, `grayware`, `hacking`, `health-and-medicine`, `high-risk`, `home-and-garden`, `hunting-and-fishing`, `insufficient-content`, `internet-communications-and-telephony`, `internet-portals`, `job-search`, `legal`, `low-risk`, `malware`, `medium-risk`, `military`, `motor-vehicles`, `music`, `newly-registered-domain`, `news`, `not-resolved`, `nudity`, `online-storage-and-backup`, `parked`, `peer-to-peer`, `personal-sites-and-blogs`, `philosophy-and-political-advocacy`, `phishing`, `private-ip-addresses`, `proxy-avoidance-and-anonymizers`, `questionable`, `real-estate`, `real-time-detection`, `recreation-and-hobbies`, `reference-and-research`, `religion`, `search-engines`, `sex-education`, `shareware-and-freeware`, `shopping`, `social-networking`, `society`, `sports`, `stock-advice-and-tools`, `streaming-media`, `swimsuits-and-intimate-apparel`, `training-and-tools`, `translation`, `travel`, `unknown`, `weapons`, `web-advertisements`, `web-based-email`, and  `web-hosting`.
+         */
+        customUrls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of feeds to match.
+         */
+        feeds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LocalRulestackRuleDestination {
+        /**
+         * Specifies a list of CIDR's.
+         */
+        cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
+         */
+        countries?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Feeds.
+         */
+        feeds?: pulumi.Input<pulumi.Input<string>[]>;
+        localRulestackFqdnListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        localRulestackPrefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LocalRulestackRuleSource {
+        /**
+         * Specifies a list of CIDRs.
+         */
+        cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
+         */
+        countries?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Feeds.
+         */
+        feeds?: pulumi.Input<pulumi.Input<string>[]>;
+        localRulestackPrefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubLocalRulestackDestinationNat {
+        backendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig>;
+        frontendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig>;
+        name: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig {
+        port: pulumi.Input<number>;
+        publicIpAddress: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig {
+        port: pulumi.Input<number>;
+        publicIpAddressId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubLocalRulestackDnsSettings {
+        azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        useAzureDns?: pulumi.Input<boolean>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile {
+        egressNatIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        egressNatIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        ipOfTrustForUserDefinedRoutes?: pulumi.Input<string>;
+        networkVirtualApplianceId: pulumi.Input<string>;
+        publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        trustedSubnetId?: pulumi.Input<string>;
+        untrustedSubnetId?: pulumi.Input<string>;
+        virtualHubId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubPanoramaDestinationNat {
+        backendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig>;
+        frontendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig>;
+        name: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig {
+        port: pulumi.Input<number>;
+        publicIpAddress: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig {
+        port: pulumi.Input<number>;
+        publicIpAddressId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubPanoramaDnsSettings {
+        azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        useAzureDns?: pulumi.Input<boolean>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubPanoramaNetworkProfile {
+        egressNatIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        egressNatIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        ipOfTrustForUserDefinedRoutes?: pulumi.Input<string>;
+        networkVirtualApplianceId: pulumi.Input<string>;
+        publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        trustedSubnetId?: pulumi.Input<string>;
+        untrustedSubnetId?: pulumi.Input<string>;
+        virtualHubId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualHubPanoramaPanorama {
+        deviceGroupName?: pulumi.Input<string>;
+        hostName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        panoramaServer1?: pulumi.Input<string>;
+        panoramaServer2?: pulumi.Input<string>;
+        templateName?: pulumi.Input<string>;
+        virtualMachineSshKey?: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat {
+        /**
+         * A `backendConfig` block as defined above.
+         */
+        backendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig>;
+        /**
+         * A `frontendConfig` block as defined below.
+         */
+        frontendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig>;
+        /**
+         * The name which should be used for this Destination NAT.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
+         */
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig {
+        /**
+         * The port number to send traffic to.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The IP Address to send the traffic to.
+         */
+        publicIpAddress: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig {
+        /**
+         * The port on which to receive traffic.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The ID of the Public IP Address on which to receive traffic. 
+         *
+         * > **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
+         */
+        publicIpAddressId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings {
+        azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         */
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         */
+        useAzureDns?: pulumi.Input<boolean>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile {
+        /**
+         * Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+         */
+        egressNatIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        egressNatIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Azure Public IP Address IDs.
+         */
+        publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `vnetConfiguration` block as defined below.
+         */
+        vnetConfiguration: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration {
+        ipOfTrustForUserDefinedRoutes?: pulumi.Input<string>;
+        /**
+         * The ID of the Trust subnet.
+         */
+        trustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the UnTrust subnet.
+         */
+        untrustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Network.
+         */
+        virtualNetworkId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaDestinationNat {
+        /**
+         * A `backendConfig` block as defined above.
+         */
+        backendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig>;
+        /**
+         * A `frontendConfig` block as defined below.
+         */
+        frontendConfig?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig>;
+        /**
+         * The name which should be used for this Destination NAT.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
+         */
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig {
+        /**
+         * The port number to send traffic to.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The IP Address to send the traffic to.
+         */
+        publicIpAddress: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig {
+        /**
+         * The port on which to receive traffic.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The ID of the Public IP Address on which to receive traffic.
+         *
+         * > **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
+         */
+        publicIpAddressId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
+        azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         */
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         */
+        useAzureDns?: pulumi.Input<boolean>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
+        /**
+         * Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+         */
+        egressNatIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        egressNatIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Azure Public IP Address IDs.
+         */
+        publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `vnetConfiguration` block as defined below.
+         */
+        vnetConfiguration: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration {
+        ipOfTrustForUserDefinedRoutes?: pulumi.Input<string>;
+        /**
+         * The ID of the Trust subnet.
+         */
+        trustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the UnTrust subnet.
+         */
+        untrustedSubnetId?: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Network.
+         */
+        virtualNetworkId: pulumi.Input<string>;
+    }
+
+    export interface NextGenerationFirewallVirtualNetworkPanoramaPanorama {
+        /**
+         * The Device Group Name to which this Firewall Resource is registered.
+         */
+        deviceGroupName?: pulumi.Input<string>;
+        /**
+         * The Host Name of this Firewall Resource.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The name of the First Panorana server.
+         */
+        panoramaServer1?: pulumi.Input<string>;
+        /**
+         * The name of the Second Panorana server.
+         */
+        panoramaServer2?: pulumi.Input<string>;
+        /**
+         * The name of the Panorama Template applied to this Firewall Resource.
+         */
+        templateName?: pulumi.Input<string>;
+        /**
+         * The SSH Key to connect to the Firewall Resource.
+         */
+        virtualMachineSshKey?: pulumi.Input<string>;
+    }
+}
+
 export namespace pim {
     export interface ActiveRoleAssignmentSchedule {
         /**
@@ -46461,6 +46890,21 @@ export namespace securitycenter {
          * > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
          */
         propertyType: pulumi.Input<string>;
+    }
+
+    export interface SubscriptionPricingExtension {
+        /**
+         * Key/Value pairs that are required for some extensions.
+         *
+         * > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignoreChanges` on the `extension` field if you want to use the default extensions.
+         *
+         * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+         */
+        additionalExtensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The name of extension.
+         */
+        name: pulumi.Input<string>;
     }
 }
 

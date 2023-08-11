@@ -68,7 +68,6 @@ type Instance struct {
 	// An `identity` block as defined below.
 	Identity InstanceIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-	// *
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -116,7 +115,6 @@ type instanceState struct {
 	// An `identity` block as defined below.
 	Identity *InstanceIdentity `pulumi:"identity"`
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-	// *
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
 	Name *string `pulumi:"name"`
@@ -132,7 +130,6 @@ type InstanceState struct {
 	// An `identity` block as defined below.
 	Identity InstanceIdentityPtrInput
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-	// *
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
 	Name pulumi.StringPtrInput
@@ -150,7 +147,6 @@ type instanceArgs struct {
 	// An `identity` block as defined below.
 	Identity *InstanceIdentity `pulumi:"identity"`
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-	// *
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
 	Name *string `pulumi:"name"`
@@ -165,7 +161,6 @@ type InstanceArgs struct {
 	// An `identity` block as defined below.
 	Identity InstanceIdentityPtrInput
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-	// *
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
 	Name pulumi.StringPtrInput
@@ -273,7 +268,6 @@ func (o InstanceOutput) Identity() InstanceIdentityPtrOutput {
 }
 
 // The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-// *
 func (o InstanceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

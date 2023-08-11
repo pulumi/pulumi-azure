@@ -4548,6 +4548,8 @@ class AlertPrometheusRuleGroupRuleActionArgs:
         """
         :param pulumi.Input[str] action_group_id: Specifies the resource id of the monitor action group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: Specifies the properties of an action group object.
+               
+               > **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
         if action_properties is not None:
@@ -4570,6 +4572,8 @@ class AlertPrometheusRuleGroupRuleActionArgs:
     def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specifies the properties of an action group object.
+
+        > **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
         """
         return pulumi.get(self, "action_properties")
 

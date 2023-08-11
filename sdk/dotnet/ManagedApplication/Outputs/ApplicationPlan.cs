@@ -14,25 +14,25 @@ namespace Pulumi.Azure.ManagedApplication.Outputs
     public sealed class ApplicationPlan
     {
         /// <summary>
-        /// Specifies the name of the plan from the marketplace.
+        /// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the product of the plan from the marketplace.
+        /// Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Product;
         /// <summary>
-        /// Specifies the promotion code to use with the plan.
+        /// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         /// </summary>
         public readonly string? PromotionCode;
         /// <summary>
-        /// Specifies the publisher of the plan.
+        /// Specifies the publisher of the plan. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// Specifies the version of the plan from the marketplace.
+        /// Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Version;
 

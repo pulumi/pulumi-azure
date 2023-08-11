@@ -34,7 +34,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      * 
      */
     @Import(name="location")
@@ -42,7 +41,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      * 
      */
     public Optional<Output<String>> location() {
@@ -145,7 +143,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-         * *
          * 
          * @return builder
          * 
@@ -157,7 +154,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-         * *
          * 
          * @return builder
          * 

@@ -65,7 +65,6 @@ namespace Pulumi.Azure.DigitalTwins
 
         /// <summary>
         /// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-        /// *
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -142,7 +141,6 @@ namespace Pulumi.Azure.DigitalTwins
 
         /// <summary>
         /// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-        /// *
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -193,7 +191,6 @@ namespace Pulumi.Azure.DigitalTwins
 
         /// <summary>
         /// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-        /// *
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

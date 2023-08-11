@@ -571,6 +571,7 @@ class SpringCloudConfigurationServiceRepositoryArgs:
                  name: pulumi.Input[str],
                  patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  uri: pulumi.Input[str],
+                 ca_certificate_id: Optional[pulumi.Input[str]] = None,
                  host_key: Optional[pulumi.Input[str]] = None,
                  host_key_algorithm: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -583,6 +584,7 @@ class SpringCloudConfigurationServiceRepositoryArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns: Specifies the collection of patterns of the repository.
         :param pulumi.Input[str] uri: Specifies the URI of the repository.
+        :param pulumi.Input[str] ca_certificate_id: Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
         :param pulumi.Input[str] host_key: Specifies the SSH public key of git repository.
         :param pulumi.Input[str] host_key_algorithm: Specifies the SSH key algorithm of git repository.
         :param pulumi.Input[str] password: Specifies the password of git repository basic auth.
@@ -595,6 +597,8 @@ class SpringCloudConfigurationServiceRepositoryArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "patterns", patterns)
         pulumi.set(__self__, "uri", uri)
+        if ca_certificate_id is not None:
+            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
         if host_key is not None:
             pulumi.set(__self__, "host_key", host_key)
         if host_key_algorithm is not None:
@@ -657,6 +661,18 @@ class SpringCloudConfigurationServiceRepositoryArgs:
     @uri.setter
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="caCertificateId")
+    def ca_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+        """
+        return pulumi.get(self, "ca_certificate_id")
+
+    @ca_certificate_id.setter
+    def ca_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_id", value)
 
     @property
     @pulumi.getter(name="hostKey")

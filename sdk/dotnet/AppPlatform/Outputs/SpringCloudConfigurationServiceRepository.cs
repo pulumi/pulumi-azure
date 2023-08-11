@@ -14,6 +14,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class SpringCloudConfigurationServiceRepository
     {
         /// <summary>
+        /// Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+        /// </summary>
+        public readonly string? CaCertificateId;
+        /// <summary>
         /// Specifies the SSH public key of git repository.
         /// </summary>
         public readonly string? HostKey;
@@ -60,6 +64,8 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
         [OutputConstructor]
         private SpringCloudConfigurationServiceRepository(
+            string? caCertificateId,
+
             string? hostKey,
 
             string? hostKeyAlgorithm,
@@ -82,6 +88,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             string? username)
         {
+            CaCertificateId = caCertificateId;
             HostKey = hostKey;
             HostKeyAlgorithm = hostKeyAlgorithm;
             Label = label;

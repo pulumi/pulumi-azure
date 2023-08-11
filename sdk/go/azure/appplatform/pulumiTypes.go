@@ -1502,6 +1502,8 @@ func (o SpringCloudBuilderStackPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type SpringCloudConfigurationServiceRepository struct {
+	// Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+	CaCertificateId *string `pulumi:"caCertificateId"`
 	// Specifies the SSH public key of git repository.
 	HostKey *string `pulumi:"hostKey"`
 	// Specifies the SSH key algorithm of git repository.
@@ -1538,6 +1540,8 @@ type SpringCloudConfigurationServiceRepositoryInput interface {
 }
 
 type SpringCloudConfigurationServiceRepositoryArgs struct {
+	// Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+	CaCertificateId pulumi.StringPtrInput `pulumi:"caCertificateId"`
 	// Specifies the SSH public key of git repository.
 	HostKey pulumi.StringPtrInput `pulumi:"hostKey"`
 	// Specifies the SSH key algorithm of git repository.
@@ -1611,6 +1615,11 @@ func (o SpringCloudConfigurationServiceRepositoryOutput) ToSpringCloudConfigurat
 
 func (o SpringCloudConfigurationServiceRepositoryOutput) ToSpringCloudConfigurationServiceRepositoryOutputWithContext(ctx context.Context) SpringCloudConfigurationServiceRepositoryOutput {
 	return o
+}
+
+// Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+func (o SpringCloudConfigurationServiceRepositoryOutput) CaCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConfigurationServiceRepository) *string { return v.CaCertificateId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SSH public key of git repository.

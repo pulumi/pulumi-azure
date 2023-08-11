@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.managedapplication.inputs.DefinitionAuthorizationArgs;
  * import com.pulumi.azure.managedapplication.Application;
  * import com.pulumi.azure.managedapplication.ApplicationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,11 +79,18 @@ import javax.annotation.Nullable;
  *             .kind(&#34;ServiceCatalog&#34;)
  *             .managedResourceGroupName(&#34;infrastructureGroup&#34;)
  *             .applicationDefinitionId(exampleDefinition.id())
- *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;location&#34;, exampleResourceGroup.location()),
- *                 Map.entry(&#34;storageAccountNamePrefix&#34;, &#34;storeNamePrefix&#34;),
- *                 Map.entry(&#34;storageAccountType&#34;, &#34;Standard_LRS&#34;)
- *             ))
+ *             .parameterValues(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;location&#34;, jsonObject(
+ *                         jsonProperty(&#34;value&#34;, location)
+ *                     )),
+ *                     jsonProperty(&#34;storageAccountNamePrefix&#34;, jsonObject(
+ *                         jsonProperty(&#34;value&#34;, &#34;storeNamePrefix&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;storageAccountType&#34;, jsonObject(
+ *                         jsonProperty(&#34;value&#34;, &#34;Standard_LRS&#34;)
+ *                     ))
+ *                 ))))
  *             .build());
  * 
  *     }
@@ -201,26 +209,34 @@ public class Application extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
      * 
+     * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
+     * 
+     * @deprecated
+     * This property has been deprecated in favour of `parameter_values`
+     * 
      */
+    @Deprecated /* This property has been deprecated in favour of `parameter_values` */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
     /**
      * @return A mapping of name and value pairs to pass to the managed application as parameters.
      * 
+     * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
+     * 
      */
     public Output<Map<String,String>> parameters() {
         return this.parameters;
     }
     /**
-     * One `plan` block as defined below.
+     * One `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="plan", refs={ApplicationPlan.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationPlan> plan;
 
     /**
-     * @return One `plan` block as defined below.
+     * @return One `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ApplicationPlan>> plan() {

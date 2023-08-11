@@ -3,9 +3,12 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterWebAppRouting {
@@ -14,6 +17,11 @@ public final class KubernetesClusterWebAppRouting {
      * 
      */
     private String dnsZoneId;
+    /**
+     * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    private @Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities;
 
     private KubernetesClusterWebAppRouting() {}
     /**
@@ -22,6 +30,13 @@ public final class KubernetesClusterWebAppRouting {
      */
     public String dnsZoneId() {
         return this.dnsZoneId;
+    }
+    /**
+     * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    public List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities() {
+        return this.webAppRoutingIdentities == null ? List.of() : this.webAppRoutingIdentities;
     }
 
     public static Builder builder() {
@@ -34,10 +49,12 @@ public final class KubernetesClusterWebAppRouting {
     @CustomType.Builder
     public static final class Builder {
         private String dnsZoneId;
+        private @Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities;
         public Builder() {}
         public Builder(KubernetesClusterWebAppRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsZoneId = defaults.dnsZoneId;
+    	      this.webAppRoutingIdentities = defaults.webAppRoutingIdentities;
         }
 
         @CustomType.Setter
@@ -45,9 +62,18 @@ public final class KubernetesClusterWebAppRouting {
             this.dnsZoneId = Objects.requireNonNull(dnsZoneId);
             return this;
         }
+        @CustomType.Setter
+        public Builder webAppRoutingIdentities(@Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities) {
+            this.webAppRoutingIdentities = webAppRoutingIdentities;
+            return this;
+        }
+        public Builder webAppRoutingIdentities(KubernetesClusterWebAppRoutingWebAppRoutingIdentity... webAppRoutingIdentities) {
+            return webAppRoutingIdentities(List.of(webAppRoutingIdentities));
+        }
         public KubernetesClusterWebAppRouting build() {
             final var o = new KubernetesClusterWebAppRouting();
             o.dnsZoneId = dnsZoneId;
+            o.webAppRoutingIdentities = webAppRoutingIdentities;
             return o;
         }
     }

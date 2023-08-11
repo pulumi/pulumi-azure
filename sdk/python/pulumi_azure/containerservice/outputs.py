@@ -87,6 +87,7 @@ __all__ = [
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterStorageProfile',
     'KubernetesClusterWebAppRouting',
+    'KubernetesClusterWebAppRoutingWebAppRoutingIdentity',
     'KubernetesClusterWindowsProfile',
     'KubernetesClusterWindowsProfileGmsa',
     'KubernetesClusterWorkloadAutoscalerProfile',
@@ -3133,6 +3134,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "proximity_placement_group_id"
         elif key == "scaleDownMode":
             suggest = "scale_down_mode"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
         elif key == "temporaryNameForRotation":
             suggest = "temporary_name_for_rotation"
         elif key == "ultraSsdEnabled":
@@ -3185,6 +3188,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  pod_subnet_id: Optional[str] = None,
                  proximity_placement_group_id: Optional[str] = None,
                  scale_down_mode: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  temporary_name_for_rotation: Optional[str] = None,
                  type: Optional[str] = None,
@@ -3236,6 +3240,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param str snapshot_id: The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -3311,6 +3316,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if temporary_name_for_rotation is not None:
@@ -3572,6 +3579,14 @@ class KubernetesClusterDefaultNodePool(dict):
         Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         """
         return pulumi.get(self, "scale_down_mode")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+        """
+        return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
@@ -4739,6 +4754,8 @@ class KubernetesClusterIngressApplicationGateway(dict):
         :param str subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
                
+               > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+               
                > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         if effective_gateway_id is not None:
@@ -4799,6 +4816,8 @@ class KubernetesClusterIngressApplicationGateway(dict):
     def subnet_id(self) -> Optional[str]:
         """
         The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+
+        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
 
         > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
@@ -7584,6 +7603,8 @@ class KubernetesClusterWebAppRouting(dict):
         suggest = None
         if key == "dnsZoneId":
             suggest = "dns_zone_id"
+        elif key == "webAppRoutingIdentities":
+            suggest = "web_app_routing_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWebAppRouting. Access the value via the '{suggest}' property getter instead.")
@@ -7597,11 +7618,15 @@ class KubernetesClusterWebAppRouting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dns_zone_id: str):
+                 dns_zone_id: str,
+                 web_app_routing_identities: Optional[Sequence['outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity']] = None):
         """
         :param str dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
+        :param Sequence['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs'] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+        if web_app_routing_identities is not None:
+            pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
 
     @property
     @pulumi.getter(name="dnsZoneId")
@@ -7610,6 +7635,82 @@ class KubernetesClusterWebAppRouting(dict):
         Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
         """
         return pulumi.get(self, "dns_zone_id")
+
+    @property
+    @pulumi.getter(name="webAppRoutingIdentities")
+    def web_app_routing_identities(self) -> Optional[Sequence['outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity']]:
+        """
+        A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "web_app_routing_identities")
+
+
+@pulumi.output_type
+class KubernetesClusterWebAppRoutingWebAppRoutingIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWebAppRoutingWebAppRoutingIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterWebAppRoutingWebAppRoutingIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterWebAppRoutingWebAppRoutingIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+
+        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

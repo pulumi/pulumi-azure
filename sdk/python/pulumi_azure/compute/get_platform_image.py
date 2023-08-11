@@ -106,8 +106,8 @@ def get_platform_image(location: Optional[str] = None,
 
     example = azure.compute.get_platform_image(location="West Europe",
         publisher="Canonical",
-        offer="UbuntuServer",
-        sku="20.04-LTS")
+        offer="0001-com-ubuntu-server-focal",
+        sku="20_04-lts")
     pulumi.export("id", example.id)
     ```
 
@@ -154,8 +154,8 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
 
     example = azure.compute.get_platform_image(location="West Europe",
         publisher="Canonical",
-        offer="UbuntuServer",
-        sku="20.04-LTS")
+        offer="0001-com-ubuntu-server-focal",
+        sku="20_04-lts")
     pulumi.export("id", example.id)
     ```
 

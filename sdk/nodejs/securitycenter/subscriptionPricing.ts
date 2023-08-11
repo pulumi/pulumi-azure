@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,13 +60,15 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     }
 
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * One or more `extension` blocks as defined below.
+     */
+    public readonly extensions!: pulumi.Output<outputs.securitycenter.SubscriptionPricingExtension[] | undefined>;
+    /**
+     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
-     *
-     * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      */
     public readonly subplan!: pulumi.Output<string | undefined>;
     /**
@@ -85,6 +89,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionPricingState | undefined;
+            resourceInputs["extensions"] = state ? state.extensions : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["subplan"] = state ? state.subplan : undefined;
             resourceInputs["tier"] = state ? state.tier : undefined;
@@ -93,6 +98,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
             if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
+            resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["subplan"] = args ? args.subplan : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
@@ -107,13 +113,15 @@ export class SubscriptionPricing extends pulumi.CustomResource {
  */
 export interface SubscriptionPricingState {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * One or more `extension` blocks as defined below.
+     */
+    extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[]>;
+    /**
+     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
     resourceType?: pulumi.Input<string>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
-     *
-     * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      */
     subplan?: pulumi.Input<string>;
     /**
@@ -127,13 +135,15 @@ export interface SubscriptionPricingState {
  */
 export interface SubscriptionPricingArgs {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * One or more `extension` blocks as defined below.
+     */
+    extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[]>;
+    /**
+     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
     resourceType?: pulumi.Input<string>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
-     *
-     * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      */
     subplan?: pulumi.Input<string>;
     /**

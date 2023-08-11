@@ -17,6 +17,7 @@ namespace Pulumi.Azure.ManagedApplication
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
@@ -64,12 +65,21 @@ namespace Pulumi.Azure.ManagedApplication
     ///         Kind = "ServiceCatalog",
     ///         ManagedResourceGroupName = "infrastructureGroup",
     ///         ApplicationDefinitionId = exampleDefinition.Id,
-    ///         Parameters = 
+    ///         ParameterValues = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "location", exampleResourceGroup.Location },
-    ///             { "storageAccountNamePrefix", "storeNamePrefix" },
-    ///             { "storageAccountType", "Standard_LRS" },
-    ///         },
+    ///             ["location"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = location,
+    ///             },
+    ///             ["storageAccountNamePrefix"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = "storeNamePrefix",
+    ///             },
+    ///             ["storageAccountType"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = "Standard_LRS",
+    ///             },
+    ///         })),
     ///     });
     /// 
     /// });
@@ -130,12 +140,14 @@ namespace Pulumi.Azure.ManagedApplication
 
         /// <summary>
         /// A mapping of name and value pairs to pass to the managed application as parameters.
+        /// 
+        /// &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// One `plan` block as defined below.
+        /// One `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.ApplicationPlan?> Plan { get; private set; } = null!;
@@ -239,7 +251,10 @@ namespace Pulumi.Azure.ManagedApplication
 
         /// <summary>
         /// A mapping of name and value pairs to pass to the managed application as parameters.
+        /// 
+        /// &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         /// </summary>
+        [Obsolete(@"This property has been deprecated in favour of `parameter_values`")]
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
@@ -247,7 +262,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
 
         /// <summary>
-        /// One `plan` block as defined below.
+        /// One `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.ApplicationPlanArgs>? Plan { get; set; }
@@ -331,7 +346,10 @@ namespace Pulumi.Azure.ManagedApplication
 
         /// <summary>
         /// A mapping of name and value pairs to pass to the managed application as parameters.
+        /// 
+        /// &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         /// </summary>
+        [Obsolete(@"This property has been deprecated in favour of `parameter_values`")]
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
@@ -339,7 +357,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
 
         /// <summary>
-        /// One `plan` block as defined below.
+        /// One `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.ApplicationPlanGetArgs>? Plan { get; set; }

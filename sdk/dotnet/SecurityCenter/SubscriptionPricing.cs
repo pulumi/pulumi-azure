@@ -45,15 +45,19 @@ namespace Pulumi.Azure.SecurityCenter
     public partial class SubscriptionPricing : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        /// One or more `extension` blocks as defined below.
+        /// </summary>
+        [Output("extensions")]
+        public Output<ImmutableArray<Outputs.SubscriptionPricingExtension>> Extensions { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         /// </summary>
         [Output("resourceType")]
         public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
-        /// 
-        /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>
         [Output("subplan")]
         public Output<string?> Subplan { get; private set; } = null!;
@@ -110,16 +114,26 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class SubscriptionPricingArgs : global::Pulumi.ResourceArgs
     {
+        [Input("extensions")]
+        private InputList<Inputs.SubscriptionPricingExtensionArgs>? _extensions;
+
         /// <summary>
-        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        /// One or more `extension` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SubscriptionPricingExtensionArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.SubscriptionPricingExtensionArgs>());
+            set => _extensions = value;
+        }
+
+        /// <summary>
+        /// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
-        /// 
-        /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>
         [Input("subplan")]
         public Input<string>? Subplan { get; set; }
@@ -138,16 +152,26 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class SubscriptionPricingState : global::Pulumi.ResourceArgs
     {
+        [Input("extensions")]
+        private InputList<Inputs.SubscriptionPricingExtensionGetArgs>? _extensions;
+
         /// <summary>
-        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        /// One or more `extension` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SubscriptionPricingExtensionGetArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.SubscriptionPricingExtensionGetArgs>());
+            set => _extensions = value;
+        }
+
+        /// <summary>
+        /// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
         /// Resource type pricing subplan. Contact your MSFT representative for possible values.
-        /// 
-        /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>
         [Input("subplan")]
         public Input<string>? Subplan { get; set; }

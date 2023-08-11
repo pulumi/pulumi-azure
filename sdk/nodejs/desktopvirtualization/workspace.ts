@@ -75,6 +75,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -111,6 +116,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
@@ -139,6 +145,10 @@ export interface WorkspaceState {
      * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
@@ -169,6 +179,10 @@ export interface WorkspaceArgs {
      * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */

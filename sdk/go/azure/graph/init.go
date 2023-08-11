@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:graph/account:Account":
 		r = &Account{}
+	case "azure:graph/servicesAccount:ServicesAccount":
+		r = &ServicesAccount{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"graph/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"graph/servicesAccount",
 		&module{version},
 	)
 }

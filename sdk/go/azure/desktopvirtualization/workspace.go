@@ -70,6 +70,8 @@ type Workspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -117,6 +119,8 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -132,6 +136,8 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -151,6 +157,8 @@ type workspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -167,6 +175,8 @@ type WorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
@@ -278,6 +288,11 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 // The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+func (o WorkspaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.

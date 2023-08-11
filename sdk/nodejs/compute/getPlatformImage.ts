@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * const example = azure.compute.getPlatformImage({
  *     location: "West Europe",
  *     publisher: "Canonical",
- *     offer: "UbuntuServer",
- *     sku: "20.04-LTS",
+ *     offer: "0001-com-ubuntu-server-focal",
+ *     sku: "20_04-lts",
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -86,8 +86,8 @@ export interface GetPlatformImageResult {
  * const example = azure.compute.getPlatformImage({
  *     location: "West Europe",
  *     publisher: "Canonical",
- *     offer: "UbuntuServer",
- *     sku: "20.04-LTS",
+ *     offer: "0001-com-ubuntu-server-focal",
+ *     sku: "20_04-lts",
  * });
  * export const id = example.then(example => example.id);
  * ```

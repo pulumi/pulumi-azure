@@ -18,6 +18,21 @@ public final class SpringCloudConfigurationServiceRepositoryArgs extends com.pul
     public static final SpringCloudConfigurationServiceRepositoryArgs Empty = new SpringCloudConfigurationServiceRepositoryArgs();
 
     /**
+     * Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+     * 
+     */
+    @Import(name="caCertificateId")
+    private @Nullable Output<String> caCertificateId;
+
+    /**
+     * @return Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+     * 
+     */
+    public Optional<Output<String>> caCertificateId() {
+        return Optional.ofNullable(this.caCertificateId);
+    }
+
+    /**
      * Specifies the SSH public key of git repository.
      * 
      */
@@ -185,6 +200,7 @@ public final class SpringCloudConfigurationServiceRepositoryArgs extends com.pul
     private SpringCloudConfigurationServiceRepositoryArgs() {}
 
     private SpringCloudConfigurationServiceRepositoryArgs(SpringCloudConfigurationServiceRepositoryArgs $) {
+        this.caCertificateId = $.caCertificateId;
         this.hostKey = $.hostKey;
         this.hostKeyAlgorithm = $.hostKeyAlgorithm;
         this.label = $.label;
@@ -214,6 +230,27 @@ public final class SpringCloudConfigurationServiceRepositoryArgs extends com.pul
 
         public Builder(SpringCloudConfigurationServiceRepositoryArgs defaults) {
             $ = new SpringCloudConfigurationServiceRepositoryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param caCertificateId Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateId(@Nullable Output<String> caCertificateId) {
+            $.caCertificateId = caCertificateId;
+            return this;
+        }
+
+        /**
+         * @param caCertificateId Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateId(String caCertificateId) {
+            return caCertificateId(Output.of(caCertificateId));
         }
 
         /**

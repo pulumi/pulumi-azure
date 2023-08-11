@@ -15,6 +15,7 @@ __all__ = [
     'AutomationSourceArgs',
     'AutomationSourceRuleSetArgs',
     'AutomationSourceRuleSetRuleArgs',
+    'SubscriptionPricingExtensionArgs',
 ]
 
 @pulumi.input_type
@@ -277,5 +278,51 @@ class AutomationSourceRuleSetRuleArgs:
     @property_type.setter
     def property_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "property_type", value)
+
+
+@pulumi.input_type
+class SubscriptionPricingExtensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 additional_extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The name of extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_extension_properties: Key/Value pairs that are required for some extensions.
+               
+               > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignore_changes` on the `extension` field if you want to use the default extensions.
+               
+               > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+        """
+        pulumi.set(__self__, "name", name)
+        if additional_extension_properties is not None:
+            pulumi.set(__self__, "additional_extension_properties", additional_extension_properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="additionalExtensionProperties")
+    def additional_extension_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key/Value pairs that are required for some extensions.
+
+        > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignore_changes` on the `extension` field if you want to use the default extensions.
+
+        > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+        """
+        return pulumi.get(self, "additional_extension_properties")
+
+    @additional_extension_properties.setter
+    def additional_extension_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_extension_properties", value)
 
 

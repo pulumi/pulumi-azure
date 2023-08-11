@@ -36,7 +36,9 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
-        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below.
+               
+               > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
+        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "kind", kind)
@@ -50,6 +52,9 @@ class ApplicationArgs:
             pulumi.set(__self__, "name", name)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
+        if parameters is not None:
+            warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
+            pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if plan is not None:
@@ -146,7 +151,12 @@ class ApplicationArgs:
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
+
+        > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         """
+        warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
+        pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
+
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -157,7 +167,7 @@ class ApplicationArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['ApplicationPlanArgs']]:
         """
-        One `plan` block as defined below.
+        One `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -202,7 +212,9 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: The name and value pairs that define the managed application outputs.
         :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
-        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below.
+               
+               > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
+        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -220,6 +232,9 @@ class _ApplicationState:
             pulumi.set(__self__, "outputs", outputs)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
+        if parameters is not None:
+            warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
+            pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if plan is not None:
@@ -318,7 +333,12 @@ class _ApplicationState:
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
+
+        > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         """
+        warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
+        pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
+
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -329,7 +349,7 @@ class _ApplicationState:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['ApplicationPlanArgs']]:
         """
-        One `plan` block as defined below.
+        One `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -385,6 +405,7 @@ class Application(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
@@ -407,11 +428,17 @@ class Application(pulumi.CustomResource):
             kind="ServiceCatalog",
             managed_resource_group_name="infrastructureGroup",
             application_definition_id=example_definition.id,
-            parameters={
-                "location": example_resource_group.location,
-                "storageAccountNamePrefix": "storeNamePrefix",
-                "storageAccountType": "Standard_LRS",
-            })
+            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
+                "location": {
+                    "value": location,
+                },
+                "storageAccountNamePrefix": {
+                    "value": "storeNamePrefix",
+                },
+                "storageAccountType": {
+                    "value": "Standard_LRS",
+                },
+            })))
         ```
 
         ## Import
@@ -431,7 +458,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
-        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below.
+               
+               > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
+        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -448,6 +477,7 @@ class Application(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
@@ -470,11 +500,17 @@ class Application(pulumi.CustomResource):
             kind="ServiceCatalog",
             managed_resource_group_name="infrastructureGroup",
             application_definition_id=example_definition.id,
-            parameters={
-                "location": example_resource_group.location,
-                "storageAccountNamePrefix": "storeNamePrefix",
-                "storageAccountType": "Standard_LRS",
-            })
+            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
+                "location": {
+                    "value": location,
+                },
+                "storageAccountNamePrefix": {
+                    "value": "storeNamePrefix",
+                },
+                "storageAccountType": {
+                    "value": "Standard_LRS",
+                },
+            })))
         ```
 
         ## Import
@@ -529,6 +565,9 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameter_values"] = parameter_values
+            if parameters is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
+                pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
@@ -572,7 +611,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: The name and value pairs that define the managed application outputs.
         :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
-        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below.
+               
+               > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
+        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -654,14 +695,19 @@ class Application(pulumi.CustomResource):
     def parameters(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
+
+        > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
         """
+        warnings.warn("""This property has been deprecated in favour of `parameter_values`""", DeprecationWarning)
+        pulumi.log.warn("""parameters is deprecated: This property has been deprecated in favour of `parameter_values`""")
+
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.ApplicationPlan']]:
         """
-        One `plan` block as defined below.
+        One `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 

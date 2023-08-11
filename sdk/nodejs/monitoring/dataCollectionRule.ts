@@ -108,6 +108,7 @@ import * as utilities from "../utilities";
  *             facilityNames: ["*"],
  *             logLevels: ["*"],
  *             name: "example-datasource-syslog",
+ *             streams: ["Microsoft-Syslog"],
  *         }],
  *         iisLogs: [{
  *             streams: ["Microsoft-W3CIISLog"],
@@ -246,6 +247,8 @@ export class DataCollectionRule extends pulumi.CustomResource {
     public /*out*/ readonly immutableId!: pulumi.Output<string>;
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     *
+     * > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -359,6 +362,8 @@ export interface DataCollectionRuleState {
     immutableId?: pulumi.Input<string>;
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     *
+     * > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -413,6 +418,8 @@ export interface DataCollectionRuleArgs {
     identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity>;
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     *
+     * > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
     kind?: pulumi.Input<string>;
     /**

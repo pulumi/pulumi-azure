@@ -17,11 +17,19 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
         /// </summary>
         public readonly string DnsZoneId;
+        /// <summary>
+        /// A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity> WebAppRoutingIdentities;
 
         [OutputConstructor]
-        private KubernetesClusterWebAppRouting(string dnsZoneId)
+        private KubernetesClusterWebAppRouting(
+            string dnsZoneId,
+
+            ImmutableArray<Outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities)
         {
             DnsZoneId = dnsZoneId;
+            WebAppRoutingIdentities = webAppRoutingIdentities;
         }
     }
 }

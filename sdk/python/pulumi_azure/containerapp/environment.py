@@ -14,16 +14,15 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 log_analytics_workspace_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
@@ -32,10 +31,10 @@ class EnvironmentArgs:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if infrastructure_subnet_id is not None:
             pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
@@ -43,22 +42,12 @@ class EnvironmentArgs:
             pulumi.set(__self__, "internal_load_balancer_enabled", internal_load_balancer_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
-        """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "log_analytics_workspace_id")
-
-    @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "log_analytics_workspace_id", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -111,6 +100,18 @@ class EnvironmentArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
 
     @property
     @pulumi.getter
@@ -470,8 +471,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["location"] = location
-            if log_analytics_workspace_id is None and not opts.urn:
-                raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -593,7 +592,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> pulumi.Output[str]:
+    def log_analytics_workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         """

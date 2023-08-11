@@ -6,6 +6,7 @@ package com.pulumi.azure.digitaltwins.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,29 +16,64 @@ public final class InstanceIdentityArgs extends com.pulumi.resources.ResourceArg
 
     public static final InstanceIdentityArgs Empty = new InstanceIdentityArgs();
 
+    /**
+     * A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
+
+    /**
+     * The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<Output<String>> principalId() {
         return Optional.ofNullable(this.principalId);
     }
 
+    /**
+     * The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
 
     /**
-     * The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -47,6 +83,7 @@ public final class InstanceIdentityArgs extends com.pulumi.resources.ResourceArg
     private InstanceIdentityArgs() {}
 
     private InstanceIdentityArgs(InstanceIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -70,26 +107,87 @@ public final class InstanceIdentityArgs extends com.pulumi.resources.ResourceArg
             $ = new InstanceIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
+
+        /**
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(@Nullable Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
+        /**
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -100,7 +198,7 @@ public final class InstanceIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

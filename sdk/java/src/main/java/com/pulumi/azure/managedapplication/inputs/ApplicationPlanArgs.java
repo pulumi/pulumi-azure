@@ -16,14 +16,14 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     public static final ApplicationPlanArgs Empty = new ApplicationPlanArgs();
 
     /**
-     * Specifies the name of the plan from the marketplace.
+     * Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the plan from the marketplace.
+     * @return Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the product of the plan from the marketplace.
+     * Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="product", required=true)
     private Output<String> product;
 
     /**
-     * @return Specifies the product of the plan from the marketplace.
+     * @return Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> product() {
@@ -46,7 +46,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the promotion code to use with the plan.
+     * Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
@@ -55,7 +55,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> promotionCode;
 
     /**
-     * @return Specifies the promotion code to use with the plan.
+     * @return Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
@@ -65,14 +65,14 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the publisher of the plan.
+     * Specifies the publisher of the plan. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publisher", required=true)
     private Output<String> publisher;
 
     /**
-     * @return Specifies the publisher of the plan.
+     * @return Specifies the publisher of the plan. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> publisher() {
@@ -80,14 +80,14 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the version of the plan from the marketplace.
+     * Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return Specifies the version of the plan from the marketplace.
+     * @return Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> version() {
@@ -123,7 +123,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name of the plan from the marketplace.
+         * @param name Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name of the plan from the marketplace.
+         * @param name Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param product Specifies the product of the plan from the marketplace.
+         * @param product Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param product Specifies the product of the plan from the marketplace.
+         * @param product Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param promotionCode Specifies the promotion code to use with the plan.
+         * @param promotionCode Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
          * 
@@ -178,7 +178,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param promotionCode Specifies the promotion code to use with the plan.
+         * @param promotionCode Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
          * 
@@ -190,7 +190,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publisher Specifies the publisher of the plan.
+         * @param publisher Specifies the publisher of the plan. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publisher Specifies the publisher of the plan.
+         * @param publisher Specifies the publisher of the plan. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param version Specifies the version of the plan from the marketplace.
+         * @param version Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param version Specifies the version of the plan from the marketplace.
+         * @param version Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

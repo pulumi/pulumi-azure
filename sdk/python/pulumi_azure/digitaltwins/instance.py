@@ -26,7 +26,6 @@ class InstanceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input['InstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-               *
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Digital Twins instance.
         """
@@ -69,7 +68,6 @@ class InstanceArgs:
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-        *
         """
         return pulumi.get(self, "location")
 
@@ -116,7 +114,6 @@ class _InstanceState:
         :param pulumi.Input[str] host_name: The API endpoint to work with this Digital Twins instance.
         :param pulumi.Input['InstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-               *
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Digital Twins instance.
@@ -163,7 +160,6 @@ class _InstanceState:
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-        *
         """
         return pulumi.get(self, "location")
 
@@ -249,7 +245,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['InstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-               *
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Digital Twins instance.
@@ -349,7 +344,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The API endpoint to work with this Digital Twins instance.
         :param pulumi.Input[pulumi.InputType['InstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-               *
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Digital Twins instance.
@@ -387,7 +381,6 @@ class Instance(pulumi.CustomResource):
     def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-        *
         """
         return pulumi.get(self, "location")
 

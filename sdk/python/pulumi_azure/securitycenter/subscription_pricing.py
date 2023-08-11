@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SubscriptionPricingArgs', 'SubscriptionPricing']
 
@@ -15,17 +17,19 @@ __all__ = ['SubscriptionPricingArgs', 'SubscriptionPricing']
 class SubscriptionPricingArgs:
     def __init__(__self__, *,
                  tier: pulumi.Input[str],
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  subplan: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubscriptionPricing resource.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
-        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]] extensions: One or more `extension` blocks as defined below.
+        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
-               
-               > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
         pulumi.set(__self__, "tier", tier)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if subplan is not None:
@@ -44,10 +48,22 @@ class SubscriptionPricingArgs:
         pulumi.set(self, "tier", value)
 
     @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]:
+        """
+        One or more `extension` blocks as defined below.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         """
         return pulumi.get(self, "resource_type")
 
@@ -60,8 +76,6 @@ class SubscriptionPricingArgs:
     def subplan(self) -> Optional[pulumi.Input[str]]:
         """
         Resource type pricing subplan. Contact your MSFT representative for possible values.
-
-        > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
         return pulumi.get(self, "subplan")
 
@@ -73,17 +87,19 @@ class SubscriptionPricingArgs:
 @pulumi.input_type
 class _SubscriptionPricingState:
     def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  subplan: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionPricing resources.
-        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]] extensions: One or more `extension` blocks as defined below.
+        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
-               
-               > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if subplan is not None:
@@ -92,10 +108,22 @@ class _SubscriptionPricingState:
             pulumi.set(__self__, "tier", tier)
 
     @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]:
+        """
+        One or more `extension` blocks as defined below.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         """
         return pulumi.get(self, "resource_type")
 
@@ -108,8 +136,6 @@ class _SubscriptionPricingState:
     def subplan(self) -> Optional[pulumi.Input[str]]:
         """
         Resource type pricing subplan. Contact your MSFT representative for possible values.
-
-        > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
         return pulumi.get(self, "subplan")
 
@@ -135,6 +161,7 @@ class SubscriptionPricing(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionPricingExtensionArgs']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  subplan: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -165,10 +192,9 @@ class SubscriptionPricing(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionPricingExtensionArgs']]]] extensions: One or more `extension` blocks as defined below.
+        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
-               
-               > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         ...
@@ -216,6 +242,7 @@ class SubscriptionPricing(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionPricingExtensionArgs']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  subplan: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -228,6 +255,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubscriptionPricingArgs.__new__(SubscriptionPricingArgs)
 
+            __props__.__dict__["extensions"] = extensions
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["subplan"] = subplan
             if tier is None and not opts.urn:
@@ -243,6 +271,7 @@ class SubscriptionPricing(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionPricingExtensionArgs']]]]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             subplan: Optional[pulumi.Input[str]] = None,
             tier: Optional[pulumi.Input[str]] = None) -> 'SubscriptionPricing':
@@ -253,26 +282,34 @@ class SubscriptionPricing(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionPricingExtensionArgs']]]] extensions: One or more `extension` blocks as defined below.
+        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
-               
-               > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _SubscriptionPricingState.__new__(_SubscriptionPricingState)
 
+        __props__.__dict__["extensions"] = extensions
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["subplan"] = subplan
         __props__.__dict__["tier"] = tier
         return SubscriptionPricing(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter
+    def extensions(self) -> pulumi.Output[Optional[Sequence['outputs.SubscriptionPricingExtension']]]:
+        """
+        One or more `extension` blocks as defined below.
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+        The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         """
         return pulumi.get(self, "resource_type")
 
@@ -281,8 +318,6 @@ class SubscriptionPricing(pulumi.CustomResource):
     def subplan(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type pricing subplan. Contact your MSFT representative for possible values.
-
-        > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
         return pulumi.get(self, "subplan")
 

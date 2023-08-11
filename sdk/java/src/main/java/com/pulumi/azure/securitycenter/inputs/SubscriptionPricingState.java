@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.securitycenter.inputs;
 
+import com.pulumi.azure.securitycenter.inputs.SubscriptionPricingExtensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,14 +18,29 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
     public static final SubscriptionPricingState Empty = new SubscriptionPricingState();
 
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * One or more `extension` blocks as defined below.
+     * 
+     */
+    @Import(name="extensions")
+    private @Nullable Output<List<SubscriptionPricingExtensionArgs>> extensions;
+
+    /**
+     * @return One or more `extension` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<SubscriptionPricingExtensionArgs>>> extensions() {
+        return Optional.ofNullable(this.extensions);
+    }
+
+    /**
+     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * @return The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -33,16 +50,12 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
      * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
-     * 
      */
     @Import(name="subplan")
     private @Nullable Output<String> subplan;
 
     /**
      * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
-     * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     public Optional<Output<String>> subplan() {
@@ -67,6 +80,7 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
     private SubscriptionPricingState() {}
 
     private SubscriptionPricingState(SubscriptionPricingState $) {
+        this.extensions = $.extensions;
         this.resourceType = $.resourceType;
         this.subplan = $.subplan;
         this.tier = $.tier;
@@ -91,7 +105,38 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceType The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+         * @param extensions One or more `extension` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensions(@Nullable Output<List<SubscriptionPricingExtensionArgs>> extensions) {
+            $.extensions = extensions;
+            return this;
+        }
+
+        /**
+         * @param extensions One or more `extension` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensions(List<SubscriptionPricingExtensionArgs> extensions) {
+            return extensions(Output.of(extensions));
+        }
+
+        /**
+         * @param extensions One or more `extension` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensions(SubscriptionPricingExtensionArgs... extensions) {
+            return extensions(List.of(extensions));
+        }
+
+        /**
+         * @param resourceType The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
          * 
          * @return builder
          * 
@@ -102,7 +147,7 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceType The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+         * @param resourceType The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
          * 
          * @return builder
          * 
@@ -114,8 +159,6 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
         /**
          * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
          * 
-         * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
-         * 
          * @return builder
          * 
          */
@@ -126,8 +169,6 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
 
         /**
          * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
-         * 
-         * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
          * 
          * @return builder
          * 

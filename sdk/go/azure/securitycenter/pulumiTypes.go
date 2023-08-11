@@ -657,6 +657,124 @@ func (o AutomationSourceRuleSetRuleArrayOutput) Index(i pulumi.IntInput) Automat
 	}).(AutomationSourceRuleSetRuleOutput)
 }
 
+type SubscriptionPricingExtension struct {
+	// Key/Value pairs that are required for some extensions.
+	//
+	// > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignoreChanges` on the `extension` field if you want to use the default extensions.
+	//
+	// > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+	AdditionalExtensionProperties map[string]string `pulumi:"additionalExtensionProperties"`
+	// The name of extension.
+	Name string `pulumi:"name"`
+}
+
+// SubscriptionPricingExtensionInput is an input type that accepts SubscriptionPricingExtensionArgs and SubscriptionPricingExtensionOutput values.
+// You can construct a concrete instance of `SubscriptionPricingExtensionInput` via:
+//
+//	SubscriptionPricingExtensionArgs{...}
+type SubscriptionPricingExtensionInput interface {
+	pulumi.Input
+
+	ToSubscriptionPricingExtensionOutput() SubscriptionPricingExtensionOutput
+	ToSubscriptionPricingExtensionOutputWithContext(context.Context) SubscriptionPricingExtensionOutput
+}
+
+type SubscriptionPricingExtensionArgs struct {
+	// Key/Value pairs that are required for some extensions.
+	//
+	// > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignoreChanges` on the `extension` field if you want to use the default extensions.
+	//
+	// > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+	AdditionalExtensionProperties pulumi.StringMapInput `pulumi:"additionalExtensionProperties"`
+	// The name of extension.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SubscriptionPricingExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionPricingExtension)(nil)).Elem()
+}
+
+func (i SubscriptionPricingExtensionArgs) ToSubscriptionPricingExtensionOutput() SubscriptionPricingExtensionOutput {
+	return i.ToSubscriptionPricingExtensionOutputWithContext(context.Background())
+}
+
+func (i SubscriptionPricingExtensionArgs) ToSubscriptionPricingExtensionOutputWithContext(ctx context.Context) SubscriptionPricingExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingExtensionOutput)
+}
+
+// SubscriptionPricingExtensionArrayInput is an input type that accepts SubscriptionPricingExtensionArray and SubscriptionPricingExtensionArrayOutput values.
+// You can construct a concrete instance of `SubscriptionPricingExtensionArrayInput` via:
+//
+//	SubscriptionPricingExtensionArray{ SubscriptionPricingExtensionArgs{...} }
+type SubscriptionPricingExtensionArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionPricingExtensionArrayOutput() SubscriptionPricingExtensionArrayOutput
+	ToSubscriptionPricingExtensionArrayOutputWithContext(context.Context) SubscriptionPricingExtensionArrayOutput
+}
+
+type SubscriptionPricingExtensionArray []SubscriptionPricingExtensionInput
+
+func (SubscriptionPricingExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionPricingExtension)(nil)).Elem()
+}
+
+func (i SubscriptionPricingExtensionArray) ToSubscriptionPricingExtensionArrayOutput() SubscriptionPricingExtensionArrayOutput {
+	return i.ToSubscriptionPricingExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionPricingExtensionArray) ToSubscriptionPricingExtensionArrayOutputWithContext(ctx context.Context) SubscriptionPricingExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingExtensionArrayOutput)
+}
+
+type SubscriptionPricingExtensionOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionPricingExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionPricingExtension)(nil)).Elem()
+}
+
+func (o SubscriptionPricingExtensionOutput) ToSubscriptionPricingExtensionOutput() SubscriptionPricingExtensionOutput {
+	return o
+}
+
+func (o SubscriptionPricingExtensionOutput) ToSubscriptionPricingExtensionOutputWithContext(ctx context.Context) SubscriptionPricingExtensionOutput {
+	return o
+}
+
+// Key/Value pairs that are required for some extensions.
+//
+// > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignoreChanges` on the `extension` field if you want to use the default extensions.
+//
+// > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+func (o SubscriptionPricingExtensionOutput) AdditionalExtensionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SubscriptionPricingExtension) map[string]string { return v.AdditionalExtensionProperties }).(pulumi.StringMapOutput)
+}
+
+// The name of extension.
+func (o SubscriptionPricingExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionPricingExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SubscriptionPricingExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionPricingExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionPricingExtension)(nil)).Elem()
+}
+
+func (o SubscriptionPricingExtensionArrayOutput) ToSubscriptionPricingExtensionArrayOutput() SubscriptionPricingExtensionArrayOutput {
+	return o
+}
+
+func (o SubscriptionPricingExtensionArrayOutput) ToSubscriptionPricingExtensionArrayOutputWithContext(ctx context.Context) SubscriptionPricingExtensionArrayOutput {
+	return o
+}
+
+func (o SubscriptionPricingExtensionArrayOutput) Index(i pulumi.IntInput) SubscriptionPricingExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionPricingExtension {
+		return vs[0].([]SubscriptionPricingExtension)[vs[1].(int)]
+	}).(SubscriptionPricingExtensionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusInput)(nil)).Elem(), AssessmentStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusPtrInput)(nil)).Elem(), AssessmentStatusArgs{})
@@ -668,6 +786,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetArrayInput)(nil)).Elem(), AutomationSourceRuleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetRuleInput)(nil)).Elem(), AutomationSourceRuleSetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetRuleArrayInput)(nil)).Elem(), AutomationSourceRuleSetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPricingExtensionInput)(nil)).Elem(), SubscriptionPricingExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPricingExtensionArrayInput)(nil)).Elem(), SubscriptionPricingExtensionArray{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AutomationActionOutput{})
@@ -678,4 +798,6 @@ func init() {
 	pulumi.RegisterOutputType(AutomationSourceRuleSetArrayOutput{})
 	pulumi.RegisterOutputType(AutomationSourceRuleSetRuleOutput{})
 	pulumi.RegisterOutputType(AutomationSourceRuleSetRuleArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionPricingExtensionOutput{})
+	pulumi.RegisterOutputType(SubscriptionPricingExtensionArrayOutput{})
 }
