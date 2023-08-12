@@ -172,6 +172,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String scaleDownMode;
     /**
+     * @return The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     */
+    private @Nullable String snapshotId;
+    /**
      * @return A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -437,6 +442,13 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.scaleDownMode);
     }
     /**
+     * @return The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     */
+    public Optional<String> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
+    }
+    /**
      * @return A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -547,6 +559,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable String podSubnetId;
         private @Nullable String proximityPlacementGroupId;
         private @Nullable String scaleDownMode;
+        private @Nullable String snapshotId;
         private @Nullable Map<String,String> tags;
         private @Nullable String temporaryNameForRotation;
         private @Nullable String type;
@@ -587,6 +600,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.podSubnetId = defaults.podSubnetId;
     	      this.proximityPlacementGroupId = defaults.proximityPlacementGroupId;
     	      this.scaleDownMode = defaults.scaleDownMode;
+    	      this.snapshotId = defaults.snapshotId;
     	      this.tags = defaults.tags;
     	      this.temporaryNameForRotation = defaults.temporaryNameForRotation;
     	      this.type = defaults.type;
@@ -742,6 +756,11 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
+        public Builder snapshotId(@Nullable String snapshotId) {
+            this.snapshotId = snapshotId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
@@ -819,6 +838,7 @@ public final class KubernetesClusterDefaultNodePool {
             o.podSubnetId = podSubnetId;
             o.proximityPlacementGroupId = proximityPlacementGroupId;
             o.scaleDownMode = scaleDownMode;
+            o.snapshotId = snapshotId;
             o.tags = tags;
             o.temporaryNameForRotation = temporaryNameForRotation;
             o.type = type;

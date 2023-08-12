@@ -180,6 +180,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
     /**
      * A `ingressApplicationGateway` block as defined below.
+     *
+     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
     public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
@@ -678,6 +680,8 @@ export interface KubernetesClusterState {
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
      * A `ingressApplicationGateway` block as defined below.
+     *
+     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
     /**
@@ -1008,6 +1012,8 @@ export interface KubernetesClusterArgs {
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
      * A `ingressApplicationGateway` block as defined below.
+     *
+     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
     /**

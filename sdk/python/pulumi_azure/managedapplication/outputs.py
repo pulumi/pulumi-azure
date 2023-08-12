@@ -40,11 +40,11 @@ class ApplicationPlan(dict):
                  version: str,
                  promotion_code: Optional[str] = None):
         """
-        :param str name: Specifies the name of the plan from the marketplace.
-        :param str product: Specifies the product of the plan from the marketplace.
-        :param str publisher: Specifies the publisher of the plan.
-        :param str version: Specifies the version of the plan from the marketplace.
-        :param str promotion_code: Specifies the promotion code to use with the plan.
+        :param str name: Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param str product: Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the plan. Changing this forces a new resource to be created.
+        :param str version: Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param str promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
                
                > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
@@ -59,7 +59,7 @@ class ApplicationPlan(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the plan from the marketplace.
+        Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -67,7 +67,7 @@ class ApplicationPlan(dict):
     @pulumi.getter
     def product(self) -> str:
         """
-        Specifies the product of the plan from the marketplace.
+        Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "product")
 
@@ -75,7 +75,7 @@ class ApplicationPlan(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the plan.
+        Specifies the publisher of the plan. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -83,7 +83,7 @@ class ApplicationPlan(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        Specifies the version of the plan from the marketplace.
+        Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -91,7 +91,7 @@ class ApplicationPlan(dict):
     @pulumi.getter(name="promotionCode")
     def promotion_code(self) -> Optional[str]:
         """
-        Specifies the promotion code to use with the plan.
+        Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 
         > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """

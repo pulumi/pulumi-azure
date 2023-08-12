@@ -115,12 +115,16 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
+     * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+     * 
      */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
     /**
      * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * 
+     * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
      */
     public Optional<Output<String>> kind() {
@@ -376,6 +380,8 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
          * 
+         * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+         * 
          * @return builder
          * 
          */
@@ -386,6 +392,8 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * 
+         * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
          * 
          * @return builder
          * 

@@ -388,12 +388,16 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * A `ingress_application_gateway` block as defined below.
      * 
+     * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+     * 
      */
     @Import(name="ingressApplicationGateway")
     private @Nullable Output<KubernetesClusterIngressApplicationGatewayArgs> ingressApplicationGateway;
 
     /**
      * @return A `ingress_application_gateway` block as defined below.
+     * 
+     * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
      */
     public Optional<Output<KubernetesClusterIngressApplicationGatewayArgs>> ingressApplicationGateway() {
@@ -1665,6 +1669,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param ingressApplicationGateway A `ingress_application_gateway` block as defined below.
          * 
+         * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+         * 
          * @return builder
          * 
          */
@@ -1675,6 +1681,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param ingressApplicationGateway A `ingress_application_gateway` block as defined below.
+         * 
+         * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
          * 
          * @return builder
          * 

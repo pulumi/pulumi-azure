@@ -17,8 +17,10 @@ namespace Pulumi.Azure.Blueprint.Outputs
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
+        public readonly string? PrincipalId;
+        public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         public readonly string Type;
 
@@ -26,9 +28,15 @@ namespace Pulumi.Azure.Blueprint.Outputs
         private AssignmentIdentity(
             ImmutableArray<string> identityIds,
 
+            string? principalId,
+
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
+            PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

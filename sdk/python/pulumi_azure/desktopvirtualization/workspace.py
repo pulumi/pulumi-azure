@@ -19,6 +19,7 @@ class WorkspaceArgs:
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
@@ -27,6 +28,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,6 +40,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -102,6 +106,18 @@ class WorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -121,6 +137,7 @@ class _WorkspaceState:
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -129,6 +146,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -140,6 +158,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -194,6 +214,18 @@ class _WorkspaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -227,6 +259,7 @@ class Workspace(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -261,6 +294,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -314,6 +348,7 @@ class Workspace(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -329,6 +364,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["friendly_name"] = friendly_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -347,6 +383,7 @@ class Workspace(pulumi.CustomResource):
             friendly_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workspace':
         """
@@ -360,6 +397,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -371,6 +409,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
@@ -406,6 +445,14 @@ class Workspace(pulumi.CustomResource):
         The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

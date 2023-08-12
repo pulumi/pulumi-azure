@@ -20,6 +20,10 @@ class AssignmentIdentity(dict):
         suggest = None
         if key == "identityIds":
             suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AssignmentIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -33,29 +37,46 @@ class AssignmentIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_ids: Sequence[str],
-                 type: str):
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Sequence[str]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
         """
         return pulumi.get(self, "identity_ids")
 
     @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
-        """
-        return pulumi.get(self, "type")
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 

@@ -16,7 +16,9 @@ var _ = internal.GetEnvOrDefault
 type AssignmentIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -34,7 +36,9 @@ type AssignmentIdentityInput interface {
 type AssignmentIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -120,7 +124,15 @@ func (o AssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+func (o AssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o AssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o AssignmentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -159,7 +171,25 @@ func (o AssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+func (o AssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentIdentity) *string {
 		if v == nil {

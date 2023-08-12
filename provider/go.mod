@@ -4,10 +4,10 @@ go 1.20
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk v0.20230803.1095722
+	github.com/hashicorp/go-azure-sdk v0.20230808.1103829
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.56.1
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 	github.com/stretchr/testify v1.8.3
 )
@@ -114,7 +114,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-helpers v0.57.0 // indirect
+	github.com/hashicorp/go-azure-helpers v0.58.0 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect

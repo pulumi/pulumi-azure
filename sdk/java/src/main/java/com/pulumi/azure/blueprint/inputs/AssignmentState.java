@@ -206,14 +206,14 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -553,7 +553,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
          * 
          * @return builder
          * 

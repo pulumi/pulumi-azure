@@ -221,7 +221,7 @@ class _AssignmentState:
                
                > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
         if blueprint_name is not None:
@@ -405,7 +405,7 @@ class _AssignmentState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -710,7 +710,7 @@ class Assignment(pulumi.CustomResource):
                
                > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -837,7 +837,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
 

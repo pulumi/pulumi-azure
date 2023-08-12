@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"encoding/json"
+//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/managedapplication"
@@ -69,11 +71,25 @@ import (
 //				Kind:                     pulumi.String("ServiceCatalog"),
 //				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
 //				ApplicationDefinitionId:  exampleDefinition.ID(),
-//				Parameters: pulumi.StringMap{
-//					"location":                 exampleResourceGroup.Location,
-//					"storageAccountNamePrefix": pulumi.String("storeNamePrefix"),
-//					"storageAccountType":       pulumi.String("Standard_LRS"),
-//				},
+//				ParameterValues: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"location": map[string]interface{}{
+//							"value": location,
+//						},
+//						"storageAccountNamePrefix": map[string]interface{}{
+//							"value": "storeNamePrefix",
+//						},
+//						"storageAccountType": map[string]interface{}{
+//							"value": "Standard_LRS",
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -111,8 +127,12 @@ type Application struct {
 	// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
 	ParameterValues pulumi.StringOutput `pulumi:"parameterValues"`
 	// A mapping of name and value pairs to pass to the managed application as parameters.
+	//
+	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+	//
+	// Deprecated: This property has been deprecated in favour of `parameter_values`
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// One `plan` block as defined below.
+	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan ApplicationPlanPtrOutput `pulumi:"plan"`
 	// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -174,8 +194,12 @@ type applicationState struct {
 	// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// A mapping of name and value pairs to pass to the managed application as parameters.
+	//
+	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+	//
+	// Deprecated: This property has been deprecated in favour of `parameter_values`
 	Parameters map[string]string `pulumi:"parameters"`
-	// One `plan` block as defined below.
+	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *ApplicationPlan `pulumi:"plan"`
 	// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -199,8 +223,12 @@ type ApplicationState struct {
 	// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
 	ParameterValues pulumi.StringPtrInput
 	// A mapping of name and value pairs to pass to the managed application as parameters.
+	//
+	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+	//
+	// Deprecated: This property has been deprecated in favour of `parameter_values`
 	Parameters pulumi.StringMapInput
-	// One `plan` block as defined below.
+	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan ApplicationPlanPtrInput
 	// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -226,8 +254,12 @@ type applicationArgs struct {
 	// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// A mapping of name and value pairs to pass to the managed application as parameters.
+	//
+	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+	//
+	// Deprecated: This property has been deprecated in favour of `parameter_values`
 	Parameters map[string]string `pulumi:"parameters"`
-	// One `plan` block as defined below.
+	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *ApplicationPlan `pulumi:"plan"`
 	// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -250,8 +282,12 @@ type ApplicationArgs struct {
 	// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
 	ParameterValues pulumi.StringPtrInput
 	// A mapping of name and value pairs to pass to the managed application as parameters.
+	//
+	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+	//
+	// Deprecated: This property has been deprecated in favour of `parameter_values`
 	Parameters pulumi.StringMapInput
-	// One `plan` block as defined below.
+	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan ApplicationPlanPtrInput
 	// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -382,11 +418,15 @@ func (o ApplicationOutput) ParameterValues() pulumi.StringOutput {
 }
 
 // A mapping of name and value pairs to pass to the managed application as parameters.
+//
+// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
+//
+// Deprecated: This property has been deprecated in favour of `parameter_values`
 func (o ApplicationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// One `plan` block as defined below.
+// One `plan` block as defined below. Changing this forces a new resource to be created.
 func (o ApplicationOutput) Plan() ApplicationPlanPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationPlanPtrOutput { return v.Plan }).(ApplicationPlanPtrOutput)
 }

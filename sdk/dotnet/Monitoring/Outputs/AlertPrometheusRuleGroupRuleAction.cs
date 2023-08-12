@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
         public readonly string ActionGroupId;
         /// <summary>
         /// Specifies the properties of an action group object.
+        /// 
+        /// &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ActionProperties;
 

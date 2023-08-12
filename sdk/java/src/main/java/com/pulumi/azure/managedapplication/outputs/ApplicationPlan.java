@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationPlan {
     /**
-     * @return Specifies the name of the plan from the marketplace.
+     * @return Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     private String name;
     /**
-     * @return Specifies the product of the plan from the marketplace.
+     * @return Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     private String product;
     /**
-     * @return Specifies the promotion code to use with the plan.
+     * @return Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
      */
     private @Nullable String promotionCode;
     /**
-     * @return Specifies the publisher of the plan.
+     * @return Specifies the publisher of the plan. Changing this forces a new resource to be created.
      * 
      */
     private String publisher;
     /**
-     * @return Specifies the version of the plan from the marketplace.
+     * @return Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     private String version;
 
     private ApplicationPlan() {}
     /**
-     * @return Specifies the name of the plan from the marketplace.
+     * @return Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Specifies the product of the plan from the marketplace.
+     * @return Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public String product() {
         return this.product;
     }
     /**
-     * @return Specifies the promotion code to use with the plan.
+     * @return Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
@@ -64,14 +64,14 @@ public final class ApplicationPlan {
         return Optional.ofNullable(this.promotionCode);
     }
     /**
-     * @return Specifies the publisher of the plan.
+     * @return Specifies the publisher of the plan. Changing this forces a new resource to be created.
      * 
      */
     public String publisher() {
         return this.publisher;
     }
     /**
-     * @return Specifies the version of the plan from the marketplace.
+     * @return Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public String version() {

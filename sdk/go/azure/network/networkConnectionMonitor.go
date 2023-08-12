@@ -89,8 +89,8 @@ import (
 //				VmSize: pulumi.String("Standard_D2s_v3"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("UbuntuServer"),
-//					Sku:       pulumi.String("20.04-LTS"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-focal"),
+//					Sku:       pulumi.String("20_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
 //				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{

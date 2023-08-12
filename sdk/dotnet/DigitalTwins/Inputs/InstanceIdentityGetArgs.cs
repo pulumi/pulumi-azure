@@ -12,14 +12,34 @@ namespace Pulumi.Azure.DigitalTwins.Inputs
 
     public sealed class InstanceIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

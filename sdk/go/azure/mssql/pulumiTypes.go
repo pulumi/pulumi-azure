@@ -2621,7 +2621,7 @@ type ServerIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -2647,7 +2647,7 @@ type ServerIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2747,7 +2747,7 @@ func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2810,7 +2810,7 @@ func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {

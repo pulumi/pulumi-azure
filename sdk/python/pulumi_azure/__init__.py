@@ -156,6 +156,8 @@ if typing.TYPE_CHECKING:
     maintenance = __maintenance
     import pulumi_azure.managedapplication as __managedapplication
     managedapplication = __managedapplication
+    import pulumi_azure.managedlustre as __managedlustre
+    managedlustre = __managedlustre
     import pulumi_azure.management as __management
     management = __management
     import pulumi_azure.managementgroups as __managementgroups
@@ -200,6 +202,8 @@ if typing.TYPE_CHECKING:
     operationalinsights = __operationalinsights
     import pulumi_azure.orbital as __orbital
     orbital = __orbital
+    import pulumi_azure.paloalto as __paloalto
+    paloalto = __paloalto
     import pulumi_azure.pim as __pim
     pim = __pim
     import pulumi_azure.policy as __policy
@@ -334,6 +338,7 @@ else:
     machinelearning = _utilities.lazy_import('pulumi_azure.machinelearning')
     maintenance = _utilities.lazy_import('pulumi_azure.maintenance')
     managedapplication = _utilities.lazy_import('pulumi_azure.managedapplication')
+    managedlustre = _utilities.lazy_import('pulumi_azure.managedlustre')
     management = _utilities.lazy_import('pulumi_azure.management')
     managementgroups = _utilities.lazy_import('pulumi_azure.managementgroups')
     managementresource = _utilities.lazy_import('pulumi_azure.managementresource')
@@ -356,6 +361,7 @@ else:
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
     operationalinsights = _utilities.lazy_import('pulumi_azure.operationalinsights')
     orbital = _utilities.lazy_import('pulumi_azure.orbital')
+    paloalto = _utilities.lazy_import('pulumi_azure.paloalto')
     pim = _utilities.lazy_import('pulumi_azure.pim')
     policy = _utilities.lazy_import('pulumi_azure.policy')
     portal = _utilities.lazy_import('pulumi_azure.portal')
@@ -4128,6 +4134,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "graph/servicesAccount",
+  "fqn": "pulumi_azure.graph",
+  "classes": {
+   "azure:graph/servicesAccount:ServicesAccount": "ServicesAccount"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "hdinsight/hBaseCluster",
   "fqn": "pulumi_azure.hdinsight",
   "classes": {
@@ -5108,6 +5122,14 @@ _utilities.register(
   "fqn": "pulumi_azure.managedapplication",
   "classes": {
    "azure:managedapplication/definition:Definition": "Definition"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "managedlustre/fileSystem",
+  "fqn": "pulumi_azure.managedlustre",
+  "classes": {
+   "azure:managedlustre/fileSystem:FileSystem": "FileSystem"
   }
  },
  {
@@ -6812,6 +6834,102 @@ _utilities.register(
   "fqn": "pulumi_azure.orbital",
   "classes": {
    "azure:orbital/spacecraft:Spacecraft": "Spacecraft"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestack",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestack:LocalRulestack": "LocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestackCertificate",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate": "LocalRulestackCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestackFqdnList",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList": "LocalRulestackFqdnList"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestackOutboundTrustCertificateAssociation",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation": "LocalRulestackOutboundTrustCertificateAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestackOutboundUntrustCertificateAssociation",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation": "LocalRulestackOutboundUntrustCertificateAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestackPrefixList",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList": "LocalRulestackPrefixList"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/localRulestackRule",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/localRulestackRule:LocalRulestackRule": "LocalRulestackRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/nextGenerationFirewallVirtualHubLocalRulestack",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack": "NextGenerationFirewallVirtualHubLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/nextGenerationFirewallVirtualHubPanorama",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama": "NextGenerationFirewallVirtualHubPanorama"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack": "NextGenerationFirewallVirtualNetworkLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/nextGenerationFirewallVirtualNetworkPanorama",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama": "NextGenerationFirewallVirtualNetworkPanorama"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "paloalto/virtualNetworkAppliance",
+  "fqn": "pulumi_azure.paloalto",
+  "classes": {
+   "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance": "VirtualNetworkAppliance"
   }
  },
  {

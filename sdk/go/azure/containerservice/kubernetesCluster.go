@@ -139,6 +139,8 @@ type KubernetesCluster struct {
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
+	//
+	// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
 	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
 	KeyManagementService KubernetesClusterKeyManagementServicePtrOutput `pulumi:"keyManagementService"`
@@ -415,6 +417,8 @@ type kubernetesClusterState struct {
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
+	//
+	// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
 	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
 	KeyManagementService *KubernetesClusterKeyManagementService `pulumi:"keyManagementService"`
@@ -649,6 +653,8 @@ type KubernetesClusterState struct {
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
+	//
+	// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
 	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
 	KeyManagementService KubernetesClusterKeyManagementServicePtrInput
@@ -883,6 +889,8 @@ type kubernetesClusterArgs struct {
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
+	//
+	// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
 	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
 	KeyManagementService *KubernetesClusterKeyManagementService `pulumi:"keyManagementService"`
@@ -1098,6 +1106,8 @@ type KubernetesClusterArgs struct {
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
+	//
+	// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
 	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
 	KeyManagementService KubernetesClusterKeyManagementServicePtrInput
@@ -1474,6 +1484,8 @@ func (o KubernetesClusterOutput) ImageCleanerIntervalHours() pulumi.IntPtrOutput
 }
 
 // A `ingressApplicationGateway` block as defined below.
+//
+// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
 func (o KubernetesClusterOutput) IngressApplicationGateway() KubernetesClusterIngressApplicationGatewayPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterIngressApplicationGatewayPtrOutput {
 		return v.IngressApplicationGateway

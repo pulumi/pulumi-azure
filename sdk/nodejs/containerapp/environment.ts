@@ -90,7 +90,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
@@ -143,9 +143,6 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -248,7 +245,7 @@ export interface EnvironmentArgs {
     /**
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      */
-    logAnalyticsWorkspaceId: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */

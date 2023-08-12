@@ -13,21 +13,36 @@ namespace Pulumi.Azure.DigitalTwins.Outputs
     [OutputType]
     public sealed class InstanceIdentity
     {
+        /// <summary>
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? PrincipalId;
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Digital Twins instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private InstanceIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

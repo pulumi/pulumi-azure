@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Blueprint.Inputs
 
     public sealed class AssignmentIdentityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identityIds", required: true)]
+        [Input("identityIds")]
         private InputList<string>? _identityIds;
 
         /// <summary>
@@ -24,8 +24,14 @@ namespace Pulumi.Azure.Blueprint.Inputs
             set => _identityIds = value;
         }
 
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

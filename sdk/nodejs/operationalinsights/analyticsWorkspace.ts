@@ -97,11 +97,11 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
     /**
-     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      *
      * > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
-    public readonly reservationCapacityInGbPerDay!: pulumi.Output<number>;
+    public readonly reservationCapacityInGbPerDay!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
@@ -118,6 +118,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
      *
      * > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     *
+     * > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
      *
      * > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
      */
@@ -234,7 +236,7 @@ export interface AnalyticsWorkspaceState {
      */
     primarySharedKey?: pulumi.Input<string>;
     /**
-     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      *
      * > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
@@ -255,6 +257,8 @@ export interface AnalyticsWorkspaceState {
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
      *
      * > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     *
+     * > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
      *
      * > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
      */
@@ -310,7 +314,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      *
      * > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
@@ -327,6 +331,8 @@ export interface AnalyticsWorkspaceArgs {
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
      *
      * > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+     *
+     * > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
      *
      * > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
      */

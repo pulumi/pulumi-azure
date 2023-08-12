@@ -106,12 +106,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> PrimarySharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
         /// 
         /// &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         /// </summary>
         [Output("reservationCapacityInGbPerDay")]
-        public Output<int> ReservationCapacityInGbPerDay { get; private set; } = null!;
+        public Output<int?> ReservationCapacityInGbPerDay { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -135,6 +135,8 @@ namespace Pulumi.Azure.OperationalInsights
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
         /// 
         /// &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+        /// 
+        /// &gt; **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
         /// 
         /// &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
         /// </summary>
@@ -257,7 +259,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
         /// 
         /// &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         /// </summary>
@@ -280,6 +282,8 @@ namespace Pulumi.Azure.OperationalInsights
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
         /// 
         /// &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+        /// 
+        /// &gt; **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
         /// 
         /// &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
         /// </summary>
@@ -375,7 +379,7 @@ namespace Pulumi.Azure.OperationalInsights
         }
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
         /// 
         /// &gt; **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         /// </summary>
@@ -414,6 +418,8 @@ namespace Pulumi.Azure.OperationalInsights
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
         /// 
         /// &gt; **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+        /// 
+        /// &gt; **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
         /// 
         /// &gt; **NOTE:** The `Free` SKU has a default `daily_quota_gb` value of `0.5` (GB).
         /// </summary>

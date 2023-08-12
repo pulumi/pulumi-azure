@@ -23,11 +23,11 @@ class ApplicationPlanArgs:
                  version: pulumi.Input[str],
                  promotion_code: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the plan from the marketplace.
-        :param pulumi.Input[str] product: Specifies the product of the plan from the marketplace.
-        :param pulumi.Input[str] publisher: Specifies the publisher of the plan.
-        :param pulumi.Input[str] version: Specifies the version of the plan from the marketplace.
-        :param pulumi.Input[str] promotion_code: Specifies the promotion code to use with the plan.
+        :param pulumi.Input[str] name: Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product: Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: Specifies the publisher of the plan. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] version: Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
                
                > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
@@ -42,7 +42,7 @@ class ApplicationPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the plan from the marketplace.
+        Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -54,7 +54,7 @@ class ApplicationPlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[str]:
         """
-        Specifies the product of the plan from the marketplace.
+        Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "product")
 
@@ -66,7 +66,7 @@ class ApplicationPlanArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        Specifies the publisher of the plan.
+        Specifies the publisher of the plan. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -78,7 +78,7 @@ class ApplicationPlanArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        Specifies the version of the plan from the marketplace.
+        Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -90,7 +90,7 @@ class ApplicationPlanArgs:
     @pulumi.getter(name="promotionCode")
     def promotion_code(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the promotion code to use with the plan.
+        Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 
         > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """

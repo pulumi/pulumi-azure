@@ -176,6 +176,7 @@ import javax.annotation.Nullable;
  *                     .facilityNames(&#34;*&#34;)
  *                     .logLevels(&#34;*&#34;)
  *                     .name(&#34;example-datasource-syslog&#34;)
+ *                     .streams(&#34;Microsoft-Syslog&#34;)
  *                     .build())
  *                 .iisLogs(DataCollectionRuleDataSourcesIisLogArgs.builder()
  *                     .streams(&#34;Microsoft-W3CIISLog&#34;)
@@ -360,12 +361,16 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
+     * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+     * 
      */
     @Export(name="kind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kind;
 
     /**
      * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * 
+     * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
      */
     public Output<Optional<String>> kind() {

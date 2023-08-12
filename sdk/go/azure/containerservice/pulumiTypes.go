@@ -6280,6 +6280,8 @@ type KubernetesClusterDefaultNodePool struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
+	SnapshotId *string `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the Node Pool.
 	//
 	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -6390,6 +6392,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
+	// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the Node Pool.
 	//
 	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -6653,6 +6657,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) ProximityPlacementGroupId() pulu
 // Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 func (o KubernetesClusterDefaultNodePoolOutput) ScaleDownMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
+func (o KubernetesClusterDefaultNodePoolOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the Node Pool.
@@ -7025,6 +7034,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ScaleDownMode() pulumi.String
 			return nil
 		}
 		return v.ScaleDownMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9362,6 +9381,8 @@ type KubernetesClusterIngressApplicationGateway struct {
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	//
+	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+	//
 	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -9389,6 +9410,8 @@ type KubernetesClusterIngressApplicationGatewayArgs struct {
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	//
+	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
 	//
 	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -9500,6 +9523,8 @@ func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetCidr() pulumi.St
 
 // The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 //
+// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+//
 // > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
@@ -9580,6 +9605,8 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi
 }
 
 // The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+//
+// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
 //
 // > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetId() pulumi.StringPtrOutput {
@@ -15886,6 +15913,8 @@ func (o KubernetesClusterStorageProfilePtrOutput) SnapshotControllerEnabled() pu
 type KubernetesClusterWebAppRouting struct {
 	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
 	DnsZoneId string `pulumi:"dnsZoneId"`
+	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
+	WebAppRoutingIdentities []KubernetesClusterWebAppRoutingWebAppRoutingIdentity `pulumi:"webAppRoutingIdentities"`
 }
 
 // KubernetesClusterWebAppRoutingInput is an input type that accepts KubernetesClusterWebAppRoutingArgs and KubernetesClusterWebAppRoutingOutput values.
@@ -15902,6 +15931,8 @@ type KubernetesClusterWebAppRoutingInput interface {
 type KubernetesClusterWebAppRoutingArgs struct {
 	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
 	DnsZoneId pulumi.StringInput `pulumi:"dnsZoneId"`
+	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
+	WebAppRoutingIdentities KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput `pulumi:"webAppRoutingIdentities"`
 }
 
 func (KubernetesClusterWebAppRoutingArgs) ElementType() reflect.Type {
@@ -15986,6 +16017,13 @@ func (o KubernetesClusterWebAppRoutingOutput) DnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRouting) string { return v.DnsZoneId }).(pulumi.StringOutput)
 }
 
+// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterWebAppRoutingOutput) WebAppRoutingIdentities() KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRouting) []KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
+		return v.WebAppRoutingIdentities
+	}).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput)
+}
+
 type KubernetesClusterWebAppRoutingPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWebAppRoutingPtrOutput) ElementType() reflect.Type {
@@ -16018,6 +16056,137 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneId() pulumi.StringPtrOut
 		}
 		return &v.DnsZoneId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterWebAppRoutingPtrOutput) WebAppRoutingIdentities() KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) []KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.WebAppRoutingIdentities
+	}).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput)
+}
+
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentity struct {
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ClientId *string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ObjectId *string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput is an input type that accepts KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs and KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput` via:
+//
+//	KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs{...}
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput() KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput
+	ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutputWithContext(context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput
+}
+
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWebAppRoutingWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput() KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
+	return i.ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput)
+}
+
+// KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput is an input type that accepts KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray and KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput` via:
+//
+//	KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray{ KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs{...} }
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput() KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput
+	ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutputWithContext(context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput
+}
+
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray []KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput
+
+func (KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterWebAppRoutingWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput() KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
+	return i.ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput)
+}
+
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWebAppRoutingWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput() KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRoutingWebAppRoutingIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRoutingWebAppRoutingIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRoutingWebAppRoutingIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterWebAppRoutingWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput() KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
+		return vs[0].([]KubernetesClusterWebAppRoutingWebAppRoutingIdentity)[vs[1].(int)]
+	}).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput)
 }
 
 type KubernetesClusterWindowsProfile struct {
@@ -23866,6 +24035,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfilePtrInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingPtrInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput)(nil)).Elem(), KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput)(nil)).Elem(), KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfilePtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
@@ -24122,6 +24293,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaOutput{})

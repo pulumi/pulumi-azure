@@ -468,6 +468,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     */
+    @Import(name="snapshotId")
+    private @Nullable Output<String> snapshotId;
+
+    /**
+     * @return The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     */
+    public Optional<Output<String>> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
+    }
+
+    /**
      * A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -653,6 +668,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.podSubnetId = $.podSubnetId;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.scaleDownMode = $.scaleDownMode;
+        this.snapshotId = $.snapshotId;
         this.tags = $.tags;
         this.temporaryNameForRotation = $.temporaryNameForRotation;
         this.type = $.type;
@@ -1302,6 +1318,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
          */
         public Builder scaleDownMode(String scaleDownMode) {
             return scaleDownMode(Output.of(scaleDownMode));
+        }
+
+        /**
+         * @param snapshotId The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotId(@Nullable Output<String> snapshotId) {
+            $.snapshotId = snapshotId;
+            return this;
+        }
+
+        /**
+         * @param snapshotId The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotId(String snapshotId) {
+            return snapshotId(Output.of(snapshotId));
         }
 
         /**

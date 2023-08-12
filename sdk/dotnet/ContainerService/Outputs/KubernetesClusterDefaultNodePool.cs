@@ -139,6 +139,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? ScaleDownMode;
         /// <summary>
+        /// The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
+        /// </summary>
+        public readonly string? SnapshotId;
+        /// <summary>
         /// A mapping of tags to assign to the Node Pool.
         /// 
         /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
@@ -243,6 +247,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? scaleDownMode,
 
+            string? snapshotId,
+
             ImmutableDictionary<string, string>? tags,
 
             string? temporaryNameForRotation,
@@ -289,6 +295,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             PodSubnetId = podSubnetId;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             ScaleDownMode = scaleDownMode;
+            SnapshotId = snapshotId;
             Tags = tags;
             TemporaryNameForRotation = temporaryNameForRotation;
             Type = type;

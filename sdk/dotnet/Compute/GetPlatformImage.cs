@@ -30,8 +30,8 @@ namespace Pulumi.Azure.Compute
         ///     {
         ///         Location = "West Europe",
         ///         Publisher = "Canonical",
-        ///         Offer = "UbuntuServer",
-        ///         Sku = "20.04-LTS",
+        ///         Offer = "0001-com-ubuntu-server-focal",
+        ///         Sku = "20_04-lts",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -65,8 +65,8 @@ namespace Pulumi.Azure.Compute
         ///     {
         ///         Location = "West Europe",
         ///         Publisher = "Canonical",
-        ///         Offer = "UbuntuServer",
-        ///         Sku = "20.04-LTS",
+        ///         Offer = "0001-com-ubuntu-server-focal",
+        ///         Sku = "20_04-lts",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

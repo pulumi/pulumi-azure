@@ -1036,8 +1036,8 @@ class ScaleSet(pulumi.CustomResource):
             ),
             storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ),
             storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
@@ -1141,8 +1141,8 @@ class ScaleSet(pulumi.CustomResource):
             ),
             storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         ```
@@ -1276,8 +1276,8 @@ class ScaleSet(pulumi.CustomResource):
             ),
             storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ),
             storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
@@ -1381,8 +1381,8 @@ class ScaleSet(pulumi.CustomResource):
             ),
             storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
                 publisher="Canonical",
-                offer="UbuntuServer",
-                sku="20.04-LTS",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
                 version="latest",
             ))
         ```

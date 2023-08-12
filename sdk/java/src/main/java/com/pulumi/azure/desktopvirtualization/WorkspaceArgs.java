@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -77,6 +78,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
@@ -113,6 +129,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.friendlyName = $.friendlyName;
         this.location = $.location;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -217,6 +234,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

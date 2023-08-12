@@ -98,7 +98,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
@@ -106,7 +105,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      * 
      */
     public Output<String> location() {

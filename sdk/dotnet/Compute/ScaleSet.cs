@@ -122,8 +122,8 @@ namespace Pulumi.Azure.Compute
     ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "UbuntuServer",
-    ///             Sku = "20.04-LTS",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
     ///             Version = "latest",
     ///         },
     ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
@@ -310,8 +310,8 @@ namespace Pulumi.Azure.Compute
     ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
-    ///             Offer = "UbuntuServer",
-    ///             Sku = "20.04-LTS",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
     ///             Version = "latest",
     ///         },
     ///     });

@@ -172,7 +172,7 @@ type Assignment struct {
 	ResourceGroups pulumi.StringPtrOutput `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringOutput `pulumi:"targetSubscriptionId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -245,7 +245,7 @@ type assignmentState struct {
 	ResourceGroups *string `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId *string `pulumi:"targetSubscriptionId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type *string `pulumi:"type"`
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId *string `pulumi:"versionId"`
@@ -280,7 +280,7 @@ type AssignmentState struct {
 	ResourceGroups pulumi.StringPtrInput
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringPtrInput
-	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type pulumi.StringPtrInput
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId pulumi.StringPtrInput
@@ -496,7 +496,7 @@ func (o AssignmentOutput) TargetSubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.TargetSubscriptionId }).(pulumi.StringOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o AssignmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -87,6 +87,7 @@ import * as logicapps from "./logicapps";
 import * as machinelearning from "./machinelearning";
 import * as maintenance from "./maintenance";
 import * as managedapplication from "./managedapplication";
+import * as managedlustre from "./managedlustre";
 import * as management from "./management";
 import * as managementgroups from "./managementgroups";
 import * as managementresource from "./managementresource";
@@ -109,6 +110,7 @@ import * as nginx from "./nginx";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
 import * as orbital from "./orbital";
+import * as paloalto from "./paloalto";
 import * as pim from "./pim";
 import * as policy from "./policy";
 import * as portal from "./portal";
@@ -215,6 +217,7 @@ export {
     machinelearning,
     maintenance,
     managedapplication,
+    managedlustre,
     management,
     managementgroups,
     managementresource,
@@ -237,6 +240,7 @@ export {
     notificationhub,
     operationalinsights,
     orbital,
+    paloalto,
     pim,
     policy,
     portal,

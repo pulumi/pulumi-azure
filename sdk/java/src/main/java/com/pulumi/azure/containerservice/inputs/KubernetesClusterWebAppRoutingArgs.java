@@ -3,10 +3,14 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resources.ResourceArgs {
@@ -28,10 +32,26 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         return this.dnsZoneId;
     }
 
+    /**
+     * A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    @Import(name="webAppRoutingIdentities")
+    private @Nullable Output<List<KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs>> webAppRoutingIdentities;
+
+    /**
+     * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    public Optional<Output<List<KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs>>> webAppRoutingIdentities() {
+        return Optional.ofNullable(this.webAppRoutingIdentities);
+    }
+
     private KubernetesClusterWebAppRoutingArgs() {}
 
     private KubernetesClusterWebAppRoutingArgs(KubernetesClusterWebAppRoutingArgs $) {
         this.dnsZoneId = $.dnsZoneId;
+        this.webAppRoutingIdentities = $.webAppRoutingIdentities;
     }
 
     public static Builder builder() {
@@ -71,6 +91,37 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
          */
         public Builder dnsZoneId(String dnsZoneId) {
             return dnsZoneId(Output.of(dnsZoneId));
+        }
+
+        /**
+         * @param webAppRoutingIdentities A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAppRoutingIdentities(@Nullable Output<List<KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs>> webAppRoutingIdentities) {
+            $.webAppRoutingIdentities = webAppRoutingIdentities;
+            return this;
+        }
+
+        /**
+         * @param webAppRoutingIdentities A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAppRoutingIdentities(List<KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs> webAppRoutingIdentities) {
+            return webAppRoutingIdentities(Output.of(webAppRoutingIdentities));
+        }
+
+        /**
+         * @param webAppRoutingIdentities A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAppRoutingIdentities(KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs... webAppRoutingIdentities) {
+            return webAppRoutingIdentities(List.of(webAppRoutingIdentities));
         }
 
         public KubernetesClusterWebAppRoutingArgs build() {

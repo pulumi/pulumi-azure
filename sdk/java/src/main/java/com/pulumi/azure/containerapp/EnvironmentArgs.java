@@ -74,15 +74,15 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="logAnalyticsWorkspaceId", required=true)
-    private Output<String> logAnalyticsWorkspaceId;
+    @Import(name="logAnalyticsWorkspaceId")
+    private @Nullable Output<String> logAnalyticsWorkspaceId;
 
     /**
      * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> logAnalyticsWorkspaceId() {
-        return this.logAnalyticsWorkspaceId;
+    public Optional<Output<String>> logAnalyticsWorkspaceId() {
+        return Optional.ofNullable(this.logAnalyticsWorkspaceId);
     }
 
     /**
@@ -237,7 +237,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder logAnalyticsWorkspaceId(Output<String> logAnalyticsWorkspaceId) {
+        public Builder logAnalyticsWorkspaceId(@Nullable Output<String> logAnalyticsWorkspaceId) {
             $.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             return this;
         }
@@ -316,7 +316,6 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnvironmentArgs build() {
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             return $;
         }

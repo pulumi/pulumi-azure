@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Graph Account.
+// Manages a Microsoft Graph Services Account.
+//
+// !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `graph.ServicesAccount` resource instead.
 //
 // ## Example Usage
 //

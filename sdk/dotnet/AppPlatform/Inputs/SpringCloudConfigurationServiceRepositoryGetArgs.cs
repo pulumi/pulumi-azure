@@ -13,6 +13,12 @@ namespace Pulumi.Azure.AppPlatform.Inputs
     public sealed class SpringCloudConfigurationServiceRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+        /// </summary>
+        [Input("caCertificateId")]
+        public Input<string>? CaCertificateId { get; set; }
+
+        /// <summary>
         /// Specifies the SSH public key of git repository.
         /// </summary>
         [Input("hostKey")]

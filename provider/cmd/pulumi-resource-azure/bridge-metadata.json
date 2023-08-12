@@ -5903,7 +5903,14 @@
                 "majorVersion": 5,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -7844,6 +7851,10 @@
                 "current": "azure:graph/account:Account",
                 "majorVersion": 5
             },
+            "azurerm_graph_services_account": {
+                "current": "azure:graph/servicesAccount:ServicesAccount",
+                "majorVersion": 5
+            },
             "azurerm_hdinsight_hadoop_cluster": {
                 "current": "azure:hdinsight/hadoopCluster:HadoopCluster",
                 "majorVersion": 5,
@@ -9617,7 +9628,14 @@
                         "maxItemsOne": true
                     },
                     "web_app_routing": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "web_app_routing_identity": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "windows_profile": {
                         "maxItemsOne": true,
@@ -12308,6 +12326,34 @@
             "azurerm_managed_disk_sas_token": {
                 "current": "azure:compute/managedDiskSasToken:ManagedDiskSasToken",
                 "majorVersion": 5
+            },
+            "azurerm_managed_lustre_file_system": {
+                "current": "azure:managedlustre/fileSystem:FileSystem",
+                "majorVersion": 5,
+                "fields": {
+                    "encryption_key": {
+                        "maxItemsOne": true
+                    },
+                    "hsm_setting": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "maintenance_window": {
+                        "maxItemsOne": true
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_management_group": {
                 "current": "azure:management/group:Group",
@@ -15605,6 +15651,326 @@
                     }
                 }
             },
+            "azurerm_palo_alto_local_rulestack": {
+                "current": "azure:paloalto/localRulestack:LocalRulestack",
+                "majorVersion": 5
+            },
+            "azurerm_palo_alto_local_rulestack_certificate": {
+                "current": "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate",
+                "majorVersion": 5
+            },
+            "azurerm_palo_alto_local_rulestack_fqdn_list": {
+                "current": "azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList",
+                "majorVersion": 5,
+                "fields": {
+                    "fully_qualified_domain_names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_palo_alto_local_rulestack_outbound_trust_certificate_association": {
+                "current": "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation",
+                "majorVersion": 5
+            },
+            "azurerm_palo_alto_local_rulestack_outbound_untrust_certificate_association": {
+                "current": "azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation",
+                "majorVersion": 5
+            },
+            "azurerm_palo_alto_local_rulestack_prefix_list": {
+                "current": "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList",
+                "majorVersion": 5,
+                "fields": {
+                    "prefix_list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_palo_alto_local_rulestack_rule": {
+                "current": "azure:paloalto/localRulestackRule:LocalRulestackRule",
+                "majorVersion": 5,
+                "fields": {
+                    "applications": {
+                        "maxItemsOne": false
+                    },
+                    "category": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "custom_urls": {
+                                    "maxItemsOne": false
+                                },
+                                "feeds": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "destination": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cidrs": {
+                                    "maxItemsOne": false
+                                },
+                                "countries": {
+                                    "maxItemsOne": false
+                                },
+                                "feeds": {
+                                    "maxItemsOne": false
+                                },
+                                "local_rulestack_fqdn_list_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "local_rulestack_prefix_list_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "protocol_ports": {
+                        "maxItemsOne": false
+                    },
+                    "source": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cidrs": {
+                                    "maxItemsOne": false
+                                },
+                                "countries": {
+                                    "maxItemsOne": false
+                                },
+                                "feeds": {
+                                    "maxItemsOne": false
+                                },
+                                "local_rulestack_prefix_list_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack": {
+                "current": "azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack",
+                "majorVersion": 5,
+                "fields": {
+                    "destination_nat": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backend_config": {
+                                    "maxItemsOne": true
+                                },
+                                "frontend_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "dns_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "dns_servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "egress_nat_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "egress_nat_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama": {
+                "current": "azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama",
+                "majorVersion": 5,
+                "fields": {
+                    "destination_nat": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backend_config": {
+                                    "maxItemsOne": true
+                                },
+                                "frontend_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "dns_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "dns_servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "egress_nat_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "egress_nat_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "panorama": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack": {
+                "current": "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack",
+                "majorVersion": 5,
+                "fields": {
+                    "destination_nat": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backend_config": {
+                                    "maxItemsOne": true
+                                },
+                                "frontend_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "dns_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "dns_servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "egress_nat_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "egress_nat_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "vnet_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_palo_alto_next_generation_firewall_virtual_network_panorama": {
+                "current": "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama",
+                "majorVersion": 5,
+                "fields": {
+                    "destination_nat": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backend_config": {
+                                    "maxItemsOne": true
+                                },
+                                "frontend_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "dns_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_dns_servers": {
+                                    "maxItemsOne": false
+                                },
+                                "dns_servers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "egress_nat_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "egress_nat_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_address_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "vnet_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "panorama": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_palo_alto_virtual_network_appliance": {
+                "current": "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance",
+                "majorVersion": 5
+            },
             "azurerm_pim_active_role_assignment": {
                 "current": "azure:pim/activeRoleAssignment:ActiveRoleAssignment",
                 "majorVersion": 5,
@@ -16701,7 +17067,12 @@
             },
             "azurerm_security_center_subscription_pricing": {
                 "current": "azure:securitycenter/subscriptionPricing:SubscriptionPricing",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "extension": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_security_center_workspace": {
                 "current": "azure:securitycenter/workspace:Workspace",
@@ -26419,6 +26790,10 @@
                     }
                 }
             },
+            "azurerm_palo_alto_local_rulestack": {
+                "current": "azure:paloalto/getLocalRulestack:getLocalRulestack",
+                "majorVersion": 5
+            },
             "azurerm_platform_image": {
                 "current": "azure:compute/getPlatformImage:getPlatformImage",
                 "majorVersion": 5
@@ -28941,6 +29316,7 @@
             "azure:frontdoor/frontdoor:Frontdoor": "azurerm_frontdoor",
             "azure:frontdoor/rulesEngine:RulesEngine": "azurerm_frontdoor_rules_engine",
             "azure:graph/account:Account": "azurerm_graph_account",
+            "azure:graph/servicesAccount:ServicesAccount": "azurerm_graph_services_account",
             "azure:hdinsight/hBaseCluster:HBaseCluster": "azurerm_hdinsight_hbase_cluster",
             "azure:hdinsight/hadoopCluster:HadoopCluster": "azurerm_hdinsight_hadoop_cluster",
             "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster": "azurerm_hdinsight_interactive_query_cluster",
@@ -29064,6 +29440,7 @@
             "azure:maintenance/configuration:Configuration": "azurerm_maintenance_configuration",
             "azure:managedapplication/application:Application": "azurerm_managed_application",
             "azure:managedapplication/definition:Definition": "azurerm_managed_application_definition",
+            "azure:managedlustre/fileSystem:FileSystem": "azurerm_managed_lustre_file_system",
             "azure:management/group:Group": "azurerm_management_group",
             "azure:management/groupPolicyAssignment:GroupPolicyAssignment": "azurerm_management_group_policy_assignment",
             "azure:management/groupPolicyExemption:GroupPolicyExemption": "azurerm_management_group_policy_exemption",
@@ -29277,6 +29654,18 @@
             "azure:orbital/contact:Contact": "azurerm_orbital_contact",
             "azure:orbital/contactProfile:ContactProfile": "azurerm_orbital_contact_profile",
             "azure:orbital/spacecraft:Spacecraft": "azurerm_orbital_spacecraft",
+            "azure:paloalto/localRulestack:LocalRulestack": "azurerm_palo_alto_local_rulestack",
+            "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate": "azurerm_palo_alto_local_rulestack_certificate",
+            "azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList": "azurerm_palo_alto_local_rulestack_fqdn_list",
+            "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation": "azurerm_palo_alto_local_rulestack_outbound_trust_certificate_association",
+            "azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation": "azurerm_palo_alto_local_rulestack_outbound_untrust_certificate_association",
+            "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList": "azurerm_palo_alto_local_rulestack_prefix_list",
+            "azure:paloalto/localRulestackRule:LocalRulestackRule": "azurerm_palo_alto_local_rulestack_rule",
+            "azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack": "azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack",
+            "azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama": "azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama",
+            "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack": "azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack",
+            "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama": "azurerm_palo_alto_next_generation_firewall_virtual_network_panorama",
+            "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance": "azurerm_palo_alto_virtual_network_appliance",
             "azure:pim/activeRoleAssignment:ActiveRoleAssignment": "azurerm_pim_active_role_assignment",
             "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment": "azurerm_pim_eligible_role_assignment",
             "azure:policy/definition:Definition": "azurerm_policy_definition",
@@ -29766,6 +30155,7 @@
             "azure:notificationhub/getHub:getHub": "azurerm_notification_hub",
             "azure:notificationhub/getNamespace:getNamespace": "azurerm_notification_hub_namespace",
             "azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace": "azurerm_log_analytics_workspace",
+            "azure:paloalto/getLocalRulestack:getLocalRulestack": "azurerm_palo_alto_local_rulestack",
             "azure:policy/getPolicyAssignment:getPolicyAssignment": "azurerm_policy_assignment",
             "azure:policy/getPolicyDefintion:getPolicyDefintion": "azurerm_policy_definition",
             "azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn": "azurerm_policy_definition_built_in",
@@ -30942,6 +31332,7 @@
                 "buildPackIds": "build_pack_ids"
             },
             "azure:appplatform/SpringCloudConfigurationServiceRepository:SpringCloudConfigurationServiceRepository": {
+                "caCertificateId": "ca_certificate_id",
                 "hostKey": "host_key",
                 "hostKeyAlgorithm": "host_key_algorithm",
                 "privateKey": "private_key",
@@ -37073,7 +37464,9 @@
                 "customerName": "customer_name"
             },
             "azure:blueprint/AssignmentIdentity:AssignmentIdentity": {
-                "identityIds": "identity_ids"
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:blueprint/assignment:Assignment": {
                 "blueprintName": "blueprint_name",
@@ -39786,6 +40179,7 @@
                 "podSubnetId": "pod_subnet_id",
                 "proximityPlacementGroupId": "proximity_placement_group_id",
                 "scaleDownMode": "scale_down_mode",
+                "snapshotId": "snapshot_id",
                 "temporaryNameForRotation": "temporary_name_for_rotation",
                 "ultraSsdEnabled": "ultra_ssd_enabled",
                 "upgradeSettings": "upgrade_settings",
@@ -40060,7 +40454,13 @@
                 "snapshotControllerEnabled": "snapshot_controller_enabled"
             },
             "azure:containerservice/KubernetesClusterWebAppRouting:KubernetesClusterWebAppRouting": {
-                "dnsZoneId": "dns_zone_id"
+                "dnsZoneId": "dns_zone_id",
+                "webAppRoutingIdentities": "web_app_routing_identity"
+            },
+            "azure:containerservice/KubernetesClusterWebAppRoutingWebAppRoutingIdentity:KubernetesClusterWebAppRoutingWebAppRoutingIdentity": {
+                "clientId": "client_id",
+                "objectId": "object_id",
+                "userAssignedIdentityId": "user_assigned_identity_id"
             },
             "azure:containerservice/KubernetesClusterWindowsProfile:KubernetesClusterWindowsProfile": {
                 "adminPassword": "admin_password",
@@ -42512,6 +42912,7 @@
             },
             "azure:desktopvirtualization/workspace:Workspace": {
                 "friendlyName": "friendly_name",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation": {
@@ -42633,6 +43034,7 @@
                 "uniqueIdentifier": "unique_identifier"
             },
             "azure:digitaltwins/InstanceIdentity:InstanceIdentity": {
+                "identityIds": "identity_ids",
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
@@ -43824,6 +44226,11 @@
                 "rules": "rule"
             },
             "azure:graph/account:Account": {
+                "applicationId": "application_id",
+                "billingPlanId": "billing_plan_id",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:graph/servicesAccount:ServicesAccount": {
                 "applicationId": "application_id",
                 "billingPlanId": "billing_plan_id",
                 "resourceGroupName": "resource_group_name"
@@ -46531,6 +46938,31 @@
             },
             "azure:managedapplication/getDefinition:getDefinition": {
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:managedlustre/FileSystemEncryptionKey:FileSystemEncryptionKey": {
+                "keyUrl": "key_url",
+                "sourceVaultId": "source_vault_id"
+            },
+            "azure:managedlustre/FileSystemHsmSetting:FileSystemHsmSetting": {
+                "containerId": "container_id",
+                "importPrefix": "import_prefix",
+                "loggingContainerId": "logging_container_id"
+            },
+            "azure:managedlustre/FileSystemIdentity:FileSystemIdentity": {
+                "identityIds": "identity_ids"
+            },
+            "azure:managedlustre/FileSystemMaintenanceWindow:FileSystemMaintenanceWindow": {
+                "dayOfWeek": "day_of_week",
+                "timeOfDayInUtc": "time_of_day_in_utc"
+            },
+            "azure:managedlustre/fileSystem:FileSystem": {
+                "encryptionKey": "encryption_key",
+                "hsmSetting": "hsm_setting",
+                "maintenanceWindow": "maintenance_window",
+                "resourceGroupName": "resource_group_name",
+                "skuName": "sku_name",
+                "storageCapacityInTb": "storage_capacity_in_tb",
+                "subnetId": "subnet_id"
             },
             "azure:management/GroupPolicyAssignmentIdentity:GroupPolicyAssignmentIdentity": {
                 "identityIds": "identity_ids",
@@ -51047,6 +51479,225 @@
                 "titleLine": "title_line",
                 "twoLineElements": "two_line_elements"
             },
+            "azure:paloalto/LocalRulestackRuleCategory:LocalRulestackRuleCategory": {
+                "customUrls": "custom_urls"
+            },
+            "azure:paloalto/LocalRulestackRuleDestination:LocalRulestackRuleDestination": {
+                "localRulestackFqdnListIds": "local_rulestack_fqdn_list_ids",
+                "localRulestackPrefixListIds": "local_rulestack_prefix_list_ids"
+            },
+            "azure:paloalto/LocalRulestackRuleSource:LocalRulestackRuleSource": {
+                "localRulestackPrefixListIds": "local_rulestack_prefix_list_ids"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubLocalRulestackDestinationNat:NextGenerationFirewallVirtualHubLocalRulestackDestinationNat": {
+                "backendConfig": "backend_config",
+                "frontendConfig": "frontend_config"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig:NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig": {
+                "publicIpAddress": "public_ip_address"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig:NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig": {
+                "publicIpAddressId": "public_ip_address_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubLocalRulestackDnsSettings:NextGenerationFirewallVirtualHubLocalRulestackDnsSettings": {
+                "azureDnsServers": "azure_dns_servers",
+                "dnsServers": "dns_servers",
+                "useAzureDns": "use_azure_dns"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile:NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile": {
+                "egressNatIpAddressIds": "egress_nat_ip_address_ids",
+                "egressNatIpAddresses": "egress_nat_ip_addresses",
+                "ipOfTrustForUserDefinedRoutes": "ip_of_trust_for_user_defined_routes",
+                "networkVirtualApplianceId": "network_virtual_appliance_id",
+                "publicIpAddressIds": "public_ip_address_ids",
+                "publicIpAddresses": "public_ip_addresses",
+                "trustedSubnetId": "trusted_subnet_id",
+                "untrustedSubnetId": "untrusted_subnet_id",
+                "virtualHubId": "virtual_hub_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubPanoramaDestinationNat:NextGenerationFirewallVirtualHubPanoramaDestinationNat": {
+                "backendConfig": "backend_config",
+                "frontendConfig": "frontend_config"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig:NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig": {
+                "publicIpAddress": "public_ip_address"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig:NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig": {
+                "publicIpAddressId": "public_ip_address_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubPanoramaDnsSettings:NextGenerationFirewallVirtualHubPanoramaDnsSettings": {
+                "azureDnsServers": "azure_dns_servers",
+                "dnsServers": "dns_servers",
+                "useAzureDns": "use_azure_dns"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubPanoramaNetworkProfile:NextGenerationFirewallVirtualHubPanoramaNetworkProfile": {
+                "egressNatIpAddressIds": "egress_nat_ip_address_ids",
+                "egressNatIpAddresses": "egress_nat_ip_addresses",
+                "ipOfTrustForUserDefinedRoutes": "ip_of_trust_for_user_defined_routes",
+                "networkVirtualApplianceId": "network_virtual_appliance_id",
+                "publicIpAddressIds": "public_ip_address_ids",
+                "publicIpAddresses": "public_ip_addresses",
+                "trustedSubnetId": "trusted_subnet_id",
+                "untrustedSubnetId": "untrusted_subnet_id",
+                "virtualHubId": "virtual_hub_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualHubPanoramaPanorama:NextGenerationFirewallVirtualHubPanoramaPanorama": {
+                "deviceGroupName": "device_group_name",
+                "hostName": "host_name",
+                "panoramaServer1": "panorama_server_1",
+                "panoramaServer2": "panorama_server_2",
+                "templateName": "template_name",
+                "virtualMachineSshKey": "virtual_machine_ssh_key"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat:NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat": {
+                "backendConfig": "backend_config",
+                "frontendConfig": "frontend_config"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig:NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig": {
+                "publicIpAddress": "public_ip_address"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig:NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig": {
+                "publicIpAddressId": "public_ip_address_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings:NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings": {
+                "azureDnsServers": "azure_dns_servers",
+                "dnsServers": "dns_servers",
+                "useAzureDns": "use_azure_dns"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile:NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile": {
+                "egressNatIpAddressIds": "egress_nat_ip_address_ids",
+                "egressNatIpAddresses": "egress_nat_ip_addresses",
+                "publicIpAddressIds": "public_ip_address_ids",
+                "publicIpAddresses": "public_ip_addresses",
+                "vnetConfiguration": "vnet_configuration"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration:NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration": {
+                "ipOfTrustForUserDefinedRoutes": "ip_of_trust_for_user_defined_routes",
+                "trustedSubnetId": "trusted_subnet_id",
+                "untrustedSubnetId": "untrusted_subnet_id",
+                "virtualNetworkId": "virtual_network_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaDestinationNat:NextGenerationFirewallVirtualNetworkPanoramaDestinationNat": {
+                "backendConfig": "backend_config",
+                "frontendConfig": "frontend_config"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig:NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig": {
+                "publicIpAddress": "public_ip_address"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig:NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig": {
+                "publicIpAddressId": "public_ip_address_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaDnsSettings:NextGenerationFirewallVirtualNetworkPanoramaDnsSettings": {
+                "azureDnsServers": "azure_dns_servers",
+                "dnsServers": "dns_servers",
+                "useAzureDns": "use_azure_dns"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile:NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile": {
+                "egressNatIpAddressIds": "egress_nat_ip_address_ids",
+                "egressNatIpAddresses": "egress_nat_ip_addresses",
+                "publicIpAddressIds": "public_ip_address_ids",
+                "publicIpAddresses": "public_ip_addresses",
+                "vnetConfiguration": "vnet_configuration"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration:NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration": {
+                "ipOfTrustForUserDefinedRoutes": "ip_of_trust_for_user_defined_routes",
+                "trustedSubnetId": "trusted_subnet_id",
+                "untrustedSubnetId": "untrusted_subnet_id",
+                "virtualNetworkId": "virtual_network_id"
+            },
+            "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaPanorama:NextGenerationFirewallVirtualNetworkPanoramaPanorama": {
+                "deviceGroupName": "device_group_name",
+                "hostName": "host_name",
+                "panoramaServer1": "panorama_server_1",
+                "panoramaServer2": "panorama_server_2",
+                "templateName": "template_name",
+                "virtualMachineSshKey": "virtual_machine_ssh_key"
+            },
+            "azure:paloalto/getLocalRulestack:getLocalRulestack": {
+                "antiSpywareProfile": "anti_spyware_profile",
+                "antiVirusProfile": "anti_virus_profile",
+                "dnsSubscription": "dns_subscription",
+                "fileBlockingProfile": "file_blocking_profile",
+                "outboundTrustCertificate": "outbound_trust_certificate",
+                "outboundUntrustCertificate": "outbound_untrust_certificate",
+                "resourceGroupName": "resource_group_name",
+                "urlFilteringProfile": "url_filtering_profile",
+                "vulnerabilityProfile": "vulnerability_profile"
+            },
+            "azure:paloalto/localRulestack:LocalRulestack": {
+                "antiSpywareProfile": "anti_spyware_profile",
+                "antiVirusProfile": "anti_virus_profile",
+                "dnsSubscription": "dns_subscription",
+                "fileBlockingProfile": "file_blocking_profile",
+                "resourceGroupName": "resource_group_name",
+                "urlFilteringProfile": "url_filtering_profile",
+                "vulnerabilityProfile": "vulnerability_profile"
+            },
+            "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate": {
+                "auditComment": "audit_comment",
+                "keyVaultCertificateId": "key_vault_certificate_id",
+                "rulestackId": "rulestack_id",
+                "selfSigned": "self_signed"
+            },
+            "azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList": {
+                "auditComment": "audit_comment",
+                "fullyQualifiedDomainNames": "fully_qualified_domain_names",
+                "rulestackId": "rulestack_id"
+            },
+            "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation": {
+                "certificateId": "certificate_id"
+            },
+            "azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation": {
+                "certificateId": "certificate_id"
+            },
+            "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList": {
+                "auditComment": "audit_comment",
+                "prefixLists": "prefix_list",
+                "rulestackId": "rulestack_id"
+            },
+            "azure:paloalto/localRulestackRule:LocalRulestackRule": {
+                "auditComment": "audit_comment",
+                "decryptionRuleType": "decryption_rule_type",
+                "inspectionCertificateId": "inspection_certificate_id",
+                "loggingEnabled": "logging_enabled",
+                "negateDestination": "negate_destination",
+                "negateSource": "negate_source",
+                "protocolPorts": "protocol_ports",
+                "rulestackId": "rulestack_id"
+            },
+            "azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack": {
+                "destinationNats": "destination_nat",
+                "dnsSettings": "dns_settings",
+                "networkProfile": "network_profile",
+                "resourceGroupName": "resource_group_name",
+                "rulestackId": "rulestack_id"
+            },
+            "azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama": {
+                "destinationNats": "destination_nat",
+                "dnsSettings": "dns_settings",
+                "networkProfile": "network_profile",
+                "panoramaBase64Config": "panorama_base64_config",
+                "panoramas": "panorama",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack": {
+                "destinationNats": "destination_nat",
+                "dnsSettings": "dns_settings",
+                "networkProfile": "network_profile",
+                "resourceGroupName": "resource_group_name",
+                "rulestackId": "rulestack_id"
+            },
+            "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama": {
+                "destinationNats": "destination_nat",
+                "dnsSettings": "dns_settings",
+                "networkProfile": "network_profile",
+                "panoramaBase64Config": "panorama_base64_config",
+                "panoramas": "panorama",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance": {
+                "virtualHubId": "virtual_hub_id"
+            },
             "azure:pim/ActiveRoleAssignmentSchedule:ActiveRoleAssignmentSchedule": {
                 "startDateTime": "start_date_time"
             },
@@ -51876,6 +52527,9 @@
                 "propertyPath": "property_path",
                 "propertyType": "property_type"
             },
+            "azure:securitycenter/SubscriptionPricingExtension:SubscriptionPricingExtension": {
+                "additionalExtensionProperties": "additional_extension_properties"
+            },
             "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection": {
                 "targetResourceId": "target_resource_id"
             },
@@ -51913,6 +52567,7 @@
                 "settingName": "setting_name"
             },
             "azure:securitycenter/subscriptionPricing:SubscriptionPricing": {
+                "extensions": "extension",
                 "resourceType": "resource_type"
             },
             "azure:securitycenter/workspace:Workspace": {

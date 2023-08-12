@@ -70,14 +70,14 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -197,7 +197,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

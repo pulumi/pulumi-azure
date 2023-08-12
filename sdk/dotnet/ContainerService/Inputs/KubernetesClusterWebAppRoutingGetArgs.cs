@@ -18,6 +18,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("dnsZoneId", required: true)]
         public Input<string> DnsZoneId { get; set; } = null!;
 
+        [Input("webAppRoutingIdentities")]
+        private InputList<Inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityGetArgs>? _webAppRoutingIdentities;
+
+        /// <summary>
+        /// A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+        /// </summary>
+        public InputList<Inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityGetArgs> WebAppRoutingIdentities
+        {
+            get => _webAppRoutingIdentities ?? (_webAppRoutingIdentities = new InputList<Inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityGetArgs>());
+            set => _webAppRoutingIdentities = value;
+        }
+
         public KubernetesClusterWebAppRoutingGetArgs()
         {
         }

@@ -71,7 +71,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly identity!: pulumi.Output<outputs.digitaltwins.InstanceIdentity | undefined>;
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -137,7 +136,6 @@ export interface InstanceState {
     identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity>;
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      */
     location?: pulumi.Input<string>;
     /**
@@ -164,7 +162,6 @@ export interface InstanceArgs {
     identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity>;
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
-     * *
      */
     location?: pulumi.Input<string>;
     /**

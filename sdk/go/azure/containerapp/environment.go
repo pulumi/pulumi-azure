@@ -86,7 +86,7 @@ type Environment struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
-	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
+	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
@@ -108,9 +108,6 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LogAnalyticsWorkspaceId == nil {
-		return nil, errors.New("invalid value for required argument 'LogAnalyticsWorkspaceId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -214,7 +211,7 @@ type environmentArgs struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
-	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -236,7 +233,7 @@ type EnvironmentArgs struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
-	LogAnalyticsWorkspaceId pulumi.StringInput
+	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -362,8 +359,8 @@ func (o EnvironmentOutput) Location() pulumi.StringOutput {
 }
 
 // The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
-func (o EnvironmentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+func (o EnvironmentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.

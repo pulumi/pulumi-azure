@@ -30,8 +30,8 @@ import (
 //			example, err := compute.GetPlatformImage(ctx, &compute.GetPlatformImageArgs{
 //				Location:  "West Europe",
 //				Publisher: "Canonical",
-//				Offer:     "UbuntuServer",
-//				Sku:       "20.04-LTS",
+//				Offer:     "0001-com-ubuntu-server-focal",
+//				Sku:       "20_04-lts",
 //			}, nil)
 //			if err != nil {
 //				return err

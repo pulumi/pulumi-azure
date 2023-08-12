@@ -13,19 +13,19 @@ namespace Pulumi.Azure.ManagedApplication.Inputs
     public sealed class ApplicationPlanGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the plan from the marketplace.
+        /// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the product of the plan from the marketplace.
+        /// Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the promotion code to use with the plan.
+        /// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         /// </summary>
@@ -33,13 +33,13 @@ namespace Pulumi.Azure.ManagedApplication.Inputs
         public Input<string>? PromotionCode { get; set; }
 
         /// <summary>
-        /// Specifies the publisher of the plan.
+        /// Specifies the publisher of the plan. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the plan from the marketplace.
+        /// Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;

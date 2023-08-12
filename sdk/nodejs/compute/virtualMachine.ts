@@ -53,8 +53,8 @@ import * as utilities from "../utilities";
  *     vmSize: "Standard_DS1_v2",
  *     storageImageReference: {
  *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "20.04-LTS",
+ *         offer: "0001-com-ubuntu-server-focal",
+ *         sku: "20_04-lts",
  *         version: "latest",
  *     },
  *     storageOsDisk: {
