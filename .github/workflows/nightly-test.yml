@@ -49,7 +49,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v3
+      uses: <no value>
       with:
         go-version: 1.20.1
     - name: Install pulumictl
@@ -141,7 +141,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v3
+      uses: <no value>
       with:
         go-version: 1.20.1
     - name: Install pulumictl
@@ -216,7 +216,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v3
+      uses: <no value>
       with:
         go-version: 1.20.1
     - name: Install pulumictl
