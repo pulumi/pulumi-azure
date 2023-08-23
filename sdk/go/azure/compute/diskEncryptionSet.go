@@ -141,6 +141,132 @@ import (
 //	}
 //
 // ```
+// ### With Automatic Key Rotation Enabled
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				TenantId:                 *pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//					pulumi.String("GetRotationPolicy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_user,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleDiskEncryptionSet, err := compute.NewDiskEncryptionSet(ctx, "exampleDiskEncryptionSet", &compute.DiskEncryptionSetArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				KeyVaultKeyId:          exampleKey.VersionlessId,
+//				AutoKeyRotationEnabled: pulumi.Bool(true),
+//				Identity: &compute.DiskEncryptionSetIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-diskAccessPolicy", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				ObjectId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example-diskAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleKeyVault.ID(),
+//				RoleDefinitionName: pulumi.String("Key Vault Crypto Service Encryption User"),
+//				PrincipalId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -154,7 +280,6 @@ import (
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
@@ -169,6 +294,8 @@ type DiskEncryptionSet struct {
 	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
+	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+	KeyVaultKeyUrl pulumi.StringOutput `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -218,7 +345,6 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskEncryptionSet resources.
 type diskEncryptionSetState struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -233,6 +359,8 @@ type diskEncryptionSetState struct {
 	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+	KeyVaultKeyUrl *string `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -244,7 +372,6 @@ type diskEncryptionSetState struct {
 }
 
 type DiskEncryptionSetState struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
@@ -259,6 +386,8 @@ type DiskEncryptionSetState struct {
 	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringPtrInput
+	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+	KeyVaultKeyUrl pulumi.StringPtrInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -274,7 +403,6 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 }
 
 type diskEncryptionSetArgs struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -301,7 +429,6 @@ type diskEncryptionSetArgs struct {
 
 // The set of arguments for constructing a DiskEncryptionSet resource.
 type DiskEncryptionSetArgs struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
@@ -413,7 +540,6 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx contex
 	return o
 }
 
-// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.BoolPtrOutput { return v.AutoKeyRotationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -441,6 +567,11 @@ func (o DiskEncryptionSetOutput) Identity() DiskEncryptionSetIdentityOutput {
 // In this case, `keyvault.AccessPolicy` is not needed.
 func (o DiskEncryptionSetOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+func (o DiskEncryptionSetOutput) KeyVaultKeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.KeyVaultKeyUrl }).(pulumi.StringOutput)
 }
 
 // Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.

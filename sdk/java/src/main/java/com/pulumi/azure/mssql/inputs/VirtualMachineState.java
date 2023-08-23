@@ -9,6 +9,7 @@ import com.pulumi.azure.mssql.inputs.VirtualMachineAutoPatchingArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineKeyVaultCredentialArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineSqlInstanceArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationArgs;
+import com.pulumi.azure.mssql.inputs.VirtualMachineWsfcDomainCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -190,6 +191,21 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     * 
+     */
+    @Import(name="sqlVirtualMachineGroupId")
+    private @Nullable Output<String> sqlVirtualMachineGroupId;
+
+    /**
+     * @return The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     * 
+     */
+    public Optional<Output<String>> sqlVirtualMachineGroupId() {
+        return Optional.ofNullable(this.sqlVirtualMachineGroupId);
+    }
+
+    /**
      * An `storage_configuration` block as defined below.
      * 
      */
@@ -234,6 +250,21 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.virtualMachineId);
     }
 
+    /**
+     * A `wsfc_domain_credential` block as defined below
+     * 
+     */
+    @Import(name="wsfcDomainCredential")
+    private @Nullable Output<VirtualMachineWsfcDomainCredentialArgs> wsfcDomainCredential;
+
+    /**
+     * @return A `wsfc_domain_credential` block as defined below
+     * 
+     */
+    public Optional<Output<VirtualMachineWsfcDomainCredentialArgs>> wsfcDomainCredential() {
+        return Optional.ofNullable(this.wsfcDomainCredential);
+    }
+
     private VirtualMachineState() {}
 
     private VirtualMachineState(VirtualMachineState $) {
@@ -248,9 +279,11 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         this.sqlConnectivityUpdateUsername = $.sqlConnectivityUpdateUsername;
         this.sqlInstance = $.sqlInstance;
         this.sqlLicenseType = $.sqlLicenseType;
+        this.sqlVirtualMachineGroupId = $.sqlVirtualMachineGroupId;
         this.storageConfiguration = $.storageConfiguration;
         this.tags = $.tags;
         this.virtualMachineId = $.virtualMachineId;
+        this.wsfcDomainCredential = $.wsfcDomainCredential;
     }
 
     public static Builder builder() {
@@ -503,6 +536,27 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param sqlVirtualMachineGroupId The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqlVirtualMachineGroupId(@Nullable Output<String> sqlVirtualMachineGroupId) {
+            $.sqlVirtualMachineGroupId = sqlVirtualMachineGroupId;
+            return this;
+        }
+
+        /**
+         * @param sqlVirtualMachineGroupId The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqlVirtualMachineGroupId(String sqlVirtualMachineGroupId) {
+            return sqlVirtualMachineGroupId(Output.of(sqlVirtualMachineGroupId));
+        }
+
+        /**
          * @param storageConfiguration An `storage_configuration` block as defined below.
          * 
          * @return builder
@@ -563,6 +617,27 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
          */
         public Builder virtualMachineId(String virtualMachineId) {
             return virtualMachineId(Output.of(virtualMachineId));
+        }
+
+        /**
+         * @param wsfcDomainCredential A `wsfc_domain_credential` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wsfcDomainCredential(@Nullable Output<VirtualMachineWsfcDomainCredentialArgs> wsfcDomainCredential) {
+            $.wsfcDomainCredential = wsfcDomainCredential;
+            return this;
+        }
+
+        /**
+         * @param wsfcDomainCredential A `wsfc_domain_credential` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wsfcDomainCredential(VirtualMachineWsfcDomainCredentialArgs wsfcDomainCredential) {
+            return wsfcDomainCredential(Output.of(wsfcDomainCredential));
         }
 
         public VirtualMachineState build() {

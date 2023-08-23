@@ -118,6 +118,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly sqlLicenseType!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     */
+    public readonly sqlVirtualMachineGroupId!: pulumi.Output<string | undefined>;
+    /**
      * An `storageConfiguration` block as defined below.
      */
     public readonly storageConfiguration!: pulumi.Output<outputs.mssql.VirtualMachineStorageConfiguration | undefined>;
@@ -129,6 +133,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
     public readonly virtualMachineId!: pulumi.Output<string>;
+    /**
+     * A `wsfcDomainCredential` block as defined below
+     */
+    public readonly wsfcDomainCredential!: pulumi.Output<outputs.mssql.VirtualMachineWsfcDomainCredential | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -154,9 +162,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["sqlConnectivityUpdateUsername"] = state ? state.sqlConnectivityUpdateUsername : undefined;
             resourceInputs["sqlInstance"] = state ? state.sqlInstance : undefined;
             resourceInputs["sqlLicenseType"] = state ? state.sqlLicenseType : undefined;
+            resourceInputs["sqlVirtualMachineGroupId"] = state ? state.sqlVirtualMachineGroupId : undefined;
             resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["wsfcDomainCredential"] = state ? state.wsfcDomainCredential : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
             if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
@@ -173,9 +183,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["sqlConnectivityUpdateUsername"] = args?.sqlConnectivityUpdateUsername ? pulumi.secret(args.sqlConnectivityUpdateUsername) : undefined;
             resourceInputs["sqlInstance"] = args ? args.sqlInstance : undefined;
             resourceInputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
+            resourceInputs["sqlVirtualMachineGroupId"] = args ? args.sqlVirtualMachineGroupId : undefined;
             resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["wsfcDomainCredential"] = args ? args.wsfcDomainCredential : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"] };
@@ -233,6 +245,10 @@ export interface VirtualMachineState {
      */
     sqlLicenseType?: pulumi.Input<string>;
     /**
+     * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     */
+    sqlVirtualMachineGroupId?: pulumi.Input<string>;
+    /**
      * An `storageConfiguration` block as defined below.
      */
     storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
@@ -244,6 +260,10 @@ export interface VirtualMachineState {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
     virtualMachineId?: pulumi.Input<string>;
+    /**
+     * A `wsfcDomainCredential` block as defined below
+     */
+    wsfcDomainCredential?: pulumi.Input<inputs.mssql.VirtualMachineWsfcDomainCredential>;
 }
 
 /**
@@ -295,6 +315,10 @@ export interface VirtualMachineArgs {
      */
     sqlLicenseType?: pulumi.Input<string>;
     /**
+     * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     */
+    sqlVirtualMachineGroupId?: pulumi.Input<string>;
+    /**
      * An `storageConfiguration` block as defined below.
      */
     storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
@@ -306,4 +330,8 @@ export interface VirtualMachineArgs {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
     virtualMachineId: pulumi.Input<string>;
+    /**
+     * A `wsfcDomainCredential` block as defined below
+     */
+    wsfcDomainCredential?: pulumi.Input<inputs.mssql.VirtualMachineWsfcDomainCredential>;
 }

@@ -64,6 +64,7 @@ import javax.annotation.Nullable;
  *         var exampleLocalRulestackRule = new LocalRulestackRule(&#34;exampleLocalRulestackRule&#34;, LocalRulestackRuleArgs.builder()        
  *             .rulestackId(exampleLocalRulestack.id())
  *             .priority(1000)
+ *             .action(&#34;Allow&#34;)
  *             .applications(&#34;any&#34;)
  *             .source(LocalRulestackRuleSourceArgs.builder()
  *                 .cidrs(&#34;10.0.0.0/8&#34;)
@@ -89,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:paloalto/localRulestackRule:LocalRulestackRule")
 public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
     /**
-     * The action to take on the rule being triggered. Defaults to `Allow`.
+     * The action to take on the rule being triggered.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return The action to take on the rule being triggered. Defaults to `Allow`.
+     * @return The action to take on the rule being triggered.
      * 
      */
     public Output<String> action() {

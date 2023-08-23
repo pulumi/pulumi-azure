@@ -34,7 +34,7 @@ export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulu
  */
 export interface GetDiskEncryptionSetArgs {
     /**
-     * The name of the Disk Encryption Set exists.
+     * The name of the existing Disk Encryption Set.
      */
     name: string;
     /**
@@ -55,6 +55,10 @@ export interface GetDiskEncryptionSetResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     */
+    readonly keyVaultKeyUrl: string;
     /**
      * The location where the Disk Encryption Set exists.
      */
@@ -91,7 +95,7 @@ export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs,
  */
 export interface GetDiskEncryptionSetOutputArgs {
     /**
-     * The name of the Disk Encryption Set exists.
+     * The name of the existing Disk Encryption Set.
      */
     name: pulumi.Input<string>;
     /**

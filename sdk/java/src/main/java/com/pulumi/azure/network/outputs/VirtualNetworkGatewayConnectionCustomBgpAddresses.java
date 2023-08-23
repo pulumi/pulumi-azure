@@ -6,6 +6,8 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
@@ -18,7 +20,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
      * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
      * 
      */
-    private String secondary;
+    private @Nullable String secondary;
 
     private VirtualNetworkGatewayConnectionCustomBgpAddresses() {}
     /**
@@ -32,8 +34,8 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
      * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
      * 
      */
-    public String secondary() {
-        return this.secondary;
+    public Optional<String> secondary() {
+        return Optional.ofNullable(this.secondary);
     }
 
     public static Builder builder() {
@@ -46,7 +48,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
     @CustomType.Builder
     public static final class Builder {
         private String primary;
-        private String secondary;
+        private @Nullable String secondary;
         public Builder() {}
         public Builder(VirtualNetworkGatewayConnectionCustomBgpAddresses defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,8 +62,8 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
             return this;
         }
         @CustomType.Setter
-        public Builder secondary(String secondary) {
-            this.secondary = Objects.requireNonNull(secondary);
+        public Builder secondary(@Nullable String secondary) {
+            this.secondary = secondary;
             return this;
         }
         public VirtualNetworkGatewayConnectionCustomBgpAddresses build() {

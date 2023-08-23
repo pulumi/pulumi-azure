@@ -246,7 +246,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of tags assigned to the resource.
         """
@@ -293,6 +293,7 @@ class AwaitableGetServiceResult(GetServiceResult):
 
 def get_service(name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing API Management Service.
@@ -311,10 +312,12 @@ def get_service(name: Optional[str] = None,
 
     :param str name: The name of the API Management service.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
@@ -346,6 +349,7 @@ def get_service(name: Optional[str] = None,
 @_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Use this data source to access information about an existing API Management Service.
@@ -364,5 +368,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the API Management service.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     ...

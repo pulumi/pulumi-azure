@@ -37,6 +37,7 @@ namespace Pulumi.Azure.PaloAlto
     ///     {
     ///         RulestackId = exampleLocalRulestack.Id,
     ///         Priority = 1000,
+    ///         Action = "Allow",
     ///         Applications = new[]
     ///         {
     ///             "any",
@@ -72,7 +73,7 @@ namespace Pulumi.Azure.PaloAlto
     public partial class LocalRulestackRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action to take on the rule being triggered. Defaults to `Allow`.
+        /// The action to take on the rule being triggered.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -234,7 +235,7 @@ namespace Pulumi.Azure.PaloAlto
     public sealed class LocalRulestackRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on the rule being triggered. Defaults to `Allow`.
+        /// The action to take on the rule being triggered.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -376,7 +377,7 @@ namespace Pulumi.Azure.PaloAlto
     public sealed class LocalRulestackRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on the rule being triggered. Defaults to `Allow`.
+        /// The action to take on the rule being triggered.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

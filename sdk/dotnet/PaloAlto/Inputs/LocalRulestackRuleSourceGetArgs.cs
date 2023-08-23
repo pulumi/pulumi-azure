@@ -50,6 +50,12 @@ namespace Pulumi.Azure.PaloAlto.Inputs
 
         [Input("localRulestackPrefixListIds")]
         private InputList<string>? _localRulestackPrefixListIds;
+
+        /// <summary>
+        /// Specifies a list of Prefix Lists.
+        /// 
+        /// &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+        /// </summary>
         public InputList<string> LocalRulestackPrefixListIds
         {
             get => _localRulestackPrefixListIds ?? (_localRulestackPrefixListIds = new InputList<string>());

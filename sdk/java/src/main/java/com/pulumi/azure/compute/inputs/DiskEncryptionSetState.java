@@ -18,17 +18,9 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
 
     public static final DiskEncryptionSetState Empty = new DiskEncryptionSetState();
 
-    /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-     * 
-     */
     @Import(name="autoKeyRotationEnabled")
     private @Nullable Output<Boolean> autoKeyRotationEnabled;
 
-    /**
-     * @return Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-     * 
-     */
     public Optional<Output<Boolean>> autoKeyRotationEnabled() {
         return Optional.ofNullable(this.autoKeyRotationEnabled);
     }
@@ -104,6 +96,21 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     * 
+     */
+    @Import(name="keyVaultKeyUrl")
+    private @Nullable Output<String> keyVaultKeyUrl;
+
+    /**
+     * @return The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     * 
+     */
+    public Optional<Output<String>> keyVaultKeyUrl() {
+        return Optional.ofNullable(this.keyVaultKeyUrl);
+    }
+
+    /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      * 
      */
@@ -171,6 +178,7 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
         this.federatedClientId = $.federatedClientId;
         this.identity = $.identity;
         this.keyVaultKeyId = $.keyVaultKeyId;
+        this.keyVaultKeyUrl = $.keyVaultKeyUrl;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -195,23 +203,11 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
             $ = new DiskEncryptionSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoKeyRotationEnabled(@Nullable Output<Boolean> autoKeyRotationEnabled) {
             $.autoKeyRotationEnabled = autoKeyRotationEnabled;
             return this;
         }
 
-        /**
-         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoKeyRotationEnabled(Boolean autoKeyRotationEnabled) {
             return autoKeyRotationEnabled(Output.of(autoKeyRotationEnabled));
         }
@@ -308,6 +304,27 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
+        }
+
+        /**
+         * @param keyVaultKeyUrl The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultKeyUrl(@Nullable Output<String> keyVaultKeyUrl) {
+            $.keyVaultKeyUrl = keyVaultKeyUrl;
+            return this;
+        }
+
+        /**
+         * @param keyVaultKeyUrl The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultKeyUrl(String keyVaultKeyUrl) {
+            return keyVaultKeyUrl(Output.of(keyVaultKeyUrl));
         }
 
         /**

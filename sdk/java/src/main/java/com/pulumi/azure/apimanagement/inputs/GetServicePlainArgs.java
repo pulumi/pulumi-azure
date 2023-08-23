@@ -5,7 +5,10 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -42,11 +45,27 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * A mapping of tags assigned to the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return A mapping of tags assigned to the resource.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetServicePlainArgs() {}
 
     private GetServicePlainArgs(GetServicePlainArgs $) {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -86,6 +105,17 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

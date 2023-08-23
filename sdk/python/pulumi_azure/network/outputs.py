@@ -9862,13 +9862,14 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
 class VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
     def __init__(__self__, *,
                  primary: str,
-                 secondary: str):
+                 secondary: Optional[str] = None):
         """
         :param str primary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
         :param str secondary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
         """
         pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "secondary", secondary)
+        if secondary is not None:
+            pulumi.set(__self__, "secondary", secondary)
 
     @property
     @pulumi.getter
@@ -9880,7 +9881,7 @@ class VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
 
     @property
     @pulumi.getter
-    def secondary(self) -> str:
+    def secondary(self) -> Optional[str]:
         """
         single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
         """

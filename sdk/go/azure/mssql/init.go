@@ -69,6 +69,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerVulnerabilityAssessment{}
 	case "azure:mssql/virtualMachine:VirtualMachine":
 		r = &VirtualMachine{}
+	case "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener":
+		r = &VirtualMachineAvailabilityGroupListener{}
+	case "azure:mssql/virtualMachineGroup:VirtualMachineGroup":
+		r = &VirtualMachineGroup{}
 	case "azure:mssql/virtualNetworkRule:VirtualNetworkRule":
 		r = &VirtualNetworkRule{}
 	default:
@@ -202,6 +206,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/virtualMachine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/virtualMachineAvailabilityGroupListener",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/virtualMachineGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -25,7 +25,17 @@ namespace Pulumi.Azure.PaloAlto.Outputs
         /// Specifies a list of Feeds.
         /// </summary>
         public readonly ImmutableArray<string> Feeds;
+        /// <summary>
+        /// Specifies a list of FQDN lists.
+        /// 
+        /// &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+        /// </summary>
         public readonly ImmutableArray<string> LocalRulestackFqdnListIds;
+        /// <summary>
+        /// Specifies a list of Prefix Lists.
+        /// 
+        /// &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+        /// </summary>
         public readonly ImmutableArray<string> LocalRulestackPrefixListIds;
 
         [OutputConstructor]

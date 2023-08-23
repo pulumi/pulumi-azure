@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  * const exampleLocalRulestackRule = new azure.paloalto.LocalRulestackRule("exampleLocalRulestackRule", {
  *     rulestackId: exampleLocalRulestack.id,
  *     priority: 1000,
+ *     action: "Allow",
  *     applications: ["any"],
  *     source: {
  *         cidrs: ["10.0.0.0/8"],
@@ -70,7 +71,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
     }
 
     /**
-     * The action to take on the rule being triggered. Defaults to `Allow`.
+     * The action to take on the rule being triggered.
      */
     public readonly action!: pulumi.Output<string>;
     /**
@@ -230,7 +231,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
  */
 export interface LocalRulestackRuleState {
     /**
-     * The action to take on the rule being triggered. Defaults to `Allow`.
+     * The action to take on the rule being triggered.
      */
     action?: pulumi.Input<string>;
     /**
@@ -314,7 +315,7 @@ export interface LocalRulestackRuleState {
  */
 export interface LocalRulestackRuleArgs {
     /**
-     * The action to take on the rule being triggered. Defaults to `Allow`.
+     * The action to take on the rule being triggered.
      */
     action: pulumi.Input<string>;
     /**

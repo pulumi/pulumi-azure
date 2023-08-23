@@ -78,6 +78,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:stack/hciCluster:HciCluster")
 public class HciCluster extends com.pulumi.resources.CustomResource {
     /**
+     * The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     * 
+     */
+    @Export(name="automanageConfigurationId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> automanageConfigurationId;
+
+    /**
+     * @return The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     * 
+     */
+    public Output<Optional<String>> automanageConfigurationId() {
+        return Codegen.optional(this.automanageConfigurationId);
+    }
+    /**
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */

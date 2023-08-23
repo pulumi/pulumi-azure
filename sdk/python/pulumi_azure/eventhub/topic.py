@@ -36,9 +36,7 @@ class TopicArgs:
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-               the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
                
                > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
@@ -153,9 +151,7 @@ class TopicArgs:
     @pulumi.getter(name="enablePartitioning")
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-        the topic to be partitioned across multiple message brokers. Defaults to false.
-        Changing this forces a new resource to be created.
+        Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 
         > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
@@ -265,9 +261,7 @@ class _TopicState:
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-               the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
                
                > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
@@ -376,9 +370,7 @@ class _TopicState:
     @pulumi.getter(name="enablePartitioning")
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-        the topic to be partitioned across multiple message brokers. Defaults to false.
-        Changing this forces a new resource to be created.
+        Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 
         > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
@@ -557,9 +549,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-               the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
                
                > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
@@ -703,9 +693,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-               the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
                
                > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
@@ -784,9 +772,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="enablePartitioning")
     def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-        the topic to be partitioned across multiple message brokers. Defaults to false.
-        Changing this forces a new resource to be created.
+        Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 
         > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """

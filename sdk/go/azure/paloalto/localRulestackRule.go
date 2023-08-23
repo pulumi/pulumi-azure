@@ -45,6 +45,7 @@ import (
 //			_, err = paloalto.NewLocalRulestackRule(ctx, "exampleLocalRulestackRule", &paloalto.LocalRulestackRuleArgs{
 //				RulestackId: exampleLocalRulestack.ID(),
 //				Priority:    pulumi.Int(1000),
+//				Action:      pulumi.String("Allow"),
 //				Applications: pulumi.StringArray{
 //					pulumi.String("any"),
 //				},
@@ -80,7 +81,7 @@ import (
 type LocalRulestackRule struct {
 	pulumi.CustomResourceState
 
-	// The action to take on the rule being triggered. Defaults to `Allow`.
+	// The action to take on the rule being triggered.
 	Action pulumi.StringOutput `pulumi:"action"`
 	// Specifies a list of Applications.
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
@@ -170,7 +171,7 @@ func GetLocalRulestackRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalRulestackRule resources.
 type localRulestackRuleState struct {
-	// The action to take on the rule being triggered. Defaults to `Allow`.
+	// The action to take on the rule being triggered.
 	Action *string `pulumi:"action"`
 	// Specifies a list of Applications.
 	Applications []string `pulumi:"applications"`
@@ -213,7 +214,7 @@ type localRulestackRuleState struct {
 }
 
 type LocalRulestackRuleState struct {
-	// The action to take on the rule being triggered. Defaults to `Allow`.
+	// The action to take on the rule being triggered.
 	Action pulumi.StringPtrInput
 	// Specifies a list of Applications.
 	Applications pulumi.StringArrayInput
@@ -260,7 +261,7 @@ func (LocalRulestackRuleState) ElementType() reflect.Type {
 }
 
 type localRulestackRuleArgs struct {
-	// The action to take on the rule being triggered. Defaults to `Allow`.
+	// The action to take on the rule being triggered.
 	Action string `pulumi:"action"`
 	// Specifies a list of Applications.
 	Applications []string `pulumi:"applications"`
@@ -304,7 +305,7 @@ type localRulestackRuleArgs struct {
 
 // The set of arguments for constructing a LocalRulestackRule resource.
 type LocalRulestackRuleArgs struct {
-	// The action to take on the rule being triggered. Defaults to `Allow`.
+	// The action to take on the rule being triggered.
 	Action pulumi.StringInput
 	// Specifies a list of Applications.
 	Applications pulumi.StringArrayInput
@@ -433,7 +434,7 @@ func (o LocalRulestackRuleOutput) ToLocalRulestackRuleOutputWithContext(ctx cont
 	return o
 }
 
-// The action to take on the rule being triggered. Defaults to `Allow`.
+// The action to take on the rule being triggered.
 func (o LocalRulestackRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }

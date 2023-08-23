@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,15 +34,15 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
      * single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
      * 
      */
-    @Import(name="secondary", required=true)
-    private Output<String> secondary;
+    @Import(name="secondary")
+    private @Nullable Output<String> secondary;
 
     /**
      * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
      * 
      */
-    public Output<String> secondary() {
-        return this.secondary;
+    public Optional<Output<String>> secondary() {
+        return Optional.ofNullable(this.secondary);
     }
 
     private VirtualNetworkGatewayConnectionCustomBgpAddressesArgs() {}
@@ -95,7 +97,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
          * @return builder
          * 
          */
-        public Builder secondary(Output<String> secondary) {
+        public Builder secondary(@Nullable Output<String> secondary) {
             $.secondary = secondary;
             return this;
         }
@@ -112,7 +114,6 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
 
         public VirtualNetworkGatewayConnectionCustomBgpAddressesArgs build() {
             $.primary = Objects.requireNonNull($.primary, "expected parameter 'primary' to be non-null");
-            $.secondary = Objects.requireNonNull($.secondary, "expected parameter 'secondary' to be non-null");
             return $;
         }
     }

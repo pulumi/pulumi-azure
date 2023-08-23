@@ -5886,6 +5886,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mssql/virtualMachineAvailabilityGroupListener",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener": "VirtualMachineAvailabilityGroupListener"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/virtualMachineGroup",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/virtualMachineGroup:VirtualMachineGroup": "VirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mssql/virtualNetworkRule",
   "fqn": "pulumi_azure.mssql",
   "classes": {

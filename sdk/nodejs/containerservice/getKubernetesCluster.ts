@@ -69,6 +69,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly azurePolicyEnabled: boolean;
     /**
+     * Contains the current version of Kubernetes running on the Cluster.
+     */
+    readonly currentKubernetesVersion: string;
+    /**
      * A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
      */
     readonly customCaTrustCertificatesBase64s: string[];

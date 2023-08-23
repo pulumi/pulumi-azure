@@ -175,8 +175,14 @@ type LocalRulestackRuleDestination struct {
 	// Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
 	Countries []string `pulumi:"countries"`
 	// Specifies a list of Feeds.
-	Feeds                       []string `pulumi:"feeds"`
-	LocalRulestackFqdnListIds   []string `pulumi:"localRulestackFqdnListIds"`
+	Feeds []string `pulumi:"feeds"`
+	// Specifies a list of FQDN lists.
+	//
+	// > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+	LocalRulestackFqdnListIds []string `pulumi:"localRulestackFqdnListIds"`
+	// Specifies a list of Prefix Lists.
+	//
+	// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 	LocalRulestackPrefixListIds []string `pulumi:"localRulestackPrefixListIds"`
 }
 
@@ -197,8 +203,14 @@ type LocalRulestackRuleDestinationArgs struct {
 	// Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
 	Countries pulumi.StringArrayInput `pulumi:"countries"`
 	// Specifies a list of Feeds.
-	Feeds                       pulumi.StringArrayInput `pulumi:"feeds"`
-	LocalRulestackFqdnListIds   pulumi.StringArrayInput `pulumi:"localRulestackFqdnListIds"`
+	Feeds pulumi.StringArrayInput `pulumi:"feeds"`
+	// Specifies a list of FQDN lists.
+	//
+	// > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+	LocalRulestackFqdnListIds pulumi.StringArrayInput `pulumi:"localRulestackFqdnListIds"`
+	// Specifies a list of Prefix Lists.
+	//
+	// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 	LocalRulestackPrefixListIds pulumi.StringArrayInput `pulumi:"localRulestackPrefixListIds"`
 }
 
@@ -294,10 +306,16 @@ func (o LocalRulestackRuleDestinationOutput) Feeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocalRulestackRuleDestination) []string { return v.Feeds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of FQDN lists.
+//
+// > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
 func (o LocalRulestackRuleDestinationOutput) LocalRulestackFqdnListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocalRulestackRuleDestination) []string { return v.LocalRulestackFqdnListIds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of Prefix Lists.
+//
+// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 func (o LocalRulestackRuleDestinationOutput) LocalRulestackPrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocalRulestackRuleDestination) []string { return v.LocalRulestackPrefixListIds }).(pulumi.StringArrayOutput)
 }
@@ -356,6 +374,9 @@ func (o LocalRulestackRuleDestinationPtrOutput) Feeds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of FQDN lists.
+//
+// > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
 func (o LocalRulestackRuleDestinationPtrOutput) LocalRulestackFqdnListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalRulestackRuleDestination) []string {
 		if v == nil {
@@ -365,6 +386,9 @@ func (o LocalRulestackRuleDestinationPtrOutput) LocalRulestackFqdnListIds() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of Prefix Lists.
+//
+// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 func (o LocalRulestackRuleDestinationPtrOutput) LocalRulestackPrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalRulestackRuleDestination) []string {
 		if v == nil {
@@ -380,7 +404,10 @@ type LocalRulestackRuleSource struct {
 	// Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
 	Countries []string `pulumi:"countries"`
 	// Specifies a list of Feeds.
-	Feeds                       []string `pulumi:"feeds"`
+	Feeds []string `pulumi:"feeds"`
+	// Specifies a list of Prefix Lists.
+	//
+	// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 	LocalRulestackPrefixListIds []string `pulumi:"localRulestackPrefixListIds"`
 }
 
@@ -401,7 +428,10 @@ type LocalRulestackRuleSourceArgs struct {
 	// Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
 	Countries pulumi.StringArrayInput `pulumi:"countries"`
 	// Specifies a list of Feeds.
-	Feeds                       pulumi.StringArrayInput `pulumi:"feeds"`
+	Feeds pulumi.StringArrayInput `pulumi:"feeds"`
+	// Specifies a list of Prefix Lists.
+	//
+	// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 	LocalRulestackPrefixListIds pulumi.StringArrayInput `pulumi:"localRulestackPrefixListIds"`
 }
 
@@ -497,6 +527,9 @@ func (o LocalRulestackRuleSourceOutput) Feeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocalRulestackRuleSource) []string { return v.Feeds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of Prefix Lists.
+//
+// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 func (o LocalRulestackRuleSourceOutput) LocalRulestackPrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocalRulestackRuleSource) []string { return v.LocalRulestackPrefixListIds }).(pulumi.StringArrayOutput)
 }
@@ -555,6 +588,9 @@ func (o LocalRulestackRuleSourcePtrOutput) Feeds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of Prefix Lists.
+//
+// > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
 func (o LocalRulestackRuleSourcePtrOutput) LocalRulestackPrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalRulestackRuleSource) []string {
 		if v == nil {

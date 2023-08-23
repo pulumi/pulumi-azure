@@ -95,12 +95,16 @@ type VirtualMachine struct {
 	SqlInstance VirtualMachineSqlInstancePtrOutput `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringPtrOutput `pulumi:"sqlLicenseType"`
+	// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+	SqlVirtualMachineGroupId pulumi.StringPtrOutput `pulumi:"sqlVirtualMachineGroupId"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
+	// A `wsfcDomainCredential` block as defined below
+	WsfcDomainCredential VirtualMachineWsfcDomainCredentialPtrOutput `pulumi:"wsfcDomainCredential"`
 }
 
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -169,12 +173,16 @@ type virtualMachineState struct {
 	SqlInstance *VirtualMachineSqlInstance `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType *string `pulumi:"sqlLicenseType"`
+	// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+	SqlVirtualMachineGroupId *string `pulumi:"sqlVirtualMachineGroupId"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// A `wsfcDomainCredential` block as defined below
+	WsfcDomainCredential *VirtualMachineWsfcDomainCredential `pulumi:"wsfcDomainCredential"`
 }
 
 type VirtualMachineState struct {
@@ -200,12 +208,16 @@ type VirtualMachineState struct {
 	SqlInstance VirtualMachineSqlInstancePtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringPtrInput
+	// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+	SqlVirtualMachineGroupId pulumi.StringPtrInput
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringPtrInput
+	// A `wsfcDomainCredential` block as defined below
+	WsfcDomainCredential VirtualMachineWsfcDomainCredentialPtrInput
 }
 
 func (VirtualMachineState) ElementType() reflect.Type {
@@ -235,12 +247,16 @@ type virtualMachineArgs struct {
 	SqlInstance *VirtualMachineSqlInstance `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType *string `pulumi:"sqlLicenseType"`
+	// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+	SqlVirtualMachineGroupId *string `pulumi:"sqlVirtualMachineGroupId"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
+	// A `wsfcDomainCredential` block as defined below
+	WsfcDomainCredential *VirtualMachineWsfcDomainCredential `pulumi:"wsfcDomainCredential"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
@@ -267,12 +283,16 @@ type VirtualMachineArgs struct {
 	SqlInstance VirtualMachineSqlInstancePtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringPtrInput
+	// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+	SqlVirtualMachineGroupId pulumi.StringPtrInput
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringInput
+	// A `wsfcDomainCredential` block as defined below
+	WsfcDomainCredential VirtualMachineWsfcDomainCredentialPtrInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {
@@ -417,6 +437,11 @@ func (o VirtualMachineOutput) SqlLicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.SqlLicenseType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+func (o VirtualMachineOutput) SqlVirtualMachineGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.SqlVirtualMachineGroupId }).(pulumi.StringPtrOutput)
+}
+
 // An `storageConfiguration` block as defined below.
 func (o VirtualMachineOutput) StorageConfiguration() VirtualMachineStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineStorageConfigurationPtrOutput { return v.StorageConfiguration }).(VirtualMachineStorageConfigurationPtrOutput)
@@ -430,6 +455,11 @@ func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
 // The ID of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachineOutput) VirtualMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.VirtualMachineId }).(pulumi.StringOutput)
+}
+
+// A `wsfcDomainCredential` block as defined below
+func (o VirtualMachineOutput) WsfcDomainCredential() VirtualMachineWsfcDomainCredentialPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineWsfcDomainCredentialPtrOutput { return v.WsfcDomainCredential }).(VirtualMachineWsfcDomainCredentialPtrOutput)
 }
 
 type VirtualMachineArrayOutput struct{ *pulumi.OutputState }

@@ -69,6 +69,8 @@ type LookupKubernetesClusterResult struct {
 	AzureActiveDirectoryRoleBasedAccessControls []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControls"`
 	// Is Azure Policy enabled on this managed Kubernetes Cluster?
 	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
+	// Contains the current version of Kubernetes running on the Cluster.
+	CurrentKubernetesVersion string `pulumi:"currentKubernetesVersion"`
 	// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
@@ -212,6 +214,11 @@ func (o LookupKubernetesClusterResultOutput) AzureActiveDirectoryRoleBasedAccess
 // Is Azure Policy enabled on this managed Kubernetes Cluster?
 func (o LookupKubernetesClusterResultOutput) AzurePolicyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.AzurePolicyEnabled }).(pulumi.BoolOutput)
+}
+
+// Contains the current version of Kubernetes running on the Cluster.
+func (o LookupKubernetesClusterResultOutput) CurrentKubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
 // A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.

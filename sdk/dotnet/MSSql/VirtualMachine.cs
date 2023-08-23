@@ -128,6 +128,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> SqlLicenseType { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+        /// </summary>
+        [Output("sqlVirtualMachineGroupId")]
+        public Output<string?> SqlVirtualMachineGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// An `storage_configuration` block as defined below.
         /// </summary>
         [Output("storageConfiguration")]
@@ -144,6 +150,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("virtualMachineId")]
         public Output<string> VirtualMachineId { get; private set; } = null!;
+
+        /// <summary>
+        /// A `wsfc_domain_credential` block as defined below
+        /// </summary>
+        [Output("wsfcDomainCredential")]
+        public Output<Outputs.VirtualMachineWsfcDomainCredential?> WsfcDomainCredential { get; private set; } = null!;
 
 
         /// <summary>
@@ -283,6 +295,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SqlLicenseType { get; set; }
 
         /// <summary>
+        /// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+        /// </summary>
+        [Input("sqlVirtualMachineGroupId")]
+        public Input<string>? SqlVirtualMachineGroupId { get; set; }
+
+        /// <summary>
         /// An `storage_configuration` block as defined below.
         /// </summary>
         [Input("storageConfiguration")]
@@ -305,6 +323,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("virtualMachineId", required: true)]
         public Input<string> VirtualMachineId { get; set; } = null!;
+
+        /// <summary>
+        /// A `wsfc_domain_credential` block as defined below
+        /// </summary>
+        [Input("wsfcDomainCredential")]
+        public Input<Inputs.VirtualMachineWsfcDomainCredentialArgs>? WsfcDomainCredential { get; set; }
 
         public VirtualMachineArgs()
         {
@@ -401,6 +425,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SqlLicenseType { get; set; }
 
         /// <summary>
+        /// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+        /// </summary>
+        [Input("sqlVirtualMachineGroupId")]
+        public Input<string>? SqlVirtualMachineGroupId { get; set; }
+
+        /// <summary>
         /// An `storage_configuration` block as defined below.
         /// </summary>
         [Input("storageConfiguration")]
@@ -423,6 +453,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }
+
+        /// <summary>
+        /// A `wsfc_domain_credential` block as defined below
+        /// </summary>
+        [Input("wsfcDomainCredential")]
+        public Input<Inputs.VirtualMachineWsfcDomainCredentialGetArgs>? WsfcDomainCredential { get; set; }
 
         public VirtualMachineState()
         {

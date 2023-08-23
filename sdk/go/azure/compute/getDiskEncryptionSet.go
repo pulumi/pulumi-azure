@@ -52,7 +52,7 @@ func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetA
 
 // A collection of arguments for invoking getDiskEncryptionSet.
 type LookupDiskEncryptionSetArgs struct {
-	// The name of the Disk Encryption Set exists.
+	// The name of the existing Disk Encryption Set.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Disk Encryption Set exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -64,6 +64,8 @@ type LookupDiskEncryptionSetResult struct {
 	AutoKeyRotationEnabled bool `pulumi:"autoKeyRotationEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+	KeyVaultKeyUrl string `pulumi:"keyVaultKeyUrl"`
 	// The location where the Disk Encryption Set exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
@@ -87,7 +89,7 @@ func LookupDiskEncryptionSetOutput(ctx *pulumi.Context, args LookupDiskEncryptio
 
 // A collection of arguments for invoking getDiskEncryptionSet.
 type LookupDiskEncryptionSetOutputArgs struct {
-	// The name of the Disk Encryption Set exists.
+	// The name of the existing Disk Encryption Set.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Disk Encryption Set exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -120,6 +122,11 @@ func (o LookupDiskEncryptionSetResultOutput) AutoKeyRotationEnabled() pulumi.Boo
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDiskEncryptionSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskEncryptionSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+func (o LookupDiskEncryptionSetResultOutput) KeyVaultKeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskEncryptionSetResult) string { return v.KeyVaultKeyUrl }).(pulumi.StringOutput)
 }
 
 // The location where the Disk Encryption Set exists.

@@ -20,13 +20,13 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
         /// </summary>
-        public readonly string Secondary;
+        public readonly string? Secondary;
 
         [OutputConstructor]
         private VirtualNetworkGatewayConnectionCustomBgpAddresses(
             string primary,
 
-            string secondary)
+            string? secondary)
         {
             Primary = primary;
             Secondary = secondary;

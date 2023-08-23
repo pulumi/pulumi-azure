@@ -26,7 +26,19 @@ public final class LocalRulestackRuleDestination {
      * 
      */
     private @Nullable List<String> feeds;
+    /**
+     * @return Specifies a list of FQDN lists.
+     * 
+     * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     private @Nullable List<String> localRulestackFqdnListIds;
+    /**
+     * @return Specifies a list of Prefix Lists.
+     * 
+     * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     private @Nullable List<String> localRulestackPrefixListIds;
 
     private LocalRulestackRuleDestination() {}
@@ -51,9 +63,21 @@ public final class LocalRulestackRuleDestination {
     public List<String> feeds() {
         return this.feeds == null ? List.of() : this.feeds;
     }
+    /**
+     * @return Specifies a list of FQDN lists.
+     * 
+     * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     public List<String> localRulestackFqdnListIds() {
         return this.localRulestackFqdnListIds == null ? List.of() : this.localRulestackFqdnListIds;
     }
+    /**
+     * @return Specifies a list of Prefix Lists.
+     * 
+     * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     public List<String> localRulestackPrefixListIds() {
         return this.localRulestackPrefixListIds == null ? List.of() : this.localRulestackPrefixListIds;
     }

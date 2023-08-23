@@ -33,6 +33,8 @@ from .server_security_alert_policy import *
 from .server_transparent_data_encryption import *
 from .server_vulnerability_assessment import *
 from .virtual_machine import *
+from .virtual_machine_availability_group_listener import *
+from .virtual_machine_group import *
 from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs

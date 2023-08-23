@@ -18324,7 +18324,7 @@ export namespace cognitive {
 
     export interface DeploymentScale {
         /**
-         * Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
+         * Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
          */
         capacity?: pulumi.Input<number>;
         /**
@@ -34205,7 +34205,7 @@ export namespace iot {
          */
         name: pulumi.Input<string>;
         /**
-         * Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+         * Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
          */
         target?: pulumi.Input<string>;
     }
@@ -41573,6 +41573,106 @@ export namespace mssql {
         maintenanceWindowStartingHour: pulumi.Input<number>;
     }
 
+    export interface VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration {
+        /**
+         * The ID of the Load Balancer. Changing this forces a new resource to be created.
+         */
+        loadBalancerId: pulumi.Input<string>;
+        /**
+         * The private IP Address of the listener. Changing this forces a new resource to be created.
+         */
+        privateIpAddress: pulumi.Input<string>;
+        /**
+         * The probe port of the listener. Changing this forces a new resource to be created.
+         */
+        probePort: pulumi.Input<number>;
+        /**
+         * Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+         */
+        sqlVirtualMachineIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration {
+        /**
+         * The private IP Address of the listener. Changing this forces a new resource to be created.
+         */
+        privateIpAddress: pulumi.Input<string>;
+        /**
+         * The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sqlVirtualMachineId: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineAvailabilityGroupListenerReplica {
+        /**
+         * The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+         */
+        commit: pulumi.Input<string>;
+        /**
+         * The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+         */
+        failoverMode: pulumi.Input<string>;
+        /**
+         * The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+         */
+        readableSecondary: pulumi.Input<string>;
+        /**
+         * The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+         */
+        role: pulumi.Input<string>;
+        /**
+         * The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sqlVirtualMachineId: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineGroupWsfcDomainProfile {
+        /**
+         * The account name used for creating cluster. Changing this forces a new resource to be created.
+         */
+        clusterBootstrapAccountName?: pulumi.Input<string>;
+        /**
+         * The account name used for operating cluster. Changing this forces a new resource to be created.
+         */
+        clusterOperatorAccountName?: pulumi.Input<string>;
+        /**
+         * The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+         */
+        clusterSubnetType: pulumi.Input<string>;
+        /**
+         * The fully qualified name of the domain. Changing this forces a new resource to be created.
+         */
+        fqdn: pulumi.Input<string>;
+        /**
+         * The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+         */
+        organizationalUnitPath?: pulumi.Input<string>;
+        /**
+         * The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+         */
+        sqlServiceAccountName?: pulumi.Input<string>;
+        /**
+         * The primary key of the Storage Account.
+         */
+        storageAccountPrimaryKey?: pulumi.Input<string>;
+        /**
+         * The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+         */
+        storageAccountUrl?: pulumi.Input<string>;
+    }
+
     export interface VirtualMachineKeyVaultCredential {
         /**
          * The Azure Key Vault url. Changing this forces a new resource to be created.
@@ -41703,6 +41803,21 @@ export namespace mssql {
          * A list of Logical Unit Numbers for the disks.
          */
         luns: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface VirtualMachineWsfcDomainCredential {
+        /**
+         * The account password used for creating cluster.
+         */
+        clusterBootstrapAccountPassword: pulumi.Input<string>;
+        /**
+         * The account password used for operating cluster.
+         */
+        clusterOperatorAccountPassword: pulumi.Input<string>;
+        /**
+         * The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+         */
+        sqlServiceAccountPassword: pulumi.Input<string>;
     }
 }
 
@@ -44777,7 +44892,7 @@ export namespace network {
         /**
          * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
          */
-        secondary: pulumi.Input<string>;
+        secondary?: pulumi.Input<string>;
     }
 
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
@@ -45690,7 +45805,17 @@ export namespace paloalto {
          * Specifies a list of Feeds.
          */
         feeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of FQDN lists.
+         *
+         * > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+         */
         localRulestackFqdnListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Prefix Lists.
+         *
+         * > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+         */
         localRulestackPrefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -45707,6 +45832,11 @@ export namespace paloalto {
          * Specifies a list of Feeds.
          */
         feeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Prefix Lists.
+         *
+         * > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+         */
         localRulestackPrefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
