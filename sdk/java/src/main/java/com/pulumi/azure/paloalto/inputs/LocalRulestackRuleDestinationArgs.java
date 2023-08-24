@@ -61,16 +61,40 @@ public final class LocalRulestackRuleDestinationArgs extends com.pulumi.resource
         return Optional.ofNullable(this.feeds);
     }
 
+    /**
+     * Specifies a list of FQDN lists.
+     * 
+     * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     @Import(name="localRulestackFqdnListIds")
     private @Nullable Output<List<String>> localRulestackFqdnListIds;
 
+    /**
+     * @return Specifies a list of FQDN lists.
+     * 
+     * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     public Optional<Output<List<String>>> localRulestackFqdnListIds() {
         return Optional.ofNullable(this.localRulestackFqdnListIds);
     }
 
+    /**
+     * Specifies a list of Prefix Lists.
+     * 
+     * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     @Import(name="localRulestackPrefixListIds")
     private @Nullable Output<List<String>> localRulestackPrefixListIds;
 
+    /**
+     * @return Specifies a list of Prefix Lists.
+     * 
+     * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     public Optional<Output<List<String>>> localRulestackPrefixListIds() {
         return Optional.ofNullable(this.localRulestackPrefixListIds);
     }
@@ -196,28 +220,76 @@ public final class LocalRulestackRuleDestinationArgs extends com.pulumi.resource
             return feeds(List.of(feeds));
         }
 
+        /**
+         * @param localRulestackFqdnListIds Specifies a list of FQDN lists.
+         * 
+         * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localRulestackFqdnListIds(@Nullable Output<List<String>> localRulestackFqdnListIds) {
             $.localRulestackFqdnListIds = localRulestackFqdnListIds;
             return this;
         }
 
+        /**
+         * @param localRulestackFqdnListIds Specifies a list of FQDN lists.
+         * 
+         * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localRulestackFqdnListIds(List<String> localRulestackFqdnListIds) {
             return localRulestackFqdnListIds(Output.of(localRulestackFqdnListIds));
         }
 
+        /**
+         * @param localRulestackFqdnListIds Specifies a list of FQDN lists.
+         * 
+         * &gt; **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localRulestackFqdnListIds(String... localRulestackFqdnListIds) {
             return localRulestackFqdnListIds(List.of(localRulestackFqdnListIds));
         }
 
+        /**
+         * @param localRulestackPrefixListIds Specifies a list of Prefix Lists.
+         * 
+         * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localRulestackPrefixListIds(@Nullable Output<List<String>> localRulestackPrefixListIds) {
             $.localRulestackPrefixListIds = localRulestackPrefixListIds;
             return this;
         }
 
+        /**
+         * @param localRulestackPrefixListIds Specifies a list of Prefix Lists.
+         * 
+         * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localRulestackPrefixListIds(List<String> localRulestackPrefixListIds) {
             return localRulestackPrefixListIds(Output.of(localRulestackPrefixListIds));
         }
 
+        /**
+         * @param localRulestackPrefixListIds Specifies a list of Prefix Lists.
+         * 
+         * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localRulestackPrefixListIds(String... localRulestackPrefixListIds) {
             return localRulestackPrefixListIds(List.of(localRulestackPrefixListIds));
         }

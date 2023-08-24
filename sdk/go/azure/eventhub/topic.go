@@ -85,9 +85,7 @@ type Topic struct {
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-	// the topic to be partitioned across multiple message brokers. Defaults to false.
-	// Changing this forces a new resource to be created.
+	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
@@ -155,9 +153,7 @@ type topicState struct {
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-	// the topic to be partitioned across multiple message brokers. Defaults to false.
-	// Changing this forces a new resource to be created.
+	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
@@ -193,9 +189,7 @@ type TopicState struct {
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress pulumi.BoolPtrInput
-	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-	// the topic to be partitioned across multiple message brokers. Defaults to false.
-	// Changing this forces a new resource to be created.
+	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrInput
@@ -235,9 +229,7 @@ type topicArgs struct {
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-	// the topic to be partitioned across multiple message brokers. Defaults to false.
-	// Changing this forces a new resource to be created.
+	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
@@ -272,9 +264,7 @@ type TopicArgs struct {
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress pulumi.BoolPtrInput
-	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-	// the topic to be partitioned across multiple message brokers. Defaults to false.
-	// Changing this forces a new resource to be created.
+	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrInput
@@ -409,9 +399,7 @@ func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-// the topic to be partitioned across multiple message brokers. Defaults to false.
-// Changing this forces a new resource to be created.
+// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
 //
 // > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {

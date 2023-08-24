@@ -1020,6 +1020,8 @@
         "mssql/serverTransparentDataEncryption.ts",
         "mssql/serverVulnerabilityAssessment.ts",
         "mssql/virtualMachine.ts",
+        "mssql/virtualMachineAvailabilityGroupListener.ts",
+        "mssql/virtualMachineGroup.ts",
         "mssql/virtualNetworkRule.ts",
         "mysql/activeDirectoryAdministrator.ts",
         "mysql/configuration.ts",

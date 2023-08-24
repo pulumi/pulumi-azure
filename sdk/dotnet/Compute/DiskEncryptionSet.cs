@@ -122,6 +122,115 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
+    /// ### With Automatic Key Rotation Enabled
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         EnabledForDiskEncryption = true,
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var example_user = new Azure.KeyVault.AccessPolicy("example-user", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "GetRotationPolicy",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example_user,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDiskEncryptionSet = new Azure.Compute.DiskEncryptionSet("exampleDiskEncryptionSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         KeyVaultKeyId = exampleKey.VersionlessId,
+    ///         AutoKeyRotationEnabled = true,
+    ///         Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_diskAccessPolicy = new Azure.KeyVault.AccessPolicy("example-diskAccessPolicy", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.TenantId),
+    ///         ObjectId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_diskAssignment = new Azure.Authorization.Assignment("example-diskAssignment", new()
+    ///     {
+    ///         Scope = exampleKeyVault.Id,
+    ///         RoleDefinitionName = "Key Vault Crypto Service Encryption User",
+    ///         PrincipalId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -134,9 +243,6 @@ namespace Pulumi.Azure.Compute
     [AzureResourceType("azure:compute/diskEncryptionSet:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-        /// </summary>
         [Output("autoKeyRotationEnabled")]
         public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
 
@@ -168,6 +274,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string> KeyVaultKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+        /// </summary>
+        [Output("keyVaultKeyUrl")]
+        public Output<string> KeyVaultKeyUrl { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -239,9 +351,6 @@ namespace Pulumi.Azure.Compute
 
     public sealed class DiskEncryptionSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-        /// </summary>
         [Input("autoKeyRotationEnabled")]
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
@@ -312,9 +421,6 @@ namespace Pulumi.Azure.Compute
 
     public sealed class DiskEncryptionSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-        /// </summary>
         [Input("autoKeyRotationEnabled")]
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
@@ -346,6 +452,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
+
+        /// <summary>
+        /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+        /// </summary>
+        [Input("keyVaultKeyUrl")]
+        public Input<string>? KeyVaultKeyUrl { get; set; }
 
         /// <summary>
         /// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.

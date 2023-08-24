@@ -26,6 +26,12 @@ public final class LocalRulestackRuleSource {
      * 
      */
     private @Nullable List<String> feeds;
+    /**
+     * @return Specifies a list of Prefix Lists.
+     * 
+     * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     private @Nullable List<String> localRulestackPrefixListIds;
 
     private LocalRulestackRuleSource() {}
@@ -50,6 +56,12 @@ public final class LocalRulestackRuleSource {
     public List<String> feeds() {
         return this.feeds == null ? List.of() : this.feeds;
     }
+    /**
+     * @return Specifies a list of Prefix Lists.
+     * 
+     * &gt; **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+     * 
+     */
     public List<String> localRulestackPrefixListIds() {
         return this.localRulestackPrefixListIds == null ? List.of() : this.localRulestackPrefixListIds;
     }

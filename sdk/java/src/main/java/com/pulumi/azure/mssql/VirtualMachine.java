@@ -12,6 +12,7 @@ import com.pulumi.azure.mssql.outputs.VirtualMachineAutoPatching;
 import com.pulumi.azure.mssql.outputs.VirtualMachineKeyVaultCredential;
 import com.pulumi.azure.mssql.outputs.VirtualMachineSqlInstance;
 import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfiguration;
+import com.pulumi.azure.mssql.outputs.VirtualMachineWsfcDomainCredential;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -244,6 +245,20 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqlLicenseType);
     }
     /**
+     * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     * 
+     */
+    @Export(name="sqlVirtualMachineGroupId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sqlVirtualMachineGroupId;
+
+    /**
+     * @return The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+     * 
+     */
+    public Output<Optional<String>> sqlVirtualMachineGroupId() {
+        return Codegen.optional(this.sqlVirtualMachineGroupId);
+    }
+    /**
      * An `storage_configuration` block as defined below.
      * 
      */
@@ -284,6 +299,20 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<String> virtualMachineId() {
         return this.virtualMachineId;
+    }
+    /**
+     * A `wsfc_domain_credential` block as defined below
+     * 
+     */
+    @Export(name="wsfcDomainCredential", refs={VirtualMachineWsfcDomainCredential.class}, tree="[0]")
+    private Output</* @Nullable */ VirtualMachineWsfcDomainCredential> wsfcDomainCredential;
+
+    /**
+     * @return A `wsfc_domain_credential` block as defined below
+     * 
+     */
+    public Output<Optional<VirtualMachineWsfcDomainCredential>> wsfcDomainCredential() {
+        return Codegen.optional(this.wsfcDomainCredential);
     }
 
     /**

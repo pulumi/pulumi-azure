@@ -58,6 +58,12 @@ namespace Pulumi.Azure.Stack
     public partial class HciCluster : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+        /// </summary>
+        [Output("automanageConfigurationId")]
+        public Output<string?> AutomanageConfigurationId { get; private set; } = null!;
+
+        /// <summary>
         /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("clientId")]
@@ -142,6 +148,12 @@ namespace Pulumi.Azure.Stack
     public sealed class HciClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+        /// </summary>
+        [Input("automanageConfigurationId")]
+        public Input<string>? AutomanageConfigurationId { get; set; }
+
+        /// <summary>
         /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clientId", required: true)]
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.Stack
 
     public sealed class HciClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+        /// </summary>
+        [Input("automanageConfigurationId")]
+        public Input<string>? AutomanageConfigurationId { get; set; }
+
         /// <summary>
         /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// </summary>

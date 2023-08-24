@@ -934,7 +934,7 @@ func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type DeploymentScale struct {
-	// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
+	// Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
 	Capacity *int `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family *string `pulumi:"family"`
@@ -958,7 +958,7 @@ type DeploymentScaleInput interface {
 }
 
 type DeploymentScaleArgs struct {
-	// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
+	// Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family pulumi.StringPtrInput `pulumi:"family"`
@@ -1047,7 +1047,7 @@ func (o DeploymentScaleOutput) ToDeploymentScalePtrOutputWithContext(ctx context
 	}).(DeploymentScalePtrOutput)
 }
 
-// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
+// Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
 func (o DeploymentScaleOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentScale) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -1096,7 +1096,7 @@ func (o DeploymentScalePtrOutput) Elem() DeploymentScaleOutput {
 	}).(DeploymentScaleOutput)
 }
 
-// Tokens-per-Minute (TPM). If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. Default value is `1`. Changing this forces a new resource to be created.
+// Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
 func (o DeploymentScalePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentScale) *int {
 		if v == nil {

@@ -14794,6 +14794,40 @@
                                 }
                             }
                         }
+                    },
+                    "wsfc_domain_credential": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_mssql_virtual_machine_availability_group_listener": {
+                "current": "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener",
+                "majorVersion": 5,
+                "fields": {
+                    "load_balancer_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "sql_virtual_machine_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "multi_subnet_ip_configuration": {
+                        "maxItemsOne": false
+                    },
+                    "replica": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_mssql_virtual_machine_group": {
+                "current": "azure:mssql/virtualMachineGroup:VirtualMachineGroup",
+                "majorVersion": 5,
+                "fields": {
+                    "wsfc_domain_profile": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -29535,6 +29569,8 @@
             "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption": "azurerm_mssql_server_transparent_data_encryption",
             "azure:mssql/serverVulnerabilityAssessment:ServerVulnerabilityAssessment": "azurerm_mssql_server_vulnerability_assessment",
             "azure:mssql/virtualMachine:VirtualMachine": "azurerm_mssql_virtual_machine",
+            "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener": "azurerm_mssql_virtual_machine_availability_group_listener",
+            "azure:mssql/virtualMachineGroup:VirtualMachineGroup": "azurerm_mssql_virtual_machine_group",
             "azure:mssql/virtualNetworkRule:VirtualNetworkRule": "azurerm_mssql_virtual_network_rule",
             "azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator": "azurerm_mysql_active_directory_administrator",
             "azure:mysql/configuration:Configuration": "azurerm_mysql_configuration",
@@ -38859,6 +38895,7 @@
                 "encryptionType": "encryption_type",
                 "federatedClientId": "federated_client_id",
                 "keyVaultKeyId": "key_vault_key_id",
+                "keyVaultKeyUrl": "key_vault_key_url",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:compute/diskPool:DiskPool": {
@@ -38954,6 +38991,7 @@
             },
             "azure:compute/getDiskEncryptionSet:getDiskEncryptionSet": {
                 "autoKeyRotationEnabled": "auto_key_rotation_enabled",
+                "keyVaultKeyUrl": "key_vault_key_url",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:compute/getImage:getImage": {
@@ -40619,6 +40657,7 @@
                 "apiServerAuthorizedIpRanges": "api_server_authorized_ip_ranges",
                 "azureActiveDirectoryRoleBasedAccessControls": "azure_active_directory_role_based_access_control",
                 "azurePolicyEnabled": "azure_policy_enabled",
+                "currentKubernetesVersion": "current_kubernetes_version",
                 "customCaTrustCertificatesBase64s": "custom_ca_trust_certificates_base64",
                 "diskEncryptionSetId": "disk_encryption_set_id",
                 "dnsPrefix": "dns_prefix",
@@ -48889,6 +48928,32 @@
                 "maintenanceWindowDurationInMinutes": "maintenance_window_duration_in_minutes",
                 "maintenanceWindowStartingHour": "maintenance_window_starting_hour"
             },
+            "azure:mssql/VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration:VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration": {
+                "loadBalancerId": "load_balancer_id",
+                "privateIpAddress": "private_ip_address",
+                "probePort": "probe_port",
+                "sqlVirtualMachineIds": "sql_virtual_machine_ids",
+                "subnetId": "subnet_id"
+            },
+            "azure:mssql/VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration:VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration": {
+                "privateIpAddress": "private_ip_address",
+                "sqlVirtualMachineId": "sql_virtual_machine_id",
+                "subnetId": "subnet_id"
+            },
+            "azure:mssql/VirtualMachineAvailabilityGroupListenerReplica:VirtualMachineAvailabilityGroupListenerReplica": {
+                "failoverMode": "failover_mode",
+                "readableSecondary": "readable_secondary",
+                "sqlVirtualMachineId": "sql_virtual_machine_id"
+            },
+            "azure:mssql/VirtualMachineGroupWsfcDomainProfile:VirtualMachineGroupWsfcDomainProfile": {
+                "clusterBootstrapAccountName": "cluster_bootstrap_account_name",
+                "clusterOperatorAccountName": "cluster_operator_account_name",
+                "clusterSubnetType": "cluster_subnet_type",
+                "organizationalUnitPath": "organizational_unit_path",
+                "sqlServiceAccountName": "sql_service_account_name",
+                "storageAccountPrimaryKey": "storage_account_primary_key",
+                "storageAccountUrl": "storage_account_url"
+            },
             "azure:mssql/VirtualMachineKeyVaultCredential:VirtualMachineKeyVaultCredential": {
                 "keyVaultUrl": "key_vault_url",
                 "servicePrincipalName": "service_principal_name",
@@ -48923,6 +48988,11 @@
                 "defaultFilePath": "default_file_path",
                 "logFileGrowthMb": "log_file_growth_mb",
                 "logFileSizeMb": "log_file_size_mb"
+            },
+            "azure:mssql/VirtualMachineWsfcDomainCredential:VirtualMachineWsfcDomainCredential": {
+                "clusterBootstrapAccountPassword": "cluster_bootstrap_account_password",
+                "clusterOperatorAccountPassword": "cluster_operator_account_password",
+                "sqlServiceAccountPassword": "sql_service_account_password"
             },
             "azure:mssql/database:Database": {
                 "autoPauseDelayInMinutes": "auto_pause_delay_in_minutes",
@@ -49174,8 +49244,23 @@
                 "sqlConnectivityUpdateUsername": "sql_connectivity_update_username",
                 "sqlInstance": "sql_instance",
                 "sqlLicenseType": "sql_license_type",
+                "sqlVirtualMachineGroupId": "sql_virtual_machine_group_id",
                 "storageConfiguration": "storage_configuration",
-                "virtualMachineId": "virtual_machine_id"
+                "virtualMachineId": "virtual_machine_id",
+                "wsfcDomainCredential": "wsfc_domain_credential"
+            },
+            "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener": {
+                "availabilityGroupName": "availability_group_name",
+                "loadBalancerConfiguration": "load_balancer_configuration",
+                "multiSubnetIpConfigurations": "multi_subnet_ip_configuration",
+                "replicas": "replica",
+                "sqlVirtualMachineGroupId": "sql_virtual_machine_group_id"
+            },
+            "azure:mssql/virtualMachineGroup:VirtualMachineGroup": {
+                "resourceGroupName": "resource_group_name",
+                "sqlImageOffer": "sql_image_offer",
+                "sqlImageSku": "sql_image_sku",
+                "wsfcDomainProfile": "wsfc_domain_profile"
             },
             "azure:mssql/virtualNetworkRule:VirtualNetworkRule": {
                 "ignoreMissingVnetServiceEndpoint": "ignore_missing_vnet_service_endpoint",
@@ -53894,6 +53979,7 @@
                 "subnetId": "subnet_id"
             },
             "azure:stack/hciCluster:HciCluster": {
+                "automanageConfigurationId": "automanage_configuration_id",
                 "clientId": "client_id",
                 "resourceGroupName": "resource_group_name",
                 "tenantId": "tenant_id"

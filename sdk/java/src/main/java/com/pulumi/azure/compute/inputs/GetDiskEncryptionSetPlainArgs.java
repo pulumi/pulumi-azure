@@ -13,14 +13,14 @@ public final class GetDiskEncryptionSetPlainArgs extends com.pulumi.resources.In
     public static final GetDiskEncryptionSetPlainArgs Empty = new GetDiskEncryptionSetPlainArgs();
 
     /**
-     * The name of the Disk Encryption Set exists.
+     * The name of the existing Disk Encryption Set.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the Disk Encryption Set exists.
+     * @return The name of the existing Disk Encryption Set.
      * 
      */
     public String name() {
@@ -68,7 +68,7 @@ public final class GetDiskEncryptionSetPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name The name of the Disk Encryption Set exists.
+         * @param name The name of the existing Disk Encryption Set.
          * 
          * @return builder
          * 

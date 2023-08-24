@@ -21,13 +21,16 @@ class GetDiskEncryptionSetResult:
     """
     A collection of values returned by getDiskEncryptionSet.
     """
-    def __init__(__self__, auto_key_rotation_enabled=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, auto_key_rotation_enabled=None, id=None, key_vault_key_url=None, location=None, name=None, resource_group_name=None, tags=None):
         if auto_key_rotation_enabled and not isinstance(auto_key_rotation_enabled, bool):
             raise TypeError("Expected argument 'auto_key_rotation_enabled' to be a bool")
         pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_vault_key_url and not isinstance(key_vault_key_url, str):
+            raise TypeError("Expected argument 'key_vault_key_url' to be a str")
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetDiskEncryptionSetResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> str:
+        """
+        The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+        """
+        return pulumi.get(self, "key_vault_key_url")
 
     @property
     @pulumi.getter
@@ -92,6 +103,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
         return GetDiskEncryptionSetResult(
             auto_key_rotation_enabled=self.auto_key_rotation_enabled,
             id=self.id,
+            key_vault_key_url=self.key_vault_key_url,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -116,7 +128,7 @@ def get_disk_encryption_set(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the Disk Encryption Set exists.
+    :param str name: The name of the existing Disk Encryption Set.
     :param str resource_group_name: The name of the Resource Group where the Disk Encryption Set exists.
     """
     __args__ = dict()
@@ -128,6 +140,7 @@ def get_disk_encryption_set(name: Optional[str] = None,
     return AwaitableGetDiskEncryptionSetResult(
         auto_key_rotation_enabled=pulumi.get(__ret__, 'auto_key_rotation_enabled'),
         id=pulumi.get(__ret__, 'id'),
+        key_vault_key_url=pulumi.get(__ret__, 'key_vault_key_url'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
@@ -153,7 +166,7 @@ def get_disk_encryption_set_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the Disk Encryption Set exists.
+    :param str name: The name of the existing Disk Encryption Set.
     :param str resource_group_name: The name of the Resource Group where the Disk Encryption Set exists.
     """
     ...

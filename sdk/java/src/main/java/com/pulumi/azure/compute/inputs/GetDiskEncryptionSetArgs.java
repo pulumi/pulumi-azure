@@ -14,14 +14,14 @@ public final class GetDiskEncryptionSetArgs extends com.pulumi.resources.InvokeA
     public static final GetDiskEncryptionSetArgs Empty = new GetDiskEncryptionSetArgs();
 
     /**
-     * The name of the Disk Encryption Set exists.
+     * The name of the existing Disk Encryption Set.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Disk Encryption Set exists.
+     * @return The name of the existing Disk Encryption Set.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class GetDiskEncryptionSetArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The name of the Disk Encryption Set exists.
+         * @param name The name of the existing Disk Encryption Set.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetDiskEncryptionSetArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The name of the Disk Encryption Set exists.
+         * @param name The name of the existing Disk Encryption Set.
          * 
          * @return builder
          * 

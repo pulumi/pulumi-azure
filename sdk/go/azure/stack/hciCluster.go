@@ -73,6 +73,8 @@ import (
 type HciCluster struct {
 	pulumi.CustomResourceState
 
+	// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+	AutomanageConfigurationId pulumi.StringPtrOutput `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -125,6 +127,8 @@ func GetHciCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HciCluster resources.
 type hciClusterState struct {
+	// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+	AutomanageConfigurationId *string `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -142,6 +146,8 @@ type hciClusterState struct {
 }
 
 type HciClusterState struct {
+	// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+	AutomanageConfigurationId pulumi.StringPtrInput
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -163,6 +169,8 @@ func (HciClusterState) ElementType() reflect.Type {
 }
 
 type hciClusterArgs struct {
+	// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+	AutomanageConfigurationId *string `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId string `pulumi:"clientId"`
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -181,6 +189,8 @@ type hciClusterArgs struct {
 
 // The set of arguments for constructing a HciCluster resource.
 type HciClusterArgs struct {
+	// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+	AutomanageConfigurationId pulumi.StringPtrInput
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId pulumi.StringInput
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -282,6 +292,11 @@ func (o HciClusterOutput) ToHciClusterOutput() HciClusterOutput {
 
 func (o HciClusterOutput) ToHciClusterOutputWithContext(ctx context.Context) HciClusterOutput {
 	return o
+}
+
+// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+func (o HciClusterOutput) AutomanageConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciCluster) pulumi.StringPtrOutput { return v.AutomanageConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.

@@ -22,6 +22,11 @@ public final class GetDiskEncryptionSetResult {
      */
     private String id;
     /**
+     * @return The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     * 
+     */
+    private String keyVaultKeyUrl;
+    /**
      * @return The location where the Disk Encryption Set exists.
      * 
      */
@@ -48,6 +53,13 @@ public final class GetDiskEncryptionSetResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     * 
+     */
+    public String keyVaultKeyUrl() {
+        return this.keyVaultKeyUrl;
     }
     /**
      * @return The location where the Disk Encryption Set exists.
@@ -81,6 +93,7 @@ public final class GetDiskEncryptionSetResult {
     public static final class Builder {
         private Boolean autoKeyRotationEnabled;
         private String id;
+        private String keyVaultKeyUrl;
         private String location;
         private String name;
         private String resourceGroupName;
@@ -90,6 +103,7 @@ public final class GetDiskEncryptionSetResult {
     	      Objects.requireNonNull(defaults);
     	      this.autoKeyRotationEnabled = defaults.autoKeyRotationEnabled;
     	      this.id = defaults.id;
+    	      this.keyVaultKeyUrl = defaults.keyVaultKeyUrl;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -104,6 +118,11 @@ public final class GetDiskEncryptionSetResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultKeyUrl(String keyVaultKeyUrl) {
+            this.keyVaultKeyUrl = Objects.requireNonNull(keyVaultKeyUrl);
             return this;
         }
         @CustomType.Setter
@@ -130,6 +149,7 @@ public final class GetDiskEncryptionSetResult {
             final var o = new GetDiskEncryptionSetResult();
             o.autoKeyRotationEnabled = autoKeyRotationEnabled;
             o.id = id;
+            o.keyVaultKeyUrl = keyVaultKeyUrl;
             o.location = location;
             o.name = name;
             o.resourceGroupName = resourceGroupName;

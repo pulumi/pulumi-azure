@@ -162,14 +162,18 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.serviceLevel;
     }
     /**
-     * Provisioned size of the pool in TB. Value must be between `4` and `500`.
+     * Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * 
+     * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
      * 
      */
     @Export(name="sizeInTb", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInTb;
 
     /**
-     * @return Provisioned size of the pool in TB. Value must be between `4` and `500`.
+     * @return Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * 
+     * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
      * 
      */
     public Output<Integer> sizeInTb() {

@@ -89,6 +89,85 @@ import * as utilities from "../utilities";
  *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
  * });
  * ```
+ * ### With Automatic Key Rotation Enabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     enabledForDiskEncryption: true,
+ *     purgeProtectionEnabled: true,
+ * });
+ * const example_user = new azure.keyvault.AccessPolicy("example-user", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [example_user],
+ * });
+ * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     keyVaultKeyId: exampleKey.versionlessId,
+ *     autoKeyRotationEnabled: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const example_diskAccessPolicy = new azure.keyvault.AccessPolicy("example-diskAccessPolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
+ *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *     ],
+ * });
+ * const example_diskAssignment = new azure.authorization.Assignment("example-diskAssignment", {
+ *     scope: exampleKeyVault.id,
+ *     roleDefinitionName: "Key Vault Crypto Service Encryption User",
+ *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ * });
+ * ```
  *
  * ## Import
  *
@@ -126,9 +205,6 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiskEncryptionSet.__pulumiType;
     }
 
-    /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-     */
     public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
@@ -151,6 +227,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string>;
+    /**
+     * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     */
+    public /*out*/ readonly keyVaultKeyUrl!: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
@@ -186,6 +266,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["federatedClientId"] = state ? state.federatedClientId : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["keyVaultKeyUrl"] = state ? state.keyVaultKeyUrl : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -210,6 +291,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["keyVaultKeyUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DiskEncryptionSet.__pulumiType, name, resourceInputs, opts);
@@ -220,9 +302,6 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DiskEncryptionSet resources.
  */
 export interface DiskEncryptionSetState {
-    /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-     */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
@@ -246,6 +325,10 @@ export interface DiskEncryptionSetState {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
+     * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+     */
+    keyVaultKeyUrl?: pulumi.Input<string>;
+    /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -267,9 +350,6 @@ export interface DiskEncryptionSetState {
  * The set of arguments for constructing a DiskEncryptionSet resource.
  */
 export interface DiskEncryptionSetArgs {
-    /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-     */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.

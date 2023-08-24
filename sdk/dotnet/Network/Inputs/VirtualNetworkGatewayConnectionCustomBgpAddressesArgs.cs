@@ -21,8 +21,8 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
         /// </summary>
-        [Input("secondary", required: true)]
-        public Input<string> Secondary { get; set; } = null!;
+        [Input("secondary")]
+        public Input<string>? Secondary { get; set; }
 
         public VirtualNetworkGatewayConnectionCustomBgpAddressesArgs()
         {

@@ -28,8 +28,10 @@ class VirtualMachineArgs:
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
                  sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
+                 sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
@@ -44,8 +46,10 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input['VirtualMachineSqlInstanceArgs'] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
         :param pulumi.Input['VirtualMachineStorageConfigurationArgs'] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['VirtualMachineWsfcDomainCredentialArgs'] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if assessment is not None:
@@ -70,10 +74,14 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "sql_instance", sql_instance)
         if sql_license_type is not None:
             pulumi.set(__self__, "sql_license_type", sql_license_type)
+        if sql_virtual_machine_group_id is not None:
+            pulumi.set(__self__, "sql_virtual_machine_group_id", sql_virtual_machine_group_id)
         if storage_configuration is not None:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if wsfc_domain_credential is not None:
+            pulumi.set(__self__, "wsfc_domain_credential", wsfc_domain_credential)
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -220,6 +228,18 @@ class VirtualMachineArgs:
         pulumi.set(self, "sql_license_type", value)
 
     @property
+    @pulumi.getter(name="sqlVirtualMachineGroupId")
+    def sql_virtual_machine_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+        """
+        return pulumi.get(self, "sql_virtual_machine_group_id")
+
+    @sql_virtual_machine_group_id.setter
+    def sql_virtual_machine_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_virtual_machine_group_id", value)
+
+    @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']]:
         """
@@ -243,6 +263,18 @@ class VirtualMachineArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="wsfcDomainCredential")
+    def wsfc_domain_credential(self) -> Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']]:
+        """
+        A `wsfc_domain_credential` block as defined below
+        """
+        return pulumi.get(self, "wsfc_domain_credential")
+
+    @wsfc_domain_credential.setter
+    def wsfc_domain_credential(self, value: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']]):
+        pulumi.set(self, "wsfc_domain_credential", value)
+
 
 @pulumi.input_type
 class _VirtualMachineState:
@@ -258,9 +290,11 @@ class _VirtualMachineState:
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
                  sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
+                 sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None):
         """
         Input properties used for looking up and filtering VirtualMachine resources.
         :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
@@ -274,9 +308,11 @@ class _VirtualMachineState:
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input['VirtualMachineSqlInstanceArgs'] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
         :param pulumi.Input['VirtualMachineStorageConfigurationArgs'] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input['VirtualMachineWsfcDomainCredentialArgs'] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
         if assessment is not None:
             pulumi.set(__self__, "assessment", assessment)
@@ -300,12 +336,16 @@ class _VirtualMachineState:
             pulumi.set(__self__, "sql_instance", sql_instance)
         if sql_license_type is not None:
             pulumi.set(__self__, "sql_license_type", sql_license_type)
+        if sql_virtual_machine_group_id is not None:
+            pulumi.set(__self__, "sql_virtual_machine_group_id", sql_virtual_machine_group_id)
         if storage_configuration is not None:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if wsfc_domain_credential is not None:
+            pulumi.set(__self__, "wsfc_domain_credential", wsfc_domain_credential)
 
     @property
     @pulumi.getter
@@ -440,6 +480,18 @@ class _VirtualMachineState:
         pulumi.set(self, "sql_license_type", value)
 
     @property
+    @pulumi.getter(name="sqlVirtualMachineGroupId")
+    def sql_virtual_machine_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+        """
+        return pulumi.get(self, "sql_virtual_machine_group_id")
+
+    @sql_virtual_machine_group_id.setter
+    def sql_virtual_machine_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_virtual_machine_group_id", value)
+
+    @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']]:
         """
@@ -475,6 +527,18 @@ class _VirtualMachineState:
     def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
+    @property
+    @pulumi.getter(name="wsfcDomainCredential")
+    def wsfc_domain_credential(self) -> Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']]:
+        """
+        A `wsfc_domain_credential` block as defined below
+        """
+        return pulumi.get(self, "wsfc_domain_credential")
+
+    @wsfc_domain_credential.setter
+    def wsfc_domain_credential(self, value: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']]):
+        pulumi.set(self, "wsfc_domain_credential", value)
+
 
 class VirtualMachine(pulumi.CustomResource):
     @overload
@@ -492,9 +556,11 @@ class VirtualMachine(pulumi.CustomResource):
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
                  sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
+                 sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 wsfc_domain_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Virtual Machine
@@ -545,9 +611,11 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
         :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
         ...
     @overload
@@ -617,9 +685,11 @@ class VirtualMachine(pulumi.CustomResource):
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
                  sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
+                 sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 wsfc_domain_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -640,11 +710,13 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["sql_connectivity_update_username"] = None if sql_connectivity_update_username is None else pulumi.Output.secret(sql_connectivity_update_username)
             __props__.__dict__["sql_instance"] = sql_instance
             __props__.__dict__["sql_license_type"] = sql_license_type
+            __props__.__dict__["sql_virtual_machine_group_id"] = sql_virtual_machine_group_id
             __props__.__dict__["storage_configuration"] = storage_configuration
             __props__.__dict__["tags"] = tags
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+            __props__.__dict__["wsfc_domain_credential"] = wsfc_domain_credential
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualMachine, __self__).__init__(
@@ -668,9 +740,11 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
             sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
             sql_license_type: Optional[pulumi.Input[str]] = None,
+            sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
             storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            virtual_machine_id: Optional[pulumi.Input[str]] = None) -> 'VirtualMachine':
+            virtual_machine_id: Optional[pulumi.Input[str]] = None,
+            wsfc_domain_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']]] = None) -> 'VirtualMachine':
         """
         Get an existing VirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -689,9 +763,11 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
         :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineWsfcDomainCredentialArgs']] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -708,9 +784,11 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["sql_connectivity_update_username"] = sql_connectivity_update_username
         __props__.__dict__["sql_instance"] = sql_instance
         __props__.__dict__["sql_license_type"] = sql_license_type
+        __props__.__dict__["sql_virtual_machine_group_id"] = sql_virtual_machine_group_id
         __props__.__dict__["storage_configuration"] = storage_configuration
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+        __props__.__dict__["wsfc_domain_credential"] = wsfc_domain_credential
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -802,6 +880,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "sql_license_type")
 
     @property
+    @pulumi.getter(name="sqlVirtualMachineGroupId")
+    def sql_virtual_machine_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
+        """
+        return pulumi.get(self, "sql_virtual_machine_group_id")
+
+    @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> pulumi.Output[Optional['outputs.VirtualMachineStorageConfiguration']]:
         """
@@ -824,4 +910,12 @@ class VirtualMachine(pulumi.CustomResource):
         The ID of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="wsfcDomainCredential")
+    def wsfc_domain_credential(self) -> pulumi.Output[Optional['outputs.VirtualMachineWsfcDomainCredential']]:
+        """
+        A `wsfc_domain_credential` block as defined below
+        """
+        return pulumi.get(self, "wsfc_domain_credential")
 

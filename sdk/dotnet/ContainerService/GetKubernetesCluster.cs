@@ -136,6 +136,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly bool AzurePolicyEnabled;
         /// <summary>
+        /// Contains the current version of Kubernetes running on the Cluster.
+        /// </summary>
+        public readonly string CurrentKubernetesVersion;
+        /// <summary>
         /// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
         /// </summary>
         public readonly ImmutableArray<string> CustomCaTrustCertificatesBase64s;
@@ -290,6 +294,8 @@ namespace Pulumi.Azure.ContainerService
 
             bool azurePolicyEnabled,
 
+            string currentKubernetesVersion,
+
             ImmutableArray<string> customCaTrustCertificatesBase64s,
 
             string diskEncryptionSetId,
@@ -369,6 +375,7 @@ namespace Pulumi.Azure.ContainerService
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             AzureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             AzurePolicyEnabled = azurePolicyEnabled;
+            CurrentKubernetesVersion = currentKubernetesVersion;
             CustomCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
             DiskEncryptionSetId = diskEncryptionSetId;
             DnsPrefix = dnsPrefix;

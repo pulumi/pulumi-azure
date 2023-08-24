@@ -82,7 +82,9 @@ type Pool struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
-	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
+	//
+	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	SizeInTb pulumi.IntOutput `pulumi:"sizeInTb"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -142,7 +144,9 @@ type poolState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel *string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
+	//
+	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	SizeInTb *int `pulumi:"sizeInTb"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -161,7 +165,9 @@ type PoolState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringPtrInput
-	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
+	//
+	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	SizeInTb pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -184,7 +190,9 @@ type poolArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
+	//
+	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	SizeInTb int `pulumi:"sizeInTb"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -204,7 +212,9 @@ type PoolArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringInput
-	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
+	//
+	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	SizeInTb pulumi.IntInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -327,7 +337,9 @@ func (o PoolOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }
 
-// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+// Provisioned size of the pool in TB. Value must be between `2` and `500`.
+//
+// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 func (o PoolOutput) SizeInTb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.SizeInTb }).(pulumi.IntOutput)
 }

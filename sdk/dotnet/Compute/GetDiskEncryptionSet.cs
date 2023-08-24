@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetDiskEncryptionSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Disk Encryption Set exists.
+        /// The name of the existing Disk Encryption Set.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetDiskEncryptionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Disk Encryption Set exists.
+        /// The name of the existing Disk Encryption Set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -132,6 +132,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+        /// </summary>
+        public readonly string KeyVaultKeyUrl;
+        /// <summary>
         /// The location where the Disk Encryption Set exists.
         /// </summary>
         public readonly string Location;
@@ -148,6 +152,8 @@ namespace Pulumi.Azure.Compute
 
             string id,
 
+            string keyVaultKeyUrl,
+
             string location,
 
             string name,
@@ -158,6 +164,7 @@ namespace Pulumi.Azure.Compute
         {
             AutoKeyRotationEnabled = autoKeyRotationEnabled;
             Id = id;
+            KeyVaultKeyUrl = keyVaultKeyUrl;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

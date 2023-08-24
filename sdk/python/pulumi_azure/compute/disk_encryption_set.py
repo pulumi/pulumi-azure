@@ -35,7 +35,6 @@ class DiskEncryptionSetArgs:
                > **NOTE** A KeyVault using enable_rbac_authorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -102,9 +101,6 @@ class DiskEncryptionSetArgs:
     @property
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-        """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
     @auto_key_rotation_enabled.setter
@@ -180,13 +176,13 @@ class _DiskEncryptionSetState:
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_key_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DiskEncryptionSet resources.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -196,6 +192,7 @@ class _DiskEncryptionSetState:
                
                > **NOTE** A KeyVault using enable_rbac_authorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
+        :param pulumi.Input[str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -211,6 +208,8 @@ class _DiskEncryptionSetState:
             pulumi.set(__self__, "identity", identity)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_key_url is not None:
+            pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -223,9 +222,6 @@ class _DiskEncryptionSetState:
     @property
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-        """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
     @auto_key_rotation_enabled.setter
@@ -284,6 +280,18 @@ class _DiskEncryptionSetState:
     @key_vault_key_id.setter
     def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+        """
+        return pulumi.get(self, "key_vault_key_url")
+
+    @key_vault_key_url.setter
+    def key_vault_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_url", value)
 
     @property
     @pulumi.getter
@@ -425,6 +433,78 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
+        ### With Automatic Key Rotation Enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            enabled_for_disk_encryption=True,
+            purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            key_vault_key_id=example_key.versionless_id,
+            auto_key_rotation_enabled=True,
+            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_disk_encryption_set.identity.tenant_id,
+            object_id=example_disk_encryption_set.identity.principal_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+            ])
+        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Crypto Service Encryption User",
+            principal_id=example_disk_encryption_set.identity.principal_id)
+        ```
 
         ## Import
 
@@ -436,7 +516,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -533,6 +612,78 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
+        ### With Automatic Key Rotation Enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            enabled_for_disk_encryption=True,
+            purge_protection_enabled=True)
+        example_user = azure.keyvault.AccessPolicy("example-user",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_user]))
+        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            key_vault_key_id=example_key.versionless_id,
+            auto_key_rotation_enabled=True,
+            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_disk_encryption_set.identity.tenant_id,
+            object_id=example_disk_encryption_set.identity.principal_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+            ])
+        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Crypto Service Encryption User",
+            principal_id=example_disk_encryption_set.identity.principal_id)
+        ```
 
         ## Import
 
@@ -590,6 +741,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["key_vault_key_url"] = None
         super(DiskEncryptionSet, __self__).__init__(
             'azure:compute/diskEncryptionSet:DiskEncryptionSet',
             resource_name,
@@ -605,6 +757,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             federated_client_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+            key_vault_key_url: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -616,7 +769,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -626,6 +778,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                
                > **NOTE** A KeyVault using enable_rbac_authorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
+        :param pulumi.Input[str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -640,6 +793,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__.__dict__["federated_client_id"] = federated_client_id
         __props__.__dict__["identity"] = identity
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["key_vault_key_url"] = key_vault_key_url
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -649,9 +803,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
-        """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
     @property
@@ -690,6 +841,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
         In this case, `keyvault.AccessPolicy` is not needed.
         """
         return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> pulumi.Output[str]:
+        """
+        The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
+        """
+        return pulumi.get(self, "key_vault_key_url")
 
     @property
     @pulumi.getter

@@ -61,14 +61,14 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+     * Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
      * 
      */
     @Import(name="target")
     private @Nullable Output<String> target;
 
     /**
-     * @return Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+     * @return Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
      * 
      */
     public Optional<Output<String>> target() {
@@ -166,7 +166,7 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param target Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+         * @param target Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param target Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+         * @param target Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
          * 
          * @return builder
          * 

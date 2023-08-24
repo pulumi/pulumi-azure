@@ -32,12 +32,17 @@ __all__ = [
     'VirtualMachineAutoBackupArgs',
     'VirtualMachineAutoBackupManualScheduleArgs',
     'VirtualMachineAutoPatchingArgs',
+    'VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs',
+    'VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs',
+    'VirtualMachineAvailabilityGroupListenerReplicaArgs',
+    'VirtualMachineGroupWsfcDomainProfileArgs',
     'VirtualMachineKeyVaultCredentialArgs',
     'VirtualMachineSqlInstanceArgs',
     'VirtualMachineStorageConfigurationArgs',
     'VirtualMachineStorageConfigurationDataSettingsArgs',
     'VirtualMachineStorageConfigurationLogSettingsArgs',
     'VirtualMachineStorageConfigurationTempDbSettingsArgs',
+    'VirtualMachineWsfcDomainCredentialArgs',
 ]
 
 @pulumi.input_type
@@ -1463,6 +1468,363 @@ class VirtualMachineAutoPatchingArgs:
 
 
 @pulumi.input_type
+class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
+    def __init__(__self__, *,
+                 load_balancer_id: pulumi.Input[str],
+                 private_ip_address: pulumi.Input[str],
+                 probe_port: pulumi.Input[int],
+                 sql_virtual_machine_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] load_balancer_id: The ID of the Load Balancer. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_ip_address: The private IP Address of the listener. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] probe_port: The probe port of the listener. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sql_virtual_machine_ids: Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+        """
+        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "probe_port", probe_port)
+        pulumi.set(__self__, "sql_virtual_machine_ids", sql_virtual_machine_ids)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="loadBalancerId")
+    def load_balancer_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Load Balancer. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "load_balancer_id")
+
+    @load_balancer_id.setter
+    def load_balancer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "load_balancer_id", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> pulumi.Input[str]:
+        """
+        The private IP Address of the listener. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="probePort")
+    def probe_port(self) -> pulumi.Input[int]:
+        """
+        The probe port of the listener. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "probe_port")
+
+    @probe_port.setter
+    def probe_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "probe_port", value)
+
+    @property
+    @pulumi.getter(name="sqlVirtualMachineIds")
+    def sql_virtual_machine_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_virtual_machine_ids")
+
+    @sql_virtual_machine_ids.setter
+    def sql_virtual_machine_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "sql_virtual_machine_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+
+        > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
+    def __init__(__self__, *,
+                 private_ip_address: pulumi.Input[str],
+                 sql_virtual_machine_id: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] private_ip_address: The private IP Address of the listener. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_virtual_machine_id: The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+        """
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> pulumi.Input[str]:
+        """
+        The private IP Address of the listener. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="sqlVirtualMachineId")
+    def sql_virtual_machine_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_virtual_machine_id")
+
+    @sql_virtual_machine_id.setter
+    def sql_virtual_machine_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+
+        > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class VirtualMachineAvailabilityGroupListenerReplicaArgs:
+    def __init__(__self__, *,
+                 commit: pulumi.Input[str],
+                 failover_mode: pulumi.Input[str],
+                 readable_secondary: pulumi.Input[str],
+                 role: pulumi.Input[str],
+                 sql_virtual_machine_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] commit: The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] failover_mode: The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] readable_secondary: The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_virtual_machine_id: The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "commit", commit)
+        pulumi.set(__self__, "failover_mode", failover_mode)
+        pulumi.set(__self__, "readable_secondary", readable_secondary)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
+
+    @property
+    @pulumi.getter
+    def commit(self) -> pulumi.Input[str]:
+        """
+        The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "commit")
+
+    @commit.setter
+    def commit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "commit", value)
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> pulumi.Input[str]:
+        """
+        The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @failover_mode.setter
+    def failover_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "failover_mode", value)
+
+    @property
+    @pulumi.getter(name="readableSecondary")
+    def readable_secondary(self) -> pulumi.Input[str]:
+        """
+        The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "readable_secondary")
+
+    @readable_secondary.setter
+    def readable_secondary(self, value: pulumi.Input[str]):
+        pulumi.set(self, "readable_secondary", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[str]:
+        """
+        The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="sqlVirtualMachineId")
+    def sql_virtual_machine_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_virtual_machine_id")
+
+    @sql_virtual_machine_id.setter
+    def sql_virtual_machine_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_virtual_machine_id", value)
+
+
+@pulumi.input_type
+class VirtualMachineGroupWsfcDomainProfileArgs:
+    def __init__(__self__, *,
+                 cluster_subnet_type: pulumi.Input[str],
+                 fqdn: pulumi.Input[str],
+                 cluster_bootstrap_account_name: Optional[pulumi.Input[str]] = None,
+                 cluster_operator_account_name: Optional[pulumi.Input[str]] = None,
+                 organizational_unit_path: Optional[pulumi.Input[str]] = None,
+                 sql_service_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_primary_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cluster_subnet_type: The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] fqdn: The fully qualified name of the domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cluster_bootstrap_account_name: The account name used for creating cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cluster_operator_account_name: The account name used for operating cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] organizational_unit_path: The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_service_account_name: The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_primary_key: The primary key of the Storage Account.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "cluster_subnet_type", cluster_subnet_type)
+        pulumi.set(__self__, "fqdn", fqdn)
+        if cluster_bootstrap_account_name is not None:
+            pulumi.set(__self__, "cluster_bootstrap_account_name", cluster_bootstrap_account_name)
+        if cluster_operator_account_name is not None:
+            pulumi.set(__self__, "cluster_operator_account_name", cluster_operator_account_name)
+        if organizational_unit_path is not None:
+            pulumi.set(__self__, "organizational_unit_path", organizational_unit_path)
+        if sql_service_account_name is not None:
+            pulumi.set(__self__, "sql_service_account_name", sql_service_account_name)
+        if storage_account_primary_key is not None:
+            pulumi.set(__self__, "storage_account_primary_key", storage_account_primary_key)
+        if storage_account_url is not None:
+            pulumi.set(__self__, "storage_account_url", storage_account_url)
+
+    @property
+    @pulumi.getter(name="clusterSubnetType")
+    def cluster_subnet_type(self) -> pulumi.Input[str]:
+        """
+        The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_subnet_type")
+
+    @cluster_subnet_type.setter
+    def cluster_subnet_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_subnet_type", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> pulumi.Input[str]:
+        """
+        The fully qualified name of the domain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="clusterBootstrapAccountName")
+    def cluster_bootstrap_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account name used for creating cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_bootstrap_account_name")
+
+    @cluster_bootstrap_account_name.setter
+    def cluster_bootstrap_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_bootstrap_account_name", value)
+
+    @property
+    @pulumi.getter(name="clusterOperatorAccountName")
+    def cluster_operator_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account name used for operating cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_operator_account_name")
+
+    @cluster_operator_account_name.setter
+    def cluster_operator_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_operator_account_name", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnitPath")
+    def organizational_unit_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "organizational_unit_path")
+
+    @organizational_unit_path.setter
+    def organizational_unit_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organizational_unit_path", value)
+
+    @property
+    @pulumi.getter(name="sqlServiceAccountName")
+    def sql_service_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_service_account_name")
+
+    @sql_service_account_name.setter
+    def sql_service_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_service_account_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountPrimaryKey")
+    def storage_account_primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_primary_key")
+
+    @storage_account_primary_key.setter
+    def storage_account_primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_primary_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_url", value)
+
+
+@pulumi.input_type
 class VirtualMachineKeyVaultCredentialArgs:
     def __init__(__self__, *,
                  key_vault_url: pulumi.Input[str],
@@ -1942,5 +2304,57 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
     @log_file_size_mb.setter
     def log_file_size_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "log_file_size_mb", value)
+
+
+@pulumi.input_type
+class VirtualMachineWsfcDomainCredentialArgs:
+    def __init__(__self__, *,
+                 cluster_bootstrap_account_password: pulumi.Input[str],
+                 cluster_operator_account_password: pulumi.Input[str],
+                 sql_service_account_password: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cluster_bootstrap_account_password: The account password used for creating cluster.
+        :param pulumi.Input[str] cluster_operator_account_password: The account password used for operating cluster.
+        :param pulumi.Input[str] sql_service_account_password: The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+        """
+        pulumi.set(__self__, "cluster_bootstrap_account_password", cluster_bootstrap_account_password)
+        pulumi.set(__self__, "cluster_operator_account_password", cluster_operator_account_password)
+        pulumi.set(__self__, "sql_service_account_password", sql_service_account_password)
+
+    @property
+    @pulumi.getter(name="clusterBootstrapAccountPassword")
+    def cluster_bootstrap_account_password(self) -> pulumi.Input[str]:
+        """
+        The account password used for creating cluster.
+        """
+        return pulumi.get(self, "cluster_bootstrap_account_password")
+
+    @cluster_bootstrap_account_password.setter
+    def cluster_bootstrap_account_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_bootstrap_account_password", value)
+
+    @property
+    @pulumi.getter(name="clusterOperatorAccountPassword")
+    def cluster_operator_account_password(self) -> pulumi.Input[str]:
+        """
+        The account password used for operating cluster.
+        """
+        return pulumi.get(self, "cluster_operator_account_password")
+
+    @cluster_operator_account_password.setter
+    def cluster_operator_account_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_operator_account_password", value)
+
+    @property
+    @pulumi.getter(name="sqlServiceAccountPassword")
+    def sql_service_account_password(self) -> pulumi.Input[str]:
+        """
+        The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+        """
+        return pulumi.get(self, "sql_service_account_password")
+
+    @sql_service_account_password.setter
+    def sql_service_account_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_service_account_password", value)
 
 

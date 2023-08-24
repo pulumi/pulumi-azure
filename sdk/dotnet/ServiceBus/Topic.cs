@@ -91,9 +91,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> EnableExpress { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-        /// the topic to be partitioned across multiple message brokers. Defaults to false.
-        /// Changing this forces a new resource to be created.
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         /// </summary>
@@ -232,9 +230,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-        /// the topic to be partitioned across multiple message brokers. Defaults to false.
-        /// Changing this forces a new resource to be created.
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         /// </summary>
@@ -325,9 +321,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
-        /// the topic to be partitioned across multiple message brokers. Defaults to false.
-        /// Changing this forces a new resource to be created.
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Defaults to false. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         /// </summary>

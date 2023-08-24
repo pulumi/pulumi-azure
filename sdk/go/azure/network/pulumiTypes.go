@@ -20031,7 +20031,7 @@ type VirtualNetworkGatewayConnectionCustomBgpAddresses struct {
 	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (first one)
 	Primary string `pulumi:"primary"`
 	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
-	Secondary string `pulumi:"secondary"`
+	Secondary *string `pulumi:"secondary"`
 }
 
 // VirtualNetworkGatewayConnectionCustomBgpAddressesInput is an input type that accepts VirtualNetworkGatewayConnectionCustomBgpAddressesArgs and VirtualNetworkGatewayConnectionCustomBgpAddressesOutput values.
@@ -20049,7 +20049,7 @@ type VirtualNetworkGatewayConnectionCustomBgpAddressesArgs struct {
 	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (first one)
 	Primary pulumi.StringInput `pulumi:"primary"`
 	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
-	Secondary pulumi.StringInput `pulumi:"secondary"`
+	Secondary pulumi.StringPtrInput `pulumi:"secondary"`
 }
 
 func (VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) ElementType() reflect.Type {
@@ -20135,8 +20135,8 @@ func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) Primary() pulum
 }
 
 // single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
-func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) Secondary() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionCustomBgpAddresses) string { return v.Secondary }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) Secondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnectionCustomBgpAddresses) *string { return v.Secondary }).(pulumi.StringPtrOutput)
 }
 
 type VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput struct{ *pulumi.OutputState }
@@ -20179,7 +20179,7 @@ func (o VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) Secondary() 
 		if v == nil {
 			return nil
 		}
-		return &v.Secondary
+		return v.Secondary
 	}).(pulumi.StringPtrOutput)
 }
 

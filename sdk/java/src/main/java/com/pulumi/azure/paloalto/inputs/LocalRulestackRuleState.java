@@ -23,14 +23,14 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
     public static final LocalRulestackRuleState Empty = new LocalRulestackRuleState();
 
     /**
-     * The action to take on the rule being triggered. Defaults to `Allow`.
+     * The action to take on the rule being triggered.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return The action to take on the rule being triggered. Defaults to `Allow`.
+     * @return The action to take on the rule being triggered.
      * 
      */
     public Optional<Output<String>> action() {
@@ -354,7 +354,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param action The action to take on the rule being triggered. Defaults to `Allow`.
+         * @param action The action to take on the rule being triggered.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class LocalRulestackRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param action The action to take on the rule being triggered. Defaults to `Allow`.
+         * @param action The action to take on the rule being triggered.
          * 
          * @return builder
          * 

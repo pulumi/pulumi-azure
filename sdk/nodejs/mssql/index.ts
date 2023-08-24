@@ -145,6 +145,16 @@ export type VirtualMachine = import("./virtualMachine").VirtualMachine;
 export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
 utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
 
+export { VirtualMachineAvailabilityGroupListenerArgs, VirtualMachineAvailabilityGroupListenerState } from "./virtualMachineAvailabilityGroupListener";
+export type VirtualMachineAvailabilityGroupListener = import("./virtualMachineAvailabilityGroupListener").VirtualMachineAvailabilityGroupListener;
+export const VirtualMachineAvailabilityGroupListener: typeof import("./virtualMachineAvailabilityGroupListener").VirtualMachineAvailabilityGroupListener = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineAvailabilityGroupListener"], () => require("./virtualMachineAvailabilityGroupListener"));
+
+export { VirtualMachineGroupArgs, VirtualMachineGroupState } from "./virtualMachineGroup";
+export type VirtualMachineGroup = import("./virtualMachineGroup").VirtualMachineGroup;
+export const VirtualMachineGroup: typeof import("./virtualMachineGroup").VirtualMachineGroup = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineGroup"], () => require("./virtualMachineGroup"));
+
 export { VirtualNetworkRuleArgs, VirtualNetworkRuleState } from "./virtualNetworkRule";
 export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
 export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
@@ -203,6 +213,10 @@ const _module = {
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:mssql/virtualMachine:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
+            case "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener":
+                return new VirtualMachineAvailabilityGroupListener(name, <any>undefined, { urn })
+            case "azure:mssql/virtualMachineGroup:VirtualMachineGroup":
+                return new VirtualMachineGroup(name, <any>undefined, { urn })
             case "azure:mssql/virtualNetworkRule:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
@@ -234,4 +248,6 @@ pulumi.runtime.registerResourceModule("azure", "mssql/serverSecurityAlertPolicy"
 pulumi.runtime.registerResourceModule("azure", "mssql/serverTransparentDataEncryption", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/virtualMachine", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/virtualMachineAvailabilityGroupListener", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/virtualMachineGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/virtualNetworkRule", _module)

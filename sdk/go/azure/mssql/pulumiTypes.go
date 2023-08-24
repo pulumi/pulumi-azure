@@ -4019,6 +4019,761 @@ func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowStartingHour() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+type VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration struct {
+	// The ID of the Load Balancer. Changing this forces a new resource to be created.
+	LoadBalancerId string `pulumi:"loadBalancerId"`
+	// The private IP Address of the listener. Changing this forces a new resource to be created.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The probe port of the listener. Changing this forces a new resource to be created.
+	ProbePort int `pulumi:"probePort"`
+	// Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+	SqlVirtualMachineIds []string `pulumi:"sqlVirtualMachineIds"`
+	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationInput is an input type that accepts VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs and VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput values.
+// You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationInput` via:
+//
+//	VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs{...}
+type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput
+	ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutputWithContext(context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput
+}
+
+type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs struct {
+	// The ID of the Load Balancer. Changing this forces a new resource to be created.
+	LoadBalancerId pulumi.StringInput `pulumi:"loadBalancerId"`
+	// The private IP Address of the listener. Changing this forces a new resource to be created.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The probe port of the listener. Changing this forces a new resource to be created.
+	ProbePort pulumi.IntInput `pulumi:"probePort"`
+	// Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+	SqlVirtualMachineIds pulumi.StringArrayInput `pulumi:"sqlVirtualMachineIds"`
+	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration)(nil)).Elem()
+}
+
+func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput)
+}
+
+func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput).ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput is an input type that accepts VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs, VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtr and VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput` via:
+//
+//	        VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput
+	ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput
+}
+
+type virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs
+
+func VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtr(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput {
+	return (*virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType)(v)
+}
+
+func (*virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration)(nil)).Elem()
+}
+
+func (i *virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration)(nil)).Elem()
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return o.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration {
+		return &v
+	}).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput)
+}
+
+// The ID of the Load Balancer. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) LoadBalancerId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) string {
+		return v.LoadBalancerId
+	}).(pulumi.StringOutput)
+}
+
+// The private IP Address of the listener. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) string {
+		return v.PrivateIpAddress
+	}).(pulumi.StringOutput)
+}
+
+// The probe port of the listener. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ProbePort() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) int { return v.ProbePort }).(pulumi.IntOutput)
+}
+
+// Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) SqlVirtualMachineIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) []string {
+		return v.SqlVirtualMachineIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration)(nil)).Elem()
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) Elem() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput {
+	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration
+		return ret
+	}).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput)
+}
+
+// The ID of the Load Balancer. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoadBalancerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP Address of the listener. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The probe port of the listener. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) ProbePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProbePort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) SqlVirtualMachineIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlVirtualMachineIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration struct {
+	// The private IP Address of the listener. Changing this forces a new resource to be created.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+	SqlVirtualMachineId string `pulumi:"sqlVirtualMachineId"`
+	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationInput is an input type that accepts VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs and VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput values.
+// You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationInput` via:
+//
+//	VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs{...}
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput() VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput
+	ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutputWithContext(context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput
+}
+
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs struct {
+	// The private IP Address of the listener. Changing this forces a new resource to be created.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+	SqlVirtualMachineId pulumi.StringInput `pulumi:"sqlVirtualMachineId"`
+	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration)(nil)).Elem()
+}
+
+func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput() VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput)
+}
+
+// VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput is an input type that accepts VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray and VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput` via:
+//
+//	VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray{ VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs{...} }
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput() VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput
+	ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutputWithContext(context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput
+}
+
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray []VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationInput
+
+func (VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration)(nil)).Elem()
+}
+
+func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput() VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration)(nil)).Elem()
+}
+
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput() VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
+	return o
+}
+
+// The private IP Address of the listener. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration) string {
+		return v.PrivateIpAddress
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) SqlVirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration) string {
+		return v.SqlVirtualMachineId
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration)(nil)).Elem()
+}
+
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput() VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) Index(i pulumi.IntInput) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration {
+		return vs[0].([]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration)[vs[1].(int)]
+	}).(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerReplica struct {
+	// The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+	Commit string `pulumi:"commit"`
+	// The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+	FailoverMode string `pulumi:"failoverMode"`
+	// The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+	ReadableSecondary string `pulumi:"readableSecondary"`
+	// The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+	Role string `pulumi:"role"`
+	// The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+	SqlVirtualMachineId string `pulumi:"sqlVirtualMachineId"`
+}
+
+// VirtualMachineAvailabilityGroupListenerReplicaInput is an input type that accepts VirtualMachineAvailabilityGroupListenerReplicaArgs and VirtualMachineAvailabilityGroupListenerReplicaOutput values.
+// You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerReplicaInput` via:
+//
+//	VirtualMachineAvailabilityGroupListenerReplicaArgs{...}
+type VirtualMachineAvailabilityGroupListenerReplicaInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAvailabilityGroupListenerReplicaOutput() VirtualMachineAvailabilityGroupListenerReplicaOutput
+	ToVirtualMachineAvailabilityGroupListenerReplicaOutputWithContext(context.Context) VirtualMachineAvailabilityGroupListenerReplicaOutput
+}
+
+type VirtualMachineAvailabilityGroupListenerReplicaArgs struct {
+	// The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+	Commit pulumi.StringInput `pulumi:"commit"`
+	// The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+	FailoverMode pulumi.StringInput `pulumi:"failoverMode"`
+	// The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+	ReadableSecondary pulumi.StringInput `pulumi:"readableSecondary"`
+	// The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+	Role pulumi.StringInput `pulumi:"role"`
+	// The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+	SqlVirtualMachineId pulumi.StringInput `pulumi:"sqlVirtualMachineId"`
+}
+
+func (VirtualMachineAvailabilityGroupListenerReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerReplica)(nil)).Elem()
+}
+
+func (i VirtualMachineAvailabilityGroupListenerReplicaArgs) ToVirtualMachineAvailabilityGroupListenerReplicaOutput() VirtualMachineAvailabilityGroupListenerReplicaOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerReplicaOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAvailabilityGroupListenerReplicaArgs) ToVirtualMachineAvailabilityGroupListenerReplicaOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerReplicaOutput)
+}
+
+// VirtualMachineAvailabilityGroupListenerReplicaArrayInput is an input type that accepts VirtualMachineAvailabilityGroupListenerReplicaArray and VirtualMachineAvailabilityGroupListenerReplicaArrayOutput values.
+// You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerReplicaArrayInput` via:
+//
+//	VirtualMachineAvailabilityGroupListenerReplicaArray{ VirtualMachineAvailabilityGroupListenerReplicaArgs{...} }
+type VirtualMachineAvailabilityGroupListenerReplicaArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutput() VirtualMachineAvailabilityGroupListenerReplicaArrayOutput
+	ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutputWithContext(context.Context) VirtualMachineAvailabilityGroupListenerReplicaArrayOutput
+}
+
+type VirtualMachineAvailabilityGroupListenerReplicaArray []VirtualMachineAvailabilityGroupListenerReplicaInput
+
+func (VirtualMachineAvailabilityGroupListenerReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineAvailabilityGroupListenerReplica)(nil)).Elem()
+}
+
+func (i VirtualMachineAvailabilityGroupListenerReplicaArray) ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutput() VirtualMachineAvailabilityGroupListenerReplicaArrayOutput {
+	return i.ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAvailabilityGroupListenerReplicaArray) ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerReplicaArrayOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerReplicaOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAvailabilityGroupListenerReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerReplica)(nil)).Elem()
+}
+
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) ToVirtualMachineAvailabilityGroupListenerReplicaOutput() VirtualMachineAvailabilityGroupListenerReplicaOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) ToVirtualMachineAvailabilityGroupListenerReplicaOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerReplicaOutput {
+	return o
+}
+
+// The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) Commit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerReplica) string { return v.Commit }).(pulumi.StringOutput)
+}
+
+// The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) FailoverMode() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerReplica) string { return v.FailoverMode }).(pulumi.StringOutput)
+}
+
+// The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) ReadableSecondary() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerReplica) string { return v.ReadableSecondary }).(pulumi.StringOutput)
+}
+
+// The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerReplica) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) SqlVirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerReplica) string { return v.SqlVirtualMachineId }).(pulumi.StringOutput)
+}
+
+type VirtualMachineAvailabilityGroupListenerReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineAvailabilityGroupListenerReplica)(nil)).Elem()
+}
+
+func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutput() VirtualMachineAvailabilityGroupListenerReplicaArrayOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerReplicaArrayOutput {
+	return o
+}
+
+func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) Index(i pulumi.IntInput) VirtualMachineAvailabilityGroupListenerReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineAvailabilityGroupListenerReplica {
+		return vs[0].([]VirtualMachineAvailabilityGroupListenerReplica)[vs[1].(int)]
+	}).(VirtualMachineAvailabilityGroupListenerReplicaOutput)
+}
+
+type VirtualMachineGroupWsfcDomainProfile struct {
+	// The account name used for creating cluster. Changing this forces a new resource to be created.
+	ClusterBootstrapAccountName *string `pulumi:"clusterBootstrapAccountName"`
+	// The account name used for operating cluster. Changing this forces a new resource to be created.
+	ClusterOperatorAccountName *string `pulumi:"clusterOperatorAccountName"`
+	// The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+	ClusterSubnetType string `pulumi:"clusterSubnetType"`
+	// The fully qualified name of the domain. Changing this forces a new resource to be created.
+	Fqdn string `pulumi:"fqdn"`
+	// The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+	OrganizationalUnitPath *string `pulumi:"organizationalUnitPath"`
+	// The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+	SqlServiceAccountName *string `pulumi:"sqlServiceAccountName"`
+	// The primary key of the Storage Account.
+	StorageAccountPrimaryKey *string `pulumi:"storageAccountPrimaryKey"`
+	// The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
+}
+
+// VirtualMachineGroupWsfcDomainProfileInput is an input type that accepts VirtualMachineGroupWsfcDomainProfileArgs and VirtualMachineGroupWsfcDomainProfileOutput values.
+// You can construct a concrete instance of `VirtualMachineGroupWsfcDomainProfileInput` via:
+//
+//	VirtualMachineGroupWsfcDomainProfileArgs{...}
+type VirtualMachineGroupWsfcDomainProfileInput interface {
+	pulumi.Input
+
+	ToVirtualMachineGroupWsfcDomainProfileOutput() VirtualMachineGroupWsfcDomainProfileOutput
+	ToVirtualMachineGroupWsfcDomainProfileOutputWithContext(context.Context) VirtualMachineGroupWsfcDomainProfileOutput
+}
+
+type VirtualMachineGroupWsfcDomainProfileArgs struct {
+	// The account name used for creating cluster. Changing this forces a new resource to be created.
+	ClusterBootstrapAccountName pulumi.StringPtrInput `pulumi:"clusterBootstrapAccountName"`
+	// The account name used for operating cluster. Changing this forces a new resource to be created.
+	ClusterOperatorAccountName pulumi.StringPtrInput `pulumi:"clusterOperatorAccountName"`
+	// The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+	ClusterSubnetType pulumi.StringInput `pulumi:"clusterSubnetType"`
+	// The fully qualified name of the domain. Changing this forces a new resource to be created.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+	OrganizationalUnitPath pulumi.StringPtrInput `pulumi:"organizationalUnitPath"`
+	// The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+	SqlServiceAccountName pulumi.StringPtrInput `pulumi:"sqlServiceAccountName"`
+	// The primary key of the Storage Account.
+	StorageAccountPrimaryKey pulumi.StringPtrInput `pulumi:"storageAccountPrimaryKey"`
+	// The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
+}
+
+func (VirtualMachineGroupWsfcDomainProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineGroupWsfcDomainProfile)(nil)).Elem()
+}
+
+func (i VirtualMachineGroupWsfcDomainProfileArgs) ToVirtualMachineGroupWsfcDomainProfileOutput() VirtualMachineGroupWsfcDomainProfileOutput {
+	return i.ToVirtualMachineGroupWsfcDomainProfileOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineGroupWsfcDomainProfileArgs) ToVirtualMachineGroupWsfcDomainProfileOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupWsfcDomainProfileOutput)
+}
+
+func (i VirtualMachineGroupWsfcDomainProfileArgs) ToVirtualMachineGroupWsfcDomainProfilePtrOutput() VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return i.ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineGroupWsfcDomainProfileArgs) ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupWsfcDomainProfileOutput).ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineGroupWsfcDomainProfilePtrInput is an input type that accepts VirtualMachineGroupWsfcDomainProfileArgs, VirtualMachineGroupWsfcDomainProfilePtr and VirtualMachineGroupWsfcDomainProfilePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineGroupWsfcDomainProfilePtrInput` via:
+//
+//	        VirtualMachineGroupWsfcDomainProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineGroupWsfcDomainProfilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineGroupWsfcDomainProfilePtrOutput() VirtualMachineGroupWsfcDomainProfilePtrOutput
+	ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(context.Context) VirtualMachineGroupWsfcDomainProfilePtrOutput
+}
+
+type virtualMachineGroupWsfcDomainProfilePtrType VirtualMachineGroupWsfcDomainProfileArgs
+
+func VirtualMachineGroupWsfcDomainProfilePtr(v *VirtualMachineGroupWsfcDomainProfileArgs) VirtualMachineGroupWsfcDomainProfilePtrInput {
+	return (*virtualMachineGroupWsfcDomainProfilePtrType)(v)
+}
+
+func (*virtualMachineGroupWsfcDomainProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineGroupWsfcDomainProfile)(nil)).Elem()
+}
+
+func (i *virtualMachineGroupWsfcDomainProfilePtrType) ToVirtualMachineGroupWsfcDomainProfilePtrOutput() VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return i.ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineGroupWsfcDomainProfilePtrType) ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupWsfcDomainProfilePtrOutput)
+}
+
+type VirtualMachineGroupWsfcDomainProfileOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineGroupWsfcDomainProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineGroupWsfcDomainProfile)(nil)).Elem()
+}
+
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ToVirtualMachineGroupWsfcDomainProfileOutput() VirtualMachineGroupWsfcDomainProfileOutput {
+	return o
+}
+
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ToVirtualMachineGroupWsfcDomainProfileOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfileOutput {
+	return o
+}
+
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ToVirtualMachineGroupWsfcDomainProfilePtrOutput() VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return o.ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineGroupWsfcDomainProfile) *VirtualMachineGroupWsfcDomainProfile {
+		return &v
+	}).(VirtualMachineGroupWsfcDomainProfilePtrOutput)
+}
+
+// The account name used for creating cluster. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ClusterBootstrapAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) *string { return v.ClusterBootstrapAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The account name used for operating cluster. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ClusterOperatorAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) *string { return v.ClusterOperatorAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) ClusterSubnetType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) string { return v.ClusterSubnetType }).(pulumi.StringOutput)
+}
+
+// The fully qualified name of the domain. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) OrganizationalUnitPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) *string { return v.OrganizationalUnitPath }).(pulumi.StringPtrOutput)
+}
+
+// The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) SqlServiceAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) *string { return v.SqlServiceAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The primary key of the Storage Account.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) StorageAccountPrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) *string { return v.StorageAccountPrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfileOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineGroupWsfcDomainProfile) *string { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineGroupWsfcDomainProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineGroupWsfcDomainProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineGroupWsfcDomainProfile)(nil)).Elem()
+}
+
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ToVirtualMachineGroupWsfcDomainProfilePtrOutput() VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return o
+}
+
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfilePtrOutput {
+	return o
+}
+
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) Elem() VirtualMachineGroupWsfcDomainProfileOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) VirtualMachineGroupWsfcDomainProfile {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineGroupWsfcDomainProfile
+		return ret
+	}).(VirtualMachineGroupWsfcDomainProfileOutput)
+}
+
+// The account name used for creating cluster. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ClusterBootstrapAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterBootstrapAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account name used for operating cluster. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ClusterOperatorAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterOperatorAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ClusterSubnetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterSubnetType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the domain. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Fqdn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) OrganizationalUnitPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) SqlServiceAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlServiceAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The primary key of the Storage Account.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) StorageAccountPrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountPrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineGroupWsfcDomainProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualMachineKeyVaultCredential struct {
 	// The Azure Key Vault url. Changing this forces a new resource to be created.
 	KeyVaultUrl string `pulumi:"keyVaultUrl"`
@@ -5273,6 +6028,181 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Luns() pulumi
 	}).(pulumi.IntArrayOutput)
 }
 
+type VirtualMachineWsfcDomainCredential struct {
+	// The account password used for creating cluster.
+	ClusterBootstrapAccountPassword string `pulumi:"clusterBootstrapAccountPassword"`
+	// The account password used for operating cluster.
+	ClusterOperatorAccountPassword string `pulumi:"clusterOperatorAccountPassword"`
+	// The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+	SqlServiceAccountPassword string `pulumi:"sqlServiceAccountPassword"`
+}
+
+// VirtualMachineWsfcDomainCredentialInput is an input type that accepts VirtualMachineWsfcDomainCredentialArgs and VirtualMachineWsfcDomainCredentialOutput values.
+// You can construct a concrete instance of `VirtualMachineWsfcDomainCredentialInput` via:
+//
+//	VirtualMachineWsfcDomainCredentialArgs{...}
+type VirtualMachineWsfcDomainCredentialInput interface {
+	pulumi.Input
+
+	ToVirtualMachineWsfcDomainCredentialOutput() VirtualMachineWsfcDomainCredentialOutput
+	ToVirtualMachineWsfcDomainCredentialOutputWithContext(context.Context) VirtualMachineWsfcDomainCredentialOutput
+}
+
+type VirtualMachineWsfcDomainCredentialArgs struct {
+	// The account password used for creating cluster.
+	ClusterBootstrapAccountPassword pulumi.StringInput `pulumi:"clusterBootstrapAccountPassword"`
+	// The account password used for operating cluster.
+	ClusterOperatorAccountPassword pulumi.StringInput `pulumi:"clusterOperatorAccountPassword"`
+	// The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+	SqlServiceAccountPassword pulumi.StringInput `pulumi:"sqlServiceAccountPassword"`
+}
+
+func (VirtualMachineWsfcDomainCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineWsfcDomainCredential)(nil)).Elem()
+}
+
+func (i VirtualMachineWsfcDomainCredentialArgs) ToVirtualMachineWsfcDomainCredentialOutput() VirtualMachineWsfcDomainCredentialOutput {
+	return i.ToVirtualMachineWsfcDomainCredentialOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineWsfcDomainCredentialArgs) ToVirtualMachineWsfcDomainCredentialOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineWsfcDomainCredentialOutput)
+}
+
+func (i VirtualMachineWsfcDomainCredentialArgs) ToVirtualMachineWsfcDomainCredentialPtrOutput() VirtualMachineWsfcDomainCredentialPtrOutput {
+	return i.ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineWsfcDomainCredentialArgs) ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineWsfcDomainCredentialOutput).ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineWsfcDomainCredentialPtrInput is an input type that accepts VirtualMachineWsfcDomainCredentialArgs, VirtualMachineWsfcDomainCredentialPtr and VirtualMachineWsfcDomainCredentialPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineWsfcDomainCredentialPtrInput` via:
+//
+//	        VirtualMachineWsfcDomainCredentialArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineWsfcDomainCredentialPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineWsfcDomainCredentialPtrOutput() VirtualMachineWsfcDomainCredentialPtrOutput
+	ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(context.Context) VirtualMachineWsfcDomainCredentialPtrOutput
+}
+
+type virtualMachineWsfcDomainCredentialPtrType VirtualMachineWsfcDomainCredentialArgs
+
+func VirtualMachineWsfcDomainCredentialPtr(v *VirtualMachineWsfcDomainCredentialArgs) VirtualMachineWsfcDomainCredentialPtrInput {
+	return (*virtualMachineWsfcDomainCredentialPtrType)(v)
+}
+
+func (*virtualMachineWsfcDomainCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineWsfcDomainCredential)(nil)).Elem()
+}
+
+func (i *virtualMachineWsfcDomainCredentialPtrType) ToVirtualMachineWsfcDomainCredentialPtrOutput() VirtualMachineWsfcDomainCredentialPtrOutput {
+	return i.ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineWsfcDomainCredentialPtrType) ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineWsfcDomainCredentialPtrOutput)
+}
+
+type VirtualMachineWsfcDomainCredentialOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineWsfcDomainCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineWsfcDomainCredential)(nil)).Elem()
+}
+
+func (o VirtualMachineWsfcDomainCredentialOutput) ToVirtualMachineWsfcDomainCredentialOutput() VirtualMachineWsfcDomainCredentialOutput {
+	return o
+}
+
+func (o VirtualMachineWsfcDomainCredentialOutput) ToVirtualMachineWsfcDomainCredentialOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialOutput {
+	return o
+}
+
+func (o VirtualMachineWsfcDomainCredentialOutput) ToVirtualMachineWsfcDomainCredentialPtrOutput() VirtualMachineWsfcDomainCredentialPtrOutput {
+	return o.ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineWsfcDomainCredentialOutput) ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineWsfcDomainCredential) *VirtualMachineWsfcDomainCredential {
+		return &v
+	}).(VirtualMachineWsfcDomainCredentialPtrOutput)
+}
+
+// The account password used for creating cluster.
+func (o VirtualMachineWsfcDomainCredentialOutput) ClusterBootstrapAccountPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineWsfcDomainCredential) string { return v.ClusterBootstrapAccountPassword }).(pulumi.StringOutput)
+}
+
+// The account password used for operating cluster.
+func (o VirtualMachineWsfcDomainCredentialOutput) ClusterOperatorAccountPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineWsfcDomainCredential) string { return v.ClusterOperatorAccountPassword }).(pulumi.StringOutput)
+}
+
+// The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+func (o VirtualMachineWsfcDomainCredentialOutput) SqlServiceAccountPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineWsfcDomainCredential) string { return v.SqlServiceAccountPassword }).(pulumi.StringOutput)
+}
+
+type VirtualMachineWsfcDomainCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineWsfcDomainCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineWsfcDomainCredential)(nil)).Elem()
+}
+
+func (o VirtualMachineWsfcDomainCredentialPtrOutput) ToVirtualMachineWsfcDomainCredentialPtrOutput() VirtualMachineWsfcDomainCredentialPtrOutput {
+	return o
+}
+
+func (o VirtualMachineWsfcDomainCredentialPtrOutput) ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialPtrOutput {
+	return o
+}
+
+func (o VirtualMachineWsfcDomainCredentialPtrOutput) Elem() VirtualMachineWsfcDomainCredentialOutput {
+	return o.ApplyT(func(v *VirtualMachineWsfcDomainCredential) VirtualMachineWsfcDomainCredential {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineWsfcDomainCredential
+		return ret
+	}).(VirtualMachineWsfcDomainCredentialOutput)
+}
+
+// The account password used for creating cluster.
+func (o VirtualMachineWsfcDomainCredentialPtrOutput) ClusterBootstrapAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineWsfcDomainCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterBootstrapAccountPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account password used for operating cluster.
+func (o VirtualMachineWsfcDomainCredentialPtrOutput) ClusterOperatorAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineWsfcDomainCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterOperatorAccountPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+func (o VirtualMachineWsfcDomainCredentialPtrOutput) SqlServiceAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineWsfcDomainCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlServiceAccountPassword
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetElasticPoolSkus struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity int `pulumi:"capacity"`
@@ -5690,6 +6620,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoBackupManualSchedulePtrInput)(nil)).Elem(), VirtualMachineAutoBackupManualScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoPatchingInput)(nil)).Elem(), VirtualMachineAutoPatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoPatchingPtrInput)(nil)).Elem(), VirtualMachineAutoPatchingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationInput)(nil)).Elem(), VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput)(nil)).Elem(), VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationInput)(nil)).Elem(), VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput)(nil)).Elem(), VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerReplicaInput)(nil)).Elem(), VirtualMachineAvailabilityGroupListenerReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAvailabilityGroupListenerReplicaArrayInput)(nil)).Elem(), VirtualMachineAvailabilityGroupListenerReplicaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineGroupWsfcDomainProfileInput)(nil)).Elem(), VirtualMachineGroupWsfcDomainProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineGroupWsfcDomainProfilePtrInput)(nil)).Elem(), VirtualMachineGroupWsfcDomainProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineKeyVaultCredentialInput)(nil)).Elem(), VirtualMachineKeyVaultCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineKeyVaultCredentialPtrInput)(nil)).Elem(), VirtualMachineKeyVaultCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineSqlInstanceInput)(nil)).Elem(), VirtualMachineSqlInstanceArgs{})
@@ -5702,6 +6640,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationLogSettingsPtrInput)(nil)).Elem(), VirtualMachineStorageConfigurationLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationTempDbSettingsInput)(nil)).Elem(), VirtualMachineStorageConfigurationTempDbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationTempDbSettingsPtrInput)(nil)).Elem(), VirtualMachineStorageConfigurationTempDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineWsfcDomainCredentialInput)(nil)).Elem(), VirtualMachineWsfcDomainCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineWsfcDomainCredentialPtrInput)(nil)).Elem(), VirtualMachineWsfcDomainCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusInput)(nil)).Elem(), GetElasticPoolSkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusArrayInput)(nil)).Elem(), GetElasticPoolSkusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityInput)(nil)).Elem(), GetManagedInstanceIdentityArgs{})
@@ -5752,6 +6692,14 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineAutoBackupManualSchedulePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAvailabilityGroupListenerReplicaOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAvailabilityGroupListenerReplicaArrayOutput{})
+	pulumi.RegisterOutputType(VirtualMachineGroupWsfcDomainProfileOutput{})
+	pulumi.RegisterOutputType(VirtualMachineGroupWsfcDomainProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineSqlInstanceOutput{})
@@ -5764,6 +6712,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineWsfcDomainCredentialOutput{})
+	pulumi.RegisterOutputType(VirtualMachineWsfcDomainCredentialPtrOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedInstanceIdentityOutput{})

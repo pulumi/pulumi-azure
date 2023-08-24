@@ -64,6 +64,10 @@ export class HciCluster extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     */
+    public readonly automanageConfigurationId!: pulumi.Output<string | undefined>;
+    /**
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
     public readonly clientId!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class HciCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciClusterState | undefined;
+            resourceInputs["automanageConfigurationId"] = state ? state.automanageConfigurationId : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -117,6 +122,7 @@ export class HciCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["automanageConfigurationId"] = args ? args.automanageConfigurationId : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -133,6 +139,10 @@ export class HciCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HciCluster resources.
  */
 export interface HciClusterState {
+    /**
+     * The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     */
+    automanageConfigurationId?: pulumi.Input<string>;
     /**
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
@@ -165,6 +175,10 @@ export interface HciClusterState {
  * The set of arguments for constructing a HciCluster resource.
  */
 export interface HciClusterArgs {
+    /**
+     * The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     */
+    automanageConfigurationId?: pulumi.Input<string>;
     /**
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */

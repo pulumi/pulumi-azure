@@ -12,6 +12,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
@@ -111,7 +112,7 @@ public final class GetServiceResult {
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return A `tenant_access` block as defined below.
      * 
@@ -256,7 +257,7 @@ public final class GetServiceResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return A `tenant_access` block as defined below.
@@ -295,7 +296,7 @@ public final class GetServiceResult {
         private String resourceGroupName;
         private String scmUrl;
         private String skuName;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         private List<GetServiceTenantAccess> tenantAccesses;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
@@ -440,8 +441,8 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

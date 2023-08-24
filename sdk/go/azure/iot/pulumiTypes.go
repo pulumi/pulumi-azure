@@ -2352,7 +2352,7 @@ type IotHubDpsIpFilterRule struct {
 	IpMask string `pulumi:"ipMask"`
 	// The name of the filter.
 	Name string `pulumi:"name"`
-	// Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+	// Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
 	Target *string `pulumi:"target"`
 }
 
@@ -2374,7 +2374,7 @@ type IotHubDpsIpFilterRuleArgs struct {
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// The name of the filter.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+	// Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -2444,7 +2444,7 @@ func (o IotHubDpsIpFilterRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsIpFilterRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+// Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
 func (o IotHubDpsIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubDpsIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
 }

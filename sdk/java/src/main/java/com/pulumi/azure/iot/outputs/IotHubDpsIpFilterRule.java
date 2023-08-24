@@ -27,7 +27,7 @@ public final class IotHubDpsIpFilterRule {
      */
     private String name;
     /**
-     * @return Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+     * @return Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
      * 
      */
     private @Nullable String target;
@@ -55,7 +55,7 @@ public final class IotHubDpsIpFilterRule {
         return this.name;
     }
     /**
-     * @return Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+     * @return Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
      * 
      */
     public Optional<String> target() {

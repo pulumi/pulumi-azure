@@ -17,6 +17,21 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
     public static final HciClusterState Empty = new HciClusterState();
 
     /**
+     * The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     * 
+     */
+    @Import(name="automanageConfigurationId")
+    private @Nullable Output<String> automanageConfigurationId;
+
+    /**
+     * @return The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+     * 
+     */
+    public Optional<Output<String>> automanageConfigurationId() {
+        return Optional.ofNullable(this.automanageConfigurationId);
+    }
+
+    /**
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
@@ -113,6 +128,7 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
     private HciClusterState() {}
 
     private HciClusterState(HciClusterState $) {
+        this.automanageConfigurationId = $.automanageConfigurationId;
         this.clientId = $.clientId;
         this.location = $.location;
         this.name = $.name;
@@ -137,6 +153,27 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(HciClusterState defaults) {
             $ = new HciClusterState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param automanageConfigurationId The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automanageConfigurationId(@Nullable Output<String> automanageConfigurationId) {
+            $.automanageConfigurationId = automanageConfigurationId;
+            return this;
+        }
+
+        /**
+         * @param automanageConfigurationId The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automanageConfigurationId(String automanageConfigurationId) {
+            return automanageConfigurationId(Output.of(automanageConfigurationId));
         }
 
         /**

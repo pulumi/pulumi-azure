@@ -1191,7 +1191,7 @@ class IotHubDpsIpFilterRule(dict):
         :param str action: The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
         :param str ip_mask: The IP address range in CIDR notation for the rule.
         :param str name: The name of the filter.
-        :param str target: Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+        :param str target: Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -1227,7 +1227,7 @@ class IotHubDpsIpFilterRule(dict):
     @pulumi.getter
     def target(self) -> Optional[str]:
         """
-        Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+        Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
         """
         return pulumi.get(self, "target")
 
