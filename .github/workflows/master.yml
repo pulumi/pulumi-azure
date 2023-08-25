@@ -41,13 +41,13 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        fetch-tags: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
         path: ci-scripts
         repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v4
       with:
@@ -139,6 +139,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        fetch-tags: true
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -150,8 +152,6 @@ jobs:
       with:
         path: ci-scripts
         repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v4
       with:
@@ -188,13 +188,13 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        fetch-tags: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
         path: ci-scripts
         repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v4
       with:
@@ -262,8 +262,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
+      with:
+        fetch-tags: true
     - name: Install Go
       uses: actions/setup-go@v4
       with:
@@ -329,13 +329,13 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        fetch-tags: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
         path: ci-scripts
         repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v4
       with:
