@@ -3973,6 +3973,9 @@
                                         }
                                     }
                                 },
+                                "security": {
+                                    "maxItemsOne": false
+                                },
                                 "volume": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -4033,6 +4036,9 @@
                         "elem": {
                             "fields": {
                                 "commands": {
+                                    "maxItemsOne": false
+                                },
+                                "security": {
                                     "maxItemsOne": false
                                 },
                                 "volume": {
@@ -5727,6 +5733,10 @@
             },
             "azurerm_databricks_workspace_customer_managed_key": {
                 "current": "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey",
+                "majorVersion": 5
+            },
+            "azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
+                "current": "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey",
                 "majorVersion": 5
             },
             "azurerm_datadog_monitor": {
@@ -17759,6 +17769,19 @@
                                 }
                             }
                         }
+                    },
+                    "network_rule_set": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_rules": {
+                                    "maxItemsOne": false
+                                },
+                                "network_rules": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -17786,6 +17809,19 @@
                         "elem": {
                             "fields": {
                                 "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_rule_set": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_rules": {
+                                    "maxItemsOne": false
+                                },
+                                "network_rules": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -23915,7 +23951,19 @@
             },
             "azurerm_disk_encryption_set": {
                 "current": "azure:compute/getDiskEncryptionSet:getDiskEncryptionSet",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_dns_a_record": {
                 "current": "azure:dns/getARecord:getARecord",
@@ -29219,6 +29267,7 @@
             "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering": "azurerm_databricks_virtual_network_peering",
             "azure:databricks/workspace:Workspace": "azurerm_databricks_workspace",
             "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey": "azurerm_databricks_workspace_customer_managed_key",
+            "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey": "azurerm_databricks_workspace_root_dbfs_customer_managed_key",
             "azure:datadog/monitor:Monitor": "azurerm_datadog_monitor",
             "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration": "azurerm_datadog_monitor_sso_configuration",
             "azure:datadog/monitorTagRule:MonitorTagRule": "azurerm_datadog_monitor_tag_rule",
@@ -32769,7 +32818,7 @@
             "azure:appservice/LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode:LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode": {
                 "statusCodeRange": "status_code_range",
                 "subStatus": "sub_status",
-                "win32Status": "win32_status"
+                "win32StatusCode": "win32_status_code"
             },
             "azure:appservice/LinuxWebAppSiteConfigCors:LinuxWebAppSiteConfigCors": {
                 "allowedOrigins": "allowed_origins",
@@ -33045,7 +33094,7 @@
             "azure:appservice/LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode:LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode": {
                 "statusCodeRange": "status_code_range",
                 "subStatus": "sub_status",
-                "win32Status": "win32_status"
+                "win32StatusCode": "win32_status_code"
             },
             "azure:appservice/LinuxWebAppSlotSiteConfigCors:LinuxWebAppSlotSiteConfigCors": {
                 "allowedOrigins": "allowed_origins",
@@ -33986,7 +34035,7 @@
             "azure:appservice/WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode:WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode": {
                 "statusCodeRange": "status_code_range",
                 "subStatus": "sub_status",
-                "win32Status": "win32_status"
+                "win32StatusCode": "win32_status_code"
             },
             "azure:appservice/WindowsWebAppSiteConfigCors:WindowsWebAppSiteConfigCors": {
                 "allowedOrigins": "allowed_origins",
@@ -34277,7 +34326,7 @@
             "azure:appservice/WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode:WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode": {
                 "statusCodeRange": "status_code_range",
                 "subStatus": "sub_status",
-                "win32Status": "win32_status"
+                "win32StatusCode": "win32_status_code"
             },
             "azure:appservice/WindowsWebAppSlotSiteConfigCors:WindowsWebAppSlotSiteConfigCors": {
                 "allowedOrigins": "allowed_origins",
@@ -35307,7 +35356,7 @@
             "azure:appservice/getLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode:getLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode": {
                 "statusCodeRange": "status_code_range",
                 "subStatus": "sub_status",
-                "win32Status": "win32_status"
+                "win32StatusCode": "win32_status_code"
             },
             "azure:appservice/getLinuxWebAppSiteConfigCor:getLinuxWebAppSiteConfigCor": {
                 "allowedOrigins": "allowed_origins",
@@ -35925,7 +35974,7 @@
             "azure:appservice/getWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode:getWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode": {
                 "statusCodeRange": "status_code_range",
                 "subStatus": "sub_status",
-                "win32Status": "win32_status"
+                "win32StatusCode": "win32_status_code"
             },
             "azure:appservice/getWindowsWebAppSiteConfigCor:getWindowsWebAppSiteConfigCor": {
                 "allowedOrigins": "allowed_origins",
@@ -38991,8 +39040,14 @@
             },
             "azure:compute/getDiskEncryptionSet:getDiskEncryptionSet": {
                 "autoKeyRotationEnabled": "auto_key_rotation_enabled",
+                "identities": "identity",
                 "keyVaultKeyUrl": "key_vault_key_url",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:compute/getDiskEncryptionSetIdentity:getDiskEncryptionSetIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:compute/getImage:getImage": {
                 "dataDisks": "data_disk",
@@ -40078,6 +40133,7 @@
                 "memoryLimit": "memory_limit",
                 "readinessProbe": "readiness_probe",
                 "secureEnvironmentVariables": "secure_environment_variables",
+                "securities": "security",
                 "volumes": "volume"
             },
             "azure:containerservice/GroupContainerLivenessProbe:GroupContainerLivenessProbe": {
@@ -40103,6 +40159,9 @@
             },
             "azure:containerservice/GroupContainerReadinessProbeHttpGet:GroupContainerReadinessProbeHttpGet": {
                 "httpHeaders": "http_headers"
+            },
+            "azure:containerservice/GroupContainerSecurity:GroupContainerSecurity": {
+                "privilegeEnabled": "privilege_enabled"
             },
             "azure:containerservice/GroupContainerVolume:GroupContainerVolume": {
                 "emptyDir": "empty_dir",
@@ -40135,7 +40194,11 @@
             "azure:containerservice/GroupInitContainer:GroupInitContainer": {
                 "environmentVariables": "environment_variables",
                 "secureEnvironmentVariables": "secure_environment_variables",
+                "securities": "security",
                 "volumes": "volume"
+            },
+            "azure:containerservice/GroupInitContainerSecurity:GroupInitContainerSecurity": {
+                "privilegeEnabled": "privilege_enabled"
             },
             "azure:containerservice/GroupInitContainerVolume:GroupInitContainerVolume": {
                 "emptyDir": "empty_dir",
@@ -41999,6 +42062,10 @@
                 "keyVaultKeyId": "key_vault_key_id",
                 "workspaceId": "workspace_id"
             },
+            "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey": {
+                "keyVaultKeyId": "key_vault_key_id",
+                "workspaceId": "workspace_id"
+            },
             "azure:datadog/MonitorDatadogOrganization:MonitorDatadogOrganization": {
                 "apiKey": "api_key",
                 "applicationKey": "application_key",
@@ -43773,6 +43840,17 @@
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
+            "azure:eventhub/NamespaceNetworkRuleSet:NamespaceNetworkRuleSet": {
+                "defaultAction": "default_action",
+                "ipRules": "ip_rules",
+                "networkRules": "network_rules",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "trustedServicesAllowed": "trusted_services_allowed"
+            },
+            "azure:eventhub/NamespaceNetworkRuleSetNetworkRule:NamespaceNetworkRuleSetNetworkRule": {
+                "ignoreMissingVnetServiceEndpoint": "ignore_missing_vnet_service_endpoint",
+                "subnetId": "subnet_id"
+            },
             "azure:eventhub/SubscriptionClientScopedSubscription:SubscriptionClientScopedSubscription": {
                 "clientId": "client_id",
                 "isClientScopedSubscriptionDurable": "is_client_scoped_subscription_durable",
@@ -43992,6 +44070,7 @@
                 "defaultSecondaryKey": "default_secondary_key",
                 "localAuthEnabled": "local_auth_enabled",
                 "minimumTlsVersion": "minimum_tls_version",
+                "networkRuleSet": "network_rule_set",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "resourceGroupName": "resource_group_name",
                 "zoneRedundant": "zone_redundant"
@@ -53062,6 +53141,13 @@
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
+            "azure:servicebus/NamespaceNetworkRuleSet:NamespaceNetworkRuleSet": {
+                "defaultAction": "default_action",
+                "ipRules": "ip_rules",
+                "networkRules": "network_rules",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "trustedServicesAllowed": "trusted_services_allowed"
+            },
             "azure:servicebus/NamespaceNetworkRuleSetNetworkRule:NamespaceNetworkRuleSetNetworkRule": {
                 "ignoreMissingVnetServiceEndpoint": "ignore_missing_vnet_service_endpoint",
                 "subnetId": "subnet_id"
@@ -53191,6 +53277,7 @@
                 "defaultSecondaryKey": "default_secondary_key",
                 "localAuthEnabled": "local_auth_enabled",
                 "minimumTlsVersion": "minimum_tls_version",
+                "networkRuleSet": "network_rule_set",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "resourceGroupName": "resource_group_name",
                 "zoneRedundant": "zone_redundant"

@@ -1,4 +1,4 @@
-From 9d7ecb05ba1c2329f8a215b54d943159d28a2624 Mon Sep 17 00:00:00 2001
+From ad3d7c94a08269c078011393ba364db819f048c2 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Wed, 9 Aug 2023 13:05:13 -1000
 Subject: [PATCH 9/9] remove defaults backup retention policies
@@ -39,5 +39,5 @@ index 097e3ab2f0..313190d12c 100644
  							"retention_yearly.0.weeks",
  							"retention_yearly.0.weekdays",
 -- 
-2.39.2 (Apple Git-143)
+2.41.0
 

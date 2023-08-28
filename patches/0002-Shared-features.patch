@@ -1,4 +1,4 @@
-From ca25bd6b791fb66f6bcc75a44e7d3bd91003e8e1 Mon Sep 17 00:00:00 2001
+From e7b331a3fcb2626e8339a4f480ca99720ccdd713 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 2/9] Shared-features
@@ -36,5 +36,5 @@ index bdb0cbfe3a..c4122bf0bc 100644
  		MinItems: 1,
  		Elem: &pluginsdk.Resource{
 -- 
-2.39.2 (Apple Git-143)
+2.41.0
 
